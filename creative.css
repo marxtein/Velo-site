@@ -1,0 +1,1536 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   VeloAlpha · creative.css
+   Loaded AFTER enhance.css. Re-imagines each panel with its own
+   layout personality, so the deck no longer feels template-stamped.
+   Each section gets ONE bold move; the rest stays calm.
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ───────────── shared: ghost section index numbers ─────────────
+   Big translucent numerals anchor each panel and act as a wayfinding cue. */
+.panel { position: relative; }
+.panel::after {
+  content: attr(data-index);
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+  font-size: clamp(14rem, 28vw, 32rem);
+  color: rgba(243, 247, 242, 0.022);
+  -webkit-text-stroke: 1px rgba(54, 216, 232, 0.05);
+}
+/* Per-panel placement of the ghost number */
+.panel.mission::after    { top: 18%; right: -4%; }
+.panel.cost::after       { bottom: -6%; left: 50%; transform: translateX(-50%); }
+.panel.modules::after    { top: 6%; left: -5%; }
+.panel.opensource::after { top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: clamp(16rem, 34vw, 38rem); color: rgba(54, 216, 232, 0.025); }
+.panel.vision::after     { bottom: 4%; right: 2%; font-size: clamp(8rem, 14vw, 16rem); }
+.panel.founder::after    { top: 2%; right: -2%; }
+.panel.careers::after    { bottom: -8%; right: -3%; }
+
+.panel-inner,
+.vision-overlay,
+.panel .reveal,
+.panel section,
+.panel article,
+.panel figure,
+.panel svg { position: relative; z-index: 1; }
+
+/* ───────────── shared: vertical side-rail signature ─────────────
+   Skinny vertical type running up the left margin on desktop. */
+@media (min-width: 1180px) {
+  .panel::before {
+    /* keep the original radial backgrounds; layer a thin vertical rule + label */
+  }
+  .panel .side-rail {
+    position: absolute;
+    left: clamp(0.4rem, 1.2vw, 1rem);
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left top;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: "Cascadia Mono", "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(205, 225, 224, 0.42);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .panel .side-rail::before {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: rgba(54, 216, 232, 0.5);
+  }
+  .panel .side-rail b {
+    color: var(--teal);
+    font-weight: 700;
+  }
+}
+
+/* ═══════════════════════ 01 · MISSION ═══════════════════════
+   Editorial: existing two-col layout stays, but the eyebrow gets
+   a longer rule, and the H1 sits closer to the left edge. */
+.panel.mission .hero-copy h1 {
+  margin-left: -0.06em; /* hairline optical pull toward the gutter */
+}
+.panel.mission .eyebrow-pulse::after {
+  content: "";
+  display: inline-block;
+  flex: 1;
+  height: 1px;
+  margin-left: 12px;
+  background: linear-gradient(90deg, rgba(54,216,232,.55), transparent);
+  min-width: 4rem;
+}
+.panel.mission .eyebrow-pulse { display: flex; }
+
+/* ═══════════════════════ 02 · COST — vertical diptych ═══════════════════════
+   Split the panel down the middle: warm "physical" half (orange wash) vs
+   cool "computational" half (teal wash). Heading floats on the seam. */
+.panel.cost .panel-inner { width: min(1440px, 100%) !important; }
+
+.panel.cost .section-heading {
+  position: relative;
+  z-index: 4;
+  max-width: 56rem;
+  margin: 0 auto clamp(1.2rem, 2.5vw, 2rem);
+  text-align: center;
+}
+.panel.cost .section-heading p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
+
+.panel.cost .duel-board {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0 !important;
+  border: 1px solid rgba(203, 226, 218, 0.18);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(5, 7, 9, 0.42);
+  backdrop-filter: blur(14px);
+  isolation: isolate;
+}
+/* divider seam */
+.panel.cost .duel-board::before {
+  content: "";
+  position: absolute;
+  top: 8%; bottom: 8%;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(54,216,232,.45), rgba(255,159,87,.45), transparent);
+  z-index: 3;
+}
+/* diptych label badges floating on the seam */
+.panel.cost .duel-board::after {
+  content: "VS";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 3rem; height: 3rem;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: rgba(5, 7, 9, 0.92);
+  border: 1px solid rgba(203, 226, 218, 0.28);
+  color: var(--text);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* hide the original image plate on cost — we replace with two columns */
+.panel.cost .cost-plate { display: none !important; }
+
+/* diagram image inside each diptych half — same inverted treatment as slide_01 */
+.panel.cost .cost-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 22rem;
+  margin: 0 auto 0.6rem;
+  object-fit: contain;
+  object-position: center top;
+  filter: invert(1) hue-rotate(180deg) saturate(0.92) brightness(0.96) contrast(1.22);
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+.panel.cost .cost-copy {
+  grid-column: 1 / -1;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0 !important;
+  min-height: 28rem;
+}
+.panel.cost .cost-copy article {
+  position: relative;
+  padding: clamp(1.6rem, 3vw, 2.6rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
+  align-content: stretch;
+  gap: 0.6rem !important;
+  min-height: 36rem;
+  isolation: isolate;
+  overflow: hidden;
+}
+.panel.cost .cost-copy article:first-child {
+  background:
+    radial-gradient(120% 80% at 20% 30%, rgba(255,159,87,.14), transparent 60%),
+    linear-gradient(180deg, rgba(20,12,8,.55), rgba(5,7,9,.32)),
+    rgba(5,7,9,.42) !important;
+}
+.panel.cost .cost-copy article:last-child {
+  background:
+    radial-gradient(120% 80% at 80% 30%, rgba(54,216,232,.16), transparent 60%),
+    linear-gradient(180deg, rgba(8,18,22,.55), rgba(5,7,9,.32)),
+    rgba(5,7,9,.42) !important;
+}
+/* corner glyph in each half */
+.panel.cost .cost-copy article::before {
+  position: absolute;
+  top: 1rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.panel.cost .cost-copy article:first-child::before {
+  content: "A · 旧路线";
+  left: clamp(1.6rem, 3vw, 2.6rem);
+  color: rgba(255,159,87,.78);
+}
+.panel.cost .cost-copy article:last-child::before {
+  content: "B · 新路线";
+  right: clamp(1.6rem, 3vw, 2.6rem);
+  color: rgba(54,216,232,.82);
+  text-align: right;
+}
+/* giant numeral watermark behind each half — removed since the diagram now fills it */
+.panel.cost .cost-copy article::after { content: none !important; }
+
+.panel.cost .cost-copy strong {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+  letter-spacing: -0.005em;
+}
+.panel.cost .cost-copy article:first-child strong { color: #ffd9bf; }
+.panel.cost .cost-copy article:last-child strong  { color: #cdf8ff; }
+
+.panel.cost .cost-copy span em {
+  font-style: normal;
+  font-weight: 800;
+  background: linear-gradient(180deg, transparent 60%, rgba(255,159,87,.28) 60%);
+  padding: 0 .12em;
+}
+.panel.cost .cost-copy article:last-child span em {
+  background: linear-gradient(180deg, transparent 60%, rgba(54,216,232,.28) 60%);
+}
+
+.panel.cost .bottom-banner {
+  text-align: center;
+  border-color: rgba(255, 159, 87, 0.28) !important;
+  background: linear-gradient(90deg, rgba(255,159,87,.08), rgba(54,216,232,.08)) !important;
+}
+
+/* ═══════════════════════ 03 · MODULES — stair-step engine ═══════════════════════
+   The three engine layers ladder inward, each tagged with monospace
+   line numbers like a source-file view. */
+.panel.modules .section-heading {
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.panel.modules .module-layout {
+  grid-template-columns: 1fr !important;
+  gap: clamp(1.4rem, 3vw, 2.4rem) !important;
+}
+
+.panel.modules .layered-engine {
+  position: relative;
+  grid-column: 1 !important;
+  display: grid;
+  gap: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  min-height: 0 !important;
+}
+.panel.modules .engine-layer {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 4.2rem minmax(11rem, 0.62fr) minmax(0, 1.38fr) !important;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.6rem) !important;
+  padding: 1.2rem 1.4rem !important;
+  margin: 0 0 0.7rem 0;
+  border: 1px solid rgba(203, 226, 218, 0.18) !important;
+  border-radius: 10px !important;
+  background: rgba(9, 15, 18, 0.78) !important;
+  min-height: 7.4rem !important;
+  isolation: isolate;
+}
+/* gentle stair-step indent — slight, doesn't fight the eye */
+.panel.modules .engine-layer:nth-child(1) { margin-left: 0%;  }
+.panel.modules .engine-layer:nth-child(2) { margin-left: 3%;  }
+.panel.modules .engine-layer:nth-child(3) { margin-left: 6%; }
+/* connector lines between steps */
+.panel.modules .engine-layer:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 2.25rem; bottom: -0.7rem;
+  width: 1px; height: 0.7rem;
+  background: rgba(54, 216, 232, 0.5);
+}
+.panel.modules .engine-layer .layer-num {
+  display: grid;
+  place-content: center;
+  width: 100%; height: 100%;
+  border-right: 1px dashed rgba(203, 226, 218, 0.18);
+  text-align: center;
+}
+.panel.modules .engine-layer .layer-num span {
+  display: block;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: -0.02em;
+}
+.panel.modules .engine-layer .layer-head h3 {
+  margin: 0 0 0.2rem !important;
+  font-size: 1.12rem;
+}
+.panel.modules .engine-layer .layer-head p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+.panel.modules .engine-layer .layer-body {
+  display: grid;
+  gap: 0.32rem;
+  padding-left: clamp(0.6rem, 1.5vw, 1rem);
+  border-left: 1px solid rgba(203, 226, 218, 0.12);
+}
+.panel.modules .engine-layer .layer-project {
+  margin: 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: rgba(243, 247, 242, 0.84);
+}
+.panel.modules .engine-layer .layer-project strong {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-right: 0.32rem;
+}
+.panel.modules .layer-ai .layer-project strong   { color: var(--orange); }
+.panel.modules .layer-code .layer-project strong { color: #cdf8ff; }
+.panel.modules .layer-math .layer-project strong { color: var(--teal); }
+.panel.modules .engine-layer .layer-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.panel.modules .layer-chips,
+.panel.modules .engine-layer code {
+  justify-self: end;
+  align-self: center;
+}
+.panel.modules .layer-chips {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.36rem;
+}
+.panel.modules .engine-layer code {
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace !important;
+  background: rgba(5, 7, 9, 0.7) !important;
+  border: 1px solid rgba(54, 216, 232, 0.32) !important;
+  color: #cdf8ff !important;
+  padding: 0.5rem 0.7rem !important;
+}
+
+/* module-cloud → horizontal scrolling-style "marquee row" of chips */
+.panel.modules .module-cloud {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.6rem !important;
+  margin-top: 1.6rem;
+  padding: 1rem 1.1rem;
+  border: 1px dashed rgba(203, 226, 218, 0.16);
+  border-radius: 10px;
+  background: rgba(5, 7, 9, 0.32);
+}
+.panel.modules .module-cloud::before {
+  content: none;
+}
+.panel.modules .module-cloud span {
+  min-height: 2.6rem !important;
+  padding: 0.45rem 0.85rem !important;
+  font-size: 0.92rem !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(54, 216, 232, 0.06) !important;
+  border-color: rgba(54, 216, 232, 0.22) !important;
+}
+.panel.modules .module-cloud span small {
+  font-size: 0.68rem !important;
+  color: rgba(205, 225, 224, 0.55);
+}
+.panel.modules .module-cloud span:nth-child(2n) {
+  background: rgba(255, 159, 87, 0.06) !important;
+  border-color: rgba(255, 159, 87, 0.24) !important;
+}
+
+/* ─────── 02 sub-sections: 加速方法 / 物理模块 ─────── */
+.panel.modules .sub-section {
+  position: relative;
+  margin-top: clamp(1.2rem, 2.6vw, 1.8rem);
+  padding-top: clamp(1rem, 2vw, 1.4rem);
+}
+.panel.modules .sub-section + .sub-section {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.panel.modules .sub-section-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: clamp(0.9rem, 1.6vw, 1.2rem);
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(203, 226, 218, 0.12);
+}
+.panel.modules .sub-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 1.9rem;
+  padding: 0 0.7rem;
+  border: 1px solid rgba(54, 216, 232, 0.42);
+  border-radius: 999px;
+  background: rgba(54, 216, 232, 0.10);
+  color: var(--teal);
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.panel.modules .sub-tag--orange {
+  border-color: rgba(255, 159, 87, 0.42);
+  background: rgba(255, 159, 87, 0.10);
+  color: var(--orange);
+}
+.panel.modules .sub-section-copy {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+}
+.panel.modules .sub-section-copy strong {
+  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.005em;
+}
+.panel.modules .sub-section-copy span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* When sub-section wraps the engine stack, remove the chip-row margin */
+.panel.modules .sub-section .module-cloud {
+  margin-top: 0;
+}
+
+@media (max-width: 1180px) {
+  .panel.modules .engine-layer:nth-child(1),
+  .panel.modules .engine-layer:nth-child(2),
+  .panel.modules .engine-layer:nth-child(3) { margin-left: 0; }
+}
+@media (max-width: 720px) {
+  .panel.modules .engine-layer {
+    grid-template-columns: 1fr !important;
+  }
+  .panel.modules .engine-layer .layer-num {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px dashed rgba(203, 226, 218, 0.18);
+    padding-bottom: 0.4rem;
+    text-align: left;
+  }
+  .panel.modules .engine-layer .layer-body {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* ═══════════════════════ 04 · OPENSOURCE — copy LEFT, triangle CENTER, cards RIGHT ═══════════════════════ */
+@media (min-width: 1180px) {
+  .panel.opensource .open-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.82fr) minmax(22rem, 1.05fr) minmax(16rem, 0.7fr) !important;
+    grid-template-rows: 1fr !important;
+    grid-template-areas: "copy tri cards" !important;
+    gap: 1.4rem 1.8rem !important;
+    align-items: stretch !important;
+  }
+  .panel.opensource .open-copy       { grid-area: copy; align-self: center; }
+  .panel.opensource .triangle-board  { grid-area: tri; }
+  .panel.opensource .open-principles {
+    grid-area: cards;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: stretch;
+    gap: 0.8rem !important;
+  }
+  /* reorder: 精度 (DOM index 2) → 外推 (DOM index 3) → 速度 (DOM index 1) */
+  .panel.opensource .open-principles article:nth-child(1) { order: 3; } /* 速度 */
+  .panel.opensource .open-principles article:nth-child(2) { order: 1; } /* 精度 */
+  .panel.opensource .open-principles article:nth-child(3) { order: 2; } /* 外推 */
+  .panel.opensource .open-principles article {
+    flex: 1 1 0;
+    min-height: 0 !important;
+    position: relative;
+    padding: 1rem 1.1rem !important;
+  }
+  .panel.opensource .open-principles article::before {
+    content: "01";
+    position: absolute;
+    top: 0.7rem; right: 0.9rem;
+    font-family: "Cascadia Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(54, 216, 232, 0.55);
+  }
+  .panel.opensource .open-principles article:nth-child(2)::before { content: "01 · 精度"; }
+  .panel.opensource .open-principles article:nth-child(3)::before { content: "02 · 外推"; }
+  .panel.opensource .open-principles article:nth-child(1)::before { content: "03 · 速度"; }
+  .panel.opensource .triangle-board {
+    min-height: 26rem !important;
+  }
+  .panel.opensource .triangle-board svg {
+    min-height: 26rem !important;
+  }
+}
+
+/* ═══════════ 03 · VISION — compact ═══════════ */
+.panel.vision {
+  min-height: auto !important;
+  padding: 4rem 1.35rem 2rem !important;
+}
+.panel.vision .vision-overlay {
+  align-items: stretch !important;
+  gap: 1rem !important;
+  padding-top: 0 !important;
+  min-height: auto !important;
+  padding: 0 clamp(1rem, 2vw, 1.5rem) 1.5rem !important;
+}
+.panel.vision .vision-copy,
+.panel.vision .vision-anim {
+  align-self: stretch !important;
+  height: auto !important;
+  min-height: 400px !important;
+}
+.panel.vision .vision-copy {
+  padding: clamp(0.9rem, 1.4vw, 1.2rem) clamp(0.9rem, 1.4vw, 1.2rem) !important;
+}
+.panel.vision .vision-anim {
+  min-height: 340px !important;
+}
+
+/* Reduce gap between 03 section-heading and vision-overlay */
+.panel.vision .section-heading {
+  margin-bottom: clamp(0.2rem, 0.5vw, 0.4rem) !important;
+}
+
+/* ═══════════ 06 · FOUNDER — magazine bleed ═══════════ */
+/* ═══════════════════════ 06 · FOUNDER — magazine bleed ═══════════════════════
+   Larger portrait, name set in massive type next to it, vertical credit line. */
+/* ═══════════════════════ 06 · TEAM — 3-founder magazine grid ═══════════════════════
+   Vertical cards (portrait → role → name → credit → bio). Romaji watermark on a
+   right-side vertical strip per card; policy-board sits below at full width. */
+.panel.founder .founder-layout {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: clamp(1.6rem, 3vw, 2.4rem) !important;
+}
+.panel.founder .founder-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.8vw, 1.5rem);
+}
+.panel.founder .founder-card {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto 1fr !important;
+  gap: 1rem !important;
+  align-items: start !important;
+  padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.5rem, 2.6vw, 2rem) clamp(1.1rem, 2vw, 1.5rem) clamp(1.1rem, 2vw, 1.5rem) !important;
+  background: linear-gradient(180deg, rgba(255,159,87,0.05), rgba(5,7,9,.45)) !important;
+  border-color: rgba(255, 159, 87, 0.22) !important;
+  overflow: hidden;
+}
+.panel.founder .founder-card[data-romaji]::after {
+  content: attr(data-romaji);
+  position: absolute;
+  top: 0.9rem;
+  right: 0.55rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.42em;
+  color: rgba(255, 159, 87, 0.46);
+  font-weight: 600;
+  pointer-events: none;
+}
+.panel.founder .founder-card .portrait {
+  width: clamp(7rem, 11vw, 9.6rem) !important;
+  height: clamp(7rem, 11vw, 9.6rem) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,.45), 0 0 0 1px rgba(255,159,87,.22) !important;
+}
+.panel.founder .founder-meta {
+  display: grid;
+  gap: 0.38rem;
+  align-content: start;
+}
+.panel.founder .founder-tag {
+  margin: 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.panel.founder .founder-card h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+  color: var(--text);
+}
+.panel.founder .founder-credit {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: rgba(255, 178, 116, 0.96);
+}
+.panel.founder .founder-credit.en {
+  margin: 0 0 0.45rem;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(205, 225, 224, 0.62);
+}
+.panel.founder .founder-meta p:last-child {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.66;
+  color: var(--muted);
+}
+
+.panel.founder .policy-board {
+  position: relative;
+  border-color: rgba(54, 216, 232, 0.28) !important;
+  background: linear-gradient(180deg, rgba(8,18,22,.55), rgba(5,7,9,.35)) !important;
+}
+.panel.founder .policy-board::before {
+  content: "OPEN-SOURCE MANIFESTO";
+  position: absolute;
+  top: 1rem; right: 1.1rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: rgba(54, 216, 232, 0.58);
+}
+.panel.founder .policy-board h3 {
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem) !important;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1180px) {
+  .panel.founder .founder-row {
+    grid-template-columns: 1fr !important;
+  }
+  .panel.founder .founder-card[data-romaji]::after { display: none; }
+}
+
+/* ═══════════════════════ 07 · CAREERS — marquee + asymmetric grid ═══════════════════════
+   Hero "we're hiring" strip up top in big type; role cards stagger
+   in a 3-2-3 irregular layout instead of a flat 4-col grid. */
+.panel.careers .careers-layout {
+  gap: 1.4rem !important;
+}
+.panel.careers .section-heading {
+  position: relative;
+}
+.panel.careers .section-heading h2 {
+  font-size: clamp(2rem, 4.4vw, 3.8rem) !important;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
+}
+.panel.careers .section-heading::after {
+  content: "WE ARE HIRING · 招聘中 · WE ARE HIRING · 招聘中 · WE ARE HIRING · 招聘中 ·";
+  position: absolute;
+  left: 0; right: -100%;
+  bottom: -0.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 0.84rem;
+  letter-spacing: 0.32em;
+  color: rgba(54, 216, 232, 0.32);
+  pointer-events: none;
+}
+
+.panel.careers .role-list {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  grid-auto-rows: minmax(8.4rem, auto);
+  gap: 0.7rem !important;
+}
+/* irregular spans — 3-2-3 rhythm across two rows of 4 logical cards each */
+.panel.careers .role-list article {
+  grid-column: span 2;
+  min-height: 8.4rem !important;
+  padding: 1rem 1.1rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(243,247,242,.04), rgba(243,247,242,.01)), rgba(9,15,18,.7) !important;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.panel.careers .role-list article:hover {
+  transform: translateY(-3px);
+  border-color: rgba(54, 216, 232, 0.45) !important;
+}
+/* hero card — full row width, larger type */
+.panel.careers .role-list article:nth-child(1) {
+  grid-column: span 3;
+}
+.panel.careers .role-list article:nth-child(2) {
+  grid-column: span 3;
+}
+.panel.careers .role-list article:nth-child(3),
+.panel.careers .role-list article:nth-child(4),
+.panel.careers .role-list article:nth-child(5) {
+  grid-column: span 2;
+}
+.panel.careers .role-list article:nth-child(6) { grid-column: span 3; }
+.panel.careers .role-list article:nth-child(7) { grid-column: span 3; }
+.panel.careers .role-list article:nth-child(8) { grid-column: span 6; }
+/* numeric prefix for each card */
+.panel.careers .role-list article {
+  counter-increment: role;
+  position: relative;
+}
+.panel.careers .role-list { counter-reset: role; }
+.panel.careers .role-list article::before {
+  content: counter(role, decimal-leading-zero);
+  position: absolute;
+  top: 0.8rem; right: 1rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  color: rgba(54, 216, 232, 0.55);
+}
+.panel.careers .role-list article:nth-child(1) { border-color: rgba(54, 216, 232, 0.36) !important; background: linear-gradient(135deg, rgba(54,216,232,.10), rgba(5,7,9,.4)) !important; }
+.panel.careers .role-list article:nth-child(8) { border-color: rgba(255, 159, 87, 0.36) !important; background: linear-gradient(135deg, rgba(255,159,87,.08), rgba(5,7,9,.4)) !important; }
+
+.panel.careers .role-list article strong {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.1rem !important;
+  min-height: 0 !important;
+}
+.panel.careers .role-list article:nth-child(1) strong,
+.panel.careers .role-list article:nth-child(8) strong {
+  font-size: 1.4rem !important;
+}
+
+.panel.careers .contact-strip {
+  border-color: rgba(54, 216, 232, 0.28) !important;
+  background: linear-gradient(90deg, rgba(54,216,232,.06), rgba(255,159,87,.06)) !important;
+}
+
+@media (max-width: 1180px) {
+  .panel.careers .role-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .panel.careers .role-list article,
+  .panel.careers .role-list article:nth-child(1),
+  .panel.careers .role-list article:nth-child(2),
+  .panel.careers .role-list article:nth-child(8) {
+    grid-column: span 1;
+  }
+}
+@media (max-width: 640px) {
+  .panel.careers .role-list { grid-template-columns: 1fr !important; }
+  .panel.careers .role-list article { grid-column: span 1 !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   02 · ENGINE — centered heading + split (acceleration tower | physics star map)
+   ════════════════════════════════════════════════════════════════════════════ */
+.section-heading--centered {
+  max-width: 64rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+.section-heading--centered p.eyebrow,
+.section-heading--centered p:not(.eyebrow) {
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-heading--centered .eyebrow {
+  justify-content: center;
+}
+
+.panel.modules .engine-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.2rem, 2.4vw, 2rem);
+  align-items: stretch;   /* 02A+02C 左列与 02B 右列等高对齐 */
+  margin-top: clamp(1.2rem, 2.6vw, 2rem);
+}
+.panel.modules .engine-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  border: 1px solid rgba(203, 226, 218, 0.16);
+  border-radius: 12px;
+  background: rgba(5, 9, 12, 0.55);
+}
+.panel.modules .engine-side-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(203, 226, 218, 0.12);
+}
+.panel.modules .engine-side-copy {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+}
+.panel.modules .engine-side-copy strong {
+  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: clamp(1.05rem, 1.55vw, 1.32rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.005em;
+}
+.panel.modules .engine-side-copy span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* ── Speed tower (left) ─────────────────────────────────────────────────── */
+.panel.modules .speed-tower {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0.2rem;
+}
+.panel.modules .speed-tier {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.05rem 1.1rem;
+  border: 1px solid rgba(203, 226, 218, 0.18);
+  border-radius: 10px;
+  background: rgba(9, 14, 18, 0.78);
+  isolation: isolate;
+}
+.panel.modules .tier-ai   { border-color: rgba(255, 159, 87, 0.32); background: linear-gradient(90deg, rgba(255,159,87,0.07), rgba(9,14,18,0.78) 60%); }
+.panel.modules .tier-code { border-color: rgba(203, 226, 218, 0.24); }
+.panel.modules .tier-math { border-color: rgba(54, 216, 232, 0.32);  background: linear-gradient(90deg, rgba(54,216,232,0.07), rgba(9,14,18,0.78) 60%); }
+.panel.modules .tier-num {
+  display: grid;
+  place-content: center;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--teal);
+  border-right: 1px dashed rgba(203, 226, 218, 0.18);
+  height: 100%;
+  padding-right: 0.8rem;
+}
+.panel.modules .tier-ai   .tier-num { color: var(--orange); }
+.panel.modules .tier-math .tier-num { color: var(--teal); }
+.panel.modules .tier-code .tier-num { color: #cdf8ff; }
+.panel.modules .tier-body {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
+}
+.panel.modules .tier-title {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-size: 1.04rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.panel.modules .tier-en {
+  margin: 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: rgba(205, 225, 224, 0.7);
+}
+.panel.modules .tier-en strong {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.panel.modules .tier-mult {
+  display: grid;
+  justify-items: end;
+  gap: 0.1rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(203, 226, 218, 0.14);
+}
+.panel.modules .mult-label {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(205, 225, 224, 0.5);
+}
+.panel.modules .mult-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.42rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1;
+}
+.panel.modules .tier-ai   .mult-value { color: var(--orange); }
+.panel.modules .tier-math .mult-value { color: var(--teal); }
+.panel.modules .mult-value em {
+  font-style: normal;
+  font-size: 0.78em;
+  margin-left: 0.05em;
+  opacity: 0.7;
+}
+
+.panel.modules .tier-link {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.panel.modules .tier-link .tier-link-bar {
+  display: block;
+  width: 1px;
+  height: 1.4rem;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(54,216,232,0.6), rgba(54,216,232,0));
+}
+.panel.modules .tier-link .tier-link-bar:last-of-type { display: none; }
+.panel.modules .tier-link .tier-link-label {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(54, 216, 232, 0.45);
+  align-self: center;
+}
+
+/* ── Physics module star map (right) ────────────────────────────────────── */
+.panel.modules .module-starmap {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  border-radius: 10px;
+  background: radial-gradient(ellipse at center, rgba(54,216,232,0.04), transparent 70%);
+  min-height: 22rem;
+}
+.panel.modules .module-starmap svg {
+  width: 100%;
+  height: auto;
+  max-height: 30rem;
+}
+.panel.modules .star-spokes line {
+  stroke: rgba(255, 159, 87, 0.28);
+  stroke-width: 0.7;
+  stroke-dasharray: 2 3;
+}
+.panel.modules .star-arcs line {
+  stroke: rgba(54, 216, 232, 0.22);
+  stroke-width: 0.6;
+}
+.panel.modules .star-node circle:nth-child(2) {
+  fill: rgba(54, 216, 232, 0.6);
+  stroke: rgba(54, 216, 232, 0.85);
+  stroke-width: 1;
+}
+.panel.modules .star-node:hover circle:nth-child(1) {
+  opacity: 0.85;
+}
+.panel.modules .star-cn {
+  fill: var(--text);
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: 14px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+.panel.modules .star-en {
+  fill: rgba(205, 225, 224, 0.62);
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+}
+.panel.modules .star-hub-cn {
+  fill: var(--text);
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: 18px;
+  font-weight: 900;
+  text-anchor: middle;
+  letter-spacing: 0.02em;
+}
+.panel.modules .star-hub-en {
+  fill: rgba(255, 159, 87, 0.86);
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1180px) {
+  .panel.modules .engine-split {
+    grid-template-columns: 1fr;
+  }
+  .panel.modules .speed-tier {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+  }
+}
+@media (max-width: 640px) {
+  .panel.modules .speed-tier {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .panel.modules .tier-num {
+    border-right: 0;
+    border-bottom: 1px dashed rgba(203, 226, 218, 0.18);
+    padding-right: 0; padding-bottom: 0.4rem;
+    height: auto;
+  }
+  .panel.modules .tier-mult {
+    border-left: 0;
+    padding-left: 0;
+    justify-items: start;
+  }
+  .panel.modules .tier-link { grid-template-columns: 1fr; }
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════════
+   05 · LOCATION — building photo + numbered address
+   ════════════════════════════════════════════════════════════════════════════ */
+.panel.location .panel-inner { width: min(1440px, 100%) !important; }
+.panel.location .section-heading {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+  text-align: center;
+}
+.panel.location .section-heading .eyebrow { justify-content: center; }
+.panel.location .section-heading p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
+.panel.location .location-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.85fr);
+  gap: clamp(1.2rem, 2.4vw, 2rem);
+  align-items: stretch;
+}
+.panel.location .location-photo {
+  position: relative;
+  margin: 0;
+  border: 1px solid rgba(54, 216, 232, 0.22);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(5,9,12,0.55);
+  min-height: 22rem;
+}
+.panel.location .location-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.04);
+}
+.panel.location .location-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(3,7,10,0.78) 100%);
+  pointer-events: none;
+}
+.panel.location .location-photo figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.1rem;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: rgba(232, 244, 248, 0.86);
+}
+.panel.location .loc-cap-tag {
+  color: var(--teal);
+  font-weight: 700;
+}
+.panel.location .loc-cap-coord {
+  color: rgba(255, 159, 87, 0.86);
+  letter-spacing: 0.12em;
+}
+
+.panel.location .location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding: clamp(1.3rem, 2.4vw, 1.8rem) clamp(1.3rem, 2.4vw, 1.8rem);
+  border: 1px solid rgba(255, 159, 87, 0.22);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,159,87,0.05), rgba(5,7,9,0.55));
+}
+.panel.location .loc-address {
+  display: grid;
+  gap: 0.55rem;
+}
+.panel.location .loc-line {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.18;
+}
+.panel.location .loc-line .loc-tag {
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--teal);
+  flex: 0 0 1.8rem;
+}
+.panel.location .loc-line--accent {
+  color: var(--orange);
+  font-size: clamp(1.5rem, 2.4vw, 2.05rem);
+}
+.panel.location .loc-line--accent strong {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+.panel.location .loc-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(54,216,232,0.42), transparent);
+}
+.panel.location .loc-address-en {
+  margin: 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: rgba(205, 225, 224, 0.75);
+}
+.panel.location .loc-meta {
+  display: grid;
+  gap: 0.3rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(203, 226, 218, 0.16);
+}
+.panel.location .loc-meta span {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: rgba(205, 225, 224, 0.7);
+}
+.panel.location .loc-meta b {
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  margin-right: 0.7rem;
+}
+
+@media (max-width: 1180px) {
+  .panel.location .location-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════════
+   06 · OPEN-SOURCE — manifesto + terminal + 4 pillars
+   ════════════════════════════════════════════════════════════════════════════ */
+.panel.opensource-hub {
+  position: relative;
+  overflow: hidden;
+}
+.panel.opensource-hub .panel-inner.opensource-layout {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.4rem);
+  width: min(1440px, 100%);
+}
+
+/* ── Marquee strip at the top ── */
+.os-marquee {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(54, 216, 232, 0.18);
+  border-bottom: 1px solid rgba(54, 216, 232, 0.18);
+  background: rgba(5, 9, 12, 0.55);
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.os-marquee-track {
+  display: flex;
+  gap: 2.6rem;
+  width: max-content;
+  animation: os-marquee-scroll 38s linear infinite;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.os-marquee-track span:nth-child(even) {
+  color: rgba(255, 159, 87, 0.86);
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+@keyframes os-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── Hero copy ── */
+.os-hero {
+  text-align: center;
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.55rem;
+}
+.os-hero .eyebrow { justify-content: center; }
+.os-headline {
+  margin: 0.4rem 0 0;
+  display: grid;
+  gap: 0.1rem;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-shadow: 0 0 56px rgba(3, 7, 10, 0.7);
+}
+.os-line { display: block; }
+.os-line--accent {
+  color: var(--orange);
+  letter-spacing: 0.2em;
+}
+.os-headline-en {
+  margin: 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.84rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(54, 216, 232, 0.86);
+}
+.os-statement {
+  margin: 0.6rem auto 0;
+  max-width: 48rem;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-feature-settings: "palt" 1;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ── Terminal ── */
+.os-terminal {
+  border: 1px solid rgba(54, 216, 232, 0.32);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(7, 13, 17, 0.96), rgba(3, 7, 10, 0.96));
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  overflow: hidden;
+  max-width: 60rem;
+  margin: 0 auto;
+  width: 100%;
+}
+.os-term-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.55rem 0.95rem;
+  border-bottom: 1px solid rgba(203, 226, 218, 0.12);
+  background: rgba(5, 9, 12, 0.7);
+}
+.os-term-dots {
+  display: flex;
+  gap: 0.42rem;
+}
+.os-term-dots i {
+  width: 0.62rem; height: 0.62rem;
+  border-radius: 50%;
+  background: rgba(255, 100, 95, 0.6);
+  display: inline-block;
+}
+.os-term-dots i:nth-child(2) { background: rgba(255, 197, 80, 0.7); }
+.os-term-dots i:nth-child(3) { background: rgba(80, 220, 140, 0.7); }
+.os-term-title {
+  flex: 1;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: rgba(205, 225, 224, 0.78);
+}
+.os-term-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+.os-term-status .dotpulse {
+  width: 0.45rem; height: 0.45rem;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 0 rgba(54, 216, 232, 0.55);
+  animation: os-pulse 1.6s ease-out infinite;
+}
+@keyframes os-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(54, 216, 232, 0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(54, 216, 232, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(54, 216, 232, 0); }
+}
+.os-term-body {
+  padding: 0.9rem 1.1rem 1rem;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: rgba(220, 240, 235, 0.85);
+}
+.os-term-body p { margin: 0.05rem 0; padding: 0; }
+.t-c    { color: var(--teal); margin-right: 0.5rem; }
+.t-hash { color: rgba(255, 159, 87, 0.96); margin-right: 0.7rem; }
+.t-tag {
+  display: inline-block;
+  margin-right: 0.6rem;
+  padding: 0.06rem 0.42rem;
+  border: 1px solid rgba(54, 216, 232, 0.42);
+  border-radius: 4px;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  color: var(--teal);
+  font-weight: 700;
+}
+.t-tag--orange {
+  border-color: rgba(255, 159, 87, 0.42);
+  color: var(--orange);
+}
+.t-cursor {
+  display: inline-block;
+  width: 0.6rem;
+  background: var(--teal);
+  color: transparent;
+  animation: os-blink 1s steps(2, end) infinite;
+}
+@keyframes os-blink { 50% { opacity: 0; } }
+
+/* ── Pillar cards ── */
+.os-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.4rem);
+}
+.os-pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: clamp(1.1rem, 1.8vw, 1.4rem);
+  border: 1px solid rgba(203, 226, 218, 0.18);
+  border-radius: 12px;
+  background: rgba(7, 13, 16, 0.7);
+  isolation: isolate;
+  transition: transform 240ms ease, border-color 240ms ease;
+}
+.os-pillar:hover {
+  transform: translateY(-2px);
+  border-color: rgba(54, 216, 232, 0.42);
+}
+.pillar-code     { border-color: rgba(54, 216, 232, 0.32); }
+.pillar-data     { border-color: rgba(154, 255, 213, 0.32); }
+.pillar-roadmap  { border-color: rgba(255, 197, 80, 0.30); }
+.pillar-community{ border-color: rgba(255, 159, 87, 0.34); }
+.pillar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.pillar-num {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: rgba(205, 225, 224, 0.5);
+}
+.pillar-tag {
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.32em;
+  color: var(--teal);
+  padding: 0.18rem 0.55rem;
+  border: 1px solid rgba(54, 216, 232, 0.42);
+  border-radius: 999px;
+}
+.pillar-code .pillar-tag    { color: var(--teal); border-color: rgba(54,216,232,0.46); }
+.pillar-data .pillar-tag    { color: #9affd5; border-color: rgba(154,255,213,0.46); }
+.pillar-roadmap .pillar-tag { color: #ffc861; border-color: rgba(255,197,80,0.46); }
+.pillar-community .pillar-tag { color: var(--orange); border-color: rgba(255,159,87,0.46); }
+.os-pillar h3 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-size: clamp(1.18rem, 1.7vw, 1.42rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.pillar-en {
+  margin: -0.2rem 0 0;
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(205, 225, 224, 0.62);
+}
+.os-pillar p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+/* ── Metrics strip ── */
+.os-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.4rem);
+  padding: 1.1rem 1.2rem;
+  border: 1px dashed rgba(54, 216, 232, 0.28);
+  border-radius: 12px;
+  background: rgba(5, 9, 12, 0.55);
+}
+.os-metrics > div {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+  text-align: center;
+}
+.os-metrics strong {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--teal);
+  line-height: 1;
+}
+.os-metrics > div:nth-child(even) strong { color: var(--orange); }
+.os-metrics span {
+  font-family: "Cascadia Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: rgba(205, 225, 224, 0.66);
+}
+
+/* ── Foot caption ── */
+.os-foot {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  margin: 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(203, 226, 218, 0.12);
+  text-align: center;
+}
+.os-foot-cn {
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.os-foot-en {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  color: rgba(205, 225, 224, 0.62);
+}
+
+@media (max-width: 1180px) {
+  .os-pillars,
+  .os-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 640px) {
+  .os-pillars,
+  .os-metrics {
+    grid-template-columns: 1fr !important;
+  }
+  .os-term-body { font-size: 0.74rem; }
+}

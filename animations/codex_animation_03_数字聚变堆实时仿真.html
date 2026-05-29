@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VeloAlpha | 数字聚变堆实时仿真</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;height:100vh;overflow:hidden;background:#03070a;color:#f2f8ff;font-family:"Aptos","Segoe UI","Microsoft YaHei UI",sans-serif;letter-spacing:0}
+canvas{position:fixed;inset:0;width:100%;height:100%}
+.grid{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(56,230,255,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(56,230,255,.04) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(circle at 62% 48%,black,transparent 72%)}
+.wash{position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,7,10,.22) 46%,rgba(3,7,10,.12) 58%,rgba(3,7,10,.18)),radial-gradient(circle at 62% 48%,rgba(255,65,220,.08),transparent 24rem)}
+.header{position:fixed;left:18px;right:18px;top:14px;display:flex;align-items:center;justify-content:space-between;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.mark{display:grid;place-items:center;width:32px;height:32px;border:1px solid rgba(56,230,255,.58);box-shadow:0 0 22px rgba(56,230,255,.22);background:rgba(3,7,10,.68);font-size:12px;color:#38e6ff}
+.brand span{display:block;color:#a8b7c7;font-size:10px;font-weight:500}
+.tag{color:#38e6ff;font-family:"Cascadia Mono","Consolas",monospace;font-size:11px}
+/* ── KPI strip (top) ── */
+.kpi-grid{position:fixed;z-index:6;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.kpi{border:1px solid rgba(242,248,255,.10);background:rgba(7,18,27,.74);padding:11px 14px;border-radius:2px;display:flex;flex-direction:column;justify-content:center;min-height:54px;transition:all .3s ease}
+.kpi.warm{border-color:rgba(255,155,74,.30)}
+.kpi-label{display:block;color:#7c8d9e;font-size:10px;letter-spacing:.20em;text-transform:uppercase;font-family:"Cascadia Mono","Consolas",monospace;font-weight:600}
+.kpi-value{display:block;color:#38e6ff;font-size:24px;font-weight:800;letter-spacing:-.01em;margin-top:4px;line-height:1;font-family:"Aptos","Segoe UI",sans-serif}
+.kpi-value.kpi-warm{color:#ff9b4a}
+/* ── Module stack: 3-col grid ── */
+.module-stack{position:fixed;z-index:6;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mod-block{min-height:48px;border:1px solid rgba(242,248,255,.08);background:rgba(7,18,27,.68);padding:9px 11px;transition:all .4s ease;border-radius:2px}
+.mod-block.active{border-color:rgba(56,230,255,.42);background:rgba(10,30,43,.78);box-shadow:0 0 10px rgba(56,230,255,.10)}
+.mod-name{display:block;color:#5a7a8e;font-size:14px;font-weight:600;transition:color .3s ease}
+.mod-label{display:block;color:#4a6070;font-size:10.5px;margin-top:2px;transition:color .3s ease}
+.mod-block.active .mod-name{color:#e8f0ff}
+.mod-block.active .mod-label{color:#38e6ff}
+/* ── Phase strip ── */
+.phase-strip{position:fixed;z-index:4;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.phase{border:1px solid rgba(56,230,255,.12);background:rgba(7,18,27,.48);color:#5a7080;font-size:10px;font-family:"Cascadia Mono","Consolas",monospace;padding:5px 4px;text-align:center;position:relative;overflow:hidden;text-transform:uppercase;transition:all .3s ease}
+.phase:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,#38e6ff,#ff9b4a);transform-origin:left;transform:scaleX(0);opacity:.2;transition:transform .3s ease,opacity .3s ease}
+.phase.active{border-color:rgba(56,230,255,.48);color:#f2f8ff;background:rgba(10,30,43,.72)}
+.phase.active:after{transform:scaleX(1);opacity:1}
+/* ── Trace wall ── */
+.trace-wall{position:fixed;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.trace{height:68px;border:1px solid rgba(56,230,255,.18);background:rgba(4,12,18,.68);position:relative;overflow:hidden}
+.trace:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(180,220,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(180,220,255,.05) 1px,transparent 1px);background-size:16px 16px}
+.trace:after{content:attr(data-label);position:absolute;left:6px;top:4px;color:#38e6ff;font-size:10px;font-family:"Cascadia Mono","Consolas",monospace;letter-spacing:.05em}
+.trace canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.flash{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 62% 46%,rgba(255,255,255,.32),rgba(255,80,225,.14) 8rem,transparent 22rem);mix-blend-mode:screen;opacity:0;z-index:2;transition:opacity .12s linear}
+@media(max-width:980px){
+  body:not(.embed) .trace-wall,body:not(.embed) .phase-strip,body:not(.embed) .kpi-grid{display:none}
+  body:not(.embed) .module-stack{left:14px!important;right:auto!important;top:58px!important;width:calc(100vw - 28px)!important}
+  .tag{display:none}
+  .wash{background:linear-gradient(180deg,rgba(3,7,10,.10),rgba(3,7,10,.68)),radial-gradient(circle at 52% 44%,rgba(255,70,230,.14),transparent 20rem)}
+}
+body.embed .header{display:none}
+body.embed .trace{height:auto}
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div class="grid"></div>
+<div class="wash"></div>
+<div class="flash" id="flash"></div>
+<header class="header">
+  <div class="brand"><div class="mark">VA</div><div>VeloAlpha<span>瞬原科技</span></div></div>
+  <div class="tag">DIGITAL FUSION REACTOR / 托卡马克放电仿真</div>
+</header>
+<div class="kpi-grid" id="kpiGrid">
+  <div class="kpi"><span class="kpi-label">EQUILIBRIUM</span><span class="kpi-value" id="kpiEquil">0.06s</span></div>
+  <div class="kpi warm"><span class="kpi-label">ACCELERATION</span><span class="kpi-value kpi-warm">10,000×</span></div>
+  <div class="kpi"><span class="kpi-label">SOLVER COST</span><span class="kpi-value">&lt; 1%</span></div>
+  <div class="kpi"><span class="kpi-label">OPEN MODULES</span><span class="kpi-value" id="kpiOpen">ACTIVE</span></div>
+</div>
+<div class="module-stack" id="moduleStack">
+  <div class="mod-block" data-mod="fuel"><span class="mod-name">加料模块</span><span class="mod-label">Fueling</span></div>
+  <div class="mod-block" data-mod="heat"><span class="mod-name">加热模块</span><span class="mod-label">Heating</span></div>
+  <div class="mod-block" data-mod="equil"><span class="mod-name">平衡模块</span><span class="mod-label">Equilibrium</span></div>
+  <div class="mod-block" data-mod="trans"><span class="mod-name">输运模块</span><span class="mod-label">Transport</span></div>
+  <div class="mod-block" data-mod="confine"><span class="mod-name">聚变模块</span><span class="mod-label">Fusion</span></div>
+  <div class="mod-block" data-mod="diag"><span class="mod-name">诊断模块</span><span class="mod-label">Diagnostics</span></div>
+</div>
+<div class="trace-wall" id="traceWall">
+  <div class="trace" data-label="PF CURRENT"></div>
+  <div class="trace" data-label="PLASMA Ip"></div>
+  <div class="trace" data-label="DENSITY"></div>
+  <div class="trace" data-label="FUSION Pw"></div>
+</div>
+<div class="phase-strip" id="phaseStrip">
+  <div class="phase">01 充磁</div>
+  <div class="phase">02 加料</div>
+  <div class="phase">03 点火</div>
+  <div class="phase">04 稳态</div>
+  <div class="phase">05 下降</div>
+</div>
+<script>
+// Apply embed class BEFORE layout calculations so getLayout/positionPanels can branch on it
+if(new URLSearchParams(location.search).has('embed'))document.body.classList.add('embed');
+const c=document.getElementById("scene"),ctx=c.getContext("2d");
+const flashNode=document.getElementById("flash");
+const phases=[...document.querySelectorAll(".phase")];
+const modBlocks=[...document.querySelectorAll(".mod-block")];
+const traceWall=document.getElementById("traceWall");
+const moduleStack=document.getElementById("moduleStack");
+const phaseStrip=document.getElementById("phaseStrip");
+const TARGET_TRACE_LEN=1200;
+const traceCanvases=[...document.querySelectorAll(".trace")].map((el,i)=>{
+  const cn=document.createElement("canvas");el.appendChild(cn);
+  return {el,cn,ctx:cn.getContext("2d"),history:[],i};
+});
+const previewParam=new URLSearchParams(location.search).get("p");
+const previewP=previewParam===null?null:clamp(Number(previewParam),0,.999);
+let W,H,DPR,t=0,streams=[],particles=[],neutrons=[],injPool=[];
+// ── Single injector: slightly below outboard midplane (θ=0.04) ──
+const INJ_THETA=0.04;
+// Physical time range
+const PHYS_TIME_MIN=0,PHYS_TIME_MAX=3603;
+
+function getLayout(){
+  // Sized so vessel + coils never clip header or overlap right-side panels.
+  // Vessel vertical extent ≈ rad*2.13 (kappa=1.66 × rho=1.28). Coils ±1.95.
+  if(W<980){
+    return {devCx:W*0.50, devCy:H*0.60, rad:Math.min(W*0.18, H*0.155)};
+  }
+  // Embed: shift device left + grow it, removing left-side empty space.
+  if(document.body.classList.contains('embed')){
+    return {devCx:W*0.30, devCy:H*0.55, rad:Math.min(W*0.20, H*0.20)};
+  }
+  // Desktop standalone: aim for ~60% vertical, ~26% horizontal vessel extent
+  return {devCx:W*0.42, devCy:H*0.54, rad:Math.min(W*0.17, H*0.15)};
+}
+function positionPanels(){
+  const {devCx,devCy,rad}=getLayout();
+  const isEmbed=document.body.classList.contains('embed');
+  // Right column layout: KPI → Modules → Phases → Traces stacked top→bottom.
+  const msLeft=devCx+rad*(isEmbed?1.62:1.78);
+  const gutter=isEmbed?8:24;
+  const maxW=isEmbed?460:380;
+  const msWidth=Math.min(maxW,W-msLeft-gutter);
+  const kpiGrid=document.getElementById('kpiGrid');
+  if(msWidth>140){
+    const topPad=isEmbed?14:62;
+    const bottomPad=isEmbed?14:24;
+    const avail=Math.max(380,H-topPad-bottomPad);
+    // KPI 2x2: cell h ~ msWidth/2*0.30 + padding ~ 56 → grid h ~ 122
+    const kpiCellH=Math.max(54,Math.round(msWidth/2*0.30));
+    const kpiH=kpiCellH*2+10;
+    // Module 3x2: cell h ~ msWidth/3*0.66 + padding ~ 60
+    const msCellH=Math.max(58,Math.round(msWidth/3*0.66));
+    const msH=msCellH*2+8;
+    const psH=36;
+    const gap=12;
+    // Remaining for traces
+    const traceH=Math.max(120,avail-(kpiH+msH+psH+gap*3));
+    let y=topPad;
+    if(kpiGrid){kpiGrid.style.cssText=`left:${msLeft}px;top:${y}px;width:${msWidth}px;`;}
+    y+=kpiH+gap;
+    moduleStack.style.cssText=`left:${msLeft}px;top:${y}px;width:${msWidth}px;`;
+    y+=msH+gap;
+    phaseStrip.style.cssText=`left:${msLeft}px;top:${y}px;width:${msWidth}px;`;
+    y+=psH+gap;
+    traceWall.style.cssText=`left:${msLeft}px;top:${y}px;width:${msWidth}px;height:${traceH}px;`;
+    // size trace cells to fill traceH
+    traceCanvases.forEach(tr=>{tr.el.style.height=Math.floor((traceH-6)/2)+"px";});
+  }
+}
+
+function resize(){
+  DPR=Math.min(devicePixelRatio||1,1.6);W=innerWidth;H=innerHeight;c.width=W*DPR;c.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);
+  streams=Array.from({length:22},()=>({x:Math.random()*W,y:Math.random()*H,l:50+Math.random()*160,v:.4+Math.random()*1.5,w:Math.random()<.2}));
+  const count=W<980?340:560;
+  particles=Array.from({length:count},(_,i)=>({seed:i*17.13+Math.random()*9,phase:Math.random(),lane:Math.random()<.5?-1:1,speed:.00006+Math.random()*.00013,wide:Math.random()<.22,wander:.35+Math.random()*.9}));
+  neutrons=[];
+  traceCanvases.forEach(tr=>{tr.history=[];tr.lastPhysT=undefined;});
+  positionPanels();
+}
+addEventListener("resize",resize);resize();
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function smooth(a,b,x){x=clamp((x-a)/(b-a),0,1);return x*x*(3-2*x)}
+function lerp(a,b,x){return a+(b-a)*x}
+function easeOut(x){return 1-Math.pow(1-clamp(x,0,1),3)}
+function frac(x){return x-Math.floor(x)}
+function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function dPoint(rho,theta,rad){
+  const kappa=1.66,delta=.34;
+  return {x:rad*rho*Math.cos(theta+delta*Math.sin(theta)),y:rad*kappa*rho*Math.sin(theta)};
+}
+function dPath(rho,rad){
+  ctx.beginPath();
+  for(let i=0;i<=220;i++){
+    const th=i/220*Math.PI*2,p=dPoint(rho,th,rad);
+    if(i===0)ctx.moveTo(p.x,-p.y);else ctx.lineTo(p.x,-p.y);
+  }
+  ctx.closePath();
+}
+// ── Shared ring helper: available throughout drawPlasma ──
+function ringPath(inner,outer,rad){
+  ctx.beginPath();
+  for(let i=0;i<=220;i++){const th=i/220*Math.PI*2,p=dPoint(outer,th,rad);if(i===0)ctx.moveTo(p.x,-p.y);else ctx.lineTo(p.x,-p.y);}ctx.closePath();
+  for(let i=0;i<=220;i++){const th=i/220*Math.PI*2,p=dPoint(inner,th,rad);if(i===0)ctx.moveTo(p.x,-p.y);else ctx.lineTo(p.x,-p.y);}ctx.closePath();
+}
+function fillRing(inner,outer,rad,style){
+  ringPath(inner,outer,rad);
+  ctx.fillStyle=style;ctx.fill('evenodd');
+}
+function strokeD(rho,rad,start,end,width,style){
+  ctx.beginPath();
+  const steps=160;
+  for(let i=0;i<=steps;i++){
+    const th=start+(end-start)*i/steps,p=dPoint(rho,th,rad);
+    if(i===0)ctx.moveTo(p.x,-p.y);else ctx.lineTo(p.x,-p.y);
+  }
+  ctx.strokeStyle=style;ctx.lineWidth=width;ctx.lineCap="round";ctx.stroke();
+}
+function stage(p){
+  // ── Sequence: 加料 → 芯部发光 → 扩散 → 稳态 ──
+  // Phase 1: 加料 (fueling): p=0.06→0.40 peak, fades 0.40→0.60
+  const injection=smooth(.06,.40,p)*(1-smooth(.40,.60,p));
+  const inventory=smooth(.10,.52,p)*(1-smooth(.86,.99,p));
+  // Phase 2: 芯部发光 (core ignition glow): p=0.34→0.47 peak, fades 0.47→0.58
+  const coreGlow=smooth(.34,.47,p)*(1-smooth(.47,.58,p));
+  // Phase 3: 扩散/burst — fires AFTER core glow, one-shot pop p=0.44→0.62
+  const rampPulse=smooth(.44,.52,p)*(1-smooth(.52,.62,p));
+  // Phase 4: 稳态 shell — post-burst, p=0.54→0.70, fades fast as current starts dropping 0.76→0.82
+  const stableShell=smooth(.54,.70,p)*(1-smooth(.76,.82,p));
+  // ── Phase 5: 收尾 endBurst — purple shell starts dissipating when current decay begins (p≥0.86),
+  //    fully gone when current is low (p≈0.92)
+  const endBurst=smooth(.78,.83,p)*(1-smooth(.86,.92,p));
+  // Ignition physics variable: p=0.38→0.52 peak, fades 0.52→0.68
+  const ignition=smooth(.38,.52,p)*(1-smooth(.52,.68,p));
+  // Steady: full stable phase p=0.54→0.68, fades 0.80→0.92
+  const steady=smooth(.54,.68,p)*(1-smooth(.80,.92,p));
+  const rampDown=smooth(.82,.98,p);
+  const edge=smooth(.50,.66,p)*(1-smooth(.86,.97,p));
+  const glowFront=smooth(.42,.76,p)*(1-smooth(.86,.97,p));
+  const density=clamp(inventory*.82+steady*.62+ignition*.18,0,1);
+  let idx=0,name="01 COIL CHARGE";
+  if(p>=.12&&p<.38){idx=1;name="02 OUTBOARD FEED";}
+  else if(p>=.38&&p<.54){idx=2;name="03 CORE IGNITION";}
+  else if(p>=.54&&p<.86){idx=3;name="04 EDGE STEADY";}
+  else if(p>=.86){idx=4;name="05 RAMP DOWN";}
+  let physical=0;
+  if(p<.12)physical=lerp(0,.08,p/.12);
+  else if(p<.40)physical=lerp(.08,.80,(p-.12)/.28);
+  else if(p<.54)physical=lerp(.80,1.4,(p-.40)/.14);
+  else if(p<.86)physical=lerp(1.4,3500,easeOut((p-.54)/.32));
+  else physical=lerp(3500,3603,(p-.86)/.14);
+  return {idx,name,injection,ignition,steady,rampDown,edge,glowFront,density,physical,active:1-rampDown,rampPulse,stableShell,coreGlow,endBurst,_p:p};
+}
+function drawBackground(){
+  ctx.fillStyle="rgba(3,7,10,.22)";ctx.fillRect(0,0,W,H);
+  streams.forEach(s=>{s.x+=s.v;if(s.x>W+200)s.x=-200;ctx.strokeStyle=s.w?"rgba(255,155,74,.12)":"rgba(56,230,255,.08)";ctx.lineWidth=s.w?.8:.6;ctx.beginPath();ctx.moveTo(s.x-s.l,s.y);ctx.lineTo(s.x,s.y);ctx.stroke();});
+}
+function drawBoundarySystem(rad,st){
+  ctx.save();ctx.globalCompositeOperation="lighter";
+  // TF coil stack (inboard, outside vessel)
+  for(let i=0;i<14;i++){
+    const y=lerp(-1.35,1.35,i/13)*rad;
+    ctx.save();ctx.translate(-rad*1.62,y);ctx.rotate(-.02);
+    ctx.fillStyle=i%2?"rgba(146,92,42,.18)":"rgba(255,184,92,.18)";ctx.strokeStyle="rgba(255,184,92,.32)";ctx.lineWidth=.8;
+    rr(-rad*.035,-rad*.045,rad*.07,rad*.09,2);ctx.fill();ctx.stroke();ctx.restore();
+  }
+  // PF coil modules — all outside vessel (rho=1.28)
+  const coilStroke=(i)=>i%3===0?"rgba(255,184,92,.38)":i%3===1?"rgba(175,238,230,.30)":"rgba(230,230,230,.28)";
+  const coilFill=(i)=>i%3===0?"rgba(255,184,92,.14)":i%3===1?"rgba(175,238,230,.10)":"rgba(230,230,230,.08)";
+  const modules=[
+    [-0.38,-1.95,0.18,0.07],
+    [0.10,-2.00,0.15,0.06],
+    [0.48,-1.92,0.15,0.06],
+    [1.30,-1.38,0.17,0.09],
+    [1.55,-0.68,0.16,0.36],
+    [1.55,0.64,0.16,0.36],
+    [1.24,1.34,0.17,0.08],
+    [0.26,1.98,0.15,0.07],
+    [-0.40,1.94,0.18,0.07],
+    [-1.05,1.48,0.17,0.08],
+    [-1.60,-0.72,0.12,0.56],
+    [-1.60,0.70,0.12,0.56]
+  ];
+  modules.forEach(([x,y,w,h],i)=>{
+    ctx.save();ctx.translate(x*rad,y*rad);ctx.rotate((x>1.1?.04:x<-1.1?-.03:0));
+    ctx.fillStyle=coilFill(i);ctx.strokeStyle=coilStroke(i);ctx.lineWidth=.8;
+    rr(-w*rad/2,-h*rad/2,w*rad,h*rad,2);ctx.fill();ctx.stroke();ctx.restore();
+  });
+  // ── Single injector at θ=0.04 ──
+  const injTheta=INJ_THETA;
+  const injPt=dPoint(1.45,injTheta,rad);
+  const injX=injPt.x,injY=-injPt.y;
+  const tgtPt=dPoint(0.30,injTheta*0.10,rad);
+  const tgtX=tgtPt.x,tgtY=-tgtPt.y;
+  const bAngle=Math.atan2(injY-tgtY,injX-tgtX);
+  // Narrow injector rectangle
+  ctx.save();ctx.translate(injX,injY);ctx.rotate(bAngle-Math.PI*.5);
+  ctx.fillStyle=`rgba(255,155,74,${.04+st.injection*.08})`;
+  ctx.strokeStyle=`rgba(255,155,74,${.20+st.injection*.25})`;
+  ctx.lineWidth=1;
+  rr(-rad*.02,-rad*.10,rad*.04,rad*.20,2);ctx.fill();ctx.stroke();
+  ctx.restore();
+  // Beam line
+  ctx.strokeStyle=`rgba(255,155,74,${st.injection*.32})`;
+  ctx.lineWidth=rad*0.03+st.injection*0.4;
+  ctx.beginPath();ctx.moveTo(injX,injY);ctx.lineTo(tgtX,tgtY);ctx.stroke();
+  ctx.restore();
+}
+function drawVessel(cx,cy,rad,st){
+  ctx.save();ctx.translate(cx,cy);
+  ctx.save();ctx.globalCompositeOperation="lighter";
+  for(let rho=1.24;rho>=1.03;rho-=.05){dPath(rho,rad);ctx.strokeStyle=`rgba(130,155,178,${.03+st.edge*.02})`;ctx.lineWidth=rad*.022;ctx.stroke();}
+  ctx.restore();
+  dPath(1.19,rad);ctx.strokeStyle="rgba(150,168,188,.20)";ctx.lineWidth=rad*.08;ctx.stroke();
+  for(let rho=.16;rho<=.74;rho+=.08){dPath(rho,rad);ctx.strokeStyle=`rgba(255,112,104,${.08+rho*.18})`;ctx.lineWidth=.6;ctx.stroke();}
+  for(let rho=.78;rho<=.91;rho+=.06){dPath(rho,rad);ctx.strokeStyle=`rgba(127,220,178,${.08+rho*.06})`;ctx.lineWidth=.8;ctx.stroke();}
+  for(let k=0;k<10;k++){
+    const th=lerp(-Math.PI*.92,Math.PI*.88,k/9);
+    ctx.strokeStyle=`rgba(255,120,115,${.06+st.injection*.08})`;ctx.lineWidth=.5;
+    const a=dPoint(1.0,th,rad),b=dPoint(1.28,th+Math.sin(k)*.03,rad);ctx.beginPath();ctx.moveTo(a.x,-a.y);ctx.lineTo(b.x,-b.y);ctx.stroke();
+  }
+  drawBoundarySystem(rad,st);
+  ctx.restore();
+}
+function drawParticles(rad,st){
+  // Density: keep particles visible throughout — no ramp-down dimming
+  const baseDensity=clamp(.40+st.injection*.40+st.ignition*.18+st.steady*.30,.40,.95);
+  const visible=Math.floor(particles.length*baseDensity);
+  for(let i=0;i<visible;i++){
+    const q=particles[i];
+    // Constant fast azimuthal speed — no slowing in ramp-down
+    const u=(q.phase+t*q.speed*2.8)%1;
+    const coreBias=Math.pow(frac(q.seed*.6180339887+q.phase*.19),1.3);
+    const drift=Math.sin(t*.0012+q.seed)*(.02+st.injection*.01+st.ignition*.02);
+    const rho=clamp(.05+coreBias*.88+drift,.04,.96);
+    // Force a single rotation direction (counter-clockwise on screen):
+    // u always increases, but ensure the wander/jitter term cannot dominate.
+    const theta=u*Math.PI*2+frac(q.seed*.137)*Math.PI*2+Math.sin(t*.0009+q.seed)*.06*q.wander;
+    const p=dPoint(rho,theta,rad),tail=dPoint(rho,theta-.025,rad);
+    const coreBoost=rho<.25?1.5:rho<.40?1.2:1.0;
+    // Keep alpha high — no rampDown attenuation
+    const alpha=(.18+st.density*.16+st.steady*.06+st.ignition*.05)*(1-rho*.08)*coreBoost;
+    const size=(q.wide?1.1:.65)*(1+st.density*.14);
+    ctx.strokeStyle=q.wide?`rgba(255,155,74,${alpha*.34})`:`rgba(130,225,255,${alpha*.30})`;
+    ctx.lineWidth=q.wide?.9:.6;ctx.beginPath();ctx.moveTo(tail.x,-tail.y);ctx.lineTo(p.x,-p.y);ctx.stroke();
+    ctx.fillStyle=q.wide?`rgba(255,155,74,${alpha*.80})`:`rgba(210,242,255,${alpha})`;
+    ctx.beginPath();ctx.arc(p.x,-p.y,size,0,Math.PI*2);ctx.fill();
+  }
+  // ── Injector particle pool ──
+  const spawnP=st.injection*0.85*(1-st.rampDown);
+  if(spawnP>0.01){
+    const desired=Math.floor(spawnP*3);
+    for(let s=0;s<desired;s++){
+      if(Math.random()<.5){
+        injPool.push({
+          age:0,life:110+Math.random()*100,
+          entryRho:1.12+Math.random()*.04,
+          entryTheta:INJ_THETA+(Math.random()-.5)*.02,
+          targetRho:.10+Math.pow(Math.random(),1.3)*.45,
+          targetTheta:(Math.random()-.5)*Math.PI*1.6,
+          spin:.0007+Math.random()*.0012,
+          warm:Math.random()<.65,
+          jitter:Math.random()*9.13
+        });
+      }
+    }
+  }
+  if(injPool.length>240)injPool.splice(0,injPool.length-240);
+  for(let i=injPool.length-1;i>=0;i--){
+    const ip=injPool[i];
+    ip.age+=1;
+    if(ip.age>=ip.life){injPool.splice(i,1);continue;}
+    const prog=ip.age/ip.life;
+    const capture=smooth(.05,.42,prog);
+    const settle=smooth(.42,.85,prog);
+    const fadeIntoBg=smooth(.6,.98,prog);
+    const rho=lerp(ip.entryRho,ip.targetRho,capture);
+    const orbitDrift=settle*ip.spin*t;
+    const theta=lerp(ip.entryTheta,ip.targetTheta,capture)+orbitDrift+Math.sin(ip.jitter+t*.0011)*.025;
+    const pt=dPoint(rho,theta,rad);
+    if(capture<0.35){
+      const streamA=(0.35-capture)*2.5*st.injection;
+      const entPt=dPoint(ip.entryRho*1.20,ip.entryTheta,rad);
+      ctx.strokeStyle=`rgba(255,155,74,${streamA*.45})`;
+      ctx.lineWidth=.7+st.injection*.6;
+      ctx.beginPath();ctx.moveTo(entPt.x,-entPt.y);ctx.lineTo(pt.x,-pt.y);ctx.stroke();
+    }
+    const tailRho=clamp(rho+(capture<.5?.05:.01),0,1.2);
+    const tail=dPoint(tailRho,theta-.05,rad);
+    const baseA=(0.28+capture*0.62)*(1-fadeIntoBg*.72)*st.injection;
+    ctx.strokeStyle=ip.warm?`rgba(255,155,74,${baseA*.34})`:`rgba(190,235,255,${baseA*.30})`;
+    ctx.lineWidth=.9;
+    ctx.beginPath();ctx.moveTo(tail.x,-tail.y);ctx.lineTo(pt.x,-pt.y);ctx.stroke();
+    ctx.fillStyle=ip.warm?`rgba(255,170,90,${baseA*.90})`:`rgba(235,250,255,${baseA*.82})`;
+    ctx.beginPath();ctx.arc(pt.x,-pt.y,(ip.warm?1.3:.9)*(1+st.injection*.3)*(1-fadeIntoBg*.50),0,Math.PI*2);ctx.fill();
+  }
+}
+function drawPlasma(rad,st){
+  ctx.save();ctx.globalCompositeOperation="lighter";
+  // Fueling plume (cheap radial gradient)
+  if(st.injection>.02){
+    const injPt=dPoint(.96,INJ_THETA,rad);
+    const plume=ctx.createRadialGradient(injPt.x,-injPt.y,0,injPt.x,-injPt.y,rad*(.04+st.injection*.12));
+    plume.addColorStop(0,`rgba(255,206,150,${st.injection*.24})`);
+    plume.addColorStop(.45,`rgba(255,155,74,${st.injection*.12})`);
+    plume.addColorStop(1,"rgba(255,155,74,0)");
+    ctx.fillStyle=plume;
+    ctx.beginPath();ctx.arc(injPt.x,-injPt.y,rad*(.04+st.injection*.14),0,Math.PI*2);ctx.fill();
+  }
+  // Warm core ambient (density-driven)
+  if(st.density>.12){
+    const coreA=Math.min(.10,st.density*.12)*(1-st.rampDown*.85);
+    ctx.save();ctx.filter=`blur(10px)`;
+    fillRing(0.01,0.26,rad,`rgba(255,220,180,${coreA})`);
+    ctx.restore();
+  }
+  // ── Phase 2: 芯部发光 — hot core ignition glow BEFORE burst ──
+  if(st.coreGlow>0.02){
+    ctx.save();ctx.filter=`blur(10px)`;
+    // Outer warm halo rho≤0.32
+    dPath(0.32,rad);ctx.fillStyle=`rgba(255,200,140,${st.coreGlow*0.32})`;ctx.fill();
+    // Inner hot zone rho≤0.18
+    dPath(0.18,rad);ctx.fillStyle=`rgba(255,240,200,${st.coreGlow*0.44})`;ctx.fill();
+    ctx.restore();
+    ctx.save();ctx.filter=`blur(5px)`;
+    // Bright hotspot at very centre rho≤0.10
+    dPath(0.10,rad);ctx.fillStyle=`rgba(255,255,230,${st.coreGlow*0.55})`;ctx.fill();
+    ctx.restore();
+  }
+  // ── Phase 3: 扩散/burst — expands outward AFTER core glow ("嘭" pop) ──
+  if(st.rampPulse>0.02){
+    const burstFrac=smooth(.44,.58,st._p);
+    const burstInner=lerp(0.05,0.66,burstFrac);
+    const burstOuter=lerp(0.30,0.97,burstFrac);
+    ctx.save();ctx.filter=`blur(9px)`;
+    fillRing(burstInner,burstOuter,rad,`rgba(255,150,235,${st.rampPulse*0.50})`);
+    ctx.restore();
+    // Bright leading edge
+    ctx.save();ctx.filter=`blur(4px)`;
+    fillRing(Math.max(burstInner,burstOuter-0.10),burstOuter,rad,`rgba(255,220,250,${st.rampPulse*0.40})`);
+    ctx.restore();
+  }
+  // ── Phase 4: 稳态 annular ring — outer 1/3 (rho 0.66→0.97), brightest at edge ──
+  if(st.stableShell>0.02){
+    const pulse=1+.10*Math.sin(t*.005);
+    const sA=st.stableShell*(1-st.rampDown);
+    ctx.save();ctx.filter=`blur(14px)`;
+    fillRing(0.66,0.97,rad,`rgba(255,55,215,${sA*0.34*pulse})`);
+    ctx.restore();
+    ctx.save();ctx.filter=`blur(5px)`;
+    fillRing(0.78,0.97,rad,`rgba(255,82,228,${sA*0.26*pulse})`);
+    fillRing(0.88,0.97,rad,`rgba(255,112,238,${sA*0.30*pulse})`);
+    ctx.restore();
+  }
+  // ── Phase 5: 收尾 endBurst — purple shell explodes outward and fades as current decays ──
+  if(st.endBurst>0.02){
+    // burstFrac drives geometric expansion 0→1 over p=0.78→0.88 (completes before current is low)
+    const burstFrac=smooth(.78,.88,st._p);
+    const bInner=lerp(0.55,1.08,burstFrac);
+    const bOuter=lerp(0.92,1.18,burstFrac);
+    // Wide soft body — expanding wave
+    ctx.save();ctx.filter=`blur(12px)`;
+    fillRing(bInner,bOuter,rad,`rgba(255,90,225,${st.endBurst*0.50})`);
+    ctx.restore();
+    // Bright leading edge — sharper
+    ctx.save();ctx.filter=`blur(4px)`;
+    fillRing(Math.max(bInner,bOuter-0.08),bOuter,rad,`rgba(255,200,245,${st.endBurst*0.42})`);
+    ctx.restore();
+    // Trailing dim halo just inside
+    ctx.save();ctx.filter=`blur(18px)`;
+    fillRing(Math.max(0.30,bInner-0.20),bInner,rad,`rgba(200,60,200,${st.endBurst*0.22})`);
+    ctx.restore();
+  }
+  // Steady-state micro-glow dots (10)
+  if(st.steady>.25){
+    for(let k=0;k<10;k++){
+      const th=k/10*Math.PI*2+t*.0014,pt=dPoint(.45+Math.sin(k*1.7+t*.002)*.18+.22*frac(k*.37),th,rad);
+      ctx.fillStyle=`rgba(255,210,170,${.05+st.steady*.10})`;ctx.beginPath();ctx.arc(pt.x,-pt.y,.7+st.steady*.5,0,Math.PI*2);ctx.fill();
+    }
+  }
+  ctx.restore();
+}
+function drawDischarge(cx,cy,rad,st){
+  ctx.save();ctx.translate(cx,cy);
+  drawVessel(0,0,rad,st);
+  ctx.save();ctx.globalCompositeOperation="lighter";
+  for(let rho=.22;rho<=.86;rho+=.14){strokeD(rho,rad,0,Math.PI*2,.55,`rgba(255,118,104,${(.03+st.density*.04)*(1-st.rampDown)})`);}
+  drawPlasma(rad,st);
+  drawParticles(rad,st);
+  ctx.restore();ctx.restore();
+}
+// Deterministic discharge curves parameterized by physical time (seconds, 0..3603)
+// Sequence: PF charge → ne fueling ramp → core glow / Ip ramp → fusion power → steady
+// Returns [PF coil, plasma Ip, density ne, fusion Pw] each clamped 0..1
+function physCurves(physT){
+  // PF coil current: fast charge in phase 1, sustained, drops in rampdown
+  let pf;
+  if(physT<0.05)pf=physT/0.05*0.85;
+  else if(physT<3500)pf=0.80+Math.sin(physT*0.0008)*0.015+Math.sin(physT*0.011)*0.008;
+  else pf=Math.max(0,0.80*(1-(physT-3500)/103));
+  // Plasma current Ip: ramp 0.08→1.4s (aligned with core glow→burst), plateau with sawtooth
+  let ip;
+  if(physT<0.08)ip=0;
+  else if(physT<1.4)ip=(physT-0.08)/1.32*0.90;
+  else if(physT<3500){
+    const sawPh=(physT*1.7)%1;
+    const saw=sawPh<.85?sawPh/.85*0.04:-(1-sawPh)/.15*0.06;
+    ip=0.91+saw+Math.sin(physT*9.3)*0.008;
+  }
+  else ip=Math.max(0,0.91*(1-(physT-3500)/103));
+  // Density ne: fueling ramp 0.12→0.80s (fueling phase), plateau in steady
+  let ne;
+  if(physT<0.12)ne=0.06;
+  else if(physT<0.80)ne=0.06+(physT-0.12)/0.68*0.76;
+  else if(physT<3500){
+    const pellet=Math.sin(physT*0.42+1.3)*0.035+Math.sin(physT*0.13)*0.022;
+    ne=0.82+pellet;
+  }
+  else ne=Math.max(0,0.82*(1-(physT-3500)/103));
+  // Fusion power: zero until core glow (physT≥0.80s), ramp 0.80→1.4s, plateau
+  let fp;
+  if(physT<0.80)fp=0;
+  else if(physT<1.4)fp=Math.pow((physT-0.80)/0.60,1.8)*0.70;
+  else if(physT<3500){
+    const elmPh=(physT*0.85+0.4)%1;
+    const elm=elmPh<.04?-(1-elmPh/.04)*0.18:0;
+    fp=0.80+elm+Math.sin(physT*0.31)*0.025+Math.sin(physT*1.2+0.7)*0.014;
+  }
+  else fp=Math.max(0,0.80*(1-(physT-3500)/103));
+  return [pf,ip,ne,fp];
+}
+
+function drawTracePanel(st){
+  const physT=st.physical;
+  // Track physT advance per-frame across all traces (synced)
+  if(traceCanvases[0].lastPhysT===undefined){
+    traceCanvases.forEach(tr=>{tr.lastPhysT=physT;tr.history=[];});
+    return;
+  }
+  const lastPhysT=traceCanvases[0].lastPhysT;
+  const physDt=physT-lastPhysT;
+  // Cycle wrap: physT jumps backward → reset
+  if(physDt<-100){
+    traceCanvases.forEach(tr=>{tr.history=[];tr.lastPhysT=physT;});
+    return;
+  }
+  // Sub-sample per frame proportional to time advance.
+  // Slow phase (physDt~0.001s): 1 sample. Fast steady (physDt~15s): up to ~12 samples.
+  // This produces "fast/lots" trace fill when physical time accelerates.
+  let subSamples;
+  if(physDt<=0)subSamples=1;
+  else subSamples=Math.max(1,Math.min(8,Math.ceil(physDt*0.6)));
+  for(let k=0;k<subSamples;k++){
+    const fracStep=subSamples>1?(k+1)/subSamples:1;
+    const subPhysT=lastPhysT+fracStep*physDt;
+    const vals=physCurves(subPhysT);
+    traceCanvases.forEach((tr,i)=>{
+      tr.history.push({val:clamp(vals[i],0,1),physTime:subPhysT});
+      if(tr.history.length>TARGET_TRACE_LEN)tr.history.shift();
+    });
+  }
+  traceCanvases.forEach(tr=>{tr.lastPhysT=physT;});
+  // Draw each trace
+  const colors=["#56b8ff","#ff9b4a","#9affd5","#ff4ed8"];
+  traceCanvases.forEach((tr,i)=>{
+    const w=Math.max(1,tr.el.clientWidth),h=Math.max(1,tr.el.clientHeight),d=Math.min(devicePixelRatio||1,2);
+    if(tr.cn.width!==Math.floor(w*d)||tr.cn.height!==Math.floor(h*d)){tr.cn.width=Math.floor(w*d);tr.cn.height=Math.floor(h*d);tr.ctx.setTransform(d,0,0,d,0,0);}
+    const g=tr.ctx;g.clearRect(0,0,w,h);g.lineJoin="round";g.lineCap="round";
+    const len=tr.history.length;
+    if(len<2)return;
+    // x: grows from left (j=0) toward right; fills width as buffer fills
+    const xAt=j=>(len<TARGET_TRACE_LEN?(j/TARGET_TRACE_LEN):(j/(len-1)))*w;
+    // Subtle glow stroke
+    g.beginPath();
+    tr.history.forEach((e,j)=>{const x=xAt(j),y=h-6-(e.val*(h-16));if(j===0)g.moveTo(x,y);else g.lineTo(x,y);});
+    g.strokeStyle=colors[i]+"55";g.lineWidth=2.6;g.stroke();
+    // Sharp primary stroke
+    g.beginPath();
+    tr.history.forEach((e,j)=>{const x=xAt(j),y=h-6-(e.val*(h-16));if(j===0)g.moveTo(x,y);else g.lineTo(x,y);});
+    g.strokeStyle=colors[i];g.lineWidth=1.2;g.stroke();
+    // Cursor at head
+    const headX=xAt(len-1);
+    g.strokeStyle=`rgba(255,255,255,${.35+st.steady*.4})`;g.lineWidth=1;
+    g.beginPath();g.moveTo(headX,8);g.lineTo(headX,h-4);g.stroke();
+    // Time labels
+    const tStart=tr.history[0].physTime,tEnd=tr.history[len-1].physTime;
+    const fmt=ts=>ts<1?ts.toFixed(2)+"s":ts<100?ts.toFixed(1)+"s":Math.round(ts)+"s";
+    g.fillStyle="rgba(56,230,255,.45)";
+    g.font="7px Cascadia Mono, Consolas, monospace";
+    g.textAlign="left";g.fillText(fmt(tStart),2,h-1);
+    g.textAlign="right";g.fillText(fmt(tEnd),w-2,h-1);
+  });
+}
+function syncUi(st){
+  phases.forEach((el,i)=>el.classList.toggle("active",i===st.idx));
+  flashNode.style.opacity=String(clamp(st.ignition*.80-st.steady*.35,0,.85));
+  // ── Module activation based on discharge stage ──
+  const activeMods={
+    fuel:st.injection>.08||st.steady>.08,
+    heat:st.ignition>.08||st.steady>.08,
+    equil:st.active>.1,
+    trans:st.steady>.12||st.injection>.12,
+    confine:st.steady>.15,
+    diag:st.density>.2
+  };
+  modBlocks.forEach(el=>{
+    const mod=el.dataset.mod;
+    el.classList.toggle("active",!!activeMods[mod]);
+  });
+  // ── KPI values ──
+  const kpiEquil=document.getElementById('kpiEquil');
+  if(kpiEquil){
+    // small jitter in the ms range, doesn't grow with time
+    const ms=58+Math.sin(t*.0017)*4+Math.sin(t*.0073+1.3)*2.2;
+    kpiEquil.textContent=ms.toFixed(0)+' ms';
+  }
+  const kpiOpen=document.getElementById('kpiOpen');
+  if(kpiOpen){ kpiOpen.textContent='ACTIVE'; }
+}
+function draw(){
+  const cycle=12000;
+  if(previewP===null)t+=16.5; else t=previewP*cycle+performance.now()*.7125;
+  drawBackground();
+  const p=previewP===null?(t%cycle)/cycle:previewP,st=stage(p);
+  // ── Layout via shared helper ──
+  const lay=getLayout();
+  drawDischarge(lay.devCx,lay.devCy,lay.rad,st);
+  syncUi(st);
+  drawTracePanel(st);
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   VeloAlpha · enhance.css
+   Loaded AFTER styles.css. Adds:
+     • Top progress bar
+     • Kicker dotpulse on hero eyebrow
+     • Hero stats row (3 big numbers)
+     • Hero ticker (monospace marquee)
+     • Bilingual content state
+     • Subtle motion on punctuation
+   Keeps the existing visual language; just compresses + signals.
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ───────────── bilingual text tone ───────────── */
+.section-en,
+.hero-sub.en,
+.founder-role.en {
+  opacity: .9;
+}
+
+/* ───────────── thin top progress bar ───────────── */
+.page-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,.03);
+  z-index: 90;
+}
+.page-progress span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, #36d8e8, #ff9f57);
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform .15s linear;
+}
+
+/* ───────────── header actions cluster ───────────── */
+.site-header .header-actions {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-left: auto;
+}
+/* keep .nav-cta spacing nice next to pill */
+.site-header .nav-cta { margin-left: 0; }
+
+/* ───────────── kicker dotpulse on hero eyebrow ───────────── */
+.eyebrow-pulse {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding-left: 0;
+}
+.dotpulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #ff9f57;
+  box-shadow: 0 0 0 0 rgba(255,159,87,.45);
+  animation: vaPulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes vaPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,159,87,.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(255,159,87,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,159,87,0); }
+}
+
+/* punctuation accent on the H1 — subtle but elegant */
+.mission .hero-copy h1 .hero-punct {
+  color: #36d8e8;
+  display: inline-block;
+  margin-left: -.04em;
+  transform: translateY(.04em);
+}
+
+/* ───────────── hero stats row ───────────── */
+.hero-stats {
+  margin: 1.6rem 0 1rem;
+  padding: 1rem 0 1rem;
+  border-top: 1px solid rgba(203, 226, 218, 0.16);
+  border-bottom: 1px solid rgba(203, 226, 218, 0.16);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 1.2rem 2.6rem;
+}
+.hero-stats > div {
+  display: grid; gap: 4px;
+}
+.hero-stats .n {
+  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: #f2f8ff;
+}
+.hero-stats .n i {
+  font-style: normal;
+  color: #36d8e8;
+  margin-left: 2px;
+}
+.hero-stats .l {
+  font-family: "Cascadia Mono", "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  color: rgba(205, 225, 224, 0.62);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* hero tags row */
+.hero-tags {
+  display: flex; align-items: center; gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.hero-tags .tag {
+  display: inline-flex; align-items: center;
+  padding: 5px 11px;
+  border: 1px solid #36d8e8;
+  background: rgba(54, 216, 232, 0.10);
+  color: #f2f8ff;
+  border-radius: 999px;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.hero-tags .tag.tag-ghost {
+  border-color: rgba(203, 226, 218, 0.32);
+  background: transparent;
+  color: rgba(205, 225, 224, 0.78);
+}
+
+/* ───────────── hero ticker ───────────── */
+.hero-ticker {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  border-top: 1px solid rgba(203, 226, 218, 0.14);
+  border-bottom: 1px solid rgba(203, 226, 218, 0.14);
+  background: rgba(7, 12, 16, 0.55);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  z-index: 4;
+}
+.hero-ticker-track {
+  display: inline-flex;
+  gap: 56px;
+  padding: 12px 0;
+  white-space: nowrap;
+  font-family: "Cascadia Mono", "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  color: rgba(205, 225, 224, 0.72);
+  letter-spacing: .08em;
+  animation: vaTick 42s linear infinite;
+}
+.hero-ticker-track span::before {
+  content: "◆";
+  display: inline-block;
+  color: #36d8e8;
+  margin-right: 12px;
+  font-size: 7px;
+  vertical-align: middle;
+}
+@keyframes vaTick {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* give mission section room above the ticker so it doesn't crowd the plate-caption */
+.panel.mission { position: relative; padding-bottom: clamp(4rem, 6vw, 6rem); }
+
+/* ───────────── responsive ───────────── */
+@media (max-width: 960px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 1rem 2rem; }
+}
+@media (max-width: 640px) {
+  .hero-stats { grid-template-columns: 1fr; }
+  .hero-ticker-track { font-size: 10.5px; padding: 10px 0; }
+  .site-header .header-actions { gap: 6px; }
+}
+
+/* reduce motion — pause the ticker & dotpulse */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ticker-track,
+  .dotpulse { animation: none !important; }
+}
+
+/* ───────────── vision section: match the other panels' width ───────────── */
+/* The original used width: min(1500px, 100%) which made Vision visibly wider
+   than every other panel. Bring it back to the shared 1200px container. */
+.vision-overlay {
+  width: min(1200px, 100%) !important;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr) !important;
+  gap: 1.4rem !important;
+}
+.vision-anim {
+  min-height: 480px !important;
+  aspect-ratio: auto !important;
+}
+@media (max-width: 1080px) {
+  .vision-overlay {
+    grid-template-columns: 1fr !important;
+  }
+  .vision-anim {
+    min-height: 380px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WIDER, more breathable layout for every panel
+   Unified max width (1440px), generous side padding, retuned grids so the
+   extra canvas is actually used instead of leaving empty side gutters.
+═══════════════════════════════════════════════════════════════════════════ */
+.panel-inner,
+.vision-overlay {
+  width: min(1440px, 100%) !important;
+}
+.panel {
+  padding-left: clamp(1.5rem, 4.5vw, 3.6rem) !important;
+  padding-right: clamp(1.5rem, 4.5vw, 3.6rem) !important;
+}
+/* .vision panel now provides side padding the same way as the others;
+   remove vision-overlay's own horizontal padding so total width matches. */
+.panel.vision {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.vision-overlay {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* HERO — keep image generous, text gets more breathing */
+.hero-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(28rem, 1.05fr) !important;
+  gap: clamp(1.6rem, 3.5vw, 3.2rem) !important;
+  align-items: center !important;
+}
+.reactor-stage { min-height: 32rem !important; }
+.reference-plate img { min-height: 32rem !important; }
+.plate-clean img { min-height: 0 !important; }
+
+/* COST — image left, two cards right */
+.duel-board {
+  grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr) !important;
+  gap: clamp(1.2rem, 2.8vw, 2.4rem) !important;
+}
+.cost-plate { min-height: 30rem !important; }
+.cost-plate img { min-height: 30rem !important; }
+
+/* ENGINE — wider stack column */
+.module-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(30rem, 1.2fr) !important;
+  gap: clamp(1.6rem, 3.5vw, 3rem) !important;
+}
+.module-cloud {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+/* TRILEMMA — copy + big SVG; 3 cards span full */
+.open-layout {
+  grid-template-columns: minmax(0, 0.9fr) minmax(30rem, 1.25fr) !important;
+  gap: clamp(1.6rem, 3.5vw, 3rem) !important;
+}
+.triangle-board { min-height: 36rem !important; }
+.triangle-board svg { min-height: 36rem !important; }
+.open-principles {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+/* VISION — text card slightly wider; animation flexes */
+.vision-overlay {
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr) !important;
+  gap: 1.8rem !important;
+}
+.vision-anim { min-height: 540px !important; }
+
+/* FOUNDER — balanced two-column */
+.founder-layout {
+  grid-template-columns: minmax(0, 1.1fr) minmax(26rem, 0.9fr) !important;
+  gap: clamp(1.4rem, 3vw, 2.6rem) !important;
+}
+
+/* CAREERS — 4-col grid uses the new width well */
+.role-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.9rem !important;
+}
+
+/* Responsive collapse points */
+@media (max-width: 1180px) {
+  .hero-layout,
+  .module-layout,
+  .open-layout,
+  .founder-layout,
+  .duel-board {
+    grid-template-columns: 1fr !important;
+  }
+  .vision-overlay { grid-template-columns: 1fr !important; }
+  .module-cloud,
+  .open-principles,
+  .role-list { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 640px) {
+  .module-cloud,
+  .open-principles,
+  .role-list { grid-template-columns: 1fr !important; }
+  .panel { padding-left: 1rem !important; padding-right: 1rem !important; }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="VeloAlpha mark">
+  <defs>
+    <linearGradient id="orbit" x1="10" y1="18" x2="86" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38e6ff"></stop>
+      <stop offset="1" stop-color="#ff9b4a"></stop>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="48%" r="54%">
+      <stop offset="0" stop-color="#fff7d8"></stop>
+      <stop offset=".34" stop-color="#ff9b4a"></stop>
+      <stop offset=".72" stop-color="#38e6ff" stop-opacity=".55"></stop>
+      <stop offset="1" stop-color="#38e6ff" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <rect x="5" y="5" width="86" height="86" rx="18" fill="#03070a"></rect>
+  <path d="M20 51C26 26 70 26 76 51C70 72 27 72 20 51Z" fill="none" stroke="url(#orbit)" stroke-width="5" stroke-linecap="round"></path>
+  <path d="M25 47C39 37 57 37 71 47" fill="none" stroke="#f2f8ff" stroke-opacity=".58" stroke-width="2"></path>
+  <path d="M25 56C39 65 57 65 71 56" fill="none" stroke="#f2f8ff" stroke-opacity=".34" stroke-width="2"></path>
+  <circle cx="48" cy="50" r="22" fill="url(#core)"></circle>
+  <path d="M34 67L47 29L62 67" fill="none" stroke="#f2f8ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40 55H56" stroke="#03070a" stroke-width="4" stroke-linecap="round"></path>
+</svg>

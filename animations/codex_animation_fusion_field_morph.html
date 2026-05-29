@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VeloAlpha | Tokamak to Stellarator Particle Field</title>
+<style>
+*{box-sizing:border-box}body{margin:0;height:100vh;overflow:hidden;background:#03070a;color:#f2f8ff;font-family:"Aptos","Segoe UI","Microsoft YaHei UI",sans-serif}canvas{display:block;width:100%;height:100%}.veil{position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,7,10,.82),rgba(3,7,10,.14) 48%,rgba(3,7,10,.34)),radial-gradient(circle at 58% 48%,rgba(56,230,255,.07),transparent 36rem)}.brand,.copy,.hud{position:fixed;z-index:2}.brand{left:28px;top:24px;color:#38e6ff;font-weight:900}.brand span{display:block;color:#a8b7c7;font-size:12px;font-weight:500}.copy{left:28px;bottom:34px;max-width:700px}.copy small{color:#38e6ff;font-weight:900;text-transform:uppercase}.copy h1{font-size:clamp(34px,5vw,72px);line-height:.96;margin:12px 0}.copy p{color:#c8d7e5;line-height:1.65;margin:0}.hud{right:28px;top:28px;width:min(340px,calc(100vw - 56px));display:grid;gap:10px}.chip{border:1px solid rgba(56,230,255,.2);background:rgba(7,18,27,.76);backdrop-filter:blur(16px);padding:12px}.chip b{display:flex;justify-content:space-between;color:#fff}.chip span{display:block;color:#a8b7c7;font-size:12px;margin-top:5px}.bg-mode .brand,.bg-mode .copy,.bg-mode .hud{display:none}.bg-mode .veil{background:radial-gradient(circle at 55% 45%,rgba(56,230,255,.055),transparent 38rem)}@media(max-width:760px){.hud{display:none}.brand{left:18px;top:18px}.copy{left:18px;right:18px;bottom:24px}}
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas><div class="veil"></div>
+<div class="brand">VeloAlpha <span>tokamak field morphs into stellarator field</span></div>
+<div class="hud">
+  <div class="chip"><b><em id="mode">TOKAMAK</em><em>D-T</em></b><span>同一套粒子、磁力线和聚变闪光逻辑</span></div>
+  <div class="chip"><b><em>field state</em><em id="mix">0%</em></b><span>Tokamak → Stellarator continuous transition</span></div>
+</div>
+<section class="copy"><small>Particle field / Magnetic confinement / Fusion flashes</small><h1>粒子在磁约束场中运动</h1><p>同一风格的磁力线与粒子轨迹从托卡马克场逐渐过渡到仿星器场，偶发聚变闪光作为能量事件提示。</p></section>
+<script>
+const params=new URLSearchParams(location.search);
+const bgMode=params.has("bg");
+if(bgMode)document.body.classList.add("bg-mode");
+const canvas=document.getElementById("scene"),ctx=canvas.getContext("2d");
+const modeEl=document.getElementById("mode"),mixEl=document.getElementById("mix");
+let W=0,H=0,DPR=1,t=0,lastFrame=0,targetProgress=0,viewProgress=0,pageVisible=true,startTime=performance.now();
+let particles=[],bursts=[],events=0;
+
+addEventListener("message",event=>{
+  const data=event.data||{};
+  if(data.type==="fusion-bg-view")targetProgress=Math.max(0,Math.min(1,Number(data.progress)||0));
+});
+document.addEventListener("visibilitychange",()=>{pageVisible=!document.hidden;});
+
+function resize(){
+  DPR=Math.min(devicePixelRatio||1,bgMode?1:2);
+  W=innerWidth;H=innerHeight;
+  canvas.width=W*DPR;canvas.height=H*DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  const count=bgMode?(W<760?240:440):(W<760?720:1200);
+  particles=Array.from({length:count},(_,i)=>({
+    u:Math.random()*Math.PI*2,
+    v:Math.random()*Math.PI*2,
+    rho:.34+Math.random()*.74,
+    speed:.0028+Math.random()*.0068,
+    phase:Math.random()*Math.PI*2,
+    hot:i%7===0,
+    size:.65+Math.random()*1.15
+  }));
+}
+addEventListener("resize",resize);resize();
+
+const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+const smooth=x=>x*x*(3-2*x);
+function mixAlpha(now=performance.now()){
+  const period=bgMode?16000:18000;
+  const p=((now-startTime)%period)/period;
+  const toStellar=smooth(clamp((p-.38)/.16));
+  const backToTokamak=smooth(clamp((p-.88)/.10));
+  const mix=p<.88?toStellar:1-backToTokamak;
+  return {mix,tokamak:1-mix,stellarator:mix};
+}
+
+function tokamak(u,v,rho=1){
+  const R=2.06,r=.56*rho;
+  return{x:(R+r*Math.cos(v))*Math.cos(u),y:(R+r*Math.cos(v))*Math.sin(u),z:.78*r*Math.sin(v)};
+}
+
+function stellarator(u,v,rho=1){
+  const n=5,phase=n*u;
+  const a=.55*rho*(1+.035*Math.cos(phase-2*v));
+  const twist=v+.38*Math.sin(phase)+.045*Math.sin(2*phase);
+  const R=2.06+.075*Math.cos(phase)+.02*Math.sin(2*phase+v);
+  const oval=1+.08*Math.sin(phase+v);
+  return{
+    x:(R+a*oval*Math.cos(twist))*Math.cos(u),
+    y:(R+a*(1-.08*Math.cos(phase))*Math.cos(twist))*Math.sin(u),
+    z:.78*a*Math.sin(twist)+.075*Math.sin(phase)
+  };
+}
+
+function rotate(p){
+  viewProgress+=(targetProgress-viewProgress)*.045;
+  const rz=-.38+t*.00008;
+  const rx=1.08+Math.sin(t*.00013)*.055-viewProgress*.42;
+  const ry=-.24+Math.sin(t*.00017)*.07;
+  const x1=p.x*Math.cos(rz)-p.y*Math.sin(rz);
+  const y1=p.x*Math.sin(rz)+p.y*Math.cos(rz);
+  const y2=y1*Math.cos(rx)-p.z*Math.sin(rx);
+  const z2=y1*Math.sin(rx)+p.z*Math.cos(rx);
+  const z3=z2*Math.cos(ry)-x1*Math.sin(ry);
+  const x2=z2*Math.sin(ry)+x1*Math.cos(ry);
+  return{x:x2,y:y2,z:z3};
+}
+
+function project(p){
+  const d=6.2,s=Math.min(W,H)*(W<760?.205:.222),f=d/(d+p.z);
+  return{x:(W<760?W*.55:W*.6)+p.x*f*s,y:(W<760?H*.43:H*.46)-p.y*f*s,scale:f,z:p.z};
+}
+
+function smoothPath(points){
+  let out=points;
+  for(let pass=0;pass<2;pass++){
+    out=out.map((p,i)=>{
+      if(i===0||i===out.length-1)return p;
+      const a=out[i-1],c=out[i+1];
+      return{x:(a.x+p.x*2+c.x)/4,y:(a.y+p.y*2+c.y)/4,scale:p.scale,z:(a.z+p.z*2+c.z)/4};
+    });
+  }
+  return out;
+}
+
+function pathStroke(points,rgba,alpha,width){
+  if(alpha<.01)return;
+  ctx.save();
+  ctx.globalAlpha=alpha;
+  ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=width;
+  points=smoothPath(points);
+  for(let pass=0;pass<2;pass++){
+    ctx.beginPath();
+    let open=false;
+    for(const p of points){
+      const wanted=pass===0?p.z>0:p.z<=0;
+      if(!wanted){open=false;continue;}
+      if(!open){ctx.moveTo(p.x,p.y);open=true}else ctx.lineTo(p.x,p.y);
+    }
+    ctx.strokeStyle=pass===0?`rgba(${rgba},.14)`: `rgba(${rgba},.34)`;
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawField(geom,alpha,stellar=false){
+  if(alpha<.01)return;
+  const surfaceStep=bgMode?Math.PI/7:Math.PI/12;
+  const surfacePts=bgMode?116:180;
+  ctx.save();ctx.globalAlpha=alpha;
+  for(let v=0;v<Math.PI*2;v+=surfaceStep){
+    const pts=[];
+    for(let i=0;i<=surfacePts;i++)pts.push(project(rotate(geom(i/surfacePts*Math.PI*2,v,.98))));
+    pathStroke(pts,"56,230,255",.24,.72);
+  }
+  ctx.restore();
+
+  const lineCount=bgMode?(W<760?8:13):20;
+  const steps=bgMode?260:560;
+  for(let l=0;l<lineCount;l++){
+    const pts=[];
+    const offset=l/lineCount*Math.PI*2;
+    for(let i=0;i<=steps;i++){
+      const q=i/steps;
+      const u=q*Math.PI*2*3+t*.00034;
+      const v=(stellar?1.36*u:1.7*u)+offset+(stellar?.055:.02)*Math.sin(5*u+offset)+t*.00056;
+      pts.push(project(rotate(geom(u,v,.94))));
+    }
+    pathStroke(pts,l%4===0?"255,155,74":"56,230,255",alpha,l%4===0?1.15:.92);
+  }
+}
+
+function drawParticles(geom,alpha,stellar=false){
+  if(alpha<.01)return;
+  const drawn=[];
+  for(const p of particles){
+    const ripple=(stellar?.0014:.0022)*Math.sin(5*p.u-2*p.v+t*.001+p.phase);
+    const rho=clamp(p.rho+ripple,.26,1.13);
+    const pr=project(rotate(geom(p.u,p.v,rho)));
+    drawn.push({pr,p});
+  }
+  drawn.sort((a,b)=>b.pr.z-a.pr.z);
+  ctx.save();ctx.globalAlpha=alpha;
+  for(const {pr,p} of drawn){
+    const depth=pr.z>0?.4:1;
+    const a=((p.hot?.34:.26)+pr.scale*.24)*depth;
+    ctx.fillStyle=p.hot?`rgba(255,155,74,${a})`:`rgba(56,230,255,${a})`;
+    ctx.beginPath();
+    ctx.arc(pr.x,pr.y,(p.hot?1.58:.78)*p.size*pr.scale,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+function spawnBurst(geom){
+  const p=particles[Math.floor(Math.random()*particles.length)];
+  const pr=project(rotate(geom(p.u,p.v,p.rho)));
+  bursts.push({x:pr.x,y:pr.y,scale:pr.scale,life:1,seed:Math.random()*Math.PI*2,rays:12+Math.floor(Math.random()*8)});
+  events++;
+}
+
+function drawBurst(b){
+  const r=((1-b.life)*96+10)*(b.scale||1);
+  const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,r);
+  g.addColorStop(0,`rgba(255,255,255,${.9*b.life})`);
+  g.addColorStop(.16,`rgba(255,236,174,${.8*b.life})`);
+  g.addColorStop(.38,`rgba(255,155,74,${.5*b.life})`);
+  g.addColorStop(1,"rgba(56,230,255,0)");
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,r,0,Math.PI*2);ctx.fill();
+  for(let k=0;k<b.rays;k++){
+    const a=k/b.rays*Math.PI*2+b.seed+t*.0005,len=r*(1.1+.45*Math.sin(b.seed+k*1.7));
+    ctx.strokeStyle=`rgba(255,224,160,${.36*b.life})`;ctx.lineWidth=1+b.life*1.3;
+    ctx.beginPath();ctx.moveTo(b.x+Math.cos(a)*r*.14,b.y+Math.sin(a)*r*.14);ctx.lineTo(b.x+Math.cos(a)*len,b.y+Math.sin(a)*len);ctx.stroke();
+  }
+}
+
+function tickParticles(){
+  for(const p of particles){
+    p.u+=p.speed;
+    p.v+=p.speed*(1.5+.18*Math.sin(5*p.u+p.phase))+.0028*Math.sin(t*.001+p.phase);
+  }
+}
+
+function draw(now=0){
+  requestAnimationFrame(draw);
+  if(!pageVisible)return;
+  if(bgMode&&now-lastFrame<38)return;
+  lastFrame=now;
+  t+=bgMode?18:16;
+  tickParticles();
+  ctx.fillStyle=bgMode?"rgba(3,7,10,.34)":"rgba(3,7,10,.22)";
+  ctx.fillRect(0,0,W,H);
+  const a=mixAlpha(now);
+  drawField(tokamak,a.tokamak,false);
+  drawField(stellarator,a.stellarator,true);
+  drawParticles(tokamak,a.tokamak,false);
+  drawParticles(stellarator,a.stellarator,true);
+  if(Math.random()<(bgMode?.004:.018))spawnBurst(a.mix>.5?stellarator:tokamak);
+  for(let i=bursts.length-1;i>=0;i--){const b=bursts[i];b.life-=.016;if(b.life<=0){bursts.splice(i,1);continue}drawBurst(b)}
+  const center=project(rotate({x:0,y:0,z:0}));
+  const halo=ctx.createRadialGradient(center.x,center.y,0,center.x,center.y,Math.min(W,H)*.35);
+  halo.addColorStop(0,"rgba(255,255,255,.12)");halo.addColorStop(.34,"rgba(56,230,255,.09)");halo.addColorStop(1,"rgba(56,230,255,0)");
+  ctx.fillStyle=halo;ctx.fillRect(0,0,W,H);
+  if(!bgMode){modeEl.textContent=a.mix>.5?"STELLARATOR":"TOKAMAK";mixEl.textContent=Math.round(a.mix*100)+"%";}
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

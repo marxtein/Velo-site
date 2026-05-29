@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 聚变参数寻优 · 目标函数扫描</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;800&display=swap');
+
+  :root{
+    --bg:#06060f;
+    --ink:#e9edf7;
+    --muted:#7e86a6;
+    --line:rgba(120,150,210,0.12);
+    --blue:#5fb0ff;
+    --cyan:#57e0e0;
+    --purple:#b98cff;
+    --amber:#ffb020;
+    --red:#ff4d6d;
+    --panel:rgba(8,9,20,0.72);
+    --mono:'JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;
+    --disp:'Chakra Petch',var(--mono);
+    --tech:'Orbitron',var(--disp);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);}
+  #stage{position:fixed;inset:0;display:block;}
+
+  /* ---------- top bar ---------- */
+  #top{
+    position:fixed;top:0;left:0;right:0;height:60px;z-index:10;pointer-events:none;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:0 24px;opacity:0;transition:opacity .6s ease;
+  }
+  #top.show{opacity:1;}
+  .brand{font-family:var(--disp);font-size:12px;letter-spacing:2px;color:var(--muted);white-space:nowrap;flex-shrink:0;}
+  .brand b{color:var(--ink);font-weight:700;letter-spacing:3px;}
+  .brand .v{color:var(--cyan);}
+  #phase{
+    display:flex;align-items:center;gap:12px;white-space:nowrap;flex-shrink:0;
+  }
+  #phase .chip{
+    font-family:var(--disp);font-size:11px;letter-spacing:1px;font-weight:600;
+    padding:4px 10px;border-radius:20px;border:1px solid var(--line);
+    color:var(--muted);transition:all .3s ease;
+  }
+  #phase .chip.on{color:#06060f;background:var(--blue);border-color:var(--blue);box-shadow:0 0 16px rgba(95,176,255,.5);}
+  #phase .chip.on.exploit{background:var(--amber);border-color:var(--amber);box-shadow:0 0 16px rgba(255,176,32,.5);}
+  #stat{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--blue);}
+  #counter{
+    font-family:var(--tech);font-size:12px;color:var(--muted);letter-spacing:1px;
+    white-space:nowrap;flex-shrink:0;text-align:right;
+  }
+  #counter b{color:var(--cyan);font-size:17px;font-weight:800;}
+
+  /* ---------- side eval log ---------- */
+  #log{
+    position:fixed;right:18px;top:70px;z-index:9;width:248px;
+    display:flex;flex-direction:column;gap:5px;pointer-events:none;
+    opacity:0;transition:opacity .6s ease;
+  }
+  #log.show{opacity:1;}
+  #log .lh{
+    font-family:var(--disp);font-size:10px;letter-spacing:2px;color:var(--muted);
+    padding-bottom:4px;border-bottom:1px solid var(--line);margin-bottom:2px;
+    display:flex;justify-content:space-between;
+  }
+  .logline{
+    font-family:var(--mono);font-size:11px;letter-spacing:.2px;
+    display:flex;align-items:center;gap:7px;
+    padding:3px 8px;border-radius:5px;
+    background:rgba(20,24,44,0.5);border-left:2px solid var(--muted);
+    color:#aab2cc;animation:logIn .35s ease;white-space:nowrap;overflow:hidden;
+  }
+  @keyframes logIn{from{opacity:0;transform:translateX(14px);}to{opacity:1;transform:none;}}
+  .logline .id{color:#5a6486;flex-shrink:0;}
+  .logline .q{margin-left:auto;font-weight:700;flex-shrink:0;}
+  .logline.reject{border-left-color:var(--red);}
+  .logline.reject .q{color:var(--red);}
+  .logline.promise{border-left-color:var(--purple);}
+  .logline.promise .q{color:var(--purple);}
+  .logline.optimal{border-left-color:var(--amber);background:rgba(255,176,32,0.08);}
+  .logline.optimal .q{color:var(--amber);}
+  @media (max-width:760px){ #log{display:none;} }
+
+  /* ---------- bottom HUD ---------- */
+  #hud{
+    position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:var(--panel);border-top:1px solid rgba(120,150,210,0.18);
+    backdrop-filter:blur(10px);padding:14px 20px 16px;
+    display:grid;grid-template-columns:repeat(5,1fr) 1.05fr 0.95fr;gap:0;
+    opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease;
+  }
+  #hud.show{opacity:1;transform:none;}
+  .gauge{
+    padding:0 clamp(7px,1.1vw,13px);border-right:1px solid var(--line);
+    display:flex;flex-direction:column;gap:7px;min-width:0;overflow:hidden;
+  }
+  .gauge:last-child{border-right:none;}
+  .glabel{
+    font-family:var(--disp);font-size:clamp(10px,1.5vw,12px);letter-spacing:.2px;color:var(--muted);
+    display:flex;align-items:baseline;gap:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .glabel .u{font-size:9px;color:#5a607a;font-weight:400;}
+  .gval{
+    font-family:var(--mono);font-weight:700;font-size:clamp(16px,2.4vw,23px);line-height:1;
+    color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:.2px;white-space:nowrap;
+    transition:color .15s ease,text-shadow .15s ease;
+  }
+  .gval.flash{color:#fff;text-shadow:0 0 12px rgba(255,255,255,.9),0 0 22px var(--blue);}
+  .gval.null{color:var(--amber);text-shadow:0 0 14px rgba(255,176,32,.7);}
+  .track{position:relative;height:6px;border-radius:3px;background:rgba(120,150,210,0.10);overflow:hidden;}
+  .fill{position:absolute;left:0;top:0;bottom:0;width:0%;border-radius:3px;
+    background:linear-gradient(90deg,var(--blue),#9fe0ff);box-shadow:0 0 10px rgba(95,176,255,.5);
+    transition:background .3s ease;}
+  .ticks{display:flex;justify-content:space-between;gap:6px;font-family:var(--mono);
+    font-size:8.5px;color:#4c5270;white-space:nowrap;}
+  .device{justify-content:center;}
+  .dev-val{font-family:var(--disp);font-weight:700;font-size:clamp(14px,2vw,20px);color:var(--ink);
+    white-space:nowrap;transition:color .3s ease,transform .12s ease;}
+  .dev-val.locked{color:var(--amber);}
+  .dev-sub{font-family:var(--mono);font-size:9px;color:#4c5270;letter-spacing:1px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* Q objective cell */
+  .qcell{background:linear-gradient(180deg,rgba(255,176,32,0.06),transparent);}
+  .qcell .glabel{color:var(--amber);}
+  .qcell .gval{color:var(--amber);font-family:var(--tech);}
+  .qcell .fill{background:linear-gradient(90deg,#e8602e,var(--amber),#fff3c0);box-shadow:0 0 12px rgba(255,176,32,.6);}
+
+  /* fade + replay */
+  #fade{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:20;transition:opacity .6s ease;}
+  #replay{
+    position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);
+    z-index:30;opacity:0;pointer-events:none;padding:13px 30px;
+    background:rgba(8,9,20,.75);border:1px solid rgba(255,176,32,.5);border-radius:40px;
+    color:var(--amber);font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:3px;cursor:pointer;
+    transition:opacity .5s ease,transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  #replay.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1);}
+  #replay:hover{background:rgba(255,176,32,.12);box-shadow:0 0 28px rgba(255,176,32,.4);}
+</style>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <div id="top">
+    <div class="brand"><b>FUSION<span class="v">·AI</span></b> &nbsp;聚变参数寻优引擎</div>
+    <div id="phase">
+      <span class="chip" id="chip-explore">探索 EXPLORE</span>
+      <span class="chip exploit" id="chip-exploit">利用 EXPLOIT</span>
+      <span id="stat">STANDBY</span>
+    </div>
+    <div id="counter">已评估 <b id="cnt">00</b> 组 / ∞</div>
+  </div>
+
+  <div id="log">
+    <div class="lh"><span>评估日志 · EVAL LOG</span><span>Q</span></div>
+    <div id="log-body"></div>
+  </div>
+
+  <div id="hud"></div>
+
+  <div id="fade"></div>
+  <button id="replay">↺ 重新扫描</button>
+
+  <script>
+  (function(){
+    'use strict';
+
+    // ===================== config =====================
+    const FIELDS = [
+      {key:'r0', label:'大半径 R₀', unit:'m', min:1.5, max:10.0, dp:2},
+      {key:'a',  label:'小半径 a',  unit:'m', min:0.3, max:3.0,  dp:2},
+      {key:'k',  label:'拉长比 κ',  unit:'',  min:1.0, max:3.0,  dp:2},
+      {key:'d',  label:'三角度 δ',  unit:'',  min:0.0, max:0.8,  dp:2},
+      {key:'b',  label:'磁场强度 B',unit:'T', min:1.0, max:12.0, dp:2},
+    ];
+    const COL={ red:'#ff4d6d', purple:'#b98cff', blue:'#5fb0ff', cyan:'#57e0e0',
+                amber:'#ffb020', core:'#fff3d6' };
+
+    // axes of the landscape: X = R0 (1.5..10), Y = B (1..12)
+    const AX={ x0:1.5,x1:10.0, y0:1.0,y1:12.0 };
+    function toNX(r0){ return (r0-AX.x0)/(AX.x1-AX.x0); }
+    function toNY(b){  return (b -AX.y0)/(AX.y1-AX.y0); }
+
+    // ===================== objective field =====================
+    // peaks in normalized (nx,ny). global optimum highest; decoys = local optima.
+    const PEAKS=[
+      {x:0.571,y:0.416,amp:1.00,s:0.150}, // GLOBAL  (R0≈6.35, B≈5.58)
+      {x:0.200,y:0.780,amp:0.62,s:0.120}, // decoy A
+      {x:0.820,y:0.300,amp:0.58,s:0.110}, // decoy B
+      {x:0.360,y:0.180,amp:0.50,s:0.120}, // decoy C
+      {x:0.740,y:0.820,amp:0.47,s:0.100}, // decoy D
+    ];
+    function rawField(nx,ny){
+      let q=0;
+      for(const p of PEAKS){
+        const dx=nx-p.x, dy=ny-p.y;
+        q += p.amp*Math.exp(-(dx*dx+dy*dy)/(2*p.s*p.s));
+      }
+      return q;
+    }
+    let GMAX=1;
+    function fieldQ(nx,ny){ return rawField(nx,ny)/GMAX; }
+
+    // ===================== samples (the optimizer's evaluations) =====================
+    // params per evaluation; verdict + Q derived from the landscape.
+    const RAW_STEPS=[
+      // ---- EXPLORE (scattered) ----
+      {t:2.50, r0:3.00, b:2.40, a:0.85, k:1.35, d:0.18, dev:'托卡马克'},
+      {t:3.35, r0:8.70, b:9.40, a:2.55, k:2.65, d:0.66, dev:'仿星器'},
+      {t:4.20, r0:1.90, b:1.60, a:0.45, k:1.10, d:0.05, dev:'托卡马克'},
+      {t:5.05, r0:2.60, b:9.00, a:2.10, k:2.40, d:0.58, dev:'仿星器'},   // finds decoy A
+      {t:5.90, r0:9.00, b:3.50, a:1.10, k:1.55, d:0.30, dev:'托卡马克'}, // finds decoy B
+      {t:6.75, r0:5.00, b:8.50, a:1.60, k:2.20, d:0.50, dev:'仿星器'},
+      {t:7.60, r0:5.80, b:5.10, a:1.95, k:1.92, d:0.44, dev:'托卡马克'}, // climbs toward global
+      {t:8.45, r0:7.40, b:6.80, a:1.90, k:1.84, d:0.47, dev:'仿星器'},
+      // ---- EXPLOIT (converge on global) ----
+      {t:9.30, r0:6.70, b:5.90, a:1.88, k:1.80, d:0.43, dev:'托卡马克'},
+      {t:10.05,r0:6.50, b:5.65, a:1.86, k:1.79, d:0.42, dev:'托卡马克'},
+      {t:10.80,r0:6.40, b:5.60, a:1.85, k:1.78, d:0.42, dev:'托卡马克'},
+      {t:11.55,r0:6.35, b:5.58, a:1.85, k:1.78, d:0.42, dev:'托卡马克'},
+    ];
+
+    // ===================== timeline =====================
+    const BOOT_END=2.2, EXPLORE_END=8.9, IGNITE=14.3, STEADY=15.3, FADE_AT=16.6, END_AT=17.4;
+    const LOCK_AT=9.30; // device locks at exploit start
+
+    // ===================== canvas / layout =====================
+    const cv=document.getElementById('stage'), ctx=cv.getContext('2d');
+    let W=0,H=0,DPR=1;
+    const plot={x:0,y:0,w:0,h:0,cx:0,cy:0};
+    let heat=null, ow=0, oh=0;
+
+    function px(nx){ return plot.x + nx*plot.w; }
+    function py(ny){ return plot.y + (1-ny)*plot.h; } // B increases upward
+
+    function buildHeat(){
+      ow=Math.max(160,Math.min(760, Math.round(plot.w)));
+      oh=Math.max(120,Math.min(480, Math.round(plot.h)));
+      const c=document.createElement('canvas'); c.width=ow; c.height=oh;
+      const g=c.getContext('2d'); const img=g.createImageData(ow,oh);
+      const raw=new Float32Array(ow*oh); let mx=0;
+      for(let j=0;j<oh;j++){ for(let i=0;i<ow;i++){
+        const nx=i/(ow-1), ny=1-j/(oh-1);
+        const q=rawField(nx,ny); raw[j*ow+i]=q; if(q>mx)mx=q;
+      }}
+      GMAX=mx;
+      const LEV=7;
+      const lvl=(idx)=>Math.min(LEV-1, Math.floor(raw[idx]/GMAX*LEV));
+      const d=img.data;
+      for(let j=0;j<oh;j++){ for(let i=0;i<ow;i++){
+        const idx=j*ow+i; const t=raw[idx]/GMAX;
+        let c3=cmap(t);
+        // iso-contour lines: boundary between quantization levels
+        const L=lvl(idx);
+        const edge=(i>0&&lvl(idx-1)!==L)||(j>0&&lvl(idx-ow)!==L);
+        if(edge){ c3=[ c3[0]+(255-c3[0])*0.32, c3[1]+(255-c3[1])*0.32, c3[2]+(255-c3[2])*0.32 ]; }
+        const o=idx*4; d[o]=c3[0]; d[o+1]=c3[1]; d[o+2]=c3[2]; d[o+3]=255;
+      }}
+      g.putImageData(img,0,0);
+      heat=c;
+    }
+    // inferno-ish heat colormap
+    const CMAP=[
+      [0.00,[8,8,26]],[0.20,[44,26,94]],[0.40,[106,31,122]],
+      [0.60,[181,54,122]],[0.75,[232,96,46]],[0.88,[249,168,37]],[1.00,[255,243,192]]
+    ];
+    function cmap(t){
+      t=Math.max(0,Math.min(1,t));
+      for(let i=1;i<CMAP.length;i++){
+        if(t<=CMAP[i][0]){
+          const a=CMAP[i-1],b=CMAP[i]; const f=(t-a[0])/(b[0]-a[0]);
+          return [a[1][0]+(b[1][0]-a[1][0])*f, a[1][1]+(b[1][1]-a[1][1])*f, a[1][2]+(b[1][2]-a[1][2])*f];
+        }
+      }
+      return CMAP[CMAP.length-1][1].slice();
+    }
+
+    function layout(){
+      const topH=60, hudH=document.getElementById('hud').offsetHeight||130;
+      const axisL=64, axisB=42, padT=26, padR=20;
+      plot.x=axisL; plot.y=topH+padT;
+      plot.w=Math.max(120, W-axisL-padR);
+      plot.h=Math.max(120, H-topH-padT-hudH-axisB);
+      plot.cx=plot.x+plot.w/2; plot.cy=plot.y+plot.h/2;
+      buildHeat();
+    }
+    function resize(){
+      DPR=Math.min(window.devicePixelRatio||1,2);
+      W=window.innerWidth; H=window.innerHeight;
+      cv.width=W*DPR; cv.height=H*DPR; cv.style.width=W+'px'; cv.style.height=H+'px';
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+      layout();
+    }
+    window.addEventListener('resize',resize);
+
+    // ===================== build derived steps =====================
+    const STEPS=RAW_STEPS.map((s,i)=>{
+      const nx=toNX(s.r0), ny=toNY(s.b); const q=fieldQ(nx,ny);
+      let verdict = q<0.35?'reject' : (q<0.88?'promise':'optimal');
+      return Object.assign({},s,{nx,ny,q,verdict,idx:i});
+    });
+    // NOTE: GMAX set in buildHeat; recompute q after first layout
+    function recomputeQ(){ STEPS.forEach(s=>{ s.q=fieldQ(s.nx,s.ny);
+      s.verdict = s.q<0.35?'reject':(s.q<0.88?'promise':'optimal'); }); }
+
+    // ===================== HUD (DOM API, no innerHTML) =====================
+    const hud=document.getElementById('hud');
+    const G={};
+    function el(tag,cls,txt){ const e=document.createElement(tag); if(cls)e.className=cls;
+      if(txt!==undefined)e.textContent=txt; return e; }
+    FIELDS.forEach(f=>{
+      const cell=el('div','gauge');
+      const lab=el('div','glabel'); lab.appendChild(document.createTextNode(f.label));
+      if(f.unit){ lab.appendChild(document.createTextNode(' ')); lab.appendChild(el('span','u',f.unit)); }
+      cell.appendChild(lab);
+      const v=el('div','gval','—'); cell.appendChild(v);
+      const tr=el('div','track'); const fl=el('div','fill'); tr.appendChild(fl); cell.appendChild(tr);
+      const tk=el('div','ticks'); tk.appendChild(el('span',null,f.min.toFixed(1)));
+      tk.appendChild(el('span',null,f.max.toFixed(1))); cell.appendChild(tk);
+      hud.appendChild(cell);
+      G[f.key]={valEl:v,fillEl:fl,cfg:f,cur:0,tgt:0,nulled:true,started:false};
+    });
+    // device
+    const devCell=el('div','gauge device');
+    devCell.appendChild(el('div','glabel','装置类型'));
+    const devVal=el('div','dev-val'); devVal.appendChild(document.createTextNode('托卡马克'));
+    devCell.appendChild(devVal);
+    devCell.appendChild(el('div','dev-sub','TOKAMAK / STELLARATOR'));
+    hud.appendChild(devCell);
+    // Q objective
+    const qCell=el('div','gauge qcell');
+    qCell.appendChild(el('div','glabel','目标值 Q'));
+    const qVal=el('div','gval','—'); qCell.appendChild(qVal);
+    const qTrack=el('div','track'); const qFill=el('div','fill'); qTrack.appendChild(qFill); qCell.appendChild(qTrack);
+    const qTk=el('div','ticks'); qTk.appendChild(el('span',null,'0.0')); qTk.appendChild(el('span',null,'1.0')); qCell.appendChild(qTk);
+    hud.appendChild(qCell);
+
+    // top refs
+    const elStat=document.getElementById('stat');
+    const elCnt=document.getElementById('cnt');
+    const chipExp=document.getElementById('chip-explore');
+    const chipExl=document.getElementById('chip-exploit');
+    const logBody=document.getElementById('log-body');
+
+    function setPhase(stat, color, phase){
+      elStat.textContent=stat; elStat.style.color=color;
+      chipExp.classList.toggle('on', phase==='explore');
+      chipExl.classList.toggle('on', phase==='exploit');
+    }
+    function flashCells(){ [...hud.querySelectorAll('.gval')].forEach(v=>{ if(v===qVal)return;
+      v.classList.add('flash'); setTimeout(()=>v.classList.remove('flash'),140); }); }
+
+    function pushLog(s){
+      const ln=el('div','logline '+s.verdict);
+      ln.appendChild(el('span','id','#'+String(s.idx+1).padStart(2,'0')));
+      ln.appendChild(el('span',null,'R₀'+s.r0.toFixed(1)+' B'+s.b.toFixed(1)));
+      const sym = s.verdict==='reject'?'✕':(s.verdict==='optimal'?'◆':'◇');
+      ln.appendChild(el('span','q', sym+s.q.toFixed(2)));
+      logBody.insertBefore(ln, logBody.firstChild);
+      while(logBody.children.length>7) logBody.removeChild(logBody.lastChild);
+    }
+
+    // ===================== engine =====================
+    let t0=0,last=0,fxTime=0,curStep=-1,paused=false,rafId=0,frames=0,lastErr=null;
+    const fx={ pnx:0.5,pny:0.5, tnx:0.5,tny:0.5, traj:[], pings:[],
+               verdict:null, igniteAt:-1 };
+
+    function vcolor(v){ return v==='reject'?COL.red : v==='promise'?COL.purple : COL.amber; }
+    function fillCSS(v){
+      if(v==='reject')  return 'linear-gradient(90deg,#ff4d6d,#ff8aa0)';
+      if(v==='promise') return 'linear-gradient(90deg,#b98cff,#7fb0ff)';
+      if(v==='optimal') return 'linear-gradient(90deg,#ffb020,#ffe08a)';
+      return 'linear-gradient(90deg,#5fb0ff,#9fe0ff)';
+    }
+
+    function applyStep(i){
+      const s=STEPS[i];
+      FIELDS.forEach(f=>{ const g=G[f.key]; g.tgt=s[f.key]; g.nulled=false;
+        if(!g.started){ g.cur=s[f.key]; g.started=true; } G[f.key].fillEl.style.background=fillCSS(s.verdict); });
+      // device
+      if(s.t<LOCK_AT){ devVal.firstChild.nodeValue=s.dev; devVal.style.transform='scale(1.1)';
+        setTimeout(()=>devVal.style.transform='scale(1)',120); }
+      else { devVal.firstChild.nodeValue='托卡马克'; devVal.classList.add('locked'); }
+      // probe target + trajectory + ping
+      fx.tnx=s.nx; fx.tny=s.ny;
+      fx.traj.push({nx:s.nx,ny:s.ny,v:s.verdict});
+      fx.pings.push({nx:s.nx,ny:s.ny,birth:fxTime,col:vcolor(s.verdict)});
+      fx.verdict={nx:s.nx,ny:s.ny,
+        txt:(s.verdict==='reject'?'✕ 否决':s.verdict==='promise'?'◇ 有希望':'◆ 最优解'),
+        col:vcolor(s.verdict), birth:fxTime};
+      flashCells();
+      // Q gauge
+      qVal.textContent=s.q.toFixed(3); qFill.style.width=(s.q*100).toFixed(1)+'%';
+      // counter
+      elCnt.textContent=String(i+1).padStart(2,'0');
+    }
+
+    function doIgnite(){
+      fx.igniteAt=fxTime;
+      const opt=STEPS[STEPS.length-1];
+      fx.pings.push({nx:opt.nx,ny:opt.ny,birth:fxTime,col:COL.core,big:true});
+      setPhase('IGNITION · 点火','#ffd27a',null);
+      chipExp.classList.remove('on'); chipExl.classList.remove('on');
+      FIELDS.forEach(f=>{ const g=G[f.key]; g.nulled=true;
+        g.valEl.classList.add('flash');
+        setTimeout(()=>{ g.valEl.classList.remove('flash'); g.valEl.classList.add('null'); g.valEl.textContent='—'; },120);
+        g.fillEl.style.background='rgba(255,176,32,.25)'; });
+      devVal.firstChild.nodeValue='—';
+      qVal.textContent='∞'; qFill.style.width='100%';
+      elCnt.textContent='∞';
+    }
+
+    function update(t,dt){
+      // phase / status
+      if(t<BOOT_END){ setPhase('INITIALIZING · 构建目标函数', COL.cyan, null); }
+      else if(t<EXPLORE_END){ setPhase('SCANNING · 采样目标空间', COL.blue, 'explore'); }
+      else if(t<IGNITE){ setPhase('OPTIMIZING · 贝叶斯收敛', COL.amber, 'exploit'); }
+
+      // fire steps
+      let idx=-1; for(let i=0;i<STEPS.length;i++){ if(t>=STEPS[i].t) idx=i; }
+      if(idx!==curStep && idx>=0){ curStep=idx; applyStep(idx); pushLog(STEPS[idx]); }
+
+      if(t>=IGNITE && fx.igniteAt<0) doIgnite();
+      if(t>=STEADY && fx.igniteAt>=0) setPhase('✦ 最优解 · 超越预设参数空间','#ffd27a',null);
+
+      // probe easing (normalized space)
+      if(t<BOOT_END || curStep<0){ // idle orbit near center
+        fx.tnx=0.5+0.05*Math.cos(t*1.6); fx.tny=0.5+0.05*Math.sin(t*1.6);
+      }
+      fx.pnx += (fx.tnx-fx.pnx)*Math.min(1,dt*5.5);
+      fx.pny += (fx.tny-fx.pny)*Math.min(1,dt*5.5);
+
+      // gauges ease (slow readable sweep)
+      const k=Math.min(1,dt*4.2);
+      FIELDS.forEach(f=>{ const g=G[f.key]; g.cur+=(g.tgt-g.cur)*k;
+        const c=g.cfg; const pct=Math.max(0,Math.min(1,(g.cur-c.min)/(c.max-c.min)));
+        g.fillEl.style.width=(pct*100).toFixed(1)+'%';
+        if(!g.nulled){ g.valEl.classList.remove('null'); g.valEl.textContent=g.cur.toFixed(c.dp); } });
+
+      if(t>=FADE_AT) document.getElementById('fade').style.opacity=Math.min(1,(t-FADE_AT)/(END_AT-FADE_AT));
+      if(t>=END_AT){ document.getElementById('replay').classList.add('show'); paused=true; }
+    }
+
+    // ===================== draw =====================
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      const ign = fx.igniteAt>=0 ? (fxTime-fx.igniteAt) : -1;
+      const warm = ign>=0 ? Math.min(1,ign/1.1) : 0;
+
+      // bg
+      ctx.fillStyle='#06060f'; ctx.fillRect(0,0,W,H);
+
+      // heatmap (objective landscape)
+      if(heat){
+        ctx.save();
+        ctx.globalAlpha = (0.92 - warm*0.55) * Math.min(1, Math.max(0,(t-0.2)/1.2));
+        ctx.imageSmoothingEnabled=true;
+        ctx.drawImage(heat, plot.x, plot.y, plot.w, plot.h);
+        ctx.restore();
+        // plot frame
+        ctx.strokeStyle='rgba(120,150,210,0.25)'; ctx.lineWidth=1;
+        ctx.strokeRect(plot.x,plot.y,plot.w,plot.h);
+      }
+
+      drawAxes(t);
+      if(ign<0.4) drawRadar(t);          // scanning sweep (explore)
+      drawTrajectory(t);
+      drawPings();
+      drawSamples(t);
+      if(curStep>=0 && ign<0) drawVerdict();
+      if(t>=EXPLORE_END && ign<0) drawPeakLock(t);  // highlight converging on optimum
+      if(ign<0) drawProbe(t);
+      if(ign>=0) drawIgnition(ign);
+
+      // vignette
+      const vg=ctx.createRadialGradient(W/2,H/2,Math.min(W,H)*0.35,W/2,H/2,Math.max(W,H)*0.72);
+      vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,0.55)');
+      ctx.fillStyle=vg; ctx.fillRect(0,0,W,H);
+    }
+
+    function drawAxes(t){
+      const a=Math.min(1,Math.max(0,(t-0.4)/1.2));
+      ctx.save(); ctx.globalAlpha=a;
+      ctx.fillStyle='#9aa3c4'; ctx.strokeStyle='rgba(120,150,210,0.25)'; ctx.lineWidth=1;
+      ctx.font='10px "JetBrains Mono",monospace';
+      // X ticks (R0)
+      ctx.textAlign='center'; ctx.textBaseline='top';
+      const xt=[1.5,3,4,5,6,8,10];
+      xt.forEach(v=>{ const X=px(toNX(v)); ctx.beginPath(); ctx.moveTo(X,plot.y+plot.h); ctx.lineTo(X,plot.y+plot.h+5); ctx.stroke();
+        ctx.fillText(v.toFixed(1), X, plot.y+plot.h+8); });
+      // Y ticks (B)
+      ctx.textAlign='right'; ctx.textBaseline='middle';
+      const yt=[1,3,5,6,8,10,12];
+      yt.forEach(v=>{ const Y=py(toNY(v)); ctx.beginPath(); ctx.moveTo(plot.x,Y); ctx.lineTo(plot.x-5,Y); ctx.stroke();
+        ctx.fillText(v.toFixed(0), plot.x-8, Y); });
+      // axis labels
+      ctx.fillStyle='#aeb6d6'; ctx.font='600 12px "Chakra Petch",monospace';
+      ctx.textAlign='center'; ctx.textBaseline='top';
+      ctx.fillText('大半径 R₀ (m)  →  探索维度 X', plot.cx, plot.y+plot.h+22);
+      ctx.save(); ctx.translate(plot.x-46, plot.cy); ctx.rotate(-Math.PI/2);
+      ctx.fillText('磁场强度 B (T)  →  探索维度 Y', 0, 0); ctx.restore();
+      // caption
+      ctx.fillStyle='rgba(220,226,245,0.85)'; ctx.font='600 12px "Chakra Petch",monospace';
+      ctx.textAlign='left'; ctx.textBaseline='top';
+      ctx.fillText('目标函数 Q( R₀, B, … +5维 ) · 等高线热力图', plot.x+10, plot.y+8);
+      ctx.restore();
+    }
+
+    function drawRadar(t){
+      const fade = t<EXPLORE_END ? 1 : Math.max(0, 1-(t-EXPLORE_END)/0.6);
+      if(fade<=0) return;
+      const ang=t*0.9;
+      ctx.save();
+      ctx.beginPath(); ctx.rect(plot.x,plot.y,plot.w,plot.h); ctx.clip();
+      ctx.translate(plot.cx,plot.cy);
+      const R=Math.hypot(plot.w,plot.h);
+      const grad=ctx.createConicGradient ? null : null;
+      // wedge
+      ctx.globalCompositeOperation='lighter';
+      for(let i=0;i<22;i++){
+        const aa=ang-i*0.025; const al=(1-i/22)*0.05*fade;
+        ctx.strokeStyle='rgba(87,224,224,'+al.toFixed(3)+')'; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.cos(aa)*R,Math.sin(aa)*R); ctx.stroke();
+      }
+      ctx.strokeStyle='rgba(120,230,230,'+(0.5*fade)+')'; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.cos(ang)*R,Math.sin(ang)*R); ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawTrajectory(t){
+      if(fx.traj.length<2) return;
+      ctx.save(); ctx.globalCompositeOperation='lighter';
+      for(let i=1;i<fx.traj.length;i++){
+        const p0=fx.traj[i-1],p1=fx.traj[i];
+        const a=0.18+0.5*(i/fx.traj.length);
+        ctx.strokeStyle='rgba(150,200,255,'+a.toFixed(3)+')'; ctx.lineWidth=1.4;
+        ctx.setLineDash([4,4]); ctx.lineDashOffset=-t*16;
+        ctx.beginPath(); ctx.moveTo(px(p0.nx),py(p0.ny)); ctx.lineTo(px(p1.nx),py(p1.ny)); ctx.stroke();
+      }
+      ctx.setLineDash([]); ctx.restore();
+    }
+
+    function drawPings(){
+      ctx.save(); ctx.globalCompositeOperation='lighter';
+      for(const p of fx.pings){
+        const age=fxTime-p.birth; const dur=p.big?1.2:0.9; if(age<0||age>dur) continue;
+        const k=age/dur; const r=(p.big?Math.min(plot.w,plot.h)*0.5:38)*k;
+        ctx.strokeStyle=rgba(p.col,(1-k)*(p.big?0.9:0.7)); ctx.lineWidth=(p.big?4:2)*(1-k)+0.5;
+        ctx.beginPath(); ctx.arc(px(p.nx),py(p.ny),r,0,Math.PI*2); ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawSamples(t){
+      ctx.save(); ctx.globalCompositeOperation='lighter';
+      for(let i=0;i<fx.traj.length;i++){
+        const s=fx.traj[i]; const X=px(s.nx),Y=py(s.ny);
+        const isCur=(i===curStep);
+        const col=vcolor(s.v);
+        const fade=(s.v==='reject' && i<curStep)?0.4:1;
+        const pulse=isCur?(1+0.5*Math.sin(t*9)):1;
+        const r=(s.v==='optimal'?6:4)*pulse;
+        glow(X,Y,r,col,0.95*fade);
+      }
+      ctx.restore();
+    }
+
+    function drawVerdict(){
+      const v=fx.verdict; if(!v) return; const age=fxTime-v.birth; if(age<0||age>1.0) return;
+      const a=1-age; const X=px(v.nx),Y=py(v.ny);
+      ctx.save(); ctx.globalAlpha=a;
+      ctx.font='600 14px "Chakra Petch",monospace'; ctx.textAlign='center'; ctx.textBaseline='bottom';
+      ctx.fillStyle=v.col; ctx.shadowColor=v.col; ctx.shadowBlur=12;
+      ctx.fillText(v.txt, X, Y-14-age*16);
+      ctx.restore();
+    }
+
+    function drawPeakLock(t){
+      const opt=STEPS[STEPS.length-1]; const X=px(opt.nx),Y=py(opt.ny);
+      const conv=Math.min(1,(t-EXPLORE_END)/(IGNITE-EXPLORE_END));
+      ctx.save(); ctx.globalCompositeOperation='lighter';
+      // tightening crosshair brackets
+      const r=44-conv*22 + Math.sin(t*(4+conv*8))*2;
+      ctx.strokeStyle=rgba(COL.amber,0.5+0.4*conv); ctx.lineWidth=1.5;
+      const len=10;
+      [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(c=>{
+        ctx.beginPath();
+        ctx.moveTo(X+c[0]*r, Y+c[1]*r-c[1]*len); ctx.lineTo(X+c[0]*r, Y+c[1]*r);
+        ctx.lineTo(X+c[0]*r-c[0]*len, Y+c[1]*r); ctx.stroke();
+      });
+      ctx.restore();
+      // label
+      ctx.save(); ctx.globalAlpha=0.5+0.4*conv;
+      ctx.fillStyle=COL.amber; ctx.font='600 11px "Chakra Petch",monospace';
+      ctx.textAlign='center'; ctx.textBaseline='top'; ctx.shadowColor=COL.amber; ctx.shadowBlur=8;
+      ctx.fillText('全局最优 · LOCKED', X, Y+r+6);
+      ctx.restore();
+    }
+
+    function drawProbe(t){
+      const X=px(fx.pnx),Y=py(fx.pny);
+      ctx.save(); ctx.translate(X,Y);
+      // rotating ticks
+      ctx.rotate(t*0.8); ctx.strokeStyle=rgba(COL.cyan,0.9); ctx.lineWidth=1.4;
+      for(let i=0;i<4;i++){ ctx.rotate(Math.PI/2); ctx.beginPath(); ctx.moveTo(14,0); ctx.lineTo(20,0); ctx.stroke(); }
+      ctx.restore();
+      ctx.save(); ctx.translate(X,Y);
+      ctx.strokeStyle=rgba(COL.cyan,0.85); ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.arc(0,0,13,0,Math.PI*2); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-9,0); ctx.lineTo(-3,0); ctx.moveTo(3,0); ctx.lineTo(9,0);
+      ctx.moveTo(0,-9); ctx.lineTo(0,-3); ctx.moveTo(0,3); ctx.lineTo(0,9); ctx.stroke();
+      ctx.globalCompositeOperation='lighter'; glow(0,0,3,COL.cyan,0.9);
+      ctx.restore();
+      // label
+      ctx.save(); ctx.fillStyle=rgba(COL.cyan,0.85); ctx.font='600 9px "Chakra Petch",monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillText('AI PROBE', X+22, Y-12);
+      ctx.restore();
+    }
+
+    function drawIgnition(p){
+      const opt=STEPS[STEPS.length-1]; const X=px(opt.nx),Y=py(opt.ny);
+      ctx.save(); ctx.globalCompositeOperation='lighter'; ctx.translate(X,Y);
+      const sc=Math.min(plot.w,plot.h)/560;
+      // shockwave
+      if(p<0.7){ const k=p/0.7; const rad=k*Math.min(plot.w,plot.h)*0.55;
+        ctx.strokeStyle=rgba(COL.core,0.8*(1-k)); ctx.lineWidth=6*(1-k)+1;
+        ctx.beginPath(); ctx.arc(0,0,rad,0,Math.PI*2); ctx.stroke(); }
+      // flux confinement ellipses
+      const fa=Math.min(1,(p-0.2)/0.6);
+      if(fa>0){
+        const rings=[{rx:120,ry:78,sp:0.8,tl:0},{rx:168,ry:62,sp:-0.5,tl:0.5},
+                     {rx:92,ry:118,sp:1.2,tl:-0.4},{rx:205,ry:96,sp:0.35,tl:0.9}];
+        rings.forEach(rg=>{ ctx.save(); ctx.rotate(rg.tl+fxTime*rg.sp);
+          ctx.strokeStyle=rgba('#ffc85a',0.55*fa); ctx.lineWidth=1.6;
+          ctx.beginPath(); ctx.ellipse(0,0,rg.rx*sc,rg.ry*sc,0,0,Math.PI*2); ctx.stroke(); ctx.restore(); });
+      }
+      // core
+      const grow=Math.min(1,p/0.5); const pulse=p>0.6?(0.94+0.06*Math.sin(fxTime*5)):1;
+      const cr=(30+grow*26)*pulse*sc;
+      const cg=ctx.createRadialGradient(0,0,0,0,0,cr*4.4);
+      cg.addColorStop(0,'rgba(255,255,255,0.95)'); cg.addColorStop(0.18,'rgba(255,243,214,0.92)');
+      cg.addColorStop(0.45,'rgba(255,176,32,0.5)'); cg.addColorStop(1,'rgba(255,120,20,0)');
+      ctx.fillStyle=cg; ctx.beginPath(); ctx.arc(0,0,cr*4.4,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(0,0,cr,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+      // over-exposure flash
+      if(p<0.18){ ctx.save(); ctx.fillStyle='rgba(255,255,255,'+((1-p/0.18)*0.85)+')'; ctx.fillRect(0,0,W,H); ctx.restore(); }
+    }
+
+    // helpers
+    function glow(x,y,r,color,a){
+      const c=rgbTriplet(color);
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*4);
+      g.addColorStop(0,'rgba('+c+','+a+')'); g.addColorStop(0.4,'rgba('+c+','+(a*0.4)+')');
+      g.addColorStop(1,'rgba('+c+',0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r*4,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='rgba('+c+','+Math.min(1,a*1.15)+')'; ctx.beginPath(); ctx.arc(x,y,r*0.7,0,Math.PI*2); ctx.fill();
+    }
+    function rgbTriplet(h){ h=h.replace('#',''); if(h.length===3)h=h.split('').map(x=>x+x).join('');
+      const n=parseInt(h,16); return ((n>>16)&255)+','+((n>>8)&255)+','+(n&255); }
+    function rgba(h,a){ return 'rgba('+rgbTriplet(h)+','+a+')'; }
+
+    // ===================== loop =====================
+    function frame(now){
+      try{
+        if(!t0){ t0=now; last=now; }
+        const t=(now-t0)/1000; fxTime=t;
+        const dt=Math.min(0.05,(now-last)/1000); last=now;
+        if(!paused) update(t,dt);
+        draw(t); frames++;
+      }catch(e){ lastErr=(e&&e.message)||String(e); }
+      rafId=requestAnimationFrame(frame);
+    }
+
+    // ===================== reset / hooks =====================
+    function reset(){
+      curStep=-1; paused=false; t0=0; last=0; fxTime=0;
+      fx.pnx=0.5; fx.pny=0.5; fx.tnx=0.5; fx.tny=0.5;
+      fx.traj=[]; fx.pings=[]; fx.verdict=null; fx.igniteAt=-1;
+      FIELDS.forEach(f=>{ const g=G[f.key]; g.cur=0; g.tgt=0; g.nulled=true; g.started=false;
+        g.valEl.textContent='—'; g.valEl.className='gval'; g.fillEl.style.width='0%'; g.fillEl.style.background=fillCSS(); });
+      devVal.classList.remove('locked'); devVal.firstChild.nodeValue='托卡马克';
+      qVal.textContent='—'; qVal.className='gval'; qFill.style.width='0%';
+      elCnt.textContent='00'; logBody.textContent='';
+      setPhase('STANDBY', COL.blue, null);
+      document.getElementById('fade').style.opacity=0;
+      document.getElementById('replay').classList.remove('show');
+      setTimeout(()=>{ document.getElementById('top').classList.add('show');
+        document.getElementById('log').classList.add('show');
+        document.getElementById('hud').classList.add('show'); layout(); },120);
+    }
+    function restart(){ reset(); cancelAnimationFrame(rafId); t0=0; last=0; rafId=requestAnimationFrame(frame); }
+    document.getElementById('replay').addEventListener('click', restart);
+
+    // debug hooks
+    window.__diag=()=>({frames,lastErr,paused,t:t0?((performance.now()-t0)/1000):0,curStep,
+      stat:elStat.textContent, cnt:elCnt.textContent});
+    window.__renderAt=function(sec){ cancelAnimationFrame(rafId); reset();
+      const dt=1/60; let tt=0; while(tt<sec){ tt+=dt; fxTime=tt; update(tt,dt); } fxTime=sec; draw(sec); paused=true; };
+    window.__seek=function(sec){ t0=performance.now()-sec*1000; last=performance.now(); paused=false;
+      document.getElementById('replay').classList.remove('show'); };
+    window.__resume=restart;
+
+    resize(); recomputeQ(); reset();
+    rafId=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>

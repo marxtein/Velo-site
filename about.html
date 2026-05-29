@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="bi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="VeloAlpha 瞬原科技 — 使命、行业拐点、计算基座、数字聚变堆、AI for Fusion。" />
+    <title>使命 · VeloAlpha 瞬原科技</title>
+    <link rel="icon" href="assets/veloalpha-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="enhance.css" />
+    <link rel="stylesheet" href="creative.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="refine.css" />
+    <style>
+      /* 03 节 —— 动画需足够高度完整呈现(KPI→模块→相位→trace 纵向堆叠) */
+      .panel.vision {
+        min-height: auto !important;
+        padding-top: 4.5rem !important;
+        padding-bottom: 3rem !important;
+      }
+      .panel.vision .vision-overlay {
+        min-height: auto !important;
+        align-items: center !important;
+        gap: clamp(1.4rem, 2.4vw, 2rem) !important;
+        padding: 0 clamp(1rem, 2vw, 1.5rem) 1rem !important;
+      }
+      .panel.vision .section-heading {
+        margin-bottom: clamp(0.4rem, 1vw, 0.8rem) !important;
+      }
+      /* 文字框与右侧动画等高对齐;内容竖向居中,留出舒适间隔 */
+      .panel.vision .vision-copy {
+        align-self: stretch !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: clamp(1rem, 1.7vw, 1.5rem) !important;
+        padding: clamp(1.7rem, 2.5vw, 2.4rem) clamp(1.4rem, 1.9vw, 1.7rem) !important;
+      }
+      .panel.vision .vision-copy h2 {
+        margin: 0 !important;
+        font-size: clamp(1.55rem, 2.5vw, 2.45rem) !important;
+        line-height: 1.22 !important;
+      }
+      .panel.vision .vision-copy > p { margin: 0 !important; }
+      .panel.vision .vision-copy .vision-slogan {
+        font-size: clamp(1.05rem, 1.5vw, 1.3rem) !important;
+      }
+      .panel.vision .vision-copy > p:not(.vision-slogan):not(.notice) {
+        font-size: 1rem !important;
+        line-height: 1.9 !important;
+      }
+      .panel.vision .notice {
+        margin: 0 !important;
+        padding-top: 1rem !important;
+      }
+      .panel.vision .vision-anim {
+        align-self: stretch !important;
+        height: 600px !important;
+        min-height: 600px !important;
+        aspect-ratio: auto !important;
+      }
+
+      @media (max-width: 1080px) {
+        .panel.vision .vision-overlay { grid-template-columns: 1fr !important; }
+        .panel.vision .vision-copy { align-self: stretch !important; justify-content: flex-start !important; }
+        .panel.vision .vision-anim { height: 540px !important; min-height: 540px !important; }
+      }
+      @media (max-width: 640px) {
+        .panel.vision .vision-anim { height: 480px !important; min-height: 480px !important; }
+      }
+    </style>
+  </head>
+  <body class="page-about">
+    <a class="skip-link" href="#cost">跳过导航,进入正文</a>
+
+    <iframe
+      class="fusion-bg-frame"
+      src="animations/codex_animation_fusion_field_morph.html?bg=1"
+      title="托卡马克到仿星器粒子场背景动画"
+      aria-hidden="true"
+    ></iframe>
+    <div class="site-backdrop" aria-hidden="true"></div>
+    <div class="grid-backdrop" aria-hidden="true"></div>
+
+    <div class="page-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="VeloAlpha 首页">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark.svg" alt="" /></span>
+        <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
+      </a>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="index.html">首页 Home</a>
+        <a href="about.html" class="is-current">使命 Mission</a>
+        <a href="business.html">商业计划 Business</a>
+        <a href="team.html">开源 Open Source</a>
+        <a href="location.html">坐标 Location</a>
+        <a href="careers.html">加入我们 Join Us</a>
+      </nav>
+      <div class="header-actions">
+        <a class="nav-cta" href="mailto:huashengxie@gmail.com">联系 Contact</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
+      <a href="index.html">首页 Home</a>
+      <a href="about.html">使命 Mission</a>
+      <a href="business.html">商业计划 Business</a>
+      <a href="team.html">开源 Open Source</a>
+      <a href="location.html">坐标 Location</a>
+      <a href="careers.html">加入我们 Join Us</a>
+    </nav>
+
+    <main class="snap-shell">
+      <!-- ═══════════════════ 00 · OVERVIEW · 序 ═══════════════════ -->
+      <section class="panel about-hero" id="overview" data-index="00">
+        <span class="side-rail" aria-hidden="true"><b>00</b> Overview · 序</span>
+        <div class="panel-inner about-hero-inner">
+          <div class="cover-frame about-hero-frame">
+            <div class="cover-copy about-hero-copy reveal">
+              <p class="eyebrow eyebrow-pulse page-kicker">
+                <span class="dotpulse" aria-hidden="true"></span>
+                Mission / 使命
+              </p>
+              <p class="hero-statement">算出人类能源的最优物理拓扑</p>
+              <p class="hero-statement en">Compute the optimal physical topology for human energy.</p>
+            </div>
+
+            <div class="about-diagram-grid reveal reveal-d1">
+              <figure class="cover-plate plate-clean about-diagram-card about-tokamak-plate">
+                <img src="assets/tokamak-engineering-base.png" alt="托卡马克工程结构渲染图" />
+                <figcaption class="diagram-caption">
+                  <b>托卡马克</b>Tokamak
+                </figcaption>
+              </figure>
+
+              <figure class="cover-plate plate-clean about-diagram-card stellarator-plate">
+                <img src="assets/stellarator-final.png" alt="仿星器结构渲染图" />
+                <figcaption class="diagram-caption">
+                  <b>仿星器</b>Stellarator
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ 01 · WHY NOW · 拐点 ═══════════════════ -->
+      <section class="panel cost" id="cost" data-index="01">
+        <span class="side-rail" aria-hidden="true"><b>01</b> Why now · 拐点</span>
+        <div class="panel-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">01 · Why now / 行业拐点</p>
+            <h2>从十年级的硬件试错<span class="hero-punct hero-punct--orange">,</span>到小时级的算法推演</h2>
+            <p class="section-en">Shift decade-scale hardware trials into microsecond-scale computational discovery.</p>
+          </div>
+
+          <div class="duel-board reveal reveal-d1">
+            <figure class="reference-plate cost-plate plate-clean">
+              <img src="assets/slide_02.png" alt="物理试错与计算模拟的成本对比" />
+            </figure>
+            <div class="cost-copy">
+              <article>
+                <img class="cost-diagram" src="assets/slide_02_left.png" alt="托卡马克聚变装置示意图" />
+                <strong>物理试错 · Physical trial</strong>
+                <span>一次试错,<em>数十亿美金</em>;一次迭代,<em>十年起步</em>。</span>
+                <em>One iteration: billions of dollars, a decade.</em>
+              </article>
+              <article>
+                <img class="cost-diagram" src="assets/slide_02_right.png" alt="高保真计算模拟示意图" />
+                <strong>计算路线 · Computational path</strong>
+                <span>把答案搬到数字世界 — <em>快速</em>寻优,<em>万倍</em>加速。</span>
+                <em>Move route discovery into software: simulate, optimize, generate before hardware.</em>
+              </article>
+            </div>
+          </div>
+
+          <p class="bottom-banner reveal reveal-d2">
+            下一代聚变,必须把重资产试错搬进高保真计算世界。
+            <span>The next generation of fusion must shift hardware trial into high-fidelity computation.</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ 02 · ENGINE · 计算基座 ═══════════════════ -->
+      <section class="panel modules" id="modules" data-index="02">
+        <span class="side-rail" aria-hidden="true"><b>02</b> Engine · 计算基座</span>
+        <div class="panel-inner module-layout">
+          <div class="section-heading section-heading--centered reveal">
+            <p class="eyebrow">02 · Engine / 计算基座</p>
+            <h2>把聚变拆成可验证、可组合、可加速的物理模块</h2>
+            <p class="section-en">Build fusion from verifiable, composable, accelerable physics modules.</p>
+          </div>
+
+          <div class="engine-split reveal reveal-d1">
+
+            <!-- LEFT COLUMN: 02·A + 02·C stacked -->
+            <div class="engine-left-col">
+
+              <!-- 02·A · Acceleration tower -->
+              <div class="engine-side engine-side--stack">
+              <div class="engine-side-head">
+                <span class="sub-tag">02·A</span>
+                <div class="engine-side-copy">
+                  <strong>加速方法 · Acceleration Stack</strong>
+                  <span>三层重构,层层叠加 → 100× 至 10,000× 提速。</span>
+                </div>
+              </div>
+
+              <div class="speed-tower" aria-label="三层加速堆栈">
+                <div class="speed-tier tier-ai">
+                  <span class="tier-num">03</span>
+                  <div class="tier-body">
+                    <p class="tier-title">异构算力与 AI 层</p>
+                    <p class="tier-en">HPC &amp; AI Execution · <strong>ptEFIT</strong></p>
+                  </div>
+                  <div class="tier-mult">
+                    <span class="mult-label">叠加</span>
+                    <span class="mult-value">10–100<em>×</em></span>
+                  </div>
+                </div>
+
+                <div class="tier-link" aria-hidden="true">
+                  <span class="tier-link-bar"></span>
+                  <span class="tier-link-label">compounded</span>
+                  <span class="tier-link-bar"></span>
+                </div>
+
+                <div class="speed-tier tier-code">
+                  <span class="tier-num">02</span>
+                  <div class="tier-body">
+                    <p class="tier-title">语言优化层</p>
+                    <p class="tier-en">Language Optimization · <strong>CCS-GMEC</strong></p>
+                  </div>
+                  <div class="tier-mult">
+                    <span class="mult-label">叠加</span>
+                    <span class="mult-value">10–100<em>×</em></span>
+                  </div>
+                </div>
+
+                <div class="tier-link" aria-hidden="true">
+                  <span class="tier-link-bar"></span>
+                  <span class="tier-link-label">compounded</span>
+                  <span class="tier-link-bar"></span>
+                </div>
+
+                <div class="speed-tier tier-math">
+                  <span class="tier-num">01</span>
+                  <div class="tier-body">
+                    <p class="tier-title">数学变换层</p>
+                    <p class="tier-en">Math Transformation · <strong>GPDF / BO / VEQ</strong></p>
+                  </div>
+                  <div class="tier-mult">
+                    <span class="mult-label">基础</span>
+                    <span class="mult-value">100–10,000<em>×</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <!-- 02·C · Digital fusion reactor -->
+              <div class="engine-aggregate" role="group" aria-label="02·C 数字聚变堆">
+                <div class="agg-head">
+                  <span class="agg-tag">02·C</span>
+                  <h3>集成 · Integration</h3>
+                </div>
+                <p class="agg-sub">拆完，还要拼回去：在数字世界里造一座数字聚变堆</p>
+                <p class="agg-arrow" aria-hidden="true">
+                  <i></i>
+                  <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v9M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+                  <i></i>
+                </p>
+              </div>
+
+            </div><!-- /engine-left-col -->
+
+            <!-- 02·B · Physics module star map -->
+            <div class="engine-side engine-side--starmap">
+              <div class="engine-side-head">
+                <span class="sub-tag sub-tag--orange">02·B</span>
+                <div class="engine-side-copy">
+                  <strong>物理模块 · Physics Star Map</strong>
+                  <span>每个模块,都能独立验证、自由组合、按需加速。</span>
+                </div>
+              </div>
+
+              <div class="module-starmap" aria-label="聚变物理模块星图">
+                <svg viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(255,159,87,0.55)" />
+                      <stop offset="55%" stop-color="rgba(255,159,87,0.14)" />
+                      <stop offset="100%" stop-color="rgba(255,159,87,0)" />
+                    </radialGradient>
+                    <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(54,216,232,0.55)" />
+                      <stop offset="100%" stop-color="rgba(54,216,232,0)" />
+                    </radialGradient>
+                    <pattern id="star-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <circle cx="20" cy="20" r="0.55" fill="rgba(203,226,218,0.18)" />
+                    </pattern>
+                  </defs>
+                  <rect x="0" y="0" width="520" height="480" fill="url(#star-grid)" />
+                  <g class="star-spokes">
+                    <line x1="260" y1="240" x2="260" y2="60" />
+                    <line x1="260" y1="240" x2="450" y2="105" />
+                    <line x1="260" y1="240" x2="470" y2="290" />
+                    <line x1="260" y1="240" x2="390" y2="420" />
+                    <line x1="260" y1="240" x2="135" y2="420" />
+                    <line x1="260" y1="240" x2="55" y2="290" />
+                    <line x1="260" y1="240" x2="80" y2="115" />
+                  </g>
+                  <g class="star-arcs">
+                    <line x1="260" y1="60"  x2="450" y2="105" />
+                    <line x1="450" y1="105" x2="470" y2="290" />
+                    <line x1="470" y1="290" x2="390" y2="420" />
+                    <line x1="390" y1="420" x2="135" y2="420" />
+                    <line x1="135" y1="420" x2="55"  y2="290" />
+                    <line x1="55"  y1="290" x2="80"  y2="115" />
+                    <line x1="80"  y1="115" x2="260" y2="60" />
+                  </g>
+                  <circle cx="260" cy="240" r="78" fill="url(#hub-glow)" />
+                  <circle cx="260" cy="240" r="34" fill="rgba(255,159,87,0.16)" stroke="rgba(255,159,87,0.7)" stroke-width="1.4" />
+                  <text x="260" y="238" class="star-hub-cn">聚变反应</text>
+                  <text x="260" y="256" class="star-hub-en">Fusion</text>
+                  <g class="star-node">
+                    <circle cx="260" cy="60" r="20" fill="url(#node-glow)" />
+                    <circle cx="260" cy="60" r="6" />
+                    <text x="260" y="30" class="star-cn">辐射</text>
+                    <text x="260" y="46" class="star-en">Radiation</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="450" cy="105" r="20" fill="url(#node-glow)" />
+                    <circle cx="450" cy="105" r="6" />
+                    <text x="450" y="83" class="star-cn">加热</text>
+                    <text x="450" y="99" class="star-en">Heating</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="470" cy="290" r="20" fill="url(#node-glow)" />
+                    <circle cx="470" cy="290" r="6" />
+                    <text x="470" y="320" class="star-cn">放电</text>
+                    <text x="470" y="336" class="star-en">Discharge</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="390" cy="420" r="20" fill="url(#node-glow)" />
+                    <circle cx="390" cy="420" r="6" />
+                    <text x="390" y="450" class="star-cn">电流驱动</text>
+                    <text x="390" y="466" class="star-en">Current drive</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="135" cy="420" r="20" fill="url(#node-glow)" />
+                    <circle cx="135" cy="420" r="6" />
+                    <text x="135" y="450" class="star-cn">湍流输运</text>
+                    <text x="135" y="466" class="star-en">Turbulent transport</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="55" cy="290" r="20" fill="url(#node-glow)" />
+                    <circle cx="55" cy="290" r="6" />
+                    <text x="55" y="320" class="star-cn">平衡</text>
+                    <text x="55" y="336" class="star-en">Equilibrium</text>
+                  </g>
+                  <g class="star-node">
+                    <circle cx="80" cy="115" r="20" fill="url(#node-glow)" />
+                    <circle cx="80" cy="115" r="6" />
+                    <text x="80" y="93" class="star-cn">加料</text>
+                    <text x="80" y="109" class="star-en">Fueling</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ 03 · DIGITAL FUSION REACTOR · 数字聚变堆 ═══════════════════ -->
+      <section class="panel vision" id="vision" data-index="03">
+        <span class="side-rail" aria-hidden="true"><b>03</b> Digital Fusion Reactor · 数字聚变堆</span>
+        <div class="section-heading section-heading--centered reveal">
+          <p class="eyebrow">03 · Digital Fusion Reactor / 数字聚变堆</p>
+          <h2>数字世界的聚变实验</h2>
+          <p class="section-en">Fusion experiments in the digital world.</p>
+        </div>
+        <div class="vision-overlay">
+          <div class="vision-copy reveal">
+            <h2>解锁聚变能源,<br />推演复杂世界</h2>
+            <p class="en vision-slogan">Unlock fusion energy, compute the complex world.</p>
+            <p>
+              先在数字世界把答案算出来 — 生成路线、筛选拓扑、验证约束、推演放电,再把最可信的方案交给真实装置。
+            </p>
+            <p class="notice">注:本页动画为示意,不代表最终成品。<span class="en"> · Illustrative animation only.</span></p>
+          </div>
+          <div class="vision-anim reveal reveal-d1" aria-label="数字聚变堆实时仿真动画">
+            <iframe
+              class="vision-iframe"
+              src="animations/codex_animation_03_数字聚变堆实时仿真.html?embed"
+              title="数字聚变堆实时仿真"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ 04 · AI FOR FUSION (new) ═══════════════════ -->
+      <section class="panel ai-fusion" id="ai-fusion" data-index="04">
+        <span class="side-rail" aria-hidden="true"><b>04</b> AI for Fusion</span>
+        <div class="panel-inner">
+          <div class="ai-copy reveal">
+            <p class="eyebrow">04 · AI for Fusion / AI聚变寻优</p>
+            <h2><span class="grad">AI</span> for Fusion,<br/>让 AI 来持续寻找聚变最优解</h2>
+            <p class="ai-en">Scan the parameter space, score the constraints, and keep humans in control.</p>
+            <p>
+              AI 负责批量评估候选方案,把可复现的结果交给人复核。下面展示的是从探索到收敛的寻优过程。
+            </p>
+          </div>
+
+          <div class="ai-stage reveal reveal-d1" aria-hidden="true">
+            <div class="ai-stage-head">
+              <span>PARAMETER&nbsp;SCAN&nbsp;·&nbsp;目标函数寻优</span>
+              <span class="ai-live"><i></i>LIVE SEARCH</span>
+            </div>
+
+            <div class="ai-animation-frame">
+              <iframe
+                src="animations/fusion_scan_2d.html"
+                title="AI 聚变参数寻优动画"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <p class="ai-note">注:动画仅为示例,所示参数不代表最优。<span class="en"> · Illustrative only — the parameters shown are not optimal.</span></p>
+
+            <div class="ai-reactor">
+              <svg viewBox="0 0 440 420" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+                <defs>
+                  <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(255,200,140,0.9)" />
+                    <stop offset="35%" stop-color="rgba(255,159,87,0.35)" />
+                    <stop offset="100%" stop-color="rgba(255,159,87,0)" />
+                  </radialGradient>
+                  <linearGradient id="flux-stroke" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#36d8e8" />
+                    <stop offset="100%" stop-color="#ff9f57" />
+                  </linearGradient>
+                  <radialGradient id="vignette" cx="50%" cy="50%" r="62%">
+                    <stop offset="60%" stop-color="rgba(54,216,232,0)" />
+                    <stop offset="100%" stop-color="rgba(3,8,11,0.6)" />
+                  </radialGradient>
+                </defs>
+
+                <!-- vessel wall -->
+                <rect class="vessel" x="60" y="40" width="320" height="340" rx="26" />
+
+                <!-- candidate (ghost) boundaries being searched -->
+                <g class="ghosts">
+                  <path class="ghost ghost-a" d="M340.0,210.0 L339.8,202.5 L339.3,194.9 L338.4,187.5 L337.1,180.1 L335.5,172.7 L333.5,165.5 L331.2,158.4 L328.6,151.4 L325.7,144.6 L322.4,138.0 L318.8,131.6 L315.0,125.4 L310.8,119.4 L306.4,113.6 L301.8,108.2 L296.9,103.0 L291.8,98.1 L286.6,93.5 L281.1,89.2 L275.4,85.3 L269.7,81.7 L263.8,78.4 L257.7,75.6 L251.6,73.0 L245.4,70.9 L239.2,69.1 L232.9,67.8 L226.6,66.8 L220.3,66.2 L214.0,66.0 L207.7,66.2 L201.5,66.8 L195.4,67.8 L189.3,69.1 L183.4,70.9 L177.5,73.0 L171.8,75.6 L166.2,78.4 L160.8,81.7 L155.6,85.3 L150.5,89.2 L145.6,93.5 L140.9,98.1 L136.4,103.0 L132.2,108.2 L128.2,113.6 L124.4,119.4 L120.9,125.4 L117.6,131.6 L114.6,138.0 L111.9,144.6 L109.4,151.4 L107.2,158.4 L105.3,165.5 L103.7,172.7 L102.4,180.1 L101.3,187.5 L100.6,194.9 L100.1,202.5 L100.0,210.0 L100.1,217.5 L100.6,225.1 L101.3,232.5 L102.4,239.9 L103.7,247.3 L105.3,254.5 L107.2,261.6 L109.4,268.6 L111.9,275.4 L114.6,282.0 L117.6,288.4 L120.9,294.6 L124.4,300.6 L128.2,306.4 L132.2,311.8 L136.4,317.0 L140.9,321.9 L145.6,326.5 L150.5,330.8 L155.6,334.7 L160.8,338.3 L166.2,341.6 L171.8,344.4 L177.5,347.0 L183.4,349.1 L189.3,350.9 L195.4,352.2 L201.5,353.2 L207.7,353.8 L214.0,354.0 L220.3,353.8 L226.6,353.2 L232.9,352.2 L239.2,350.9 L245.4,349.1 L251.6,347.0 L257.7,344.4 L263.8,341.6 L269.7,338.3 L275.4,334.7 L281.1,330.8 L286.6,326.5 L291.8,321.9 L296.9,317.0 L301.8,311.8 L306.4,306.4 L310.8,300.6 L315.0,294.6 L318.8,288.4 L322.4,282.0 L325.7,275.4 L328.6,268.6 L331.2,261.6 L333.5,254.5 L335.5,247.3 L337.1,239.9 L338.4,232.5 L339.3,225.1 L339.8,217.5 L340.0,210.0 Z" />
+                  <path class="ghost ghost-b" d="M335.0,210.0 L334.9,200.7 L334.5,191.4 L333.9,182.1 L333.0,172.9 L331.8,163.9 L330.4,154.9 L328.8,146.1 L326.9,137.5 L324.7,129.1 L322.3,120.9 L319.7,112.9 L316.8,105.2 L313.7,97.8 L310.4,90.7 L306.9,84.0 L303.1,77.5 L299.1,71.5 L294.9,65.8 L290.5,60.5 L285.9,55.6 L281.1,51.2 L276.2,47.2 L271.0,43.6 L265.8,40.5 L260.3,37.8 L254.8,35.6 L249.1,33.9 L243.3,32.7 L237.4,32.0 L231.5,31.8 L225.5,32.0 L219.4,32.7 L213.3,33.9 L207.2,35.6 L201.1,37.8 L195.0,40.5 L189.0,43.6 L183.0,47.2 L177.1,51.2 L171.3,55.6 L165.7,60.5 L160.1,65.8 L154.8,71.5 L149.6,77.5 L144.6,84.0 L139.9,90.7 L135.4,97.8 L131.1,105.2 L127.1,112.9 L123.4,120.9 L120.0,129.1 L116.9,137.5 L114.2,146.1 L111.8,154.9 L109.7,163.9 L108.0,172.9 L106.7,182.1 L105.8,191.4 L105.2,200.7 L105.0,210.0 L105.2,219.3 L105.8,228.6 L106.7,237.9 L108.0,247.1 L109.7,256.1 L111.8,265.1 L114.2,273.9 L116.9,282.5 L120.0,290.9 L123.4,299.1 L127.1,307.1 L131.1,314.8 L135.4,322.2 L139.9,329.3 L144.6,336.0 L149.6,342.5 L154.8,348.5 L160.1,354.2 L165.7,359.5 L171.3,364.4 L177.1,368.8 L183.0,372.8 L189.0,376.4 L195.0,379.5 L201.1,382.2 L207.2,384.4 L213.3,386.1 L219.4,387.3 L225.5,388.0 L231.5,388.3 L237.4,388.0 L243.3,387.3 L249.1,386.1 L254.8,384.4 L260.3,382.2 L265.8,379.5 L271.0,376.4 L276.2,372.8 L281.1,368.8 L285.9,364.4 L290.5,359.5 L294.9,354.2 L299.1,348.5 L303.1,342.5 L306.9,336.0 L310.4,329.3 L313.7,322.2 L316.8,314.8 L319.7,307.1 L322.3,299.1 L324.7,290.9 L326.9,282.5 L328.8,273.9 L330.4,265.1 L331.8,256.1 L333.0,247.1 L333.9,237.9 L334.5,228.6 L334.9,219.3 L335.0,210.0 Z" />
+                  <path class="ghost ghost-c" d="M330.0,210.0 L329.7,201.7 L329.0,193.3 L327.7,185.0 L326.0,176.8 L323.7,168.7 L321.0,160.7 L317.9,152.8 L314.3,145.1 L310.3,137.6 L306.0,130.3 L301.3,123.1 L296.3,116.2 L291.0,109.6 L285.4,103.3 L279.7,97.2 L273.7,91.5 L267.6,86.0 L261.4,81.0 L255.1,76.2 L248.7,71.9 L242.3,67.9 L235.9,64.3 L229.5,61.1 L223.2,58.3 L216.9,55.9 L210.8,54.0 L204.7,52.5 L198.8,51.4 L193.1,50.7 L187.5,50.5 L182.1,50.7 L176.9,51.4 L171.8,52.5 L167.0,54.0 L162.4,55.9 L157.9,58.3 L153.7,61.1 L149.7,64.3 L145.9,67.9 L142.4,71.9 L139.0,76.2 L135.9,81.0 L132.9,86.0 L130.1,91.5 L127.6,97.2 L125.2,103.3 L123.0,109.6 L121.0,116.2 L119.2,123.1 L117.6,130.3 L116.1,137.6 L114.8,145.1 L113.7,152.8 L112.7,160.7 L111.9,168.7 L111.2,176.8 L110.7,185.0 L110.3,193.3 L110.1,201.7 L110.0,210.0 L110.1,218.3 L110.3,226.7 L110.7,235.0 L111.2,243.2 L111.9,251.3 L112.7,259.3 L113.7,267.2 L114.8,274.9 L116.1,282.4 L117.6,289.8 L119.2,296.9 L121.0,303.8 L123.0,310.4 L125.2,316.7 L127.6,322.8 L130.1,328.5 L132.9,334.0 L135.9,339.0 L139.0,343.8 L142.4,348.1 L145.9,352.1 L149.7,355.7 L153.7,358.9 L157.9,361.7 L162.4,364.1 L167.0,366.0 L171.8,367.5 L176.9,368.6 L182.1,369.3 L187.5,369.5 L193.1,369.3 L198.8,368.6 L204.7,367.5 L210.8,366.0 L216.9,364.1 L223.2,361.7 L229.5,358.9 L235.9,355.7 L242.3,352.1 L248.7,348.1 L255.1,343.8 L261.4,339.0 L267.6,334.0 L273.7,328.5 L279.7,322.8 L285.4,316.7 L291.0,310.4 L296.3,303.8 L301.3,296.9 L306.0,289.8 L310.3,282.4 L314.3,274.9 L317.9,267.2 L321.0,259.3 L323.7,251.3 L326.0,243.2 L327.7,235.0 L329.0,226.7 L329.7,218.3 L330.0,210.0 Z" />
+                </g>
+
+                <!-- optimal converged nested flux surfaces -->
+                <g class="flux-set">
+                  <path class="flux flux-0" d="M340.0,210.0 L339.7,199.3 L338.6,188.7 L336.9,178.1 L334.5,167.6 L331.5,157.2 L327.9,147.0 L323.7,136.9 L318.9,127.0 L313.6,117.4 L307.9,108.0 L301.8,98.9 L295.3,90.1 L288.4,81.6 L281.4,73.5 L274.0,65.8 L266.6,58.4 L259.0,51.5 L251.3,45.0 L243.7,38.9 L236.0,33.3 L228.4,28.2 L220.9,23.6 L213.6,19.5 L206.4,16.0 L199.4,13.0 L192.6,10.5 L186.0,8.5 L179.7,7.1 L173.6,6.3 L167.8,6.0 L162.3,6.3 L157.0,7.1 L152.1,8.5 L147.4,10.5 L143.0,13.0 L138.9,16.0 L135.0,19.5 L131.5,23.6 L128.1,28.2 L125.0,33.3 L122.2,38.9 L119.5,45.0 L117.1,51.5 L114.9,58.4 L112.9,65.8 L111.0,73.5 L109.4,81.6 L107.9,90.1 L106.5,98.9 L105.3,108.0 L104.3,117.4 L103.3,127.0 L102.5,136.9 L101.8,147.0 L101.3,157.2 L100.8,167.6 L100.5,178.1 L100.2,188.7 L100.0,199.3 L100.0,210.0 L100.0,220.7 L100.2,231.3 L100.5,241.9 L100.8,252.4 L101.3,262.8 L101.8,273.0 L102.5,283.1 L103.3,293.0 L104.3,302.6 L105.3,312.0 L106.5,321.1 L107.9,329.9 L109.4,338.4 L111.0,346.5 L112.9,354.2 L114.9,361.6 L117.1,368.5 L119.5,375.0 L122.2,381.1 L125.0,386.7 L128.1,391.8 L131.5,396.4 L135.0,400.5 L138.9,404.0 L143.0,407.0 L147.4,409.5 L152.1,411.5 L157.0,412.9 L162.3,413.7 L167.8,414.0 L173.6,413.7 L179.7,412.9 L186.0,411.5 L192.6,409.5 L199.4,407.0 L206.4,404.0 L213.6,400.5 L220.9,396.4 L228.4,391.8 L236.0,386.7 L243.7,381.1 L251.3,375.0 L259.0,368.5 L266.6,361.6 L274.0,354.2 L281.4,346.5 L288.4,338.4 L295.3,329.9 L301.8,321.1 L307.9,312.0 L313.6,302.6 L318.9,293.0 L323.7,283.1 L327.9,273.0 L331.5,262.8 L334.5,252.4 L336.9,241.9 L338.6,231.3 L339.7,220.7 L340.0,210.0 Z" />
+                  <path class="flux flux-1" d="M313.6,210.0 L313.4,201.7 L312.7,193.4 L311.5,185.1 L309.9,176.9 L307.8,168.8 L305.4,160.8 L302.5,153.0 L299.2,145.3 L295.6,137.8 L291.6,130.4 L287.4,123.3 L282.8,116.5 L278.1,109.9 L273.1,103.5 L267.9,97.5 L262.6,91.8 L257.1,86.3 L251.6,81.3 L246.0,76.6 L240.4,72.2 L234.8,68.2 L229.2,64.6 L223.6,61.4 L218.2,58.7 L212.8,56.3 L207.5,54.4 L202.4,52.8 L197.4,51.8 L192.5,51.1 L187.8,50.9 L183.3,51.1 L179.0,51.8 L174.8,52.8 L170.9,54.4 L167.1,56.3 L163.5,58.7 L160.1,61.4 L156.9,64.6 L153.9,68.2 L151.1,72.2 L148.4,76.6 L146.0,81.3 L143.7,86.3 L141.5,91.8 L139.6,97.5 L137.8,103.5 L136.1,109.9 L134.6,116.5 L133.2,123.3 L132.0,130.4 L130.9,137.8 L129.9,145.3 L129.1,153.0 L128.4,160.8 L127.8,168.8 L127.3,176.9 L126.9,185.1 L126.6,193.4 L126.5,201.7 L126.4,210.0 L126.5,218.3 L126.6,226.6 L126.9,234.9 L127.3,243.1 L127.8,251.2 L128.4,259.2 L129.1,267.0 L129.9,274.7 L130.9,282.2 L132.0,289.6 L133.2,296.7 L134.6,303.5 L136.1,310.1 L137.8,316.5 L139.6,322.5 L141.5,328.2 L143.7,333.7 L146.0,338.7 L148.4,343.4 L151.1,347.8 L153.9,351.8 L156.9,355.4 L160.1,358.6 L163.5,361.3 L167.1,363.7 L170.9,365.6 L174.8,367.2 L179.0,368.2 L183.3,368.9 L187.8,369.1 L192.5,368.9 L197.4,368.2 L202.4,367.2 L207.5,365.6 L212.8,363.7 L218.2,361.3 L223.6,358.6 L229.2,355.4 L234.8,351.8 L240.4,347.8 L246.0,343.4 L251.6,338.7 L257.1,333.7 L262.6,328.2 L267.9,322.5 L273.1,316.5 L278.1,310.1 L282.8,303.5 L287.4,296.7 L291.6,289.6 L295.6,282.2 L299.2,274.7 L302.5,267.0 L305.4,259.2 L307.8,251.2 L309.9,243.1 L311.5,234.9 L312.7,226.6 L313.4,218.3 L313.6,210.0 Z" />
+                  <path class="flux flux-2" d="M287.2,210.0 L287.1,204.0 L286.6,198.1 L285.9,192.1 L284.9,186.2 L283.6,180.4 L282.1,174.7 L280.3,169.1 L278.3,163.5 L276.0,158.1 L273.5,152.9 L270.8,147.8 L267.9,142.9 L264.9,138.1 L261.7,133.6 L258.3,129.2 L254.9,125.1 L251.3,121.2 L247.7,117.6 L244.0,114.2 L240.2,111.1 L236.4,108.2 L232.6,105.6 L228.8,103.3 L225.0,101.4 L221.2,99.7 L217.5,98.3 L213.8,97.2 L210.2,96.4 L206.7,95.9 L203.2,95.8 L199.9,95.9 L196.6,96.4 L193.5,97.2 L190.4,98.3 L187.5,99.7 L184.7,101.4 L182.0,103.3 L179.4,105.6 L176.9,108.2 L174.6,111.1 L172.4,114.2 L170.3,117.6 L168.4,121.2 L166.5,125.1 L164.8,129.2 L163.2,133.6 L161.8,138.1 L160.4,142.9 L159.2,147.8 L158.0,152.9 L157.0,158.1 L156.1,163.5 L155.3,169.1 L154.7,174.7 L154.1,180.4 L153.6,186.2 L153.3,192.1 L153.0,198.1 L152.9,204.0 L152.8,210.0 L152.9,216.0 L153.0,221.9 L153.3,227.9 L153.6,233.8 L154.1,239.6 L154.7,245.3 L155.3,250.9 L156.1,256.5 L157.0,261.9 L158.0,267.1 L159.2,272.2 L160.4,277.1 L161.8,281.9 L163.2,286.4 L164.8,290.8 L166.5,294.9 L168.4,298.8 L170.3,302.4 L172.4,305.8 L174.6,308.9 L176.9,311.8 L179.4,314.4 L182.0,316.7 L184.7,318.6 L187.5,320.3 L190.4,321.7 L193.5,322.8 L196.6,323.6 L199.9,324.1 L203.2,324.2 L206.7,324.1 L210.2,323.6 L213.8,322.8 L217.5,321.7 L221.2,320.3 L225.0,318.6 L228.8,316.7 L232.6,314.4 L236.4,311.8 L240.2,308.9 L244.0,305.8 L247.7,302.4 L251.3,298.8 L254.9,294.9 L258.3,290.8 L261.7,286.4 L264.9,281.9 L267.9,277.1 L270.8,272.2 L273.5,267.1 L276.0,261.9 L278.3,256.5 L280.3,250.9 L282.1,245.3 L283.6,239.6 L284.9,233.8 L285.9,227.9 L286.6,221.9 L287.1,216.0 L287.2,210.0 Z" />
+                  <path class="flux flux-3" d="M260.8,210.0 L260.7,206.4 L260.5,202.7 L260.1,199.1 L259.6,195.6 L259.0,192.0 L258.2,188.6 L257.2,185.1 L256.2,181.8 L255.0,178.5 L253.7,175.3 L252.2,172.2 L250.7,169.2 L249.1,166.4 L247.4,163.6 L245.6,161.0 L243.7,158.5 L241.7,156.1 L239.7,153.9 L237.7,151.8 L235.6,149.9 L233.4,148.2 L231.2,146.6 L229.1,145.2 L226.8,144.0 L224.6,143.0 L222.4,142.2 L220.2,141.5 L218.1,141.0 L215.9,140.7 L213.8,140.6 L211.7,140.7 L209.6,141.0 L207.6,141.5 L205.7,142.2 L203.8,143.0 L201.9,144.0 L200.1,145.2 L198.4,146.6 L196.7,148.2 L195.1,149.9 L193.6,151.8 L192.1,153.9 L190.7,156.1 L189.4,158.5 L188.2,161.0 L187.0,163.6 L186.0,166.4 L185.0,169.2 L184.1,172.2 L183.2,175.3 L182.4,178.5 L181.8,181.8 L181.2,185.1 L180.6,188.6 L180.2,192.0 L179.8,195.6 L179.6,199.1 L179.4,202.7 L179.2,206.4 L179.2,210.0 L179.2,213.6 L179.4,217.3 L179.6,220.9 L179.8,224.4 L180.2,228.0 L180.6,231.4 L181.2,234.9 L181.8,238.2 L182.4,241.5 L183.2,244.7 L184.1,247.8 L185.0,250.8 L186.0,253.6 L187.0,256.4 L188.2,259.0 L189.4,261.5 L190.7,263.9 L192.1,266.1 L193.6,268.2 L195.1,270.1 L196.7,271.8 L198.4,273.4 L200.1,274.8 L201.9,276.0 L203.8,277.0 L205.7,277.8 L207.6,278.5 L209.6,279.0 L211.7,279.3 L213.8,279.4 L215.9,279.3 L218.1,279.0 L220.2,278.5 L222.4,277.8 L224.6,277.0 L226.8,276.0 L229.1,274.8 L231.2,273.4 L233.4,271.8 L235.6,270.1 L237.7,268.2 L239.7,266.1 L241.7,263.9 L243.7,261.5 L245.6,259.0 L247.4,256.4 L249.1,253.6 L250.7,250.8 L252.2,247.8 L253.7,244.7 L255.0,241.5 L256.2,238.2 L257.2,234.9 L258.2,231.4 L259.0,228.0 L259.6,224.4 L260.1,220.9 L260.5,217.3 L260.7,213.6 L260.8,210.0 Z" />
+                  <path class="flux flux-4" d="M239.2,210.0 L239.2,208.3 L239.1,206.6 L238.9,204.9 L238.7,203.2 L238.4,201.6 L238.1,199.9 L237.7,198.3 L237.3,196.7 L236.8,195.2 L236.3,193.7 L235.7,192.2 L235.0,190.8 L234.4,189.5 L233.6,188.2 L232.9,186.9 L232.1,185.7 L231.2,184.6 L230.4,183.6 L229.5,182.6 L228.5,181.7 L227.6,180.9 L226.6,180.2 L225.7,179.5 L224.7,179.0 L223.7,178.5 L222.7,178.1 L221.6,177.8 L220.6,177.5 L219.6,177.4 L218.6,177.4 L217.6,177.4 L216.6,177.5 L215.7,177.8 L214.7,178.1 L213.8,178.5 L212.8,179.0 L211.9,179.5 L211.1,180.2 L210.2,180.9 L209.4,181.7 L208.6,182.6 L207.8,183.6 L207.1,184.6 L206.4,185.7 L205.8,186.9 L205.1,188.2 L204.5,189.5 L204.0,190.8 L203.5,192.2 L203.0,193.7 L202.6,195.2 L202.2,196.7 L201.9,198.3 L201.6,199.9 L201.4,201.6 L201.2,203.2 L201.0,204.9 L200.9,206.6 L200.8,208.3 L200.8,210.0 L200.8,211.7 L200.9,213.4 L201.0,215.1 L201.2,216.8 L201.4,218.4 L201.6,220.1 L201.9,221.7 L202.2,223.3 L202.6,224.8 L203.0,226.3 L203.5,227.8 L204.0,229.2 L204.5,230.5 L205.1,231.8 L205.8,233.1 L206.4,234.3 L207.1,235.4 L207.8,236.4 L208.6,237.4 L209.4,238.3 L210.2,239.1 L211.1,239.8 L211.9,240.5 L212.8,241.0 L213.8,241.5 L214.7,241.9 L215.7,242.2 L216.6,242.5 L217.6,242.6 L218.6,242.6 L219.6,242.6 L220.6,242.5 L221.6,242.2 L222.7,241.9 L223.7,241.5 L224.7,241.0 L225.7,240.5 L226.6,239.8 L227.6,239.1 L228.5,238.3 L229.5,237.4 L230.4,236.4 L231.2,235.4 L232.1,234.3 L232.9,233.1 L233.6,231.8 L234.4,230.5 L235.0,229.2 L235.7,227.8 L236.3,226.3 L236.8,224.8 L237.3,223.3 L237.7,221.7 L238.1,220.1 L238.4,218.4 L238.7,216.8 L238.9,215.1 L239.1,213.4 L239.2,211.7 L239.2,210.0 Z" />
+                </g>
+
+                <!-- magnetic axis core -->
+                <circle class="core-halo" cx="220" cy="210" r="46" fill="url(#core-glow)" />
+                <circle class="core-dot" cx="220" cy="210" r="4.5" />
+
+                <!-- rotating search scanner -->
+                <line class="scanner" x1="220" y1="210" x2="220" y2="40" />
+
+                <rect x="60" y="40" width="320" height="340" rx="26" fill="url(#vignette)" pointer-events="none" />
+              </svg>
+
+              <svg class="optimizer-map" viewBox="0 0 520 360" preserveAspectRatio="none" role="img" aria-hidden="true">
+                <defs>
+                  <linearGradient id="route-best" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#36d8e8" />
+                    <stop offset="62%" stop-color="#dff8ee" />
+                    <stop offset="100%" stop-color="#ff9f57" />
+                  </linearGradient>
+                </defs>
+                <g class="search-routes">
+                  <path class="route route-cold r1" d="M18 318 C105 246, 142 278, 212 212 S350 114, 496 72" />
+                  <path class="route route-cold r2" d="M24 292 C118 334, 164 228, 232 230 S367 176, 494 118" />
+                  <path class="route route-cold r3" d="M30 336 C94 176, 180 300, 252 184 S382 102, 500 152" />
+                  <path class="route route-cold r4" d="M14 272 C126 206, 196 186, 260 224 S366 272, 506 92" />
+                  <path class="route route-best" d="M20 314 C108 292, 154 230, 218 214 C300 194, 348 118, 498 82" />
+                </g>
+                <g class="route-nodes">
+                  <circle cx="90" cy="296" r="4" />
+                  <circle cx="168" cy="238" r="4" />
+                  <circle cx="246" cy="208" r="4" />
+                  <circle cx="338" cy="144" r="4" />
+                  <circle class="node-best" cx="498" cy="82" r="6" />
+                </g>
+                <g class="swarm">
+                  <circle cx="0" cy="0" r="2.4">
+                    <animateMotion dur="4.8s" repeatCount="indefinite" path="M20 314 C108 292, 154 230, 218 214 C300 194, 348 118, 498 82" />
+                  </circle>
+                  <circle cx="0" cy="0" r="1.8">
+                    <animateMotion dur="5.6s" begin=".8s" repeatCount="indefinite" path="M24 292 C118 334, 164 228, 232 230 S367 176, 494 118" />
+                  </circle>
+                  <circle cx="0" cy="0" r="2.1">
+                    <animateMotion dur="6.2s" begin="1.5s" repeatCount="indefinite" path="M30 336 C94 176, 180 300, 252 184 S382 102, 500 152" />
+                  </circle>
+                </g>
+              </svg>
+
+              <span class="reactor-badge">
+                <i></i>最优路线锁定 · BEST ROUTE LOCKED
+              </span>
+            </div>
+
+            <div class="ai-readout" aria-hidden="true">
+              <div class="ai-param"><b>拉长比 κ <span>Elongation</span></b><strong>1.70</strong><i></i></div>
+              <div class="ai-param"><b>三角度 δ <span>Triangularity</span></b><strong>0.45</strong><i></i></div>
+              <div class="ai-param"><b>归一 β<sub>N</sub> <span>Beta limit</span></b><strong>3.8</strong><i></i></div>
+              <div class="ai-param best"><b>增益 Q <span>Fusion gain</span></b><strong>11.2 ★</strong><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="scroll-index" aria-label="页面进度">
+      <span class="active"></span><span></span><span></span><span></span><span></span>
+    </aside>
+
+    <a class="site-pager" href="business.html" aria-label="下一页:商业计划">
+      <span class="site-pager-meta">02 / 06</span>
+      <span class="site-pager-label">
+        <strong>商业计划 Business</strong>
+        <em>Next · Business</em>
+      </span>
+      <span class="site-pager-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>VeloAlpha 瞬原科技</strong>
+          <span>Compute the optimal physical topology for human energy.</span>
+        </div>
+        <nav class="footer-nav" aria-label="页脚导航">
+          <a href="index.html">首页 Home</a>
+          <a href="about.html" class="is-current">使命 Mission</a>
+          <a href="business.html">商业计划 Business</a>
+          <a href="team.html">开源 Open Source</a>
+          <a href="location.html">坐标 Location</a>
+          <a href="careers.html">加入我们 Join Us</a>
+        </nav>
+        <a class="footer-contact" href="mailto:huashengxie@gmail.com">huashengxie@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        const bar = document.querySelector('.page-progress span');
+        if (!bar) return;
+        function tick() {
+          const max = document.body.scrollHeight - innerHeight;
+          const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+          bar.style.transform = `scaleX(${p})`;
+        }
+        addEventListener('scroll', tick, { passive: true });
+        tick();
+      })();
+    </script>
+  </body>
+</html>
