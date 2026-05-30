@@ -1,6 +1,6 @@
 # Velo Site
 
-Digital Fusion Platform
+The beta version of VeloAlpha's official website
 
 ## Usage
 
