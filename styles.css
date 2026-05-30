@@ -119,7 +119,10 @@ iframe {
   gap: 1rem;
   align-items: center;
   padding: 1rem 1.4rem;
-  background: linear-gradient(180deg, rgba(5, 7, 9, 0.94), rgba(5, 7, 9, 0.08), rgba(5, 7, 9, 0));
+  background: rgba(3, 7, 10, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  backdrop-filter: blur(14px) saturate(1.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .brand {
@@ -130,20 +133,28 @@ iframe {
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 2.45rem;
-  height: 2.45rem;
-  border: 1px solid rgba(54, 216, 232, 0.45);
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(7, 16, 18, 0.82);
-  box-shadow: 0 0 30px rgba(54, 216, 232, 0.28);
+  width: 2.95rem;
+  height: 2.95rem;
+  padding: 0.1rem;
+  border-radius: 11px;
+  /* transparent: bright-blue mark floats on the dark glass header */
+  background: transparent;
+  filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.45));
+  transition: filter 220ms ease, transform 220ms ease;
+}
+
+.brand:hover .brand-mark {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.7));
 }
 
 .brand-mark img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .brand-copy {

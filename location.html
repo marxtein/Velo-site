@@ -5,276 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="VeloAlpha 瞬原科技 — 北京中关村办公坐标。" />
     <title>坐标 · VeloAlpha 瞬原科技</title>
-    <link rel="icon" href="assets/veloalpha-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/veloalpha-mark-bright.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="enhance.css" />
     <link rel="stylesheet" href="creative.css" />
     <link rel="stylesheet" href="pages.css" />
     <link rel="stylesheet" href="refine.css" />
-    <style>
-      /* ══ LOCATION PAGE: override global dark backdrop ══ */
-      body.page-location #location {
-        position: relative;
-        z-index: 2;
-      }
-      body.page-location .site-backdrop {
-        background:
-          linear-gradient(90deg,
-            rgba(5,7,9,.52) 0%,
-            rgba(5,7,9,.28) 40%,
-            rgba(5,7,9,.10) 72%,
-            rgba(5,7,9,.36) 100%),
-          radial-gradient(circle at 22% 80%, rgba(255,159,87,.14), transparent 24rem),
-          radial-gradient(circle at 72% 16%, rgba(54,216,232,.16), transparent 28rem) !important;
-      }
-      body.page-location .grid-backdrop { opacity: .22 !important; }
-
-      /* force ALL text bright */
-      body.page-location h1,
-      body.page-location h2,
-      body.page-location h3,
-      body.page-location strong { color: #fff !important; }
-      body.page-location p,
-      body.page-location span:not(.loc-num):not(.dotpulse):not(.loc-hero-eyebrow):not(.accent) {
-        color: rgba(235,248,246,.92) !important;
-      }
-      body.page-location .loc-num { color: rgba(54,216,232,.85) !important; }
-      body.page-location .loc-hero-eyebrow,
-      body.page-location .page-kicker { color: var(--teal) !important; }
-      body.page-location .accent { color: var(--orange) !important; }
-
-      /* brighten the building photo */
-      .loc-photo-wrap img {
-        filter: brightness(1.18) contrast(1.06) saturate(1.1);
-      }
-
-      /* ── location page specific overrides ── */
-      .location-panel {
-        min-height: 100vh;
-        display: flex;
-        align-items: flex-start;
-        padding: calc(var(--header-h, 72px) + 2.5rem) clamp(1.5rem, 6vw, 5rem) 4rem;
-      }
-      .location-inner {
-        width: min(1260px, 100%);
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(2rem, 5vw, 5rem);
-        align-items: center;
-      }
-      @media (max-width: 860px) {
-        .location-inner { grid-template-columns: 1fr; }
-      }
-
-      /* Left: photo */
-      .loc-photo-wrap {
-        position: relative;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(54,216,232,.18);
-        box-shadow: 0 24px 64px rgba(0,0,0,.55);
-        min-width: 0;
-      }
-      .loc-photo-wrap img {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-      .loc-photo-caption {
-        position: absolute;
-        left: 0; right: 0; bottom: 0;
-        padding: .9rem 1.2rem;
-        background: linear-gradient(to top, rgba(3,8,11,.88), transparent);
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 1rem;
-      }
-      .loc-photo-caption strong {
-        font-family: "Bricolage Grotesque","Noto Sans SC", sans-serif;
-        font-size: .78rem;
-        letter-spacing: .18em;
-        color: var(--text);
-        text-transform: uppercase;
-      }
-      .loc-photo-caption span {
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: .64rem;
-        letter-spacing: .14em;
-        color: var(--teal);
-        white-space: nowrap;
-      }
-
-      /* Right: address block */
-      .loc-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        min-width: 0;
-      }
-      .loc-heading {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-      }
-      .loc-eyebrow {
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: .74rem;
-        letter-spacing: .22em;
-        color: var(--teal);
-        display: flex;
-        align-items: center;
-        gap: .55rem;
-      }
-      .loc-eyebrow .dotpulse {
-        width: .38rem; height: .38rem;
-        border-radius: 50%;
-        background: var(--teal);
-        box-shadow: 0 0 10px rgba(54,216,232,.8);
-        animation: pulse 2s ease-in-out infinite;
-      }
-      .loc-h1 {
-        font-family: "Bricolage Grotesque","Noto Serif SC","Source Han Serif SC", serif;
-        font-size: clamp(2rem, 4.5vw, 3.5rem);
-        line-height: 1.05;
-        letter-spacing: -.01em;
-        color: var(--text);
-        margin: 0;
-      }
-      .loc-h1 .loc-room {
-        color: var(--orange);
-      }
-      .loc-sub {
-        font-size: .92rem;
-        color: var(--muted);
-        letter-spacing: .02em;
-        margin-top: .15rem;
-      }
-
-      /* address-block left border */
-      .loc-address-block {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        border-left: 2px solid rgba(54,216,232,.35);
-        padding-left: 1.2rem;
-      }
-      .loc-addr-line {
-        display: flex;
-        align-items: baseline;
-        gap: .65rem;
-        padding: .6rem 0;
-        border-bottom: 1px solid rgba(54,216,232,.10);
-        font-size: .96rem;
-        color: #fff;
-        line-height: 1.4;
-      }
-      .loc-addr-line:last-child { border-bottom: none; }
-      .loc-addr-line .loc-num {
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: .62rem;
-        letter-spacing: .18em;
-        color: rgba(54,216,232,.8);
-        min-width: 1.6rem;
-        flex-shrink: 0;
-      }
-      .loc-addr-line strong {
-        color: #fff;
-        font-size: 1.05rem;
-        font-weight: 700;
-      }
-
-      /* English address card */
-      .loc-en-card {
-        padding: .9rem 1.1rem;
-        border: 1px solid rgba(54,216,232,.22);
-        border-radius: 12px;
-        background: rgba(7,13,16,.6);
-        font-size: .88rem;
-        line-height: 1.8;
-        color: rgba(230,242,240,.92);
-        font-family: "Bricolage Grotesque", sans-serif;
-        letter-spacing: .01em;
-      }
-
-      /* Transit badge */
-      .loc-transit {
-        display: inline-flex;
-        align-items: center;
-        gap: .6rem;
-        padding: .5rem .85rem;
-        border: 1px solid rgba(255,159,87,.28);
-        border-radius: 30px;
-        background: rgba(255,159,87,.08);
-        color: rgba(255,200,140,.9);
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: .7rem;
-        letter-spacing: .14em;
-        white-space: normal;
-        align-self: flex-start;
-        max-width: 100%;
-        word-break: break-word;
-      }
-      .loc-transit i {
-        width: .38rem; height: .38rem;
-        border-radius: 50%;
-        background: var(--orange);
-        flex-shrink: 0;
-      }
-      /* ── top hero title ── */
-      .loc-hero {
-        width: 100%;
-        text-align: center;
-        padding-bottom: 2.5rem;
-        border-bottom: 1px solid rgba(54,216,232,.1);
-        margin-bottom: 2.5rem;
-      }
-      .loc-hero-eyebrow {
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: .74rem;
-        letter-spacing: .26em;
-        color: var(--teal);
-        margin-bottom: .7rem;
-        display: flex; align-items: center; justify-content: center; gap: .55rem;
-      }
-      .loc-hero h1 {
-        font-family: "Bricolage Grotesque","Noto Serif SC", serif;
-        font-size: clamp(2.4rem, 6vw, 5rem);
-        line-height: 1.0;
-        letter-spacing: -.02em;
-        color: #fff;
-        margin: 0 0 .5rem;
-      }
-      .loc-hero h1 .accent { color: var(--orange); }
-      .loc-hero p {
-        font-size: 1rem;
-        color: rgba(200,220,218,.85);
-        letter-spacing: .04em;
-      }
-      .loc-hero-en {
-        display: block;
-        margin-top: .45rem;
-        font-family: "Cascadia Mono", ui-monospace, monospace;
-        font-size: clamp(.78rem, 1.2vw, .98rem);
-        line-height: 1.35;
-        letter-spacing: .22em;
-        text-transform: uppercase;
-        color: rgba(54,216,232,.88) !important;
-      }
-      /* make inner grid sit below the hero */
-      .location-inner { align-items: start; }
-      /* wrap hero + grid */
-      .location-wrap {
-        width: min(1260px,100%);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-      }
-      .location-inner.reveal,
-      .location-inner .reveal { opacity: 1 !important; transform: none !important; }
-    </style>
   </head>
   <body class="page-location single-section">
     <a class="skip-link" href="#location">跳过导航,进入正文</a>
@@ -290,14 +26,15 @@
 
     <header class="site-header" aria-label="主导航">
       <a class="brand" href="index.html" aria-label="VeloAlpha 首页">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark.svg" alt="" /></span>
+        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark-bright.svg" alt="" /></span>
         <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
       </a>
       <nav class="site-nav" aria-label="页面导航">
         <a href="index.html">首页 Home</a>
-        <a href="about.html">使命 Mission</a>
+        <a href="mission.html">使命 Mission</a>
         <a href="business.html">商业计划 Business</a>
-        <a href="team.html">开源 Open Source</a>
+        <a href="opensource.html">开源 Open Source</a>
+        <a href="resources.html">相关资料 Resources</a>
         <a href="location.html" class="is-current">坐标 Location</a>
         <a href="careers.html">加入我们 Join Us</a>
       </nav>
@@ -311,16 +48,16 @@
 
     <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
       <a href="index.html">首页 Home</a>
-      <a href="about.html">使命 Mission</a>
+      <a href="mission.html">使命 Mission</a>
       <a href="business.html">商业计划 Business</a>
-      <a href="team.html">开源 Open Source</a>
+      <a href="opensource.html">开源 Open Source</a>
+      <a href="resources.html">相关资料 Resources</a>
       <a href="location.html">坐标 Location</a>
       <a href="careers.html">加入我们 Join Us</a>
     </nav>
 
-    <main id="location">
+    <main class="snap-shell" id="location">
       <section class="location-panel" data-index="05">
-        <span class="side-rail" aria-hidden="true"><b>05</b> Location · 坐标</span>
         <div class="location-wrap">
 
           <!-- Top hero title -->
@@ -382,29 +119,12 @@
       </section>
     </main>
 
-    <a class="site-pager" href="careers.html" aria-label="下一页:加入我们">
-      <span class="site-pager-meta">05 / 06</span>
-      <span class="site-pager-label">
-        <strong>加入我们 Join Us</strong>
-        <em>Next · Join Us</em>
-      </span>
-      <span class="site-pager-arrow" aria-hidden="true">→</span>
-    </a>
-
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
           <strong>VeloAlpha 瞬原科技</strong>
           <span>Decode the origin of physics with ultimate algorithms.</span>
         </div>
-        <nav class="footer-nav" aria-label="页脚导航">
-          <a href="index.html">首页 Home</a>
-          <a href="about.html">使命 Mission</a>
-          <a href="business.html">商业计划 Business</a>
-          <a href="team.html">开源 Open Source</a>
-          <a href="location.html" class="is-current">坐标 Location</a>
-          <a href="careers.html">加入我们 Join Us</a>
-        </nav>
         <a class="footer-contact" href="mailto:huashengxie@gmail.com">huashengxie@gmail.com</a>
       </div>
     </footer>

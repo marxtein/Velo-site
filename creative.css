@@ -1534,3 +1534,317 @@
   }
   .os-term-body { font-size: 0.74rem; }
 }
+
+/* ═══════════════════════ 07 · RESOURCES — fusion toolkit ═══════════════════════ */
+
+/* ── Hero ── */
+.rs-hero {
+  text-align: center;
+  max-width: 60rem;
+  margin: 0 auto 3rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.rs-hero .eyebrow { justify-content: center; }
+
+.rs-headline {
+  margin: 0.4rem 0 0;
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  color: #fff;
+}
+.rs-headline-en {
+  font-family: "Cascadia Mono", monospace;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  color: rgba(205, 225, 224, 0.65);
+  letter-spacing: 0.04em;
+}
+.rs-statement {
+  margin-top: 0.6rem;
+  max-width: 52rem;
+  margin-left: auto; margin-right: auto;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+  text-wrap: balance;
+}
+.rs-statement-en {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.76rem;
+  color: rgba(205, 225, 224, 0.45);
+  line-height: 1.45;
+}
+
+/* ── Section dividers ── */
+.rs-section {
+  margin-bottom: 3.5rem;
+}
+.rs-section-title {
+  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(54, 216, 232, 0.15);
+}
+.rs-section-title-en {
+  display: block;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(205, 225, 224, 0.4);
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+}
+
+/* ── Tool groups ── */
+.rs-tool-group {
+  margin-top: 1.8rem;
+}
+.rs-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.rs-group-icon { font-size: 0.95rem; line-height: 1; }
+.rs-group-title-en {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.66rem;
+  font-weight: 400;
+  color: rgba(205, 225, 224, 0.35);
+  letter-spacing: 0.04em;
+  margin-left: 0.3rem;
+}
+
+/* ── Tool row ── */
+.rs-tool-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1.2rem;
+  align-items: start;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 0.55rem;
+  border: 1px solid rgba(54, 216, 232, 0.08);
+  border-radius: 12px;
+  background: rgba(7, 13, 16, 0.25);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.rs-tool-row:hover {
+  border-color: rgba(54, 216, 232, 0.22);
+  background: rgba(7, 13, 16, 0.45);
+}
+
+.rs-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.6rem;
+  font-family: "Cascadia Mono", "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: rgba(54, 216, 232, 0.1);
+  border: 1px solid rgba(54, 216, 232, 0.25);
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+.rs-tool-badge--wip {
+  color: var(--orange);
+  background: rgba(255, 159, 87, 0.08);
+  border-color: rgba(255, 159, 87, 0.2);
+}
+
+.rs-tool-body {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.rs-tool-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+}
+.rs-tool-name-en {
+  display: block;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(205, 225, 224, 0.4);
+  letter-spacing: 0.03em;
+  margin-top: 0.1rem;
+}
+
+.rs-tool-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.rs-tool-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 52rem;
+}
+
+/* ── Foundation timeline ── */
+.rs-foundation-timeline {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+  padding: 0.5rem 0;
+}
+.rs-timeline-row {
+  display: grid;
+  grid-template-columns: 3.5rem auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.rs-timeline-row:hover {
+  background: rgba(54, 216, 232, 0.04);
+}
+.rs-timeline-year {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-align: right;
+}
+.rs-timeline-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px rgba(54, 216, 232, 0.4);
+  justify-self: center;
+}
+.rs-timeline-body a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.rs-timeline-body a:hover {
+  color: var(--teal);
+}
+.rs-timeline-journal {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.66rem;
+  color: rgba(205, 225, 224, 0.35);
+  letter-spacing: 0.04em;
+  margin-left: 0.5rem;
+}
+
+/* ── Books ── */
+.rs-books {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  margin-top: 1.2rem;
+}
+.rs-book-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(54, 216, 232, 0.12);
+  border-radius: 14px;
+  background: rgba(7, 13, 16, 0.3);
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  align-items: flex-start;
+}
+.rs-book-card:hover {
+  border-color: rgba(54, 216, 232, 0.3);
+  box-shadow: 0 0 24px rgba(54, 216, 232, 0.06);
+}
+.rs-book-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.rs-book-body {
+  display: grid;
+  gap: 0.35rem;
+}
+.rs-book-title {
+  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.rs-book-title-en {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.66rem;
+  color: rgba(205, 225, 224, 0.4);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+.rs-book-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.rs-book-link {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--teal);
+  letter-spacing: 0.03em;
+}
+
+/* ── Footer ── */
+.rs-foot {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(205, 225, 224, 0.4);
+  margin-top: 1rem;
+}
+.rs-foot-en {
+  display: block;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 780px) {
+  .rs-tool-row {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .rs-tool-badge {
+    justify-self: start;
+  }
+  .rs-books {
+    grid-template-columns: 1fr;
+  }
+  .rs-timeline-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .rs-timeline-year,
+  .rs-timeline-dot {
+    display: none;
+  }
+}

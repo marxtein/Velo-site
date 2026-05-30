@@ -5,73 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="VeloAlpha 瞬原科技 — 使命、行业拐点、计算基座、数字聚变堆、AI for Fusion。" />
     <title>使命 · VeloAlpha 瞬原科技</title>
-    <link rel="icon" href="assets/veloalpha-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/veloalpha-mark-bright.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="enhance.css" />
     <link rel="stylesheet" href="creative.css" />
     <link rel="stylesheet" href="pages.css" />
     <link rel="stylesheet" href="refine.css" />
-    <style>
-      /* 03 节 —— 动画需足够高度完整呈现(KPI→模块→相位→trace 纵向堆叠) */
-      .panel.vision {
-        min-height: auto !important;
-        padding-top: 4.5rem !important;
-        padding-bottom: 3rem !important;
-      }
-      .panel.vision .vision-overlay {
-        min-height: auto !important;
-        align-items: center !important;
-        gap: clamp(1.4rem, 2.4vw, 2rem) !important;
-        padding: 0 clamp(1rem, 2vw, 1.5rem) 1rem !important;
-      }
-      .panel.vision .section-heading {
-        margin-bottom: clamp(0.4rem, 1vw, 0.8rem) !important;
-      }
-      /* 文字框与右侧动画等高对齐;内容竖向居中,留出舒适间隔 */
-      .panel.vision .vision-copy {
-        align-self: stretch !important;
-        min-height: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: clamp(1rem, 1.7vw, 1.5rem) !important;
-        padding: clamp(1.7rem, 2.5vw, 2.4rem) clamp(1.4rem, 1.9vw, 1.7rem) !important;
-      }
-      .panel.vision .vision-copy h2 {
-        margin: 0 !important;
-        font-size: clamp(1.55rem, 2.5vw, 2.45rem) !important;
-        line-height: 1.22 !important;
-      }
-      .panel.vision .vision-copy > p { margin: 0 !important; }
-      .panel.vision .vision-copy .vision-slogan {
-        font-size: clamp(1.05rem, 1.5vw, 1.3rem) !important;
-      }
-      .panel.vision .vision-copy > p:not(.vision-slogan):not(.notice) {
-        font-size: 1rem !important;
-        line-height: 1.9 !important;
-      }
-      .panel.vision .notice {
-        margin: 0 !important;
-        padding-top: 1rem !important;
-      }
-      .panel.vision .vision-anim {
-        align-self: stretch !important;
-        height: 600px !important;
-        min-height: 600px !important;
-        aspect-ratio: auto !important;
-      }
-
-      @media (max-width: 1080px) {
-        .panel.vision .vision-overlay { grid-template-columns: 1fr !important; }
-        .panel.vision .vision-copy { align-self: stretch !important; justify-content: flex-start !important; }
-        .panel.vision .vision-anim { height: 540px !important; min-height: 540px !important; }
-      }
-      @media (max-width: 640px) {
-        .panel.vision .vision-anim { height: 480px !important; min-height: 480px !important; }
-      }
-    </style>
   </head>
-  <body class="page-about">
+  <body class="page-mission">
     <a class="skip-link" href="#cost">跳过导航,进入正文</a>
 
     <iframe
@@ -87,14 +28,15 @@
 
     <header class="site-header" aria-label="主导航">
       <a class="brand" href="index.html" aria-label="VeloAlpha 首页">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark.svg" alt="" /></span>
+        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark-bright.svg" alt="" /></span>
         <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
       </a>
       <nav class="site-nav" aria-label="页面导航">
         <a href="index.html">首页 Home</a>
-        <a href="about.html" class="is-current">使命 Mission</a>
+        <a href="mission.html" class="is-current">使命 Mission</a>
         <a href="business.html">商业计划 Business</a>
-        <a href="team.html">开源 Open Source</a>
+        <a href="opensource.html">开源 Open Source</a>
+        <a href="resources.html">相关资料 Resources</a>
         <a href="location.html">坐标 Location</a>
         <a href="careers.html">加入我们 Join Us</a>
       </nav>
@@ -108,18 +50,17 @@
 
     <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
       <a href="index.html">首页 Home</a>
-      <a href="about.html">使命 Mission</a>
+      <a href="mission.html">使命 Mission</a>
       <a href="business.html">商业计划 Business</a>
-      <a href="team.html">开源 Open Source</a>
+      <a href="opensource.html">开源 Open Source</a>
+      <a href="resources.html">相关资料 Resources</a>
       <a href="location.html">坐标 Location</a>
       <a href="careers.html">加入我们 Join Us</a>
     </nav>
 
     <main class="snap-shell">
       <!-- ═══════════════════ 00 · OVERVIEW · 序 ═══════════════════ -->
-      <section class="panel about-hero" id="overview" data-index="00">
-        <span class="side-rail" aria-hidden="true"><b>00</b> Overview · 序</span>
-        <div class="panel-inner about-hero-inner">
+      <section class="panel about-hero" id="overview" data-index="00">        <div class="panel-inner about-hero-inner">
           <div class="cover-frame about-hero-frame">
             <div class="cover-copy about-hero-copy reveal">
               <p class="eyebrow eyebrow-pulse page-kicker">
@@ -150,13 +91,11 @@
       </section>
 
       <!-- ═══════════════════ 01 · WHY NOW · 拐点 ═══════════════════ -->
-      <section class="panel cost" id="cost" data-index="01">
-        <span class="side-rail" aria-hidden="true"><b>01</b> Why now · 拐点</span>
-        <div class="panel-inner">
+      <section class="panel cost" id="cost" data-index="01">        <div class="panel-inner">
           <div class="section-heading reveal">
             <p class="eyebrow">01 · Why now / 行业拐点</p>
             <h2>从十年级的硬件试错<span class="hero-punct hero-punct--orange">,</span>到小时级的算法推演</h2>
-            <p class="section-en">Shift decade-scale hardware trials into microsecond-scale computational discovery.</p>
+            <p class="section-en">Shift decade-scale hardware trials into hour-scale computational discovery.</p>
           </div>
 
           <div class="duel-board reveal reveal-d1">
@@ -173,7 +112,7 @@
               <article>
                 <img class="cost-diagram" src="assets/slide_02_right.png" alt="高保真计算模拟示意图" />
                 <strong>计算路线 · Computational path</strong>
-                <span>把答案搬到数字世界 — <em>快速</em>寻优,<em>万倍</em>加速。</span>
+                <span>将寻优过程迁移至数字世界 — <em>快速</em>寻优,<em>千至万倍</em>加速。</span>
                 <em>Move route discovery into software: simulate, optimize, generate before hardware.</em>
               </article>
             </div>
@@ -187,9 +126,7 @@
       </section>
 
       <!-- ═══════════════════ 02 · ENGINE · 计算基座 ═══════════════════ -->
-      <section class="panel modules" id="modules" data-index="02">
-        <span class="side-rail" aria-hidden="true"><b>02</b> Engine · 计算基座</span>
-        <div class="panel-inner module-layout">
+      <section class="panel modules" id="modules" data-index="02">        <div class="panel-inner module-layout">
           <div class="section-heading section-heading--centered reveal">
             <p class="eyebrow">02 · Engine / 计算基座</p>
             <h2>把聚变拆成可验证、可组合、可加速的物理模块</h2>
@@ -268,7 +205,7 @@
                   <span class="agg-tag">02·C</span>
                   <h3>集成 · Integration</h3>
                 </div>
-                <p class="agg-sub">拆完，还要拼回去：在数字世界里造一座数字聚变堆</p>
+                <p class="agg-sub">拆完，还要拼回去：在数字世界里构建一座完整的聚变堆</p>
                 <p class="agg-arrow" aria-hidden="true">
                   <i></i>
                   <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v9M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
@@ -377,9 +314,7 @@
       </section>
 
       <!-- ═══════════════════ 03 · DIGITAL FUSION REACTOR · 数字聚变堆 ═══════════════════ -->
-      <section class="panel vision" id="vision" data-index="03">
-        <span class="side-rail" aria-hidden="true"><b>03</b> Digital Fusion Reactor · 数字聚变堆</span>
-        <div class="section-heading section-heading--centered reveal">
+      <section class="panel vision" id="vision" data-index="03">        <div class="section-heading section-heading--centered reveal">
           <p class="eyebrow">03 · Digital Fusion Reactor / 数字聚变堆</p>
           <h2>数字世界的聚变实验</h2>
           <p class="section-en">Fusion experiments in the digital world.</p>
@@ -389,7 +324,7 @@
             <h2>解锁聚变能源,<br />推演复杂世界</h2>
             <p class="en vision-slogan">Unlock fusion energy, compute the complex world.</p>
             <p>
-              先在数字世界把答案算出来 — 生成路线、筛选拓扑、验证约束、推演放电,再把最可信的方案交给真实装置。
+              先在数字世界把答案算出来 — 生成路线、筛选拓扑、验证约束、推演放电,再将最可信的方案交付真实装置验证。
             </p>
             <p class="notice">注:本页动画为示意,不代表最终成品。<span class="en"> · Illustrative animation only.</span></p>
           </div>
@@ -405,15 +340,13 @@
       </section>
 
       <!-- ═══════════════════ 04 · AI FOR FUSION (new) ═══════════════════ -->
-      <section class="panel ai-fusion" id="ai-fusion" data-index="04">
-        <span class="side-rail" aria-hidden="true"><b>04</b> AI for Fusion</span>
-        <div class="panel-inner">
+      <section class="panel ai-fusion" id="ai-fusion" data-index="04">        <div class="panel-inner">
           <div class="ai-copy reveal">
             <p class="eyebrow">04 · AI for Fusion / AI聚变寻优</p>
             <h2><span class="grad">AI</span> for Fusion,<br/>让 AI 来持续寻找聚变最优解</h2>
             <p class="ai-en">Scan the parameter space, score the constraints, and keep humans in control.</p>
             <p>
-              AI 负责批量评估候选方案,把可复现的结果交给人复核。下面展示的是从探索到收敛的寻优过程。
+              AI 负责批量评估候选方案,将可复现结果交由专家复核。以下展示从探索到收敛的寻优过程。
             </p>
           </div>
 
@@ -529,36 +462,18 @@
           </div>
         </div>
       </section>
-
     </main>
 
     <aside class="scroll-index" aria-label="页面进度">
       <span class="active"></span><span></span><span></span><span></span><span></span>
     </aside>
 
-    <a class="site-pager" href="business.html" aria-label="下一页:商业计划">
-      <span class="site-pager-meta">02 / 06</span>
-      <span class="site-pager-label">
-        <strong>商业计划 Business</strong>
-        <em>Next · Business</em>
-      </span>
-      <span class="site-pager-arrow" aria-hidden="true">→</span>
-    </a>
-
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
           <strong>VeloAlpha 瞬原科技</strong>
-          <span>Compute the optimal physical topology for human energy.</span>
+          <span>Decode the origin of physics with ultimate algorithms.</span>
         </div>
-        <nav class="footer-nav" aria-label="页脚导航">
-          <a href="index.html">首页 Home</a>
-          <a href="about.html" class="is-current">使命 Mission</a>
-          <a href="business.html">商业计划 Business</a>
-          <a href="team.html">开源 Open Source</a>
-          <a href="location.html">坐标 Location</a>
-          <a href="careers.html">加入我们 Join Us</a>
-        </nav>
         <a class="footer-contact" href="mailto:huashengxie@gmail.com">huashengxie@gmail.com</a>
       </div>
     </footer>

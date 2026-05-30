@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="bi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="VeloAlpha 瞬原科技 — 聚变工具手册，精选关键文献、参考代码与工程笔记，构建从推导到实现的技术路径。" />
+    <title>相关资料 · VeloAlpha 瞬原科技</title>
+    <link rel="icon" href="assets/veloalpha-mark-bright.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="enhance.css" />
+    <link rel="stylesheet" href="creative.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="refine.css" />
+  </head>
+  <body class="page-resources single-section">
+    <a class="skip-link" href="#resources-hub">跳过导航,进入正文</a>
+
+    <iframe
+      class="fusion-bg-frame"
+      src="animations/codex_animation_fusion_field_morph.html?bg=1"
+      title="托卡马克到仿星器粒子场背景动画"
+      aria-hidden="true"
+    ></iframe>
+    <div class="site-backdrop" aria-hidden="true"></div>
+    <div class="grid-backdrop" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="VeloAlpha 首页">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark-bright.svg" alt="" /></span>
+        <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
+      </a>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="index.html">首页 Home</a>
+        <a href="mission.html">使命 Mission</a>
+        <a href="business.html">商业计划 Business</a>
+        <a href="opensource.html">开源 Open Source</a>
+        <a href="resources.html" class="is-current">相关资料 Resources</a>
+        <a href="location.html">坐标 Location</a>
+        <a href="careers.html">加入我们 Join Us</a>
+      </nav>
+      <div class="header-actions">
+        <a class="nav-cta" href="mailto:huashengxie@gmail.com">联系 Contact</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
+      <a href="index.html">首页 Home</a>
+      <a href="mission.html">使命 Mission</a>
+      <a href="business.html">商业计划 Business</a>
+      <a href="opensource.html">开源 Open Source</a>
+      <a href="resources.html">相关资料 Resources</a>
+      <a href="location.html">坐标 Location</a>
+      <a href="careers.html">加入我们 Join Us</a>
+    </nav>
+
+    <main class="snap-shell">
+      <section class="panel resources-hub" id="resources-hub" data-index="07">
+        <div class="panel-inner resources-layout">
+
+          <!-- Hero -->
+          <div class="rs-hero reveal">
+            <p class="eyebrow eyebrow-pulse page-kicker">
+              <span class="dotpulse" aria-hidden="true"></span>
+              Resources / 相关资料
+            </p>
+            <h1 class="rs-headline">聚变工具手册</h1>
+            <p class="rs-headline-en">The Fusion Toolkit</p>
+            <p class="rs-statement">
+              精选关键文献、参考代码与工程笔记<span class="hero-punct hero-punct--orange">,</span>
+              构建从纸面推导到可运行实现的技术路径<span class="hero-punct hero-punct--teal">.</span>
+              <span class="rs-statement-en">Curated papers, reference codes and engineering notes — from paper derivations to runnable implementations.</span>
+            </p>
+          </div>
+
+          <!-- ═══════ 数值工具 ═══════ -->
+          <div class="rs-section reveal reveal-d1">
+            <h2 class="rs-section-title">数值工具 <span class="rs-section-title-en">Numerical Tools</span></h2>
+
+            <!-- 辐射与反应率 -->
+            <div class="rs-tool-group">
+              <h3 class="rs-group-title">
+                <span class="rs-group-icon">☢️</span>
+                辐射与反应率
+                <span class="rs-group-title-en">Radiation &amp; Reactivity</span>
+              </h3>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">Xie24</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    轫致辐射精确拟合公式
+                    <span class="rs-tool-name-en">Accurate analytical fitting of bremsstrahlung radiation</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://doi.org/10.1088/1361-6587/ad877f" target="_blank" class="pillar-tag">PPCF 2024</a>
+                    <a href="https://arxiv.org/abs/2404.11540" target="_blank" class="pillar-tag pillar-tag--orange">arXiv</a>
+                    <a href="https://github.com/hsxie/brem" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">为聚变等离子体轫致辐射提供从低温 keV 到极端相对论温区均适用的精确拟合公式，覆盖 Maxwell 及非 Maxwell 电子分布。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">Xie23</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    聚变反应率蒙特卡罗计算
+                    <span class="rs-tool-name-en">Fusion reactivity with arbitrary ion velocity distributions</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://doi.org/10.1016/j.cpc.2023.108862" target="_blank" class="pillar-tag">CPC 2023</a>
+                    <a href="https://arxiv.org/abs/2302.09753" target="_blank" class="pillar-tag pillar-tag--orange">arXiv</a>
+                    <a href="https://github.com/hsxie/fusionreactivity" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">简单快速的蒙特卡罗方法，高效计算任意离子速度分布（双麦氏、漂移环束、慢化分布等）下的聚变反应率。</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 平衡与输运 -->
+            <div class="rs-tool-group">
+              <h3 class="rs-group-title">
+                <span class="rs-group-icon">⚖️</span>
+                平衡与输运
+                <span class="rs-group-title-en">Equilibrium &amp; Transport</span>
+              </h3>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">VEQ</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    等离子体平衡求解器 (2D+3D)
+                    <span class="rs-tool-name-en">Grad-Shafranov equilibrium solver with variational parameter method</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://arxiv.org/abs/2601.02942" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                    <a href="https://arxiv.org/abs/2602.11422" target="_blank" class="pillar-tag pillar-tag--orange">VEQ-R</a>
+                    <a href="https://github.com/hsxie/gseq" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">基于变分参数法的 Grad-Shafranov 方程求解器，回答"最少需要几个参数才能精确表示平衡位形"这一基础问题。VEQ-R 扩展支持环向旋转效应。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge rs-tool-badge--wip">VTS</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    输运求解器
+                    <span class="rs-tool-name-en">Variational transport solver (internal)</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <span class="pillar-tag pillar-tag--ghost">开发中</span>
+                  </div>
+                  <p class="rs-tool-desc">基于变分参数法的等离子体输运求解器。</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 波与不稳定性 -->
+            <div class="rs-tool-group">
+              <h3 class="rs-group-title">
+                <span class="rs-group-icon">🌊</span>
+                波与不稳定性
+                <span class="rs-group-title-en">Waves &amp; Instabilities</span>
+              </h3>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">BORAY</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    轴对称射线追踪
+                    <span class="rs-tool-name-en">Ray tracing for EC / LH / IC / AW waves</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://doi.org/10.1016/j.cpc.2022.108363" target="_blank" class="pillar-tag">CPC 2022</a>
+                    <a href="https://arxiv.org/abs/2105.12014" target="_blank" class="pillar-tag pillar-tag--orange">arXiv</a>
+                    <a href="https://github.com/hsxie/boray" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">支持闭合与开放磁力线位形的通用射线追踪代码，覆盖电子回旋波、低杂波、离子回旋波和 Alfvén 波，已在托卡马克和偶极场中验证。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">BO‑FW1D</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    全波吸收计算
+                    <span class="rs-tool-name-en">Full-wave absorption in magnetized plasmas</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://doi.org/10.1063/5.0273584" target="_blank" class="pillar-tag">PoP 2026</a>
+                    <a href="https://arxiv.org/abs/2511.12906" target="_blank" class="pillar-tag pillar-tag--orange">arXiv</a>
+                    <a href="https://github.com/hsxie/bo" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">鲁棒的磁化等离子体电磁波总吸收率计算方法，已在 ICRF、LHW 和 ECW 多个频段验证，集成到 BORAY 射线追踪代码中。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">fluidBW</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    离子回旋流体模型
+                    <span class="rs-tool-name-en">Fluid model with accurate kinetic Bernstein waves</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://doi.org/10.1063/5.0273583" target="_blank" class="pillar-tag">PoP 2025</a>
+                    <a href="https://arxiv.org/abs/2502.06550" target="_blank" class="pillar-tag pillar-tag--orange">arXiv</a>
+                    <a href="https://github.com/hsxie/fluidbw" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">首次成功构建能同时捕获动理学 Landau 阻尼和 Bernstein 模的线性流体模型，通过精确有理近似实现从 k⊥ρ→0 到 k⊥ρ→∞ 的全域覆盖。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════ 方法论底座 ═══════ -->
+          <div class="rs-section reveal reveal-d2">
+            <h2 class="rs-section-title">
+              方法论底座：变分参数法
+              <span class="rs-section-title-en">Foundation: Variational Parameter Method</span>
+            </h2>
+
+            <div class="rs-tool-group">
+              <h3 class="rs-group-title">
+                <span class="rs-group-icon">🧮</span>
+                BO / GPDF — 等离子体波与色散函数统一框架
+                <span class="rs-group-title-en">Unified plasma wave &amp; dispersion function framework</span>
+              </h3>
+
+              <div class="rs-foundation-timeline">
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2013</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://doi.org/10.1063/1.4822332" target="_blank">GPDF — Generalized Plasma Dispersion Function</a>
+                    <span class="rs-timeline-journal">Phys. Plasmas</span>
+                  </div>
+                </div>
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2016</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://doi.org/10.1088/1009-0630/18/2/01" target="_blank">PDRK — 动理学色散关系求解器</a>
+                    <span class="rs-timeline-journal">Plasma Sci. Technol.</span>
+                  </div>
+                </div>
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2019</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0010465519302012" target="_blank">BO — 等离子体波与不稳定性统一分析工具</a>
+                    <span class="rs-timeline-journal">Comput. Phys. Commun.</span>
+                  </div>
+                </div>
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2021</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://arxiv.org/abs/2103.16014" target="_blank">BO 2.0 — 增强极化计算</a>
+                    <span class="rs-timeline-journal">arXiv</span>
+                  </div>
+                </div>
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2024</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://arxiv.org/abs/2404.18719" target="_blank">Rapid computation of plasma dispersion function</a>
+                    <span class="rs-timeline-journal">AIP Advances</span>
+                  </div>
+                </div>
+                <div class="rs-timeline-row">
+                  <span class="rs-timeline-year">2025</span>
+                  <span class="rs-timeline-dot"></span>
+                  <div class="rs-timeline-body">
+                    <a href="https://arxiv.org/abs/2501.06477" target="_blank">BO arbitrary — 任意分布框架</a>
+                    <span class="rs-timeline-journal">arXiv</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════ 工具书 ═══════ -->
+          <div class="rs-section reveal reveal-d2">
+            <h2 class="rs-section-title">工具书 <span class="rs-section-title-en">Reference Books</span></h2>
+
+            <div class="rs-books">
+              <a class="rs-book-card" href="https://github.com/hsxie/fusionbook" target="_blank">
+                <span class="rs-book-icon">📘</span>
+                <div class="rs-book-body">
+                  <div class="rs-book-title">聚变点火原理概述</div>
+                  <div class="rs-book-title-en">Introduction to Fusion Ignition Principles: Zeroth Order Factors of Fusion Energy Research</div>
+                  <div class="rs-book-desc">聚变能源研究的零级量入门读物，涵盖 Lawson 判据、能量平衡、惯性约束与磁约束对比等基础概念。</div>
+                  <div class="rs-book-link">github.com/hsxie/fusionbook</div>
+                </div>
+              </a>
+
+              <a class="rs-book-card" href="https://github.com/hsxie/cppbook" target="_blank">
+                <span class="rs-book-icon">📗</span>
+                <div class="rs-book-body">
+                  <div class="rs-book-title">计算等离子体物理导论</div>
+                  <div class="rs-book-title-en">Introduction to Computational Plasma Physics</div>
+                  <div class="rs-book-desc">科学出版社 2018 年出版，系统介绍等离子体物理中的数值计算方法，含 PIC、流体、动理学等多种方法的原理与实现。</div>
+                  <div class="rs-book-link">github.com/hsxie/cppbook</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <p class="rs-foot reveal reveal-d2">
+            资料持续整理中，欢迎推荐补充。
+            <span class="rs-foot-en">Curated continuously. Suggestions welcome.</span>
+          </p>
+
+        </div>
+      </section>
+    </main>
+
+        <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>VeloAlpha 瞬原科技</strong>
+          <span>Decode the origin of physics with ultimate algorithms.</span>
+        </div>
+        <a class="footer-contact" href="mailto:huashengxie@gmail.com">huashengxie@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

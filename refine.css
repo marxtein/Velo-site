@@ -65,7 +65,8 @@ strong, b { color: #fff !important; }
 .agg-tag, .pillar-num {
   color: var(--teal) !important;
 }
-.hero-punct--orange, .accent,
+.hero-punct--orange { color: inherit !important; }
+.accent,
 .loc-room, .os-line--accent {
   color: var(--orange) !important;
 }
@@ -74,8 +75,13 @@ strong, b { color: #fff !important; }
 .site-header { transition: transform .38s cubic-bezier(.4,.0,.2,1); }
 .site-header.is-hidden { transform: translateY(-110%); }
 
-/* brand block — single horizontal line for clarity */
-.brand-copy { display: inline-flex !important; align-items: baseline; gap: .55rem; line-height: 1; }
+/* brand block — chip + wordmark, hairline divider between them */
+.brand { gap: .58rem !important; }
+.brand-copy {
+  display: inline-flex !important; align-items: baseline; gap: .5rem; line-height: 1;
+  padding-left: .62rem; border-left: 1px solid rgba(255, 255, 255, .12);
+}
+.brand-copy strong { color: #f3f9f8; }
 .brand-copy strong { font-size: 1.04rem; letter-spacing: -.005em; }
 .brand-copy span {
   margin-top: 0 !important;
@@ -335,7 +341,7 @@ body.page-cover .site-pager { display: none; }
 /* Hide the entire old opensource (trilemma) panel — removed per request */
 .panel.opensource { display: none !important; }
 
-/* ─────────────── AI for Fusion (new section on about.html) ─────────────── */
+/* ─────────────── AI for Fusion (new section on mission.html) ─────────────── */
 .panel.ai-fusion {
   isolation: isolate;
 }
@@ -998,7 +1004,7 @@ body.page-location .loc-hero p {
   align-items: center !important;
   justify-content: center !important;
   gap: .58rem !important;
-  margin: 0 auto .95rem !important;
+  margin: 0 auto 1rem !important;
   color: var(--teal) !important;
   font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif !important;
   font-size: .78rem !important;
@@ -1021,6 +1027,7 @@ body.page-location .loc-hero p {
 .business-hero,
 .os-hero,
 .loc-hero,
+.rs-hero,
 .careers-hero {
   text-align: center !important;
   justify-items: center !important;
@@ -1029,8 +1036,10 @@ body.page-location .loc-hero p {
 .business-hero h2,
 .os-headline,
 .loc-hero h1,
+.rs-headline,
 .careers-hero h2 {
   max-width: 68rem !important;
+  margin-top: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;
   color: #fff !important;
@@ -1044,6 +1053,8 @@ body.page-location .loc-hero p {
 .business-hero .section-en,
 .os-headline-en,
 .loc-hero-en,
+.rs-headline-en,
+.rs-statement-en,
 .careers-hero .section-en {
   display: block !important;
   margin: .58rem auto 0 !important;
@@ -1129,12 +1140,6 @@ body.page-location .loc-hero > .page-kicker,
 }
 .loc-hero > p:not(.page-kicker) {
   display: none !important;
-}
-
-@media (min-width: 721px) {
-  .panel.opensource-hub {
-    padding-top: 7.8rem !important;
-  }
 }
 
 /* Mobile pager: keep the jump affordance without covering reading content. */
