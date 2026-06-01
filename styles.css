@@ -136,8 +136,8 @@ iframe {
   position: relative;
   display: grid;
   place-items: center;
-  width: 2.95rem;
-  height: 2.95rem;
+  width: 3.54rem;
+  height: 3.54rem;
   padding: 0.1rem;
   border-radius: 11px;
   /* transparent: bright-blue mark floats on the dark glass header */
