@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="bi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="VeloAlpha 瞬原科技 — 新闻，记录我们的进展。" />
+    <title>新闻 · VeloAlpha 瞬原科技</title>
+    <link rel="icon" href="assets/veloalpha-mark-bright.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="enhance.css" />
+    <link rel="stylesheet" href="creative.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="refine.css" />
+    <style>
+      .news-timeline {
+        position: relative;
+        max-width: 720px;
+        margin: 2rem auto 0;
+      }
+      .news-timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0; bottom: 0;
+        width: 1px;
+        background: rgba(255,255,255,0.12);
+        transform: translateX(-0.5px);
+      }
+      .news-row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+      .news-row:nth-child(odd) {
+        justify-content: flex-start;
+        padding-right: 50%;
+      }
+      .news-row:nth-child(even) {
+        justify-content: flex-end;
+        padding-left: 50%;
+      }
+      .news-row::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 1.4rem;
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: var(--teal, #36d8e8);
+        transform: translate(-50%, -50%);
+      }
+      .news-row:nth-child(even)::after {
+        background: rgba(255,255,255,0.25);
+      }
+      .news-card {
+        background: rgba(13,31,60,0.9);
+        border: 0.5px solid rgba(255,255,255,0.1);
+        border-radius: 10px;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 340px;
+        transition: border-color 0.2s;
+      }
+      .news-card:hover {
+        border-color: rgba(54,216,232,0.35);
+      }
+      .news-hero { text-align: center; }
+      .news-card time {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: var(--teal, #36d8e8);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .news-card h3 {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: #e0e8f0;
+        margin: 0 0 0.3rem;
+      }
+      .news-en {
+        font-size: 0.72rem;
+        color: rgba(255,255,255,0.3);
+        margin: 0 0 0.65rem;
+      }
+      .news-card p {
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.7;
+        margin: 0;
+      }
+      .news-card p + p {
+        margin-top: 0.5rem;
+      }
+      .news-link {
+        display: inline-block;
+        font-size: 0.78rem;
+        color: var(--teal, #36d8e8);
+        text-decoration: none;
+        margin-top: 0.75rem;
+      }
+      .news-link:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 768px) {
+        .news-timeline::before { left: 1rem; }
+        .news-row { flex-direction: column; padding: 0 0 0 2.5rem !important; margin-bottom: 2rem; }
+        .news-row::after { left: 1rem; }
+        .news-card { max-width: 100%; }
+      }
+    </style>
+  </head>
+  <body class="page-news single-section">
+    <a class="skip-link" href="#news">跳过导航,进入正文</a>
+
+    <iframe
+      class="fusion-bg-frame"
+      src="animations/codex_animation_fusion_field_morph.html?bg=1"
+      title="托卡马克到仿星器粒子场背景动画"
+      aria-hidden="true"
+    ></iframe>
+    <div class="site-backdrop" aria-hidden="true"></div>
+    <div class="grid-backdrop" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="VeloAlpha 首页">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/veloalpha-mark-bright.svg" alt="" /></span>
+        <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
+      </a>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="index.html">首页 Home</a>
+        <a href="mission.html">使命 Mission</a>
+        <a href="business.html">商业计划 Business</a>
+        <a href="opensource.html">开源 Open Source</a>
+        <a href="resources.html">相关资料 Resources</a>
+        <a href="news.html" class="is-current">新闻 News</a>
+        <a href="location.html">坐标 Location</a>
+        <a href="careers.html">加入我们 Join Us</a>
+      </nav>
+      <div class="header-actions">
+        <a class="nav-cta" href="mailto:huashengxie@gmail.com">联系 Contact</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
+      <a href="index.html">首页 Home</a>
+      <a href="mission.html">使命 Mission</a>
+      <a href="business.html">商业计划 Business</a>
+      <a href="opensource.html">开源 Open Source</a>
+      <a href="resources.html">相关资料 Resources</a>
+      <a href="news.html">新闻 News</a>
+      <a href="location.html">坐标 Location</a>
+      <a href="careers.html">加入我们 Join Us</a>
+    </nav>
+
+    <main class="snap-shell">
+      <section class="panel news" id="news" data-index="04">
+        <div class="panel-inner news-layout">
+          <div class="news-hero reveal">
+            <p class="eyebrow eyebrow-pulse page-kicker">
+              <span class="dotpulse" aria-hidden="true"></span>
+              News / 新闻
+            </p>
+          </div>
+
+          <div class="news-timeline" aria-label="新闻列表">
+
+            <div class="news-row reveal reveal-d1">
+              <article class="news-card">
+                <time datetime="2026-06-02">2026.06.02</time>
+                <h3>瞬原科技完成数千万元首轮融资</h3>
+                <p class="news-en">Seed round led by Loongson VC.</p>
+                <p>龙芯创投领投，藕舫天使、社保基金中关村自主创新专项基金跟投，资金用于高水平研发团队扩充及核心算法底座开发。</p>
+                <a class="news-link" href="https://mp.weixin.qq.com/s/kTPF2WXrCC6jq8aCgP9AeQ" target="_blank" rel="noopener">查看原文 →</a>
+              </article>
+            </div>
+
+            <div class="news-row reveal reveal-d1">
+              <article class="news-card">
+                <time datetime="2026-04">2026.04</time>
+                <h3>瞬原科技成立</h3>
+                <p class="news-en">Company founded. AI + Fusion.</p>
+                <p>定位"AI+Fusion"，创始人谢华生博士。团队来自北大、清华、浙大、中科院，覆盖等离子体物理、计算数学与底层软件架构。旗舰产品 FusionAlpha 部分核心模块计算效率较国际标杆代码提升上万倍。</p>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>VeloAlpha 瞬原科技</strong>
+          <span>Decode the origin of physics through computation.</span>
+        </div>
+        <a class="footer-contact" href="mailto:huashengxie@gmail.com">huashengxie@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
