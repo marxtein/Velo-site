@@ -1971,14 +1971,29 @@ body.page-careers .panel.careers {
   border-radius: 8px;
   backdrop-filter: blur(18px);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
-  display: none;
+  display: flex;
   flex-direction: column;
   z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0s linear 0.5s;
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown-toggle[aria-expanded="true"] + .nav-dropdown-menu,
 .nav-dropdown-menu.is-open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0s linear 0s;
 }
 .nav-dropdown-menu a {
   display: block;
