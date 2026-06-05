@@ -1890,5 +1890,23 @@ body.page-careers .panel.careers {
         display: flex;
         flex-direction: column;
       }
-      .location-inner.reveal,
-      .location-inner .reveal { opacity: 1 !important; transform: none !important; }
+.location-inner.reveal,
+.location-inner .reveal { opacity: 1 !important; transform: none !important; }
+
+/* ── ICP 备案号 ── */
+.footer-icp {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 0.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.74rem;
+  color: rgba(205, 225, 224, 0.35);
+}
+.footer-icp a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-icp a:hover {
+  color: var(--teal);
+}
