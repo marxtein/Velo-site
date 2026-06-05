@@ -13,7 +13,7 @@
   position: absolute;
   z-index: 0;
   pointer-events: none;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.8;
@@ -445,7 +445,7 @@
   min-width: 0;
 }
 .panel.modules .sub-section-copy strong {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
   font-size: clamp(1.1rem, 1.7vw, 1.45rem);
   font-weight: 800;
@@ -840,7 +840,7 @@
   min-width: 0;
 }
 .panel.modules .engine-side-copy strong {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
   font-size: clamp(1.05rem, 1.55vw, 1.32rem);
   font-weight: 800;
@@ -896,7 +896,7 @@
 }
 .panel.modules .tier-title {
   margin: 0;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: 1.04rem;
   font-weight: 800;
   color: var(--text);
@@ -1003,7 +1003,7 @@
 }
 .panel.modules .star-cn {
   fill: var(--text);
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-feature-settings: "palt" 1;
   font-size: 14px;
   font-weight: 800;
@@ -1018,7 +1018,7 @@
 }
 .panel.modules .star-hub-cn {
   fill: var(--text);
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-feature-settings: "palt" 1;
   font-size: 18px;
   font-weight: 900;
@@ -1033,6 +1033,10 @@
   text-anchor: middle;
   text-transform: uppercase;
 }
+
+/* 星图：节点与核心静态发光,无动效 */
+.panel.modules .star-node { opacity: 1; }
+.panel.modules .star-hub { opacity: 1; }
 
 @media (max-width: 1180px) {
   .panel.modules .engine-split {
@@ -1143,7 +1147,7 @@
   display: flex;
   align-items: baseline;
   gap: 0.8rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-feature-settings: "palt" 1;
   font-size: clamp(1.2rem, 1.8vw, 1.55rem);
   font-weight: 800;
@@ -1243,7 +1247,7 @@
 }
 .os-marquee-track span:nth-child(even) {
   color: rgba(255, 159, 87, 0.86);
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: none;
@@ -1266,7 +1270,7 @@
   margin: 0.4rem 0 0;
   display: grid;
   gap: 0.1rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-feature-settings: "palt" 1;
   font-weight: 900;
   font-size: clamp(2.8rem, 7vw, 6.4rem);
@@ -1291,7 +1295,7 @@
 .os-statement {
   margin: 0.6rem auto 0;
   max-width: 48rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-feature-settings: "palt" 1;
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   font-weight: 600;
@@ -1447,7 +1451,7 @@
 .pillar-community .pillar-tag { color: var(--orange); border-color: rgba(255,159,87,0.46); }
 .os-pillar h3 {
   margin: 0;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.18rem, 1.7vw, 1.42rem);
   font-weight: 800;
   color: var(--text);
@@ -1509,7 +1513,7 @@
   text-align: center;
 }
 .os-foot-cn {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.1rem, 1.6vw, 1.4rem);
   font-weight: 800;
   color: var(--text);
@@ -1549,7 +1553,7 @@
 
 .rs-headline {
   margin: 0.4rem 0 0;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.8rem, 4vw, 3.2rem);
   line-height: 1.05;
   color: #fff;
@@ -1583,7 +1587,7 @@
   margin-bottom: 3.5rem;
 }
 .rs-section-title {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.15rem, 2.2vw, 1.5rem);
   font-weight: 800;
   color: #fff;
@@ -1609,7 +1613,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--teal);
@@ -1790,7 +1794,7 @@
   gap: 0.35rem;
 }
 .rs-book-title {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1.02rem;
   font-weight: 800;
   color: var(--text);

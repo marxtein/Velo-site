@@ -48,7 +48,7 @@
   margin-left: -0.85rem;   /* 略左移 */
 }
 .footer-brand strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--text);
@@ -65,7 +65,7 @@
   flex-wrap: wrap;
   gap: 1.2rem 1.6rem;
   justify-content: center;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.86rem;
   font-weight: 600;
 }
@@ -207,13 +207,13 @@
   font-weight: 800;
   letter-spacing: -0.01em;
   text-wrap: balance;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
 }
 .cover-copy h1 .hero-punct { color: var(--teal); }
 .cover-copy .hero-sub {
   margin: 0.3rem 0 0;
   color: var(--orange);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: clamp(1.2rem, 1.9vw, 1.7rem);
   font-weight: 800;
 }
@@ -226,7 +226,7 @@
 .cover-copy .hero-statement.en {
   margin: 0.15rem 0 0;
   color: rgba(255, 159, 87, 0.86);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   font-weight: 700;
 }
@@ -262,7 +262,7 @@
   position: absolute;
   bottom: 0.9rem; left: 50%;
   transform: translateX(-50%);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -539,7 +539,7 @@
   color: var(--teal);
 }
 .cover-nav strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--text);
@@ -654,7 +654,7 @@ body.page-cover--minimal .site-header {
   margin: 0;
   display: grid;
   gap: 1rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
   font-weight: 900;
 }
@@ -685,7 +685,7 @@ body.page-cover--minimal .site-header {
 .cover-headline-cn .hero-punct {
   color: var(--orange);
   font-weight: 900;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   padding-left: 0.02em;
   font-size: 1.06em;
   line-height: 0;
@@ -796,7 +796,7 @@ h3 .hero-punct {
   line-height: 1.05;
 }
 .cover-enter-label strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1.04rem;
   color: var(--text);
 }
@@ -1132,7 +1132,7 @@ body.page-careers .panel.careers {
 
 .business-hero h1 {
   margin: 0.6rem 0 0.8rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(2.5rem, 6vw, 5.8rem);
   line-height: 1.02;
   text-wrap: balance;
@@ -1235,7 +1235,7 @@ body.page-careers .panel.careers {
 .spine-card h2,
 .spine-card h3 {
   margin: 0 0 0.55rem;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-weight: 900;
   line-height: 1.12;
   color: var(--text);
@@ -1394,7 +1394,7 @@ body.page-careers .panel.careers {
 }
 
 .join-reasons strong {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 900;
   text-align: center;
@@ -1467,7 +1467,7 @@ body.page-careers .panel.careers {
 }
 
 .benefit-grid strong {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: 1.2rem;
   color: var(--text);
 }
@@ -1711,7 +1711,7 @@ body.page-careers .panel.careers {
         gap: 1rem;
       }
       .loc-photo-caption strong {
-        font-family: "Bricolage Grotesque","Noto Sans SC", sans-serif;
+        font-family: "Bricolage Grotesque","PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
         font-size: .78rem;
         letter-spacing: .18em;
         color: var(--text);
@@ -1754,7 +1754,7 @@ body.page-careers .panel.careers {
         animation: pulse 2s ease-in-out infinite;
       }
       .loc-h1 {
-        font-family: "Bricolage Grotesque","Noto Serif SC","Source Han Serif SC", serif;
+        font-family: "Bricolage Grotesque","PingFang SC", "Microsoft YaHei", "Hiragino Sans GB","Source Han Serif SC", serif;
         font-size: clamp(2rem, 4.5vw, 3.5rem);
         line-height: 1.05;
         letter-spacing: -.01em;
@@ -1858,7 +1858,7 @@ body.page-careers .panel.careers {
         display: flex; align-items: center; justify-content: center; gap: .55rem;
       }
       .loc-hero h1 {
-        font-family: "Bricolage Grotesque","Noto Serif SC", serif;
+        font-family: "Bricolage Grotesque","PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
         font-size: clamp(2.4rem, 6vw, 5rem);
         line-height: 1.0;
         letter-spacing: -.02em;
@@ -1923,7 +1923,7 @@ body.page-careers .panel.careers {
   background: none;
   border: none;
   color: var(--muted);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -1979,9 +1979,18 @@ body.page-careers .panel.careers {
   pointer-events: none;
   transform: translateY(-6px);
   transition:
-    opacity 0.18s ease,
-    transform 0.18s ease,
+    opacity 0.18s ease 0.12s,
+    transform 0.18s ease 0.12s,
     visibility 0s linear 0.5s;
+}
+/* Invisible bridge across the toggle→menu gap so hover doesn't drop */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.8rem;
+  height: 0.8rem;
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown-toggle[aria-expanded="true"] + .nav-dropdown-menu,
@@ -2018,21 +2027,12 @@ body.page-careers .panel.careers {
   background: linear-gradient(180deg, rgba(3, 7, 10, 0.96), rgba(5, 9, 13, 0.92));
 }
 .intro-grid {
-  width: min(1280px, 100%);
+  width: min(1180px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-}
-.intro-text { display: grid; gap: 1.15rem; }
-.intro-text h2 {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
-  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
-  font-weight: 900;
-  line-height: 1.08;
-  color: var(--text);
-  margin: 0;
+  grid-template-columns: minmax(0, 0.66fr) minmax(0, 1.34fr);
+  gap: clamp(1.8rem, 3.8vw, 4rem);
+  align-items: start;
 }
 .intro-lead {
   font-size: 1.05rem;
@@ -2067,40 +2067,6 @@ body.page-careers .panel.careers {
   color: rgba(255, 200, 140, 0.8);
 }
 
-.intro-visual {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 26rem;
-}
-.intro-ring {
-  width: clamp(16rem, 28vw, 22rem);
-  height: clamp(16rem, 28vw, 22rem);
-  border-radius: 50%;
-  border: 1px solid rgba(54, 216, 232, 0.22);
-  background:
-    radial-gradient(circle, rgba(255, 159, 87, 0.08), rgba(54, 216, 232, 0.04) 40%, transparent 70%);
-  box-shadow: 0 0 80px rgba(54, 216, 232, 0.12), inset 0 0 60px rgba(255, 159, 87, 0.06);
-  animation: introPulse 4s ease-in-out infinite;
-}
-@keyframes introPulse {
-  0%, 100% { box-shadow: 0 0 80px rgba(54, 216, 232, 0.12), inset 0 0 60px rgba(255, 159, 87, 0.06); }
-  50% { box-shadow: 0 0 120px rgba(54, 216, 232, 0.22), inset 0 0 80px rgba(255, 159, 87, 0.1); }
-}
-.intro-core {
-  position: absolute;
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 50%;
-  background: var(--orange);
-  box-shadow: 0 0 40px rgba(255, 159, 87, 0.7), 0 0 80px rgba(255, 159, 87, 0.25);
-  animation: corePulse 2.5s ease-in-out infinite;
-}
-@keyframes corePulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.15); opacity: 1; }
-}
-
 /* ═══════════════════════════════════════════════════════════════════════════
    HOMEPAGE — PRODUCT SECTION
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -2112,7 +2078,7 @@ body.page-careers .panel.careers {
   text-align: center;
 }
 .product-section h2 {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.8rem, 3.8vw, 3.2rem);
   font-weight: 900;
   color: var(--text);
@@ -2154,7 +2120,7 @@ body.page-careers .panel.careers {
   color: var(--teal);
 }
 .product-card h3 {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--text);
@@ -2194,6 +2160,104 @@ body.page-careers .panel.careers {
   border-radius: 50%;
   background: var(--teal);
   opacity: 0.5;
+}
+
+/* ── Homepage · About — editorial split ─────────────────────── */
+.intro-section .section-en {
+  margin: 0.1rem 0 0;
+  color: rgba(205, 225, 224, 0.55);
+}
+.intro-head {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+.intro-head h2 {
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1.12;
+}
+.intro-text {
+  display: grid;
+  gap: 1.5rem;
+  padding-left: clamp(0rem, 1.6vw, 1.6rem);
+  border-left: 1px solid rgba(54, 216, 232, 0.18);
+}
+.intro-text .intro-lead {
+  position: relative;
+}
+.intro-text .intro-lead::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * clamp(0rem, 1.6vw, 1.6rem) - 1px);
+  top: 0.35em;
+  width: 2px;
+  height: 1.4em;
+  background: var(--orange);
+}
+.badge-en {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: rgba(255, 200, 140, 0.78);
+}
+.intro-block {
+  display: grid;
+  gap: 0.55rem;
+}
+.intro-en {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: rgba(205, 225, 224, 0.5);
+}
+
+/* ── Homepage · Product ─────────────────────────────────────── */
+.product-subtitle-en {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: rgba(205, 225, 224, 0.5);
+}
+.product-card .card-en {
+  display: block;
+  margin: -0.1rem 0 0.7rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.product-card .card-en-body {
+  margin: 0.7rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(54, 216, 232, 0.12);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(205, 225, 224, 0.5);
+}
+.scenario-list span {
+  text-align: center;
+}
+.scenario-list span small {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(205, 225, 224, 0.42);
+}
+.footer-en {
+  font-family: "Cascadia Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: rgba(205, 225, 224, 0.45);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -2286,9 +2350,10 @@ body.page-careers .panel.careers {
 
 /* ── Responsive: intro & product ── */
 @media (max-width: 880px) {
-  .intro-grid { grid-template-columns: 1fr; }
-  .intro-visual { min-height: 18rem; }
-  .intro-ring { width: 14rem; height: 14rem; }
+  .intro-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .intro-text { border-left: 0; padding-left: 0; }
+  .intro-text .intro-lead::before { display: none; }
+  .intro-head h2 br { display: none; }
   .product-grid { grid-template-columns: 1fr; }
   .scenario-list { flex-direction: column; gap: 0.5rem; }
   .scenario-sep { display: none; }

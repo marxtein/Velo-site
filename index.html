@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="VeloAlpha 瞬原科技:以极致算法解物理本源,算出人类能源的最优物理拓扑。"
+      content="VeloAlpha 瞬原科技:以极致算法解物理本源,算出人类能源最优物理拓扑。"
     />
     <title>VeloAlpha 瞬原科技 | 极致算法 · 数字聚变堆</title>
     <link rel="icon" href="assets/veloalpha-mark-bright.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="enhance.css" />
-    <link rel="stylesheet" href="creative.css" />
-    <link rel="stylesheet" href="pages.css" />
-    <link rel="stylesheet" href="refine.css" />
+    <link rel="stylesheet" href="app.min.css" />
   </head>
   <body class="page-cover page-cover--minimal">
     <a class="skip-link" href="#cover">跳过导航,进入正文</a>
@@ -43,9 +39,8 @@
           <button class="nav-dropdown-toggle" aria-expanded="false" data-nav="about">关于我们 · About<span class="nav-chevron" aria-hidden="true"></span></button>
           <div class="nav-dropdown-menu">
             <a href="#company-intro">公司简介 · Company</a>
-            <a href="#company-intro">团队介绍 · Team</a>
             <a href="mission.html">我们的使命 · Mission</a>
-            <a href="location.html">联系我们 · Contact</a>
+            <a href="location.html">坐标 · Location</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -70,9 +65,8 @@
     <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
       <a href="index.html">首页 · Home</a>
       <a href="#company-intro">公司简介 · Company</a>
-      <a href="#company-intro">团队介绍 · Team</a>
       <a href="mission.html">我们的使命 · Mission</a>
-      <a href="location.html">联系我们 · Contact</a>
+      <a href="location.html">坐标 · Location</a>
       <a href="opensource.html">开源 · Open Source</a>
       <a href="resources.html">相关资料 · Resources</a>
       <a href="business.html">商业计划 · Business Plan</a>
@@ -119,53 +113,64 @@
     <!-- 公司简介 -->
     <section class="intro-section" id="company-intro">
       <div class="intro-grid">
-        <div class="intro-text">
-          <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>关于我们</p>
-          <h2>以计算走通聚变之路</h2>
-          <p class="intro-lead">北京瞬原科技有限公司（VeloAlpha）成立于2026年4月，定位为「AI + Fusion」硬科技企业，核心定位为聚变模拟器及先进路线设计方案提供商，致力于成为全球聚变商业化的核心模拟底座构建者。</p>
-          <p class="intro-body">创始团队由原新奥聚变理论模拟首席科学家谢华生博士创立，核心成员来自北大、清华、浙大及中科院，覆盖等离子体物理、计算数学、底层软件架构等交叉学科。通过极致数学算法与异构算力，解决极端复杂聚变等离子体仿真模拟难题，推动可控核聚变商业化从「科幻」走向「工程现实」。</p>
+        <div class="intro-head">
+          <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>关于我们 · About Us</p>
+          <h2>以计算<br />走通聚变之路</h2>
+          <p class="section-en">Computing the path through fusion.</p>
           <div class="intro-badge">
-            <span>已完成数千万元种子轮融资</span>
+            <span>已完成数千万元种子轮融资<em class="badge-en">Seed round closed</em></span>
             <span>龙芯创投领投 · 藕舫天使 · 君联资本跟投</span>
           </div>
         </div>
-        <div class="intro-visual" aria-hidden="true">
-          <div class="intro-ring"></div>
-          <div class="intro-core"></div>
+        <div class="intro-text">
+          <div class="intro-block">
+            <p class="intro-lead">北京瞬原科技有限公司（VeloAlpha）成立于2026年4月，定位为「AI + Fusion」硬科技企业，核心定位为聚变模拟器及先进路线设计方案提供商，致力于成为全球聚变商业化的核心模拟底座构建者。</p>
+            <p class="intro-en">Founded in Beijing in April 2026, VeloAlpha is an “AI + Fusion” deep-tech company — a provider of fusion simulators and advanced route-design solutions, aiming to become the core simulation foundation for global fusion commercialization.</p>
+          </div>
+          <div class="intro-block">
+            <p class="intro-body">创始团队由原新奥聚变理论模拟首席科学家谢华生博士创立，核心成员来自北大、清华、浙大及中科院，覆盖等离子体物理、计算数学、底层软件架构等交叉学科。通过极致数学算法与异构算力，解决极端复杂聚变等离子体仿真模拟难题，推动可控核聚变商业化从「科幻」走向「工程现实」。</p>
+            <p class="intro-en">The founding team is led by Dr. Huasheng Xie, former chief scientist of fusion theory and simulation at ENN, with core members from Peking, Tsinghua and Zhejiang Universities and the Chinese Academy of Sciences — spanning plasma physics, computational mathematics and systems software. Extreme algorithms on heterogeneous computing turn the hardest fusion-plasma simulations from science fiction into engineering reality.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 核心产品 -->
     <section class="product-section" id="product">
-      <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>核心产品</p>
+      <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>核心产品 · Product</p>
       <h2>FusionAlpha 聚变模拟底座</h2>
-      <p class="product-subtitle">国内完全自主可控的「聚变设计EDA软件」—— 把聚变堆搬进数字世界</p>
+      <p class="product-subtitle">国内完全自主可控的「聚变设计EDA软件」—— 把聚变堆搬进数字世界<br /><span class="product-subtitle-en">A self-developed “EDA for fusion” — the reactor, in the digital world.</span></p>
       <div class="product-grid">
         <article class="product-card">
           <span class="product-num">01</span>
           <h3>全场景覆盖</h3>
+          <span class="card-en">Full-scenario coverage</span>
           <p>概念设计 → 路线自动寻优 → 方案验证 → 运行监控，提供全流程支持</p>
+          <p class="card-en-body">Concept design → automated route optimization → validation → operational monitoring — full-pipeline support.</p>
         </article>
         <article class="product-card">
           <span class="product-num">02</span>
           <h3>极致性能</h3>
+          <span class="card-en">Extreme performance</span>
           <p>严格基于第一性原理求解，核心模块计算效率较国际标杆代码提升上万倍</p>
+          <p class="card-en-body">Strict first-principles solvers; core modules run up to 10,000× faster than international benchmark codes.</p>
         </article>
         <article class="product-card">
           <span class="product-num">03</span>
           <h3>AI-Native</h3>
+          <span class="card-en">AI-Native workflow</span>
           <p>融合多维数学降阶与异构算力适配，引入AI原生工作流加速算法迭代</p>
+          <p class="card-en-body">Multi-dimensional model reduction plus heterogeneous compute, with an AI-native workflow accelerating algorithm iteration.</p>
         </article>
       </div>
       <div class="product-scenarios">
-        <h4>三大应用场景</h4>
+        <h4>三大应用场景 · Applications</h4>
         <div class="scenario-list">
-          <span>等离子体高保真极速求解</span>
+          <span>等离子体高保真极速求解<small>High-fidelity plasma solving</small></span>
           <span class="scenario-sep" aria-hidden="true"></span>
-          <span>反应堆芯集成仿真</span>
+          <span>反应堆芯集成仿真<small>Reactor-core integrated simulation</small></span>
           <span class="scenario-sep" aria-hidden="true"></span>
-          <span>数字孪生</span>
+          <span>数字孪生<small>Digital twin</small></span>
         </div>
       </div>
     </section>
@@ -173,16 +178,16 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-col">
-          <h4>坐标</h4>
-          <p>北京市海淀区中关村</p>
+          <h4>坐标 · Location</h4>
+          <p>北京市海淀区中关村<br /><span class="footer-en">Zhongguancun, Haidian, Beijing</span></p>
         </div>
         <div class="footer-col">
-          <h4>联系方式</h4>
+          <h4>联系方式 · Contact</h4>
           <p><a href="mailto:veloalpha@163.com">veloalpha@163.com</a></p>
         </div>
         <div class="footer-col">
-          <h4>社交媒体</h4>
-          <p>微信公众号：瞬原科技</p>
+          <h4>社交媒体 · Social</h4>
+          <p>微信公众号：瞬原科技<br /><span class="footer-en">WeChat: 瞬原科技</span></p>
         </div>
       </div>
       <p class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026031716号</a></p>

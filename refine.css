@@ -145,7 +145,7 @@ strong, b { color: #fff !important; }
 }
 .site-pager-label { display: grid; gap: .12rem; line-height: 1.05; }
 .site-pager-label strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1.02rem;
   color: var(--text);
 }
@@ -231,7 +231,7 @@ body.page-cover .site-pager { display: none; }
   text-transform: uppercase;
   pointer-events: none;
 }
-.diagram-caption b { font-weight: 700; color: var(--text); letter-spacing: .04em; font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif; text-transform: none; font-size: .92rem; margin-right: .55rem; }
+.diagram-caption b { font-weight: 700; color: var(--text); letter-spacing: .04em; font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; text-transform: none; font-size: .92rem; margin-right: .55rem; }
 
 /* Modules page: tighten gap between heading and engine-split */
 .panel.modules .section-heading { margin-bottom: 1rem !important; }
@@ -292,7 +292,7 @@ body.page-cover .site-pager { display: none; }
 }
 .engine-aggregate h3 {
   margin: 0;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.15rem, 2vw, 1.5rem);
   letter-spacing: -.005em;
   color: var(--text);
@@ -322,7 +322,7 @@ body.page-cover .site-pager { display: none; }
 /* 02·C subtitle (小字) — former heading, demoted under "集成 · Integration" */
 .engine-aggregate .agg-sub {
   margin: -.1rem 0 0;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(.96rem, 1.4vw, 1.12rem);
   font-weight: 600;
   line-height: 1.5;
@@ -332,7 +332,7 @@ body.page-cover .site-pager { display: none; }
 /* 02·C English subtitles — orange-tinted to match section theme */
 .engine-aggregate .agg-en {
   margin: 0;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: clamp(.72rem, 1vw, .88rem);
   color: rgba(255,159,87,.55);
   line-height: 1.55;
@@ -357,7 +357,7 @@ body.page-cover .site-pager { display: none; }
 }
 
 .ai-copy h2 {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-size: clamp(2.1rem, 4.4vw, 3.6rem);
   line-height: 1.05;
   letter-spacing: -.01em;
@@ -371,7 +371,7 @@ body.page-cover .site-pager { display: none; }
 }
 .ai-copy .eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.82rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.02em;
   color: var(--teal) !important;
@@ -768,7 +768,7 @@ body.page-location .loc-hero p {
 }
 .ai-cycle-row strong {
   grid-area: title;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: 1rem;
 }
 .ai-cycle-row em {
@@ -1006,7 +1006,7 @@ body.page-location .loc-hero p {
   gap: .58rem !important;
   margin: 0 auto 1rem !important;
   color: var(--teal) !important;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif !important;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif !important;
   font-size: .78rem !important;
   font-weight: 900 !important;
   line-height: 1.2 !important;
@@ -1043,7 +1043,7 @@ body.page-location .loc-hero p {
   margin-left: auto !important;
   margin-right: auto !important;
   color: #fff !important;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif !important;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif !important;
   font-size: clamp(2rem, 4.4vw, 3.8rem) !important;  /* match careers hero size */
   line-height: 1.05 !important;
   letter-spacing: 0 !important;
@@ -1061,7 +1061,7 @@ body.page-location .loc-hero p {
   max-width: 54rem !important;
   text-align: center !important;
   color: rgba(205, 225, 224, .78) !important;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif !important;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif !important;
   font-size: clamp(.92rem, 1.18vw, 1.12rem) !important;
   font-weight: 700 !important;
   line-height: 1.45 !important;
@@ -1251,7 +1251,7 @@ body.page-location .loc-hero > .page-kicker,
   color: var(--teal);
 }
 .ai-static-summary strong {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: clamp(1.35rem, 2.3vw, 2rem);
   line-height: 1.12;
 }
@@ -1276,7 +1276,7 @@ body.page-location .loc-hero > .page-kicker,
 }
 .ai-static-flow article strong {
   color: #fff !important;
-  font-family: "Bricolage Grotesque", "Noto Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", serif;
   font-size: 1.06rem;
 }
 .ai-readout {
@@ -1302,7 +1302,7 @@ body.page-location .loc-hero > .page-kicker,
   margin: .72rem auto 0 !important;
   max-width: 46rem !important;
   color: rgba(205, 225, 224, .74) !important;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif !important;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif !important;
   font-size: clamp(.92rem, 1.16vw, 1.06rem) !important;
   font-weight: 700 !important;
   line-height: 1.55 !important;

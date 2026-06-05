@@ -1,12 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@500;700;900&display=swap");
+/* Self-hosted Bricolage Grotesque (Latin display) — no Google Fonts (blocked in CN) */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/bricolage-500-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/bricolage-500-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/bricolage-700-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/bricolage-700-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url("assets/fonts/bricolage-800-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url("assets/fonts/bricolage-800-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 
 /* ─────────── Chinese display typography ───────────
-   "Noto Serif SC" 担当所有大字主角:
+   "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB" 担当所有大字主角:
    - 拉丁字符仍使用 Bricolage Grotesque (英文衬线感弱、几何感强)
    - 中文走 Noto Serif SC: 衬线 + 高对比笔画 → 艺术 × 科技双感
    通过 font-family 顺序 + unicode-range 隐式回落实现 */
 :where(.cn-display) {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
 }
 
@@ -26,7 +32,7 @@
   --green: oklch(0.79 0.12 145);
   --ink: oklch(0.13 0.018 205);
   --shadow: 0 32px 90px rgba(0, 0, 0, 0.38);
-  font-family: "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
   letter-spacing: 0;
 }
 
@@ -163,7 +169,7 @@ iframe {
 }
 
 .brand-copy strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1rem;
 }
 
@@ -376,7 +382,7 @@ iframe {
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--teal);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -392,7 +398,7 @@ p {
 h1,
 h2,
 .mega-word {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
 }
 
@@ -428,7 +434,7 @@ p {
 }
 
 .en {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
 }
 
 .hero-sub {
@@ -447,7 +453,7 @@ p {
 }
 
 .hero-statement {
-  font-family: "Bricolage Grotesque", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Serif SC", serif;
   font-feature-settings: "palt" 1;
   letter-spacing: 0.005em;
   text-wrap: balance;
@@ -455,7 +461,7 @@ p {
 
 .hero-statement.en {
   color: rgba(255, 159, 87, 0.9);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: clamp(1rem, 1.25vw, 1.18rem);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -468,7 +474,7 @@ p {
 .hero-text.en,
 .section-en {
   color: rgba(205, 225, 224, 0.72);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.94rem;
   line-height: 1.58;
 }
@@ -560,7 +566,7 @@ p {
 .plate-caption {
   margin: 0.9rem 0 0;
   text-align: center;
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -583,7 +589,7 @@ p {
 }
 
 .reference-plate figcaption strong {
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.92rem;
 }
 
@@ -670,7 +676,7 @@ p {
 .labels text,
 .matrix-panel text {
   fill: rgba(243, 247, 242, 0.74);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 15px;
 }
 
@@ -758,7 +764,7 @@ p {
 
 .cost-copy em {
   color: rgba(205, 225, 224, 0.65);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.88rem;
   font-style: normal;
   line-height: 1.46;
@@ -873,7 +879,7 @@ p {
   display: block;
   margin-top: 0.35rem;
   color: rgba(205, 225, 224, 0.72);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.92rem;
   font-weight: 500;
 }
@@ -919,7 +925,7 @@ p {
 
 .engine-layer span {
   color: var(--orange);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-weight: 800;
 }
 
@@ -964,7 +970,7 @@ p {
   border-radius: 5px;
   background: rgba(5, 7, 9, 0.42);
   color: var(--text);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.82rem;
 }
 
@@ -994,7 +1000,7 @@ p {
 .module-cloud small,
 .policy-list small {
   color: rgba(205, 225, 224, 0.62);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
 }
@@ -1029,7 +1035,7 @@ p {
 .mega-en {
   margin: -0.35rem 0 1.2rem;
   color: var(--orange);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: clamp(1.2rem, 2.2vw, 1.8rem);
   font-weight: 800;
 }
@@ -1084,7 +1090,7 @@ p {
 .tri-label,
 .tri-sub {
   fill: var(--text);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   text-anchor: middle;
 }
 
@@ -1160,7 +1166,7 @@ p {
   border: 1px solid rgba(54, 216, 232, 0.32);
   border-radius: 999px;
   color: var(--cyan, #36d8e8);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   line-height: 1.2;
@@ -1279,7 +1285,7 @@ p {
   padding-top: 0;
   border-top: 0;
   color: rgba(255, 209, 102, 0.78);
-  font-family: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+  font-family: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
 }
 
 .founder-layout {
