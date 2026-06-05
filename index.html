@@ -38,14 +38,26 @@
         </span>
       </a>
       <nav class="site-nav" aria-label="页面导航">
-        <a href="index.html" class="is-current">首页 Home</a>
-        <a href="mission.html">使命 Mission</a>
-        <a href="business.html">商业计划 Business</a>
-        <a href="opensource.html">开源 Open Source</a>
-        <a href="resources.html">相关资料 Resources</a>
-        <a href="news.html">新闻 News</a>
-        <a href="location.html">坐标 Location</a>
-        <a href="careers.html">加入我们 Join Us</a>
+        <a href="index.html" class="is-current">首页</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" data-nav="about">关于我们<span class="nav-chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu">
+            <a href="#company-intro">公司简介</a>
+            <a href="#company-intro">团队介绍</a>
+            <a href="mission.html">我们的使命</a>
+            <a href="location.html">联系我们</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" data-nav="biz">业务和产品<span class="nav-chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu">
+            <a href="opensource.html">开源</a>
+            <a href="resources.html">相关资料</a>
+            <a href="business.html">商业计划</a>
+          </div>
+        </div>
+        <a href="news.html">公司新闻</a>
+        <a href="careers.html">加入我们</a>
       </nav>
       <div class="header-actions">
         <a class="nav-cta" href="mailto:veloalpha@163.com">联系 Contact</a>
@@ -56,14 +68,16 @@
     </header>
 
     <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
-      <a href="index.html">首页 Home</a>
-      <a href="mission.html">使命 Mission</a>
-      <a href="business.html">商业计划 Business</a>
-      <a href="opensource.html">开源 Open Source</a>
-      <a href="resources.html">相关资料 Resources</a>
-      <a href="news.html">新闻 News</a>
-      <a href="location.html">坐标 Location</a>
-      <a href="careers.html">加入我们 Join Us</a>
+      <a href="index.html">首页</a>
+      <a href="#company-intro">公司简介</a>
+      <a href="#company-intro">团队介绍</a>
+      <a href="mission.html">我们的使命</a>
+      <a href="location.html">联系我们</a>
+      <a href="opensource.html">开源</a>
+      <a href="resources.html">相关资料</a>
+      <a href="business.html">商业计划</a>
+      <a href="news.html">公司新闻</a>
+      <a href="careers.html">加入我们</a>
     </nav>
 
     <main class="cover-hero" id="cover">
@@ -95,15 +109,81 @@
       <span class="cover-corner cover-corner--bl" aria-hidden="true">
         <span class="cover-corner-text">VELOALPHA · MMXXVI · OPEN SOURCE</span>
       </span>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint-text">向下探索</span>
+        <span class="scroll-hint-arrow"></span>
+      </div>
     </main>
+
+    <!-- 公司简介 -->
+    <section class="intro-section" id="company-intro">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>关于我们</p>
+          <h2>以计算走通聚变之路</h2>
+          <p class="intro-lead">北京瞬原科技有限公司（VeloAlpha）成立于2026年4月，定位为「AI + Fusion」硬科技企业，核心定位为聚变模拟器及先进路线设计方案提供商，致力于成为全球聚变商业化的核心模拟底座构建者。</p>
+          <p class="intro-body">创始团队由原新奥聚变理论模拟首席科学家谢华生博士创立，核心成员来自北大、清华、浙大及中科院，覆盖等离子体物理、计算数学、底层软件架构等交叉学科。通过极致数学算法与异构算力，解决极端复杂聚变等离子体仿真模拟难题，推动可控核聚变商业化从「科幻」走向「工程现实」。</p>
+          <div class="intro-badge">
+            <span>已完成数千万元种子轮融资</span>
+            <span>龙芯创投领投 · 藕舫天使 · 君联资本跟投</span>
+          </div>
+        </div>
+        <div class="intro-visual" aria-hidden="true">
+          <div class="intro-ring"></div>
+          <div class="intro-core"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心产品 -->
+    <section class="product-section" id="product">
+      <p class="section-eyebrow"><span class="eyebrow-bar cover-eyebrow-bar"></span>核心产品</p>
+      <h2>FusionAlpha 聚变模拟底座</h2>
+      <p class="product-subtitle">国内完全自主可控的「聚变设计EDA软件」—— 把聚变堆搬进数字世界</p>
+      <div class="product-grid">
+        <article class="product-card">
+          <span class="product-num">01</span>
+          <h3>全场景覆盖</h3>
+          <p>概念设计 → 路线自动寻优 → 方案验证 → 运行监控，提供全流程支持</p>
+        </article>
+        <article class="product-card">
+          <span class="product-num">02</span>
+          <h3>极致性能</h3>
+          <p>严格基于第一性原理求解，核心模块计算效率较国际标杆代码提升上万倍</p>
+        </article>
+        <article class="product-card">
+          <span class="product-num">03</span>
+          <h3>AI-Native</h3>
+          <p>融合多维数学降阶与异构算力适配，引入AI原生工作流加速算法迭代</p>
+        </article>
+      </div>
+      <div class="product-scenarios">
+        <h4>三大应用场景</h4>
+        <div class="scenario-list">
+          <span>等离子体高保真极速求解</span>
+          <span class="scenario-sep" aria-hidden="true"></span>
+          <span>反应堆芯集成仿真</span>
+          <span class="scenario-sep" aria-hidden="true"></span>
+          <span>数字孪生</span>
+        </div>
+      </div>
+    </section>
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <div class="footer-brand">
-          <strong>VeloAlpha 瞬原科技</strong>
-          <span>Decode the origin of physics through computation.</span>
+        <div class="footer-col">
+          <h4>坐标</h4>
+          <p>北京市海淀区中关村</p>
         </div>
-        <a class="footer-contact" href="mailto:veloalpha@163.com">veloalpha@163.com</a>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <p><a href="mailto:veloalpha@163.com">veloalpha@163.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>社交媒体</h4>
+          <p>微信公众号：瞬原科技</p>
+        </div>
       </div>
       <p class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026031716号</a></p>
     </footer>

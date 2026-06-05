@@ -154,6 +154,40 @@ setupReveal();
 setupCounters();
 setupMobileNav();
 setupHeaderAutoHide();
+setupNavDropdowns();
+
+// Dropdown menu toggle — click to open, click outside to close
+function setupNavDropdowns() {
+  const toggles = document.querySelectorAll('.nav-dropdown-toggle');
+  if (!toggles.length) return;
+
+  toggles.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // Close all others
+      toggles.forEach(function(b) {
+        b.setAttribute('aria-expanded', 'false');
+        var menu = b.nextElementSibling;
+        if (menu) menu.classList.remove('is-open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        var menu = btn.nextElementSibling;
+        if (menu) menu.classList.add('is-open');
+      }
+    });
+  });
+
+  document.addEventListener('click', function() {
+    toggles.forEach(function(btn) {
+      btn.setAttribute('aria-expanded', 'false');
+      var menu = btn.nextElementSibling;
+      if (menu) menu.classList.remove('is-open');
+    });
+  });
+}
 
 // Auto-hide the site header when the user scrolls DOWN; reveal it on scroll UP.
 function setupHeaderAutoHide() {

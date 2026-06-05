@@ -32,14 +32,26 @@
         <span class="brand-copy"><strong>VeloAlpha</strong><span>瞬原科技</span></span>
       </a>
       <nav class="site-nav" aria-label="页面导航">
-        <a href="index.html">首页 Home</a>
-        <a href="mission.html" class="is-current">使命 Mission</a>
-        <a href="business.html">商业计划 Business</a>
-        <a href="opensource.html">开源 Open Source</a>
-        <a href="resources.html">相关资料 Resources</a>
-        <a href="news.html">新闻 News</a>
-        <a href="location.html">坐标 Location</a>
-        <a href="careers.html">加入我们 Join Us</a>
+        <a href="index.html">首页</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle is-current" aria-expanded="false" data-nav="about">关于我们<span class="nav-chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu">
+            <a href="index.html#company-intro">公司简介</a>
+            <a href="index.html#company-intro">团队介绍</a>
+            <a href="mission.html">我们的使命</a>
+            <a href="location.html">联系我们</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" data-nav="biz">业务和产品<span class="nav-chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu">
+            <a href="opensource.html">开源</a>
+            <a href="resources.html">相关资料</a>
+            <a href="business.html">商业计划</a>
+          </div>
+        </div>
+        <a href="news.html">公司新闻</a>
+        <a href="careers.html">加入我们</a>
       </nav>
       <div class="header-actions">
         <a class="nav-cta" href="mailto:veloalpha@163.com">联系 Contact</a>
@@ -50,14 +62,16 @@
     </header>
 
     <nav class="mobile-nav" aria-label="移动端导航" aria-hidden="true">
-      <a href="index.html">首页 Home</a>
-      <a href="mission.html">使命 Mission</a>
-      <a href="business.html">商业计划 Business</a>
-      <a href="opensource.html">开源 Open Source</a>
-      <a href="resources.html">相关资料 Resources</a>
-      <a href="news.html">新闻 News</a>
-      <a href="location.html">坐标 Location</a>
-      <a href="careers.html">加入我们 Join Us</a>
+      <a href="index.html">首页</a>
+      <a href="index.html#company-intro">公司简介</a>
+      <a href="index.html#company-intro">团队介绍</a>
+      <a href="mission.html">我们的使命</a>
+      <a href="location.html">联系我们</a>
+      <a href="opensource.html">开源</a>
+      <a href="resources.html">相关资料</a>
+      <a href="business.html">商业计划</a>
+      <a href="news.html">公司新闻</a>
+      <a href="careers.html">加入我们</a>
     </nav>
 
     <main class="snap-shell">
@@ -472,11 +486,18 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <div class="footer-brand">
-          <strong>VeloAlpha 瞬原科技</strong>
-          <span>Decode the origin of physics through computation.</span>
+        <div class="footer-col">
+          <h4>坐标</h4>
+          <p>北京市海淀区中关村</p>
         </div>
-        <a class="footer-contact" href="mailto:veloalpha@163.com">veloalpha@163.com</a>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <p><a href="mailto:veloalpha@163.com">veloalpha@163.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>社交媒体</h4>
+          <p>微信公众号：瞬原科技</p>
+        </div>
       </div>
       <p class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026031716号</a></p>
     </footer>
