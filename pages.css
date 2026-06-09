@@ -1902,6 +1902,7 @@ body.page-careers .panel.careers {
   border-top: 1px solid var(--line);
   font-size: 0.74rem;
   color: rgba(205, 225, 224, 0.35);
+  white-space: nowrap;
 }
 .footer-icp a {
   color: inherit;
