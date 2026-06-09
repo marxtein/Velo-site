@@ -1902,7 +1902,11 @@ body.page-careers .panel.careers {
   border-top: 1px solid var(--line);
   font-size: 0.74rem;
   color: rgba(205, 225, 224, 0.35);
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
 .footer-icp a {
   color: inherit;
@@ -1916,11 +1920,11 @@ body.page-careers .panel.careers {
   opacity: 0.3;
 }
 .gongan-badge {
-  width: 16px;
-  height: 16px;
-  vertical-align: -3px;
-  margin-right: 3px;
+  width: 18px;
+  height: 19px;
+  margin-right: 4px;
   display: inline;
+  flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
