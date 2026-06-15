@@ -67,6 +67,7 @@ main{max-width:1340px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 <a onclick="switchTab('companies')" id="navCompanies">企业</a>
 <a onclick="switchTab('papers')" id="navPapers">文献</a>
 <a onclick="switchTab('funding')" id="navFunding">融资</a>
+<a onclick="switchTab('news')" id="navNews">新闻</a>
 </nav>
 <div class="sr"><input type="text" placeholder="搜索…" id="search" oninput="render()"/></div>
 </div></header>
@@ -76,6 +77,7 @@ main{max-width:1340px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 <div id="companies" class="section"><div class="st" id="statsM"></div><div class="tb" id="tbM"></div><div class="gd" id="gdM"></div></div>
 <div id="papers" class="section"><div class="st" id="statsP"></div><div class="tb" id="tbP"></div><div class="gd" id="gdP"></div></div>
 <div id="funding" class="section"><div class="st" id="statsF"></div><div class="tb" id="tbF"></div><div class="gd" id="gdF"></div></div>
+<div id="news" class="section"><div class="st" id="statsN"></div><div class="tb" id="tbN"></div><div class="gd" id="gdN"></div></div>
 </main>
 <script>
 // ===== DATA: 93 Codes =====
@@ -188,6 +190,28 @@ const P=[{t:"聚变能源研究态势及展望",a:"彭先觉/李建刚/邓建军
 ];
 
 // ===== DATA: Funding Events =====
+// ===== DATA: Industry News =====
+const N=[{t:"ITER发布新版基线：非核运行验证再进入D-T阶段",s:"ITER新版基线将首次等离子体路线调整为更稳健的分阶段调试",d:"2024-07",u:"https://www.iter.org/node/20687/new-baseline-prioritize-robust-start-exploitation",p:"装置/项目基线"},
+{t:"JET最终氘氚实验创造69兆焦聚变能量纪录",s:"JET在最终D-T实验中产生69MJ聚变能量，刷新2021年59MJ纪录",d:"2024-02",u:"https://www.gov.uk/government/news/jets-final-tritium-experiments-yield-new-fusion-energy-record",p:"实验纪录"},
+{t:"EAST实现1066秒高约束模等离子体运行",s:"EAST高约束模维持至1066秒，中国稳态托卡马克运行继续领先",d:"2025-01",u:"https://bcas.cas.cn/head/202602/t20260214_1151007.html",p:"实验纪录"},
+{t:"W7-X刷新43秒长脉冲高性能等离子体纪录",s:"W7-X长脉冲实验获43秒高性能运行，推进仿星器稳态验证",d:"2025-05",u:"https://www.ornl.gov/news/ornls-pellet-injector-enables-world-record-performance-w7-x",p:"实验纪录"},
+{t:"NIF单次聚变产额达8.6兆焦级别",s:"NIF在点火后持续提高ICF实验输出至8.6MJ量级",d:"2025-04",u:"https://annual.llnl.gov/fy-2025/national-ignition-facility-2025",p:"实验纪录"},
+{t:"BEST杜瓦底座完成安装，进入核心装配阶段",s:"合肥BEST完成杜瓦底座关键安装节点",d:"2025-09",u:"https://english.hf.cas.cn/nr/headline/202510/t20251009_1075255.html",p:"装置建设"},
+{t:"CFS计划弗吉尼亚建设首个并网商业聚变电站ARC",s:"CFS与Dominion Energy合作选址、电网和许可",d:"2024-12",u:"https://blog.cfs.energy/answering-the-call-for-more-energy/",p:"商业电站"},
+{t:"CFS SPARC进入托卡马克装配阶段",s:"SPARC从部件制造推进到系统集成",d:"2025-03",u:"https://blog.cfs.energy/cfs-takes-its-next-step-toward-fusion-energy-assembling-the-sparc-tokamak/",p:"装置建设"},
+{t:"CFS完成8.63亿美元B2轮融资，累计接近30亿美元",s:"CFS完成8.63亿B2轮融资，加速SPARC和ARC商业化",d:"2025-08",u:"https://www.cfs.energy/news-and-media/commonwealth-fusion-systems-raises-863-million-series-b2-round-to-accelerate-the-commercialization-of-fusion-energy/",p:"融资"},
+{t:"CFS与Google签署200MW聚变电力采购协议",s:"Google成为首批公开锚定聚变电力采购的大型科技客户",d:"2025-06",u:"https://blog.cfs.energy/powering-the-future-of-ai-with-fusion-energy/",p:"商业订单"},
+{t:"Helion完成4.25亿美元F轮融资推进Polaris",s:"Helion完成4.25亿Series F，Polaris进入运行阶段",d:"2025-01",u:"https://www.helionenergy.com/newsroom/helion-announces-425m-series-f-investment-to-scale-commercialized-fusion-power",p:"融资/装置"},
+{t:"Helion Orion项目获地方许可推进",s:"Orion取得条件性使用许可进展，与微软购电协议绑定",d:"2025-10",u:"https://www.helionenergy.com/newsroom/helion-receives-approvals-for-next-phase-of-construction-of-worlds-first-commercial-fusion-power-plant",p:"许可/商业电站"},
+{t:"Helion发起HERCULES高校合作计划投入超1700万美元",s:"面向材料、等离子体、诊断、工程和人才培养布局生态",d:"2026-04",u:"https://www.helionenergy.com/newsroom",p:"研发合作"},
+{t:"Zap Energy完成1.3亿美元D轮融资并启动Century平台",s:"Century工程测试平台运行，验证重复脉冲和工厂级系统",d:"2024-10",u:"https://www.zapenergy.com/news/zap-attracts-130m-as-demo-system-begins-operations",p:"融资/装置"},
+{t:"Zap Energy调整CEO强化一体化核工程战略",s:"任命Zabrina Johal为CEO，转向核工程/燃料循环/电站集成",d:"2026-05",u:"https://www.prnewswire.com/news-releases/zap-energy-advances-integrated-nuclear-strategy-and-appoints-zabrina-johal-as-ceo-302757297.html",p:"公司治理"},
+{t:"Tokamak Energy完成1.25亿美元融资",s:"用于推进HTS磁体、ST40和聚变电站技术开发",d:"2024-11",u:"https://tokamakenergy.com/2024/11/20/tokamak-energy-raises-125m-to-commercialise-transformative-fusion-and-magnet-technologies/",p:"融资"},
+{t:"Tokamak Energy与DOE/DESNZ推进5200万美元ST40升级",s:"英美政府联合支持ST40升级以验证商业聚变技术",d:"2024-12",u:"https://tokamakenergy.com/2024/12/05/tokamak-energy-partners-with-u-s-doe-and-uks-desnz-to-accelerate-fusion-development-through-52m-st40-upgrade/",p:"政府项目"},
+{t:"Type One Energy与ORNL/TVA合作Infinity Two仿星器试点",s:"田纳西推进Infinity Two验证仿星器聚变电站关键工程",d:"2025-02",u:"https://typeoneenergy.com/",p:"装置建设/合作"},
+{t:"Type One Energy完成Infinity Two初步设计评审",s:"项目从概念设计转向工程化推进",d:"2025-05",u:"https://typeoneenergy.com/type-one-energy-completes-formal-design-review/",p:"装置设计/评审"},
+{t:"Proxima Fusion完成1.3亿欧元A轮融资",s:"用于建设仿星器示范电站技术，欧洲仿星器融资加速",d:"2025-06",u:"https://www.proximafusion.com/press-news/proxima-fusion-raises-eu130m-series-a-to-build-worlds-first-stellarator-based-fusion-power-plant-in-the-2030s",p:"融资"},
+];
 const F=[{n:"Pacific Fusion",ev:"A轮",amt:"超10亿美元",y:"2024",h:"General Catalyst领投，2026年6月宣布完成。原9亿美元承诺全部到账并超额",o:"Pacific Fusion"},
 {n:"CFS",ev:"B++轮",amt:"8.63亿美元",y:"2025",h:"超额认购轮，三井物产领衔日本12家企业联合体参与，累计融资近30亿美元",o:"CFS"},
 {n:"CFS",ev:"B轮",amt:"超18亿美元",y:"2021",h:"用于建设SPARC并推进ARC商业化",o:"CFS"},
@@ -237,7 +261,14 @@ function renderCompanies(){
 function setDom(d){curDom=curDom===d?'all':d;render()}
 function setLic(l){curLic=curLic===l?'all':l;render()}
 function setRoute(r){curRoute=curRoute===r?'all':r;render()}
-function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else renderFunding()}
+function render(){if(curTab==='codes')function renderNews(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
+  document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbN').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
+  document.getElementById('gdN').innerHTML=flt.map(n=>`<div class="card"><div class="hd"><div class="ic ic4">${n.t.slice(0,2)}</div><div><div class="tl">${n.t.slice(0,60)}${n.t.length>60?'…':''}</div><div class="me">📅 ${n.d} · 🏷 ${n.p}</div></div></div><div class="ds">${n.s}</div><div class="ft">${n.u?`<a href="${n.u}" target="_blank">原文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else else if(curTab==='news')renderNews()};renderFunding()
 function switchTab(t){curTab=t;curDom='all';curLic='all';curRoute='all';document.querySelectorAll('nav a').forEach(a=>a.classList.remove('sel'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(t).classList.add('active');document.getElementById('nav'+t[0].toUpperCase()+t.slice(1)).classList.add('sel');document.getElementById('search').value='';render()}
 function renderPapers(){
   const q=(document.getElementById('search').value||'').toLowerCase();
@@ -252,6 +283,13 @@ function renderFunding(){
   document.getElementById('statsF').innerHTML=`<div class="sti"><div class="n">${F.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(F.map(f=>f.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${Math.round(F.reduce((s,f)=>s+(parseFloat(f.amt)||0),0)*10)/10}</div><div class="l">总金额(亿美元)</div></div><div class="sti"><div class="n">${F.length}</div><div class="l">收录数量</div></div>`;
   document.getElementById('tbF').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
   document.getElementById('gdF').innerHTML=flt.map(f=>`<div class="card"><div class="hd"><div class="ic ic4">${f.n[0]}</div><div><div class="tl">${f.o} · ${f.ev}</div><div class="me">💰 ${f.amt} · 📅 ${f.y}</div></div></div><div class="ds">${f.h}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+function renderNews(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
+  document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbN').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
+  document.getElementById('gdN').innerHTML=flt.map(n=>`<div class="card"><div class="hd"><div class="ic ic4">${n.t.slice(0,2)}</div><div><div class="tl">${n.t.slice(0,60)}${n.t.length>60?'…':''}</div><div class="me">📅 ${n.d} · 🏷 ${n.p}</div></div></div><div class="ds">${n.s}</div><div class="ft">${n.u?`<a href="${n.u}" target="_blank">原文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
 }
 renderCodes();
 </script>
