@@ -19,7 +19,7 @@ const DOMS=['湍流输运','MHD平衡/稳定','边界/偏滤器','仿星器优�
 const ROUTES=['托卡马克','仿星器','FRC','惯性约束','球形托卡马克','Z箍缩','磁惯性','反向场箍缩'];
 
 function renderCodes(){
-  const a=ALL_C||C||[],q=((document.getElementById('search')||{}).value||'').toLowerCase();
+  const a=C||[],q=((document.getElementById('search')||{}).value||'').toLowerCase();
   const flt=a.filter(c=>{if(curDom!=='all'&&getDom(c)!==curDom)return 0;if(curLic==='open'&&!c.o)return 0;if(curLic==='closed'&&c.o)return 0;if(q){const s=(c.n+' '+c.d+' '+c.tm+' '+c.inst+' '+c.p+' '+(c.t||[]).join(' ')).toLowerCase();if(!s.includes(q))return 0;}return 1});
   document.getElementById('stC').innerHTML=`<div class="sti"><div class="n">${a.length}</div><div class="l">收录代码</div></div><div class="sti"><div class="n">${a.filter(c=>c.o).length}</div><div class="l">开源</div></div><div class="sti"><div class="n">${a.filter(c=>!c.o).length}</div><div class="l">闭源/需申请</div></div><div class="sti"><div class="n">${DOMS.length}</div><div class="l">物理领域</div></div>`;
   document.getElementById('tbC').innerHTML=`<span class="lb">领域</span><div class="gr"><span class="tag${curDom==='all'?' on':''}" onclick="setDom('all')">全部</span>${DOMS.map(d=>`<span class="tag${curDom===d?' on':''}" onclick="setDom('${d}')">${d}</span>`).join('')}</div><span class="lb" style="margin-left:.6rem">许可</span><div class="gr"><span class="tag${curLic==='all'?' on':''}" onclick="setLic('all')">全部</span><span class="tag${curLic==='open'?' on':''}" onclick="setLic('open')">开源</span><span class="tag${curLic==='closed'?' on':''}" onclick="setLic('closed')">需申请</span></div><span class="cnt">匹配 ${flt.length} 个</span>`;
