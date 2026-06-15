@@ -85,7 +85,7 @@ function switchTab(t){
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('sel'));
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(t).classList.add('active');
-  document.getElementById('nv'+t[0].toUpperCase()+t.slice(1)).classList.add('sel');
+  document.getElementById('nav'+t[0].toUpperCase()+t.slice(1)).classList.add('sel');
   document.getElementById('search').value='';render();
 }
 
