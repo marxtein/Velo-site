@@ -1,4 +1,26 @@
-<!doctype html>
+<
+function renderPapers(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=P.filter(p=>!q||(p.t+' '+p.a+' '+p.c+' '+p.h).toLowerCase().includes(q));
+  document.getElementById('statsP').innerHTML=`<div class="sti"><div class="n">${P.length}</div><div class="l">收录文献</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.c))].length}</div><div class="l">关联代码</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.j))].length}</div><div class="l">期刊来源</div></div><div class="sti"><div class="n">${P.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbP').innerHTML=`<span class="cnt">匹配 ${flt.length} 篇</span>`;
+  document.getElementById('gdP').innerHTML=flt.map(p=>`<div class="card"><div class="hd"><div class="ic ic3">${p.t[0]}</div><div><div class="tl">${p.t.slice(0,60)}${p.t.length>60?'…':''}</div><div class="me">👤 ${p.a} · 📅 ${p.y} · 📰 ${p.j}</div></div></div><div class="ds">${p.h}</div><div class="ft">🔗 关联代码: <b>${p.c}</b>${p.l?` · <a href="${p.l}" target="_blank">论文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+function renderFunding(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=F.filter(f=>!q||(f.n+' '+f.o+' '+f.h).toLowerCase().includes(q));
+  document.getElementById('statsF').innerHTML=`<div class="sti"><div class="n">${F.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(F.map(f=>f.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${Math.round(F.reduce((s,f)=>s+(parseFloat(f.amt)||0),0)*10)/10}</div><div class="l">总金额(亿美元)</div></div><div class="sti"><div class="n">${F.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbF').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
+  document.getElementById('gdF').innerHTML=flt.map(f=>`<div class="card"><div class="hd"><div class="ic ic4">${f.n[0]}</div><div><div class="tl">${f.o} · ${f.ev}</div><div class="me">💰 ${f.amt} · 📅 ${f.y}</div></div></div><div class="ds">${f.h}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+function renderNews(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
+  document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbN').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
+  document.getElementById('gdN').innerHTML=flt.map(n=>`<div class="card"><div class="hd"><div class="ic ic4">${n.t.slice(0,2)}</div><div><div class="tl">${n.t.slice(0,60)}${n.t.length>60?'…':''}</div><div class="me">📅 ${n.d} · 🏷 ${n.p}</div></div></div><div class="ds">${n.s}</div><div class="ft">${n.u?`<a href="${n.u}" target="_blank">原文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
@@ -261,37 +283,6 @@ function renderCompanies(){
 function setDom(d){curDom=curDom===d?'all':d;render()}
 function setLic(l){curLic=curLic===l?'all':l;render()}
 function setRoute(r){curRoute=curRoute===r?'all':r;render()}
-function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else if(curTab==='funding')renderFunding();else renderNews()}function renderNews(){
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
-  document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
-  document.getElementById('tbN').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
-  document.getElementById('gdN').innerHTML=flt.map(n=>`<div class="card"><div class="hd"><div class="ic ic4">${n.t.slice(0,2)}</div><div><div class="tl">${n.t.slice(0,60)}${n.t.length>60?'…':''}</div><div class="me">📅 ${n.d} · 🏷 ${n.p}</div></div></div><div class="ds">${n.s}</div><div class="ft">${n.u?`<a href="${n.u}" target="_blank">原文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
-}
-renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else else if(curTab==='news')renderNews()};renderFunding()
+function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else if(curTab==='funding')renderFunding();else renderNews()}
 function switchTab(t){curTab=t;curDom='all';curLic='all';curRoute='all';document.querySelectorAll('nav a').forEach(a=>a.classList.remove('sel'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(t).classList.add('active');document.getElementById('nav'+t[0].toUpperCase()+t.slice(1)).classList.add('sel');document.getElementById('search').value='';render()}
-function renderPapers(){
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  const flt=P.filter(p=>!q||(p.t+' '+p.a+' '+p.c+' '+p.h).toLowerCase().includes(q));
-  document.getElementById('statsP').innerHTML=`<div class="sti"><div class="n">${P.length}</div><div class="l">收录文献</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.c))].length}</div><div class="l">关联代码</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.j))].length}</div><div class="l">期刊来源</div></div><div class="sti"><div class="n">${P.length}</div><div class="l">收录数量</div></div>`;
-  document.getElementById('tbP').innerHTML=`<span class="cnt">匹配 ${flt.length} 篇</span>`;
-  document.getElementById('gdP').innerHTML=flt.map(p=>`<div class="card"><div class="hd"><div class="ic ic3">${p.t[0]}</div><div><div class="tl">${p.t.slice(0,60)}${p.t.length>60?'…':''}</div><div class="me">👤 ${p.a} · 📅 ${p.y} · 📰 ${p.j}</div></div></div><div class="ds">${p.h}</div><div class="ft">🔗 关联代码: <b>${p.c}</b>${p.l?` · <a href="${p.l}" target="_blank">论文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
-}
-function renderFunding(){
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  const flt=F.filter(f=>!q||(f.n+' '+f.o+' '+f.h).toLowerCase().includes(q));
-  document.getElementById('statsF').innerHTML=`<div class="sti"><div class="n">${F.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(F.map(f=>f.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${Math.round(F.reduce((s,f)=>s+(parseFloat(f.amt)||0),0)*10)/10}</div><div class="l">总金额(亿美元)</div></div><div class="sti"><div class="n">${F.length}</div><div class="l">收录数量</div></div>`;
-  document.getElementById('tbF').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
-  document.getElementById('gdF').innerHTML=flt.map(f=>`<div class="card"><div class="hd"><div class="ic ic4">${f.n[0]}</div><div><div class="tl">${f.o} · ${f.ev}</div><div class="me">💰 ${f.amt} · 📅 ${f.y}</div></div></div><div class="ds">${f.h}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
-}
-function renderNews(){
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
-  document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
-  document.getElementById('tbN').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
-  document.getElementById('gdN').innerHTML=flt.map(n=>`<div class="card"><div class="hd"><div class="ic ic4">${n.t.slice(0,2)}</div><div><div class="tl">${n.t.slice(0,60)}${n.t.length>60?'…':''}</div><div class="me">📅 ${n.d} · 🏷 ${n.p}</div></div></div><div class="ds">${n.s}</div><div class="ft">${n.u?`<a href="${n.u}" target="_blank">原文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
-}
-renderCodes();
-</script>
-</body>
-</html>
+
