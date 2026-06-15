@@ -54,7 +54,7 @@ function renderPapers(){
 function renderFunding(){
   const f=F||[],q=((document.getElementById('search')||{}).value||'').toLowerCase();
   const flt=f.filter(x=>!q||(x.n+' '+x.o+' '+x.h).toLowerCase().includes(q));
-  document.getElementById('stF').innerHTML=`<div class="sti"><div class="n">${f.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(f.map(x=>x.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${Math.round(f.reduce((s,x)=>s+(parseFloat(x.amt)||0),0)*10)/10}</div><div class="l">总金额(亿美元)</div></div><div class="sti"><div class="n">${f.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('stF').innerHTML=`<div class="sti"><div class="n">${f.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(f.map(x=>x.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${[...new Set(f.map(x=>x.y))].size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${f.length}</div><div class="l">收录数量</div></div>`;
   document.getElementById('tbF').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
   document.getElementById('gdF').innerHTML=flt.map(x=>`<div class="card"><div class="hd"><div class="ic">${x.n[0]}</div><div><div class="tl">${x.o} · ${x.ev}</div><div class="me">💰 ${x.amt} · 📅 ${x.y}</div></div></div><div class="ds">${x.h}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
 }

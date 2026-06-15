@@ -70,7 +70,14 @@ for r in codes_data:
     elif isinstance(tags_raw, str) and tags_raw.strip():
         tags = [t.strip() for t in tags_raw.replace('，',',').split(',') if t.strip()]
     p = domain_from_text(desc)
-    o = 1 if ('github.com' in url.lower() or 'gitlab' in url.lower()) else 0
+    # Smarter open-source detection: only github.com/OWNER/REPO is open source,
+    # not github.io documentation pages or org-profile URLs
+    o = 0
+    if url and url != '待补充':
+        is_repo = bool(re.match(r'https?://github\.com/[^/]+/[^/\s\)]+', url))
+        is_gitlab_repo = bool(re.match(r'https?://gitlab\.[^/]+/[^/]+/[^/\s\)]+', url))
+        if is_repo or is_gitlab_repo:
+            o = 1
     if '(' in url and url.startswith('http://'): url = '待补充'; o = 0
     codes_js.append({'n':n,'d':desc[:120],'p':p,'tm':tm[:80],'inst':inst[:60],'url':url or '待补充','o':o,'t':tags[:5],'pp':pp})
 print(f"  {len(codes_js)}")
@@ -182,7 +189,7 @@ for r in funding_data:
     y_raw = safe_str(r[3], "待补充")
     y = y_raw[:4] if len(y_raw) >= 4 else y_raw[:10] if y_raw else "待补充"
     h = safe_str(r[4], "待补充")[:150]
-    key = f"{n}:{ev}:{y}"
+    key = f"{n}:{ev}:{amt}:{y}"
     if key in seen: continue
     seen.add(key)
     funding_js.append({'n':n,'ev':ev,'amt':amt,'y':y,'h':h,'o':n})
