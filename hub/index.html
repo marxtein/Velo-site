@@ -118,6 +118,12 @@ const D=[{n:"ITER",r:"托卡马克",rt:"rt-t",loc:"法国卡达拉舍",q:"设计
 {n:"T-15MD",r:"托卡马克",rt:"rt-t",loc:"俄罗斯莫斯科",q:"Q<0.001",f:"约200亿卢布",s:"大半径1.48m,B=2T",h:"2021年首次放电；2025年验证液态锂第一壁",w:""},
 {n:"Tore Supra",r:"托卡马克",rt:"rt-t",loc:"法国卡达拉舍",q:"Q<0.01",f:"约8亿欧元",s:"大半径2.25m,B=4.5T",h:"2003年实现6分30秒长脉冲；2016年升级为WEST",w:""},
 {n:"RFX-mod",r:"反向场箍缩",rt:"rt-o",loc:"意大利帕多瓦",q:"Q<0.001",f:"约3亿欧元",s:"大半径2m,B=0.7T",h:"服务RFP约束、MHD控制研究；升级路线为RFX-mod2",w:""},
+{n:"J-TEXT",r:"托卡马克",rt:"rt-t",loc:"中国武汉",q:"Q<0.001",f:"",s:"大半径1.05m,B=2.0T,Ip=200kA",h:"华中科技大学；面向MHD不稳定性、RMP、破裂和边界物理研究",w:""},
+{n:"EXL-50",r:"球形托卡马克",rt:"rt-t",loc:"中国廊坊",q:"Q<0.001",f:"",s:"大半径0.50m,B=0.5T",h:"新奥聚变；验证无中心螺线管等离子体启动与电子加热方案",w:""},
+{n:"ETE",r:"球形托卡马克",rt:"rt-t",loc:"巴西",q:"",f:"",s:"IAEA 2022实验托卡马克名录",h:"巴西INPE球形托卡马克研究平台",w:""},
+{n:"STOR-M",r:"托卡马克",rt:"rt-t",loc:"加拿大",q:"",f:"",s:"大半径0.46m,B=0.7T",h:"加拿大高校托卡马克和等离子体教育平台",w:""},
+{n:"TCABR",r:"托卡马克",rt:"rt-t",loc:"巴西圣保罗",q:"",f:"",s:"大半径0.61m,B=1.1T",h:"巴西托卡马克物理、射频加热和边界研究平台",w:""},
+{n:"GLAST-III",r:"球形托卡马克",rt:"rt-t",loc:"巴基斯坦",q:"",f:"",s:"大半径0.20m,玻璃真空腔",h:"巴基斯坦球形托卡马克/基础实验平台",w:""},
 ];
 
 // ===== DATA: 12 Companies =====
@@ -155,6 +161,17 @@ const P=[{t:"聚变能源研究态势及展望",a:"彭先觉/李建刚/邓建军
 {t:"Modeling 3 Plasma Accelerator Stages with WarpX",a:"Vay/Huebl",j:"Phys. Plasmas",y:"2021",h:"WarpX GPU电磁PIC代码多级加速阶段建模论文，Exascale验证",c:"WarpX",l:""},
 {t:"VPIC: 3D EM Relativistic Kinetic Plasma",a:"Bowers/Albright",j:"Phys. Plasmas",y:"2008",h:"VPIC代码标志性论文，超高性能三维电磁PIC等离子体模拟",c:"VPIC",l:""},
 {t:"Gyro-Kinetic Simulation of Global Turbulent Transport",a:"Lin/Wang",j:"Phys. Plasmas",y:"2006",h:"GTC代码全局湍流输运特性的回旋动理学模拟研究",c:"GTC",l:""},
+{t:"The JOREK Non-linear Extended MHD Code",a:"Hoelzl/Huijsmans",j:"Nucl. Fusion",y:"2021",h:"JOREK代码综述：ELM动力学、破裂、VDE等大规模不稳定性模拟最新进展",c:"JOREK",l:"https://doi.org/10.1088/1741-4326/abf99f"},
+{t:"BOUT++: A Framework for Parallel Plasma Fluid Simulations",a:"Dudson/Umansky",j:"Comp. Phys. Comm.",y:"2009",h:"BOUT++框架奠基论文，三维曲线坐标等离子体流体并行模拟",c:"BOUT++",l:"https://doi.org/10.1016/j.cpc.2009.03.008"},
+{t:"ASCOT: Solving Kinetic Equation of Minority Species",a:"Hirvijoki/Asunta",j:"Comp. Phys. Comm.",y:"2014",h:"ASCOT代码核心论文，托卡马克中少数粒子种类的动力学方程求解",c:"ASCOT5",l:"https://doi.org/10.1016/j.cpc.2014.01.014"},
+{t:"A High-Accuracy Eulerian Gyrokinetic Solver",a:"Candy/Belli",j:"J. Comp. Phys.",y:"2016",h:"CGYRO代码核心方法论文，碰撞等离子体的高精度Eulerian回旋动理学求解器",c:"CGYRO",l:"https://doi.org/10.1016/j.jcp.2016.07.039"},
+{t:"Electron Temperature Gradient Turbulence (PRL)",a:"Jenko/Dorland",j:"Phys. Rev. Lett.",y:"2000",h:"PRL里程碑论文：首次证实ETG湍流可产生显著电子热输运",c:"GS2",l:"https://doi.org/10.1103/PhysRevLett.85.5579"},
+{t:"MARS-F: Finite Element for MHD Stability Analysis",a:"Liu/Chu",j:"Phys. Plasmas",y:"2000",h:"MARS-F代码核心论文，MHD稳定性和反馈分析的有限元公式",c:"MARS-F",l:"https://doi.org/10.1063/1.873437"},
+{t:"The TGLF Transport Model with Dynamic Flow Shear",a:"Staebler/Kinsey",j:"Phys. Plasmas",y:"2016",h:"TGLF输运模型里程碑论文，含动态流动剪切的临界梯度模型",c:"TGLF",l:"https://doi.org/10.1063/1.4949087"},
+{t:"An Eulerian Gyrokinetic-Maxwell Solver",a:"Candy/Waltz",j:"J. Comp. Phys.",y:"2003",h:"GYRO代码奠基论文，欧拉回旋动理学-Maxwell求解器",c:"GYRO",l:"https://doi.org/10.1016/S0021-9991(03)00079-2"},
+{t:"NIMROD: High-Order Finite Elements for MHD",a:"Sovinec/Glasser",j:"J. Comp. Phys.",y:"2004",h:"NIMROD代码核心论文，高阶有限元非线性MHD模拟",c:"NIMROD",l:"https://doi.org/10.1016/j.jcp.2003.10.004"},
+{t:"Non-Linear Model-Based Optimization for Tokamak Control",a:"Felici/Sauter",j:"Plasma Phys. Control. Fusion",y:"2012",h:"RAPTOR代码控制优化核心论文，托卡马克剖面控制轨迹优化",c:"RAPTOR",l:""},
+{t:"Real-Time Current Density Profile Simulation",a:"Felici/Sauter",j:"Nucl. Fusion",y:"2011",h:"RAPTOR实时物理模型仿真电流密度剖面",c:"RAPTOR",l:""},
 ];
 
 // ===== DATA: Funding Events =====
@@ -168,6 +185,10 @@ const F=[{n:"Pacific Fusion",ev:"A轮",amt:"超10亿美元",y:"2024",h:"General 
 {n:"Proxima Fusion",ev:"A轮",amt:"1.3亿欧元",y:"2025",h:"欧洲最大私营聚变投资轮之一，总资金超1.85亿欧元",o:"Proxima"},
 {n:"Tokamak Energy",ev:"融资轮",amt:"1.25亿美元",y:"2024",h:"用于商业化聚变与HTS磁体技术",o:"Tokamak Energy"},
 {n:"General Fusion",ev:"过桥融资",amt:"2200万美元",y:"2025",h:"用于支持LM26示范项目",o:"General Fusion"},
+{n:"Proxima Fusion",ev:"A轮",amt:"1.3亿欧元",y:"2025",h:"欧洲最大私营聚变投资轮之一，总资金超1.85亿欧元",o:"Proxima"},
+{n:"Antom Fusion",ev:"首轮",amt:"近亿元",y:"2025",h:"国内首家Z箍缩聚变商业化团队完成首轮融资",o:"安东聚变"},
+{n:"HHMax",ev:"天使轮",amt:"数千万",y:"2025",h:"中国首台商业化FRC装置完成天使轮融资",o:"瀚海聚能"},
+{n:"Energy Singularity",ev:"融资轮",amt:"数亿元",y:"2025",h:"国内HTS托卡马克领导者，洪荒70已实现1337秒长脉冲",o:"能量奇点"},
 ];
 
 // ===== RENDER =====
