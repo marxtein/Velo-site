@@ -261,7 +261,7 @@ function renderCompanies(){
 function setDom(d){curDom=curDom===d?'all':d;render()}
 function setLic(l){curLic=curLic===l?'all':l;render()}
 function setRoute(r){curRoute=curRoute===r?'all':r;render()}
-function render(){if(curTab==='codes')function renderNews(){
+function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else if(curTab==='funding')renderFunding();else renderNews()}function renderNews(){
   const q=(document.getElementById('search').value||'').toLowerCase();
   const flt=N.filter(n=>!q||(n.t+' '+n.s+' '+n.p).toLowerCase().includes(q));
   document.getElementById('statsN').innerHTML=`<div class="sti"><div class="n">${N.length}</div><div class="l">行业新闻</div></div><div class="sti"><div class="n">${[...new Set(N.map(n=>n.p))].length}</div><div class="l">新闻类型</div></div><div class="sti"><div class="n">${new Set(N.map(n=>n.d.slice(0,4))).size}</div><div class="l">覆盖年份</div></div><div class="sti"><div class="n">${N.length}</div><div class="l">收录数量</div></div>`;
