@@ -64,7 +64,9 @@ main{max-width:1340px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 <nav>
 <a onclick="switchTab('codes')" class="sel" id="navCodes">代码库</a>
 <a onclick="switchTab('devices')" id="navDevices">装置库</a>
-<a onclick="switchTab('companies')" id="navCompanies">企业图谱</a>
+<a onclick="switchTab('companies')" id="navCompanies">企业</a>
+<a onclick="switchTab('papers')" id="navPapers">文献</a>
+<a onclick="switchTab('funding')" id="navFunding">融资</a>
 </nav>
 <div class="sr"><input type="text" placeholder="搜索…" id="search" oninput="render()"/></div>
 </div></header>
@@ -72,6 +74,8 @@ main{max-width:1340px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 <div id="codes" class="section active"><div class="st" id="statsC"></div><div class="tb" id="tbC"></div><div class="gd" id="gdC"></div></div>
 <div id="devices" class="section"><div class="st" id="statsD"></div><div class="tb" id="tbD"></div><div class="gd" id="gdD"></div></div>
 <div id="companies" class="section"><div class="st" id="statsM"></div><div class="tb" id="tbM"></div><div class="gd" id="gdM"></div></div>
+<div id="papers" class="section"><div class="st" id="statsP"></div><div class="tb" id="tbP"></div><div class="gd" id="gdP"></div></div>
+<div id="funding" class="section"><div class="st" id="statsF"></div><div class="tb" id="tbF"></div><div class="gd" id="gdF"></div></div>
 </main>
 <script>
 // ===== DATA: 80 Codes =====
@@ -129,6 +133,41 @@ const M=[{n:"Commonwealth Fusion Systems",e:"CFS",loc:"美国麻省",ty:"国外�
 {n:"瀚海聚能",e:"Hanhai Fusion",loc:"中国成都",ty:"民营企业",d:"国内首家直线型FRC商业聚变公司。2025年首台装置等离子体点亮。",v:"种子轮数千万 · ~30人 · 2022",r:"直线型FRC",w:"https://www.hanhaifusion.cn"},
 {n:"中核集团",e:"CNNC",loc:"中国北京",ty:"国央企",d:"中央直管特大型国有骨干企业，完整核科技工业体系。",v:"~14万亿 · ~18万人 · 1999",r:"核能/聚变工程",w:"https://www.cnnc.com.cn"},
 {n:"西物院",e:"SWIP",loc:"中国成都",ty:"国央企",d:"中国磁约束聚变发源地，运营HL-2M/中国环流三号。",v:"~2000人 · 1965",r:"托卡马克/聚变堆设计",w:"https://www.swip.ac.cn"},
+{n:"聚变新能",e:"NeoFusion",loc:"中国合肥",ty:"民营企业",d:"安徽省重点聚变产业化平台，推进聚变工程化技术与装备制造。",v:"~50亿元 · 2024",r:"聚变堆系统集成/超导磁体",w:"https://www.jbnenergy.com.cn"},
+{n:"新烛时代",e:"CandleFusion",loc:"中国北京",ty:"民营企业",d:"聚变等离子体AI模拟与数值仿真工具链，聚焦AI4Fusion/数字孪生。",v:"~3.6亿元 · ~15人 · 2023",r:"AI4Fusion/聚变模拟",w:"https://www.xinzhu-era.com"},
+{n:"鸿鹄聚变",e:"Honghu Fusion",loc:"中国苏州",ty:"民营企业",d:"仿星器紧凑型聚变企业，聚焦3D磁场优化和稳态聚变技术开发。",v:"~15人 · 2024",r:"仿星器/3D磁场优化",w:""},
+{n:"江西聚变能源",e:"JX Fusion Energy",loc:"中国南昌",ty:"民营企业",d:"推进星火一号高温超导混合堆项目，设计等效聚变功率超40MW，目标2030年演示发电。",v:"~50人 · 2024",r:"HTS托卡马克/混合堆",w:""},
+{n:"北京大学",e:"PKU",loc:"中国北京",ty:"高等院校",d:"中国顶尖综合性研究型大学，等离子体物理和聚变理论研究国内领先。",v:"",r:"等离子体物理/聚变理论",w:"https://www.pku.edu.cn"},
+];
+
+// ===== DATA: Papers =====
+const P=[{t:"聚变能源研究态势及展望",a:"彭先觉/李建刚/邓建军",j:"中国工程科学",y:"2024",h:"三位院士联合撰写的聚变能源战略综述，系统梳理磁约束与Z箍缩两条技术路线全球进展",c:"DESC",l:"https://www.engineering.org.cn/sscae/CN/10.15302/J-SSCAE-2024.04.005"},
+{t:"Electron Temperature Gradient Driven Turbulence",a:"Jenko/Dorland",j:"Phys. Plasmas",y:"2000",h:"聚变湍流输运奠基性论文。首次揭示ETG湍流中流束结构的主导作用，被引超千次",c:"GENE",l:"https://doi.org/10.1063/1.874051"},
+{t:"Turbulent Transport Reduction by Zonal Flows",a:"Lin/Hahm",j:"Science",y:"1998",h:"Science里程碑论文。首次证实带状流抑制湍流输运机制，为ITER H-mode物理奠基",c:"GTC",l:"https://doi.org/10.1126/science.281.5384.1835"},
+{t:"DESC: A Stellarator Equilibrium Solver",a:"Dudt/Kolemen",j:"J. Plasma Phys.",y:"2020",h:"新型仿星器三维MHD平衡求解器，谱方法直接求解GS方程广义形式，比VMEC更快更精确",c:"DESC",l:"https://doi.org/10.1017/S0022377820000938"},
+{t:"The DESC Stellarator Code Suite Part 1",a:"Dudt/Conlin",j:"J. Plasma Phys.",y:"2023",h:"DESC三部曲首篇。系统对比DESC与VMEC速度和精度优势，仿星器平衡新标准",c:"DESC",l:"https://doi.org/10.1017/S0022377823000861"},
+{t:"Predictive Transport Simulations with TORAX",a:"TORAX Team",j:"arXiv",y:"2024",h:"利用DeepMind TORAX框架对T-15MD进行预测模拟，验证JAX快速集成模拟的适用性",c:"TORAX",l:"https://doi.org/10.48550/arXiv.2406.06718"},
+{t:"Global Version of GENE",a:"Görler/Jenko",j:"J. Comp. Phys.",y:"2011",h:"GENE代码全球版本，扩展至全径向区域湍流模拟",c:"GENE",l:"https://doi.org/10.1016/j.jcp.2011.05.034"},
+{t:"OSIRIS: 3D Relativistic PIC Code",a:"Fonseca/Silva",j:"LNCS",y:"2002",h:"OSIRIS代码开创性论文，全相对论PIC建模等离子体加速器",c:"OSIRIS",l:"https://doi.org/10.1007/3-540-47789-6_36"},
+{t:"Conservative DG for Dougherty-Fokker-Planck",a:"Hakim/Juno",j:"J. Plasma Phys.",y:"2020",h:"Gkeyll代码中保守间断Galerkin碰撞算符的核心方法论文",c:"Gkeyll",l:"https://doi.org/10.1017/S0022377820000707"},
+{t:"Multi-Region Free-Boundary 3D Equilibria",a:"Hudson/Loizu",j:"Phys. Plasmas",y:"2016",h:"SPEC代码多区域自由边界平衡方法论文，磁岛/随机场区域处理",c:"SPEC",l:""},
+{t:"The EIRENE and B2-EIRENE Codes",a:"Reiter/Coster",j:"Fusion Sci. Tech.",y:"2005",h:"EIRENE中性粒子输运+B2边界流体代码核心文献，SOLPS标配",c:"EIRENE",l:"https://doi.org/10.13182/fst47-172"},
+{t:"Modeling 3 Plasma Accelerator Stages with WarpX",a:"Vay/Huebl",j:"Phys. Plasmas",y:"2021",h:"WarpX GPU电磁PIC代码多级加速阶段建模论文，Exascale验证",c:"WarpX",l:""},
+{t:"VPIC: 3D EM Relativistic Kinetic Plasma",a:"Bowers/Albright",j:"Phys. Plasmas",y:"2008",h:"VPIC代码标志性论文，超高性能三维电磁PIC等离子体模拟",c:"VPIC",l:""},
+{t:"Gyro-Kinetic Simulation of Global Turbulent Transport",a:"Lin/Wang",j:"Phys. Plasmas",y:"2006",h:"GTC代码全局湍流输运特性的回旋动理学模拟研究",c:"GTC",l:""},
+];
+
+// ===== DATA: Funding Events =====
+const F=[{n:"Pacific Fusion",ev:"A轮",amt:"超10亿美元",y:"2024",h:"General Catalyst领投，2026年6月宣布完成。原9亿美元承诺全部到账并超额",o:"Pacific Fusion"},
+{n:"CFS",ev:"B++轮",amt:"8.63亿美元",y:"2025",h:"超额认购轮，三井物产领衔日本12家企业联合体参与，累计融资近30亿美元",o:"CFS"},
+{n:"CFS",ev:"B轮",amt:"超18亿美元",y:"2021",h:"用于建设SPARC并推进ARC商业化",o:"CFS"},
+{n:"Helion Energy",ev:"Series F",amt:"4.25亿美元",y:"2025",h:"估值约54亿美元",o:"Helion"},
+{n:"TAE Technologies",ev:"Series G-2",amt:"2.5亿美元",y:"2022",h:"累计融资达12亿美元",o:"TAE"},
+{n:"Zap Energy",ev:"C轮",amt:"1.3亿美元",y:"2024",h:"Century工程测试平台开始运行；总融资超3.3亿美元",o:"Zap"},
+{n:"Zap Energy",ev:"C轮",amt:"1.6亿美元",y:"2022",h:"与FuZE-Q首次等离子体一起公布",o:"Zap"},
+{n:"Proxima Fusion",ev:"A轮",amt:"1.3亿欧元",y:"2025",h:"欧洲最大私营聚变投资轮之一，总资金超1.85亿欧元",o:"Proxima"},
+{n:"Tokamak Energy",ev:"融资轮",amt:"1.25亿美元",y:"2024",h:"用于商业化聚变与HTS磁体技术",o:"Tokamak Energy"},
+{n:"General Fusion",ev:"过桥融资",amt:"2200万美元",y:"2025",h:"用于支持LM26示范项目",o:"General Fusion"},
 ];
 
 // ===== RENDER =====
@@ -164,8 +203,22 @@ function renderCompanies(){
 function setDom(d){curDom=curDom===d?'all':d;render()}
 function setLic(l){curLic=curLic===l?'all':l;render()}
 function setRoute(r){curRoute=curRoute===r?'all':r;render()}
-function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else renderCompanies()}
+function render(){if(curTab==='codes')renderCodes();else if(curTab==='devices')renderDevices();else if(curTab==='companies')renderCompanies();else if(curTab==='papers')renderPapers();else renderFunding()}
 function switchTab(t){curTab=t;curDom='all';curLic='all';curRoute='all';document.querySelectorAll('nav a').forEach(a=>a.classList.remove('sel'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(t).classList.add('active');document.getElementById('nav'+t[0].toUpperCase()+t.slice(1)).classList.add('sel');document.getElementById('search').value='';render()}
+function renderPapers(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=P.filter(p=>!q||(p.t+' '+p.a+' '+p.c+' '+p.h).toLowerCase().includes(q));
+  document.getElementById('statsP').innerHTML=`<div class="sti"><div class="n">${P.length}</div><div class="l">收录文献</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.c))].length}</div><div class="l">关联代码</div></div><div class="sti"><div class="n">${[...new Set(P.map(p=>p.j))].length}</div><div class="l">期刊来源</div></div><div class="sti"><div class="n">${P.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbP').innerHTML=`<span class="cnt">匹配 ${flt.length} 篇</span>`;
+  document.getElementById('gdP').innerHTML=flt.map(p=>`<div class="card"><div class="hd"><div class="ic ic3">${p.t[0]}</div><div><div class="tl">${p.t.slice(0,60)}${p.t.length>60?'…':''}</div><div class="me">👤 ${p.a} · 📅 ${p.y} · 📰 ${p.j}</div></div></div><div class="ds">${p.h}</div><div class="ft">🔗 关联代码: <b>${p.c}</b>${p.l?` · <a href="${p.l}" target="_blank">论文链接 →</a>`:''}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
+function renderFunding(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const flt=F.filter(f=>!q||(f.n+' '+f.o+' '+f.h).toLowerCase().includes(q));
+  document.getElementById('statsF').innerHTML=`<div class="sti"><div class="n">${F.length}</div><div class="l">融资事件</div></div><div class="sti"><div class="n">${[...new Set(F.map(f=>f.o))].length}</div><div class="l">涉及企业</div></div><div class="sti"><div class="n">${Math.round(F.reduce((s,f)=>s+(parseFloat(f.amt)||0),0)*10)/10}</div><div class="l">总金额(亿美元)</div></div><div class="sti"><div class="n">${F.length}</div><div class="l">收录数量</div></div>`;
+  document.getElementById('tbF').innerHTML=`<span class="cnt">匹配 ${flt.length} 条</span>`;
+  document.getElementById('gdF').innerHTML=flt.map(f=>`<div class="card"><div class="hd"><div class="ic ic4">${f.n[0]}</div><div><div class="tl">${f.o} · ${f.ev}</div><div class="me">💰 ${f.amt} · 📅 ${f.y}</div></div></div><div class="ds">${f.h}</div></div>`).join('')||'<div style="text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1">没有匹配</div>';
+}
 renderCodes();
 </script>
 </body>
