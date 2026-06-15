@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync ALL Feishu Bitable data → data_full.js (v3 — all fixes applied)"""
+"""Sync ALL Feishu Bitable data → data_full.js (v4 — field[12] institution + funding fix)"""
 
 import json, re, os
 
@@ -41,6 +41,36 @@ def extract_inst(tm_str):
         return parts[1].strip()[:60]
     return ""
 
+def build_inst_map():
+    """Build {record_id: institution_name} mapping from 单位 table"""
+    try:
+        data = load_json('institutions_json.txt')
+        recs = data.get('data', {}).get('data', [])
+        rids = data.get('data', {}).get('record_id_list', [])
+        inst_map = {}
+        for rec, rid in zip(recs, rids):
+            name = safe_str(rec[0]) if rec else '待补充'
+            if name and name != '待补充':
+                inst_map[rid] = name
+        print(f"  Loaded {len(inst_map)} institution records")
+        return inst_map
+    except Exception as e:
+        print(f"  WARN: Could not load institution map: {e}")
+        return {}
+
+def clean_funding(val):
+    """Clean merged funding values — take first part before semicolon"""
+    if not val: return val
+    val = str(val)
+    # If it has semicolons (merged values), take the first part
+    if '；' in val:
+        parts = val.split('；')
+        val = parts[0].strip()
+    elif ';' in val:
+        parts = val.split(';')
+        val = parts[0].strip()
+    return val[:80]
+
 def domain_from_text(text):
     t = safe_str(text).lower()
     if any(w in t for w in ['湍流','回旋']): return '湍流输运'
@@ -58,6 +88,7 @@ def domain_from_text(text):
 
 # ===== CODES =====
 print("=== Codes ===")
+inst_map = build_inst_map()
 codes_raw = load_json('codes_json.txt')
 codes_data = codes_raw['data']['data']
 codes_js, seen = [], set()
@@ -71,8 +102,14 @@ for r in codes_data:
     desc = safe_str(r[7]) or safe_str(r[8], "待补充")
     tm = safe_str(r[5], "待补充")
     
-    # Institution: extract from team field or use placeholder
-    inst = extract_inst(tm)
+    # Institution: use field[12] "发布单位" (linked field), fallback to team extraction
+    f12 = r[12] if len(r) > 12 else None
+    inst = "待补充"
+    if f12 and isinstance(f12, list) and len(f12) > 0:
+        iid = f12[0].get('id', '') if isinstance(f12[0], dict) else ''
+        inst = inst_map.get(iid, '')
+    if not inst or inst == '待补充':
+        inst = extract_inst(tm)
     if not inst: inst = "待补充"
     
     pp = len(r[9]) if isinstance(r[9], list) else 0
@@ -84,9 +121,21 @@ for r in codes_data:
     
     p = domain_from_text(desc)
     
-    # Open source: github.com/ORG/REPO is open, github.io docs are not
+    # Open source detection:
+    # 1. URL pattern: github.com/ORG/REPO or gitlab.*/ORG/REPO
+    # 2. Manual verification list (individually web-searched 2026-06-15)
+    MANUAL_OPEN = {
+        'GTC','GENE','GX','BOUT++','OpenMC','WarpX','OSIRIS',
+        'CGYRO','GYRO','TGLF','TGYRO','EIRENE','EMC3-EIRENE',
+        'SOLPS-ITER','M3D-C1','Bluemira','FESTIM','Gkeyll','Hermes-3',
+        'IPS','pyrokinetics','DAGMC','FIDASIM','Power Balance Models',
+        'SPEC','AORSA','ASCOT5','QuaLiKiz','ASTRA','CRONOS','METIS',
+        'GS2','LUKE','TORAY','UEDGE','FISPACT-II','JOREK','OMFIT','TRANSP',
+    }
     o = 0
-    if url and url != '待补充':
+    if n in MANUAL_OPEN:
+        o = 1
+    elif url and url != '待补充':
         if re.match(r'https?://github\.com/[^/]+/[^/\s\)]+', url): o = 1
         elif re.match(r'https?://gitlab\.[^/]+/[^/]+/[^/\s\)]+', url): o = 1
     
@@ -111,7 +160,7 @@ for r in devices_data:
     route = safe_str(r[9], "托卡马克")
     loc = safe_str(r[11], "待补充")
     q_val = safe_str(r[5], "待补充")
-    funding = safe_str(r[6], "待补充") or safe_str(r[3], "待补充")
+    funding = clean_funding(safe_str(r[6], "")) or clean_funding(safe_str(r[3], "")) or "待补充"
     specs = safe_str(r[4], "待补充")
     desc = safe_str(r[19], "待补充")[:200]
     website = safe_str(r[12], "") if len(r) > 12 else ""
@@ -144,8 +193,40 @@ for r in companies_data:
     companies_js.append({'n':n,'e':e,'loc':loc,'ty':ty,'d':desc,'v':scale[:80],'w':website,'r':route[:80]})
 print(f"  {len(companies_js)}")
 
-# ===== PAPERS (only with links, fix code associations, remove URL-titles) =====
+# ===== PAPERS (only with links, resolve code links, remove URL-titles) =====
 print("=== Papers ===")
+
+# Build code ID -> name mapping for resolving linked code fields
+def build_code_map():
+    try:
+        data = load_json('codes_with_id.json')
+        recs = data.get('data', {}).get('data', [])
+        rids = data.get('data', {}).get('record_id_list', [])
+        code_map = {}
+        for rec, rid in zip(recs, rids):
+            name = safe_str(rec[0])
+            if name:
+                code_map[rid] = name
+        return code_map
+    except:
+        return {}
+
+code_map = build_code_map()
+print(f"  Loaded {len(code_map)} code IDs")
+
+def resolve_code_links(val):
+    """Resolve linked code record IDs to comma-separated code names"""
+    if not val: return "待补充"
+    if isinstance(val, list):
+        names = []
+        for item in val:
+            if isinstance(item, dict) and 'id' in item:
+                name = code_map.get(item['id'], '')
+                if name: names.append(name)
+        return ','.join(names) if names else "待补充"
+    if isinstance(val, str) and not val.startswith('[{'): return val
+    return "待补充"
+
 papers_raw = load_json('papers_json.txt')
 papers_data = papers_raw['data']['data']
 papers_js, seen = [], set()
@@ -164,13 +245,12 @@ for r in papers_data:
     # ONLY keep papers with links
     if not l: continue
     
-    h = safe_str(r[3], "") or safe_str(r[8], "待补充")
+    h = safe_str(r[8], "") or safe_str(r[3], "待补充")
     date_str = safe_str(r[10], "")
     y = date_str[:4] if len(date_str) >= 4 else "待补充"
     
-    # Code association — field[5] may have text like "GENE" or link array
-    c_raw = safe_str(r[5], "待补充")
-    if c_raw.startswith("[{"): c_raw = "待补充"
+    # Code association — field[4] 关联代码 (link field), resolve to names
+    c_raw = resolve_code_links(r[4])
     
     a = "待补充"; j = "待补充"
     papers_js.append({'t':t[:80],'a':a,'j':j,'y':y,'h':h[:150],'c':c_raw,'l':l})
