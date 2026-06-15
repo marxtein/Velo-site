@@ -49,6 +49,22 @@ main{max-width:1340px;margin:0 auto;padding:1rem 1.2rem 3rem}
 .rt-t{background:oklch(0.44 0.13 26)}.rt-s{background:oklch(0.4 0.11 22)}.rt-f{background:oklch(0.46 0.1 20)}.rt-i{background:oklch(0.42 0.08 28)}.rt-o{background:var(--mu)}
 .section{display:none}.section.active{display:block}
 @media(max-width:700px){.hi{flex-wrap:wrap;height:auto;padding:.4rem .6rem;gap:.5rem}nav{width:100%}.sr{width:100%}.sr input{width:100%}.gd{grid-template-columns:1fr}.st{grid-template-columns:repeat(2,1fr)}}
+.fb-btn{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--ac);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.15);z-index:999;transition:.2s}.fb-btn:hover{transform:scale(1.08);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.fb-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1000;align-items:center;justify-content:center}.fb-modal.open{display:flex}
+.fb-box{background:var(--surf);border-radius:14px;padding:1.4rem;width:90%;max-width:380px;box-shadow:0 8px 30px rgba(0,0,0,.12)}.fb-box h3{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.8rem}
+.fb-box label{font-size:.78rem;color:var(--mu);display:block;margin:.5rem 0 .2rem}
+.fb-box .fb-types{display:flex;gap:.4rem;flex-wrap:wrap}
+.fb-box .fb-types span{padding:.3rem .6rem;border-radius:100px;font-size:.74rem;background:var(--tg);color:var(--mu);cursor:pointer;border:1px solid transparent;transition:.15s}
+.fb-box .fb-types span.sel{background:var(--ac);color:#fff}
+.fb-box textarea{width:100%;height:100px;margin-top:.4rem;border:1px solid var(--bd);border-radius:8px;padding:.6rem;font-size:.82rem;font-family:inherit;resize:vertical;outline:none}
+.fb-box textarea:focus{border-color:var(--ac)}
+.fb-box input[type=text]{width:100%;margin-top:.4rem;border:1px solid var(--bd);border-radius:8px;padding:.5rem .6rem;font-size:.82rem;outline:none}
+.fb-box input:focus{border-color:var(--ac)}
+.fb-box .fb-actions{display:flex;gap:.5rem;margin-top:1rem;justify-content:flex-end}
+.fb-box .fb-actions button{padding:.4rem 1rem;border-radius:8px;font-size:.82rem;border:none;cursor:pointer}
+.fb-submit{background:var(--ac);color:#fff}.fb-submit:disabled{opacity:.5;cursor:default}
+.fb-cancel{background:var(--tg);color:var(--mu)}
+.fb-msg{text-align:center;font-size:.82rem;color:var(--ac);margin-top:.5rem;display:none}
 </style>
 </head>
 <body>
@@ -227,7 +243,57 @@ function switchTab(t){
 
 function init(){renderCodes()}
 
+function init(){renderCodes()}
+
+// --- Feedback ---
+var fbType='错误报告';
+function openFeedback(){document.getElementById('fbModal').classList.add('open');document.getElementById('fbContent').focus()}
+function closeFeedback(){document.getElementById('fbModal').classList.remove('open');document.getElementById('fbMsg').style.display='none';document.getElementById('fbContent').value='';document.getElementById('fbContact').value='';updateFbSubmit()}
+function selFbType(el,t){fbType=t;var s=document.querySelectorAll('#fbTypes span');for(var i=0;i<s.length;i++)s[i].classList.remove('sel');el.classList.add('sel')}
+function updateFbSubmit(){document.getElementById('fbSubmit').disabled=!document.getElementById('fbContent').value.trim()}
+function submitFeedback(){
+  var btn=document.getElementById('fbSubmit');var msg=document.getElementById('fbMsg');
+  btn.disabled=true;btn.textContent='发送中…';
+  var body={
+    msg_type:'interactive',
+    card:{
+      header:{title:{content:'🔔 Fusion Hub 反馈',tag:'plain_text'},template:'red'},
+      elements:[
+        {tag:'div',text:{content:'**类型:** '+fbType,tag:'lark_md'}},
+        {tag:'hr'},
+        {tag:'div',text:{content:document.getElementById('fbContent').value.trim(),tag:'lark_md'}},
+        {tag:'hr'},
+        {tag:'div',text:{content:'**页面:** '+window.location.href+'\n**时间:** '+new Date().toLocaleString('zh-CN')+(document.getElementById('fbContact').value.trim()?'\n**联系方式:** '+document.getElementById('fbContact').value.trim():''),tag:'lark_md'}}
+      ]
+    }
+  };
+  fetch('https://open.feishu.cn/open-apis/bot/v2/hook/262abe64-3f5e-4735-b434-46057b087fb1',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+  .then(function(r){if(!r.ok)throw new Error(r.status);msg.textContent='✅ 感谢反馈！';msg.style.display='block';btn.textContent='提交';btn.disabled=false;setTimeout(closeFeedback,2000)})
+  .catch(function(e){msg.textContent='❌ 发送失败，请重试';msg.style.display='block';btn.textContent='提交';btn.disabled=false})
+}
+
 init();
 </script>
+<button class="fb-btn" onclick="openFeedback()" title="反馈">✎</button>
+<div class="fb-modal" id="fbModal" onclick="if(event.target===this)closeFeedback()">
+<div class="fb-box" onclick="event.stopPropagation()">
+<h3>📬 反馈 / 纠错</h3>
+<label>类型</label>
+<div class="fb-types" id="fbTypes">
+<span class="sel" onclick="selFbType(this,'错误报告')">错误报告</span>
+<span onclick="selFbType(this,'补充信息')">补充信息</span>
+<span onclick="selFbType(this,'建议')">建议</span>
+</div>
+<label>内容 <span style="color:var(--ac)">*</span></label>
+<textarea id="fbContent" placeholder="请描述错误或补充信息…" oninput="updateFbSubmit()"></textarea>
+<label>联系方式（选填）</label>
+<input type="text" id="fbContact" placeholder="邮箱 / 飞书 / 微信"/>
+<div class="fb-actions">
+<button class="fb-cancel" onclick="closeFeedback()">取消</button>
+<button class="fb-submit" id="fbSubmit" disabled onclick="submitFeedback()">提交</button>
+</div>
+<div class="fb-msg" id="fbMsg"></div>
+</div>
+</div>
 </body>
 </html>
