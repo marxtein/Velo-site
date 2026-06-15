@@ -3,413 +3,309 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="聚变信息入口 — 全球聚变装置、企业、论文、融资事件一站式数据库"/>
-<title>Fusion Hub / 聚变信息入口</title>
+<meta name="description" content="聚变开源代码库 — 发现、对比、获取全球聚变等离子体模拟代码与工具"/>
+<title>Fusion Hub · 聚变代码库</title>
 <style>
-:root {
-  --bg: #faf9f6;
-  --surface: #fff;
-  --text: #1a1a1a;
-  --muted: #6b6b6b;
-  --accent: oklch(0.54 0.21 26);
-  --link: oklch(0.42 0.18 24);
-  --border: oklch(0.88 0.01 90);
-  --tag-bg: oklch(0.94 0.03 80);
-  --tag-tx: oklch(0.35 0.06 26);
-  --shadow: 0 1px 3px oklch(0 0 0 / 0.04), 0 1px 2px oklch(0 0 0 / 0.06);
-  --shadow-h: 0 4px 12px oklch(0 0 0 / 0.08);
+:root{
+  --bg:#f8f7f4; --surface:#ffffff; --text:#1c1c1c; --muted:#5c5c5c;
+  --accent:oklch(0.52 0.18 25); --accent2:oklch(0.45 0.14 24);
+  --border:oklch(0.86 0.01 90); --open:#0d7a3e; --closed:#b23b1e;
+  --tag-bg:oklch(0.95 0.02 90); --tag-tx:oklch(0.38 0.06 26);
+  --shadow:0 1px 2px oklch(0 0 0/0.04); --shadow-h:0 8px 24px oklch(0 0 0/0.07);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background:var(--bg); color:var(--text); line-height:1.6;
-  --webkit-font-smoothing:antialiased;
-}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
 
 /* Typography */
-h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif;letter-spacing:-0.01em}
-h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700}
-h3{font-size:1.05rem;font-weight:600}
-h4{font-size:0.92rem;font-weight:600}
+h1,h2{font-family:Georgia,'Times New Roman',serif;letter-spacing:-0.015em}
+h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;line-height:1.15}
+h2{font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700}
+h3{font-size:1.02rem;font-weight:650}
 
-/* Layout */
-header{
-  background:var(--surface); border-bottom:1px solid var(--border);
-  padding:0 1.2rem; position:sticky; top:0; z-index:100;
-  backdrop-filter:blur(12px); background:oklch(1 0 0 / 0.92);
-}
-.header-inner{
-  max-width:1280px; margin:0 auto; display:flex; align-items:center;
-  gap:2rem; height:56px;
-}
-.logo{font-family:Georgia,serif; font-size:1.25rem; font-weight:700;
-  color:var(--accent); white-space:nowrap; letter-spacing:-0.02em}
-.logo span{color:var(--muted);font-weight:400;font-size:0.85rem;margin-left:.5em}
-nav{display:flex; gap:1.5rem; flex:1}
-nav a{color:var(--muted); text-decoration:none; font-size:0.88rem;
-  font-weight:500; transition:color 0.2s; padding:4px 0; border-bottom:2px solid transparent}
-nav a:hover,nav a.active{color:var(--text); border-bottom-color:var(--accent)}
-.search-bar{
-  background:var(--bg); border:1px solid var(--border); border-radius:8px;
-  padding:6px 14px; font-size:0.85rem; width:220px; outline:none;
-  transition:border-color 0.2s, box-shadow 0.2s;
-}
-.search-bar:focus{border-color:var(--accent);box-shadow:0 0 0 3px oklch(0.54 0.21 26 / 0.1)}
+/* Header */
+header{position:sticky;top:0;z-index:100;background:oklch(1 0 0/0.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.header-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:2rem;height:54px;padding:0 1.2rem}
+.logo{font-family:Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--accent);white-space:nowrap;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--muted);font-weight:400;font-size:0.8rem;margin-left:0.5em}
+nav{display:flex;gap:1.2rem;flex:1}
+nav a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;padding:3px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+nav a:hover,nav a.active{color:var(--text);border-color:var(--accent)}
+.search-wrap{position:relative;flex:0 0 280px}
+.search-wrap input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:0.84rem;outline:none;transition:border-color .15s,box-shadow .15s}
+.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px oklch(0.52 0.18 25/0.08)}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:none;background:none;color:var(--muted);cursor:pointer;font-size:1rem;display:none;line-height:1}
 
-main{max-width:1280px; margin:0 auto; padding:1.5rem 1.2rem}
+/* Main */
+main{max-width:1320px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 
 /* Hero */
-.hero{padding:2.5rem 0 1.5rem}
-.hero h1{font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2; margin-bottom:.5rem}
-.hero p{color:var(--muted); max-width:600px; font-size:1rem}
+.hero{padding:2rem 0 1rem;text-align:center;max-width:680px;margin:0 auto}
+.hero h1{margin-bottom:.4rem}
+.hero p{color:var(--muted);font-size:0.95rem}
+.hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:600;margin-bottom:.8rem;letter-spacing:0.03em}
 
-/* Stats row */
-.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem;
-  margin-bottom:2rem}
-.stat-card{background:var(--surface); border:1px solid var(--border);
-  border-radius:10px; padding:1.2rem; box-shadow:var(--shadow)}
-.stat-card .num{font-family:Georgia,serif; font-size:clamp(1.6rem,3vw,2.2rem);
-  font-weight:700; color:var(--accent)}
-.stat-card .lbl{font-size:0.82rem; color:var(--muted); margin-top:2px}
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-bottom:1.8rem}
+.stat{text-align:center;padding:0.8rem 0.4rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow)}
+.stat .n{font-family:Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--accent)}
+.stat .l{font-size:0.75rem;color:var(--muted);margin-top:1px}
 
-/* Section */
-.section{margin-bottom:2.5rem}
-.section h2{margin-bottom:0.3rem}
-.section .sub{color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem}
+/* Toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:0.8rem;margin-bottom:1.2rem;align-items:center}
+.toolbar .group{display:flex;flex-wrap:wrap;gap:0.35rem}
+.toolbar .lbl{font-size:0.75rem;color:var(--muted);font-weight:600;margin-right:0.3rem;align-self:center;white-space:nowrap}
+.toolbar .tag{padding:0.25rem 0.6rem;border-radius:100px;font-size:0.74rem;background:var(--tag-bg);color:var(--tag-tx);cursor:pointer;border:1px solid transparent;transition:all .15s;font-weight:500;white-space:nowrap}
+.toolbar .tag:hover,.toolbar .tag.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+.toolbar .count{font-size:0.8rem;color:var(--muted);margin-left:auto}
 
-/* Tags */
-.tags{display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.2rem}
-.tag{padding:0.25rem 0.7rem; border-radius:100px; font-size:0.78rem;
-  background:var(--tag-bg); color:var(--tag-tx); cursor:pointer;
-  transition:all 0.2s; border:1px solid transparent; font-weight:500}
-.tag:hover,.tag.sel{background:var(--accent); color:#fff;
-  border-color:var(--accent)}
+/* Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:0.8rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;box-shadow:var(--shadow);transition:box-shadow .15s,transform .12s;display:flex;flex-direction:column;gap:0.5rem}
+.card:hover{box-shadow:var(--shadow-h);transform:translateY(-1px)}
+.card .head{display:flex;align-items:flex-start;gap:0.6rem}
+.card .icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0}
+.icon-tok{background:oklch(0.9 0.05 25);color:oklch(0.38 0.15 26)}
+.icon-stel{background:oklch(0.88 0.06 22);color:oklch(0.35 0.13 23)}
+.icon-mhd{background:oklch(0.85 0.06 26);color:oklch(0.3 0.12 25)}
+.icon-kinetic{background:oklch(0.82 0.08 24);color:oklch(0.28 0.14 24)}
+.icon-transport{background:oklch(0.84 0.06 27);color:oklch(0.3 0.12 26)}
+.icon-optim{background:oklch(0.81 0.09 23);color:oklch(0.28 0.14 23)}
+.icon-sys{background:oklch(0.78 0.06 28);color:oklch(0.25 0.10 27)}
+.icon-neutronics{background:oklch(0.77 0.05 29);color:oklch(0.24 0.09 28)}
+.icon-diag{background:oklch(0.76 0.04 30);color:oklch(0.23 0.08 29)}
+.icon-framework{background:oklch(0.73 0.03 31);color:oklch(0.22 0.06 30)}
+.card .title{font-family:Georgia,serif;font-size:1rem;font-weight:700;line-height:1.2}
+.card .meta{font-size:0.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:0.2rem 0.8rem}
+.card .license{font-size:0.72rem;padding:1px 7px;border-radius:4px;font-weight:600}
+.license-open{background:oklch(0.88 0.08 18);color:var(--open)}
+.license-closed{background:oklch(0.88 0.06 16);color:var(--closed)}
+.card .desc{font-size:0.82rem;color:var(--muted);line-height:1.45}
+.card .tags{display:flex;flex-wrap:wrap;gap:0.25rem}
+.card .tags span{font-size:0.7rem;padding:1px 6px;border-radius:100px;background:var(--tag-bg);color:var(--tag-tx)}
+.card .footer{display:flex;align-items:center;gap:0.5rem;margin-top:auto;padding-top:0.4rem;border-top:1px solid var(--border)}
+.card .footer a{color:var(--accent);font-size:0.78rem;text-decoration:none;font-weight:500}
+.card .footer a:hover{text-decoration:underline}
+.card .footer .sep{color:var(--border)}
 
-/* Cards grid */
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:1rem}
-.card{background:var(--surface); border:1px solid var(--border);
-  border-radius:12px; padding:1.2rem; box-shadow:var(--shadow);
-  transition:box-shadow 0.2s, transform 0.15s; cursor:pointer}
-.card:hover{box-shadow:var(--shadow-h); transform:translateY(-1px)}
-.card-top{display:flex; justify-content:space-between; align-items:flex-start;
-  margin-bottom:0.5rem}
-.card-title{font-family:Georgia,serif; font-size:1rem; font-weight:700}
-.card-route{
-  font-size:0.72rem; background:var(--accent); color:#fff;
-  padding:2px 8px; border-radius:4px; font-weight:600; white-space:nowrap}
-.card-route.tokamak{background:oklch(0.48 0.15 26)}
-.card-route.stellarator{background:oklch(0.42 0.15 24)}
-.card-route.frc{background:oklch(0.5 0.12 20)}
-.card-route.icf{background:oklch(0.44 0.1 28)}
-.card-route.other{background:var(--muted)}
-.card-info{font-size:0.82rem; color:var(--muted); line-height:1.5}
-.card-info span{display:inline-block; margin-right:1rem}
-.card-stats{display:flex; gap:0.8rem; margin-top:0.6rem; padding-top:0.6rem;
-  border-top:1px solid var(--border); font-size:0.78rem; color:var(--muted)}
-.card-stats strong{color:var(--text)}
-
-/* Company card */
-.comp-card .card-route{background:oklch(0.46 0.09 24)}
-.comp-card .card-meta{font-size:0.78rem; color:var(--muted); margin-top:.4rem}
-
-/* Empty */
-.empty{text-align:center; padding:3rem; color:var(--muted)}
-@media (max-width:640px){
-  .header-inner{flex-wrap:wrap; height:auto; padding:0.5rem 0; gap:0.5rem}
-  nav{overflow-x:auto; gap:0.8rem}
+/* Responsive */
+@media(max-width:700px){
+  .header-inner{flex-wrap:wrap;height:auto;padding:0.5rem 0.8rem;gap:0.6rem}
+  nav{order:3;overflow-x:auto;width:100%}
+  .search-wrap{flex:1;min-width:0}
   .grid{grid-template-columns:1fr}
-  .search-bar{width:100%}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .toolbar{flex-direction:column;align-items:flex-start}
+  .toolbar .count{margin-left:0}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <a class="logo" href="#">Fusion Hub <span>/ 聚变信息入口</span></a>
-    <nav>
-      <a href="#devices" class="active" onclick="switchTab('devices')">装置库</a>
-      <a href="#companies" onclick="switchTab('companies')">企业图谱</a>
-      <a href="#papers" onclick="switchTab('papers')">文献</a>
-      <a href="#funding" onclick="switchTab('funding')">融资</a>
-    </nav>
-    <input class="search-bar" type="text" placeholder="搜索装置、企业…" oninput="filterCards()" id="searchInput"/>
-  </div>
+<div class="header-inner">
+<a class="logo" href="#">Fusion Hub <span>/ 聚变代码库</span></a>
+<nav>
+<a href="#codes" class="active">代码搜索</a>
+<a href="#devices">装置库</a>
+<a href="#companies">企业</a>
+</nav>
+<div class="search-wrap">
+<input type="text" placeholder="搜索代码名、团队、机构…" id="search" oninput="render()"/>
+<button class="search-clear" id="clearBtn" onclick="clearSearch()">&times;</button>
+</div>
+</div>
 </header>
 
 <main>
 <div class="hero">
-  <h1>全球聚变信息入口</h1>
-  <p>一站式浏览全球聚变装置参数、企业图谱、关键文献与融资动态。数据持续更新中。</p>
+<span class="badge">OPEN SOURCE FUSION</span>
+<h1>找到对的聚变代码</h1>
+<p>50+ 等离子体物理与聚变工程代码，按物理领域、算法、机构分类。知道每个代码找谁学、去哪里下。</p>
 </div>
 
 <div class="stats" id="stats"></div>
 
-<div id="devices" class="section">
-  <h2>装置数据库</h2>
-  <p class="sub">涵盖托卡马克、仿星器、FRC、惯性约束等路线，共 <strong id="deviceCount">0</strong> 台装置</p>
-  <div class="tags" id="deviceTags"></div>
-  <div class="grid" id="deviceGrid"></div>
-</div>
-
-<div id="companies" class="section" style="display:none">
-  <h2>企业图谱</h2>
-  <p class="sub">全球聚变相关企业与研究机构</p>
-  <div class="tags" id="compTags"></div>
-  <div class="grid" id="compGrid"></div>
-</div>
-
-<div id="papers" class="section" style="display:none">
-  <h2>关键文献</h2>
-  <p class="sub">聚变领域里程碑论文与综述</p>
-  <div class="grid" id="paperGrid"></div>
-</div>
-
-<div id="funding" class="section" style="display:none">
-  <h2>融资动态</h2>
-  <p class="sub">聚变行业融资事件追踪</p>
-  <div class="grid" id="fundingGrid"></div>
-</div>
+<div class="toolbar" id="toolbar"></div>
+<div class="grid" id="grid"></div>
 </main>
 
 <script>
-// --- Data ---
-const DEVICES = [
-  {n:"ITER",r:"托卡马克",loc:"法国卡达拉舍",q:"设计 Q≥10",k:"总投资约220亿欧元",R:"大半径6.2m, 小半径2.0m, B=5.3T, Ip=15MA",h:"全球最大在建托卡马克；2024年新基线，2039年启动D-T运行",t:"超导托卡马克"},
-  {n:"EAST",r:"托卡马克",loc:"中国合肥",q:"Q<0.1",k:"总投资约15亿元",R:"大半径1.7m, 小半径0.4m, B=3.5T, Ip=1MA",h:"2025年实现1亿℃、1066秒稳态高约束运行，创世界纪录",t:"全超导托卡马克"},
-  {n:"HL-3 (中国环流三号)",r:"托卡马克",loc:"中国成都",q:"三乘积达10²⁰量级",k:"总投资约30亿元",R:"大半径1.78m, 小半径0.65m, B=2.2T, Ip=2.5MA",h:"实现双亿度运行；离子温度1.2亿℃+电子温度1.6亿℃",t:"托卡马克"},
-  {n:"BEST",r:"托卡马克",loc:"中国合肥",q:"设计Q>5",k:"总投资约150亿元",R:"大半径3.5m, 小半径1.0m, B=5T, Ip=10MA",h:"2025年进入总装阶段; 计划2027年底建成, 2030年D-T发电演示",t:"超导托卡马克 (D-T)"},
-  {n:"CFETR",r:"托卡马克",loc:"中国合肥",q:"设计Q>10",k:"总投资约1000亿元",R:"大半径7.2m, 小半径2.2m, B=6.5T, Ip=14MA",h:"目标2040年实现聚变发电示范；处于预研和关键技术攻关阶段",t:"超导托卡马克 (D-T)"},
-  {n:"JT-60SA",r:"托卡马克",loc:"日本那珂",q:"设计Q≈1.25",k:"总投资约3000亿日元",R:"大半径3.3m, 小半径1.1m, B=2.25T, Ip=5.5MA",h:"2023年首次等离子体放电；2026年5月重启全面实验",t:"超导托卡马克"},
-  {n:"KSTAR",r:"托卡马克",loc:"韩国大田",q:"Q<0.1",k:"总投资约3300亿韩元",R:"大半径1.8m, 小半径0.5m, B=3.5T, Ip=2MA",h:"2025年实现100秒高β长脉冲运行; 完成钨偏滤器升级",t:"全超导托卡马克"},
-  {n:"DIII-D",r:"托卡马克",loc:"美国圣迭戈",q:"Q<0.1",k:"累计投资约12亿美元",R:"大半径1.67m, 小半径0.67m, B=2.2T, Ip=2.5MA",h:"2025年实现100秒高β运行; 开发AI等离子体控制系统",t:"托卡马克"},
-  {n:"JET",r:"托卡马克",loc:"英国牛津",q:"0.67 (1997年)",k:"累计投资约20亿英镑",R:"大半径3.0m, 小半径0.9m, B=3.4T, Ip=7MA",h:"2023年最终D-T实验输出69MJ聚变能量；科学运行于2023年12月结束",t:"托卡马克"},
-  {n:"LHD",r:"仿星器",loc:"日本土岐",q:"Q<0.01",k:"总投资约1500亿日元",R:"大半径3.9m, 小半径0.6m, B=3T, V=16m³",h:"大型超导螺旋装置；长期支撑螺旋装置输运和等离子体-壁相互作用研究",t:"大型螺旋装置"},
-  {n:"W7-X",r:"仿星器",loc:"德国格赖夫斯瓦尔德",q:"Q<0.01",k:"总投资约10亿欧元",R:"大半径5.5m, 小半径0.53m, B=3T",h:"全球最大仿星器；验证了仿星器优化磁场的可行性; 稳态运行能力",t:"优化仿星器"},
-  {n:"CFQS-T",r:"仿星器",loc:"中国成都",q:"Q<0.001",k:"总投资约2亿元",R:"大半径1.0m, 小半径0.2m, B=1T",h:"2025年完成首期测试平台建设; 2026年验证仿星器3D磁场设计技术",t:"准环对称仿星器"},
-  {n:"NIF",r:"惯性约束",loc:"美国利弗莫尔",q:"1.54 (2022年)",k:"总投资约35亿美元",R:"192束激光; 总能量2.2MJ",h:"2022年12月首次实现点火Q=1.54; 2025年实现Q=1.8重复点火",t:"激光惯性约束"},
-  {n:"C-2W",r:"FRC",loc:"美国加州",q:"Q<0.01",k:"累计投资约25亿美元",R:"L=20m, B=0.5T, Ip=0.2MA",h:"2025年实现30毫秒FRC稳态运行; 目标p-B¹¹无中子聚变",t:"FRC+束流驱动"},
-  {n:"ARC",r:"托卡马克",loc:"美国剑桥",q:"设计Q>10",k:"总投资约20亿美元",R:"大半径3.3m, 小半径1.1m, B=9.2T, Ip=14MA",h:"2025年完成设计; 计划2030年建成; 目标2032年商业并网发电",t:"高温超导托卡马克"},
-  {n:"SPARC",r:"托卡马克",loc:"美国Devens",q:"设计Q>1",k:"CFS/ARC项目",R:"紧凑型HTS托卡马克",h:"CFS与MIT合作开发; REBCO高温超导磁体; 验证ARC商业堆技术",t:"高温超导托卡马克"},
-  {n:"Helion-Polaris",r:"FRC",loc:"美国华盛顿州",q:"实验装置",k:"Helion融资超10亿美元",R:"第七代原型机; 1.5亿℃",h:"2026年2月实现民间首次可测量D-T聚变反应; 等离子体温度达1.5亿℃",t:"FRC+脉冲磁压缩"},
-  {n:"Helion-Orion",r:"FRC",loc:"美国华盛顿州",q:"目标商业供电",k:"Helion融资超10亿美元",R:"全球首座商业聚变发电厂",h:"目标2028年向微软供电≥50MW; 首个聚变PPA",t:"FRC磁惯性聚变"},
-  {n:"LM26",r:"磁惯性",loc:"加拿大温哥华",q:"Q<0.001",k:"累计投资约5亿美元",R:"D=3m, B=0.8T",h:"2025年完成原型机; 验证液态金属壁技术; 计划2027年首次聚变实验",t:"磁惯性约束+机械压缩"},
-  {n:"HHMAX-901",r:"FRC",loc:"中国成都",q:"Q<0.001",k:"累计投资约5000万元",R:"L=8m, B=0.8T",h:"2025年7月实现中国首台商业化直线型FRC首次等离子体点亮",t:"直线型FRC"},
-  {n:"FLAME",r:"FRC",loc:"中国合肥",q:"Q<0.001",k:"累计投资约数亿元",R:"L=10m, B=1T",h:"2026年3月完成首次等离子体放电; FRC+串节磁镜三重约束",t:"FRC+串节磁镜"},
-  {n:"KMAX-FRC",r:"FRC",loc:"中国合肥",q:"实验装置",k:"中科大",R:"FRC+磁镜混合",h:"依托中科大KMAX实验室; FRC+磁镜混合约束路线",t:"FRC+磁镜"},
-  {n:"MAST Upgrade",r:"托卡马克",loc:"英国牛津",q:"未开展D-T",k:"5500万+2100万英镑",R:"球形托卡马克",h:"在等离子体排热物理方面取得显著进展",t:"球形托卡马克"},
-  {n:"ZEUS",r:"托卡马克",loc:"美国马萨诸塞",q:"设计Q≈1",k:"MIT/CFS",R:"紧凑型HTS",h:"MIT PSFC的紧凑型HTS托卡马克实验装置",t:"高温超导托卡马克"},
-  {n:"SMART",r:"托卡马克",loc:"西班牙塞维利亚",q:"实验装置",k:"西班牙",R:"球形托卡马克",h:"西班牙塞维利亚大学的球形托卡马克; 负三角位形",t:"球形托卡马克"},
+// --- Data: 50 codes ---
+const CODES = [
+{n:"GENE",d:"回旋动理学连续体湍流模拟，托卡马克/仿星器核心微观不稳定性与湍流热通量预测",p:"湍流输运 / 回旋动理学",team:"Frank Jenko",inst:"Max Planck IPP",url:"https://genecode.org",open:true,tags:["回旋动理学","谱方法","湍流输运","CPU MPI"]},
+{n:"GTC",d:"全球回旋动理学PIC，微观湍流、新经典输运、高能粒子-波相互作用",p:"湍流输运 / 回旋动理学",team:"Lin Zihong",inst:"UCI / PPPL",url:"http://phoenix.ps.uci.edu/gtc/",open:true,tags:["PIC","回旋动理学","全球模拟","GPU"]},
+{n:"DESC",d:"三维理想MHD平衡与仿星器优化，准对称设计，GPU加速自动微分",p:"仿星器优化 / MHD平衡",team:"E. Kolemen",inst:"Princeton / PPPL",url:"https://github.com/PlasmaControl/DESC",open:true,tags:["伪谱方法","JAX","自动微分","仿星器优化"]},
+{n:"TORAX",d:"1.5D托卡马克核心输运，Google DeepMind可微分编程，放电方案快速设计",p:"核心输运 / 集成建模",team:"Google DeepMind",inst:"Google / EPFL",url:"https://github.com/google-deepmind/torax",open:true,tags:["有限体积","JAX","可微分仿真","核心输运"]},
+{n:"GX",d:"GPU原生局域回旋动理学湍流，快速参数扫描，Hermite-Laguerre伪谱",p:"湍流输运 / 回旋动理学",team:"B. Dorland / N. Mandell",inst:"GX Team",url:"https://gx.readthedocs.io/",open:true,tags:["回旋动理学","GPU-native","Hermite-Laguerre","伪谱方法"]},
+{n:"WarpX",d:"相对论电磁PIC，Exascale GPU，激光等离子体与惯性聚变",p:"激光等离子体 / PIC",team:"Jean-Luc Vay / Axel Huebl",inst:"WarpX Team",url:"https://warpx.readthedocs.io/",open:true,tags:["PIC","AMR","激光等离子体","Exascale"]},
+{n:"EIRENE",d:"中性粒子与分子输运动理学，SOLPS/EMC3边界耦合标配",p:"边界 / 偏滤器",team:"D. Reiter",inst:"FZ Jülich",url:"https://www.eirene.de/",open:false,tags:["蒙特卡洛","中性粒子","边界","偏滤器"]},
+{n:"VMEC",d:"三维理想MHD平衡，仿星器设计标准平衡求解器，STELLOPT/SIMSOPT基础",p:"仿星器 / MHD平衡",team:"S.P. Hirshman",inst:"ORNL / PPPL",url:"https://github.com/ORNL-Fusion/VMEC_8_00",open:true,tags:["谱方法","有限差分","MHD 平衡","仿星器"]},
+{n:"M3D-C1",d:"非线性扩展MHD/双流体，ELM、破裂、垂直位移、RMP响应",p:"MHD稳定性 / 破裂",team:"S.C. Jardin / N.M. Ferraro",inst:"PPPL",url:"https://w3.pppl.gov/~nferraro/m3dc1.html",open:true,tags:["有限元","扩展MHD","破裂","ELM"]},
+{n:"Gkeyll",d:"高阶间断Galerkin动理学，边界SOL湍流、鞘层、无噪声模拟",p:"边界 / 动理学",team:"Ammar Hakim",inst:"Gkeyll Team",url:"https://gkeyll.readthedocs.io/",open:true,tags:["间断伽辽金","动理学","Vlasov-Maxwell","SOL"]},
+{n:"OSIRIS",d:"相对论电磁PIC，激光尾波加速、强场激光等离子体、惯性聚变",p:"激光等离子体 / PIC",team:"UCLA Plasma Group",inst:"UCLA / IST",url:"https://plasmasim.physics.ucla.edu/codes/osiris",open:false,tags:["PIC","激光等离子体","LWFA","高能量密度物理"]},
+{n:"VPIC",d:"相对论全电磁PIC，磁重联、激光等离子体、Exascale GPU",p:"激光等离子体 / PIC",team:"LANL VPIC Team",inst:"LANL",url:"https://github.com/lanl/vpic",open:true,tags:["PIC","磁重联","激光等离子体","Exascale"]},
+{n:"TRANSP",d:"1.5D托卡马克集成输运分析，实验解释/ITER预测/NUBEAM耦合",p:"集成建模 / 核心输运",team:"PPPL TRANSP Team",inst:"PPPL",url:"https://transp.pppl.gov/",open:false,tags:["集成建模","核心输运","快离子","NUBEAM"]},
+{n:"RAPTOR",d:"实时1.5D剖面演化，扩展卡尔曼滤波状态观测，TCV/ITER控制器设计",p:"实时控制 / 状态估计",team:"F. Felici",inst:"EPFL SPC",url:"https://infoscience.epfl.ch/",open:true,tags:["实时控制","状态估计","EKF","有限体积"]},
+{n:"SOLPS-ITER",d:"二维边界流体+EIRENE中性粒子，ITER/DEMO偏滤器设计标准",p:"边界 / 偏滤器",team:"ITER Organization",inst:"ITER / B2.5-EIRENE",url:"https://www.iter.org/",open:false,tags:["有限体积","Monte Carlo","边界","偏滤器","脱靶"]},
+{n:"CGYRO",d:"全局谱回旋动理学，ITG/TEM/ETG多尺度，GPU优化",p:"湍流输运 / 回旋动理学",team:"J. Candy / E. Belli",inst:"General Atomics",url:"https://gacode.io/cgyro.html",open:true,tags:["回旋动理学","谱方法","GPU","湍流"]},
+{n:"GS2",d:"局域回旋动理学flux-tube，漂移波不稳定性与湍流热通量",p:"湍流输运 / 回旋动理学",team:"W. Dorland / M. Kotschenreuther",inst:"GS2 Team",url:"https://gyrokinetics.gitlab.io/gs2/",open:true,tags:["回旋动理学","谱方法","flux-tube"]},
+{n:"SPEC",d:"多区域松弛MHD平衡，磁岛/随机区/仿星器非理想平衡",p:"仿星器 / MHD平衡",team:"S.R. Hudson",inst:"Princeton / PPPL",url:"https://princetonuniversity.github.io/SPEC/",open:true,tags:["谱元法","MRxMHD","磁岛","仿星器"]},
+{n:"XGC",d:"全装置边缘-核心回旋动理学PIC，ITER pedestal/边界热流/Exascale",p:"边界 / 回旋动理学",team:"Choong-Seock Chang",inst:"PPPL",url:"https://xgc.pppl.gov/",open:false,tags:["PIC","回旋动理学","全装置","边界","Exascale"]},
+{n:"ASCOT5",d:"快离子/杂质/中性粒子试粒子轨道跟踪，α粒子损失与NBI分析",p:"快离子 / 输运",team:"ASCOT4Fusion Team",inst:"ASCOT4Fusion",url:"https://ascot4fusion.github.io/ascot5/",open:true,tags:["Monte Carlo","快离子","逃逸电子","轨道跟踪"]},
+{n:"BOUT++",d:"三维曲线坐标流体/等离子体PDE框架，SOL/边界湍流、ELM",p:"边界 / 流体",team:"B.D. Dudson",inst:"BOUT++ Community",url:"https://bout-dev.readthedocs.io/",open:true,tags:["有限差分","流体","边界","ELM","框架"]},
+{n:"Hermes-3",d:"基于BOUT++的边界多流体模型，MAST-U/TCV SOL湍流与脱靶",p:"边界 / 偏滤器",team:"Hermes-3 Team",inst:"UKAEA",url:"https://hermes3.readthedocs.io/",open:true,tags:["多流体","SOL","偏滤器"]},
+{n:"UEDGE",d:"二维边界流体等离子体输运，DIII-D/NSTX/ITER偏滤器建模",p:"边界 / 偏滤器",team:"T.D. Rognlien",inst:"LLNL",url:"https://w3.pppl.gov/~hammett/comp/src/uedge/",open:false,tags:["有限体积","边界","偏滤器","SOL"]},
+{n:"EMC3-EIRENE",d:"三维边界流体+中性粒子Monte Carlo，W7-X岛状偏滤器建模",p:"边界 / 偏滤器",team:"Y. Feng / D. Reiter",inst:"W7-X / FZ Jülich",url:"https://www.eirene.de/",open:false,tags:["3D边界","Monte Carlo","仿星器","偏滤器"]},
+{n:"JOREK",d:"非线性扩展MHD Bezier有限元，ELM/破裂/SPI缓解/ITER安全预测",p:"MHD稳定性 / 破裂",team:"G.T.A. Huijsmans / M. Hoelzl",inst:"JOREK Team",url:"https://www.jorek.eu/",open:false,tags:["有限元","扩展MHD","ELM","破裂","RMP"]},
+{n:"NIMROD",d:"非线性extended MHD，撕裂模/破裂/磁重联，高阶有限元",p:"MHD稳定性 / 破裂",team:"C.R. Sovinec",inst:"NIMROD Team",url:"https://nimrodteam.org/",open:true,tags:["有限元","extended MHD","RFP","破裂"]},
+{n:"MARS-F",d:"线性MHD等离子体响应，RMP ELM控制/误差场修正/ITER响应",p:"MHD稳定性",team:"Y.Q. Liu",inst:"General Atomics",url:"https://fusion.gat.com/theory/MARS",open:false,tags:["线性MHD","RMP","稳定性","等离子体响应"]},
+{n:"TGLF",d:"Trapped Gyro-Landau Fluid准线性输运模型，ITER/DEMO快速预测",p:"核心输运 / 准线性",team:"G.M. Staebler",inst:"General Atomics",url:"https://gacode.io/tglf.html",open:true,tags:["准线性","gyro-fluid","输运模型","GACODE"]},
+{n:"GYRO",d:"非线性回旋动理学连续体，托卡马克核心湍流高保真基准",p:"湍流输运 / 回旋动理学",team:"J. Candy",inst:"General Atomics",url:"https://gacode.io/gyro.html",open:true,tags:["回旋动理学","湍流","GACODE"]},
+{n:"TGYRO",d:"稳态核心输运管理器，调用TGLF/NEO/CGYRO迭代求解剖面",p:"核心输运 / 集成建模",team:"GACODE Team",inst:"General Atomics",url:"https://gafusion.github.io/doc/tgyro.html",open:true,tags:["集成输运","GACODE","稳态剖面"]},
+{n:"QuaLiKiz",d:"准线性回旋动理学输运，QLKNN神经网络代理，JET/ITER预测",p:"核心输运 / 准线性",team:"C. Bourdelle / J. Citrin",inst:"CEA / DIFFER",url:"https://qualikiz-group.gitlab.io/QuaLiKiz",open:true,tags:["准线性","回旋动理学","输运","神经网络代理"]},
+{n:"OMFIT",d:"集成建模与实验数据分析框架，DIII-D/ITER放电解释与预测",p:"集成建模 / 工作流",team:"O. Meneghini",inst:"General Atomics",url:"https://omfit.io/",open:false,tags:["集成建模","工作流","OMFIT","AToM"]},
+{n:"OMAS",d:"Ordered Multidimensional Array Structure，IMAS数据标准化交换",p:"数据标准 / 集成建模",team:"GA Fusion / OMFIT",inst:"General Atomics",url:"https://github.com/gafusion/omas",open:true,tags:["数据模型","IMAS","Python","工作流"]},
+{n:"IMAS",d:"ITER集成建模数据和工作流基础设施，跨代码数据交换标准",p:"数据标准 / 集成建模",team:"ITER IMAS Team",inst:"ITER Organization",url:"https://confluence.iter.org/display/IMP/",open:false,tags:["数据标准","集成建模","ITER","IDS"]},
+{n:"FreeGS",d:"Python自由边界Grad-Shafranov平衡，教育/控制原型",p:"MHD平衡",team:"B. Dudson",inst:"FreeGS Community",url:"https://github.com/freegs-plasma/freegs",open:true,tags:["Grad-Shafranov","自由边界","平衡","Python"]},
+{n:"FreeGSNKE",d:"Newton-Krylov演化自由边界Grad-Shafranov，MAST-U强成形等离子体",p:"MHD平衡",team:"Fusion Computing Lab",inst:"UKAEA",url:"https://github.com/FusionComputingLab/freegsnke",open:true,tags:["Newton-Krylov","Grad-Shafranov","演化平衡","Python"]},
+{n:"EFIT",d:"Grad-Shafranov平衡重建，DIII-D/ITER/NSTX/KSTAR实时控制输入",p:"MHD平衡 / 实验分析",team:"L.L. Lao",inst:"General Atomics",url:"https://fusion.gat.com/theory/Efit",open:false,tags:["平衡重建","Grad-Shafranov","实验分析"]},
+{n:"SIMSOPT",d:"仿星器优化框架，准对称/准等动力设计，线圈约束优化",p:"仿星器优化",team:"M. Landreman",inst:"Hidden Symmetries Collab.",url:"https://github.com/hiddenSymmetries/simsopt",open:true,tags:["仿星器优化","线圈优化","Python","C++"]},
+{n:"STELLOPT",d:"仿星器优化与数据拟合，W7-X/HSX/NCSX/LHD设计优化",p:"仿星器优化",team:"D.A. Spong / S.P. Hirshman",inst:"ORNL",url:"https://github.com/ORNL-Fusion/STELLOPT",open:true,tags:["仿星器优化","VMEC","多目标优化"]},
+{n:"REGCOIL",d:"仿星器线圈电流势优化，Tikhonov正则化，SIMSOPT线圈前置",p:"仿星器优化 / 线圈",team:"M. Landreman",inst:"UMD",url:"https://github.com/landreman/regcoil",open:true,tags:["线圈优化","正则化","仿星器"]},
+{n:"FOCUS",d:"仿星器线圈组优化，曲线离散优化，W7-X/NCSX类问题",p:"仿星器优化 / 线圈",team:"C. Zhu / S.R. Hudson",inst:"Princeton / PPPL",url:"https://github.com/PrincetonUniversity/FOCUS",open:true,tags:["线圈优化","仿星器","曲线优化"]},
+{n:"PROCESS",d:"聚变电厂系统级设计，STEP/DEMO/ARC参数扫描与成本优化",p:"反应堆设计 / 系统代码",team:"UKAEA PROCESS Team",inst:"UKAEA",url:"https://github.com/ukaea/PROCESS",open:true,tags:["系统代码","反应堆设计","优化","工程经济"]},
+{n:"Bluemira",d:"模块化聚变反应堆设计框架，STEP设计空间探索，CAD多保真工作流",p:"反应堆设计",team:"UKAEA Bluemira Team",inst:"UKAEA",url:"https://bluemira.readthedocs.io/",open:true,tags:["反应堆设计","CAD","多保真","Python"]},
+{n:"Power Balance",d:"托卡马克净功率平衡模型，部件功耗敏感性，概念设计快速筛选",p:"反应堆设计 / 系统代码",team:"UKAEA PBM Team",inst:"UKAEA",url:"https://ukaea.github.io/powerbalance/",open:true,tags:["系统代码","功率平衡","反应堆工程"]},
+{n:"FESTIM",d:"氢同位素/氚输运与滞留，第一壁/包层燃料循环安全",p:"材料 / 氚输运",team:"FESTIM Team",inst:"CEA / MIT / UKAEA",url:"https://festim.readthedocs.io/",open:true,tags:["有限元","氚输运","材料","燃料循环"]},
+{n:"OpenMC",d:"蒙特卡洛中子/光子输运，聚变堆中子学/包层/屏蔽设计",p:"中子学",team:"Paul Romano",inst:"OpenMC Community",url:"https://docs.openmc.org/",open:true,tags:["Monte Carlo","中子学","包层","屏蔽"]},
+{n:"DAGMC",d:"CAD-based Monte Carlo几何，OpenMC/MCNP/Fluka耦合复杂装置中子学",p:"中子学 / 几何",team:"Svalinn/DAGMC Team",inst:"DAGMC",url:"https://svalinn.github.io/DAGMC/",open:true,tags:["CAD","中子学","Monte Carlo","几何"]},
+{n:"FISPACT-II",d:"核活化与嬗变计算，聚变材料活化/剂量率/废物分级/寿命评估",p:"材料 / 活化",team:"UKAEA FISPACT-II Team",inst:"UKAEA",url:"https://fispact.ukaea.uk/",open:false,tags:["活化","库存","燃料循环","材料"]},
+{n:"FIDASIM",d:"合成FIDA/中性粒子诊断模拟，DIII-D/NSTX/KSTAR快离子诊断验证",p:"诊断 / 快离子",team:"B.A. Grierson",inst:"DIII-D",url:"https://d3denergetic.github.io/FIDASIM/",open:true,tags:["快离子","合成诊断","NBI","Monte Carlo"]},
+{n:"pyrokinetics",d:"多回旋动理学代码基准与数据转换，GS2/CGYRO/GENE格式互转",p:"湍流输运 / 工作流",team:"UKAEA",inst:"UKAEA",url:"https://pyrokinetics.readthedocs.io/",open:true,tags:["工作流","回旋动理学","数据转换","Python"]},
 ];
 
-const COMPANIES = [
-  {n:"Commonwealth Fusion Systems",a:"CFS",loc:"美国麻省",type:"国外企业",
-   desc:"全球聚变私营企业龙头，高温超导托卡马克路线绝对领军者。与MIT合作开发REBCO高温超导磁体。",
-   val:"~700亿美元",ppl:"~1000人",yr:"2018",web:"https://cfs.energy",
-   r:"高温超导 (HTS) 紧凑型托卡马克"},
-  {n:"Helion Energy",a:"Helion",loc:"美国华盛顿州",type:"国外企业",
-   desc:"FRC场反位形+脉冲磁惯性约束路线，主打D-D/D-He3燃料路径和直接能量转换。已与微软签订50MW供电协议。",
-   val:"~380亿美元",ppl:"~500人",yr:"2013",web:"https://www.helionenergy.com",
-   r:"FRC 脉冲聚变"},
-  {n:"TAE Technologies",a:"TAE",loc:"美国加州",type:"国外企业",
-   desc:"场反位形(FRC)+束流驱动路线，主打p-B¹¹无中子聚变。全球聚变试验平台最多的私营企业。",
-   val:"~420亿美元",ppl:"~400人",yr:"1998",web:"https://www.tae.com",
-   r:"FRC 稳态约束 / 无中子聚变"},
-  {n:"Tokamak Energy",a:"TE",loc:"英国牛津",type:"国外企业",
-   desc:"球形托卡马克+高温超导路线开创者，英国聚变标杆企业，率先实现1亿℃等离子体温度。",
-   val:"~105亿美元",ppl:"~280人",yr:"2009",web:"https://tokamakenergy.co.uk",
-   r:"球形托卡马克 / HTS"},
-  {n:"Type One Energy",a:"T1E",loc:"美国田纳西",type:"国外企业",
-   desc:"美国仿星器商业化企业，聚焦高温超导磁体、优化仿星器磁场和可工程化的稳态聚变电厂方案。",
-   val:"~65亿美元",ppl:"~70人",yr:"2019",web:"https://www.typeoneenergy.com",
-   r:"仿星器 / 准对称磁场"},
-  {n:"General Fusion",a:"GF",loc:"加拿大温哥华",type:"国外企业",
-   desc:"磁化靶聚变(MTF)路线，采用磁化等离子体与液态金属压缩，正在推进LM26示范装置。",
-   val:"~72亿美元",ppl:"~150人",yr:"2002",web:"https://generalfusion.com",
-   r:"磁化靶聚变 / 液态金属壁"},
-  {n:"Zap Energy",a:"Zap",loc:"美国西雅图",type:"国外企业",
-   desc:"Z箍缩+剪切流稳定路线，结构极简、成本最低的聚变路线之一，无需复杂超导磁体。",
-   val:"~47亿美元",ppl:"~120人",yr:"2017",web:"https://www.zap.energy",
-   r:"Z-Pinch / 剪切流稳定"},
-  {n:"能量奇点",a:"Energy Singularity",loc:"中国上海",type:"民营企业",
-   desc:"国内高温超导托卡马克商业公司。洪荒70于2026年1月实现千秒级长脉冲稳态运行。",
-   val:"~50亿元",ppl:"~120人",yr:"2021",web:"https://www.energysingularity.cn",
-   r:"高温超导托卡马克"},
-  {n:"星环聚能",a:"Star Fusion",loc:"中国上海",type:"民营企业",
-   desc:"小型化商业化托卡马克、聚变装置运维服务。",
-   val:"~100亿元",ppl:"~140人",yr:"2021",web:"https://www.star-fusion.cn",
-   r:"小型化托卡马克"},
-  {n:"瀚海聚能",a:"Hanhai Fusion",loc:"中国成都",type:"民营企业",
-   desc:"国内首家直线型FRC场反位形商业聚变公司。2025年实现首台装置等离子体点亮。",
-   val:"",ppl:"~30人",yr:"2022",web:"https://www.hanhaifusion.cn",
-   r:"直线型 FRC"},
-  {n:"中核集团",a:"CNNC",loc:"中国北京",type:"国央企",
-   desc:"中央直接管理的特大型国有骨干企业，完整的核科技工业体系，资产规模约1.4万亿元。",
-   val:"~14万亿",ppl:"~18万人",yr:"1999",web:"https://www.cnnc.com.cn",
-   r:"核能开发利用 / 聚变工程"},
-  {n:"西物院",a:"SWIP",loc:"中国成都",type:"国央企",
-   desc:"中国磁约束聚变发源地，运营HL-2M、中国环流三号，托卡马克参数世界领先。",
-   val:"",ppl:"~2000人",yr:"1965",web:"https://www.swip.ac.cn",
-   r:"托卡马克物理 / 聚变堆设计"},
+// Icon assignment
+function iconClass(p){
+  const m = {
+    '湍流输运':'icon-kinetic','仿星器优化':'icon-optim','仿星器':'icon-stel',
+    'MHD平衡':'icon-mhd','MHD稳定性':'icon-mhd','核心输运':'icon-transport',
+    '边界':'icon-tok','激光等离子体':'icon-mhd','PIC':'icon-kinetic',
+    '集成建模':'icon-framework','实时控制':'icon-sys','数据标准':'icon-framework',
+    '快离子':'icon-kinetic','反应堆设计':'icon-sys','系统代码':'icon-sys',
+    '材料':'icon-neutronics','中子学':'icon-neutronics','诊断':'icon-diag'
+  };
+  for(const[k,v] of Object.entries(m)) if(p.includes(k)) return v;
+  return 'icon-framework';
+}
+
+function isOpen(code){return code.open && code.url.includes('github.com') || code.url.includes('gitlab')||code.open}
+
+// Filter state
+let filterDomain='all', filterOpen='all';
+
+// Domain categories
+const domains = [
+  {id:'湍流输运',label:'湍流与输运'},
+  {id:'MHD',label:'MHD 平衡/稳定性'},
+  {id:'边界',label:'边界与偏滤器'},
+  {id:'仿星器',label:'仿星器优化/设计'},
+  {id:'集成建模',label:'集成建模'},
+  {id:'PIC',label:'粒子模拟 (PIC)'},
+  {id:'反应堆设计',label:'反应堆工程'},
+  {id:'中子学',label:'中子学与活化'},
+  {id:'其他',label:'其他工具'},
 ];
 
-const PAPERS = [
-  {n:"ITER Physics Basis",a:"ITER Team",y:"1999",j:"Nuclear Fusion",h:"ITER物理设计基础文献，定义了ITER的等离子体参数和运行模式"},
-  {n:"A new path to fusion energy",a:"M. Greenwald",y:"2016",j:"MIT/CFS Report",h:"提出ARC概念——利用REBCO高温超导磁体实现紧凑型聚变堆"},
-  {n:"Direct construction of optimized stellarator shapes (Part 1 & 2)",a:"M. Landreman, W. Sengupta",y:"2019",j:"J. Plasma Phys.",h:"近轴展开方法直接构造优化仿星器位形；二阶形状描述bean/crescent截面"},
-  {n:"First D-T fusion with a private-sector device",a:"Helion Energy",y:"2026",j:"Helion Press",h:"民间首次可测量D-T聚变反应；等离子体温度达1.5亿℃"},
-  {n:"EAST 1066-second steady-state H-mode",a:"ASIPP Team",y:"2025",j:"Physical Review Letters",h:"EAST实现1亿℃、1066秒稳态高约束运行，突破世界纪录"},
-  {n:"NIF achieves ignition (Q=1.54)",a:"LLNL Team",y:"2022",j:"Physical Review Letters",h:"首次实验室实现可控核聚变点火，输入2.05MJ输出3.15MJ"},
-  {n:"High-beta long-pulse KSTAR operation",a:"KSTAR Team",y:"2025",j:"Nuclear Fusion",h:"KSTAR实现100秒高β长脉冲运行；完成钨偏滤器升级"},
-];
-
-const FUNDING = [
-  {n:"CFS",ev:"完成I轮融资",amt:"20亿美元",yr:"2025",note:"全球聚变最大单笔融资"},
-  {n:"Helion Energy",ev:"完成F轮融资",amt:"4.25亿美元",yr:"2025",note:"与微软签署50MW购电协议"},
-  {n:"Type One Energy",ev:"完成融资",amt:"5.34亿美元",yr:"2025",note:"仿星器路线最大融资"},
-  {n:"能量奇点",ev:"完成融资",amt:"数亿元",yr:"2025",note:"国内HTS托卡马克领导者"},
-  {n:"瞬原科技",ev:"种子轮",amt:"数千万元",yr:"2026",note:"聚变模拟器及先进路线设计"},
-  {n:"Zap Energy",ev:"完成E轮融资",amt:"1.3亿美元",yr:"2025",note:"Z-pinch路线"},
-  {n:"星环聚能",ev:"完成融资",amt:"数亿元",yr:"2025",note:"小型化托卡马克"},
-  {n:"Helical Fusion",ev:"A轮融资",amt:"23亿日元",yr:"2025",note:"世界首座稳态聚变电厂计划"},
-];
-
-// --- Render ---
-const routeColors = {托卡马克:'tokamak',仿星器:'stellarator',FRC:'frc',惯性约束:'icf',磁惯性:'other'};
-function routeClass(r){
-  for(const[k,v] of Object.entries(routeColors)) if(r.includes(k)) return v;
-  return 'other';
+function getDomain(code){
+  const p = code.p;
+  if(p.includes('湍流')||p.includes('回旋')) return '湍流输运';
+  if(p.includes('MHD')) return 'MHD';
+  if(p.includes('边界')||p.includes('偏滤器')||p.includes('SOL')) return '边界';
+  if(p.includes('仿星器')||p.includes('stellarator')) return '仿星器';
+  if(p.includes('集成建模')||p.includes('工作流')||p.includes('数据标准')) return '集成建模';
+  if(p.includes('PIC')||p.includes('激光')) return 'PIC';
+  if(p.includes('反应堆')||p.includes('系统代码')) return '反应堆设计';
+  if(p.includes('中子')||p.includes('活化')||p.includes('材料')) return '中子学';
+  return '其他';
 }
 
-function fmtCurrency(v){
-  if(!v) return '';
-  if(v.includes('亿')) return v;
-  return v;
+function getStats(){
+  const open = CODES.filter(c=>c.open).length;
+  const closed = CODES.length - open;
+  return {total:CODES.length,open,closed,domains:domains.length};
 }
 
-function renderStats(){
-  document.getElementById('stats').innerHTML = `
-    <div class="stat-card"><div class="num">${DEVICES.length}</div><div class="lbl">收录装置</div></div>
-    <div class="stat-card"><div class="num">${COMPANIES.length}</div><div class="lbl">聚变企业</div></div>
-    <div class="stat-card"><div class="num">${PAPERS.length}</div><div class="lbl">关键文献</div></div>
-    <div class="stat-card"><div class="num">${FUNDING.length}</div><div class="lbl">融资事件</div></div>
-  `;
-}
-
-let activeRoute = null;
-
-function renderDeviceTags(){
-  const routes = [...new Set(DEVICES.map(d=>d.r))];
-  const tagHtml = routes.map(r=>`<span class="tag${activeRoute===r?' sel':''}" onclick="filterByRoute('${r}')">${r}</span>`).join('');
-  document.getElementById('deviceTags').innerHTML = tagHtml;
-  document.getElementById('deviceCount').textContent = DEVICES.length;
-}
-
-function filterByRoute(r){
-  activeRoute = activeRoute===r ? null : r;
-  renderDeviceTags();
-  renderDevices();
-}
-
-function renderDevices(filter=''){
-  const devs = DEVICES.filter(d=>{
-    const m = (d.n+d.r+d.loc+d.h+d.t).toLowerCase().includes(filter.toLowerCase());
-    if(activeRoute && !d.r.includes(activeRoute)) return false;
-    return m;
+function render(){
+  const q = document.getElementById('search').value.toLowerCase();
+  const clear = document.getElementById('clearBtn');
+  clear.style.display = q ? 'block':'none';
+  
+  const filtered = CODES.filter(c=>{
+    if(filterDomain!=='all' && getDomain(c)!==filterDomain) return false;
+    if(filterOpen==='open' && !c.open) return false;
+    if(filterOpen==='closed' && c.open) return false;
+    if(q){
+      const s = (c.n+c.d+c.team+c.inst+c.p+c.tags.join(' ')).toLowerCase();
+      if(!s.includes(q)) return false;
+    }
+    return true;
   });
-  document.getElementById('deviceCount').textContent = devs.length;
-  document.getElementById('deviceGrid').innerHTML = devs.length ? devs.map(d=>`
-    <div class="card" onclick="">
-      <div class="card-top">
-        <span class="card-title">${d.n}</span>
-        <span class="card-route ${routeClass(d.r)}">${d.t||d.r}</span>
-      </div>
-      <div class="card-info">
-        <span>📍 ${d.loc}</span>
-        <span>⚡ ${d.q}</span>
-      </div>
-      <div class="card-info" style="margin-top:4px">📐 ${d.R}</div>
-      <div class="card-stats">
-        <span>💰 <strong>${fmtCurrency(d.k)}</strong></span>
-      </div>
-      <div class="card-info" style="margin-top:6px;font-size:0.8rem">${d.h.slice(0,90)}…</div>
+  
+  // Stats
+  const stats = getStats();
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="n">${stats.total}</div><div class="l">收录代码</div></div>
+    <div class="stat"><div class="n">${stats.open}</div><div class="l">开源</div></div>
+    <div class="stat"><div class="n">${stats.closed}</div><div class="l">闭源/需申请</div></div>
+    <div class="stat"><div class="n">${stats.domains}</div><div class="l">物理领域</div></div>
+  `;
+  
+  // Toolbar tags
+  const domainTags = domains.map(d=>`<span class="tag${filterDomain===d.id?' sel':''}" onclick="setDomain('${d.id}')">${d.label}</span>`).join('');
+  document.getElementById('toolbar').innerHTML = `
+    <span class="lbl">领域：</span>
+    <div class="group">
+      <span class="tag${filterDomain==='all'?' sel':''}" onclick="setDomain('all')">全部</span>
+      ${domainTags}
     </div>
-  `).join('') : '<div class="empty">没有匹配的装置</div>';
-}
-
-function renderCompanies(filter=''){
-  const comps = COMPANIES.filter(c=>
-    (c.n+c.desc+c.r+c.loc).toLowerCase().includes(filter.toLowerCase())
-  );
-  document.getElementById('compGrid').innerHTML = comps.map(c=>`
-    <div class="card comp-card">
-      <div class="card-top">
-        <span class="card-title">${c.n}</span>
-        <span class="card-route">${c.r.slice(0,12)}${c.r.length>12?'…':''}</span>
-      </div>
-      <div class="card-info">${c.desc.slice(0,100)}…</div>
-      <div class="card-meta">
-        📍 ${c.loc} · 👥 ${c.ppl} · 🏢 ${c.type}
-        ${c.val?` · 💰 ${c.val}`:''}
-      </div>
-      ${c.web?`<div class="card-meta" style="margin-top:2px"><a href="${c.web}" target="_blank" style="color:var(--link)">${c.web}</a></div>`:''}
+    <span class="lbl" style="margin-left:0.8rem">许可：</span>
+    <div class="group">
+      <span class="tag${filterOpen==='all'?' sel':''}" onclick="setOpen('all')">全部</span>
+      <span class="tag${filterOpen==='open'?' sel':''}" onclick="setOpen('open')"><span style="color:var(--open)">⬤</span> 开源</span>
+      <span class="tag${filterOpen==='closed'?' sel':''}" onclick="setOpen('closed')"><span style="color:var(--closed)">⬤</span> 闭源/需申请</span>
     </div>
-  `).join('');
-}
-
-function renderPapers(){
-  document.getElementById('paperGrid').innerHTML = PAPERS.map(p=>`
+    <span class="count">匹配 ${filtered.length} 个代码</span>
+  `;
+  
+  // Grid
+  document.getElementById('grid').innerHTML = filtered.map(c=>`
     <div class="card">
-      <div class="card-top"><span class="card-title">${p.n}</span></div>
-      <div class="card-info">👤 ${p.a} · 📅 ${p.y} · 📰 ${p.j}</div>
-      <div class="card-info" style="margin-top:4px;font-size:0.8rem">${p.h.slice(0,120)}</div>
-    </div>
-  `).join('');
-}
-
-function renderFunding(){
-  document.getElementById('fundingGrid').innerHTML = FUNDING.map(f=>`
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">${f.n}</span>
-        <span class="card-route tokamak">${f.ev}</span>
+      <div class="head">
+        <div class="icon ${iconClass(c.p)}">${c.n[0]}</div>
+        <div>
+          <div class="title">${c.n}</div>
+          <div class="meta">${c.p}</div>
+        </div>
+        <span class="license ${c.open?'license-open':'license-closed'}" style="margin-left:auto">${c.open?'开源':'需申请'}</span>
       </div>
-      <div class="card-info">
-        <span>💰 ${f.amt}</span><span>📅 ${f.yr}</span>
+      <div class="desc">${c.d}</div>
+      <div class="tags">${c.tags.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div>
+      <div class="footer">
+        <span style="font-size:0.76rem;color:var(--muted)">👤 ${c.team} · 🏛 ${c.inst}</span>
+        <span class="sep" style="margin-left:auto"></span>
+        <a href="${c.url}" target="_blank" rel="noopener">${c.open?'GitHub / 主页 →':'访问主页 →'}</a>
       </div>
-      <div class="card-info" style="margin-top:4px;font-size:0.8rem">${f.note}</div>
     </div>
-  `).join('');
+  `).join('')||'<div style="text-align:center;padding:3rem;color:var(--muted);grid-column:1/-1">没有匹配的代码，试试调整筛选条件</div>';
 }
 
-function filterCards(){
-  const q = document.getElementById('searchInput').value;
-  if(currentTab==='devices') renderDevices(q);
-  else if(currentTab==='companies') renderCompanies(q);
-}
-
-let currentTab='devices';
-function switchTab(tab){
-  currentTab=tab;
-  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.querySelectorAll('.section').forEach(s=>s.style.display='none');
-  document.getElementById(tab).style.display='block';
-  document.querySelector(`nav a[href="#${tab}"]`).classList.add('active');
-  if(tab==='companies') renderCompanies();
-  if(tab==='papers') renderPapers();
-  if(tab==='funding') renderFunding();
-}
+function setDomain(d){filterDomain=filterDomain===d?'all':d;render()}
+function setOpen(o){filterOpen=filterOpen===o?'all':o;render()}
+function clearSearch(){document.getElementById('search').value='';render()}
 
 // Init
-renderStats();
-renderDeviceTags();
-renderDevices();
-renderCompanies();
-renderPapers();
-renderFunding();
+render();
 </script>
 </body>
 </html>
