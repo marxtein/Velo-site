@@ -29,7 +29,8 @@ def clean_array_str(s):
     return s.strip()
 
 def dedup_key(n):
-    return re.sub(r'[^a-z0-9]', '', n.lower())[:20]
+    # Use full normalized name as dedup key (Chinese chars were being stripped)
+    return re.sub(r'\s+', '', str(n)).lower()[:30]
 
 # ===== CODES (13 fields) =====
 def domain_from_text(text):
