@@ -74,6 +74,6 @@ main{max-width:1340px;margin:0 auto;padding:1rem 1.2rem 3rem}
 </main>
 <script src="render.js"></script>
 <script src="data.js"></script>
-<script>init()</script>
+<script>try{init()}catch(e){document.getElementById('gdC').innerHTML='<div style="padding:3rem;text-align:center;color:var(--mu)">加载失败: '+e.message+'</div>'}</script>
 </body>
 </html>
