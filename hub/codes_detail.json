@@ -1,0 +1,79 @@
+{
+  "GENE": {
+    "full_name": "Gyrokinetic Electromagnetic Numerical Experiment",
+    "long_desc": "GENE 是全球最广泛使用的回旋动理学湍流模拟代码之一，由德国马普等离子体物理研究所（Max Planck IPP）Frank Jenko 团队开发。采用连续体欧拉方法在五维相空间中直接求解回旋动理学方程，支持托卡马克和仿星器几何。可模拟 ITG/TEM/ETG 等多种微观不稳定性，支持通量管（flux tube）和全局（global）两种模拟模式，包含碰撞算符、电磁涨落和多粒子种耦合。2025 年在 Nature Communications 发表的多代码对比验证中，GENE 被确认为达到成熟阶段的核心湍流代码。",
+    "features": [
+      "连续体回旋动理学",
+      "通量管/全局双模式",
+      "电磁涨落",
+      "线性/非线性",
+      "托卡马克+仿星器",
+      "Landau-Boltzmann 碰撞算符"
+    ],
+    "links": [
+      "https://genecode.org",
+      "https://doi.org/10.1038/s41467-025-56997-2"
+    ]
+  },
+  "GTC": {
+    "full_name": "Gyrokinetic Toroidal Code",
+    "long_desc": "GTC（回旋动理学环向代码）是由加州大学欧文分校林志宏教授团队开发的全球首个大规模并行回旋动理学 Particle-in-Cell（PIC）代码。采用 δf PIC 方法在真实托卡马克几何中模拟等离子体微观湍流和新经典输运。1998 年在 Science 发表里程碑论文，首次证实带状流对湍流输运的抑制作用。近期版本支持高能粒子与阿尔芬本征模相互作用、全域模拟和 GPU 加速。GTC 是回旋动理学 PIC 方向的标杆。",
+    "features": [
+      "PIC 回旋动理学",
+      "全球模拟",
+      "带状流-湍流相互作用",
+      "高能粒子-波",
+      "GPU 加速"
+    ],
+    "links": [
+      "http://phoenix.ps.uci.edu/gtc/",
+      "https://doi.org/10.1126/science.281.5384.1835"
+    ]
+  },
+  "DESC": {
+    "full_name": "DESC Stellarator Equilibrium and Optimization Suite",
+    "long_desc": "DESC 是普林斯顿大学 Egemen Kolemen 团队开发的新一代仿星器三维 MHD 平衡与优化代码套件。采用伪谱法和 JAX 自动微分框架，直接在真实空间中求解力平衡方程，摆脱了传统 VMEC 对磁面的假设，能够处理磁岛和随机磁场区域。计算速度比传统方法快 10-100 倍，梯度信息通过自动微分精确获取，可直接耦合优化算法进行仿星器线圈和磁场设计。2023 年以三部曲形式发表在 Journal of Plasma Physics。",
+    "features": [
+      "伪谱法 MHD 平衡",
+      "JAX 自动微分",
+      "磁岛/随机场处理",
+      "GPU 加速",
+      "仿星器优化",
+      "准对称设计"
+    ],
+    "links": [
+      "https://github.com/PlasmaControl/DESC",
+      "https://doi.org/10.1017/S0022377823000861"
+    ]
+  },
+  "TORAX": {
+    "full_name": "TORAX — Tokamak Rapid Axisymmetric Simulator",
+    "long_desc": "TORAX 是 Google DeepMind 与 EPFL 瑞士等离子体中心合作开发的下一代托卡马克输运模拟框架。基于 JAX 可微分编程框架，采用有限体积法求解 1.5D 核心输运方程，可在数秒内完成完整的放电方案模拟。支持自动微分和 GPU 加速，能够高效地进行参数扫描、不确定性量化和逆问题求解。TORAX 代表了聚变模拟向 AI 驱动、快速迭代的新范式，已成功应用于 T-15MD、ITER 等装置的预测性模拟。",
+    "features": [
+      "1.5D 核心输运",
+      "JAX 可微分编程",
+      "有限体积法",
+      "快速放电模拟",
+      "自动微分",
+      "GPU 加速"
+    ],
+    "links": [
+      "https://github.com/google-deepmind/torax",
+      "https://doi.org/10.48550/arXiv.2406.06718"
+    ]
+  },
+  "GX": {
+    "full_name": "GX — GPU-native Local Gyrokinetic Turbulence Code",
+    "long_desc": "GX 是原生 GPU 局域回旋动理学湍流代码，由 Bill Dorland 和 Noah Mandell 领导的 GX Team 开发。采用 Hermite-Laguerre 伪谱方法在速度空间展开，充分利用 GPU 的大规模并行能力。相比传统 CPU 代码，GX 的参数扫描速度提升 100 倍以上，特别适合进行大规模参数空间探索和不确定性分析。支持多种回旋动理学模型（静电/电磁、线性/非线性），正在成为新一代快速湍流预测的标准工具。",
+    "features": [
+      "GPU-native 回旋动理学",
+      "Hermite-Laguerre 谱方法",
+      "超快参数扫描",
+      "不确定性量化",
+      "Python 接口"
+    ],
+    "links": [
+      "https://gx.readthedocs.io/"
+    ]
+  }
+}
