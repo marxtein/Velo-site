@@ -1,0 +1,3613 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "data": [
+      [
+        "ARC",
+        null,
+        "2026年（计划首次等离子体放电）",
+        13600000000,
+        "大半径3.3m，小半径1.1m，环向磁场9.2T，等离子体电流14MA",
+        "设计Q\u003e10",
+        "总投资约20亿美元",
+        "CFS",
+        "Bob Mumgaard,Brandon Sorbom,Dan Brunner",
+        "高温超导托卡马克",
+        null,
+        "美国剑桥",
+        "https://cfs.energy/",
+        null,
+        [
+          {
+            "id": "recvjRRR09asgg"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyclTut"
+          }
+        ],
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ],
+        null,
+        null,
+        "2025年完成设计；计划2030年建成；目标2032年实现商业并网发电；2026年6月发表五篇ARC物理基础同行评审论文，验证400MW净电力输出可行性",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn8uc6"
+          }
+        ]
+      ],
+      [
+        "ASDEX Upgrade",
+        null,
+        null,
+        7916000000,
+        "大半径1.65m，小半径0.5m，环向磁场3.9T，等离子体电流1.6MA",
+        "Q\u003c0.1",
+        "累计投资约10亿欧元",
+        "IPP",
+        "Thomas Klinger,Sibylle Günter,Hartmut Zohm",
+        "托卡马克",
+        null,
+        "德国加兴",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2Gk6L9PxZ"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DQR9B"
+          },
+          {
+            "id": "recvkp7B4DIQEJ"
+          }
+        ],
+        null,
+        "2025年实现全钨壁运行；验证偏滤器脱附技术；为ITER提供关键数据",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "BEST",
+        "中核集团",
+        null,
+        150000000008500000000,
+        "大半径3.5m，小半径1.0m，环向磁场5T，等离子体电流10MA；杜瓦底座直径18m，主机重6700吨，水冷全钨壁，氚增殖包层",
+        "设计Q\u003e5，未实现；设计Q\u003e1，目标演示聚变发电",
+        "总投资约150亿元人民币；约85亿元人民币",
+        "中科院等离子体所",
+        "宋云涛",
+        "超导托卡马克；紧凑高场超导托卡马克（D-T）",
+        [
+          {
+            "id": "recvk9U8egZS0V"
+          }
+        ],
+        "中国合肥",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2ENqLn0lI"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyccVvp"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4D6iHT"
+          }
+        ],
+        null,
+        "2025年进入总装阶段；计划2027年底建成，2030年实现氘氚聚变发电演示；2025年启动总装，杜瓦底座安装就位，首批TF线圈盒交付",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn8ule"
+          }
+        ]
+      ],
+      [
+        "C-2W",
+        null,
+        null,
+        17000000000,
+        "装置长度20m，中心磁场0.5T，等离子体电流0.2MA",
+        "Q\u003c0.01",
+        "累计投资约25亿美元",
+        "TAE Technologies",
+        "Michl Binderbauer",
+        "FRC场反位形+束流驱动",
+        null,
+        "美国加州",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWNKvXWr68"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycDysX"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4DnJJa"
+          },
+          {
+            "id": "recvkp7B4DfSyM"
+          }
+        ],
+        null,
+        "2025年实现30毫秒FRC稳态运行；验证束流加热技术；目标p-B¹¹无中子聚变",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsYfO"
+          }
+        ]
+      ],
+      [
+        "CFETR",
+        "中核集团,中科院等离子体所,西物院",
+        null,
+        100000000000370000000,
+        "大半径7.2m，小半径2.2m，环向磁场6.5T，等离子体电流14MA；聚变功率百兆瓦至吉瓦，磁场\u003e13T",
+        "设计Q\u003e10",
+        "总投资约1000亿元人民币；预研国拨3.7亿元（2021年专项）",
+        "中科院等离子体所",
+        "宋云涛",
+        "超导托卡马克；托卡马克（D-T）",
+        null,
+        "中国；中国合肥",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2ENqLn0lI"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyccVvp"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4Dl6Q0"
+          },
+          {
+            "id": "recvkp7B4DgXEC"
+          },
+          {
+            "id": "recvkp7B4DfRai"
+          }
+        ],
+        null,
+        "2025年完成工程设计；计划2035年建成；目标2040年实现聚变发电示范；处于预研和关键技术攻关阶段，目标世界首个聚变实验电站",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnIZQZ"
+          }
+        ]
+      ],
+      [
+        "CFQS-T",
+        "西南交通大学",
+        null,
+        200000000,
+        "大半径1.0m，小半径0.2m，环向磁场1T",
+        "Q\u003c0.001",
+        "总投资约2亿元人民币",
+        "西物院",
+        null,
+        "准环对称仿星器",
+        null,
+        "中国成都",
+        "https://www.swjtu.edu.cn/",
+        null,
+        [
+          {
+            "id": "recvk2F2s2KvHf"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvk9ZmAn3H3T"
+          }
+        ],
+        [
+          {
+            "id": "recvkp7B4DoJZk"
+          }
+        ],
+        null,
+        "2025年完成首期测试平台建设；2026年进入运行阶段，验证仿星器3D磁场设计技术",
+        null,
+        null,
+        null
+      ],
+      [
+        "DEMO",
+        null,
+        null,
+        79167800000,
+        "大半径9m，小半径3m，环向磁场5.7T，等离子体电流20MA",
+        "设计Q\u003e25",
+        "总投资约100亿欧元",
+        null,
+        "Tony Donné,Ambrogio Fasoli",
+        "超导托卡马克",
+        null,
+        "欧盟",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycvuRc"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2025年完成概念设计；计划2040年建成；目标2050年实现商业发电",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnaowQ"
+          }
+        ]
+      ],
+      [
+        "DIII-D",
+        "PPPL",
+        null,
+        8160000000,
+        "大半径1.67m，小半径0.67m，环向磁场2.2T，等离子体电流2.5MA",
+        "Q\u003c0.1",
+        "累计投资约12亿美元",
+        "General Atomics",
+        "David Hill",
+        "托卡马克",
+        null,
+        "美国圣迭戈",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FfZYLhkH"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DgnEv"
+          },
+          {
+            "id": "recvkp7B4DPSsQ"
+          },
+          {
+            "id": "recvkp7B4DP3Hg"
+          }
+        ],
+        null,
+        "2025年实现100秒高β运行；验证ITER边界局域模抑制技术；开发AI等离子体控制系统",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "EAST",
+        "中国科学技术大学,华中科技大学",
+        null,
+        1500000000300000000,
+        "大半径1.7m，小半径0.4m，环向磁场3.5T，等离子体电流1MA；大半径1.85m，等离子体电流1MA，磁场3.5T",
+        "Q\u003c0.1；未开展D-T实验",
+        "总投资约15亿元人民币；约3亿元（早期投资）",
+        "中科院等离子体所",
+        "宋云涛,万宝年,万元熙,李建刚,胡建生,徐国盛",
+        "全超导托卡马克",
+        null,
+        "中国合肥",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2ENqLn0lI"
+          },
+          {
+            "id": "recvkiVxyc5kPE"
+          },
+          {
+            "id": "recvk2FlU83Jhi"
+          },
+          {
+            "id": "recvkiVxyciAoW"
+          },
+          {
+            "id": "recvkdhmMaPzMl"
+          },
+          {
+            "id": "recvkiVxycTWbe"
+          }
+        ],
+        [
+          {
+            "id": "recvk2ENqLn0lI"
+          },
+          {
+            "id": "recvkiVxyc5kPE"
+          },
+          {
+            "id": "recvk2FlU83Jhi"
+          },
+          {
+            "id": "recvkiVxyciAoW"
+          },
+          {
+            "id": "recvkdhmMaPzMl"
+          },
+          {
+            "id": "recvkiVxycTWbe"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4DGR7X"
+          },
+          {
+            "id": "recvkp7B4DjvHH"
+          }
+        ],
+        "东方超环",
+        "2025年1月实现1亿℃、1066秒稳态高约束运行，创世界纪录；2026年1月证实托卡马克密度自由区存在，突破格林沃尔德密度极限1.65倍；实现403秒H模等离子体、1.2亿℃101秒、1066秒长脉冲等世界纪录",
+        null,
+        null,
+        null
+      ],
+      [
+        "FLAME",
+        "中国科学技术大学",
+        "2026年3月",
+        null,
+        "装置长度10m，中心磁场1T，等离子体电流0.1MA",
+        "Q\u003c0.001",
+        "累计投资约数亿元人民币",
+        "星能玄光",
+        "孙玄",
+        "场反位形+串节磁镜+电势垒三重约束",
+        null,
+        "中国合肥",
+        "https://www.xingnex.com/",
+        null,
+        [
+          {
+            "id": "recvk2Fpwk4MWJ"
+          }
+        ],
+        [
+          {
+            "id": "recvk2Fpwk4MWJ"
+          }
+        ],
+        null,
+        null,
+        "星能一号",
+        "2026年3月完成首次等离子体放电；装置全长18.5米，由5个真空室有序串联；验证场反磁镜三重约束方案可行性；成本仅为托卡马克十分之一",
+        null,
+        null,
+        null
+      ],
+      [
+        "HHMAX-901",
+        "中物院",
+        "2025年7月18日",
+        50000000,
+        "装置长度8m，中心磁场0.8T，等离子体电流0.05MA",
+        "Q\u003c0.001",
+        "累计投资约5000万元人民币",
+        "瀚海聚能",
+        "项江",
+        "直线型FRC",
+        null,
+        "中国成都",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FsWc4t0x"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvk9ZmAnlM2H"
+          }
+        ],
+        null,
+        null,
+        "2025年7月18日实现中国首台商业化直线型FRC装置首次等离子体点亮；验证FRC形成与压缩过程；对标Helion Energy技术路线；天使轮融资数千万",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnWrE6"
+          }
+        ]
+      ],
+      [
+        "HL-1",
+        null,
+        null,
+        100000000,
+        "80兆瓦脉冲发电机组",
+        "未开展D-T实验",
+        "6500万元人民币",
+        "西物院",
+        "潘垣",
+        "托卡马克",
+        null,
+        "中国四川乐山",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycBVkb"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DoH1J"
+          }
+        ],
+        "中国环流器一号",
+        "中国首个托卡马克，获国家科技进步一等奖，奠定中国托卡马克技术路线基础",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn53ni"
+          }
+        ]
+      ],
+      [
+        "HL-2A",
+        "四川大学,电子科技大学",
+        null,
+        500000000,
+        "大半径1.65m，小半径0.4m，环向磁场2.8T，等离子体电流0.45MA",
+        "Q\u003c0.01",
+        "总投资约5亿元人民币",
+        "西物院",
+        null,
+        "托卡马克",
+        null,
+        "中国成都",
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4D2bjU"
+          }
+        ],
+        "中国环流二号",
+        "2009年实现高约束模式（H模）运行；验证带状流三维结构；发展分子束加料技术",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn53ni"
+          }
+        ]
+      ],
+      [
+        "HL-2M",
+        "四川大学,电子科技大学",
+        null,
+        400000000,
+        "大半径1.78m，小半径0.65m，环向磁场2.2T，等离子体电流2.5MA",
+        "Q\u003c0.1",
+        "总投资约30亿元人民币",
+        "西物院",
+        "段旭如,张立波,钟武律",
+        "托卡马克",
+        null,
+        "中国成都",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWUrmDQfTU"
+          },
+          {
+            "id": "recvkiVxyccVvp"
+          },
+          {
+            "id": "recvkiVxycJvLl"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DhH6d"
+          },
+          {
+            "id": "recvkp7B4D4yjT"
+          }
+        ],
+        "中国环流三号",
+        "2025年3月实现原子核温度1.17亿℃、电子温度1.6亿℃\"双亿度\"运行；聚变三乘积达10²⁰量级",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn53ni"
+          }
+        ]
+      ],
+      [
+        "HL-3",
+        "西物院",
+        null,
+        null,
+        "等离子体电流1.5MA，离子温度1.2亿℃，电子温度1.6亿℃",
+        "未开展D-T实验，聚变三重积达10²⁰量级",
+        null,
+        "西物院",
+        "段旭如,张立波,钟武律",
+        "托卡马克",
+        null,
+        "中国四川成都",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWUrmDQfTU"
+          },
+          {
+            "id": "recvkiVxyccVvp"
+          },
+          {
+            "id": "recvkiVxycJvLl"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4Di2m9"
+          },
+          {
+            "id": "recvkp7B4DTflI"
+          }
+        ],
+        null,
+        "实现“双亿度”，首次发现并实现先进磁场结构，高约束模式运行",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn53ni"
+          }
+        ]
+      ],
+      [
+        "HL-4",
+        null,
+        null,
+        null,
+        "规划中",
+        "规划中",
+        "上海基地计划投资120亿元；中国聚变公司注册资本150亿元",
+        "中核集团,中国聚变",
+        null,
+        "高温超导托卡马克（D-T）",
+        null,
+        "中国上海/成都",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "中国环流四号",
+        "2025年正式挂牌，瞄准2050年聚变商用",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn3JFv"
+          }
+        ]
+      ],
+      [
+        "HT-7",
+        "中国科学技术大学",
+        null,
+        200000000,
+        "大半径1.22m，小半径0.27m，环向磁场2T，等离子体电流0.2MA",
+        "Q\u003c0.001",
+        "总投资约2亿元人民币",
+        "中科院等离子体所",
+        "万元熙,李建刚",
+        "超导托卡马克",
+        null,
+        "中国合肥",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FlU83Jhi"
+          },
+          {
+            "id": "recvkdhmMaPzMl"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DtsO5"
+          }
+        ],
+        null,
+        "2003年实现400秒长脉冲运行；中国首台超导托卡马克；为EAST奠定技术基础",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn8ule"
+          }
+        ]
+      ],
+      [
+        "Helion-Orion",
+        null,
+        "目标2028年并网发电",
+        6810000000,
+        "全球首座商业聚变发电厂",
+        "目标商业供电",
+        "包含在Helion累计超10亿美元融资内",
+        "Helion Energy",
+        "David Kirtley",
+        "FRC磁惯性聚变",
+        null,
+        "美国华盛顿州奇兰县",
+        null,
+        "2023年（与微软签署PPA）",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnelpk"
+          }
+        ],
+        null,
+        null,
+        "2025年10月获有条件使用许可(CUP)启动建设；与微软签订全球首份聚变电力购买协议(PPA，≥50MW)；目标2028年向微软供电；Constellation Energy担任电力营销商",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsyR8"
+          }
+        ]
+      ],
+      [
+        "Helion-Polaris",
+        null,
+        "2024年末建成，2026年1月首次D-T运行",
+        6800000000,
+        "实现1.5亿℃高温，第七代原型机",
+        "实验装置，目标发电",
+        "Helion累计融资超10亿美元",
+        "Helion Energy",
+        "David Kirtley",
+        "FRC+脉冲磁压缩（磁惯性聚变）",
+        null,
+        "美国华盛顿州埃弗里特",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2026年2月宣布实现民间首次可测量D-T聚变反应；等离子体温度达1.5亿℃(150M℃)，创私营聚变装置温度纪录；首次私营D-T燃料运行验证；Helion第7代原型机",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsyR8"
+          }
+        ]
+      ],
+      [
+        "Helix KANATA",
+        null,
+        "规划中，目标2034年",
+        222000000,
+        "计划建成全球首座稳态聚变电厂",
+        "规划中",
+        "总资金52亿日元",
+        "Helical Fusion",
+        "Takaya Taguchi",
+        "螺旋器/仿星器",
+        null,
+        "日本东京",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc1Nmx"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2025年10月完成全球首次商用规模HTS线圈性能测试；世界首座稳态聚变电厂计划；A轮融资23亿日元；2026年3月启动最终实証装置Helix HARUKA建造；目标2034年实现世界首座稳态净发电聚变电厂",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnMw79"
+          }
+        ]
+      ],
+      [
+        "IFE-STAR",
+        null,
+        null,
+        285660000,
+        "推进惯性聚变能源技术",
+        "研发",
+        "DOE出资4200万美元",
+        "DOE",
+        null,
+        "激光惯性约束聚变",
+        null,
+        "美国",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "启动惯性聚变能源研发计划",
+        null,
+        null,
+        [
+          {
+            "id": "recvka0ejSSAaY"
+          }
+        ]
+      ],
+      [
+        "ITER",
+        null,
+        null,
+        158400000000,
+        "大半径6.2m，小半径2.0m，环向磁场5.3T，等离子体电流15MA，等离子体体积830m³",
+        "设计Q≥10；按2024新基线，2030年代进入研究运行，2039年启动D-T运行阶段。",
+        "总投资约220亿欧元（约1584亿元人民币）",
+        "ITER",
+        "Bernard Bigot,Pietro Barabaschi,Tim Luce",
+        "超导托卡马克",
+        [
+          {
+            "id": "recvjRShnQCYrb"
+          }
+        ],
+        "法国卡达拉舍",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FAHAN4Kh"
+          },
+          {
+            "id": "recvk2FHRmoxFK"
+          },
+          {
+            "id": "recvkiVxycFNmp"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4Dp66d"
+          },
+          {
+            "id": "recvkp7B4Dey1B"
+          },
+          {
+            "id": "recvkp7B4DyDaS"
+          }
+        ],
+        null,
+        "全球最大在建托卡马克；2024年提出新基线，2036年达到全磁能目标，2039年启动D-T运行阶段。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnvxlW"
+          }
+        ]
+      ],
+      [
+        "Inertia Enterprises激光聚变装置",
+        null,
+        null,
+        3060000000,
+        "计划2030年启动首座商业化聚变电站",
+        "商业开发",
+        "融资4.5亿美元",
+        null,
+        "Jeff Lawson",
+        "激光惯性约束聚变",
+        null,
+        "美国加利福尼亚州",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycUbV8"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycQUiB"
+          }
+        ],
+        [
+          {
+            "id": "recvk9ZmAni6zB"
+          }
+        ],
+        null,
+        null,
+        "大额融资，与LLNL签署技术转让协议",
+        null,
+        null,
+        null
+      ],
+      [
+        "JET",
+        null,
+        null,
+        18240000000,
+        "大半径3.0m，小半径0.9m，环向磁场3.4T，等离子体电流7MA",
+        "0.67（1997年）",
+        "累计投资约20亿英镑",
+        "UKAEA",
+        "Ian Chapman",
+        "托卡马克",
+        [
+          {
+            "id": "recvjRShnQvso3"
+          }
+        ],
+        "英国牛津郡卡勒姆",
+        "[https://www.gov.uk/government/news/jets-final-tritium-experiments-yield-new-fusion-energy-record](https://www.gov.uk/government/news/jets-final-tritium-experiments-yield-new-fusion-energy-record)",
+        null,
+        [
+          {
+            "id": "recvk2FPyZYI0z"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DgWsI"
+          },
+          {
+            "id": "recvkp7B4DiAVl"
+          },
+          {
+            "id": "recvkp7B4DCBx3"
+          }
+        ],
+        null,
+        "1983年投运，1997年实现Q约0.67；2023年最终D-T实验输出69MJ聚变能量，科学运行于2023年12月18日结束。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "JT-60SA",
+        null,
+        null,
+        12828000000,
+        "大半径3.3m，小半径1.1m，环向磁场2.25T，等离子体电流5.5MA",
+        "设计Q≈1.25，未实现",
+        "总投资约3000亿日元",
+        "QST,Fusion for Energy",
+        "Yutaka Kamada",
+        "超导托卡马克",
+        null,
+        "日本茨城县那珂市",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyccsa3"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4Dklex"
+          },
+          {
+            "id": "recvkp7B4DIkUL"
+          }
+        ],
+        null,
+        "2023年首次等离子体放电；2026年5月重启全面实验，计划验证长脉冲稳态运行技术",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnhzMp"
+          }
+        ]
+      ],
+      [
+        "KSTAR",
+        null,
+        null,
+        2500000000,
+        "大半径1.8m，小半径0.5m，环向磁场3.5T，等离子体电流2MA",
+        "Q\u003c0.1",
+        "总投资约3300亿韩元",
+        null,
+        "Suk Jae Yoo,Si-Woo Yoon",
+        "全超导托卡马克",
+        null,
+        "韩国大田",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycxCbO"
+          },
+          {
+            "id": "recvkiVxycKEr8"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycTYtr"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4DQLyq"
+          },
+          {
+            "id": "recvkp7B4DDELs"
+          },
+          {
+            "id": "recvkp7B4DsXD3"
+          }
+        ],
+        null,
+        "2025年实现100秒高β长脉冲运行；完成钨偏滤器升级；验证ITER相关运行场景",
+        null,
+        null,
+        null
+      ],
+      [
+        "LHD",
+        null,
+        null,
+        6414000000,
+        "大半径3.9m，小半径0.6m，环向磁场3T，等离子体体积16m³",
+        "Q\u003c0.01",
+        "总投资约1500亿日元",
+        "NIFS",
+        "Hiroshi Yamada,Yasuhiko Takeiri",
+        "大型螺旋装置/heliotron",
+        null,
+        "日本土岐",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvk2GZhJuzXe"
+          },
+          {
+            "id": "recvkiVxycXlM1"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4Du0Kx"
+          },
+          {
+            "id": "recvkp7B4DlbKo"
+          },
+          {
+            "id": "recvkp7B4DFsHJ"
+          }
+        ],
+        null,
+        "大型超导螺旋装置，长期支撑稳态磁约束、氘实验、螺旋装置输运和等离子体-壁相互作用研究。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn9ayb"
+          }
+        ]
+      ],
+      [
+        "LM26",
+        "UKAEA",
+        null,
+        3400000000,
+        "装置直径3m，中心磁场0.8T，等离子体电流0.1MA",
+        "Q\u003c0.001",
+        "累计投资约5亿美元",
+        "General Fusion",
+        "Greg Twinney,Michel Laberge",
+        "磁惯性约束+机械压缩",
+        null,
+        "加拿大温哥华",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GSYjwnWM"
+          },
+          {
+            "id": "recvkiVxyc8RBC"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2025年完成原型机建设；验证液态金属壁技术；计划2027年首次聚变实验",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnu1LQ"
+          }
+        ]
+      ],
+      [
+        "MAST Upgrade",
+        "EUROfusion",
+        null,
+        693000000,
+        "偏滤器排热研究",
+        "未开展D-T实验",
+        "5500万英镑+2100万英镑排热项目",
+        "UKAEA",
+        null,
+        "球形托卡马克",
+        null,
+        "英国牛津郡卡勒姆",
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DZSOz"
+          },
+          {
+            "id": "recvkp7B4D48uw"
+          }
+        ],
+        null,
+        "在等离子体排热物理方面取得显著进展",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "NIF",
+        "LANL,SNL",
+        null,
+        23800000000,
+        "192束激光，总能量2.2MJ，靶丸直径2mm",
+        "1.54（2022年）",
+        "总投资约35亿美元",
+        "LLNL",
+        "Kim Budil,Edward Moses,Annie Kritcher,Omar Hurricane",
+        "激光惯性约束",
+        [
+          {
+            "id": "recvjRShnQ0TwB"
+          }
+        ],
+        "美国加利福尼亚州利弗莫尔",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GOha2ACk"
+          },
+          {
+            "id": "recvk1Q0p6bYZc"
+          },
+          {
+            "id": "recvkiVxycZYIt"
+          },
+          {
+            "id": "recvkiVxycoAbY"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DrO7K"
+          },
+          {
+            "id": "recvkp7B4DvYi0"
+          }
+        ],
+        null,
+        "2022年12月首次实现点火，Q=1.54；2025年实现Q=1.8的重复点火；验证惯性约束聚变科学可行性",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAni6zB"
+          }
+        ]
+      ],
+      [
+        "NSTX-U",
+        null,
+        null,
+        6390000000,
+        "大半径0.85m，小半径0.65m，环向磁场1T，等离子体电流2MA",
+        "Q\u003c0.01",
+        "总投资约9.4亿美元",
+        "PPPL",
+        "Steve Cowley,Masa Ono",
+        "球形托卡马克",
+        null,
+        "美国普林斯顿",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GLFCm0Ef"
+          },
+          {
+            "id": "recvkiVxycgrpZ"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DP4fK"
+          },
+          {
+            "id": "recvkp7B4DpGaU"
+          }
+        ],
+        null,
+        "2025年完成升级重启，实现β值4的高约束运行；验证球形托卡马克高β特性",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "Polaris",
+        "微软",
+        "2026年2月首次D-T聚变，目标2026年底Q\u003e1",
+        3400000000,
+        "装置长度12m，中心磁场1.2T，等离子体电流0.4MA；首个私企实现可测量D-T聚变",
+        "Q\u003c0.01",
+        "累计投资约5亿美元",
+        "Helion Energy",
+        "David Kirtley,Chris Pihl,George Votroubek",
+        "FRC+磁惯性约束",
+        null,
+        "美国华盛顿",
+        null,
+        null,
+        [
+          {
+            "id": "recvjRRR09cfLT"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2026年2月实现D-T聚变反应；等离子体温度达1.5亿℃；2026年4月完成装置建设；计划2026年底实现Q\u003e1；目标2028年并网发电",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsyR8"
+          }
+        ]
+      ],
+      [
+        "RFX-mod",
+        null,
+        null,
+        2374000000,
+        "大半径2m，小半径0.459m，环向磁场0.7T，等离子体电流2MA",
+        "Q\u003c0.001",
+        "累计投资约3亿欧元",
+        "Consorzio RFX",
+        "Piergiorgio Sonato",
+        "反向场箍缩 (RFP)",
+        null,
+        "意大利帕多瓦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvk2GGxtCrLL"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DpNak"
+          }
+        ],
+        null,
+        "Padova 反向场箍缩装置，服务RFP约束、MHD控制和等离子体响应研究；升级路线为RFX-mod2。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnEoNU"
+          }
+        ]
+      ],
+      [
+        "SMART",
+        "EUROfusion",
+        "2024年11月首次等离子体",
+        null,
+        "创新性负三角形等离子体截面",
+        "未运行",
+        "EUROfusion支持",
+        "塞维利亚大学PSFT实验室",
+        "Manuel García Muñoz, Eleonora Viezzer",
+        "球形托卡马克（负三角形）",
+        null,
+        "西班牙塞维利亚",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "开展负三角形等离子体位形研究",
+        null,
+        null,
+        null
+      ],
+      [
+        "SPARC",
+        null,
+        null,
+        13500000000,
+        "大半径1.85m，小半径0.57m，环向磁场12T，等离子体电流8.7MA",
+        "设计Q\u003e2，未实现",
+        "累计投资约18亿美元",
+        "CFS",
+        "Bob Mumgaard,Dennis Whyte,Steve Wukitch,Brandon Sorbom,Dan Brunner",
+        "高温超导托卡马克",
+        null,
+        "美国马萨诸塞州德文斯",
+        null,
+        null,
+        [
+          {
+            "id": "recvjRRR09asgg"
+          },
+          {
+            "id": "recvjRRR09qFZJ"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DnEjY"
+          },
+          {
+            "id": "recvkp7B4De3SY"
+          },
+          {
+            "id": "recvkp7B4DXbUL"
+          }
+        ],
+        null,
+        "2025年完成全部高温超导磁体制造；主机厂房施工超过75%，真空室组装启动；计划2026年底首次等离子体放电，2027年实现Q\u003e2",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ]
+      ],
+      [
+        "ST40",
+        null,
+        null,
+        2730000000353700000,
+        "大半径0.4m，小半径0.25m，环向磁场3T，等离子体电流0.5MA；紧凑型，离子温度约1.1亿℃",
+        "Q\u003c0.01；未开展D-T实验，离子温度1.1亿℃",
+        "累计投资约3亿英镑；升级资金5200万美元（三方联合）",
+        "Tokamak Energy",
+        "Warrick Matthews,David Kingham,Alan Sykes,Mikhail Gryaznevich",
+        "球形托卡马克+高温超导；球形托卡马克，高温超导磁体",
+        null,
+        "英国牛津；英国牛津郡",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWMnwNH1XQ"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2026年3月实现1亿℃等离子体温度；验证高温超导球形托卡马克可行性；刷新球形托卡马克离子温度纪录",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn34Zo"
+          }
+        ]
+      ],
+      [
+        "STEP",
+        null,
+        null,
+        null,
+        "聚变原型堆",
+        "设计目标发电",
+        "英国政府主导（预算数十亿英镑）",
+        "UKAEA",
+        null,
+        "球形托卡马克",
+        null,
+        "英国",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "计划建成英国首座聚变电站",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "SUNIST-2",
+        "清华工物系",
+        null,
+        2000000001000000000,
+        "大半径0.3m，小半径0.15m，环向磁场0.5T，等离子体电流0.1MA；磁场约1T球形托卡马克",
+        "Q\u003c0.001；验证性装置，未达工程Q值",
+        "累计投资约2亿元人民币；A轮融资10亿元人民币，累计多轮融资",
+        "清华工物系,星环聚能,清华大学",
+        "陈锐,谭熠",
+        "球形托卡马克；高温超导球形托卡马克，多冲程重联加热",
+        null,
+        "中国北京；中国西安",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWXmd8jfGn"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DarFl"
+          }
+        ],
+        null,
+        "2024年建成并首次等离子体放电；2025年实现秒量级高约束运行；多种等离子体位形成，国内核聚变独角兽",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnCx7I"
+          }
+        ]
+      ],
+      [
+        "T-15MD",
+        null,
+        null,
+        1879000000,
+        "大半径1.48m，小半径0.67m，环向磁场2T，等离子体电流1.5MA",
+        "Q\u003c0.001",
+        "累计投资约200亿卢布",
+        "Kurchatov Institute",
+        "Alexander Ivanov",
+        "托卡马克",
+        null,
+        "俄罗斯莫斯科",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2Gx3E2Mv4"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2021年首次等离子体放电；2025年验证液态锂第一壁技术；探索聚变-裂变混合堆",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnjWfn"
+          }
+        ]
+      ],
+      [
+        "TAE-Copernicus",
+        null,
+        "设计目标2020年代末实现净能量增益",
+        8840000000,
+        "氢硼聚变，运行温度超1亿℃；100,000平方英尺设施",
+        "设计目标",
+        "TAE累计融资超13亿美元；2025年12月与Trump Media合并估值60亿美元",
+        "TAE Technologies",
+        "Michl Binderbauer,Hiroshi Gota",
+        "场反位形 (FRC)",
+        null,
+        "美国加利福尼亚州",
+        null,
+        "2025年（1.5亿美元融资后启动建设）",
+        [
+          {
+            "id": "recvjWNKvXWr68"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycDysX"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2025年Norm装置实现NBI-only超7000万℃等离子体；Copernicus建设中",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsYfO"
+          }
+        ]
+      ],
+      [
+        "TAE-Norm",
+        null,
+        null,
+        8840000000,
+        "仅用中性束注入实现超7000万℃稳定等离子体",
+        "实验装置，未达Q值",
+        "TAE累计融资超13亿美元",
+        "TAE Technologies",
+        "Michl Binderbauer,Hiroshi Gota",
+        "场反位形 (FRC)",
+        null,
+        "美国加利福尼亚州",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWNKvXWr68"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycDysX"
+          }
+        ],
+        null,
+        null,
+        null,
+        "实现超7000万℃等离子体，拟与TMTG合并上市",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsYfO"
+          }
+        ]
+      ],
+      [
+        "Tore Supra",
+        null,
+        null,
+        6330000000,
+        "大半径2.25m，小半径0.7m，环向磁场4.5T，等离子体电流1.7MA",
+        "Q\u003c0.01",
+        "累计投资约8亿欧元",
+        "CEA",
+        "Jean-Marc Ané",
+        "超导托卡马克",
+        null,
+        "法国卡达拉舍",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GtNpL06g"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2003年实现6分30秒长脉冲运行；2016年升级为WEST装置，验证钨偏滤器技术",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "Trenta",
+        "微软",
+        null,
+        6802000000,
+        "装置长度10m，中心磁场1T，等离子体电流0.3MA",
+        "Q\u003c0.01",
+        "累计投资约10亿美元",
+        "Helion Energy",
+        "David Kirtley,Chris Pihl,George Votroubek",
+        "FRC+磁惯性约束",
+        null,
+        "美国华盛顿",
+        null,
+        null,
+        [
+          {
+            "id": "recvjRRR09cfLT"
+          },
+          {
+            "id": "recvkiVxycqmGU"
+          },
+          {
+            "id": "recvkiVxycLiK7"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2026年1月实现1.5亿℃等离子体温度；首次测得D-T聚变反应；计划2026年底实现Q\u003e1",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnsyR8"
+          }
+        ]
+      ],
+      [
+        "W7-X",
+        null,
+        null,
+        7915000000,
+        "大半径5.5m，小半径0.53m，环向磁场3T，等离子体体积30m³",
+        "Q\u003c0.01",
+        "总投资约10亿欧元",
+        "IPP",
+        "Thomas Klinger,Thomas Sunn Pedersen,Sibylle Günter",
+        "优化模块化仿星器",
+        [
+          {
+            "id": "recvjRShnQGqya"
+          }
+        ],
+        "德国格赖夫斯瓦尔德",
+        "[https://www.ipp.mpg.de/17019/meilensteine](https://www.ipp.mpg.de/17019/meilensteine)",
+        null,
+        [
+          {
+            "id": "recvk2Gk6L9PxZ"
+          },
+          {
+            "id": "recvkiVxycJ7m9"
+          },
+          {
+            "id": "recvkiVxycD4HP"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DZc5k"
+          },
+          {
+            "id": "recvkp7B4DiTeb"
+          },
+          {
+            "id": "recvkp7B4DTswt"
+          }
+        ],
+        null,
+        "2015年首次等离子体；2023年实现8分钟、1.3GJ能量通量；2025年在长脉冲三乘积上达到stellarator纪录级表现。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "Zap Energy FuZE-Q",
+        null,
+        null,
+        1088000000,
+        "脉冲大电流等离子体约束压缩",
+        "未达Q值",
+        "融资超1.6亿美元",
+        "Zap Energy",
+        "Zabrina Johal,Benj Conway,Uri Shumlak,Brian A. Nelson",
+        "Z箍缩 (Z-pinch)",
+        null,
+        "美国华盛顿州西雅图",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycZBTS"
+          },
+          {
+            "id": "recvkiVxyc3Jon"
+          },
+          {
+            "id": "recvkiVxyc4AhK"
+          },
+          {
+            "id": "recvkiVxyc4Pcn"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "实现D-D聚变反应，FuZE-Q运行中",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAni7VX"
+          }
+        ]
+      ],
+      [
+        "安东聚变",
+        null,
+        null,
+        null,
+        "Z箍缩惯性约束聚变，脉冲大电流驱动",
+        "研发",
+        "近亿元首轮融资（2025年10月）",
+        "安东聚变（北京）科技有限公司",
+        "彭先觉, 刘程, 杨青巍",
+        "Z箍缩",
+        null,
+        "中国北京/太仓",
+        "https://antomfusion.net/",
+        "2022年11月",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "完成近亿元首轮融资；国内首家Z箍缩聚变商业化团队；目标2035年建成示范项目，2040年并网发电",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn8jfl"
+          }
+        ]
+      ],
+      [
+        "电磁驱动聚变大科学装置",
+        null,
+        null,
+        4999600000,
+        "验证Z箍缩聚变点火科学可行性；推动Z-FFR发展",
+        "规划验证",
+        "获批，金额未公开",
+        "中国工程物理研究院流体物理研究所",
+        "彭先觉",
+        "Z箍缩惯性约束聚变",
+        null,
+        "中国四川成都（兴隆湖）",
+        "https://www.caep.cn/",
+        "2022年可研批复，2026年开工建设",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "国家十四五重大科技基础设施，2022年可研批复，2026年开工建设；建成后验证Z箍缩聚变点火科学可行性，推进Z-FFR混合堆研发",
+        null,
+        null,
+        null
+      ],
+      [
+        "和龙-2",
+        "新奥能源研究院",
+        null,
+        6000000000,
+        "未披露",
+        "设计目标未明",
+        "计划投资60亿元",
+        "新奥聚变",
+        "王玉锁,刘敏胜",
+        "氢硼球形环",
+        null,
+        "中国河北廊坊",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GcE3Ij7R"
+          }
+        ],
+        [
+          {
+            "id": "recvk2GcE3Ij7R"
+          }
+        ],
+        null,
+        null,
+        null,
+        "已完成物理设计，预计2027年建成",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn74mx"
+          }
+        ]
+      ],
+      [
+        "洪荒170",
+        "能量奇点",
+        null,
+        3000000000,
+        "目标Q\u003e10",
+        "设计Q\u003e10",
+        "计划投资超30亿元",
+        "能量奇点",
+        "杨钊,董阁,李柱永",
+        "全高温超导托卡马克",
+        null,
+        "中国上海",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWWd2ttqLa"
+          },
+          {
+            "id": "recvkiVxycF8Av"
+          },
+          {
+            "id": "recvkiVxycTUSL"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "接续洪荒70，处于建设期",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnIVHm"
+          }
+        ]
+      ],
+      [
+        "洪荒70",
+        "上海交通大学",
+        null,
+        800000000150000000,
+        "大半径0.7m，小半径0.25m，环向磁场1T，等离子体电流0.5MA；直径3.6m，26个高温超导磁体，国产化率\u003e96%",
+        "Q\u003c0.01；验证性装置",
+        "累计投资约8亿元人民币；1.5亿元人民币",
+        "能量奇点",
+        "杨钊,董阁,李柱永",
+        "全高温超导托卡马克",
+        null,
+        "中国上海",
+        "https://energysingularity.cn/",
+        null,
+        [
+          {
+            "id": "recvjWWd2ttqLa"
+          },
+          {
+            "id": "recvkiVxycF8Av"
+          },
+          {
+            "id": "recvkiVxycTUSL"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2026年1月实现1337秒稳态长脉冲等离子体运行，创商业聚变装置世界纪录；验证全高温超导托卡马克工程可靠性；实现1337秒稳态等离子体运行，全球首台全高温超导托卡马克",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnIVHm"
+          }
+        ]
+      ],
+      [
+        "诺瓦一号",
+        "浙江大学",
+        "2027年（计划首次等离子体放电）",
+        1200000000,
+        "大半径0.5m，小半径0.18m，环向磁场1.2T，等离子体电流0.4MA",
+        "Q\u003c0.01",
+        "累计投资约12亿元人民币",
+        "诺瓦聚变",
+        "张哲,郭后扬",
+        "紧凑型托卡马克",
+        null,
+        "中国上海",
+        "https://www.novafusion.cn/",
+        null,
+        [
+          {
+            "id": "recvk2FZFtR8pB"
+          }
+        ],
+        [
+          {
+            "id": "recvk2FZFtR8pB"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2026年完成装置总装；计划2027年首次等离子体放电；目标2028年实现千秒级运行",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnVqD4"
+          }
+        ]
+      ],
+      [
+        "神光III",
+        null,
+        null,
+        5000000000,
+        "48束激光，总能量180kJ，靶丸直径2mm",
+        "Q\u003c0.01",
+        "总投资约50亿元人民币",
+        "中物院",
+        "彭先觉,林尊琪",
+        "激光惯性约束",
+        null,
+        "中国绵阳",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015年建成；2025年实现10kJ聚变能量输出；验证激光聚变关键技术",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnlM2H"
+          }
+        ]
+      ],
+      [
+        "星环一号",
+        "清华大学,上海交通大学",
+        null,
+        1500000000,
+        "大半径0.6m，小半径0.2m，环向磁场1.5T，等离子体电流0.5MA",
+        "Q\u003c0.01",
+        "累计投资约15亿元人民币",
+        "星环聚能",
+        "陈锐",
+        "紧凑型托卡马克",
+        null,
+        "中国上海",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycCQSg"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycCQSg"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2025年完成装置建设；2026年首次等离子体放电；计划2027年实现1亿℃运行",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn2SOi"
+          }
+        ]
+      ],
+      [
+        "星火一号",
+        null,
+        null,
+        null,
+        "未公开",
+        "规划中",
+        "预计大规模投资",
+        null,
+        null,
+        "托卡马克",
+        null,
+        "中国",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "规划中",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnWs6G"
+          }
+        ]
+      ],
+      [
+        "星能玄光",
+        null,
+        null,
+        null,
+        "装置模型展示",
+        "研发阶段",
+        "未公开",
+        "星能玄光",
+        null,
+        "先进场反位形",
+        null,
+        "中国",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "处于研发展示阶段",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn0Vga"
+          }
+        ]
+      ],
+      [
+        "玄龙-50U",
+        "新奥能源研究院",
+        null,
+        4500000000,
+        "兆安级氢硼放电",
+        "未开展D-T实验",
+        "新奥聚变累计投入45亿元",
+        "新奥聚变,新奥能源研究院",
+        "王玉锁,刘敏胜,彭元凯",
+        "球形环氢硼聚变（p-¹¹B）",
+        null,
+        "中国河北廊坊",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GcE3Ij7R"
+          },
+          {
+            "id": "recvkiVxyc6Xn9"
+          },
+          {
+            "id": "recvkiVxycGAwu"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "全球首次实现兆安级氢硼放电，创世界纪录",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn74mx"
+          }
+        ]
+      ],
+      [
+        "岩超聚能",
+        null,
+        null,
+        null,
+        "仿星器路线聚变能商业化",
+        "研发",
+        "数亿元天使轮融资",
+        "岩超聚能",
+        null,
+        "先进超导仿星器，AI驱动研发",
+        null,
+        "中国",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "完成天使轮融资，采用AI加速研发",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnWh6Y"
+          }
+        ]
+      ],
+      [
+        "准环对称仿星器",
+        "西南交通大学",
+        null,
+        null,
+        "三维模块化线圈，建筑面积1.36万平",
+        "未运行",
+        "未公开（省重大科技基础设施）",
+        "西南交通大学",
+        null,
+        "准环对称仿星器",
+        null,
+        "中国四川成都",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "主体结构封顶，填补中国仿星器研究空白",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn3H3T"
+          }
+        ]
+      ],
+      [
+        "WEST",
+        null,
+        null,
+        null,
+        "由 Tore Supra 升级而来，重点验证 ITER 类全钨偏滤器与长脉冲运行。",
+        "非D-T能量增益装置",
+        null,
+        "CEA",
+        null,
+        "超导托卡马克/钨偏滤器平台",
+        null,
+        "法国卡达拉舍",
+        "[https://irfm.cea.fr/en/west/](https://irfm.cea.fr/en/west/)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Tungsten Environment in Steady-state Tokamak",
+        "IAEA 2022 名录收录；为 ITER 钨偏滤器和长脉冲边界物理提供实验数据。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "NOVA-FURG",
+        null,
+        null,
+        null,
+        "IAEA 2022 实验托卡马克名录收录。",
+        null,
+        null,
+        "UFES",
+        null,
+        "小型托卡马克",
+        null,
+        "巴西",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴西高校等离子体教育与基础实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnatcW"
+          }
+        ]
+      ],
+      [
+        "ETE",
+        null,
+        null,
+        null,
+        "IAEA 2022 实验托卡马克名录收录。",
+        null,
+        null,
+        "INPE",
+        null,
+        "球形托卡马克",
+        null,
+        "巴西",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Experimento Tokamak Esférico",
+        "巴西球形托卡马克研究平台。",
+        null,
+        null,
+        null
+      ],
+      [
+        "TCABR",
+        null,
+        null,
+        null,
+        "大半径0.61m，小半径0.18m，环向磁场1.1T（最大1.45T），等离子体电流100kA",
+        null,
+        null,
+        "USP",
+        null,
+        "托卡马克",
+        null,
+        "巴西圣保罗",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴西托卡马克物理、射频加热和边界实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnBbha"
+          }
+        ]
+      ],
+      [
+        "STOR-M",
+        null,
+        null,
+        null,
+        "大半径0.46m，小半径0.125m，环向磁场0.7T，等离子体电流25kA",
+        null,
+        null,
+        "USask",
+        null,
+        "小型托卡马克",
+        null,
+        "加拿大萨斯喀彻温",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "加拿大高校托卡马克和等离子体教育平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn5ggC"
+          }
+        ]
+      ],
+      [
+        "EXL-50",
+        null,
+        null,
+        null,
+        "大半径0.50m，小半径0.35m，环向磁场0.5T，等离子体电流180kA",
+        null,
+        null,
+        "新奥聚变",
+        null,
+        "球形托卡马克/电子伯恩斯坦波加热启动",
+        null,
+        "中国廊坊",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "验证无中心螺线管等离子体启动与电子加热相关方案。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn74mx"
+          }
+        ]
+      ],
+      [
+        "J-TEXT",
+        null,
+        null,
+        null,
+        "大半径1.05m，小半径0.27m，环向磁场2.0T（最大3T），等离子体电流200kA",
+        null,
+        null,
+        "华中科技大学",
+        null,
+        "托卡马克",
+        null,
+        "中国武汉",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvkiVxycjtK5"
+          }
+        ],
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DsSZ0"
+          }
+        ],
+        "Joint Texas Experimental Tokamak",
+        "面向MHD不稳定性、RMP、破裂和边界物理研究。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnRGc2"
+          }
+        ]
+      ],
+      [
+        "SUNIST-1",
+        null,
+        null,
+        null,
+        "大半径0.30m，小半径0.23m，环向磁场0.15T，等离子体电流50kA",
+        null,
+        null,
+        "清华工物系",
+        "高喆",
+        "球形托卡马克",
+        null,
+        "中国北京",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvkiVxycy1L6"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyceDvt"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7B4DObQf"
+          }
+        ],
+        null,
+        "清华球形托卡马克平台，支撑SUNIST/SUNIST-2路线发展。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn18VY"
+          }
+        ]
+      ],
+      [
+        "MEDUSA-CR",
+        null,
+        null,
+        null,
+        "大半径0.14m，小半径0.10m，环向磁场0.5T，等离子体电流40kA（纵横比1.4，球形托卡马克）",
+        null,
+        null,
+        "TEC Costa Rica",
+        null,
+        "小型托卡马克",
+        null,
+        "哥斯达黎加",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "拉美小型托卡马克教育与基础实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnHwOu"
+          }
+        ]
+      ],
+      [
+        "GOLEM",
+        null,
+        null,
+        null,
+        "大半径0.40m，小半径0.10m，环向磁场0.5T，等离子体电流8kA（远程开放教学托卡马克）",
+        null,
+        null,
+        "CTU Prague",
+        null,
+        "教学托卡马克",
+        null,
+        "捷克布拉格",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "远程教学托卡马克，广泛用于聚变教育和开放实验。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn6N8S"
+          }
+        ]
+      ],
+      [
+        "COMPASS-U",
+        null,
+        null,
+        null,
+        "大半径0.894m，小半径0.275m，环向磁场5T，等离子体电流2MA（在建；高场ITER/DEMO边界与偏滤器研究托卡马克）",
+        null,
+        null,
+        "IPP Prague",
+        null,
+        "高场托卡马克",
+        null,
+        "捷克布拉格",
+        "[https://www.ipp.cas.cz/compass-u/](https://www.ipp.cas.cz/compass-u/)",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DQPWf"
+          }
+        ],
+        null,
+        "由COMPASS升级/继承而来，为ITER/DEMO边界和偏滤器物理服务。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnlbnu"
+          }
+        ]
+      ],
+      [
+        "NORTH",
+        null,
+        null,
+        null,
+        "大半径0.25m，小半径0.125m，环向磁场0.3T（DTU小型教学托卡马克/球形装置）",
+        null,
+        null,
+        "DTU",
+        null,
+        "小型托卡马克",
+        null,
+        "丹麦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "丹麦等离子体教育与基础实验装置。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnZR9M"
+          }
+        ]
+      ],
+      [
+        "EGYPTOR",
+        null,
+        null,
+        null,
+        "大半径0.40m，小半径0.12m，环向磁场0.3T，等离子体电流10kA（EAEA研究托卡马克）",
+        null,
+        null,
+        "EAEA",
+        null,
+        "托卡马克",
+        null,
+        "埃及",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "埃及托卡马克与聚变基础研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnJof2"
+          }
+        ]
+      ],
+      [
+        "ADITYA-U",
+        null,
+        null,
+        null,
+        "大半径0.75m，小半径0.25m，环向磁场1.5T，等离子体电流200kA",
+        null,
+        null,
+        "IPR India",
+        "Shashank Chaturvedi",
+        "托卡马克",
+        null,
+        "印度甘地讷格尔",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvkiVxyc9sPt"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "印度托卡马克实验平台，承担边界、加热和运行模式研究。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn7kA8"
+          }
+        ]
+      ],
+      [
+        "SST-1",
+        null,
+        null,
+        null,
+        "大半径1.1m，小半径0.2m，环向磁场3.0T，等离子体电流220kA（超导，D形截面）",
+        null,
+        null,
+        "IPR India",
+        "Shashank Chaturvedi",
+        "超导托卡马克",
+        null,
+        "印度甘地讷格尔",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvkiVxyc9sPt"
+          }
+        ],
+        null,
+        null,
+        null,
+        "Steady State Superconducting Tokamak",
+        "印度超导托卡马克与稳态运行技术平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn7kA8"
+          }
+        ]
+      ],
+      [
+        "SSST",
+        null,
+        null,
+        null,
+        "大半径0.35m，小半径0.10m，环向磁场0.15T（IPR小型稳态实验托卡马克）",
+        null,
+        null,
+        "IPR India",
+        null,
+        "小型稳态托卡马克",
+        null,
+        "印度",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Small Size Steady-state Tokamak",
+        "用于稳态托卡马克技术与教育实验。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn7kA8"
+          }
+        ]
+      ],
+      [
+        "ALVAND",
+        null,
+        null,
+        null,
+        "大半径0.455m，小半径0.126m，环向磁场0.9T，等离子体电流4kA",
+        null,
+        null,
+        "AEOI",
+        null,
+        "托卡马克",
+        null,
+        "伊朗",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        [
+          {
+            "id": "recvkiVxycUb53"
+          },
+          {
+            "id": "recvkiVxycRKe4"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "伊朗托卡马克实验装置。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnQ3Hj"
+          }
+        ]
+      ],
+      [
+        "DAMAVAND",
+        null,
+        null,
+        null,
+        "大半径0.36m，小半径0.07m，环向磁场1.2T，等离子体电流40kA（拉伸比κ≃2，有偏滤器）",
+        null,
+        null,
+        "AEOI",
+        null,
+        "托卡马克",
+        null,
+        "伊朗",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "伊朗聚变基础实验装置。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnQ3Hj"
+          }
+        ]
+      ],
+      [
+        "IR-T1",
+        null,
+        null,
+        null,
+        "大半径0.45m，小半径0.125m，环向磁场0.6T，等离子体电流25kA（大纵横比圆截面托卡马克）",
+        null,
+        null,
+        null,
+        null,
+        "小型托卡马克",
+        null,
+        "伊朗",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "高校托卡马克教育与实验平台。",
+        null,
+        null,
+        null
+      ],
+      [
+        "DTT",
+        null,
+        null,
+        null,
+        "大半径2.19m，小半径0.65m，环向磁场6T，等离子体电流5.5MA（在建超导托卡马克，DEMO偏滤器与排热测试平台）",
+        null,
+        null,
+        "ENEA",
+        null,
+        "超导托卡马克/偏滤器测试平台",
+        null,
+        "意大利弗拉斯卡蒂",
+        "[https://www.dtt-project.it/](https://www.dtt-project.it/)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Divertor Tokamak Test facility",
+        "意大利/欧洲DEMO偏滤器关键技术验证设施。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnnNxN"
+          }
+        ]
+      ],
+      [
+        "FTU",
+        null,
+        null,
+        null,
+        "大半径0.93m，小半径0.30m，环向磁场8T，等离子体电流1.6MA（高场紧凑托卡马克）",
+        null,
+        null,
+        "ENEA",
+        null,
+        "高场托卡马克",
+        null,
+        "意大利弗拉斯卡蒂",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DKLfM"
+          }
+        ],
+        "Frascati Tokamak Upgrade",
+        "欧洲高场紧凑托卡马克研究平台，长期支持LHCD和高场物理。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnnNxN"
+          }
+        ]
+      ],
+      [
+        "LATE",
+        null,
+        null,
+        null,
+        "大半径0.30m，小半径0.18m，环向磁场0.10T，等离子体电流20kA（ECH无欧姆变压器启动球形托卡马克）",
+        null,
+        null,
+        "Kyoto University",
+        null,
+        "球形托卡马克",
+        null,
+        "日本京都",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "京都大学球形托卡马克与电子回旋启动研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnbTRt"
+          }
+        ]
+      ],
+      [
+        "PLATO",
+        null,
+        null,
+        null,
+        "大半径0.30m，小半径0.10m，环向磁场0.20T（九州大学等离子体实验托卡马克）",
+        null,
+        null,
+        "Kyushu University",
+        null,
+        "托卡马克/等离子体实验",
+        null,
+        "日本九州",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "九州大学聚变与等离子体研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnNwFs"
+          }
+        ]
+      ],
+      [
+        "QUEST",
+        null,
+        null,
+        null,
+        "大半径0.68m，小半径0.40m，环向磁场0.25T，等离子体电流100kA（稳态球形托卡马克）",
+        null,
+        null,
+        "Kyushu University",
+        null,
+        "稳态球形托卡马克",
+        null,
+        "日本九州",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7B4DNrdU"
+          }
+        ],
+        "Q-shu University Experiment with Steady-State Spherical Tokamak",
+        "面向稳态电流驱动、壁相互作用和球形托卡马克长脉冲研究。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnNwFs"
+          }
+        ]
+      ],
+      [
+        "HYBTOK-II",
+        null,
+        null,
+        null,
+        "大半径0.25m，小半径0.085m，环向磁场0.30T（名古屋大学小型研究托卡马克）",
+        null,
+        null,
+        "Nagoya University",
+        null,
+        "小型托卡马克",
+        null,
+        "日本名古屋",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "名古屋大学小型托卡马克实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnugBM"
+          }
+        ]
+      ],
+      [
+        "TOKASTAR-2",
+        null,
+        null,
+        null,
+        "大半径0.45m，小半径0.15m，环向磁场0.50T（名古屋大学托卡马克-仿星器混合磁场装置）",
+        null,
+        null,
+        "Nagoya University",
+        null,
+        "托卡马克-仿星器混合概念",
+        null,
+        "日本名古屋",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "用于研究托卡马克与stellarator混合磁场构型。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnugBM"
+          }
+        ]
+      ],
+      [
+        "TST-2",
+        null,
+        null,
+        null,
+        "大半径0.38m，小半径0.25m，环向磁场0.30T，等离子体电流140kA（纵横比1.6球形托卡马克）",
+        null,
+        null,
+        "University of Tokyo",
+        null,
+        "球形托卡马克",
+        null,
+        "日本东京",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "东京大学球形托卡马克实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnov2s"
+          }
+        ]
+      ],
+      [
+        "UTST",
+        null,
+        null,
+        null,
+        "大半径0.20m，小半径0.10m，环向磁场0.15T（东京大学球形托卡马克，等离子体合并压缩加热实验）",
+        null,
+        null,
+        "University of Tokyo",
+        null,
+        "球形托卡马克/合并压缩",
+        null,
+        "日本东京",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "用于研究球形托卡马克等离子体合并、加热和重联。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnov2s"
+          }
+        ]
+      ],
+      [
+        "PHIX",
+        null,
+        null,
+        null,
+        "IAEA 2022 名录以 Tokyo Institute of Technology 收录。",
+        null,
+        null,
+        "Science Tokyo",
+        null,
+        "等离子体基础/替代概念",
+        null,
+        "日本东京",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "高校替代聚变概念与等离子体基础实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnxLkL"
+          }
+        ]
+      ],
+      [
+        "HIST",
+        null,
+        null,
+        null,
+        "大半径0.25m，小半径0.10m，环向磁场0.10T（兵库大学球马克/紧凑环约束概念研究装置）",
+        null,
+        null,
+        "University of Hyogo",
+        null,
+        "球马克/紧凑环",
+        null,
+        "日本兵库",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "研究球马克、紧凑环和等离子体合并等替代约束概念。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn1COK"
+          }
+        ]
+      ],
+      [
+        "KTM",
+        null,
+        null,
+        null,
+        "大半径0.90m，小半径0.45m，环向磁场1.0T，等离子体电流0.75MA（材料与等离子体-壁相互作用测试托卡马克）",
+        null,
+        null,
+        null,
+        null,
+        "材料测试托卡马克",
+        null,
+        "哈萨克斯坦库尔恰托夫",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "面向聚变材料、等离子体-壁相互作用和热负荷实验。",
+        null,
+        null,
+        null
+      ],
+      [
+        "LIBTOR",
+        null,
+        null,
+        null,
+        "大半径0.30m，小半径0.10m，环向磁场0.20T（利比亚聚变基础研究托卡马克）",
+        null,
+        null,
+        null,
+        null,
+        "小型托卡马克",
+        null,
+        "利比亚",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "利比亚聚变基础研究装置。",
+        null,
+        null,
+        null
+      ],
+      [
+        "GLAST-III",
+        null,
+        null,
+        null,
+        "大半径0.20m，小半径0.10m，环向磁场0.10T（玻璃真空腔球形托卡马克，A=2）",
+        null,
+        null,
+        "PAEC",
+        null,
+        "小型球形托卡马克",
+        null,
+        "巴基斯坦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴基斯坦球形托卡马克/基础实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnMxv8"
+          }
+        ]
+      ],
+      [
+        "MT-1",
+        null,
+        null,
+        null,
+        "大半径0.15m，小半径0.09m，环向磁场0.06T（金属真空腔球形托卡马克，GLAST-II改型）",
+        null,
+        null,
+        "PAEC",
+        null,
+        "托卡马克",
+        null,
+        "巴基斯坦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴基斯坦聚变实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnMxv8"
+          }
+        ]
+      ],
+      [
+        "MT-2",
+        null,
+        null,
+        null,
+        "大半径0.15m，小半径0.09m，环向磁场0.06T（高拉伸比球形托卡马克，κ=2.67）",
+        null,
+        null,
+        "PAEC",
+        null,
+        "托卡马克",
+        null,
+        "巴基斯坦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴基斯坦聚变实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnMxv8"
+          }
+        ]
+      ],
+      [
+        "PST",
+        null,
+        null,
+        null,
+        "大半径0.20m，小半径0.10m，环向磁场0.10T（巴基斯坦球形研究托卡马克）",
+        null,
+        null,
+        "PAEC",
+        null,
+        "小型托卡马克",
+        null,
+        "巴基斯坦",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "巴基斯坦小型托卡马克研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnMxv8"
+          }
+        ]
+      ],
+      [
+        "ISTTOK",
+        null,
+        null,
+        null,
+        "大半径0.46m，小半径0.085m，环向磁场0.5T，等离子体电流5kA（交流电流运行模式）",
+        null,
+        null,
+        "IPFN",
+        null,
+        "小型托卡马克",
+        null,
+        "葡萄牙里斯本",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "葡萄牙托卡马克教育、诊断和控制实验平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAnGWpr"
+          }
+        ]
+      ],
+      [
+        "VEST",
+        null,
+        null,
+        null,
+        "大半径0.40m，小半径0.30m，环向磁场0.10T，等离子体电流70kA（SNU球形托卡马克，纵横比\u003e1.3）",
+        null,
+        null,
+        "SNU",
+        null,
+        "球形托卡马克",
+        null,
+        "韩国首尔",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "韩国高校球形托卡马克研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAn4TNv"
+          }
+        ]
+      ],
+      [
+        "FT-2",
+        null,
+        null,
+        null,
+        "大半径0.553m，小半径0.080m，环向磁场2.8T（最大3T），等离子体电流40kA（大纵横比托卡马克）",
+        null,
+        null,
+        "Ioffe Institute",
+        null,
+        "托卡马克",
+        null,
+        "俄罗斯圣彼得堡",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "俄罗斯托卡马克研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAniPcZ"
+          }
+        ]
+      ],
+      [
+        "GLOBUS-M2",
+        null,
+        null,
+        null,
+        "大半径0.36m，小半径0.24m，环向磁场1.0T，等离子体电流0.5MA（球形托卡马克）",
+        null,
+        null,
+        "Ioffe Institute",
+        null,
+        "球形托卡马克",
+        null,
+        "俄罗斯圣彼得堡",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Ioffe Institute 球形托卡马克研究平台。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAniPcZ"
+          }
+        ]
+      ],
+      [
+        "TUMAN-3M",
+        null,
+        null,
+        null,
+        "大半径0.53m，小半径0.25m，环向磁场1.0T，等离子体电流190kA",
+        null,
+        null,
+        "Ioffe Institute",
+        null,
+        "托卡马克",
+        null,
+        "俄罗斯圣彼得堡",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "俄罗斯小型托卡马克研究装置。",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZmAniPcZ"
+          }
+        ]
+      ],
+      [
+        "GUTTA",
+        null,
+        null,
+        null,
+        "大半径0.18m，小半径0.07m，环向磁场0.20T（Ioffe研究所小型教学托卡马克）",
+        null,
+        null,
+        null,
+        null,
+        "小型托卡马克",
+        null,
+        "俄罗斯圣彼得堡",
+        "[https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf](https://www-pub.iaea.org/MTCD/Publications/PDF/CRCP-FUS-001webRev.pdf)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "高校等离子体教育与研究装置。",
+        null,
+        null,
+        null
+      ]
+    ],
+    "field_id_list": [
+      "fldIyL4gEL",
+      "fld2nvO3Dw",
+      "fld3P3sUwo",
+      "fld61DfOzR",
+      "fld7IevDRk",
+      "fldBpjvwUE",
+      "fldCgXwWBl",
+      "flddyJGkXd",
+      "fldE3YnJpk",
+      "fldfIekGad",
+      "fldGHjJkuY",
+      "fldgN6NAx7",
+      "fldhJmsjm5",
+      "fldI0UBzwZ",
+      "fldkRaWwpq",
+      "fldLkJZbiQ",
+      "fldMvI8jiV",
+      "fldmyfGwis",
+      "fldrv3tvYz",
+      "fldSNqr8el",
+      "flduGOC9N4",
+      "fldUIOBimc",
+      "fldZb5I04s"
+    ],
+    "fields": [
+      "装置名",
+      "建设参与方",
+      "点火时间",
+      "资金投入",
+      "主要指标",
+      "Q值实现",
+      "投入",
+      "牵头建设方",
+      "主要负责人",
+      "技术路线",
+      "新闻报道",
+      "所在地区",
+      "知识库",
+      "立项时间",
+      "负责人",
+      "参与人",
+      "参与单位",
+      "关联论文",
+      "别名",
+      "主要成果",
+      "Q值",
+      "关联专利",
+      "牵头单位"
+    ],
+    "has_more": true,
+    "query_context": {
+      "field_scope": "all_fields",
+      "record_scope": "all_records"
+    },
+    "record_id_list": [
+      "recvk1SGzPzO4o",
+      "recvk1SGzPhNKg",
+      "recvk1SGzPyQm3",
+      "recvk1SGzPHB4x",
+      "recvk1SGzPhell",
+      "recvk1SGzPU7Oi",
+      "recvk1SGzPHHjG",
+      "recvk1SGzPSiUc",
+      "recvk1SGzPW6Kp",
+      "recvk1SGzPFW24",
+      "recvk1SGzPSL9s",
+      "recvk1SGzPIQRh",
+      "recvk1SGzPi0qh",
+      "recvk1SGzPLYYK",
+      "recvk1SGzPp7qp",
+      "recvk1SGzPAxkp",
+      "recvk1TmXUzGOP",
+      "recvk1TmXUIby6",
+      "recvk1TmXUHAD9",
+      "recvk1TmXUzu87",
+      "recvk1TmXUSLkz",
+      "recvk1TmXUh7gF",
+      "recvk1TmXUZTM1",
+      "recvk1TmXUVVz5",
+      "recvk1TmXUco1w",
+      "recvk1TmXUH9SF",
+      "recvk1TmXUUmAK",
+      "recvk1TmXU1Act",
+      "recvk1TmXUIXoX",
+      "recvk1TmXUtCte",
+      "recvk1TmXUH7UQ",
+      "recvk1TmXUrAYr",
+      "recvk1TmXUq5uL",
+      "recvk1TmXU2clo",
+      "recvk1TmXUEsbR",
+      "recvk1YGDnYnpt",
+      "recvk1YGDnP47R",
+      "recvk1YGDnv6Tm",
+      "recvk1YGDnFrTR",
+      "recvk1YGDnkMch",
+      "recvk1YGDn0mEE",
+      "recvk1YGDnttF9",
+      "recvk1YGDnwcxj",
+      "recvk1YGDn9BuF",
+      "recvk1YGDnYN6e",
+      "recvk1YGDn3rCG",
+      "recvk1YGDnCHJG",
+      "recvk1YGDnTL6T",
+      "recvk1YGDnovtx",
+      "recvk1YGDnnYaQ",
+      "recvk1YGDnSSD8",
+      "recvk1YGDnRaQM",
+      "recvk1YGDn6q6Z",
+      "recvk1YGDnMGYj",
+      "recvk1YGDneU1S",
+      "recvk1YGDnER3i",
+      "recvk1YGDniVMF",
+      "recvk1YGDnrHi3",
+      "recvk1YGDnyV3O",
+      "recvk1YGDnit9y",
+      "recvk1YGDnlCSI",
+      "recvk1YGDnsjno",
+      "recvk1YGDn8sW7",
+      "recvk1YGDn1m8I",
+      "recvk9W3PHYe0f",
+      "recvk9W5vu8YDo",
+      "recvk9W5vuYxUJ",
+      "recvk9W5vui6gv",
+      "recvk9W5vu4bUk",
+      "recvk9W5vuRtMQ",
+      "recvk9W5vuArth",
+      "recvk9W5vuI6vp",
+      "recvk9W5vuf3Qn",
+      "recvk9W5vunUn3",
+      "recvk9W5vu5zak",
+      "recvk9W5vuBfdi",
+      "recvk9W5vuHufd",
+      "recvk9W5vudMTk",
+      "recvk9W5vu7o6b",
+      "recvk9W5vuuUDP",
+      "recvk9W5vuIyUM",
+      "recvk9W5vukRck",
+      "recvk9W5vuBDKV",
+      "recvk9W5vuap15",
+      "recvk9W5vuxmJp",
+      "recvk9W5vuae3D",
+      "recvk9W5vuNFx0",
+      "recvk9W5vunMqF",
+      "recvk9W5vugm1b",
+      "recvk9W5vugJsk",
+      "recvk9W5vu1xXk",
+      "recvk9W5vuPijh",
+      "recvk9W5vuLBT8",
+      "recvk9W5vuZOcL",
+      "recvk9W5vu4UvN",
+      "recvk9W5vuIdD8",
+      "recvk9W5vusRRY",
+      "recvk9W5vuAoY6",
+      "recvk9W5vuE8fu",
+      "recvk9W5vuJm5G"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+[lark-cli] [WARN] proxy detected: HTTPS_PROXY=http://127.0.0.1:7890 — requests (including credentials) will transit through this proxy. Set LARK_CLI_NO_PROXY=1 to disable proxy.
+`_record_id` is metadata for record operations, not a table field.
+
+| _record_id | 融资名称 | 相关新闻 | 融资数额 | 交割日期 | 备注 | 融资单位 | 融资轮次 | 领投方 | 投后估值 | 跟投方 | 进度类型 | 融资负责人 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| recvjRS6NM0nGl | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjRS6NMkdPM | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjRS6NMARup | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjRS6NMVnZy | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjRS6NMn72L | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9Di2P | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9GdMr | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9viZ0 | _ |  |  |  | 占位-待清理 | [] |  |  |  |  |  |  |
+| recvjYDkV9SBJT | _ |  |  |  | 占位-待清理 | [] |  |  |  |  |  |  |
+| recvjYDkV9PLYq | _ |  |  |  | 占位-待清理 | [] |  |  |  |  |  |  |
+| recvjYDkV9Gd9R | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV99H6a | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9r8RK | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9Qo5y | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9CBr1 | _ |  |  |  | 占位-待清理 |  |  |  |  |  |  |  |
+| recvjYDkV9qXPO | CFS_B轮 |  | 超过18亿美元 | 2021-12-01 00:00:00 | 用于建设SPARC并推进ARC商业化。 | [{"id":"recvk9ZmAn8uc6"}] | ["B轮"] | [{"id":"recvjXfkQBYSqg"}] |  |  | ["交割完成"] |  |
+| recvjYDkV9baDt | TAE Technologies_Series G-2 |  | 2.5亿美元 | 2022-07-19 00:00:00 | 公告称累计融资达12亿美元。 | [{"id":"recvk9ZmAnsYfO"}] | ["Series G-2"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9XIsM | General Fusion_过桥/新融资 |  | 2200万美元 | 2025-08-21 00:00:00 | 用于支持LM26示范项目；背景是公司此前公开寻求资金。 | [{"id":"recvk9ZmAnu1LQ"}] | ["过桥/新融资"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9HtYb | Pacific Fusion_A轮 | [{"id":"recvlCNIdxiZs1"}] | 超10亿美元 | 2024-10-25 00:00:00 | General Catalyst 领投，2026年6月3日宣布完成。原9亿美元承诺已全部到账并超额。 | [{"id":"recvk9ZmAncxid"}] | ["A轮"] | [{"id":"recvkiW31LXEdV"}] |  |  | ["交割完成"] |  |
+| recvjYDkV9TxtU | Proxima Fusion_A轮 |  | 1.3亿欧元 | 2025-06-11 00:00:00 | 公告称为欧洲最大私营聚变投资轮之一，总资金超过1.85亿欧元。 | [{"id":"recvk9ZmAneH9R"}] | ["A轮"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9X4gK | CFS_B++ |  | 8.63亿美元 | 2025-08-28 00:00:00 | 超额认购轮，无单一领投方；三井物产领衔的日本12家企业联合体参与，总体为多方联合投资。累计融资接近30亿美元。 | [{"id":"recvk9ZmAn8uc6"}] | ["B++"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9GKEb | Helion Energy_Series F |  | 4.25亿美元 | 2025-01-28 00:00:00 | Reuters等报道估值约54亿美元。 | [{"id":"recvk9ZmAnsyR8"}] | ["Series F"] | [{"id":"recvkiW31LJFk3"}] | 约54亿美元 |  | ["交割完成"] |  |
+| recvjYDkV9YdLO | Zap Energy_C轮 |  | 1.3亿美元 | 2024-10-09 00:00:00 | 同时宣布Century工程测试平台开始运行；总融资超过3.3亿美元。 | [{"id":"recvk9ZmAni7VX"}] | ["C轮"] | [{"id":"recvkiW31LJXJc"}] |  |  | ["交割完成"] |  |
+| recvjYDkV9OcDW | Zap Energy_C轮 |  | 1.6亿美元 | 2022-06-22 00:00:00 | 与FuZE-Q首次等离子体一起公布。 | [{"id":"recvk9ZmAni7VX"}] | ["C轮"] | [{"id":"recvkiW31LzAdd"}] |  |  | ["交割完成"] |  |
+| recvjYDkV95vZu | Tokamak Energy_融资轮 |  | 1.25亿美元 | 2024-11-20 00:00:00 | 用于商业化聚变与HTS磁体技术。 | [{"id":"recvk9ZmAn34Zo"}] | ["融资轮"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9FVGW | Type One Energy_种子轮 |  | 8240万美元 | 2024-03-30 00:00:00 | 联合领投：Breakthrough Energy Ventures、新西兰GD1、Centaurus Capital；Foxglove Ventures跟投。官方称final closing为8240万美元。 | [{"id":"recvk9ZmAnTgJt"}] | ["种子轮"] |  |  | [{"id":"recvjXf3VeFMaX"}] | ["交割完成"] |  |
+| recvjYDkV9Hcps | General Fusion_种子+ |  | 1.3亿美元 | 2021-11-30 00:00:00 | 用于推进磁化靶聚变示范项目。 | [{"id":"recvk9ZmAnu1LQ"}] | ["种子+"] |  |  | [{"id":"recvkiW31Lqc4t"}] | ["交割完成"] |  |
+| recvjYDkV9q7Ge | Kyoto Fusioneering_C轮 |  | 105亿日元 | 2023-05-17 00:00:00 | 日本聚变工程供应链代表性大额融资。 | [{"id":"recvk9ZmAnAOj8"}] | ["C轮"] | [{"id":"recvkiW31LVAgC"}] |  |  | ["交割完成"] |  |
+| recvjYDkV94XhD | TAE Technologies_Series 12/进行中 |  | 已披露超过1.5亿美元 | 2025-06-03 00:00:00 | Axios报道为进行中融资，尚非最终关闭金额。 | [{"id":"recvk9ZmAnsYfO"}] | ["Series 12/进行中"] |  |  | [] | ["进行中"] |  |
+| recvjYDkV9J9wg | TAE Technologies_Series 12/进行中 |  | 已披露超过1.5亿美元 | 2025-06-03 00:00:00 | Axios报道为进行中融资，尚非最终关闭金额。 | [{"id":"recvk9ZmAnsYfO"}] | ["Series 12/进行中"] |  |  |  | ["进行中"] |  |
+| recvjYDkV9f6p1 | TAE Technologies_Series 12/进行中 |  | 已披露超过1.5亿美元 | 2025-06-03 00:00:00 | Axios报道为进行中融资，尚非最终关闭金额。 | [{"id":"recvk9ZmAnsYfO"}] | ["Series 12/进行中"] |  |  |  | ["进行中"] |  |
+| recvjYDkV9JukA | Proxima Fusion_Pre-种子轮 |  | 750万欧元 | 2023-11-16 00:00:00 | 官方称为750万欧元pre-seed扩展。 | [{"id":"recvk9ZmAneH9R"}] | ["Pre-种子轮"] | [] |  |  | ["交割完成"] |  |
+| recvjYDkV9OCVt | Proxima Fusion_种子轮 |  | 2000万欧元 | 2024-04-10 00:00:00 | 少于一年后完成A轮。 | [{"id":"recvk9ZmAneH9R"}] | ["种子轮"] | [{"id":"recvkiW31LWvHa"}] |  |  | ["交割完成"] |  |
+| recvjYDkV9M0j8 | Focused Energy_A轮 |  | 8200万美元 | 2023-06-22 00:00:00 |  | [{"id":"recvk9ZmAn8Lqc"}] | ["A轮"] | [{"id":"recvjYJmz4vMCK"}] | 未披露 | [{"id":"recvjYJrI7RQSy"}] | ["交割完成"] |  |
+| recvjYDkV9hnY1 | Marvel Fusion_A轮 |  | 7500万美元 | 2024-03-01 00:00:00 |  | [{"id":"recvk9ZmAnSJ38"}] | ["A轮"] | [{"id":"recvjXfgIx125I"}] | 未披露 | [{"id":"recvjXf9rcN5rb"}] | ["交割完成"] |  |
+| recvjYDkV9xNMG | HB11 Energy_战略投资 |  | 2800万瑞郎 | 2025-09-01 00:00:00 |  | [{"id":"recvk9ZmAn7mSl"}] | ["战略投资"] | [{"id":"recvjXfFuG5g7p"}] | 未披露 | [{"id":"recvjXfEqpQnc8"}] | ["交割完成"] |  |
+| recvjYDkV9WPvK | _Seed |  | 350万英镑 | 2024-02-01 00:00:00 | 原表数据暂未找到稳定官方链接，保留但标记待核验。 | [] | ["Seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV9Vju5 | _Pre-seed |  | 200万英镑 | 2025-08-01 00:00:00 | 本轮机构检索未确认Norcott Fusion可靠公开来源；建议后续删除或更正。 | [] | ["Pre-seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV98wr9 | Realta Fusion_种子轮 |  | 1200万美元 | 2023-05-31 00:00:00 | 900万美元seed + 300万美元DOE Fusion Development Program。 | [{"id":"recvk9ZmAnYco4"}] | ["种子轮"] | [{"id":"recvkiW31Lcdgj"}] |  | [{"id":"recvkiW31LhTmP"}] | ["交割完成"] |  |
+| recvjYDkV99IYN | Phoenix Fusion_Seed |  | 350万英镑 | 2024-02-01 00:00:00 | 原表数据暂未找到稳定官方链接，保留但标记待核验。 | [{"id":"recvk9ZmAn2X8Z"}] | ["Seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV9BZME | Norcott Fusion_Pre-seed |  | 200万英镑 | 2025-08-01 00:00:00 | 本轮机构检索未确认Norcott Fusion可靠公开来源；建议后续删除或更正。 | [{"id":"recvk9ZmAnwKg1"}] | ["Pre-seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV9m4cX | Longview Fusion_种子轮 |  | 600万美元 | 2025-11-01 00:00:00 |  | [{"id":"recvk9ZmAn0jWX"}] | ["种子轮"] | [{"id":"recvjYJSJgN9EV"}] | 未披露 |  | ["交割完成"] |  |
+| recvjYDkV9oRYL | Phoenix Fusion_Seed |  | 350万英镑 | 2024-02-01 00:00:00 | 原表数据暂未找到稳定官方链接，保留但标记待核验。 | [{"id":"recvk9ZmAn2X8Z"}] | ["Seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV9cFCw | Norcott Fusion_Pre-seed |  | 200万英镑 | 2025-08-01 00:00:00 | 本轮机构检索未确认Norcott Fusion可靠公开来源；建议后续删除或更正。 | [{"id":"recvk9ZmAnwKg1"}] | ["Pre-seed"] |  |  |  | ["待核验"] |  |
+| recvjYDkV94e93 | 中国聚变_天使轮 |  | 114.92亿元人民币 | 2025-07-01 00:00:00 |  | [{"id":"recvk9ZmAnIZQZ"}] | ["天使轮"] |  | 1500亿元人民币 |  | ["交割完成"] |  |
+| recvjYDkV923ro | 星环聚能_A轮 |  | 10亿元人民币 | 2026-01-12 00:00:00 | 用于上海嘉定基地与NTST/后续工程验证。 | [{"id":"recvk9ZmAn2SOi"}] | ["A轮"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9cJn6 | 星环聚能_A+轮 |  | 5亿元人民币 | 2026-05-07 00:00:00 | 公告称累计融资超20亿元。 | [{"id":"recvk9ZmAn2SOi"}] | ["A+轮"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV93yZo | 诺瓦聚变_天使轮 |  | 5亿元人民币 | 2025-08-01 00:00:00 | 证券研究资料披露，待补充公司官方链接。 | [{"id":"recvk9ZmAnVqD4"}] | ["天使轮"] |  |  |  | ["交割完成"] |  |
+| recvjYDkV9Xzzm | 诺瓦聚变_天使+轮 |  | 7亿元人民币 | 2026-04-10 00:00:00 | 公告称累计融资达12亿元。 | [{"id":"recvk9ZmAnVqD4"}] | ["天使+轮"] | [{"id":"recvjXedEoVMop"}] |  |  | ["交割完成"] |  |
+| recvjYDkV96bUR | 聚变新能_增资扩股 |  | 95亿元人民币 | 2024-07-01 00:00:00 |  | [{"id":"recvk9ZmAneg0r"}] | ["增资扩股"] | [{"id":"recvjXehxzvXZe"}] | 500亿元人民币 |  | ["交割完成"] |  |
+
+Meta: count=50; has_more=true; record_scope=all_records; field_scope=all_fields
+=== BATCH_END_0 ===
+[lark-cli] [WARN] proxy detected: HTTPS_PROXY=http://127.0.0.1:7890 — requests (including credentials) will transit through this proxy. Set LARK_CLI_NO_PROXY=1 to disable proxy.
+`_record_id` is metadata for record operations, not a table field.
+
+| _record_id | 融资名称 | 相关新闻 | 融资数额 | 交割日期 | 备注 | 融资单位 | 融资轮次 | 领投方 | 投后估值 | 跟投方 | 进度类型 | 融资负责人 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| recvjYDkV9cY4X | 能量奇点_首轮融资 |  | 近4亿元人民币 | 2022-02-25 00:00:00 | 用于全高温超导小型托卡马克研发。 | [{"id":"recvk9ZmAnIVHm"}] | ["首轮融资"] | [] |  |  | ["交割完成"] |  |
+| recvjYDC4ajfZS | _ |  |  |  |  | [] |  |  |  |  |  |  |
+| recvjYDC4aOJUT | _ |  |  |  |  | [] |  |  |  |  |  |  |
+| recvjYDC4ahFpr | _ |  |  |  |  | [] |  |  |  |  |  |  |
+| recvk9UmwQUf5F | 能量奇点_Pre-A |  | 近4亿元人民币 | 2023-04-28 00:00:00 | 官方英文新闻稿披露。 | [{"id":"recvk9ZmAnIVHm"}] | ["Pre-A"] | [{"id":"recvjYMXCCKzks"}] |  | [] | ["交割完成"] |  |
+| recvk9VlBlvgAD | 新奥聚变_战略投资 |  | 累计15亿元人民币 |  |  | [{"id":"recvk9ZmAn74mx"}] | ["战略投资"] | [{"id":"recvjXe4braAis"}] | 未披露 |  | ["交割完成"] |  |
+| recvk9VlBlzIly | 瀚海聚能_种子轮 |  | 数千万元人民币 | 2023-03-01 00:00:00 | 瀚海聚能（成都）科技有限公司，中国首家FRC场反位形装置聚变公司，对标Helion Energy；种子轮由轻舟资本领投。 | [{"id":"recvk9ZmAnWrE6"}] | ["种子轮"] | [{"id":"recvjXg7zT4pD6"}] | 未披露 |  | ["交割完成"] |  |
+| recvk9VlBlmIf3 | 瀚海聚能_天使轮 |  | 数千万元人民币 | 2024-04-01 00:00:00 | 累计融资5000万元人民币；华映资本领投，奇绩创坛、厚实基金跟投。 | [{"id":"recvk9ZmAnWrE6"}] | ["天使轮"] | [{"id":"recvjXgdrYiF80"}] | 累计融资5000万元人民币 |  | ["交割完成"] |  |
+| recvk9VlBlLxBF | 星能玄光_天使轮 |  | 数千万元人民币 | 2023-08-01 00:00:00 |  | [{"id":"recvk9ZmAn0Vga"}] | ["天使轮"] | [{"id":"recvjYNFvaFCff"}] | 未披露 | [{"id":"recvjXe2k5LdYW"}] | ["交割完成"] |  |
+| recvk9ZPiv81Fn | 鸿鹄聚变_种子轮 |  | 1亿元人民币 | 2024-12-01 00:00:00 |  | [{"id":"recvk9ZmAnNK57"}] | ["种子轮"] |  | 未披露 |  | ["交割完成"] |  |
+| recvk9ZPiv9Iku | 零点聚能_天使轮 |  | 5000万元人民币 | 2025-12-18 00:00:00 |  | [{"id":"recvk9ZmAnLVjh"}] | ["天使轮"] | [{"id":"recvjYP2OMITW1"}] | 未披露 |  | ["交割完成"] |  |
+| recvk9ZPivGJIL | 安东聚变_天使轮 |  | 近1亿元人民币 | 2025-10-22 00:00:00 |  | [{"id":"recvk9ZmAn8jfl"}] | ["天使轮"] |  | 未披露 | [] | ["交割完成"] |  |
+| recvk9ZPiv7KW0 | 岩超聚能_天使轮 |  | 3000万元人民币 | 2025-08-01 00:00:00 |  | [{"id":"recvk9ZmAnWh6Y"}] | ["天使轮"] |  | 未披露 | [{"id":"recvjYPptzPDjU"}] | ["交割完成"] |  |
+| recvk9ZPivaDuy | 启明星聚变_天使轮 |  | 2000万元人民币 | 2024-06-01 00:00:00 |  | [{"id":"recvk9ZmAnXVhn"}] | ["天使轮"] | [{"id":"recvjYPymM0MFp"}] | 未披露 |  | ["交割完成"] |  |
+| recvk9ZX0HUtaJ | 中科聚能_天使轮 |  | 1亿元人民币 | 2023-11-01 00:00:00 |  | [{"id":"recvk9ZmAngIhG"}] | ["天使轮"] | [{"id":"recvjXfPIjrdB8"}] | 未披露 | [{"id":"recvjXfTxzsvdO"}] | ["交割完成"] |  |
+| recvk9ZXR6hUBZ | 星尘聚变_天使轮 |  | 1500万元人民币 | 2025-03-01 00:00:00 |  | [{"id":"recvk9ZmAnMJNx"}] | ["天使轮"] | [{"id":"recvjXfVmVRRE3"}] | 未披露 |  | ["交割完成"] |  |
+| recvk9ZXR67Ut3 | 天工聚变_天使轮 |  | 2000万元人民币 | 2025-09-01 00:00:00 |  | [{"id":"recvk9ZmAnxxo1"}] | ["天使轮"] | [{"id":"recvjXfOCYl9ll"}] | 未披露 | [{"id":"recvjYQ19Jrm9N"}] | ["交割完成"] |  |
+| recvk9ZXR6UuFN | 极星聚变_种子轮 |  | 3000万元人民币 | 2026-02-01 00:00:00 |  | [{"id":"recvk9ZmAnIqlD"}] | ["种子轮"] | [{"id":"recvjXfWutdWm8"}] | 未披露 | [{"id":"recvjXfMqyx9zE"}] | ["交割完成"] |  |
+| recvk9ZXR6yM9q | 乾元聚变_天使轮 |  | 1000万元人民币 | 2024-08-01 00:00:00 |  | [{"id":"recvk9ZmAn7fPm"}] | ["天使轮"] | [{"id":"recvjYQjs5CcXJ"}] | 未披露 | [{"id":"recvjYQr3vshZP"}] | ["交割完成"] |  |
+| recvk9ZXR64YNR | 华光聚变_天使轮 |  | 2500万元人民币 | 2025-06-01 00:00:00 |  | [{"id":"recvk9ZmAnXIm3"}] | ["天使轮"] | [{"id":"recvjYQvBZiY76"}] | 未披露 | [{"id":"recvjXezKLrZLK"}] | ["交割完成"] |  |
+| recvk9ZXR60jqW | 九州聚变_天使轮 |  | 4000万元人民币 | 2025-10-01 00:00:00 |  | [{"id":"recvk9ZmAnbJoi"}] | ["天使轮"] | [{"id":"recvjXg0jZVDzN"}] | 未披露 | [{"id":"recvjXexMKb2uo"}] | ["交割完成"] |  |
+| recvk9ZXR6G7jT | 环宇聚变_战略投资 |  | 5000万元人民币 | 2024-09-01 00:00:00 |  | [{"id":"recvk9ZmAnPIIf"}] | ["战略投资"] | [{"id":"recvjYQH0xMwkZ"}] | 未披露 | [{"id":"recvjXfKt12Uwx"}] | ["交割完成"] |  |
+| recvk9ZXR6KiIq | 新烛时代_天使轮 |  | 6000万元人民币 | 2026-03-21 00:00:00 |  | [{"id":"recvk9ZmAnJKMA"}] | ["天使轮"] | [] | 3.1亿人民币 | [{"id":"recvjXbwumYEaq"}] | ["交割完成"] |  |
+| recvk9ZXR6P4eN | Thea Energy_A轮 |  | 2000万美元 | 2024-02-08 00:00:00 | 用于平面线圈磁体阵列、Eos neutron-source stellarator设计与团队扩张。 | [{"id":"recvk9ZmAnV6t3"}] | ["A轮"] | [{"id":"recvkiW31LYGjy"}] |  |  | ["交割完成"] |  |
+| recvk9ZXR6jIp4 | Xcimer Energy_A轮 |  | 1亿美元 | 2024-06-04 00:00:00 | 用于建设原型设施和Phoenix激光系统。 | [{"id":"recvk9ZmAnvgWK"}] | ["A轮"] | [{"id":"recvkiW31LYXLp"}] |  |  | ["交割完成"] |  |
+| recvk9ZXR6Nguv | SHINE Technologies_条件贷款承诺 |  | 最高2.63亿美元 | 2026-04-09 00:00:00 | DOE公告为conditional commitment，不等同已经提款。 | [{"id":"recvk9ZmAnytmd"}] | ["条件贷款承诺"] | [] |  |  | ["条件承诺"] |  |
+| recvk9ZXR6NAgf | SHINE Technologies_条件贷款承诺 |  | 最高2.63亿美元 | 2026-04-09 00:00:00 | DOE公告为conditional commitment，不等同已经提款。 | [{"id":"recvk9ZmAnytmd"}] | ["条件贷款承诺"] | [] |  |  | ["条件承诺"] |  |
+| recvk9ZXR6F3SZ | Blue Laser Fusion_种子轮 |  | 3750万美元 | 2024-03-20 00:00:00 |  | [{"id":"recvk9ZmAnuM7A"}] | ["种子轮"] | [] |  |  | ["交割完成"] |  |
+| recvk9ZXR63jOw | nT-Tao_A轮 |  | 2200万美元 | 2023-02-01 00:00:00 | 公告称累计融资2800万美元。 | [{"id":"recvk9ZmAn69kT"}] | ["A轮"] |  |  |  | ["交割完成"] |  |
+| recvka1CBikOsC | Avalanche Energy_A轮 |  | 4000万美元 | 2023-04-24 00:00:00 | 同时宣布200kV微型聚变反应器里程碑。 | [{"id":"recvk9ZmAni8je"}] | ["A轮"] | [{"id":"recvkiW31LzAdd"}] |  |  | ["交割完成"] |  |
+| recvkiWaas4Bsw | First Light Fusion_C轮 |  | 4500万美元 | 2022-02-14 00:00:00 |  | [{"id":"recvk9ZmAnmbk9"}] | ["C轮"] |  |  |  | ["交割完成"] |  |
+| recvkiWaaseQA7 | SHINE Technologies_条件贷款承诺 |  | 最高2.63亿美元 | 2026-04-09 00:00:00 | DOE公告为conditional commitment，不等同已经提款。 | [{"id":"recvk9ZmAnytmd"}] | ["条件贷款承诺"] | [] |  |  | ["条件承诺"] |  |
+| recvkiWaasNTgj | Kyoto Fusioneering_C+ |  | 93亿日元（股权+债务） | 2025-09-09 00:00:00 | 其中股权扩展与债务/授信合计；公司称Series C扩展股权累计40.8亿日元。 | [{"id":"recvk9ZmAnAOj8"}] | ["C+"] | [{"id":"recvkdgDLdJsRG"}] |  |  | ["交割完成"] |  |
+| recvkiWaask7cd | Helical Fusion_A轮 |  | 23亿日元 | 2025-07-11 00:00:00 | 公告称含补助和贷款总资本达52亿日元。SBI Investment与庆应创新Initiative联合领投。 | [{"id":"recvk9ZmAnMw79"}] | ["A轮"] |  |  |  | ["交割完成"] |  |
+| recvkiWaasfbcx | EX-Fusion_Pre-A |  | 11亿日元 | 2024-11-08 00:00:00 | 投资方含京都キャピタル（Miyako Capital）、Delight Ventures、千島土地（Chishima Land）；领投方公告未明确披露。 | [{"id":"recvk9ZmAnBntl"}] | ["Pre-A"] |  |  |  | ["交割完成"] |  |
+| recvkiWaasZx2o | SHINE Technologies_条件贷款承诺 |  | 最高2.63亿美元 | 2026-04-09 00:00:00 | DOE公告为conditional commitment，不等同已经提款。 | [{"id":"recvk9ZmAnytmd"}] | ["条件贷款承诺"] | [] |  |  | ["条件承诺"] |  |
+| recvkiWaaskgZr | EX-Fusion_A+ |  | 未披露 | 2025-10-14 00:00:00 | JX Advanced Metals披露参与EX-Fusion Series A Extension。 | [{"id":"recvk9ZmAnBntl"}] | ["A+"] | [{"id":"recvkiW31LeGTj"}] |  |  | ["交割完成"] |  |
+| recvkjrOfZZBrI | SHINE Technologies_C+++ |  | 1.5亿美元 | 2021-06-28 00:00:00 |  | [{"id":"recvk9ZmAnytmd"}] | ["C+++"] | [] |  |  | ["交割完成"] |  |
+| recvkjrOfZanXX | SHINE Technologies_政府资助 |  | 3200万美元 | 2024-07-17 00:00:00 | 用于Mo-99美国供应链建设。 | [{"id":"recvk9ZmAnytmd"}] | ["政府资助"] |  |  |  | ["交割完成"] |  |
+| recvkjrOfZY9jz | SHINE Technologies_条件贷款承诺 |  | 最高2.63亿美元 | 2026-04-09 00:00:00 | DOE公告为conditional commitment，不等同已经提款。 | [{"id":"recvk9ZmAnytmd"}] | ["条件贷款承诺"] | [{"id":"recvkiW31LnqNW"}] |  |  | ["条件承诺"] |  |
+| recvkjrOfZoioe | Avalanche Energy_融资轮 |  | 2900万美元 | 2026-02-01 00:00:00 | Fusion Energy Base报道，总融资超过8000万美元；待官方新闻稿补充。 | [{"id":"recvk9ZmAni8je"}] | ["融资轮"] | [] |  |  | ["交割完成"] |  |
+| recvkjzA6CDXEQ | Marvel Fusion_B轮 |  | 6280万欧元 | 2024-10-30 00:00:00 |  | [{"id":"recvk9ZmAnSJ38"}] | ["B轮"] | [{"id":"recvkiW31L5mWE"}] |  | [] | ["交割完成"] |  |
+| recvkjzA6Cp6l4 | Marvel Fusion_公私合作/项目资金 |  | 约1.5亿美元项目 | 2025-07-04 00:00:00 | 用于在科罗拉多州立大学建设petawatt级激光技术示范；项目资金而非单纯股权轮。 | [{"id":"recvk9ZmAnSJ38"}] | ["公私合作/项目资金"] |  |  | [] | ["交割完成"] |  |
+| recvkjzA6CkqlL | Helion Energy_E轮 |  | 5亿美元，另有17亿美元里程碑承诺 | 2021-11-05 00:00:00 | 公司公告称Series E融资5亿美元，并包含与里程碑挂钩的额外17亿美元承诺。 | [{"id":"recvk9ZmAnsyR8"}] | ["E轮"] | [{"id":"recvjXdHtCSUwT"}] | 约30亿美元 | [] | ["交割完成"] |  |
+| recvkjzA6ChXtA | Realta Fusion_A轮 |  | 3600万美元 | 2025-05-13 00:00:00 | Realta Fusion公告称该轮为超额认购Series A，用于推进紧凑模块化磁镜聚变能源。 | [{"id":"recvk9ZmAnYco4"}] | ["A轮"] | [{"id":"recvkiW31LCnkR"}] |  | [] | ["交割完成"] |  |
+| recvkNQl7EXOd1 | 东昇聚变_Pre-A | [{"id":"recvkNVQ4LG9ne"}] | 数亿元 | 2026-05-27 00:00:00 |  | [{"id":"recvkiWh3zvbNB"}] | ["Pre-A"] | [{"id":"recvkNQd8lhcWu"}] |  | [{"id":"recvkPbrwU8psQ"},{"id":"recvkPbRPzGIJR"},{"id":"recvkPbRPz8Bng"},{"id":"recvkPbRPzA7S1"},{"id":"recvkPbRPzjG5n"},{"id":"recvkPbRPz1Bm1"},{"id":"recvjXetwO2VCz"},{"id":"recvjXdVRpGXRd"},{"id":"recvkPbRPzUWGS"}] |  |  |
+| recvkNQl7EGMnb | 东昇聚变_天使轮 |  | 数亿元 | 2026-01-04 00:00:00 |  | [{"id":"recvkiWh3zvbNB"}] | ["天使轮"] |  |  | [{"id":"recvkNQd8lEFoZ"},{"id":"recvjXcD2Sjj3Q"},{"id":"recvkNQd8l38fh"},{"id":"recvjXdZga1Y2X"},{"id":"recvkNQd8lrZZN"},{"id":"recvkNQd8lrCYY"},{"id":"recvjXeuZ0eWUi"},{"id":"recvkNQd8lXlDN"},{"id":"recvjXbHr7jMeq"},{"id":"recvjRS3tS7s7b"},{"id":"recvkNQd8laJev"},{"id":"recvkRRVpB3rS0"},{"id":"recvkRRVpBqAao"}] |  |  |
+| recvkPbys3NF5y | 中科聚变太赫兹_B+ | [{"id":"recvkPbFETgfTR"}] | 约1亿元 | 2026-03-27 00:00:00 |  | [{"id":"recvkPboXRfsN3"}] | ["B+"] |  |  | [{"id":"recvkNQd8lEFoZ"},{"id":"recvkPbrwUUa3s"},{"id":"recvkPbrwUXSvK"}] |  |  |
+| recvkPbys3Tiv6 | 中科聚变太赫兹_B++ | [{"id":"recvkPbFETgfTR"}] | 数亿元 | 2026-05-24 00:00:00 |  | [{"id":"recvkPboXRfsN3"}] | ["B++"] | [{"id":"recvkPbrwUXSvK"}] |  | [{"id":"recvkPbrwU8psQ"},{"id":"recvkPbrwUgDxa"}] |  |  |
+| recvkPc9l9FZHX | 东昇聚变_天使+ |  | 未披露 | 2026-03-09 00:00:00 |  | [{"id":"recvkiWh3zvbNB"}] | ["天使+"] |  |  | [{"id":"recvkPbRPzUWGS"},{"id":"recvkPbRPzGIJR"},{"id":"recvkPbrwU8psQ"},{"id":"recvkPbRPz8Bng"},{"id":"recvkPbRPzA7S1"},{"id":"recvkPbRPzjG5n"},{"id":"recvkPbRPz1Bm1"},{"id":"recvjXetwO2VCz"},{"id":"recvjXdVRpGXRd"}] |  |  |
+
+Meta: count=50; has_more=true; record_scope=all_records; field_scope=all_fields
+=== BATCH_END_50 ===

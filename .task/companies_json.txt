@@ -1,0 +1,5889 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "data": [
+      [
+        "瞬原科技",
+        null,
+        "北京市海淀区北四环西路56号辉煌时代大厦905室",
+        0,
+        [
+          {
+            "id": "recvlCQP7hFYHK"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "ou_dda2795e99aa474ede35f42fd66fbfce",
+            "name": "杨明"
+          }
+        ],
+        null,
+        null,
+        "聚变物理模拟",
+        [
+          "自身"
+        ],
+        null,
+        20,
+        null,
+        [
+          "民营企业"
+        ],
+        null,
+        null,
+        "北京瞬原科技有限公司",
+        null,
+        [
+          {
+            "id": "recvlCQLnGEDRv"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        "2026-04-28 00:00:00",
+        null,
+        750000000
+      ],
+      [
+        "CFS",
+        null,
+        "Devens, Massachusetts, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8egKW4r"
+          },
+          {
+            "id": "recvk9U8egoXqq"
+          },
+          {
+            "id": "recvk9U8egMQGM"
+          },
+          {
+            "id": "recvk9U8egoZDE"
+          },
+          {
+            "id": "recvk9U8egtjk4"
+          },
+          {
+            "id": "recvk9U8egPdev"
+          }
+        ],
+        [
+          {
+            "id": "recvjRRR09asgg"
+          },
+          {
+            "id": "recvkiVxycvCVI"
+          },
+          {
+            "id": "recvkiVxyczQGx"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPzO4o"
+          }
+        ],
+        [
+          {
+            "id": "recvjTn2LK2ZpM"
+          }
+        ],
+        null,
+        "[https://cfs.energy](https://cfs.energy/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZl7dR"
+          }
+        ],
+        "高温超导（HTS）紧凑型托卡马克、SPARC 实验堆、ARC 商业堆、高磁场等离子体约束、氚增殖包层、聚变发电系统",
+        [
+          "暂无"
+        ],
+        null,
+        1000,
+        null,
+        [
+          "国外企业"
+        ],
+        "全球聚变私营企业龙头，高温超导托卡马克路线绝对领军者，与 MIT 合作开发 REBCO 高温超导磁体，目标 2030 年前实现商业并网发电，已与谷歌签订 200MW 购电协议（全球最大聚变 PPA",
+        null,
+        "Commonwealth Fusion Systems, Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9qXPO"
+          },
+          {
+            "id": "recvjYDkV9X4gK"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "info@cfs.energy",
+        "2018-05-10 00:00:00",
+        null,
+        70000000000
+      ],
+      [
+        "Helion Energy",
+        null,
+        "1230 Airport Rd, Everett, WA 98204, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8egKXJw"
+          },
+          {
+            "id": "recvk9U8egrOSd"
+          },
+          {
+            "id": "recvk9U8eghBAR"
+          },
+          {
+            "id": "recvlOL8wmqNUt"
+          }
+        ],
+        [
+          {
+            "id": "recvjRRR09cfLT"
+          },
+          {
+            "id": "recvjWLS5PYO7p"
+          },
+          {
+            "id": "recvkiVxycqmGU"
+          },
+          {
+            "id": "recvkiVxycLiK7"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXUIby6"
+          },
+          {
+            "id": "recvk1TmXUHAD9"
+          },
+          {
+            "id": "recvk1TmXUrAYr"
+          },
+          {
+            "id": "recvk1YGDnwcxj"
+          }
+        ],
+        null,
+        null,
+        "[https://www.helionenergy.com](https://www.helionenergy.com/)",
+        null,
+        null,
+        null,
+        "FRC 脉冲聚变、D-D/D-He3 聚变、磁压缩、直接能量转换、紧凑型聚变电厂",
+        [
+          "暂无"
+        ],
+        null,
+        500,
+        null,
+        [
+          "国外企业"
+        ],
+        "FRC 场反位形 + 脉冲磁惯性约束路线企业，主打 D-D/D-He3 燃料路径和直接能量转换；已宣布与微软签订 50MW 供电协议，示范机 Polaris 处于建设/调试阶段。",
+        null,
+        "Helion Energy, Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9GKEb"
+          },
+          {
+            "id": "recvkjzA6CkqlL"
+          },
+          {
+            "id": "recvlOL8wf9zj6"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "[info@helionenergy.com](http://info@helionenergy.com)",
+        "2013-05-01 00:00:00",
+        null,
+        37975000000
+      ],
+      [
+        "Tokamak Energy",
+        null,
+        "Harwell Campus, Didcot OX11 0RA, UK",
+        null,
+        [
+          {
+            "id": "recvk9U8egv2Ux"
+          },
+          {
+            "id": "recvk9U8egdDlw"
+          }
+        ],
+        [
+          {
+            "id": "recvjWMnwNH1XQ"
+          },
+          {
+            "id": "recvjWMp8gemgX"
+          },
+          {
+            "id": "recvkiVxycp0Xl"
+          },
+          {
+            "id": "recvkiVxychnU1"
+          },
+          {
+            "id": "recvkiVxycLC1Q"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpW9izN"
+          },
+          {
+            "id": "recvkiVLpWyl8m"
+          },
+          {
+            "id": "recvk1YGDnYnpt"
+          }
+        ],
+        null,
+        null,
+        "[https://tokamakenergy.co.uk](https://tokamakenergy.co.uk/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZuvg2"
+          }
+        ],
+        "球形托卡马克（ST）、高温超导磁体、高 β 等离子体约束、聚变堆工程化",
+        [
+          "暂无"
+        ],
+        null,
+        280,
+        null,
+        [
+          "国外企业"
+        ],
+        "球形托卡马克 + 高温超导路线开创者，英国聚变标杆企业，率先实现 1 亿℃等离子体温度，目标 2030 年代初商业发电。",
+        null,
+        "Tokamak Energy Ltd",
+        null,
+        [
+          {
+            "id": "recvjYDkV95vZu"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        "[info@tokamakenergy.co.uk](http://info@tokamakenergy.co.uk)",
+        "2009-05-14 00:00:00",
+        null,
+        10500000000
+      ],
+      [
+        "TAE Technologies",
+        null,
+        "19600 Pauling Ave, Foothill Ranch, CA 92610, USA",
+        null,
+        null,
+        [
+          {
+            "id": "recvjWNKvXWr68"
+          },
+          {
+            "id": "recvkiVxycca73"
+          },
+          {
+            "id": "recvkiVxyc2X8D"
+          },
+          {
+            "id": "recvkiVxycuIbN"
+          },
+          {
+            "id": "recvkiVxycXkTs"
+          },
+          {
+            "id": "recvkiVxycMHF6"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWsLJn"
+          },
+          {
+            "id": "recvk1SGzPHB4x"
+          },
+          {
+            "id": "recvk1YGDnkMch"
+          },
+          {
+            "id": "recvk1YGDn0mEE"
+          }
+        ],
+        null,
+        null,
+        "[https://www.tae.com](https://www.tae.com/)",
+        null,
+        null,
+        null,
+        "FRC 稳态约束、无中子聚变、高 β 等离子体、束流驱动聚变",
+        [
+          "暂无"
+        ],
+        null,
+        400,
+        null,
+        [
+          "国外企业"
+        ],
+        "场反位形（FRC）+ 束流驱动路线，主打 p-B¹¹ 无中子聚变，全球聚变试验平台最多的私营企业。",
+        null,
+        "Tri Alpha Energy, Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9baDt"
+          },
+          {
+            "id": "recvjYDkV9J9wg"
+          },
+          {
+            "id": "recvjYDkV9f6p1"
+          },
+          {
+            "id": "recvjYDkV94XhD"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "[info@tae.com](http://info@tae.com)",
+        "1998-05-30 00:00:00",
+        null,
+        42000000000
+      ],
+      [
+        "General Fusion",
+        null,
+        "Richmond, British Columbia, Canada",
+        null,
+        [
+          {
+            "id": "recvk9U8egL4IK"
+          },
+          {
+            "id": "recvlCNMeD4TEa"
+          }
+        ],
+        [
+          {
+            "id": "recvk2GSYjwnWM"
+          },
+          {
+            "id": "recvkiVxyc8RBC"
+          },
+          {
+            "id": "recvkiVxycc46k"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXU1Act"
+          }
+        ],
+        null,
+        null,
+        "[https://generalfusion.com](https://generalfusion.com/)",
+        null,
+        null,
+        null,
+        "磁化靶聚变、脉冲压缩、液态金属壁、等离子体注入器、聚变工程化",
+        [
+          "暂无"
+        ],
+        null,
+        150,
+        null,
+        [
+          "国外企业"
+        ],
+        "加拿大磁化靶聚变（MTF）企业，采用磁化等离子体与液态金属压缩路线，正在推进 LM26 示范装置。",
+        null,
+        "General Fusion Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9XIsM"
+          },
+          {
+            "id": "recvjYDkV9Hcps"
+          },
+          {
+            "id": "recvlG3yNfVOJF"
+          }
+        ],
+        [
+          "加拿大"
+        ],
+        "[info@generalfusion.com](http://info@generalfusion.com)",
+        "2002-05-28 00:00:00",
+        null,
+        7200000000
+      ],
+      [
+        "Zap Energy",
+        null,
+        "Seattle, Washington, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8egxzyh"
+          },
+          {
+            "id": "recvk9U8eg2sSh"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycZBTS"
+          },
+          {
+            "id": "recvkiVxyc3Jon"
+          },
+          {
+            "id": "recvkiVxyc4AhK"
+          },
+          {
+            "id": "recvkiVxyc4Pcn"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vufmUB"
+          },
+          {
+            "id": "recvk1YGDnYN6e"
+          }
+        ],
+        null,
+        null,
+        "[https://www.zap.energy](https://www.zap.energy/)",
+        null,
+        null,
+        null,
+        "Z-Pinch 稳态聚变、剪切流稳定、紧凑型脉冲聚变装置",
+        [
+          "暂无"
+        ],
+        null,
+        120,
+        null,
+        [
+          "国外企业"
+        ],
+        "Z 箍缩 + 剪切流稳定路线，结构极简、成本最低的聚变路线之一，无需复杂超导磁体。",
+        null,
+        "Zap Energy, Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9YdLO"
+          },
+          {
+            "id": "recvjYDkV9OcDW"
+          },
+          {
+            "id": "recvlG3BR9sWJw"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "info@zap.energy",
+        "2017-06-09 00:00:00",
+        null,
+        4680000000
+      ],
+      [
+        "First Light Fusion",
+        null,
+        "Oxford, United Kingdom",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuNYhx"
+          }
+        ],
+        null,
+        null,
+        "[https://firstlightfusion.com](https://firstlightfusion.com/)",
+        null,
+        null,
+        null,
+        "瞬态冲击聚变、靶丸设计、脉冲功率、惯性聚变发电",
+        [
+          "暂无"
+        ],
+        null,
+        80,
+        null,
+        [
+          "国外企业"
+        ],
+        "惯性约束・高速弹丸撞击路线，全球唯一非激光惯性约束私营企业。",
+        null,
+        "First Light Fusion Ltd",
+        null,
+        [
+          {
+            "id": "recvkiWaas4Bsw"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        "[info@firstlightfusion.com](http://info@firstlightfusion.com)",
+        "2011-06-03 00:00:00",
+        null,
+        920000000
+      ],
+      [
+        "Type One Energy",
+        null,
+        "Knoxville, TN 37932, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8egSopJ"
+          },
+          {
+            "id": "recvk9U8egneNU"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyckWwK"
+          },
+          {
+            "id": "recvkiVxycanhJ"
+          },
+          {
+            "id": "recvkiVxycJ7m9"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuoorw"
+          },
+          {
+            "id": "recvk9W5vunYB7"
+          }
+        ],
+        null,
+        null,
+        "[https://www.typeoneenergy.com](https://www.typeoneenergy.com/)",
+        null,
+        null,
+        null,
+        "仿星器、准对称磁场、高温超导磁体、稳态聚变电厂、3D 线圈优化",
+        [
+          "暂无"
+        ],
+        null,
+        70,
+        null,
+        [
+          "国外企业"
+        ],
+        "美国仿星器商业化企业，聚焦高温超导磁体、优化仿星器磁场和可工程化的稳态聚变电厂方案。",
+        null,
+        "Type One Energy Group Limited",
+        null,
+        [
+          {
+            "id": "recvjYDkV9FVGW"
+          },
+          {
+            "id": "recvlG3OsZ4VjY"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "[info@typeoneenergy.com](http://info@typeoneenergy.com)",
+        "2019-06-09 00:00:00",
+        null,
+        6525000000
+      ],
+      [
+        "Pacific Fusion",
+        null,
+        "San Diego, CA, USA",
+        null,
+        [
+          {
+            "id": "recvlCNIdxiZs1"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        "[https://www.pacificfusion.com](https://www.pacificfusion.com/)",
+        null,
+        null,
+        null,
+        "脉冲磁惯性聚变、脉冲功率、燃料靶、重复频率驱动、聚变电厂工程",
+        [
+          "暂无"
+        ],
+        null,
+        80,
+        null,
+        [
+          "国外企业"
+        ],
+        "美国惯性/磁惯性聚变公司，聚焦低成本脉冲功率驱动的聚变能源系统；原表中“IEC/桌面式中子源”描述与公开资料不符，已修正。",
+        null,
+        "Pacific Fusion Systems, Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV9HtYb"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "info@pacificfusion.energy",
+        "2021-04-26 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Realta Fusion",
+        null,
+        "Madison, WI, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8eg0RuK"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyc1ef0"
+          },
+          {
+            "id": "recvkiVxyc9pH4"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuMQOg"
+          },
+          {
+            "id": "recvk9W5vuxUDm"
+          }
+        ],
+        null,
+        null,
+        "[https://www.realtafusion.com](https://www.realtafusion.com/)",
+        null,
+        null,
+        null,
+        "轴对称磁镜、串列磁镜、高温超导磁体、等离子体稳定性、工业热/电力应用",
+        [
+          "暂无"
+        ],
+        null,
+        30,
+        null,
+        [
+          "国外企业"
+        ],
+        "源自威斯康星大学麦迪逊分校的磁镜聚变公司，面向工业热与发电场景开发高温超导轴对称磁镜路线。",
+        null,
+        "Realta Fusion Inc",
+        null,
+        [
+          {
+            "id": "recvjYDkV98wr9"
+          },
+          {
+            "id": "recvkjzA6ChXtA"
+          }
+        ],
+        [
+          "美国"
+        ],
+        "[info@realtafusion.com](http://info@realtafusion.com)",
+        "2022-04-25 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Phoenix Fusion",
+        null,
+        "UK",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://phoenixfusion.energy](https://phoenixfusion.energy/)",
+        null,
+        null,
+        null,
+        "球形托卡马克、高场超导磁体",
+        [
+          "暂无"
+        ],
+        null,
+        50,
+        null,
+        [
+          "国外企业"
+        ],
+        "英国聚变初创公司，聚焦紧凑型球形托卡马克商业化，目标为数据中心等场景提供聚变电力。",
+        null,
+        "Phoenix Fusion Energy Ltd",
+        null,
+        [
+          {
+            "id": "recvjYDkV99IYN"
+          },
+          {
+            "id": "recvjYDkV9oRYL"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中核集团",
+        null,
+        "北京市西城区三里河南三巷1号",
+        28057060,
+        null,
+        [
+          {
+            "id": "recvjWUrmDQfTU"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPAxkp"
+          }
+        ],
+        null,
+        null,
+        "[https://www.cnnc.com.cn](https://www.cnnc.com.cn/)",
+        null,
+        [],
+        null,
+        null,
+        [
+          "甲方"
+        ],
+        null,
+        182750,
+        null,
+        [
+          "国央企"
+        ],
+        "中国核工业集团有限公司（简称：中核集团，英文缩写：CNNC）是中央直接管理的特大型国有重要骨干企业，是国家核科技工业主体，是推进核能开发利用、核工程建设、核技术应用的国家队和主力军，拥有完整的核科技工业体系，肩负着推动国防建设和经济社会发展的双重使命。中核集团资产规模约1.4万亿元，员工总数18万人，连续19年、6个任期国资委考核A级，连续5年获得央企党建责任制考核A级，连续6年获评中央单位定点帮扶工作考核“好”的最高等次，董事会建设连续3年获得国资委优秀评价，国企改革三年行动考核名列中央企业第2名，连续5年成为世界500强中唯一的全产业链核工业企业。",
+        null,
+        "中国核工业集团有限公司",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        "1999-07-01 00:00:00",
+        null,
+        1400000000000
+      ],
+      [
+        "中国聚变",
+        null,
+        "上海市闵行区望汇路 260 弄 1 号",
+        null,
+        [
+          {
+            "id": "recvk9U8egeYcp"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyccVvp"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPhell"
+          }
+        ],
+        null,
+        null,
+        "[https://www.cnnc.com.cn](https://www.cnnc.com.cn/)",
+        null,
+        null,
+        null,
+        "聚变工程堆、氚增殖、包层系统、超导磁体、聚变装备国产化",
+        [
+          "甲方"
+        ],
+        null,
+        200,
+        null,
+        [
+          "国央企"
+        ],
+        "国家级聚变产业化平台，由中核、国家电投、皖能、浙能等联合组建，统筹 CFETR 工程化、聚变堆产业链、氚技术、包层国产化",
+        null,
+        "中国聚变能源有限公司",
+        null,
+        [
+          {
+            "id": "recvjYDkV94e93"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@cfec.com.cn](http://info@cfec.com.cn)",
+        "1983-06-05 00:00:00",
+        null,
+        15000000000
+      ],
+      [
+        "西物院",
+        null,
+        "四川省成都市双流区长城路一段 216 号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycbHxX"
+          },
+          {
+            "id": "recvkiVxycJvLl"
+          },
+          {
+            "id": "recvkiVxyc0ftd"
+          },
+          {
+            "id": "recvkiVxycQfFw"
+          },
+          {
+            "id": "recvkiVxycEH7I"
+          },
+          {
+            "id": "recvkiVxyci1lA"
+          },
+          {
+            "id": "recvkiVxycwtHE"
+          },
+          {
+            "id": "recvkiVxycj1mb"
+          },
+          {
+            "id": "recvkiVxyc3Yoc"
+          },
+          {
+            "id": "recvkiVxycPete"
+          },
+          {
+            "id": "recvkiVxyc5Blp"
+          },
+          {
+            "id": "recvjWUrmDQfTU"
+          },
+          {
+            "id": "recvkiVxyccVvp"
+          },
+          {
+            "id": "recvkiVxycW0uu"
+          },
+          {
+            "id": "recvkiVxycXu1V"
+          },
+          {
+            "id": "recvkiVxycTpQy"
+          },
+          {
+            "id": "recvkiVxycR4Do"
+          },
+          {
+            "id": "recvkiVxyceAbR"
+          },
+          {
+            "id": "recvkiVxycAu5D"
+          },
+          {
+            "id": "recvkiVxycChF3"
+          },
+          {
+            "id": "recvkiVxycQb5Y"
+          },
+          {
+            "id": "recvkiVxycFxqj"
+          },
+          {
+            "id": "recvkiVxycNSkd"
+          },
+          {
+            "id": "recvkiVxycoTqN"
+          },
+          {
+            "id": "recvkiVxycG4Bs"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPLYYK"
+          },
+          {
+            "id": "recvk1SGzPIQRh"
+          },
+          {
+            "id": "recvk1SGzPi0qh"
+          },
+          {
+            "id": "recvk1SGzPp7qp"
+          }
+        ],
+        [
+          {
+            "id": "recvlU4a3XIcR2"
+          }
+        ],
+        null,
+        "[https://www.swip.ac.cn](https://www.swip.ac.cn/)",
+        null,
+        null,
+        null,
+        "托卡马克物理、高参数等离子体、聚变堆设计、偏滤器 / 第一壁材料",
+        [
+          "甲方"
+        ],
+        null,
+        2000,
+        null,
+        [
+          "国央企"
+        ],
+        "中国磁约束聚变发源地，运营HL-2M、中国环流三号，托卡马克参数世界领先，承担国家聚变重大专项。",
+        null,
+        "核工业西南物理研究院",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        "[swip@swip.ac.cn](http://swip@swip.ac.cn)",
+        "1965-06-04 00:00:00",
+        null,
+        null
+      ],
+      [
+        "能量奇点",
+        null,
+        "上海市浦东新区张江科学城",
+        null,
+        [
+          {
+            "id": "recvk9U8egTpUf"
+          },
+          {
+            "id": "recvk9U8ega6w0"
+          }
+        ],
+        [
+          {
+            "id": "recvjWWd2ttqLa"
+          },
+          {
+            "id": "recvkiVxycVifA"
+          },
+          {
+            "id": "recvkiVxycF8Av"
+          },
+          {
+            "id": "recvkiVxycTUSL"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuID6T"
+          },
+          {
+            "id": "recvk1YGDnovtx"
+          },
+          {
+            "id": "recvk1YGDnnYaQ"
+          }
+        ],
+        null,
+        null,
+        "[https://www.energysingularity.cn](https://www.energysingularity.cn/)",
+        null,
+        [],
+        null,
+        "高温超导托卡马克、AI 等离子体控制、紧凑型聚变装置、高场磁体",
+        [
+          "暂无"
+        ],
+        null,
+        120,
+        null,
+        [
+          "民营企业"
+        ],
+        "国内高温超导托卡马克商业公司，“洪荒 70”于 2026 年 1 月实现千秒级长脉冲稳态运行。",
+        null,
+        "能量奇点能源科技（上海）有限公司",
+        null,
+        [
+          {
+            "id": "recvjYDkV9cY4X"
+          },
+          {
+            "id": "recvk9UmwQUf5F"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@energysingularity.cn](http://info@energysingularity.cn)",
+        "2021-06-05 00:00:00",
+        null,
+        5000000000
+      ],
+      [
+        "诺瓦聚变",
+        null,
+        "中国（上海）自由贸易试验区临港新片区妙香路 1235 号",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FZFtR8pB"
+          },
+          {
+            "id": "recvkiVxycDysX"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDnSSD8"
+          }
+        ],
+        null,
+        null,
+        "[https://www.novafusion.cn](https://www.novafusion.cn/)",
+        null,
+        null,
+        null,
+        null,
+        [
+          "甲方"
+        ],
+        null,
+        80,
+        null,
+        [
+          "民营企业"
+        ],
+        "紧凑型托卡马克、聚变工程化、等离子体模拟",
+        null,
+        "诺瓦聚变能源科技（上海）有限公司",
+        null,
+        [
+          {
+            "id": "recvjYDkV93yZo"
+          },
+          {
+            "id": "recvjYDkV9Xzzm"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        "2025-04-11 00:00:00",
+        null,
+        7000000000
+      ],
+      [
+        "星环聚能",
+        null,
+        "上海市嘉定区澄浏公路 52 号 39 幢 2 楼",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycCQSg"
+          },
+          {
+            "id": "recvjWXmd8jfGn"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWdeBa"
+          },
+          {
+            "id": "recvk1YGDn6q6Z"
+          }
+        ],
+        null,
+        null,
+        "[https://www.star-fusion.cn](https://www.star-fusion.cn/)",
+        null,
+        null,
+        null,
+        null,
+        [
+          "甲方"
+        ],
+        null,
+        140,
+        null,
+        [
+          "民营企业"
+        ],
+        "小型化商业化托卡马克、聚变装置运维服务",
+        null,
+        "上海星环聚能科技有限公司",
+        null,
+        [
+          {
+            "id": "recvjYDkV923ro"
+          },
+          {
+            "id": "recvjYDkV9cJn6"
+          },
+          {
+            "id": "recvlG3FjI1sgb"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[wangke@sunist.org](http://wangke@sunist.org)",
+        "2021-10-09 00:00:00",
+        null,
+        10000000000
+      ],
+      [
+        "瀚海聚能",
+        null,
+        "四川省成都市经开区翠柏路瀚海聚能研发中心",
+        null,
+        [
+          {
+            "id": "recvk9U8egr7r2"
+          }
+        ],
+        [
+          {
+            "id": "recvk2FsWc4t0x"
+          },
+          {
+            "id": "recvkiVxycTehd"
+          },
+          {
+            "id": "recvkiVxycMBGW"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPSL9s"
+          }
+        ],
+        null,
+        null,
+        "[https://www.hanhaifusion.cn](https://www.hanhaifusion.cn/)",
+        null,
+        null,
+        null,
+        "FRC 装置、等离子体源、诊断系统、聚变中子源",
+        [
+          "甲方"
+        ],
+        null,
+        30,
+        null,
+        [
+          "民营企业"
+        ],
+        "国内首家直线型 FRC 场反位形商业聚变公司。",
+        null,
+        "瀚海聚能（成都）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9VlBlzIly"
+          },
+          {
+            "id": "recvk9VlBlmIf3"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[contact@hhmax-energy.com](http://contact@hhmax-energy.com)",
+        "2022-12-10 00:00:00",
+        null,
+        null
+      ],
+      [
+        "星能玄光",
+        null,
+        "合肥市高新区中国科大先研院",
+        null,
+        [
+          {
+            "id": "recvmnj66m1r6o"
+          }
+        ],
+        [
+          {
+            "id": "recvk2Fpwk4MWJ"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDneU1S"
+          }
+        ],
+        null,
+        null,
+        "[https://www.xingnengxuang.com](https://www.xingnengxuang.com/)",
+        null,
+        null,
+        null,
+        "FRC 稳态约束、磁镜聚变、高 β 等离子体、数值模拟",
+        [
+          "竞争对手"
+        ],
+        null,
+        25,
+        null,
+        [
+          "民营企业"
+        ],
+        "依托中科大 KMAX-FRC 课题组，FRC + 磁镜混合约束路线。",
+        null,
+        "星能玄光（合肥）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9VlBlLxBF"
+          },
+          {
+            "id": "recvmniCJoS6gG"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@xingnengfusion.com](http://info@xingnengfusion.com)",
+        "2024-05-03 00:00:00",
+        null,
+        null
+      ],
+      [
+        "聚变新能",
+        null,
+        "安徽省合肥市新站高新区",
+        null,
+        null,
+        null,
+        [],
+        null,
+        null,
+        "[https://www.jbnenergy.com.cn](https://www.jbnenergy.com.cn/)",
+        null,
+        null,
+        null,
+        "聚变堆系统集成、超导磁体、氚技术",
+        [
+          "甲方"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "安徽省重点聚变产业化平台，依托合肥科学岛和中科院等离子体所，推进聚变工程化技术开发与装备制造。",
+        null,
+        "安徽聚变新能科技有限公司",
+        null,
+        [
+          {
+            "id": "recvjYDkV96bUR"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@neofusion.cn](http://info@neofusion.cn)",
+        null,
+        null,
+        5000000000
+      ],
+      [
+        "新烛时代",
+        null,
+        "北京市海淀区中关村环保园",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.xinzhu-era.com](https://www.xinzhu-era.com/)",
+        null,
+        null,
+        null,
+        "聚变等离子体模拟、AI4Fusion、数值仿真工具链",
+        [
+          "竞争对手"
+        ],
+        null,
+        15,
+        null,
+        [
+          "民营企业"
+        ],
+        "聚变等离子体AI模拟与数值仿真工具链开发商，聚焦AI4Fusion、数字孪生聚变堆。",
+        null,
+        "新烛时代（北京）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6KiIq"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[contact@candlefusion.com](http://contact@candlefusion.com)",
+        "2023-05-26 00:00:00",
+        null,
+        360000000
+      ],
+      [
+        "岩超聚能",
+        null,
+        "北京市昌平区未来科学城",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk1YGDniVMF"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "惯性约束聚变、激光驱动聚变、靶丸制造",
+        [
+          "甲方"
+        ],
+        null,
+        20,
+        null,
+        [
+          "民营企业"
+        ],
+        "惯性约束聚变初创企业，聚焦激光驱动聚变和靶丸制造技术。",
+        null,
+        "岩超聚能（北京）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZPiv7KW0"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "鸿鹄聚变",
+        null,
+        "苏州市工业园区桑田岛",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "仿星器紧凑型、3D 磁场优化、稳态聚变",
+        [
+          "甲方"
+        ],
+        null,
+        15,
+        null,
+        [
+          "民营企业"
+        ],
+        "仿星器紧凑型聚变企业，聚焦3D磁场优化和稳态聚变技术开发。",
+        null,
+        "鸿鹄聚变能源（苏州）有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZPiv81Fn"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@honghufusion.com](http://info@honghufusion.com)",
+        "2024-05-24 00:00:00",
+        null,
+        null
+      ],
+      [
+        "零点聚能",
+        null,
+        "宁波市北仑区青峙工业园",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Z 箍缩聚变、脉冲功率电源、紧凑型脉冲装置",
+        [
+          "甲方"
+        ],
+        null,
+        10,
+        null,
+        [
+          "民营企业"
+        ],
+        "Z箍缩脉冲聚变技术开发商，聚焦紧凑型脉冲装置和脉冲功率电源。",
+        null,
+        "零点聚能（宁波）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZPiv9Iku"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[contact@lingpointenergy.com](http://contact@lingpointenergy.com)",
+        null,
+        null,
+        null
+      ],
+      [
+        "安东聚变",
+        null,
+        "长沙市岳麓区高新区",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycr2bZ"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDn3rCG"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "托卡马克工程组件、偏滤器、第一壁材料、诊断设备",
+        [
+          "甲方"
+        ],
+        null,
+        25,
+        null,
+        [
+          "民营企业"
+        ],
+        "托卡马克工程组件供应商，专注偏滤器、第一壁材料和聚变诊断设备研发制造。",
+        null,
+        "安东聚变（长沙）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZPivGJIL"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@andongfusion.com](http://info@andongfusion.com)",
+        null,
+        null,
+        null
+      ],
+      [
+        "环宇聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "聚变发电系统、能量转换、氚增殖包层",
+        [
+          "甲方"
+        ],
+        null,
+        10,
+        null,
+        [
+          "民营企业"
+        ],
+        "聚变发电系统集成商，聚焦能量转换系统和氚增殖包层技术。",
+        null,
+        "环宇聚变（深圳）有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6G7jT"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[info@hyfusion.com](http://info@hyfusion.com)",
+        null,
+        null,
+        null
+      ],
+      [
+        "启明星聚变",
+        null,
+        "中国工程物理研究院",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "惯性约束、Z 箍缩、高能量密度物理",
+        [
+          "甲方"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "依托中国工程物理研究院技术积累，聚焦惯性约束聚变和Z箍缩高能量密度物理。",
+        null,
+        "启明星聚变（绵阳）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZPivaDuy"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中科聚能",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "EAST 技术转化、超导磁体、聚变装备",
+        [
+          "甲方"
+        ],
+        null,
+        30,
+        null,
+        [
+          "民营企业"
+        ],
+        "依托中科院等离子体物理研究所EAST成果，推动聚变技术产业化转化，聚焦超导磁体和聚变装备。",
+        null,
+        "中科聚能（合肥）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZX0HUtaJ"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "乾元聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "聚变数值模拟、AI 控制、等离子体湍流算法",
+        [
+          "竞争对手"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "聚变数值模拟与AI控制技术开发商，专注等离子体湍流算法和实时控制软件。",
+        null,
+        "乾元聚变（西安）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6yM9q"
+          }
+        ],
+        [
+          "中国"
+        ],
+        "[contact@qianyuanfusion.com](http://contact@qianyuanfusion.com)",
+        null,
+        null,
+        null
+      ],
+      [
+        "极星聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "球形托卡马克、高 β 等离子体、小型化堆芯",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "球形托卡马克小型化聚变装置开发商，聚焦高β等离子体约束和紧凑型堆芯设计。",
+        null,
+        "极星聚变（广州）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6UuFN"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "华光聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "聚变加热系统、离子回旋加热、中性束注入",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "聚变加热系统专业供应商，聚焦离子回旋加热和中性束注入技术。",
+        null,
+        "华光聚变（无锡）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR64YNR"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "九州聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "聚变堆真空室、低温系统、超导磁体装备",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "民营企业"
+        ],
+        "聚变堆关键装备制造商，专注真空室、低温系统和超导磁体装备。",
+        null,
+        "九州聚变（青岛）科技有限公司",
+        null,
+        [
+          {
+            "id": "recvk9ZXR60jqW"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "江西聚变能源",
+        null,
+        "江西省南昌市南昌高新技术产业开发区京东大道168号科技大楼10楼",
+        null,
+        null,
+        [
+          {
+            "id": "recvkjq79pOYd5"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDnMGYj"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "高温超导托卡马克、聚变-裂变混合堆、聚变能源技术",
+        [
+          "暂无"
+        ],
+        null,
+        50,
+        null,
+        [
+          "民营企业"
+        ],
+        "由江西省电子集团有限公司和江西联创超导技术有限公司共同投资组建，专注于聚变能源技术开发和商业化。推进\"星火一号\"高温超导混合堆项目，设计等效聚变功率超40MW，目标2030年实现演示发电。",
+        null,
+        "江西聚变新能源有限责任公司",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        "fusion@jxfe.com.cn",
+        "2024-08-16 00:00:00",
+        null,
+        null
+      ],
+      [
+        "北京大学",
+        null,
+        "北京市海淀区颐和园路5号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycyAY2"
+          },
+          {
+            "id": "recvkiVxycr8bi"
+          },
+          {
+            "id": "recvkiVxycwPlK"
+          },
+          {
+            "id": "recvkiVxyc9aUV"
+          },
+          {
+            "id": "recvkiVxycexUM"
+          },
+          {
+            "id": "recvkiVxycWh1h"
+          },
+          {
+            "id": "recvkiVxycCS3Q"
+          },
+          {
+            "id": "recvkiVxycsw3a"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.pku.edu.cn](https://www.pku.edu.cn/)",
+        null,
+        null,
+        null,
+        "等离子体物理、聚变理论、高能量密度物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "中国顶尖综合性研究型大学，等离子体物理和聚变理论研究处于国内领先水平。",
+        null,
+        "北京大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中科院等离子体所",
+        null,
+        "安徽省合肥市蜀山区蜀山湖路350号",
+        null,
+        [
+          {
+            "id": "recvjRShnQRINI"
+          },
+          {
+            "id": "recvk9U8egZS0V"
+          }
+        ],
+        [
+          {
+            "id": "recvk2ENqLn0lI"
+          },
+          {
+            "id": "recvkiVxyciAoW"
+          },
+          {
+            "id": "recvkiVxycO3zf"
+          },
+          {
+            "id": "recvkiVxycgYzJ"
+          },
+          {
+            "id": "recvkiVxycsoYo"
+          },
+          {
+            "id": "recvkiVxycTWbe"
+          },
+          {
+            "id": "recvkiVxyc7ysH"
+          },
+          {
+            "id": "recvkiVxycVxbL"
+          },
+          {
+            "id": "recvkiVxycnsjv"
+          },
+          {
+            "id": "recvkiVxycrV1X"
+          },
+          {
+            "id": "recvkiVxyclFfz"
+          },
+          {
+            "id": "recvkiVxycZwvW"
+          },
+          {
+            "id": "recvkiVxyco9hp"
+          },
+          {
+            "id": "recvkiVxycjjI9"
+          },
+          {
+            "id": "recvkiVxyc8Z1H"
+          },
+          {
+            "id": "recvkiVxyc9YHg"
+          },
+          {
+            "id": "recvkiVxycvqhB"
+          },
+          {
+            "id": "recvkiVxycixUQ"
+          },
+          {
+            "id": "recvkiVxycxIVb"
+          },
+          {
+            "id": "recvkiVxycJ4Jp"
+          },
+          {
+            "id": "recvkiVxyc2wBF"
+          },
+          {
+            "id": "recvkiVxyc1vI5"
+          },
+          {
+            "id": "recvk2FlU83Jhi"
+          },
+          {
+            "id": "recvkdhmMaPzMl"
+          },
+          {
+            "id": "recvkiVxyc5kPE"
+          },
+          {
+            "id": "recvkiVxycsw3a"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPyQm3"
+          },
+          {
+            "id": "recvk1TmXUzGOP"
+          }
+        ],
+        [
+          {
+            "id": "recvjTn2LK80zt"
+          }
+        ],
+        null,
+        "[https://www.ipp.cas.cn](https://www.ipp.cas.cn/)",
+        null,
+        [],
+        null,
+        "EAST托卡马克、CFETR设计、聚变堆物理、等离子体诊断",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "科研机构"
+        ],
+        "中国磁约束聚变核心研究机构，运营EAST全超导托卡马克装置，承担CFETR设计任务。",
+        null,
+        "中国科学院等离子体物理研究所",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "上海交通大学",
+        null,
+        "上海市闵行区东川路800号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycRdEk"
+          },
+          {
+            "id": "recvkiVxycAyBo"
+          },
+          {
+            "id": "recvkiVxycsWGc"
+          },
+          {
+            "id": "recvkiVxyc3MdV"
+          },
+          {
+            "id": "recvkiVxycmRZT"
+          },
+          {
+            "id": "recvkiVxycQSuB"
+          },
+          {
+            "id": "recvkiVxycDu7a"
+          },
+          {
+            "id": "recvkiVxychQhI"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.sjtu.edu.cn](https://www.sjtu.edu.cn/)",
+        null,
+        null,
+        null,
+        "激光聚变、聚变材料、等离子体诊断",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "综合性研究型大学，在激光聚变、聚变材料和等离子体诊断方面有特色研究方向。",
+        null,
+        "上海交通大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中广核",
+        null,
+        "深圳市福田区深南大道2002号中广核大厦",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.cgnpc.com.cn](https://www.cgnpc.com.cn/)",
+        null,
+        null,
+        null,
+        "聚变堆运营、核工程、氚技术",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "国央企"
+        ],
+        "中国广核集团有限公司，中国最大核电运营商之一，积极参与聚变能源产业化布局。",
+        null,
+        "中国广核集团有限公司",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        "1994-09-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "北大物院",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.phy.pku.edu.cn](https://www.phy.pku.edu.cn/)",
+        null,
+        null,
+        null,
+        "等离子体理论、聚变模拟、高能量密度物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "北京大学物理学院，中国等离子体物理研究重镇，在聚变理论和模拟方面有深厚积累。",
+        null,
+        "北京大学物理学院",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "清华物理学院",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.phys.tsinghua.edu.cn](https://www.phys.tsinghua.edu.cn/)",
+        null,
+        null,
+        null,
+        "等离子体物理、聚变理论",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "清华大学物理学院，在等离子体物理和聚变理论研究方面有重要贡献。",
+        null,
+        "清华大学物理系",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "清华大学",
+        null,
+        "北京市海淀区清华园",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycy1L6"
+          },
+          {
+            "id": "recvkiVxyceDvt"
+          },
+          {
+            "id": "recvkiVxycMF1w"
+          },
+          {
+            "id": "recvkiVxycmqgJ"
+          },
+          {
+            "id": "recvjWXmd8jfGn"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vu8YDo"
+          }
+        ],
+        null,
+        null,
+        "[https://www.tsinghua.edu.cn](https://www.tsinghua.edu.cn/)",
+        null,
+        [],
+        null,
+        "球形托卡马克、聚变工程、等离子体物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "中国顶尖工科大学，在球形托卡马克SUNIST装置、聚变工程和等离子体物理方面实力雄厚。",
+        null,
+        "清华大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "南京大学",
+        null,
+        "江苏省南京市栖霞区仙林大道163号",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.nju.edu.cn](https://www.nju.edu.cn/)",
+        null,
+        null,
+        null,
+        "等离子体理论、数值模拟",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "综合性研究型大学，在等离子体物理理论和模拟方面有研究积累。",
+        null,
+        "南京大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中国科学技术大学",
+        null,
+        "安徽省合肥市金寨路96号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc97iT"
+          },
+          {
+            "id": "recvkiVxycW69A"
+          },
+          {
+            "id": "recvkiVxycXeLX"
+          },
+          {
+            "id": "recvkiVxycBQ3q"
+          },
+          {
+            "id": "recvkiVxycXt71"
+          },
+          {
+            "id": "recvkiVxyc90aH"
+          },
+          {
+            "id": "recvkiVxyc7yYZ"
+          },
+          {
+            "id": "recvkiVxycyoYJ"
+          },
+          {
+            "id": "recvkiVxycvV5X"
+          },
+          {
+            "id": "recvk2FlU83Jhi"
+          },
+          {
+            "id": "recvk2Fpwk4MWJ"
+          },
+          {
+            "id": "recvkdhmMaPzMl"
+          },
+          {
+            "id": "recvkiVxyc5kPE"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuvMFL"
+          }
+        ],
+        null,
+        null,
+        "[https://www.ustc.edu.cn](https://www.ustc.edu.cn/)",
+        null,
+        null,
+        null,
+        "FRC场反位形、聚变等离子体、KMAX装置、磁镜约束",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "中国顶尖理工科大学，运营KMAX-FRC装置，在FRC和聚变等离子体基础研究方面国内领先。",
+        null,
+        "中国科学技术大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "清华工物系",
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk1YGDnv6Tm"
+          }
+        ],
+        null,
+        null,
+        "[https://www.ep.tsinghua.edu.cn](https://www.ep.tsinghua.edu.cn/)",
+        null,
+        [],
+        null,
+        "聚变工程、托卡马克技术、加速器物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "清华大学工程物理系，在聚变工程、托卡马克和加速器技术方面有突出成果。",
+        null,
+        "清华大学工程物理系",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "北京理工大学",
+        null,
+        "北京市海淀区中关村南大街5号",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.bit.edu.cn](https://www.bit.edu.cn/)",
+        null,
+        null,
+        null,
+        "聚变材料、等离子体工程、脉冲功率",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "以工科见长的研究型大学，在聚变材料、等离子体工程和脉冲功率技术方面有研究。",
+        null,
+        "北京理工大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中科院物理所",
+        null,
+        "北京市海淀区中关村南三街8号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycG1zv"
+          },
+          {
+            "id": "recvkiVxyckbdL"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.iop.cas.cn](https://www.iop.cas.cn/)",
+        null,
+        null,
+        null,
+        "等离子体物理基础研究、聚变材料科学",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "科研机构"
+        ],
+        "中国科学院下属基础物理研究机构，在凝聚态物理和等离子体物理基础研究方面具有国际影响力。",
+        null,
+        "中国科学院物理研究所",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "浙江大学",
+        null,
+        "浙江省杭州市西湖区余杭塘路866号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycSR50"
+          },
+          {
+            "id": "recvkiVxycmvsq"
+          },
+          {
+            "id": "recvkiVxycuSqW"
+          },
+          {
+            "id": "recvkiVxycWTTu"
+          },
+          {
+            "id": "recvkiVxycWUqS"
+          },
+          {
+            "id": "recvkiVxyczw2k"
+          },
+          {
+            "id": "recvkiVxycKrmP"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.zju.edu.cn](https://www.zju.edu.cn/)",
+        null,
+        [],
+        [
+          {
+            "id": "recvkp7iSZaMOa"
+          }
+        ],
+        "等离子体物理、聚变材料",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "综合性研究型大学，聚变等离子体物理和聚变材料研究有一定特色。",
+        null,
+        "浙江大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "大连理工大学",
+        null,
+        "辽宁省大连市甘井子区凌工路2号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycAFOE"
+          },
+          {
+            "id": "recvkiVxycVD2g"
+          },
+          {
+            "id": "recvkiVxycmnWf"
+          },
+          {
+            "id": "recvkiVxycXdmu"
+          },
+          {
+            "id": "recvkiVxycZrMA"
+          },
+          {
+            "id": "recvkiVxycST8Q"
+          },
+          {
+            "id": "recvkiVxycfx0T"
+          },
+          {
+            "id": "recvkiVxyc4Dx1"
+          },
+          {
+            "id": "recvkiVxycxJRu"
+          },
+          {
+            "id": "recvkiVxyc1Jkh"
+          },
+          {
+            "id": "recvkiVxycXz5Q"
+          },
+          {
+            "id": "recvkiVxycvsYH"
+          },
+          {
+            "id": "recvkiVxyc1HrE"
+          },
+          {
+            "id": "recvkiVxycGhdI"
+          },
+          {
+            "id": "recvkiVxycYCER"
+          },
+          {
+            "id": "recvkiVxycLu9f"
+          },
+          {
+            "id": "recvkiVxycXAZi"
+          },
+          {
+            "id": "recvkiVxycsADY"
+          },
+          {
+            "id": "recvkiVxycLAmx"
+          },
+          {
+            "id": "recvkiVxycPZDZ"
+          },
+          {
+            "id": "recvkiVxycYaGm"
+          },
+          {
+            "id": "recvkiVxycoGvS"
+          },
+          {
+            "id": "recvkiVxycHsVw"
+          },
+          {
+            "id": "recvkiVxycPlo0"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.dlut.edu.cn](https://www.dlut.edu.cn/)",
+        null,
+        null,
+        null,
+        "等离子体模拟、聚变工程",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "以工科见长的研究型大学，在等离子体物理和聚变工程模拟方面有较强实力。",
+        null,
+        "大连理工大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "上海科技大学",
+        null,
+        "上海市浦东新区华夏中路393号",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.shanghaitech.edu.cn](https://www.shanghaitech.edu.cn/)",
+        null,
+        null,
+        null,
+        "聚变材料、等离子体物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "新型研究型大学，在聚变能源材料和等离子体物理交叉学科有布局。",
+        null,
+        "上海科技大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "中物院",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk2G6vQ4Lot"
+          },
+          {
+            "id": "recvkiVxycH7a8"
+          },
+          {
+            "id": "recvkiVxyc8INl"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDnRaQM"
+          }
+        ],
+        null,
+        null,
+        "[https://www.caep.cn](https://www.caep.cn/)",
+        null,
+        [
+          {
+            "id": "recvk1SGzPSL9s"
+          }
+        ],
+        null,
+        "惯性约束聚变、Z箍缩、高能量密度物理、激光聚变",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "科研机构"
+        ],
+        "中国工程物理研究院，国家战略科技力量，在惯性约束聚变和高能量密度物理方面处于国内领先地位。",
+        null,
+        "中国工程物理研究院",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "LLNL",
+        null,
+        "7000 East Avenue • Livermore, CA 94550, USA",
+        null,
+        [
+          {
+            "id": "recvjRShnQ0TwB"
+          }
+        ],
+        [
+          {
+            "id": "recvk2GOha2ACk"
+          },
+          {
+            "id": "recvkiVxycXh6l"
+          },
+          {
+            "id": "recvkiVxycoAbY"
+          },
+          {
+            "id": "recvkiVxycRBMh"
+          },
+          {
+            "id": "recvkiVxyczpPY"
+          },
+          {
+            "id": "recvkiVxycZYIt"
+          },
+          {
+            "id": "recvkiVxycQUiB"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWtgax"
+          },
+          {
+            "id": "recvk1TmXUtCte"
+          }
+        ],
+        [
+          {
+            "id": "recvjTn2LK4O8U"
+          }
+        ],
+        null,
+        "[https://www.llnl.gov](https://www.llnl.gov/)",
+        null,
+        [
+          {
+            "id": "recvk1TmXUZTM1"
+          }
+        ],
+        [
+          {
+            "id": "recvkkeInGX3f7"
+          },
+          {
+            "id": "recvkkeInGdGKT"
+          }
+        ],
+        "惯性约束聚变、激光聚变、高能量密度物理、NIF装置、聚变点火",
+        [
+          "暂无"
+        ],
+        null,
+        7378,
+        null,
+        [
+          "科研机构"
+        ],
+        "美国能源部下属三大核武器实验室之一，NIF国家点火装置所在地，2022年首次实现聚变点火（能量增益\u003e1），惯性约束聚变全球领导者。",
+        null,
+        "Lawrence Livermore National Laboratory",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "DeepMind",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://deepmind.google](https://deepmind.google/)",
+        null,
+        null,
+        [
+          {
+            "id": "rec27pSCprzpJn"
+          }
+        ],
+        "AI等离子体控制、深度强化学习托卡马克磁控、聚变数字孪生",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "国外企业"
+        ],
+        "Google旗下AI研究实验室，2022年与EPFL合作将深度强化学习应用于TCV托卡马克等离子体磁控，开创AI核聚变控制新范式。",
+        null,
+        "Google DeepMind团队",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Proxima Fusion",
+        null,
+        "Flößergasse 2, 81369 München, Germany",
+        null,
+        [
+          {
+            "id": "recvk9U8egicR6"
+          },
+          {
+            "id": "recvk9U8egeypW"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycWeDc"
+          },
+          {
+            "id": "recvkiVxycPsyP"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuBLWI"
+          }
+        ],
+        null,
+        null,
+        "[https://www.proximafusion.com](https://www.proximafusion.com/)",
+        null,
+        null,
+        null,
+        "仿星器优化设计、高温超导磁体、AI驱动3D磁场优化、稳态聚变",
+        [
+          "暂无"
+        ],
+        null,
+        90,
+        null,
+        [
+          "国外企业"
+        ],
+        "德国仿星器商业化初创公司，从IPP/W7-X团队剥离成立，全球首个仿星器AI驱动设计公司，获西门子等战略投资。",
+        null,
+        "Proxima Fusion GmbH",
+        null,
+        [
+          {
+            "id": "recvjYDkV9TxtU"
+          },
+          {
+            "id": "recvjYDkV9JukA"
+          },
+          {
+            "id": "recvjYDkV9OCVt"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        null,
+        "2023-04-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Focused Energy",
+        null,
+        "Darmstadt, Germany",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycswU9"
+          },
+          {
+            "id": "recvkiVxycrBGF"
+          },
+          {
+            "id": "recvkiVxyczpPY"
+          },
+          {
+            "id": "recvkiVxycDxuW"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWAacz"
+          }
+        ],
+        null,
+        null,
+        "[https://www.focused-energy.world](https://www.focused-energy.world/)",
+        null,
+        null,
+        null,
+        "激光惯性约束聚变、质子快点火、靶丸制造",
+        [
+          "暂无"
+        ],
+        null,
+        80,
+        null,
+        [
+          "国外企业"
+        ],
+        "德国/美国激光惯性约束聚变初创公司，采用质子快点火技术路线，获DOE资助建设聚变装置。",
+        null,
+        "Focused Energy GmbH",
+        null,
+        [
+          {
+            "id": "recvjYDkV9M0j8"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Marvel Fusion",
+        null,
+        "Munich, Germany",
+        null,
+        [
+          {
+            "id": "recvk9U8egv6UJ"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycyiOd"
+          },
+          {
+            "id": "recvkiVxycZbQh"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWTD6r"
+          }
+        ],
+        null,
+        null,
+        "[https://www.marvelfusion.com](https://www.marvelfusion.com/)",
+        null,
+        null,
+        null,
+        "超短脉冲激光聚变、纳米结构靶、直接能量转换",
+        [
+          "暂无"
+        ],
+        null,
+        70,
+        null,
+        [
+          "国外企业"
+        ],
+        "德国超短脉冲激光聚变初创公司，采用纳米结构靶技术和超强激光驱动，获西门子能源等投资。",
+        null,
+        "Marvel Fusion GmbH",
+        null,
+        [
+          {
+            "id": "recvjYDkV9hnY1"
+          },
+          {
+            "id": "recvkjzA6CDXEQ"
+          },
+          {
+            "id": "recvkjzA6Cp6l4"
+          }
+        ],
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "HB11 Energy",
+        null,
+        "Sydney, Australia",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycByMl"
+          },
+          {
+            "id": "recvkiVxycUHfj"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuPcwx"
+          }
+        ],
+        null,
+        null,
+        "[https://www.hb11.energy](https://www.hb11.energy/)",
+        null,
+        null,
+        null,
+        "激光驱动p-B11无中子聚变、超强激光、氢硼燃料",
+        [
+          "暂无"
+        ],
+        null,
+        40,
+        null,
+        [
+          "国外企业"
+        ],
+        "澳大利亚激光-硼聚变初创公司，全球唯一p-B11无中子聚变路线企业，使用超强激光驱动氢硼聚变反应。",
+        null,
+        "HB11 Energy Pty Ltd",
+        null,
+        [
+          {
+            "id": "recvjYDkV9xNMG"
+          }
+        ],
+        [
+          "澳大利亚"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Longview Fusion",
+        null,
+        "Livermore, California, USA",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1Q0p6bYZc"
+          },
+          {
+            "id": "recvk1QjZowPGr"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWwny8"
+          }
+        ],
+        null,
+        null,
+        "[https://www.longviewfusion.com](https://www.longviewfusion.com/)",
+        null,
+        null,
+        null,
+        "激光惯性约束聚变、聚变电厂工程化、NIF技术转化",
+        [
+          "暂无"
+        ],
+        null,
+        30,
+        null,
+        [
+          "国外企业"
+        ],
+        "美国激光聚变初创公司，由前NIF主任Edward Moses创立，基于NIF点火成果推动惯性聚变商业化。",
+        null,
+        "Longview Fusion Energy Systems",
+        null,
+        [
+          {
+            "id": "recvjYDkV9m4cX"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "LPP Fusion",
+        null,
+        "128 Lincoln Boulevard, Middlesex, NJ 08846, USA",
+        null,
+        null,
+        null,
+        [],
+        null,
+        null,
+        "[https://www.lppfusion.com](https://www.lppfusion.com/)",
+        null,
+        null,
+        null,
+        "稠密等离子体焦点（DPF）、p-B11无中子聚变、Focus Fusion",
+        [
+          "暂无"
+        ],
+        null,
+        8,
+        null,
+        [
+          "国外企业"
+        ],
+        "全球唯一坚持稠密等离子体焦点（DPF）路线的小型聚变公司，致力于p-B11无中子聚变，由等离子体物理学家Eric Lerner创立。",
+        null,
+        "Lawrenceville Plasma Physics, Inc",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Norcott Fusion",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "待核验",
+        [
+          "暂无"
+        ],
+        null,
+        10,
+        null,
+        [
+          "国外企业"
+        ],
+        "未在 FIA 会员页、IAEA 2022 装置名录和公开官网检索中确认到“Norcott Fusion”对应机构；建议后续删除或更正来源。",
+        null,
+        "待核验",
+        null,
+        [
+          {
+            "id": "recvjYDkV9BZME"
+          },
+          {
+            "id": "recvjYDkV9cFCw"
+          }
+        ],
+        [
+          "待核验"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "星尘聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          "暂无"
+        ],
+        null,
+        15,
+        null,
+        [
+          "民营企业"
+        ],
+        "中国聚变初创企业，聚焦聚变技术研发，已完成天使轮融资。",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZXR6hUBZ"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "天工聚变",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        [
+          "暂无"
+        ],
+        null,
+        15,
+        null,
+        [
+          "民营企业"
+        ],
+        "中国聚变初创企业，聚焦聚变能源技术研发和产业化，已完成天使轮融资。",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9ZXR67Ut3"
+          }
+        ],
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "General Atomics",
+        null,
+        "San Diego, California, USA",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2FfZYLhkH"
+          },
+          {
+            "id": "recvkiVxycxB1h"
+          },
+          {
+            "id": "recvkiVxycb8Gp"
+          },
+          {
+            "id": "recvkiVxyctGcb"
+          },
+          {
+            "id": "recvkiVxycJT2U"
+          },
+          {
+            "id": "recvkiVxyc843K"
+          }
+        ],
+        [
+          {
+            "id": "recvk1SGzPSiUc"
+          }
+        ],
+        null,
+        null,
+        "[https://www.ga.com/energy](https://www.ga.com/energy)",
+        null,
+        null,
+        [
+          {
+            "id": "recvjRPrWahm04"
+          },
+          {
+            "id": "recvkkeInGv9JH"
+          },
+          {
+            "id": "recvkkeInGT9jt"
+          },
+          {
+            "id": "recvkkeInGYzGm"
+          },
+          {
+            "id": "recvkkeInGRGyl"
+          },
+          {
+            "id": "recvkkeInGi4df"
+          },
+          {
+            "id": "recvkkeInG4xdE"
+          },
+          {
+            "id": "recvkkeInGiOck"
+          },
+          {
+            "id": "recvkkeInGJou4"
+          },
+          {
+            "id": "recvkp7iSZ0GY5"
+          },
+          {
+            "id": "recvkp7iSZfoId"
+          },
+          {
+            "id": "recvkp7iSZjF0n"
+          },
+          {
+            "id": "recvkp7iSZstML"
+          },
+          {
+            "id": "recvkp7iSZ5oSW"
+          },
+          {
+            "id": "recvkp7iSZztcc"
+          },
+          {
+            "id": "recvkp7iSZOzhx"
+          }
+        ],
+        "DIII-D托卡马克运行、聚变堆设计、等离子体理论、诊断技术",
+        [
+          "暂无"
+        ],
+        null,
+        5000,
+        null,
+        [
+          "国外企业"
+        ],
+        "美国国防与能源技术巨头，运营全球最大托卡马克之一DIII-D，在聚变工程、等离子体理论和聚变堆设计方面世界领先。",
+        null,
+        "General Atomics",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "ITER",
+        null,
+        "Route de Vinon-sur-Verdon; CS 90 046; 13067 St. Paul-lez-Durance, France",
+        null,
+        [
+          {
+            "id": "recvjRShnQCYrb"
+          }
+        ],
+        [
+          {
+            "id": "recvk2FAHAN4Kh"
+          },
+          {
+            "id": "recvk2FHRmoxFK"
+          },
+          {
+            "id": "recvkiVxycFNmp"
+          },
+          {
+            "id": "recvkiVxyceEQJ"
+          },
+          {
+            "id": "recvkiVxycXY1f"
+          },
+          {
+            "id": "recvkiVxyc7Ao4"
+          },
+          {
+            "id": "recvkiVxycw5Jx"
+          },
+          {
+            "id": "recvkiVxycQUbl"
+          },
+          {
+            "id": "recvkiVxycY9PQ"
+          },
+          {
+            "id": "recvkiVxycqYQs"
+          },
+          {
+            "id": "recvkiVxyccsa3"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXUh7gF"
+          }
+        ],
+        [
+          {
+            "id": "recvlU4a3XVugD"
+          }
+        ],
+        null,
+        "[https://www.iter.org](https://www.iter.org/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkkeInGhwyz"
+          },
+          {
+            "id": "recvjRPrWaq6ld"
+          },
+          {
+            "id": "recvkp7iSZMS04"
+          }
+        ],
+        "托卡马克聚变、氘氚燃烧等离子体、超导磁体、大规模聚变工程",
+        [
+          "暂无"
+        ],
+        null,
+        3000,
+        null,
+        [
+          "国际组织"
+        ],
+        "国际热核聚变实验反应堆，全球最大聚变实验项目，由35国合作建设，目标实现Q≥10的500MW聚变功率，是通往聚变能源的关键一步。",
+        null,
+        "ITER Organization",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        "2007-10-24 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Helical Fusion",
+        null,
+        "Tokyo, Japan",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc1Nmx"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXUzu87"
+          }
+        ],
+        null,
+        null,
+        "[https://helicalfusion.com](https://helicalfusion.com/)",
+        null,
+        null,
+        null,
+        "螺旋型仿星器聚变、高温超导磁体、稳态运行",
+        [
+          "暂无"
+        ],
+        null,
+        30,
+        null,
+        [
+          "国外企业"
+        ],
+        "日本首家聚变初创公司，基于螺旋型/仿星器技术路线，获日本政府NEDO资助开发Helix KANATA聚变装置。",
+        null,
+        "Helical Fusion Co., Ltd.",
+        null,
+        [
+          {
+            "id": "recvkiWaask7cd"
+          }
+        ],
+        [
+          "日本"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "IPP",
+        null,
+        "Boltzmannstraße 2, 85748 Garching, Germany",
+        null,
+        [
+          {
+            "id": "recvjRShnQGqya"
+          }
+        ],
+        [
+          {
+            "id": "recvk2Gk6L9PxZ"
+          },
+          {
+            "id": "recvkiVxycD4HP"
+          },
+          {
+            "id": "recvkiVxyc44MM"
+          },
+          {
+            "id": "recvkiVxyc9RLf"
+          },
+          {
+            "id": "recvkiVxycmasr"
+          },
+          {
+            "id": "recvkiVxycIqSG"
+          },
+          {
+            "id": "recvkiVxycdKM4"
+          },
+          {
+            "id": "recvkiVxyc4Q5E"
+          },
+          {
+            "id": "recvkiVxyccMrI"
+          },
+          {
+            "id": "recvkiVxycjfwI"
+          },
+          {
+            "id": "recvkiVxycdT6g"
+          },
+          {
+            "id": "recvkiVxycXYtm"
+          },
+          {
+            "id": "recvkiVxycZ847"
+          },
+          {
+            "id": "recvkiVxycjSvH"
+          },
+          {
+            "id": "recvkiVxyczeVG"
+          },
+          {
+            "id": "recvkiVxycrfmX"
+          },
+          {
+            "id": "recvkiVxycA72C"
+          },
+          {
+            "id": "recvkiVxycXyp6"
+          },
+          {
+            "id": "recvkiVxycyQS1"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDn9BuF"
+          },
+          {
+            "id": "recvk1SGzPhNKg"
+          }
+        ],
+        [
+          {
+            "id": "recvlU4a3XtG4f"
+          }
+        ],
+        null,
+        "[https://www.ipp.mpg.de](https://www.ipp.mpg.de/)",
+        null,
+        null,
+        [
+          {
+            "id": "rec27pSCprzhtA"
+          },
+          {
+            "id": "recvkkeInGhvQm"
+          },
+          {
+            "id": "rec27pSCprzrO0"
+          },
+          {
+            "id": "recvkkeInG7mSs"
+          },
+          {
+            "id": "recvkp7iSZzmSB"
+          },
+          {
+            "id": "recvkp7iSZAfkJ"
+          },
+          {
+            "id": "recvkp7iSZ8p9k"
+          },
+          {
+            "id": "recvkp7iSZXExj"
+          },
+          {
+            "id": "recvkp7iSZEBrX"
+          },
+          {
+            "id": "recvkp7iSZ8yCe"
+          },
+          {
+            "id": "recvkp7iSZGmvN"
+          },
+          {
+            "id": "recvkp7iSZxKYB"
+          }
+        ],
+        "仿星器物理与工程、托卡马克物理、聚变等离子体理论、W7-X装置",
+        [
+          "暂无"
+        ],
+        null,
+        1100,
+        null,
+        [
+          "科研机构"
+        ],
+        "马克斯·普朗克等离子体物理研究所，欧洲最大聚变研究机构，运营全球最大仿星器W7-X和ASDEX Upgrade托卡马克，世界仿星器研究绝对领导者。",
+        null,
+        "马克斯·普朗克等离子体物理研究所",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "PPPL",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycgrpZ"
+          },
+          {
+            "id": "recvkiVxycj3VS"
+          },
+          {
+            "id": "recvkiVxycUyAr"
+          },
+          {
+            "id": "recvkiVxycq8YA"
+          },
+          {
+            "id": "recvkiVxycdHds"
+          },
+          {
+            "id": "recvkiVxyc0K0s"
+          },
+          {
+            "id": "recvkiVxycdHJ6"
+          },
+          {
+            "id": "recvkiVxycvJqi"
+          },
+          {
+            "id": "recvkiVxycSI4l"
+          },
+          {
+            "id": "recvkiVxycgQav"
+          },
+          {
+            "id": "recvkiVxycaeAC"
+          },
+          {
+            "id": "recvkiVxycTYtr"
+          },
+          {
+            "id": "recvkiVxycTIHH"
+          },
+          {
+            "id": "recvkiVxycZGD4"
+          },
+          {
+            "id": "recvk2GLFCm0Ef"
+          },
+          {
+            "id": "recvkiVxycioBi"
+          },
+          {
+            "id": "recvkiVxycOOmz"
+          },
+          {
+            "id": "recvkiVxycltFI"
+          },
+          {
+            "id": "recvkiVxycZ95L"
+          },
+          {
+            "id": "recvkiVxycGVK3"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuWbaw"
+          },
+          {
+            "id": "recvk1TmXUH7UQ"
+          },
+          {
+            "id": "recvkiVLpWyKuN"
+          }
+        ],
+        null,
+        null,
+        "[https://www.pppl.gov](https://www.pppl.gov/)",
+        null,
+        [],
+        [
+          {
+            "id": "rec27pSCprznpI"
+          },
+          {
+            "id": "recvjRPrWamqTI"
+          },
+          {
+            "id": "recvjRPrWar0ww"
+          },
+          {
+            "id": "recvjRPrWaDbQ7"
+          },
+          {
+            "id": "recvjRPrWa5sJe"
+          },
+          {
+            "id": "recvkkeyuWfx7h"
+          },
+          {
+            "id": "recvkkeInGkOoO"
+          },
+          {
+            "id": "rec27pSCprzkXa"
+          },
+          {
+            "id": "recvjRPrWaoosn"
+          },
+          {
+            "id": "recvkkeInGBKeK"
+          },
+          {
+            "id": "recvkkeInG7Qa0"
+          },
+          {
+            "id": "recvkkeInGraAL"
+          },
+          {
+            "id": "recvkp7iSZat02"
+          },
+          {
+            "id": "recvkp7iSZTeBz"
+          },
+          {
+            "id": "recvkp7iSZCADE"
+          },
+          {
+            "id": "recvkp7iSZH1sR"
+          },
+          {
+            "id": "recvkp7iSZWE6r"
+          },
+          {
+            "id": "recvkp7iSZdkkA"
+          },
+          {
+            "id": "recvkp7iSZPse9"
+          },
+          {
+            "id": "recvkp7iSZDoYV"
+          }
+        ],
+        "球形托卡马克物理、仿星器理论、聚变等离子体模拟、NSTX-U装置",
+        [
+          "暂无"
+        ],
+        null,
+        500,
+        null,
+        [
+          "科研机构"
+        ],
+        "普林斯顿等离子体物理实验室，美国能源部下属国家实验室，全球磁约束聚变理论发源地，运营NSTX-U球形托卡马克。",
+        null,
+        "普林斯顿等离子体物理实验室",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "CEA",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycmzZD"
+          },
+          {
+            "id": "recvkiVxycNSmd"
+          },
+          {
+            "id": "recvkiVxyczhJj"
+          },
+          {
+            "id": "recvkiVxycuoQK"
+          },
+          {
+            "id": "recvkiVxycBOnX"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuUDOr"
+          },
+          {
+            "id": "recvk1YGDnttF9"
+          },
+          {
+            "id": "recvk1YGDnyV3O"
+          }
+        ],
+        null,
+        null,
+        "[https://www.cea.fr](https://www.cea.fr/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkkeInGLNY0"
+          },
+          {
+            "id": "recvkkeInGj0pa"
+          },
+          {
+            "id": "recvkp7iSZrSHH"
+          },
+          {
+            "id": "recvkp7iSZ7WOo"
+          },
+          {
+            "id": "recvkp7iSZUYL2"
+          }
+        ],
+        "长脉冲托卡马克运行、WEST装置、聚变材料、ITER贡献",
+        [
+          "暂无"
+        ],
+        null,
+        20000,
+        null,
+        [
+          "科研机构"
+        ],
+        "法国原子能委员会，法国国家核研究机构，运营Tore Supra/WEST托卡马克，在长脉冲稳态托卡马克运行方面全球领先。",
+        null,
+        "法国原子能委员会",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        "1945-10-18 00:00:00",
+        null,
+        null
+      ],
+      [
+        "西南交通大学",
+        null,
+        "四川省成都市二环路北一段111号",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2F2s2KvHf"
+          },
+          {
+            "id": "recvkiVxyczHiX"
+          },
+          {
+            "id": "recvkiVxycXpPF"
+          }
+        ],
+        [
+          {
+            "id": "recvk1YGDnrHi3"
+          },
+          {
+            "id": "recvk9W5vujqsF"
+          }
+        ],
+        null,
+        null,
+        "[https://www.swjtu.edu.cn](https://www.swjtu.edu.cn/)",
+        null,
+        [
+          {
+            "id": "recvk1SGzPU7Oi"
+          }
+        ],
+        null,
+        "仿星器、准轴对称磁场、CFQS、等离子体物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "与日本 NIFS 等合作建设 CFQS 准轴对称仿星器，是中国仿星器方向的重要高校平台。",
+        null,
+        "西南交通大学",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "四川大学",
+        null,
+        "四川省成都市一环路南一段24号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc0G6y"
+          }
+        ],
+        [],
+        null,
+        null,
+        "[https://www.scu.edu.cn](https://www.scu.edu.cn/)",
+        null,
+        null,
+        null,
+        "托卡马克物理、等离子体诊断、聚变材料",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "综合性研究型大学，与西物院合作开展HL-2M装置等离子体物理和聚变诊断研究。",
+        null,
+        null,
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "微软",
+        null,
+        "One Microsoft Way, Redmond, WA 98052, USA",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.microsoft.com](https://www.microsoft.com/)",
+        null,
+        [
+          {
+            "id": "recvk1TmXUIby6"
+          }
+        ],
+        null,
+        "聚变购电协议（PPA）、AI聚变控制、数据中心碳中和",
+        [
+          "暂无"
+        ],
+        null,
+        221000,
+        null,
+        [
+          "国外企业"
+        ],
+        "全球最大科技公司之一，2023年与Helion Energy签订全球首份聚变购电协议（50MW, 2028年交付），开创聚变商业化先河。",
+        null,
+        "Microsoft Corporation",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        2900000000000
+      ],
+      [
+        "MIT",
+        null,
+        "77 Massachusetts Avenue, Cambridge, MA 02139-4307, USA",
+        null,
+        null,
+        [],
+        [
+          {
+            "id": "recvk1TmXUEsbR"
+          }
+        ],
+        null,
+        null,
+        "[https://www.mit.edu](https://www.mit.edu/)",
+        null,
+        [
+          {
+            "id": "recvk1SGzPzO4o"
+          }
+        ],
+        [
+          {
+            "id": "recvkkeInGJf6E"
+          },
+          {
+            "id": "recvkp7iSZdynm"
+          },
+          {
+            "id": "recvkp7iSZ04fz"
+          },
+          {
+            "id": "recvkp7iSZm1cm"
+          },
+          {
+            "id": "recvkp7iSZaX2v"
+          },
+          {
+            "id": "recvkp7iSZsbEY"
+          }
+        ],
+        "高温超导磁体、SPARC/ARC托卡马克、等离子体物理、聚变工程",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "麻省理工学院，全球聚变研究顶尖高等院校，与CFS合作开发REBCO高温超导磁体和SPARC/ARC托卡马克，开创高温超导聚变新范式。",
+        null,
+        "Massachusetts Institute of Technology",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "LANL",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.lanl.gov](https://www.lanl.gov/)",
+        null,
+        [],
+        [
+          {
+            "id": "recvjRPrWaKU9s"
+          }
+        ],
+        "惯性约束聚变、高能量密度物理、等离子体模拟、NIF合作",
+        [
+          "暂无"
+        ],
+        null,
+        12000,
+        null,
+        [
+          "科研机构"
+        ],
+        "洛斯阿拉莫斯国家实验室，美国三大核武器实验室之一，在惯性约束聚变、高能量密度物理和聚变等离子体模拟方面全球领先。",
+        null,
+        "洛斯阿拉莫斯国家实验室",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "SNL",
+        null,
+        null,
+        null,
+        null,
+        null,
+        [],
+        null,
+        null,
+        "[https://www.sandia.gov](https://www.sandia.gov/)",
+        null,
+        [],
+        null,
+        "Z箍缩聚变、脉冲功率技术、高能量密度物理、Z Machine",
+        [
+          "暂无"
+        ],
+        null,
+        11000,
+        null,
+        [
+          "科研机构"
+        ],
+        "桑迪亚国家实验室，运营全球最大脉冲功率装置Z Machine，在Z箍缩聚变和高能量密度物理领域世界领先。",
+        null,
+        "桑迪亚国家实验室",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "EPFL",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.epfl.ch](https://www.epfl.ch/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ0voY"
+          },
+          {
+            "id": "recvkp7iSZsFQX"
+          },
+          {
+            "id": "recvkp7iSZ4yM9"
+          },
+          {
+            "id": "recvkp7iSZ4HT9"
+          },
+          {
+            "id": "recvkp7iSZacii"
+          },
+          {
+            "id": "recvkp7iSZ85sq"
+          },
+          {
+            "id": "recvkp7iSZVwDg"
+          }
+        ],
+        "TCV托卡马克、等离子体控制、AI聚变、实时物理",
+        [
+          "暂无"
+        ],
+        null,
+        6000,
+        null,
+        [
+          "高等院校"
+        ],
+        "瑞士洛桑联邦理工学院，运营TCV托卡马克，在等离子体控制、实时等离子体物理和AI聚变控制方面全球领先，与DeepMind合作开创AI核聚变控制新范式。",
+        null,
+        "瑞士洛桑联邦理工学院",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "UCLA",
+        null,
+        "405 Hilgard Avenue, Los Angeles, CA 90095, USA",
+        null,
+        null,
+        null,
+        [],
+        null,
+        null,
+        "[https://www.ucla.edu](https://www.ucla.edu/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvjRPrWaDp50"
+          }
+        ],
+        "等离子体模拟（PIC）、激光等离子体加速、聚变计算物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "加州大学洛杉矶分校，在等离子体模拟（OSIRIS代码）、激光等离子体加速器和聚变计算物理方面全球领先。",
+        null,
+        "University of California, Los Angeles",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Thea Energy",
+        null,
+        "Kearny, New Jersey, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8eg82TO"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycTnwm"
+          },
+          {
+            "id": "recvkiVxycioBi"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuEPGS"
+          }
+        ],
+        null,
+        null,
+        "[https://www.thea.energy](https://www.thea.energy/)",
+        null,
+        null,
+        null,
+        "仿星器聚变、平面线圈阵列、超导磁体、中子源",
+        [
+          "暂无"
+        ],
+        null,
+        70,
+        null,
+        [
+          "国外企业"
+        ],
+        "PPPL/普林斯顿大学衍生仿星器公司，采用全平面电磁线圈独特设计，获DOE Milestone聚变计划支持，2024年完成$20M Series A融资。",
+        null,
+        "Thea Energy, Inc. (formerly Princeton Stellarators, Inc.)",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6P4eN"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "OpenStar Technologies",
+        null,
+        "Wellington, New Zealand",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc7bj5"
+          },
+          {
+            "id": "recvkiVxyctwE1"
+          },
+          {
+            "id": "recvkiVxyc8SAA"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuVuru"
+          }
+        ],
+        null,
+        null,
+        "[https://openstar.tech](https://openstar.tech/)",
+        null,
+        null,
+        null,
+        "悬浮偶极子磁约束聚变、高温超导磁体、等离子体物理",
+        [
+          "暂无"
+        ],
+        null,
+        55,
+        null,
+        [
+          "国外企业"
+        ],
+        "新西兰首家聚变公司，全球唯一悬浮偶极子（levitated dipole）路线，2024年实现等离子体20秒/30万°C突破，累计融资NZ$20M。",
+        null,
+        "OpenStar Technologies Limited",
+        null,
+        null,
+        [
+          "新西兰"
+        ],
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "UKAEA",
+        null,
+        "Culham Campus, Oxfordshire, UK",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc1M4E"
+          },
+          {
+            "id": "recvkiVxycDXw1"
+          },
+          {
+            "id": "recvkiVxyczuf4"
+          },
+          {
+            "id": "recvkiVxycHpfp"
+          },
+          {
+            "id": "recvkiVxycfdmL"
+          },
+          {
+            "id": "recvkiVxyckOZi"
+          },
+          {
+            "id": "recvk2FPyZYI0z"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpW0S1W"
+          },
+          {
+            "id": "recvk1TmXUVVz5"
+          },
+          {
+            "id": "recvk1TmXUIXoX"
+          },
+          {
+            "id": "recvk1YGDnP47R"
+          }
+        ],
+        null,
+        null,
+        "[https://www.gov.uk/ukaea](https://www.gov.uk/ukaea)",
+        null,
+        [],
+        [
+          {
+            "id": "recvkkeInGFU6m"
+          },
+          {
+            "id": "recvkkeInGFRGR"
+          },
+          {
+            "id": "recvkkeInGO8bd"
+          },
+          {
+            "id": "recvkkeInGhzVf"
+          },
+          {
+            "id": "recvkkeInGgNlu"
+          },
+          {
+            "id": "recvkkeInGv3Pp"
+          },
+          {
+            "id": "recvkkeInGVEy1"
+          },
+          {
+            "id": "recvjRPrWac9I8"
+          },
+          {
+            "id": "recvkkeInG1V0O"
+          },
+          {
+            "id": "recvkp7iSZIBhM"
+          }
+        ],
+        "球形托卡马克（MAST Upgrade）、STEP聚变原型堆、聚变堆工程、远程维护",
+        [
+          "暂无"
+        ],
+        null,
+        2000,
+        null,
+        [
+          "科研机构"
+        ],
+        "英国原子能管理局，运营MAST Upgrade球形托卡马克和原JET（欧洲联合环），负责英国STEP聚变原型堆项目。",
+        null,
+        "英国原子能管理局",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "QST",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyccsa3"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXUco1w"
+          }
+        ],
+        null,
+        null,
+        "[https://www.qst.go.jp](https://www.qst.go.jp/)",
+        null,
+        null,
+        null,
+        "JT-60SA托卡马克、超导磁体、聚变等离子体、ITER贡献",
+        [
+          "暂无"
+        ],
+        null,
+        1000,
+        null,
+        [
+          "科研机构"
+        ],
+        "日本国立量子科学技术研究开发机构，运营全球最大超导托卡马克JT-60SA，日本聚变研究核心机构。",
+        null,
+        "日本国立量子科学技术研究开发机构",
+        null,
+        null,
+        [
+          "日本"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Xcimer Energy",
+        null,
+        "Denver, Colorado, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8egVvKq"
+          },
+          {
+            "id": "recvlOL8wd5hH7"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxyc8HUw"
+          },
+          {
+            "id": "recvkiVxycGsv2"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuVJjZ"
+          }
+        ],
+        null,
+        null,
+        "[https://www.xcimer.energy](https://www.xcimer.energy/)",
+        null,
+        null,
+        null,
+        "准分子激光驱动惯性约束聚变、高重频激光器、靶丸设计",
+        [
+          "暂无"
+        ],
+        null,
+        50,
+        null,
+        [
+          "国外企业"
+        ],
+        "准分子激光惯性约束聚变公司，FIA成员，入选DOE Milestone聚变计划，开发低成本高重频激光驱动聚变方案。",
+        null,
+        "Xcimer Energy Inc.",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6jIp4"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Renaissance Fusion",
+        null,
+        "Grenoble, France",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxyc4l18"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWrMD7"
+          }
+        ],
+        null,
+        null,
+        "[https://renfusion.eu](https://renfusion.eu/)",
+        null,
+        null,
+        null,
+        "仿星器聚变、超导磁体涂覆、液态锂第一壁、中子屏蔽",
+        [
+          "暂无"
+        ],
+        null,
+        40,
+        null,
+        [
+          "国外企业"
+        ],
+        "法国仿星器聚变初创公司，开发超导仿星器磁体涂覆及液态锂壁技术，获欧盟和法国政府资助。",
+        null,
+        "Renaissance Fusion SAS",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Blue Laser Fusion",
+        null,
+        "Goleta, California, USA",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu5hYs"
+          }
+        ],
+        null,
+        null,
+        "[https://www.bluelaserfusion.com](https://www.bluelaserfusion.com/)",
+        null,
+        null,
+        null,
+        "蓝光激光惯性约束聚变、高功率半导体激光器",
+        [
+          "暂无"
+        ],
+        null,
+        30,
+        null,
+        [
+          "国外企业"
+        ],
+        "由诺贝尔物理学奖得主中村修二（Shuji Nakamura）创立，聚焦蓝光激光惯性约束聚变路线，获日本政府及美国投资者支持。",
+        null,
+        "Blue Laser Fusion, Inc.",
+        null,
+        [
+          {
+            "id": "recvk9ZXR6F3SZ"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "EX-Fusion",
+        null,
+        "Osaka, Japan",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://ex-fusion.com](https://ex-fusion.com/)",
+        null,
+        null,
+        null,
+        "激光惯性约束聚变、高重频激光器、靶丸注入系统",
+        [
+          "暂无"
+        ],
+        null,
+        25,
+        null,
+        [
+          "国外企业"
+        ],
+        "日本激光聚变初创公司，源自大阪大学激光工程研究所，开发高重频激光聚变技术，获日本政府NEDO资助。",
+        null,
+        "EX-Fusion Inc.",
+        null,
+        [
+          {
+            "id": "recvkiWaasfbcx"
+          },
+          {
+            "id": "recvkiWaaskgZr"
+          }
+        ],
+        [
+          "日本"
+        ],
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Avalanche Energy",
+        null,
+        "Tukwila, Washington, USA",
+        null,
+        [
+          {
+            "id": "recvk9U8eglbMM"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvk9W5vugBA4"
+          }
+        ],
+        null,
+        null,
+        "[https://www.avalanche.energy](https://www.avalanche.energy/)",
+        null,
+        null,
+        null,
+        "静电约束聚变、微型聚变电源、太空推进",
+        [
+          "暂无"
+        ],
+        null,
+        35,
+        null,
+        [
+          "国外企业"
+        ],
+        "静电约束聚变初创公司，FIA成员，开发微型聚变电源（FusionWERX），目标为太空推进和偏远地区供电。",
+        null,
+        "Avalanche Energy, Inc.",
+        null,
+        [
+          {
+            "id": "recvka1CBikOsC"
+          },
+          {
+            "id": "recvkjrOfZoioe"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        "2018-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "Kyoto Fusioneering",
+        null,
+        "Kyoto, Japan",
+        null,
+        [
+          {
+            "id": "recvk9U8egzq3q"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycZkXN"
+          },
+          {
+            "id": "recvkiVxycDjRX"
+          },
+          {
+            "id": "recvkiVxycRUUF"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W5vuCJZQ"
+          }
+        ],
+        null,
+        null,
+        "[https://www.kyotofusioneering.com](https://www.kyotofusioneering.com/)",
+        null,
+        null,
+        null,
+        "聚变堆工程设计、氚增殖包层、高温热交换、聚变堆关键部件",
+        [
+          "暂无"
+        ],
+        null,
+        120,
+        null,
+        [
+          "国外企业"
+        ],
+        "日本聚变工程公司，全球聚变堆关键子系统供应商，聚焦氚增殖包层、高温热利用和聚变堆工程设计，与UKAEA、ITER等合作。",
+        null,
+        "Kyoto Fusioneering Ltd.",
+        null,
+        [
+          {
+            "id": "recvjYDkV9q7Ge"
+          },
+          {
+            "id": "recvkiWaasNTgj"
+          },
+          {
+            "id": "recvlG3vyT3LE7"
+          }
+        ],
+        [
+          "日本"
+        ],
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        5000000000
+      ],
+      [
+        "Novatron Fusion Group",
+        null,
+        "Stockholm, Sweden",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.novatronfusion.com](https://www.novatronfusion.com/)",
+        null,
+        null,
+        null,
+        "磁镜约束聚变、轴对称磁场设计、稳态等离子体",
+        [
+          "暂无"
+        ],
+        null,
+        30,
+        null,
+        [
+          "国外企业"
+        ],
+        "瑞典磁镜聚变初创公司，开发新型'Novatron'轴对称磁镜约束概念，获欧盟EIC加速器资助。",
+        null,
+        "Novatron Fusion Group AB",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "nT-Tao",
+        null,
+        "Tel Aviv, Israel",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycm7gd"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVLpWQTCe"
+          }
+        ],
+        null,
+        null,
+        "[https://www.nt-tao.com](https://www.nt-tao.com/)",
+        null,
+        null,
+        null,
+        "紧凑型仿星器、等离子体约束优化、3D磁场设计",
+        [
+          "暂无"
+        ],
+        null,
+        25,
+        null,
+        [
+          "国外企业"
+        ],
+        "以色列仿星器聚变初创公司，开发紧凑型仿星器设计方案，获以色列创新局和私人投资者支持。",
+        null,
+        "nT-Tao Ltd.",
+        null,
+        [
+          {
+            "id": "recvk9ZXR63jOw"
+          }
+        ],
+        [
+          "以色列"
+        ],
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "SHINE Technologies",
+        null,
+        "Janesville, Wisconsin, USA",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuY9KP"
+          }
+        ],
+        null,
+        null,
+        "[https://www.shinefusion.com](https://www.shinefusion.com/)",
+        null,
+        null,
+        null,
+        "加速器驱动聚变、中子源、医用同位素生产、聚变中子应用",
+        [
+          "暂无"
+        ],
+        null,
+        250,
+        null,
+        [
+          "国外企业"
+        ],
+        "加速器中子源聚变技术公司，全球医用同位素主要供应商之一，同时开发聚变中子应用和聚变能技术。",
+        null,
+        "Shine Technologies, LLC",
+        null,
+        [
+          {
+            "id": "recvkiWaasZx2o"
+          },
+          {
+            "id": "recvkjrOfZZBrI"
+          },
+          {
+            "id": "recvkjrOfZanXX"
+          },
+          {
+            "id": "recvkjrOfZY9jz"
+          },
+          {
+            "id": "recvk9ZXR6Nguv"
+          },
+          {
+            "id": "recvk9ZXR6NAgf"
+          },
+          {
+            "id": "recvkiWaaseQA7"
+          }
+        ],
+        [
+          "美国"
+        ],
+        null,
+        "2005-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "EMC2",
+        null,
+        "San Diego, California, USA",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.emc2fusion.org](https://www.emc2fusion.org/)",
+        null,
+        null,
+        null,
+        "Polywell惯性静电约束聚变、电子约束、p-B11聚变",
+        [
+          "暂无"
+        ],
+        null,
+        15,
+        null,
+        [
+          "国外企业"
+        ],
+        "全球最早聚变初创公司之一，由Robert Bussard创立，开发Polywell惯性静电约束聚变概念，美国海军长期资助。",
+        null,
+        "Energy/Matter Conversion Corporation (EMC2)",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        "1985-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "NearStar Fusion",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "[https://www.nearstarfusion.com](https://www.nearstarfusion.com/)",
+        null,
+        null,
+        null,
+        "磁惯性约束聚变、等离子体加速器、靶丸撞击",
+        [
+          "暂无"
+        ],
+        null,
+        10,
+        null,
+        [
+          "国外企业"
+        ],
+        "美国磁惯性约束（靶丸撞击）聚变初创公司，开发超高速等离子体加速器撞击靶丸实现聚变。",
+        null,
+        "NearStar Fusion Inc.",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "KFE",
+        null,
+        "Daejeon, South Korea",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycxCbO"
+          },
+          {
+            "id": "recvkiVxycKEr8"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.kfe.re.kr](https://www.kfe.re.kr/)",
+        null,
+        null,
+        null,
+        "KSTAR全超导托卡马克、长脉冲高性能等离子体、K-DEMO聚变示范堆设计、ITER采购",
+        [
+          "暂无"
+        ],
+        null,
+        800,
+        null,
+        [
+          "科研机构"
+        ],
+        "韩国核聚变能源研究院，运营全球领先的全超导托卡马克KSTAR，2021年实现1亿℃等离子体30秒约束世界纪录，承担ITER韩国采购包和K-DEMO设计。",
+        null,
+        "Korea Institute of Fusion Energy (한국핵융합에너지연구원)",
+        null,
+        null,
+        [
+          "韩国"
+        ],
+        null,
+        "2005-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "NIFS",
+        null,
+        "Toki, Gifu, Japan",
+        null,
+        null,
+        [
+          {
+            "id": "recvk2GZhJuzXe"
+          },
+          {
+            "id": "recvkiVxycXlM1"
+          }
+        ],
+        [
+          {
+            "id": "recvk1TmXUUmAK"
+          }
+        ],
+        null,
+        null,
+        "[https://www.nifs.ac.jp](https://www.nifs.ac.jp/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZtCfs"
+          }
+        ],
+        "仿星器/螺旋器聚变物理、LHD装置、超导磁体、稳态等离子体",
+        [
+          "暂无"
+        ],
+        null,
+        500,
+        null,
+        [
+          "科研机构"
+        ],
+        "日本核融合科学研究所，运营全球最大超导仿星器LHD（Large Helical Device），世界仿星器/螺旋器研究核心机构。",
+        null,
+        "National Institute for Fusion Science (核融合科学研究所)",
+        null,
+        null,
+        [
+          "日本"
+        ],
+        null,
+        "1989-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "ENEA",
+        null,
+        "Frascati, Rome, Italy",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vudMTk"
+          },
+          {
+            "id": "recvk9W5vu7o6b"
+          }
+        ],
+        null,
+        null,
+        "[https://www.enea.it](https://www.enea.it/)",
+        null,
+        null,
+        null,
+        "FTU托卡马克、聚变等离子体物理、超导磁体技术、ITER采购包",
+        [
+          "暂无"
+        ],
+        null,
+        2000,
+        null,
+        [
+          "科研机构"
+        ],
+        "意大利国家新技术能源署，运营FTU（Frascati Tokamak Upgrade）托卡马克，在聚变等离子体物理、超导磁体和ITER贡献方面有重要地位。",
+        null,
+        "Italian National Agency for New Technologies, Energy and Sustainable Economic Development (ENEA)",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        "1982-01-01 00:00:00",
+        null,
+        null
+      ],
+      [
+        "华中科技大学",
+        null,
+        "湖北省武汉市洪山区珞喻路1037号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycBVkb"
+          },
+          {
+            "id": "recvkiVxyczjjr"
+          },
+          {
+            "id": "recvkiVxycjtK5"
+          },
+          {
+            "id": "recvkiVxycsqvQ"
+          },
+          {
+            "id": "recvkiVxycFCfU"
+          },
+          {
+            "id": "recvkiVxyc0q1E"
+          },
+          {
+            "id": "recvkiVxycfbIl"
+          },
+          {
+            "id": "recvkiVxycxynP"
+          }
+        ],
+        [
+          {
+            "id": "recvk9W3PHYe0f"
+          }
+        ],
+        null,
+        null,
+        "[https://www.hust.edu.cn](https://www.hust.edu.cn/)",
+        null,
+        [],
+        null,
+        "托卡马克等离子体物理、破裂控制、共振磁扰动（RMP）、J-TEXT装置",
+        [
+          "暂无"
+        ],
+        null,
+        50,
+        null,
+        [
+          "高等院校"
+        ],
+        "中国聚变研究重要高等院校，拥有J-TEXT中型托卡马克装置（原TEXT-U），聚焦等离子体破裂控制和共振磁扰动研究，与ITER和中国聚变工程实验堆紧密合作。",
+        null,
+        "华中科技大学 (Huazhong University of Science and Technology)",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "西安交通大学",
+        null,
+        "陕西省西安市咸宁西路28号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycK3wD"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.xjtu.edu.cn](https://www.xjtu.edu.cn/)",
+        null,
+        null,
+        null,
+        "聚变核工程、聚变材料辐照效应、聚变中子源、核能系统设计",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "在聚变核能工程、聚变堆材料辐照损伤和聚变中子源技术方面有重要研究，核科学与技术学科国内领先。",
+        null,
+        "西安交通大学 (Xi'an Jiaotong University)",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "哈尔滨工业大学",
+        null,
+        "黑龙江省哈尔滨市南岗区西大直街92号",
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycOOjf"
+          },
+          {
+            "id": "recvkiVxycnait"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.hit.edu.cn](https://www.hit.edu.cn/)",
+        null,
+        null,
+        null,
+        "聚变堆材料、等离子体与壁相互作用、电磁结构设计",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "在聚变堆结构材料、等离子体与壁相互作用和聚变装置电磁结构设计方面有特色研究。",
+        null,
+        "哈尔滨工业大学 (Harbin Institute of Technology)",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "核工业学院",
+        null,
+        "北京市",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "聚变人才培养、核工程教育、聚变技术培训",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "高等院校"
+        ],
+        "中核集团直属教育培训机构，承担聚变领域人才培养、技术培训和继续教育任务。",
+        null,
+        "核工业学院 (Nuclear Industry Institute)",
+        null,
+        null,
+        [
+          "中国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "FIA",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycxfLL"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.fusionindustryassociation.org](https://www.fusionindustryassociation.org/)",
+        null,
+        null,
+        null,
+        "聚变产业政策、会员网络、行业报告、供应链协同",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "行业组织"
+        ],
+        "全球私营聚变产业协会，会员覆盖聚变开发商、供应链、投资方、公共机构和高校，是跟踪商业聚变公司名录的重要来源。",
+        null,
+        "Fusion Industry Association",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "EUROfusion",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvjRShnQvso3"
+          }
+        ],
+        [
+          {
+            "id": "recvkiVxycvuRc"
+          },
+          {
+            "id": "recvkiVxycc46k"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://euro-fusion.org](https://euro-fusion.org/)",
+        null,
+        null,
+        [
+          {
+            "id": "recvkkeInG2lQy"
+          },
+          {
+            "id": "recvkp7iSZQJXA"
+          },
+          {
+            "id": "recvkp7iSZdjm4"
+          },
+          {
+            "id": "recvkp7iSZa0LR"
+          },
+          {
+            "id": "recvkp7iSZbb8K"
+          }
+        ],
+        "聚变能路线图、JET 数据利用、EU-DEMO、材料与燃料循环、等离子体物理",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "国际组织"
+        ],
+        "欧洲聚变研究联合体，统筹欧洲托卡马克、仿星器、材料和 DEMO 相关研发，IAEA 装置名录中 JET 与 EU-DEMO 均归入其体系。",
+        null,
+        "EUROfusion Consortium",
+        null,
+        null,
+        [
+          "欧洲"
+        ],
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "US ITER",
+        null,
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkiVxycYsgL"
+          }
+        ],
+        null,
+        null,
+        null,
+        "[https://www.usiter.org](https://www.usiter.org/)",
+        null,
+        null,
+        null,
+        "ITER 部件交付、中央螺线管、真空与加热系统、项目工程",
+        [
+          "暂无"
+        ],
+        null,
+        null,
+        null,
+        [
+          "科研机构"
+        ],
+        "美国 ITER 国内机构，由 ORNL 管理并负责美国对 ITER 的硬件、工程和项目交付。",
+        null,
+        "US ITER Project Office",
+        null,
+        null,
+        [
+          "美国"
+        ],
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "field_id_list": [
+      "fldf9211JE",
+      "fld472Hi74",
+      "fld5C8Q5m3",
+      "fld5EzC1yE",
+      "fld7Oha8HP",
+      "fld7sY7pn1",
+      "fldb6blJwn",
+      "fldBXTmfNF",
+      "fldDHmNwcc",
+      "fldeKAwrZN",
+      "fldfaiLwUd",
+      "fldgMBDvfw",
+      "fldHDPsPiZ",
+      "fldk9J2y0Z",
+      "fldknOc7oV",
+      "fldLtiMKUu",
+      "fldM3mNacf",
+      "fldoG9b1Jz",
+      "fldpuoK7sC",
+      "fldqpkONi0",
+      "fldr6G3sfJ",
+      "fldSJyVSjP",
+      "fldSvfgn4Y",
+      "fldsw9Ytpw",
+      "fldtjqBjcl",
+      "fldwW6DESz",
+      "fldx5Kdegv",
+      "fldx7JkmYG",
+      "fldYASRkqz"
+    ],
+    "fields": [
+      "单位简称",
+      "发表论文",
+      "办公地址",
+      "营收规模(万人民币)",
+      "行业新闻",
+      "关键研发人员",
+      "主研装置",
+      "荣誉奖励",
+      "软著",
+      "网站主页",
+      "对接人",
+      "参研装置",
+      "发布代码",
+      "研发方向",
+      "单位角色",
+      "发表专利",
+      "人员数量",
+      "签订服务合同",
+      "单位类型",
+      "单位简介",
+      "上级单位",
+      "全名",
+      "需求",
+      "融资进度",
+      "所在地区",
+      "联系邮箱",
+      "成立时间",
+      "签订供应合同合同",
+      "最新估值/市值"
+    ],
+    "has_more": true,
+    "query_context": {
+      "field_scope": "all_fields",
+      "record_scope": "all_records"
+    },
+    "record_id_list": [
+      "recvk9ZlAlPXGw",
+      "recvk9ZmAn8uc6",
+      "recvk9ZmAnsyR8",
+      "recvk9ZmAn34Zo",
+      "recvk9ZmAnsYfO",
+      "recvk9ZmAnu1LQ",
+      "recvk9ZmAni7VX",
+      "recvk9ZmAnmbk9",
+      "recvk9ZmAnTgJt",
+      "recvk9ZmAncxid",
+      "recvk9ZmAnYco4",
+      "recvk9ZmAn2X8Z",
+      "recvk9ZmAn3JFv",
+      "recvk9ZmAnIZQZ",
+      "recvk9ZmAn53ni",
+      "recvk9ZmAnIVHm",
+      "recvk9ZmAnVqD4",
+      "recvk9ZmAn2SOi",
+      "recvk9ZmAnWrE6",
+      "recvk9ZmAn0Vga",
+      "recvk9ZmAneg0r",
+      "recvk9ZmAnJKMA",
+      "recvk9ZmAnWh6Y",
+      "recvk9ZmAnNK57",
+      "recvk9ZmAnLVjh",
+      "recvk9ZmAn8jfl",
+      "recvk9ZmAnPIIf",
+      "recvk9ZmAnXVhn",
+      "recvk9ZmAngIhG",
+      "recvk9ZmAn7fPm",
+      "recvk9ZmAnIqlD",
+      "recvk9ZmAnXIm3",
+      "recvk9ZmAnbJoi",
+      "recvk9ZmAnWs6G",
+      "recvk9ZmAnFY5G",
+      "recvk9ZmAn8ule",
+      "recvk9ZmAnFbRw",
+      "recvk9ZmAnVxHU",
+      "recvk9ZmAnDvq8",
+      "recvk9ZmAnsT5P",
+      "recvk9ZmAn18VY",
+      "recvk9ZmAn5Suw",
+      "recvk9ZmAnNK7f",
+      "recvk9ZmAnCx7I",
+      "recvk9ZmAnfy1I",
+      "recvk9ZmAnoYP6",
+      "recvk9ZmAnkyOJ",
+      "recvk9ZmAn3WRu",
+      "recvk9ZmAnqidB",
+      "recvk9ZmAnlM2H",
+      "recvk9ZmAni6zB",
+      "recvk9ZmAn8SNs",
+      "recvk9ZmAneH9R",
+      "recvk9ZmAn8Lqc",
+      "recvk9ZmAnSJ38",
+      "recvk9ZmAn7mSl",
+      "recvk9ZmAn0jWX",
+      "recvk9ZmAnL7IP",
+      "recvk9ZmAnwKg1",
+      "recvk9ZmAnMJNx",
+      "recvk9ZmAnxxo1",
+      "recvk9ZmAnJXaI",
+      "recvk9ZmAnvxlW",
+      "recvk9ZmAnMw79",
+      "recvk9ZmAn1eJF",
+      "recvk9ZmAn0oAN",
+      "recvk9ZmAn41s1",
+      "recvk9ZmAn3H3T",
+      "recvk9ZmAnMCdD",
+      "recvk9ZmAnelpk",
+      "recvk9ZmAn8SHo",
+      "recvk9ZmAnUZYN",
+      "recvk9ZmAnqCl5",
+      "recvk9ZmAn12zH",
+      "recvk9ZmAntFsX",
+      "recvk9ZmAnV6t3",
+      "recvk9ZmAnnQ08",
+      "recvk9ZmAnx5Wt",
+      "recvk9ZmAnhzMp",
+      "recvk9ZmAnvgWK",
+      "recvk9ZmAnzaI3",
+      "recvk9ZmAnuM7A",
+      "recvk9ZmAnBntl",
+      "recvk9ZmAni8je",
+      "recvk9ZmAnAOj8",
+      "recvk9ZmAn79xD",
+      "recvk9ZmAn69kT",
+      "recvk9ZmAnytmd",
+      "recvk9ZmAnYmT6",
+      "recvk9ZmAn71eU",
+      "recvk9ZmAn0cAd",
+      "recvk9ZmAn9ayb",
+      "recvk9ZmAnnNxN",
+      "recvk9ZmAnRGc2",
+      "recvk9ZmAnQbiB",
+      "recvk9ZmAn2Bug",
+      "recvk9ZmAnWHvp",
+      "recvk9ZmAngDxU",
+      "recvk9ZmAnwNSI",
+      "recvk9ZmAngP92"
+    ]
+  }
+}

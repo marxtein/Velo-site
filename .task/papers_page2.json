@@ -1,0 +1,3600 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "data": [
+      [
+        "MHD equilibrium reconstruction in the DIII-D tokamak: EFIT",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ4yM9"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1986-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/0010-4655(86)90049-3](https://doi.org/10.1016/0010-4655(86)90049-3)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Plasma shape reconstruction for the TCV tokamak",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ4HT9"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1996-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/0010-4655(96)00036-6](https://doi.org/10.1016/0010-4655(96)00036-6)",
+        null,
+        null,
+        null
+      ],
+      [
+        "AXISCOD: An axisymmetric plasma equilibrium code",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ4HT9"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1981-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/0010-4655(81)90072-5](https://doi.org/10.1016/0010-4655(81)90072-5)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The JOREK non-linear extended MHD code and applications to large-scale instabilities",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZacii"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1996-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/S0010-4655(96)00070-X](https://doi.org/10.1016/S0010-4655(96)00070-X)",
+        null,
+        null,
+        null
+      ],
+      [
+        "与 EEC 代码算法相关的引用（Hermite 元方法，提及 HELENA 方案）",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZa0LR"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Improved feedback control of MHD instabilities and error fields in reversed-field pinch and tokamak",
+        null,
+        [
+          {
+            "id": "recvjSYGoYGJ3M"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZCADE"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1017/S0022377820000707](https://doi.org/10.1017/S0022377820000707)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Modeling of lithium granule injection in NSTX using M3D-C1",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZCADE"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1063/1.4989716](https://doi.org/10.1063/1.4989716)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Future developments",
+        null,
+        [
+          {
+            "id": "recvjSKYBiE3pE"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZzmSB"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkiVxycBWie"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2026-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/2058-6272/abf99f](https://doi.org/10.1088/2058-6272/abf99f)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Code coupling and integration",
+        null,
+        [
+          {
+            "id": "recvjSUgSUAvaD"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZAfkJ"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.jcp.2020.109567](https://doi.org/10.1016/j.jcp.2020.109567)",
+        null,
+        null,
+        null
+      ],
+      [
+        "J‑Solver 用户指南等描述",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZH1sR"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2010-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Early development",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ0GY5"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1980-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.2172/1234567](https://doi.org/10.2172/1234567)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Recent progress",
+        null,
+        [
+          {
+            "id": "recvjST96nLCjl"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZCLhh"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1109/TPS.2023.1234567](https://doi.org/10.1109/TPS.2023.1234567)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Prediction of electron density and pressure profile shapes on ITER using steady-state transport models",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZCLhh"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/abe08b](https://doi.org/10.1088/1741-4326/abe08b)",
+        null,
+        null,
+        null
+      ],
+      [
+        "NCLASS PT documentation: neoclassical transport",
+        null,
+        [
+          {
+            "id": "recvjT5eTnLDtO"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZWE6r"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2000-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "JETTO transport modelling 文献（多篇）",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZSJxd"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2000-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "集成 transport 模型比较文献",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZgRIM"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2010-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "ITER / integrated modelling paper",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ58EU"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2010-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Integrated operation scenarios 文献",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ72IL"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Physics validation",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ8p9k"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1992-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/32/4/007](https://doi.org/10.1088/0029-5515/32/4/007)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Engineering validation",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ8p9k"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1992-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/S0920-3796(00)00139-3](https://doi.org/10.1016/S0920-3796(00)00139-3)",
+        null,
+        null,
+        null
+      ],
+      [
+        "GATO MHD eigenvalue code 文献引用存在但查找不到具体地址",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZIp5S"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1985-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "使用 MARS‑F 进行 MHD 稳定性分析（SMART 例子）",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZfoId"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2000-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "ELITE 线性 MHD 稳定性代码被多篇 ELM 研究引用",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZjF0n"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2005-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "多篇早期稳定性研究使用 NOVA",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZdkkA"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1990-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "MAS: plasma stability eigenvalue code",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZbb8K"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Data analysis",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZXExj"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2023.108718](https://doi.org/10.1016/j.cpc.2023.108718)",
+        null,
+        null,
+        null
+      ],
+      [
+        "[https://github.com/hsxie/TGCO](https://github.com/hsxie/TGCO)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZXExj"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Plasma modeling",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZEBrX"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1063/5.0061234](https://doi.org/10.1063/5.0061234)",
+        null,
+        null,
+        null
+      ],
+      [
+        "[https://github.com/hsxie/NEMO](https://github.com/hsxie/NEMO)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZEBrX"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "GENRAY 手册",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZsbEY"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1990-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Early concepts",
+        null,
+        [
+          {
+            "id": "recvjST96nLCjl"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZstML"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1989-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1109/TPS.1989.43123](https://doi.org/10.1109/TPS.1989.43123)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Experimental validation",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZstML"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2014-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/54/1/013010](https://doi.org/10.1088/0029-5515/54/1/013010)",
+        null,
+        null,
+        null
+      ],
+      [
+        "结合 GENRAY 的耦合研究",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ5oSW"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2005-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Code development",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ8yCe"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2014-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2014.01.014](https://doi.org/10.1016/j.cpc.2014.01.014)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Physics applications",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ8yCe"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2011-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/51/6/063019](https://doi.org/10.1088/0029-5515/51/6/063019)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Software engineering",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ85sq"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2023.108567](https://doi.org/10.1016/j.cpc.2023.108567)",
+        null,
+        null,
+        null
+      ],
+      [
+        "The ITER integrated modelling and analysis suite (IMAS) – Plasma control",
+        null,
+        [
+          {
+            "id": "recvjRRSIwjPg3"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZ85sq"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2016-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0741-3335/58/9/095006](https://doi.org/10.1088/0741-3335/58/9/095006)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Brambilla, PoP 1999",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZdynm"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1999-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Jaeger et al., PoP 2002",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZnJrF"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2002-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "BORAY 代码描述",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ04fz"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2000-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Poli et al., EPJ Web Conf. 287, 02006 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZUYL2"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Prater et al., Nucl. Fusion 58, 082001 (2018)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZUYL2"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2018-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/aab96d](https://doi.org/10.1088/1741-4326/aab96d)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Brambilla et al., Plasma Phys. Control. Fusion 41, 1 (1999)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwjPg3"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZGmvN"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1999-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0741-3335/41/6/307](https://doi.org/10.1088/0741-3335/41/6/307)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Bilato et al., Nucl. Fusion 51, 103034 (2011)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZGmvN"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2011-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/51/10/103034](https://doi.org/10.1088/0029-5515/51/10/103034)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Du et al., Nucl. Fusion 63, 126027 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZtCfs"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/ad0d34](https://doi.org/10.1088/1741-4326/ad0d34)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Saito et al., Fusion Eng. Des. 196, 114052 (2023)",
+        null,
+        [
+          {
+            "id": "recvjSUr5IFIjX"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZtCfs"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "White \u0026 Chance, PoP 1984",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZPse9"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1984-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1017/s0261143000006310](https://doi.org/10.1017/s0261143000006310)",
+        null,
+        null,
+        null
+      ],
+      [
+        "ASCOT5 性能与验证",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZ5lOW"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Zhang et al., Plasma Sci. Technol. 25, 055102 (2023)",
+        null,
+        [
+          {
+            "id": "recvjSKYBiE3pE"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZaMOa"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Zhu et al., Nucl. Fusion 63, 086018 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZaMOa"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/acbdac](https://doi.org/10.1088/1741-4326/acbdac)",
+        null,
+        null,
+        null
+      ],
+      [
+        "多项边缘模拟研究",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZMS04"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2010-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "多项湍流输运论文",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZIBhM"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "GEM 湍流模拟",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZBk4E"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2010-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Hu et al., Comput. Phys. Commun. 288, 108718 (2023)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZxKYB"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkiVxycBWie"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2023.108744](https://doi.org/10.1016/j.cpc.2023.108744)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Hu et al., Plasma Phys. Control. Fusion 65, 055009 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwjPg3"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZxKYB"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkiVxycBWie"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/0741-3335(92)90027-4](https://doi.org/10.1016/0741-3335(92)90027-4)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Xie et al., Phys. Plasmas 27, 022102 (2020)",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZO8n2"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1063/5.0010406](https://doi.org/10.1063/5.0010406)",
+        null,
+        null,
+        null
+      ],
+      [
+        "[https://github.com/hsxie/SymPIC](https://github.com/hsxie/SymPIC)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZO8n2"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Xie et al., Comput. Phys. Commun. 244, 343 (2019)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZm1cm"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2019.06.014](https://doi.org/10.1016/j.cpc.2019.06.014)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Xie et al., Comput. Phys. Commun. 288, 108718 (2023)",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "recvkp7iSZm1cm"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.cpc.2023.108862](https://doi.org/10.1016/j.cpc.2023.108862)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Xie et al., Phys. Plasmas 25, 022110 (2018)",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZaX2v"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2018-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1063/1.5042295](https://doi.org/10.1063/1.5042295)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Xie et al., Phys. Plasmas 26, 084503 (2019)",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZaX2v"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvjRRR09ONY2"
+          }
+        ],
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1063/1.5087783](https://doi.org/10.1063/1.5087783)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Hoppe et al., CPC 2021",
+        null,
+        [
+          {
+            "id": "recvjSTMFL8R9N"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZGqw6"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.11606/issn.1980-4466.v16i32p6](https://doi.org/10.11606/issn.1980-4466.v16i32p6)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Snyder et al., Nucl. Fusion 51, 103016 (2011)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZztcc"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2011-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/55/1/010204](https://doi.org/10.1088/0029-5515/55/1/010204)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Groebner et al., Nucl. Fusion 53, 093024 (2013)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        [
+          {
+            "id": "recvkp7iSZztcc"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2013-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/51/6/063024](https://doi.org/10.1088/0029-5515/51/6/063024)",
+        null,
+        null,
+        null
+      ],
+      [
+        "Gong et al., Nucl. Fusion 64, 112013 (2024)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        "Gong等发表的EAST实验综述，总结了EAST装置在高约束模运行、长脉冲稳态等离子体等方面的最新成果，体现了中国在超导托卡马克领域的持续领先地位。",
+        null,
+        [
+          "较高"
+        ],
+        null,
+        null,
+        null,
+        null,
+        "2024-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.anucene.2013.06.007](https://doi.org/10.1016/j.anucene.2013.06.007)",
+        [
+          {
+            "id": "recvk1SGzPW6Kp"
+          }
+        ],
+        null,
+        [
+          "高"
+        ]
+      ],
+      [
+        "Gong et al., Overview of recent experimental results on EAST, IAEA FEC 2025",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPW6Kp"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Duan et al., Nucl. Fusion 62, 042001 (2022)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.nuclphysa.2022.122490](https://doi.org/10.1016/j.nuclphysa.2022.122490)",
+        [
+          {
+            "id": "recvk1SGzPLYYK"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HL-2M Team, Fusion Eng. Des. 146, 287 (2019)",
+        null,
+        [
+          {
+            "id": "recvjSUr5IFIjX"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPLYYK"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HL-3 Team, Innovation 4, 100480 (2023)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPp7qp"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Deng et al., Nucl. Fusion 63, 036021 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/ad0d34](https://doi.org/10.1088/1741-4326/ad0d34)",
+        [
+          {
+            "id": "recvk1SGzPp7qp"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Wan et al., Nucl. Fusion 57, 102009 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/aa8e0a](https://doi.org/10.1088/1741-4326/aa8e0a)",
+        [
+          {
+            "id": "recvk1SGzPhell"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Song et al., Nucl. Fusion 61, 036001 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1007/s10894-021-00311-7](https://doi.org/10.1007/s10894-021-00311-7)",
+        [
+          {
+            "id": "recvk1SGzPhell"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "CFETR Team, Overview of present progress, Nucl. Fusion 57, 102009 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPhell"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Barabaschi et al., Nucl. Fusion 63, 112001 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/41/2/302](https://doi.org/10.1088/0029-5515/41/2/302)",
+        [
+          {
+            "id": "recvk1TmXUh7gF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "ITER Organization, ITER Annual Report 2024",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2024-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUh7gF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Holtkamp et al., Nucl. Fusion 47, S128 (2007)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2007-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1016/j.fusengdes.2007.03.029](https://doi.org/10.1016/j.fusengdes.2007.03.029)",
+        [
+          {
+            "id": "recvk1TmXUh7gF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Luce et al., Nucl. Fusion 64, 112001 (2024)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2024-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/47/1/e04](https://doi.org/10.1088/0029-5515/47/1/e04)",
+        [
+          {
+            "id": "recvk1SGzPSiUc"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Suttrop et al., Nucl. Fusion 57, 116031 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/ad101b](https://doi.org/10.1088/1741-4326/ad101b)",
+        [
+          {
+            "id": "recvk1SGzPSiUc"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "DIII-D Team, Phys. Plasmas 32, 010501 (2025)",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPSiUc"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Yoon et al., Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.36227/techrxiv.21549351.v3](https://doi.org/10.36227/techrxiv.21549351.v3)",
+        [
+          {
+            "id": "recvk1TmXUH9SF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "KSTAR Team, Overview of KSTAR experiments, IAEA FEC 2025",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUH9SF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Park et al., Nucl. Fusion 55, 043006 (2015)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/55/4/043004](https://doi.org/10.1088/0029-5515/55/4/043004)",
+        [
+          {
+            "id": "recvk1TmXUH9SF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "JET Team, Nucl. Fusion 62, 042026 (2022)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2022-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUVVz5"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Kappatou et al., Plasma Phys. Control. Fusion 67, 045039 (2025)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwjPg3"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1361-6587/adf257](https://doi.org/10.1088/1361-6587/adf257)",
+        [
+          {
+            "id": "recvk1TmXUVVz5"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Vianello et al., Overview of JET DTE campaigns, IAEA FEC 2025",
+        null,
+        [
+          {
+            "id": "recvjT6affWz3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUVVz5"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Wolf et al., Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/32/3/415](https://doi.org/10.1088/0029-5515/32/3/415)",
+        [
+          {
+            "id": "recvk1YGDn9BuF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "W7-X Team, Latest performance achievements, APS DPP 2025",
+        null,
+        [
+          {
+            "id": "recvjT5eTnLDtO"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1YGDn9BuF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Bosch et al., Nucl. Fusion 63, 036001 (2023)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2023-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1007/11360360_17](https://doi.org/10.1007/11360360_17)",
+        [
+          {
+            "id": "recvk1YGDn9BuF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "LHD Team, Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUUmAK"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Motojima et al., Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.5772/intechopen.101634](https://doi.org/10.5772/intechopen.101634)",
+        [
+          {
+            "id": "recvk1TmXUUmAK"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "LHD Experimental Group, Final experimental campaign results, 2025",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2025-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUUmAK"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "CFS Team, J. Plasma Phys. 86, 865860502 (2020)",
+        null,
+        [
+          {
+            "id": "recvjSYGoYGJ3M"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUEsbR"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Creely et al., J. Plasma Phys. 86, 865860501 (2020)",
+        null,
+        [
+          {
+            "id": "recvjSYGoYGJ3M"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1017/s002237782000001x](https://doi.org/10.1017/s002237782000001x)",
+        [
+          {
+            "id": "recvk1TmXUEsbR"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "CFS Team, SPARC cryogenic system, Mater. Sci. Eng. 1301, 012107 (2024)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2024-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUEsbR"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Menard et al., Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/aa68e9](https://doi.org/10.1088/1741-4326/aa68e9)",
+        [
+          {
+            "id": "recvk1TmXUH7UQ"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "NSTX-U Team, Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUH7UQ"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "MAST Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUIXoX"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Harrison et al., Nucl. Fusion 60, 036001 (2020)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/29/1/015](https://doi.org/10.1088/0029-5515/29/1/015)",
+        [
+          {
+            "id": "recvk1TmXUIXoX"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "ASDEX Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPhNKg"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Kallenbach et al., Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/aaeef3](https://doi.org/10.1088/1741-4326/aaeef3)",
+        [
+          {
+            "id": "recvk1SGzPhNKg"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "TCV Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuD821"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Reimerdes et al., Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/38/3/101](https://doi.org/10.1088/0029-5515/38/3/101)",
+        [
+          {
+            "id": "recvk9W5vuD821"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "FTU Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu7o6b"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "JT-60SA Team, Nucl. Fusion 60, 036001 (2020)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2020-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUco1w"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Shirai et al., Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/ad34e4](https://doi.org/10.1088/1741-4326/ad34e4)",
+        [
+          {
+            "id": "recvk1TmXUco1w"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Alcator Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/53/12/122002](https://doi.org/10.1088/0029-5515/53/12/122002)",
+        [
+          {
+            "id": "recvkiVLpWBlve"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Greenwald et al., Nucl. Fusion 28, 2199 (1988)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1988-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/0029-5515/28/12/009](https://doi.org/10.1088/0029-5515/28/12/009)",
+        [
+          {
+            "id": "recvkiVLpWBlve"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "TJ-II Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuw76A"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "RFX Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUq5uL"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "COMPASS Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu4bUk"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "QUEST Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vukRck"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HSX Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu4XkQ"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HIDRA Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vusBiI"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Binderbauer et al., Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.1088/1741-4326/aa6dcd](https://doi.org/10.1088/1741-4326/aa6dcd)",
+        [
+          {
+            "id": "recvk1SGzPHB4x"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "TAE Team, Science 366, 6469 (2019)",
+        null,
+        [
+          {
+            "id": "recvjT5eTnLDtO"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPHB4x"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Z Team, Phys. Rev. Lett. 115, 055001 (2015)",
+        null,
+        [
+          {
+            "id": "recvjRRSIw612T"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2015-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu76gi"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "NIF Team, Phys. Rev. Lett. 126, 245001 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIw612T"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUtCte"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "Hurricane et al., Nature 506, 343 (2014)",
+        null,
+        [
+          {
+            "id": "recvjT6affWz3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2014-01-01 00:00:00",
+        null,
+        "[https://doi.org/10.4043/25041-ms](https://doi.org/10.4043/25041-ms)",
+        [
+          {
+            "id": "recvk1TmXUtCte"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "OMEGA Team, Phys. Plasmas 28, 042703 (2021)",
+        null,
+        [
+          {
+            "id": "recvjSLzxMbRtn"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vusuQ3"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "GEKKO Team, Phys. Rev. Lett. 91, 215001 (2003)",
+        null,
+        [
+          {
+            "id": "recvjRRSIw612T"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2003-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuaAVh"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "LMJ Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuUDOr"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "BEST Team, Fusion Eng. Des. 146, 287 (2019)",
+        null,
+        [
+          {
+            "id": "recvjSUr5IFIjX"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2019-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPyQm3"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "CFQS Team, Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vujqsF"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "CFQS-T Team, Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPU7Oi"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "J-TEXT Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W3PHYe0f"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "KTX Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vuvMFL"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "SUNIST Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk9W5vu8YDo"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "SUNIST-2 Team, Nucl. Fusion 61, 116038 (2021)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2021-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1YGDnv6Tm"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HL-2A Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPi0qh"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HT-7 Team, Nucl. Fusion 47, S128 (2007)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2007-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1TmXUzGOP"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "HL-1 Team, Nucl. Fusion 37, 427 (1997)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "1997-01-01 00:00:00",
+        null,
+        null,
+        [
+          {
+            "id": "recvk1SGzPIQRh"
+          }
+        ],
+        null,
+        null
+      ],
+      [
+        "JETTO Team, Nucl. Fusion 57, 116015 (2017)",
+        null,
+        [
+          {
+            "id": "recvjRRSIwhK3s"
+          }
+        ],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "2017-01-01 00:00:00",
+        null,
+        null,
+        [],
+        null,
+        null
+      ],
+      [
+        "Expansion-Driven Self-Magnetization of High-Energy-Density Plasmas",
+        null,
+        null,
+        "PPPL团队在PRL发表的重要论文，首次自洽解释了惯性约束聚变中不可预测磁场的生成机制。磁场可达40特斯拉，是地球磁场1000倍。该成果为直接驱动聚变实验设计优化提供了关键理论支撑，可帮助预测磁场对等离子体行为和热量传输的影响。",
+        null,
+        [
+          "极高"
+        ],
+        null,
+        null,
+        "揭示高功率激光加热等离子体时，膨胀方向温度冷却速度差异触发Weibel不稳定性，自发产生高达40特斯拉强磁场。磁化阈值处于常用惯性聚变激光强度范围内，对直接驱动聚变设计有重要指导意义。",
+        null,
+        "2026-03-20 00:00:00",
+        null,
+        "https://doi.org/10.1103/stmq-c433",
+        null,
+        null,
+        [
+          "高"
+        ]
+      ],
+      [
+        "Turbulent Transport Reduction by Zonal Flows: Massively Parallel Simulations",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "rec27pSCprzkXa"
+          }
+        ],
+        [
+          "极高"
+        ],
+        null,
+        null,
+        "首次通过大规模并行回旋动理学模拟证实了带状流(zonal flows)对湍流输运的抑制机制，为ITER等高约束模式物理理解奠定理论基础。Science里程碑论文，被引超千次。",
+        null,
+        "1998-12-31 08:00:00",
+        "[https://veloalpha.feishu.cn/file/BZZZbn4UXoHnHNxMFFlcbvrWnhb](https://veloalpha.feishu.cn/file/BZZZbn4UXoHnHNxMFFlcbvrWnhb)",
+        "https://doi.org/10.1126/science.281.5384.1835",
+        null,
+        null,
+        [
+          "极高"
+        ]
+      ],
+      [
+        "Electromagnetic formulation of global gyrokinetic particle simulation in toroidal geometry",
+        null,
+        null,
+        null,
+        [
+          {
+            "id": "rec27pSCprzkXa"
+          }
+        ],
+        [
+          "极高"
+        ],
+        null,
+        null,
+        "在环形磁场坐标中建立了全球电磁回旋动理学粒子模拟(GTC)的流-动杂交电子模型，推导了带状静电势和矢量势分量方程，证实了带状矢量势的电子屏蔽效应。GTC电磁模式的理论基础。",
+        null,
+        "2009-12-09 08:00:00",
+        "[https://veloalpha.feishu.cn/file/PoeSbLXhNoWew7xFHISchVTknTc](https://veloalpha.feishu.cn/file/PoeSbLXhNoWew7xFHISchVTknTc)",
+        "https://doi.org/10.1063/1.3273070",
+        null,
+        null,
+        [
+          "高"
+        ]
+      ]
+    ],
+    "field_id_list": [
+      "fldebcEN3V",
+      "fld97aLDiS",
+      "flda9hHGzI",
+      "fldC4d7Hrr",
+      "fldFJfGdcv",
+      "fldfTm4CYU",
+      "fldhi0MBcN",
+      "fldiUQtg4W",
+      "fldJso8hSF",
+      "fldKg6D2Us",
+      "fldOilKIAS",
+      "fldPQLrqDY",
+      "fldRZMfTj8",
+      "fldua5YTYz",
+      "fldvhBQ6eA",
+      "fldZaETyod"
+    ],
+    "fields": [
+      "论文标题",
+      "第一单位",
+      "期刊",
+      "论文点评",
+      "关联代码",
+      "关联度评分",
+      "第一作者",
+      "论文解析",
+      "论文摘要",
+      "通讯作者",
+      "发表时间",
+      "知识库",
+      "论文链接",
+      "关联装置",
+      "论文全文",
+      "价值评分"
+    ],
+    "has_more": false,
+    "query_context": {
+      "field_scope": "all_fields",
+      "record_scope": "all_records"
+    },
+    "record_id_list": [
+      "recvkp7B4D5cKP",
+      "recvkp7B4DLzDX",
+      "recvkp7B4Dxet6",
+      "recvkp7B4DNhxO",
+      "recvkp7B4DvrNT",
+      "recvkp7B4Di5MX",
+      "recvkp7B4DujVe",
+      "recvkp7B4DjIZT",
+      "recvkp7B4D5Xsu",
+      "recvkp7B4DuzQo",
+      "recvkp7B4DjrtS",
+      "recvkp7B4Dj4oo",
+      "recvkp7B4DPCmi",
+      "recvkp7B4DuM2n",
+      "recvkp7B4D4X1h",
+      "recvkp7B4Dvouy",
+      "recvkp7B4DEVWv",
+      "recvkp7B4D9g3C",
+      "recvkp7B4DneXx",
+      "recvkp7B4DYLwY",
+      "recvkp7B4DIbhf",
+      "recvkp7B4D95iD",
+      "recvkp7B4D6Si4",
+      "recvkp7B4DidoD",
+      "recvkp7B4DKfpg",
+      "recvkp7B4DFsvL",
+      "recvkp7B4D3anD",
+      "recvkp7B4DCvdI",
+      "recvkp7B4DW6fX",
+      "recvkp7B4Dgb7Y",
+      "recvkp7B4De9Mn",
+      "recvkp7B4Drslv",
+      "recvkp7B4D3Fly",
+      "recvkp7B4DOQ09",
+      "recvkp7B4DyHAT",
+      "recvkp7B4DmFy0",
+      "recvkp7B4Dmpo1",
+      "recvkp7B4DdJ2E",
+      "recvkp7B4DRBYS",
+      "recvkp7B4D6VfK",
+      "recvkp7B4DGqQ0",
+      "recvkp7B4DWVbp",
+      "recvkp7B4DjQVX",
+      "recvkp7B4DVbXQ",
+      "recvkp7B4DdMym",
+      "recvkp7B4DXTKG",
+      "recvkp7B4DBnLo",
+      "recvkp7B4DeuWb",
+      "recvkp7B4DrVDC",
+      "recvkp7B4DRBOw",
+      "recvkp7B4D4jVS",
+      "recvkp7B4DIBDc",
+      "recvkp7B4D7WWN",
+      "recvkp7B4Db786",
+      "recvkp7B4Dmwa5",
+      "recvkp7B4DT6PN",
+      "recvkp7B4DOgfF",
+      "recvkp7B4D5Fee",
+      "recvkp7B4DghJ7",
+      "recvkp7B4DBPJa",
+      "recvkp7B4DhXmu",
+      "recvkp7B4DZ3pB",
+      "recvkp7B4DFHUy",
+      "recvkp7B4DrUDb",
+      "recvkp7B4DGR7X",
+      "recvkp7B4DjvHH",
+      "recvkp7B4DhH6d",
+      "recvkp7B4D4yjT",
+      "recvkp7B4Di2m9",
+      "recvkp7B4DTflI",
+      "recvkp7B4Dl6Q0",
+      "recvkp7B4DgXEC",
+      "recvkp7B4DfRai",
+      "recvkp7B4Dp66d",
+      "recvkp7B4Dey1B",
+      "recvkp7B4DyDaS",
+      "recvkp7B4DgnEv",
+      "recvkp7B4DPSsQ",
+      "recvkp7B4DP3Hg",
+      "recvkp7B4DQLyq",
+      "recvkp7B4DDELs",
+      "recvkp7B4DsXD3",
+      "recvkp7B4DgWsI",
+      "recvkp7B4DiAVl",
+      "recvkp7B4DCBx3",
+      "recvkp7B4DZc5k",
+      "recvkp7B4DiTeb",
+      "recvkp7B4DTswt",
+      "recvkp7B4Du0Kx",
+      "recvkp7B4DlbKo",
+      "recvkp7B4DFsHJ",
+      "recvkp7B4DnEjY",
+      "recvkp7B4De3SY",
+      "recvkp7B4DXbUL",
+      "recvkp7B4DP4fK",
+      "recvkp7B4DpGaU",
+      "recvkp7B4DZSOz",
+      "recvkp7B4D48uw",
+      "recvkp7B4DQR9B",
+      "recvkp7B4DIQEJ",
+      "recvkp7B4D5pke",
+      "recvkp7B4DlNNe",
+      "recvkp7B4DKLfM",
+      "recvkp7B4Dklex",
+      "recvkp7B4DIkUL",
+      "recvkp7B4DhmZf",
+      "recvkp7B4D7d1x",
+      "recvkp7B4Dl8FK",
+      "recvkp7B4DpNak",
+      "recvkp7B4DQPWf",
+      "recvkp7B4DNrdU",
+      "recvkp7B4D5RJ5",
+      "recvkp7B4D7jLp",
+      "recvkp7B4DnJJa",
+      "recvkp7B4DfSyM",
+      "recvkp7B4DT4uD",
+      "recvkp7B4DrO7K",
+      "recvkp7B4DvYi0",
+      "recvkp7B4DtXiq",
+      "recvkp7B4Dufk7",
+      "recvkp7B4D1JfP",
+      "recvkp7B4D6iHT",
+      "recvkp7B4DvjHD",
+      "recvkp7B4DoJZk",
+      "recvkp7B4DsSZ0",
+      "recvkp7B4DB5O6",
+      "recvkp7B4DObQf",
+      "recvkp7B4DarFl",
+      "recvkp7B4D2bjU",
+      "recvkp7B4DtsO5",
+      "recvkp7B4DoH1J",
+      "recvkp7B4DisLE",
+      "recvm5Y2AQ6Yzy",
+      "recvmBYDPEk5lG",
+      "recvmBYDPEdXKx"
+    ]
+  }
+}

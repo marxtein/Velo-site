@@ -1,0 +1,2959 @@
+[lark-cli] [WARN] proxy detected: HTTPS_PROXY=http://127.0.0.1:7890 — requests (including credentials) will transit through this proxy. Set LARK_CLI_NO_PROXY=1 to disable proxy.
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "data": [
+      [
+        "GENE",
+        "[https://genecode.org](https://genecode.org/)",
+        null,
+        null,
+        null,
+        "Frank Jenko / Max Planck IPP GENE Team",
+        "MPI/OpenMP CPU 集群；开发 GPU/Exascale 版本",
+        "托卡马克/仿星器核心微观不稳定性、湍流热通量、ITER/DEMO 输运预测",
+        "回旋动理学连续体模型",
+        [
+          {
+            "id": "recvjRRNCLciQv"
+          },
+          {
+            "id": "recvjRRNCL7364"
+          }
+        ],
+        [
+          "回旋动理学",
+          "谱方法",
+          "有限差分",
+          "湍流输运"
+        ],
+        "Eulerian/continuum gyrokinetics；谱方法、有限差分、有限元/有限体积模块；支持线性和非线性湍流模拟",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "GTC",
+        "[http://phoenix.ps.uci.edu/gtc/](http://phoenix.ps.uci.edu/gtc/)",
+        null,
+        null,
+        null,
+        "Lin Zihong / UCI-PPPL GTC Team",
+        "MPI/OpenMP/CUDA；大规模 CPU/GPU 异构并行",
+        "微观湍流、新经典输运、高能粒子-波相互作用、动理学 MHD 耦合",
+        "全球回旋动理学 PIC",
+        [
+          {
+            "id": "recvjRRNCLCHOM"
+          },
+          {
+            "id": "recvjRRNCLnP7U"
+          }
+        ],
+        [
+          "PIC",
+          "回旋动理学",
+          "全球模拟",
+          "高能粒子"
+        ],
+        "delta-f PIC；回旋中心粒子推进；电磁模式与动理学电子模块",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "DESC",
+        "[https://github.com/PlasmaControl/DESC](https://github.com/PlasmaControl/DESC)",
+        null,
+        null,
+        null,
+        "E. Kolemen 团队 / Princeton-PPPL Plasma Control Group",
+        "Python/JAX；GPU/TPU 加速",
+        "三维磁平衡、准对称优化、近轴/全局 stellarator 设计、线圈与等离子体联合优化",
+        "三维理想 MHD 平衡与 stellarator 优化",
+        [
+          {
+            "id": "recvkp7B4DdTVy"
+          },
+          {
+            "id": "recvkp7B4DQ7kQ"
+          }
+        ],
+        [
+          "伪谱方法",
+          "JAX",
+          "自动微分",
+          "仿星器优化"
+        ],
+        "全局 Fourier-Zernike 伪谱基；自动微分；约束优化",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "TORAX",
+        "[https://github.com/google-deepmind/torax](https://github.com/google-deepmind/torax)",
+        null,
+        null,
+        null,
+        "Google DeepMind / EPFL / fusion transport collaborators",
+        "JAX JIT；CPU/GPU/TPU",
+        "快速放电方案设计、控制轨迹优化、机器学习代理模型、集成输运预测",
+        "1.5D 托卡马克核心输运",
+        [
+          {
+            "id": "recvkp7B4D6NHt"
+          }
+        ],
+        [
+          "有限体积",
+          "JAX",
+          "可微分仿真",
+          "核心输运"
+        ],
+        "有限体积；JAX 可微分编程；Newton-Raphson/隐式时间推进；可耦合 QLKNN/TGLF 等模型",
+        [
+          {
+            "id": "recvk9ZmAn8SNs"
+          }
+        ]
+      ],
+      [
+        "GX",
+        "[https://gx.readthedocs.io/](https://gx.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "B. Dorland / N. Mandell 等 GX Team",
+        "CUDA/C++；GPU 原生多卡并行",
+        "托卡马克和仿星器微观湍流、快速参数扫描、反应堆输运优化",
+        "局域回旋动理学湍流",
+        [
+          {
+            "id": "recvkp7B4Dyzuc"
+          }
+        ],
+        [
+          "伪谱方法",
+          "回旋动理学",
+          "GPU-native",
+          "Hermite-Laguerre"
+        ],
+        "Fourier-Hermite-Laguerre 伪谱；flux-tube；GPU-native 算法",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "WarpX",
+        "[https://warpx.readthedocs.io/](https://warpx.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "Jean-Luc Vay / Axel Huebl / WarpX Team",
+        "AMReX；CUDA/HIP/SYCL/OpenMP/MPI；Exascale GPU",
+        "激光-等离子体相互作用、尾波加速、惯性聚变相关强场等离子体、束流输运",
+        "相对论电磁 PIC",
+        [
+          {
+            "id": "recvkp7B4Dkl9L"
+          }
+        ],
+        [
+          "PIC",
+          "AMR",
+          "激光等离子体",
+          "Exascale"
+        ],
+        "AMReX 块结构 AMR；PIC；电磁场求解器；负载均衡",
+        [
+          {
+            "id": "recvka0ejSSAaY"
+          }
+        ]
+      ],
+      [
+        "EIRENE",
+        "[https://www.eirene.de/](https://www.eirene.de/)",
+        null,
+        null,
+        null,
+        "D. Reiter / FZ Jülich / SOLPS-EIRENE 社区",
+        "CPU 并行；常与 SOLPS-ITER 或 EMC3 耦合",
+        "边界/偏滤器气体再循环、分子反应、脱靶、SOLPS/EMC3 耦合",
+        "中性粒子与分子输运动理学",
+        [
+          {
+            "id": "recvkp7B4Dy6w1"
+          },
+          {
+            "id": "recvkp7B4D45EQ"
+          }
+        ],
+        [
+          "蒙特卡洛",
+          "中性粒子",
+          "边界",
+          "偏滤器"
+        ],
+        "蒙特卡洛粒子追踪；原子分子反应数据库；与流体边界代码耦合",
+        [
+          {
+            "id": "recvk9ZmAnb7zn"
+          }
+        ]
+      ],
+      [
+        "VMEC",
+        "[https://github.com/ORNL-Fusion/VMEC_8_00](https://github.com/ORNL-Fusion/VMEC_8_00)",
+        null,
+        null,
+        null,
+        "S.P. Hirshman / ORNL-PPPL stellarator community",
+        "Fortran；CPU 并行版本",
+        "仿星器与三维托卡马克平衡、W7-X/HSX/LHD 设计、STELLOPT/SIMSOPT 输入",
+        "三维理想 MHD 平衡",
+        [
+          {
+            "id": "recvkp7B4DkEpd"
+          }
+        ],
+        [
+          "谱方法",
+          "有限差分",
+          "MHD 平衡",
+          "仿星器"
+        ],
+        "变分能量最小化；环向/极向 Fourier 展开；径向有限差分",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "M3D-C1",
+        "[https://w3.pppl.gov/~nferraro/m3dc1.html](https://w3.pppl.gov/~nferraro/m3dc1.html)",
+        null,
+        null,
+        null,
+        "S.C. Jardin / N.M. Ferraro / PPPL",
+        "MPI CPU；PETSc/SLEPc",
+        "ELM、垂直位移事件、破裂、halo 电流、RMP 响应、燃烧等离子体稳定性",
+        "非线性扩展 MHD / 双流体 MHD",
+        [
+          {
+            "id": "recvkp7B4DzhB1"
+          },
+          {
+            "id": "recvkp7B4Dbhlr"
+          }
+        ],
+        [
+          "有限元",
+          "扩展MHD",
+          "破裂",
+          "ELM"
+        ],
+        "极向 C1 连续有限元；环向 Fourier 展开；隐式时间推进；PETSc 稀疏线性代数",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "Gkeyll",
+        "[https://gkeyll.readthedocs.io/](https://gkeyll.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "Ammar Hakim / Gkeyll Team",
+        "C/Lua/Python；MPI；CUDA/NCCL 多 GPU",
+        "边界 SOL 湍流、鞘层、无噪声 kinetic 模拟、空间/实验室等离子体",
+        "动理学、gyrokinetic、多流体方程组",
+        [
+          {
+            "id": "recvkp7B4DjBIT"
+          },
+          {
+            "id": "recvkp7B4DzEXX"
+          }
+        ],
+        [
+          "间断伽辽金",
+          "动理学",
+          "Vlasov-Maxwell",
+          "SOL"
+        ],
+        "高阶间断 Galerkin；矩保持；保结构算法；多物理模块",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "OSIRIS",
+        "[https://plasmasim.physics.ucla.edu/codes/osiris](https://plasmasim.physics.ucla.edu/codes/osiris)",
+        null,
+        null,
+        null,
+        "UCLA Plasma Simulation Group / Instituto Superior Técnico",
+        "Fortran/MPI；CUDA 扩展；CPU/GPU",
+        "激光尾波加速、Weibel 不稳定性、强场激光等离子体、惯性聚变相关实验解释",
+        "相对论电磁 PIC",
+        [
+          {
+            "id": "recvkp7B4DspEo"
+          },
+          {
+            "id": "recvkp7B4DOjjE"
+          }
+        ],
+        [
+          "PIC",
+          "激光等离子体",
+          "LWFA",
+          "高能量密度物理"
+        ],
+        "PIC；高阶粒子形函数；域分解；moving window；碰撞/辐射模块",
+        [
+          {
+            "id": "recvk9ZmAntFsX"
+          }
+        ]
+      ],
+      [
+        "VPIC",
+        "[https://github.com/lanl/vpic](https://github.com/lanl/vpic)",
+        null,
+        null,
+        null,
+        "LANL VPIC Team",
+        "Kokkos/C++；CPU/GPU Exascale",
+        "三维磁重联、激光等离子体不稳定性、空间等离子体、强场 HEDP",
+        "相对论全电磁 PIC",
+        [
+          {
+            "id": "recvkp7B4DeJPd"
+          },
+          {
+            "id": "recvkp7B4DEQA1"
+          }
+        ],
+        [
+          "PIC",
+          "磁重联",
+          "激光等离子体",
+          "Exascale"
+        ],
+        "矢量化 PIC；高阶粒子推进；电磁场更新；Kokkos 移植",
+        [
+          {
+            "id": "recvk9ZmAnUZYN"
+          }
+        ]
+      ],
+      [
+        "TRANSP",
+        "[https://transp.pppl.gov/](https://transp.pppl.gov/)",
+        null,
+        null,
+        null,
+        "PPPL TRANSP/NUBEAM Team",
+        "Fortran 历史代码；PPPL 服务器与 HPC 批处理",
+        "托卡马克实验解释、ITER 预测、加热电流驱动分析、快离子输运",
+        "1.5D tokamak integrated transport and analysis",
+        [
+          {
+            "id": "recvkp7B4DO6Fe"
+          },
+          {
+            "id": "recvkp7B4DYlBx"
+          }
+        ],
+        [
+          "集成建模",
+          "核心输运",
+          "快离子",
+          "NUBEAM"
+        ],
+        "径向输运方程；中性束/射频/α粒子模块；实验重建和预测",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "RAPTOR",
+        "[https://infoscience.epfl.ch/entities/publication/d8ba48b3-2c5e-4f28-a86f-d811348cf246](https://infoscience.epfl.ch/entities/publication/d8ba48b3-2c5e-4f28-a86f-d811348cf246)",
+        null,
+        null,
+        null,
+        "F. Felici / EPFL SPC",
+        "单核 CPU/实时控制平台；可嵌入控制系统",
+        "实时状态观测器、放电轨迹优化、TCV/ITER 控制器设计、TORAX 基准",
+        "实时 1.5D 托卡马克剖面演化",
+        [
+          {
+            "id": "recvkp7B4DsXpJ"
+          },
+          {
+            "id": "recvkp7B4DD9NK"
+          }
+        ],
+        [
+          "有限体积",
+          "实时控制",
+          "状态估计",
+          "EKF"
+        ],
+        "有限体积；隐式 theta 时间离散；扩展卡尔曼滤波；解析 Jacobian",
+        [
+          {
+            "id": "recvk9ZmAnD2wP"
+          }
+        ]
+      ],
+      [
+        "SOLPS-ITER",
+        "[https://www.iter.org/newsline/-/3476](https://www.iter.org/newsline/-/3476)",
+        null,
+        null,
+        null,
+        "ITER Organization / B2.5-EIRENE community",
+        "CPU 集群；ITER 统一版本",
+        "ITER/DEMO 偏滤器设计、脱靶运行、杂质屏蔽、边界辐射控制",
+        "二维边界流体等离子体 + 中性粒子 Monte Carlo",
+        [
+          {
+            "id": "recvkp7B4DTSwF"
+          }
+        ],
+        [
+          "有限体积",
+          "Monte Carlo",
+          "边界",
+          "偏滤器",
+          "脱靶"
+        ],
+        "B2.5 有限体积流体求解器与 EIRENE Monte Carlo 耦合",
+        [
+          {
+            "id": "recvk9ZmAnvxlW"
+          }
+        ]
+      ],
+      [
+        "CGYRO",
+        "[https://gacode.io/cgyro.html](https://gacode.io/cgyro.html)",
+        null,
+        null,
+        null,
+        "J. Candy / E. Belli / General Atomics",
+        "MPI/OpenMP；GPU 优化；GACODE 生态",
+        "ITG/TEM/ETG 微观湍流、多尺度耦合、DIII-D/ITER 预测、TGLF 基准",
+        "全局谱回旋动理学",
+        [
+          {
+            "id": "recvkp7B4Dk6Uh"
+          },
+          {
+            "id": "recvkp7B4Dwz0Z"
+          }
+        ],
+        [
+          "谱方法",
+          "回旋动理学",
+          "GPU",
+          "湍流"
+        ],
+        "Eulerian continuum；径向谱离散；碰撞算符；多尺度湍流",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "GS2",
+        "[https://gyrokinetics.gitlab.io/gs2/](https://gyrokinetics.gitlab.io/gs2/)",
+        null,
+        null,
+        null,
+        "W. Dorland / M. Kotschenreuther / I.G. Abel / GS2 Team",
+        "Fortran/MPI/OpenMP CPU",
+        "微观漂移波不稳定性、湍流热通量、TRINITY/TRANSP 耦合、基准算例",
+        "局域回旋动理学",
+        [
+          {
+            "id": "recvkp7B4DAADE"
+          }
+        ],
+        [
+          "谱方法",
+          "回旋动理学",
+          "flux-tube"
+        ],
+        "Eulerian flux-tube；谱方法；电磁扰动与碰撞算符",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "SPEC",
+        "[https://princetonuniversity.github.io/SPEC/](https://princetonuniversity.github.io/SPEC/)",
+        null,
+        null,
+        null,
+        "S.R. Hudson / Princeton-PPPL",
+        "Fortran；CPU 并行",
+        "复杂三维平衡、磁岛/随机区、仿星器/托卡马克非理想平衡、stellarator 优化",
+        "多区域松弛 MHD 平衡",
+        [
+          {
+            "id": "recvkp7B4DxvNU"
+          },
+          {
+            "id": "recvkp7B4DG7vd"
+          }
+        ],
+        [
+          "谱元法",
+          "MRxMHD",
+          "磁岛",
+          "仿星器"
+        ],
+        "谱单元/多区域；MRxMHD；允许磁岛和混沌磁力线",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "XGC",
+        "[https://xgc.pppl.gov/html/index.html](https://xgc.pppl.gov/html/index.html)",
+        null,
+        null,
+        null,
+        "Choong-Seock Chang / PPPL XGC Team",
+        "GPU/CPU Exascale；MPI/OpenMP/CUDA/Kokkos 相关路径",
+        "ITER pedestal、边界热流宽度、L-H 转换、核心-边界耦合、WDMApp",
+        "全装置边缘-核心回旋动理学 PIC",
+        [
+          {
+            "id": "recvkp7B4Di29J"
+          },
+          {
+            "id": "recvkp7B4DEDIw"
+          }
+        ],
+        [
+          "PIC",
+          "回旋动理学",
+          "全装置",
+          "边界",
+          "Exascale"
+        ],
+        "PIC；非结构网格；X-point 几何；蒙特卡洛碰撞；全装置耦合",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "ASCOT5",
+        "[https://ascot4fusion.github.io/ascot5/index.html](https://ascot4fusion.github.io/ascot5/index.html)",
+        null,
+        null,
+        null,
+        "ASCOT4Fusion Team",
+        "C/Python；MPI/OpenMP；HDF5",
+        "α粒子损失、NBI 快离子、杂质输运、逃逸电子、tokamak/stellarator 工程分析",
+        "快离子/杂质/中性粒子试粒子轨道跟踪",
+        [
+          {
+            "id": "recvkp7B4DMmyh"
+          }
+        ],
+        [
+          "Monte Carlo",
+          "快离子",
+          "逃逸电子",
+          "轨道跟踪"
+        ],
+        "Monte Carlo orbit following；guiding-center/full-orbit；3D 磁场与壁相互作用",
+        [
+          {
+            "id": "recvk9ZmAnsUZt"
+          }
+        ]
+      ],
+      [
+        "BOUT++",
+        "[https://bout-dev.readthedocs.io/](https://bout-dev.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "B.D. Dudson / BOUT++ community",
+        "C++/Python；MPI/OpenMP；部分 GPU 后端探索",
+        "SOL/边界湍流、ELM、MHD/漂移流体模型、快速开发新方程组",
+        "三维曲线坐标流体/等离子体方程框架",
+        [
+          {
+            "id": "recvkp7B4Dy4U1"
+          },
+          {
+            "id": "recvkp7B4DYscQ"
+          }
+        ],
+        [
+          "有限差分",
+          "流体",
+          "边界",
+          "ELM",
+          "框架"
+        ],
+        "有限差分；模块化 PDE 框架；Zoidberg 网格；PETSc/SUNDIALS 求解器",
+        [
+          {
+            "id": "recvk9ZmAni6zB"
+          }
+        ]
+      ],
+      [
+        "Hermes-3",
+        "[https://hermes3.readthedocs.io/](https://hermes3.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "Hermes-3 Team",
+        "BOUT++/C++；MPI CPU",
+        "MAST-U/TCV/SOL 边界湍流、脱靶、开场线与中性粒子耦合",
+        "边界多流体等离子体模型",
+        [
+          {
+            "id": "recvkp7B4DFotP"
+          },
+          {
+            "id": "recvkp7B4Dvsm4"
+          }
+        ],
+        [
+          "多流体",
+          "SOL",
+          "偏滤器",
+          "BOUT++"
+        ],
+        "基于 BOUT++；多物种 Braginskii/中性粒子源项；有限差分",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "UEDGE",
+        "[https://w3.pppl.gov/~hammett/comp/src/uedge/](https://w3.pppl.gov/~hammett/comp/src/uedge/)",
+        null,
+        null,
+        null,
+        "T.D. Rognlien / LLNL UEDGE Team",
+        "Fortran/C；CPU 并行",
+        "DIII-D、NSTX、ITER 偏滤器和 SOL 建模、脱靶、杂质输运",
+        "二维边界流体等离子体输运",
+        [
+          {
+            "id": "recvkp7B4D1yib"
+          },
+          {
+            "id": "recvkp7B4DWZR0"
+          }
+        ],
+        [
+          "有限体积",
+          "边界",
+          "偏滤器",
+          "SOL"
+        ],
+        "有限体积；多物种流体；中性粒子/杂质模块；非线性稳态求解",
+        [
+          {
+            "id": "recvk9ZmAni6zB"
+          }
+        ]
+      ],
+      [
+        "EMC3-EIRENE",
+        "[https://www.eirene.de/](https://www.eirene.de/)",
+        null,
+        null,
+        null,
+        "Y. Feng / D. Reiter / W7-X edge modelling community",
+        "CPU 集群；MPI",
+        "W7-X、LHD、ITER 三维边界和偏滤器建模、岛状偏滤器、杂质屏蔽",
+        "三维边界流体 + 中性粒子 Monte Carlo",
+        [
+          {
+            "id": "recvkp7B4D6cK3"
+          },
+          {
+            "id": "recvkp7B4DGkQr"
+          }
+        ],
+        [
+          "3D边界",
+          "Monte Carlo",
+          "仿星器",
+          "偏滤器"
+        ],
+        "EMC3 流体有限体积 + EIRENE Monte Carlo；3D 磁场边界",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "JOREK",
+        "[https://www.jorek.eu/](https://www.jorek.eu/)",
+        null,
+        null,
+        null,
+        "G.T.A. Huijsmans / M. Hoelzl / JOREK Team",
+        "MPI/OpenMP CPU；大型 HPC",
+        "ELM、破裂、SPI/MGI 缓解、垂直位移、QH-mode、ITER 安全运行预测",
+        "非线性扩展 MHD",
+        [
+          {
+            "id": "recvkp7B4D6hgM"
+          },
+          {
+            "id": "recvkp7B4DBMPB"
+          }
+        ],
+        [
+          "有限元",
+          "扩展MHD",
+          "ELM",
+          "破裂",
+          "RMP"
+        ],
+        "Bezier 有限元；环向 Fourier；隐式时间推进；SPI/MGI/ELM/破裂模块",
+        [
+          {
+            "id": "recvk9ZmAnwNSI"
+          }
+        ]
+      ],
+      [
+        "NIMROD",
+        "[https://nimrodteam.org/](https://nimrodteam.org/)",
+        null,
+        null,
+        null,
+        "C.R. Sovinec / NIMROD Team",
+        "Fortran/MPI；CPU HPC",
+        "托卡马克/RFP 稳定性、撕裂模、破裂、磁重联、MST/DIII-D/ITER 物理",
+        "非线性 extended MHD",
+        [
+          {
+            "id": "recvkp7B4DpRiM"
+          }
+        ],
+        [
+          "有限元",
+          "extended MHD",
+          "RFP",
+          "tokamak",
+          "破裂"
+        ],
+        "高阶有限元；环向 Fourier；隐式/半隐式时间推进；多流体/动理学闭合",
+        [
+          {
+            "id": "recvk9ZmAn2C8Z"
+          }
+        ]
+      ],
+      [
+        "MARS-F",
+        "[https://fusion.gat.com/theory/MARS](https://fusion.gat.com/theory/MARS)",
+        null,
+        null,
+        null,
+        "Y.Q. Liu / MARS Team",
+        "Fortran；CPU",
+        "RMP ELM 控制、误差场修正、垂直稳定性、ITER 响应预测",
+        "线性 MHD 等离子体响应",
+        [
+          {
+            "id": "recvkp7B4DGzC8"
+          },
+          {
+            "id": "recvkp7B4DZBNS"
+          }
+        ],
+        [
+          "线性MHD",
+          "RMP",
+          "稳定性",
+          "等离子体响应"
+        ],
+        "频域线性 MHD；真空场/壁耦合；旋转与耗散模型",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "TGLF",
+        "[https://gacode.io/tglf.html](https://gacode.io/tglf.html)",
+        null,
+        null,
+        null,
+        "G.M. Staebler / J.E. Kinsey / GACODE Team",
+        "Fortran；GACODE；CPU",
+        "快速核心输运预测、ITER/DEMO 放电方案、神经网络代理模型训练",
+        "Trapped Gyro-Landau Fluid 准线性输运模型",
+        [
+          {
+            "id": "recvkp7B4DlhFI"
+          },
+          {
+            "id": "recvkp7B4DCrqE"
+          }
+        ],
+        [
+          "准线性",
+          "gyro-fluid",
+          "输运模型",
+          "GACODE"
+        ],
+        "线性特征模 + 准线性饱和规则；谱空间输入；与 TGYRO/OMFIT/TORAX 耦合",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "GYRO",
+        "[https://gacode.io/gyro.html](https://gacode.io/gyro.html)",
+        null,
+        null,
+        null,
+        "J. Candy / General Atomics",
+        "Fortran/MPI CPU",
+        "托卡马克核心湍流、高保真输运基准、TGLF/CGYRO 模型验证",
+        "非线性回旋动理学连续体模型",
+        [
+          {
+            "id": "recvkp7B4D98va"
+          }
+        ],
+        [
+          "回旋动理学",
+          "湍流",
+          "GACODE"
+        ],
+        "Eulerian gyrokinetics；径向有限差分/谱；碰撞与电磁扰动",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "TGYRO",
+        "[https://gafusion.github.io/doc/tgyro.html](https://gafusion.github.io/doc/tgyro.html)",
+        null,
+        null,
+        null,
+        "GACODE Team",
+        "Fortran；MPI；GACODE",
+        "DIII-D/ITER 剖面预测、参数扫描、OMFIT 集成建模",
+        "稳态核心输运管理器",
+        [
+          {
+            "id": "recvkp7B4DTKhr"
+          },
+          {
+            "id": "recvkp7B4Dmnym"
+          }
+        ],
+        [
+          "集成输运",
+          "GACODE",
+          "稳态剖面"
+        ],
+        "调用 TGLF/NEO/CGYRO 等模块,迭代求解温度、密度、转动剖面",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "QuaLiKiz",
+        "[https://qualikiz-group.gitlab.io/QuaLiKiz](https://qualikiz-group.gitlab.io/QuaLiKiz)",
+        null,
+        null,
+        null,
+        "C. Bourdelle / J. Citrin / QuaLiKiz Team",
+        "CPU；Python/Fortran；QLKNN 神经网络加速",
+        "JET/ITER 核心输运预测、集成建模、TORAX/CRONOS/JINTRAC 耦合",
+        "准线性回旋动理学输运",
+        [
+          {
+            "id": "recvkp7B4DozOg"
+          }
+        ],
+        [
+          "准线性",
+          "回旋动理学",
+          "输运",
+          "神经网络代理"
+        ],
+        "线性 gyrokinetic 色散求解 + 准线性通量模型；快速参数扫描；QLKNN 代理模型",
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "OMFIT",
+        "[https://omfit.io/](https://omfit.io/)",
+        null,
+        null,
+        null,
+        "O. Meneghini / AToM Team / fusion modelling community",
+        "Python；HPC 批处理；本地/远程模块",
+        "DIII-D/ITER 放电解释、预测、控制方案、TRANSP/TGYRO/EFIT/TGLF 工作流",
+        "集成建模与实验数据分析框架",
+        [
+          {
+            "id": "recvkp7B4DVKpa"
+          }
+        ],
+        [
+          "集成建模",
+          "工作流",
+          "OMFIT",
+          "AToM"
+        ],
+        "Python 工作流框架；模块化 code coupling；数据库/IMAS/实验数据接口",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "OMAS",
+        "[https://github.com/gafusion/omas](https://github.com/gafusion/omas)",
+        null,
+        null,
+        null,
+        "GA Fusion / OMFIT community",
+        "Python；HDF5/NetCDF/JSON 等后端",
+        "OMFIT/TRANSP/TGYRO/IMAS 之间数据标准化、实验/模拟数据交换",
+        "Ordered Multidimensional Array Structure 数据结构",
+        [
+          {
+            "id": "recvkp7B4D3gXu"
+          },
+          {
+            "id": "recvkp7B4Dz5Ny"
+          }
+        ],
+        [
+          "数据模型",
+          "IMAS",
+          "Python",
+          "工作流"
+        ],
+        "Python 数据结构；ITER IMAS/PDM 映射；多代码数据交换",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "IMAS",
+        "[https://confluence.iter.org/display/IMP/Integrated+Modelling+%26+Analysis+Suite](https://confluence.iter.org/display/IMP/Integrated+Modelling+%26+Analysis+Suite)",
+        null,
+        null,
+        null,
+        "ITER Integrated Modelling \u0026 Analysis Suite Team",
+        "C++/Fortran/Python/Java API；本地/远程数据库",
+        "ITER 场景建模、跨代码数据交换、欧洲/国际集成建模工作流",
+        "聚变集成建模数据模型和工作流基础设施",
+        [
+          {
+            "id": "recvkp7B4DQeRk"
+          }
+        ],
+        [
+          "数据标准",
+          "集成建模",
+          "ITER",
+          "IDS"
+        ],
+        "IDS 数据结构；UDA/MDSplus/HDF5 后端；多代码耦合 API",
+        [
+          {
+            "id": "recvk9ZmAnvxlW"
+          }
+        ]
+      ],
+      [
+        "FreeGS",
+        "[https://github.com/freegs-plasma/freegs](https://github.com/freegs-plasma/freegs)",
+        null,
+        null,
+        null,
+        "B. Dudson / FreeGS community",
+        "Python/NumPy/SciPy；CPU",
+        "托卡马克平衡快速计算、教育、控制原型、FreeGSNKE 基础",
+        "自由边界 Grad-Shafranov 平衡",
+        [
+          {
+            "id": "recvkp7B4DLO0T"
+          }
+        ],
+        [
+          "Grad-Shafranov",
+          "自由边界",
+          "平衡",
+          "Python"
+        ],
+        "Python 有限差分；Picard 迭代；线圈/限制器/等离子体边界求解",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "FreeGSNKE",
+        "[https://github.com/FusionComputingLab/freegsnke](https://github.com/FusionComputingLab/freegsnke)",
+        null,
+        null,
+        null,
+        "Fusion Computing Lab",
+        "Python；CPU；SciPy 稀疏线性代数",
+        "MAST-U 强成形等离子体、演化平衡重建、控制设计辅助",
+        "演化自由边界 Grad-Shafranov 平衡",
+        [
+          {
+            "id": "recvkp7B4DPeOI"
+          }
+        ],
+        [
+          "Newton-Krylov",
+          "Grad-Shafranov",
+          "演化平衡",
+          "Python"
+        ],
+        "Newton-Krylov 静态/演化求解；FreeGS4E；MAST-U 工况验证",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "EFIT",
+        "[https://fusion.gat.com/theory/Efit](https://fusion.gat.com/theory/Efit)",
+        null,
+        null,
+        null,
+        "L.L. Lao / General Atomics EFIT Team",
+        "Fortran/C；实时与离线版本",
+        "DIII-D、ITER、NSTX、KSTAR 等托卡马克平衡重建、实时控制输入",
+        "Grad-Shafranov 平衡重建",
+        [
+          {
+            "id": "recvkp7B4DdEaa"
+          },
+          {
+            "id": "recvkp7B4DK30t"
+          }
+        ],
+        [
+          "平衡重建",
+          "Grad-Shafranov",
+          "实验分析"
+        ],
+        "实验磁测量约束；自由边界平衡反演；最小二乘/约束优化",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "SIMSOPT",
+        "[https://github.com/hiddenSymmetries/simsopt](https://github.com/hiddenSymmetries/simsopt)",
+        null,
+        null,
+        null,
+        "M. Landreman / Hidden Symmetries and Fusion Energy Collaboration",
+        "Python/C++；MPI；CPU",
+        "准对称/准等动力 stellarator 设计、线圈约束优化、形状与物理联合优化",
+        "stellarator 优化框架",
+        [
+          {
+            "id": "recvkp7B4DaCWr"
+          }
+        ],
+        [
+          "仿星器优化",
+          "线圈优化",
+          "Python",
+          "C++"
+        ],
+        "Python/C++；自动微分/有限差分；VMEC/SPEC/coil 优化耦合",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "STELLOPT",
+        "[https://github.com/ORNL-Fusion/STELLOPT](https://github.com/ORNL-Fusion/STELLOPT)",
+        null,
+        null,
+        null,
+        "D.A. Spong / S.P. Hirshman / ORNL Team",
+        "Fortran；MPI CPU",
+        "W7-X/HSX/NCSX/LHD 等 stellarator 设计优化、平衡拟合、线圈约束",
+        "stellarator 优化与数据拟合",
+        [
+          {
+            "id": "recvkp7B4DEpQm"
+          }
+        ],
+        [
+          "仿星器优化",
+          "VMEC",
+          "多目标优化"
+        ],
+        "VMEC 平衡 + 多目标优化；物理指标/线圈/诊断约束",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "REGCOIL",
+        "[https://github.com/landreman/regcoil](https://github.com/landreman/regcoil)",
+        null,
+        null,
+        null,
+        "M. Landreman / REGCOIL Team",
+        "MATLAB/Python 版本；CPU",
+        "stellarator 线圈初步设计、线圈复杂度与场误差权衡、SIMSOPT/FOCUS 前置",
+        "stellarator 线圈电流势优化",
+        [
+          {
+            "id": "recvkp7B4DVyK6"
+          }
+        ],
+        [
+          "线圈优化",
+          "正则化",
+          "仿星器",
+          "Fourier"
+        ],
+        "Tikhonov 正则化；电流势展开；线圈-等离子体法向场误差最小化",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "FOCUS",
+        "[https://github.com/PrincetonUniversity/FOCUS](https://github.com/PrincetonUniversity/FOCUS)",
+        null,
+        null,
+        null,
+        "C. Zhu / S.R. Hudson / PPPL",
+        "Fortran/Python；CPU",
+        "仿星器线圈组设计、工程约束下场形优化、W7-X/NCSX 类问题",
+        "stellarator 线圈优化",
+        null,
+        [
+          "线圈优化",
+          "仿星器",
+          "曲线优化"
+        ],
+        "离散线圈曲线优化；磁场法向误差；线圈长度/曲率/间距约束",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "PROCESS",
+        "[https://github.com/ukaea/PROCESS](https://github.com/ukaea/PROCESS)",
+        null,
+        null,
+        null,
+        "UKAEA PROCESS Team",
+        "Fortran/Python；CPU；CI 测试",
+        "STEP/DEMO/ARC 类聚变电厂参数扫描、成本/功率平衡、设计点优化",
+        "聚变电厂系统级设计与优化",
+        [
+          {
+            "id": "recvkp7B4Dkfwi"
+          },
+          {
+            "id": "recvkp7B4DVI2g"
+          }
+        ],
+        [
+          "系统代码",
+          "反应堆设计",
+          "优化",
+          "工程经济"
+        ],
+        "0D/1D 工程经济模型；自洽约束求解；优化目标函数；多技术路线模块",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "Bluemira",
+        "[https://bluemira.readthedocs.io/](https://bluemira.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "UKAEA Bluemira Team",
+        "Python；CAD/外部求解器耦合；CPU",
+        "tokamak 反应堆概念设计、STEP 类设计空间探索、工程工作流自动化",
+        "模块化聚变反应堆设计框架",
+        [
+          {
+            "id": "recvkp7B4DcsjK"
+          }
+        ],
+        [
+          "反应堆设计",
+          "CAD",
+          "多保真",
+          "Python"
+        ],
+        "参数化几何、PROCESS 耦合、CAD/中子学/结构等多保真工作流",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "Power Balance Models",
+        "[https://ukaea.github.io/powerbalance/](https://ukaea.github.io/powerbalance/)",
+        null,
+        null,
+        null,
+        "UKAEA PBM Team",
+        "Python；CPU",
+        "聚变电厂净电输出评估、部件功耗敏感性、概念设计快速筛选",
+        "托卡马克净功率平衡模型",
+        [
+          {
+            "id": "recvkp7B4DbyIT"
+          },
+          {
+            "id": "recvkp7B4DDmIF"
+          }
+        ],
+        [
+          "系统代码",
+          "功率平衡",
+          "反应堆工程"
+        ],
+        "系统级功率流网络；部件功率消耗/发电模型；PROCESS/Bluemira 可衔接",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "FESTIM",
+        "[https://festim.readthedocs.io/](https://festim.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "FESTIM Team / CEA IRFM / MIT / UKAEA / fusion materials community",
+        "Python；FEniCSx/PETSc；CPU 并行",
+        "第一壁/包层氚滞留、渗透探针、燃料循环安全、材料筛选",
+        "氢同位素/氚在材料中的输运与滞留",
+        [
+          {
+            "id": "recvkp7B4DKPVW"
+          },
+          {
+            "id": "recvkp7B4DJpSj"
+          }
+        ],
+        [
+          "有限元",
+          "氚输运",
+          "材料",
+          "燃料循环"
+        ],
+        "有限元；FEniCSx；扩散-俘获-解俘-表面复合；多物种扩展",
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "OpenMC",
+        "[https://docs.openmc.org/](https://docs.openmc.org/)",
+        null,
+        null,
+        null,
+        "Paul Romano / OpenMC community",
+        "C++/Python；MPI/OpenMP；HDF5",
+        "聚变堆中子学、氚增殖包层、屏蔽设计、活化源项、DAGMC CAD 中子学",
+        "蒙特卡洛中子/光子粒子输运",
+        [
+          {
+            "id": "recvkp7B4DL5RH"
+          },
+          {
+            "id": "recvkp7B4D6N1a"
+          }
+        ],
+        [
+          "Monte Carlo",
+          "中子学",
+          "包层",
+          "屏蔽"
+        ],
+        "连续能量 Monte Carlo；几何布尔运算；多群/随机介质；Python API",
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ]
+      ],
+      [
+        "DAGMC",
+        "[https://svalinn.github.io/DAGMC/](https://svalinn.github.io/DAGMC/)",
+        null,
+        null,
+        null,
+        "Svalinn/DAGMC Team",
+        "C++；MOAB；HPC CPU",
+        "复杂聚变装置 CAD 中子学、OpenMC/MCNP/Fluka 耦合、屏蔽与包层分析",
+        "CAD-based Monte Carlo geometry toolkit",
+        [
+          {
+            "id": "recvkp7B4D2Ipn"
+          },
+          {
+            "id": "recvkp7B4Dgas3"
+          }
+        ],
+        [
+          "CAD",
+          "中子学",
+          "Monte Carlo",
+          "几何"
+        ],
+        "MOAB/CGM 几何；CAD 三角网格与 Monte Carlo code coupling",
+        [
+          {
+            "id": "recvk9ZmAn2C8Z"
+          }
+        ]
+      ],
+      [
+        "FISPACT-II",
+        "[https://fispact.ukaea.uk/](https://fispact.ukaea.uk/)",
+        null,
+        null,
+        null,
+        "UKAEA FISPACT-II Team",
+        "Fortran/C；CPU",
+        "聚变材料活化、剂量率、废物分级、氚/氦产生、部件寿命评估",
+        "核活化、核嬗变和库存计算",
+        [
+          {
+            "id": "recvkp7B4DK4j0"
+          }
+        ],
+        [
+          "活化",
+          "库存",
+          "燃料循环",
+          "材料"
+        ],
+        "核反应网络；衰变链；TENDL/ENDF/JEFF 数据；不确定度传播",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "FIDASIM",
+        "[https://d3denergetic.github.io/FIDASIM/](https://d3denergetic.github.io/FIDASIM/)",
+        null,
+        null,
+        null,
+        "B.A. Grierson / DIII-D fast-ion community",
+        "Fortran/Python；CPU",
+        "DIII-D/NSTX/KSTAR/ASDEX-U 快离子诊断解释、TRANSP/NUBEAM 验证",
+        "合成 FIDA/中性粒子诊断模拟",
+        [
+          {
+            "id": "recvkp7B4DnLAn"
+          },
+          {
+            "id": "recvkp7B4Dz9SG"
+          }
+        ],
+        [
+          "快离子",
+          "合成诊断",
+          "NBI",
+          "Monte Carlo"
+        ],
+        "Monte Carlo NBI 快离子与中性粒子；谱线发射模型；诊断几何",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "pyrokinetics",
+        "[https://pyrokinetics.readthedocs.io/](https://pyrokinetics.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "UKAEA / Pyrokinetics developers",
+        "Python；CPU",
+        "多 gyrokinetic 代码基准、自动化扫描、数据库构建、代理模型训练数据准备",
+        "gyrokinetic 输入输出转换与工作流工具",
+        [
+          {
+            "id": "recvkp7B4D35NL"
+          },
+          {
+            "id": "recvkp7B4DSMNO"
+          }
+        ],
+        [
+          "工作流",
+          "回旋动理学",
+          "数据转换",
+          "Python"
+        ],
+        "Python 数据模型；GS2/CGYRO/GENE/STELLA/QuaLiKiz 格式转换；IMAS/GKDB 接口",
+        [
+          {
+            "id": "recvk9ZmAnx5Wt"
+          }
+        ]
+      ],
+      [
+        "stella",
+        "[https://github.com/stellaGK/stella](https://github.com/stellaGK/stella)",
+        null,
+        null,
+        null,
+        "M. Barnes / F. Parra / stella Team",
+        "Fortran/MPI/OpenMP；CPU",
+        "stellarator/tokamak 微观湍流、W7-X/LHD/HSX 研究、GS2/GENE 基准",
+        "局域 gyrokinetic flux-tube",
+        [
+          {
+            "id": "recvkp7B4DXtlk"
+          }
+        ],
+        [
+          "回旋动理学",
+          "stellarator",
+          "flux-tube"
+        ],
+        "Fourier/finite-difference；stellarator/tokamak 几何；非线性湍流",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "DINA",
+        "[https://github.com/DINA-plasma/DINA](https://github.com/DINA-plasma/DINA)",
+        null,
+        null,
+        null,
+        "Troitsk/Kurchatov",
+        "CPU, 串行",
+        "托卡马克放电模拟",
+        "非线性、时间依赖托卡马克等离子体模拟（自由边界 GS + 漂移/传输）",
+        [
+          {
+            "id": "recvkp7B4DJoAm"
+          }
+        ],
+        [
+          "电路",
+          "平衡",
+          "演化"
+        ],
+        "电路方程, 平衡演化",
+        []
+      ],
+      [
+        "Toksys",
+        "[https://github.com/Toksys/toksys](https://github.com/Toksys/toksys)",
+        null,
+        null,
+        null,
+        "美国PPPL",
+        "CPU, 实时",
+        "托卡马克实时控制",
+        "托卡马克等离子体纵向位置/电流/形状演化模拟",
+        [
+          {
+            "id": "recvkp7B4DRPhP"
+          },
+          {
+            "id": "recvkp7B4DOnCc"
+          }
+        ],
+        [
+          "控制",
+          "实时",
+          "托卡马克"
+        ],
+        "控制系统, 实时",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "TSC",
+        "[https://github.com/PrincetonUniversity/TSC](https://github.com/PrincetonUniversity/TSC)",
+        null,
+        null,
+        null,
+        "美国PPPL",
+        "CPU, 串行",
+        "托卡马克场景模拟",
+        "托卡马克等离子体纵向位置/电流/形状演化模拟",
+        [
+          {
+            "id": "recvkp7B4Ds77g"
+          }
+        ],
+        [
+          "平衡",
+          "演化",
+          "控制"
+        ],
+        "自由边界, 演化",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "GSevolve",
+        "[https://github.com/PrincetonUniversity/GSevolve](https://github.com/PrincetonUniversity/GSevolve)",
+        null,
+        null,
+        null,
+        "美国GA",
+        "CPU, 串行",
+        "托卡马克平衡演化",
+        "托卡马克等离子体平衡演化模拟",
+        [
+          {
+            "id": "recvkp7B4DpUcN"
+          }
+        ],
+        [
+          "平衡",
+          "演化"
+        ],
+        "平衡演化, 控制",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "GSPulse",
+        "[https://github.com/jwai-cfs/GSPulse_public](https://github.com/jwai-cfs/GSPulse_public)",
+        null,
+        null,
+        null,
+        "Columbia/CFS",
+        "CPU, 串行",
+        "托卡马克脉冲设计",
+        "平衡轨迹优化（含时间依赖耦合）",
+        [
+          {
+            "id": "recvkp7B4DRKav"
+          }
+        ],
+        [
+          "脉冲",
+          "平衡",
+          "设计"
+        ],
+        "脉冲设计, 平衡",
+        [
+          {
+            "id": "recvk9ZmAn8uc6"
+          }
+        ]
+      ],
+      [
+        "gsfit",
+        "[https://github.com/tokamak-energy/gsfit](https://github.com/tokamak-energy/gsfit)",
+        null,
+        null,
+        null,
+        "Tokamak Energy",
+        "CPU, 串行",
+        "托卡马克平衡拟合",
+        "托卡马克等离子体边界重建（Grad‑Shafranov 约束）",
+        [
+          {
+            "id": "recvkp7B4DkXML"
+          }
+        ],
+        [
+          "平衡",
+          "拟合",
+          "实验"
+        ],
+        "平衡拟合, 实验数据",
+        [
+          {
+            "id": "recvk9ZmAn34Zo"
+          }
+        ]
+      ],
+      [
+        "FGE",
+        "[https://github.com/PrincetonUniversity/FGE](https://github.com/PrincetonUniversity/FGE)",
+        null,
+        null,
+        null,
+        "EPFL/CRPP",
+        "CPU, 串行",
+        "托卡马克平衡计算",
+        "快速自由边界 GS 平衡演化求解",
+        [
+          {
+            "id": "recvkp7B4D4yzN"
+          }
+        ],
+        [
+          "平衡",
+          "自由边界"
+        ],
+        "自由边界, Grad-Shafranov",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "DYON",
+        "[https://gitlab.eufus.psnc.pl/Plasma_Initiation/dyon](https://gitlab.eufus.psnc.pl/Plasma_Initiation/dyon)",
+        null,
+        null,
+        null,
+        "EUROfusion",
+        "CPU, 串行",
+        "等离子体破裂与电流淬灭模拟",
+        "等离子体燃烧/点火阶段模拟（如burn-through）",
+        [
+          {
+            "id": "recvkp7B4Dkgvl"
+          }
+        ],
+        [
+          "电路",
+          "破裂",
+          "电流"
+        ],
+        "集总电路, 常微分方程",
+        [
+          {
+            "id": "recvk9ZmAnwNSI"
+          }
+        ]
+      ],
+      [
+        "METIS",
+        "[https://github.com/CEA-METIS](https://github.com/CEA-METIS)",
+        null,
+        null,
+        null,
+        "法国CEA",
+        "CPU, 串行",
+        "托卡马克集成建模",
+        "快速整体托卡马克等离子体分析与预测,0D/1D/2D混合模型,用于场景设计与输运模拟",
+        [
+          {
+            "id": "recvkp7B4D0G5v"
+          }
+        ],
+        [
+          "输运",
+          "预测"
+        ],
+        "输运, 预测",
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "CRONOS",
+        "[https://github.com/CEA-CRONOS](https://github.com/CEA-CRONOS)",
+        null,
+        null,
+        null,
+        "法国CEA",
+        "CPU, MPI",
+        "托卡马克集成模拟",
+        "1.5D核心输运模拟,多物理模块集成",
+        [
+          {
+            "id": "recvkp7B4DaBsB"
+          }
+        ],
+        [
+          "集成建模",
+          "输运"
+        ],
+        "集成建模, 输运",
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ],
+      [
+        "ASTRA",
+        "[https://github.com/CIEMAT-ASTRA](https://github.com/CIEMAT-ASTRA)",
+        null,
+        null,
+        null,
+        "西班牙CIEMAT",
+        "CPU, 串行",
+        "托卡马克输运模拟",
+        "托卡马克输运方程求解与交互式模拟",
+        [
+          {
+            "id": "recvkp7B4DYKaU"
+          }
+        ],
+        [
+          "输运",
+          "平衡"
+        ],
+        "输运, 平衡",
+        [
+          {
+            "id": "recvk9ZmAnsgYq"
+          }
+        ]
+      ],
+      [
+        "TASK",
+        "[http://bpsi.nucleng.kyoto-u.ac.jp/task/](http://bpsi.nucleng.kyoto-u.ac.jp/task/)",
+        null,
+        null,
+        null,
+        "日本京都大学BPSI",
+        "CPU, 串行",
+        "托卡马克集成模拟",
+        "综合托卡马克整体模拟（输运、源项等）",
+        [
+          {
+            "id": "recvkp7B4D8gh8"
+          }
+        ],
+        [
+          "集成建模",
+          "输运"
+        ],
+        "集成建模, 输运",
+        [
+          {
+            "id": "recvmnDEv1OzNt"
+          }
+        ]
+      ],
+      [
+        "IPS",
+        "[https://ips-framework.readthedocs.io/](https://ips-framework.readthedocs.io/)",
+        null,
+        null,
+        null,
+        "多国 (SWIM/ORNL)",
+        "CPU, MPI",
+        "聚变装置集成模拟",
+        "等离子体多代码耦合模拟框架",
+        [
+          {
+            "id": "recvkp7B4DM6zD"
+          }
+        ],
+        [
+          "工作流",
+          "集成建模"
+        ],
+        "工作流, 集成",
+        []
+      ],
+      [
+        "EPED",
+        "[EPED 模块 (OMFIT)](http://EPED 模块 (OMFIT))",
+        null,
+        null,
+        null,
+        "美国PPPL/ITER 社区",
+        "CPU, 串行",
+        "托卡马克 pedestal 预测",
+        "H 模式边缘穗状层（pedestal）压力/宽度预测模型",
+        [
+          {
+            "id": "recvkp7B4DrxB6"
+          }
+        ],
+        [
+          "pedestal",
+          "预测"
+        ],
+        "pedestal, 预测",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "EUROPED",
+        "[https://github.com/EUROfusion/EUROPED](https://github.com/EUROfusion/EUROPED)",
+        null,
+        null,
+        null,
+        "EUROfusion",
+        "CPU, 串行",
+        "托卡马克 pedestal 稳定性",
+        "基于 EPED 的边缘密度/压力建模扩展",
+        [
+          {
+            "id": "recvkp7B4DUnoo"
+          }
+        ],
+        [
+          "pedestal",
+          "稳定性"
+        ],
+        "pedestal, 稳定性",
+        [
+          {
+            "id": "recvk9ZmAnwNSI"
+          }
+        ]
+      ],
+      [
+        "REPED",
+        "[https://www.epfl.ch/research/domains/swiss-plasma-center/](https://www.epfl.ch/research/domains/swiss-plasma-center/)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "托卡马克 pedestal 高度预测",
+        "核算托卡马克边缘剖面、与核心耦合",
+        [
+          {
+            "id": "recvkp7B4DjdXE"
+          }
+        ],
+        [
+          "pedestal",
+          "预测",
+          "数据驱动"
+        ],
+        "经验/机器学习模型",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "MEQ",
+        "[https://gitlab.epfl.ch/spc/public/meq](https://gitlab.epfl.ch/spc/public/meq)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "平衡求解器",
+        "平衡位形相关程序包",
+        [
+          {
+            "id": "recvkp7B4DpoyX"
+          },
+          {
+            "id": "recvkp7B4DziTv"
+          }
+        ],
+        [
+          "平衡",
+          "有限元"
+        ],
+        "有限元/有限差分",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "FBT",
+        "[https://www.epfl.ch/research/domains/swiss-plasma-center/](https://www.epfl.ch/research/domains/swiss-plasma-center/)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "托卡马克自由边界平衡",
+        "位形设计",
+        [
+          {
+            "id": "recvkp7B4D5cKP"
+          }
+        ],
+        [
+          "平衡",
+          "有限元"
+        ],
+        "有限元",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "LIUEQ",
+        "[https://www.epfl.ch/research/domains/swiss-plasma-center/meq/](https://www.epfl.ch/research/domains/swiss-plasma-center/meq/)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "托卡马克平衡计算",
+        "位形反演,类似EFIT",
+        [
+          {
+            "id": "recvkp7B4DLzDX"
+          },
+          {
+            "id": "recvkp7B4Dxet6"
+          }
+        ],
+        [
+          "平衡",
+          "有限元"
+        ],
+        "有限元",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "CHEASE",
+        "[https://gitlab.epfl.ch/spc/chease](https://gitlab.epfl.ch/spc/chease)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "托卡马克与恒星器平衡计算",
+        "二维逆坐标平衡求解器,行业主流程序",
+        [
+          {
+            "id": "recvkp7B4DNhxO"
+          }
+        ],
+        [
+          "平衡",
+          "谱方法"
+        ],
+        "谱方法 (傅里叶-切比雪夫)",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "HELENA",
+        "[https://gitlab.mpcdf.mpg.de/micdu/helena](https://gitlab.mpcdf.mpg.de/micdu/helena)",
+        null,
+        null,
+        null,
+        "EUROfusion",
+        "CPU, 串行",
+        "托卡马克平衡与稳定性分析",
+        "逆坐标平衡求解器,类似CHEASE,用在CRONOS中",
+        [
+          {
+            "id": "recvkp7B4DvrNT"
+          }
+        ],
+        [
+          "平衡",
+          "有限元",
+          "稳定性"
+        ],
+        "有限元",
+        [
+          {
+            "id": "recvk9ZmAnwNSI"
+          }
+        ]
+      ],
+      [
+        "FEEQS.M/NICE",
+        "[https://www.pppl.gov/research/theory/codes](https://www.pppl.gov/research/theory/codes)",
+        null,
+        null,
+        null,
+        "PPPL",
+        "CPU, 串行",
+        "托卡马克平衡计算",
+        "有限元网格的自由边界平衡计算/平衡重建（可以加铁芯,电路方程,控制器）",
+        [
+          {
+            "id": "recvkp7B4Di5MX"
+          },
+          {
+            "id": "recvkp7B4DujVe"
+          }
+        ],
+        [
+          "平衡",
+          "有限元"
+        ],
+        "有限元/谱方法",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "HEQ",
+        "[https://github.com/Youjunhu/heq](https://github.com/Youjunhu/heq)",
+        null,
+        null,
+        null,
+        "IPP-CAS, 胡友俊",
+        "CPU, 串行",
+        "托卡马克平衡位形反演",
+        "python版平衡反演",
+        [
+          {
+            "id": "recvkp7B4DjIZT"
+          }
+        ],
+        [
+          "平衡反演",
+          "Python",
+          "自由边界"
+        ],
+        "Python, 自由边界平衡反演",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "GVEC",
+        "[https://github.com/MaxPla/GVEC](https://github.com/MaxPla/GVEC)",
+        null,
+        null,
+        null,
+        "IPP Greifswald",
+        "CPU, MPI",
+        "一般三维磁约束装置平衡",
+        "三维平衡求解器",
+        [
+          {
+            "id": "recvkp7B4D5Xsu"
+          }
+        ],
+        [
+          "平衡",
+          "谱方法",
+          "恒星器"
+        ],
+        "谱方法, 变分原理",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "JSOLVER",
+        "[https://github.com/PrincetonUniversity/JSOLVER](https://github.com/PrincetonUniversity/JSOLVER)",
+        null,
+        null,
+        null,
+        "美国PPPL",
+        "CPU, 串行",
+        "托卡马克平衡计算",
+        "固定边界 MHD 平衡求解",
+        [
+          {
+            "id": "recvkp7B4DuzQo"
+          }
+        ],
+        [
+          "平衡",
+          "求解器"
+        ],
+        "平衡, 求解器",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "ONETWO",
+        "[https://fusion.gat.com/THEORY/onetwo/](https://fusion.gat.com/THEORY/onetwo/)",
+        null,
+        null,
+        null,
+        "General Atomics",
+        "CPU, 串行",
+        "托卡马克输运与功率平衡分析",
+        "1D 输运 + 波加热",
+        [
+          {
+            "id": "recvkp7B4DjrtS"
+          }
+        ],
+        [
+          "输运",
+          "分析",
+          "托卡马克"
+        ],
+        "有限差分, 输运方程",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "COTSIM",
+        "[https://www6.lehigh.edu/~eus204/per/publications/abstracts/aps22k.php](https://www6.lehigh.edu/~eus204/per/publications/abstracts/aps22k.php)",
+        null,
+        null,
+        null,
+        "美国Lehigh University",
+        "CPU, 串行",
+        "托卡马克控制模拟",
+        "基于控制的磁通扩散方程,热输运求解器（定标律,神经网络）",
+        [
+          {
+            "id": "recvkp7B4Dj4oo"
+          },
+          {
+            "id": "recvkp7B4DPCmi"
+          }
+        ],
+        [
+          "电路",
+          "控制"
+        ],
+        "电路, 控制",
+        []
+      ],
+      [
+        "NCLASS",
+        "[https://github.com/PrincetonUniversity/NCLASS](https://github.com/PrincetonUniversity/NCLASS)",
+        null,
+        null,
+        null,
+        "美国PPPL",
+        "CPU, 串行",
+        "输运模型",
+        "计算托卡马克等离子体的 neoclassical 传输性质（如电阻率、bootstrap电流、径向电场）",
+        [
+          {
+            "id": "recvkp7B4DuM2n"
+          }
+        ],
+        [
+          "新经典",
+          "输运"
+        ],
+        "新经典输运",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "JETTO",
+        "[https://github.com/JETTO-codes/JETTO](https://github.com/JETTO-codes/JETTO)",
+        null,
+        null,
+        null,
+        "JET实验室",
+        "CPU, 串行",
+        "托卡马克输运模拟",
+        "1.5D 核心输运仿真框架,用于密度/温度/电流动态分析",
+        [
+          {
+            "id": "recvkp7B4D4X1h"
+          }
+        ],
+        [
+          "输运",
+          "平衡"
+        ],
+        "输运, 平衡",
+        []
+      ],
+      [
+        "MMM",
+        "[https://transp.pppl.gov/](https://transp.pppl.gov/)",
+        null,
+        null,
+        null,
+        "多国研究机构",
+        "CPU, 串行",
+        "托卡马克输运模拟",
+        "MMM (Multi‑Mode Model) 混合湍流输运模型系列",
+        [
+          {
+            "id": "recvkp7B4Dvouy"
+          }
+        ],
+        [
+          "输运",
+          "多模"
+        ],
+        "输运, 多模",
+        []
+      ],
+      [
+        "GLF23",
+        "[https://github.com/GeneralAtomics/GLF23](https://github.com/GeneralAtomics/GLF23)",
+        null,
+        null,
+        null,
+        "多国团体",
+        "CPU, 串行",
+        "托卡马克输运模拟",
+        "基于 gyro‑fluid 的输运模型,用于 H 模式核心输运",
+        [
+          {
+            "id": "recvkp7B4DEVWv"
+          }
+        ],
+        [
+          "输运",
+          "准线性"
+        ],
+        "输运, 准线性",
+        []
+      ],
+      [
+        "BgB",
+        "[https://iopscience.iop.org/article/10.1088/1361-6587/aa9352](https://iopscience.iop.org/article/10.1088/1361-6587/aa9352)",
+        null,
+        null,
+        null,
+        "多国托卡马克研究者",
+        "CPU, 串行",
+        "托卡马克输运模拟",
+        "结合 Bohm + gyro‑Bohm 的经验输运模型",
+        [
+          {
+            "id": "recvkp7B4D9g3C"
+          }
+        ],
+        [
+          "输运",
+          "经验"
+        ],
+        "输运, 经验",
+        []
+      ],
+      [
+        "supercode",
+        "[https://inis.iaea.org/collection/NCLCollectionStore/_Public/23/065/23065862.pdf](https://inis.iaea.org/collection/NCLCollectionStore/_Public/23/065/23065862.pdf)",
+        null,
+        null,
+        null,
+        "IPP Greifswald",
+        "CPU, MPI",
+        "恒星器优化设计",
+        "变分法参数法快速系统程序",
+        [
+          {
+            "id": "recvkp7B4DneXx"
+          },
+          {
+            "id": "recvkp7B4DYLwY"
+          }
+        ],
+        [
+          "优化",
+          "平衡",
+          "恒星器"
+        ],
+        "谱方法, 优化算法",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "GATO",
+        "[https://github.com/GeneralAtomics/GATO](https://github.com/GeneralAtomics/GATO)",
+        null,
+        null,
+        null,
+        "美国DOE",
+        "CPU, 串行",
+        "宏观不稳定性线性求解器",
+        "低n理想磁流体不稳定性",
+        [
+          {
+            "id": "recvkp7B4DIbhf"
+          }
+        ],
+        [
+          "稳定性",
+          "有限元"
+        ],
+        "稳定性, 有限元",
+        [
+          {
+            "id": "recvka0ejSSAaY"
+          }
+        ]
+      ],
+      [
+        "MARS",
+        "[https://fusion.gat.com/global/theory/home](https://fusion.gat.com/global/theory/home)",
+        null,
+        null,
+        null,
+        "General Atomics",
+        "CPU, 串行",
+        "托卡马克MHD稳定性分析",
+        "磁流体不稳定性求解器,按多流体和动理学EP效应",
+        [
+          {
+            "id": "recvkp7B4D95iD"
+          }
+        ],
+        [
+          "稳定性",
+          "有限元",
+          "本征值"
+        ],
+        "有限元, 本征值求解",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "ELITE",
+        "[https://fusion.gat.com/global/theory/home](https://fusion.gat.com/global/theory/home)",
+        null,
+        null,
+        null,
+        "General Atomics",
+        "CPU, 串行",
+        "托卡马克边缘稳定性分析",
+        "边界高n理想磁流体不稳定性",
+        [
+          {
+            "id": "recvkp7B4D6Si4"
+          }
+        ],
+        [
+          "稳定性",
+          "剥离",
+          "气球模"
+        ],
+        "有限元, 本征值求解",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "NOVA",
+        "[https://www.osti.gov/biblio/5841622](https://www.osti.gov/biblio/5841622)",
+        null,
+        null,
+        null,
+        "PPPL",
+        "CPU, 串行",
+        "托卡马克阿尔芬本征模分析",
+        "AE",
+        [
+          {
+            "id": "recvkp7B4DidoD"
+          }
+        ],
+        [
+          "稳定性",
+          "动力学",
+          "阿尔芬波"
+        ],
+        "有限元, 本征值",
+        [
+          {
+            "id": "recvk9ZmAn0oAN"
+          }
+        ]
+      ],
+      [
+        "MAS",
+        "[https://arxiv.org/abs/2304.09476](https://arxiv.org/abs/2304.09476)",
+        null,
+        null,
+        null,
+        "EUROfusion",
+        "CPU, 串行",
+        "托卡马克MHD分析",
+        "AE,EP,等",
+        [
+          {
+            "id": "recvkp7B4DKfpg"
+          }
+        ],
+        [
+          "平衡",
+          "稳定性"
+        ],
+        "有限元/有限差分",
+        [
+          {
+            "id": "recvk9ZmAnwNSI"
+          }
+        ]
+      ],
+      [
+        "TGCO",
+        "[https://github.com/Youjunhu/TGCO](https://github.com/Youjunhu/TGCO)",
+        null,
+        null,
+        null,
+        "IPP",
+        "CPU, 串行",
+        "托卡马克磁面坐标计算",
+        "中性束注入蒙卡程序",
+        [
+          {
+            "id": "recvkp7B4DFsvL"
+          },
+          {
+            "id": "recvkp7B4D3anD"
+          }
+        ],
+        [
+          "几何",
+          "坐标",
+          "托卡马克"
+        ],
+        "坐标变换",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "NEMO",
+        "[https://github.com/nemo-stellarator/nemo](https://github.com/nemo-stellarator/nemo)",
+        null,
+        null,
+        null,
+        "IPP Greifswald",
+        "CPU, MPI",
+        "恒星器优化设计",
+        "NBI 快离子BIRTH计算",
+        [
+          {
+            "id": "recvkp7B4DCvdI"
+          },
+          {
+            "id": "recvkp7B4DW6fX"
+          }
+        ],
+        [
+          "优化",
+          "平衡",
+          "恒星器"
+        ],
+        "谱方法, 优化",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "GENRAY",
+        "[https://github.com/GeneralAtomics/GENRAY](https://github.com/GeneralAtomics/GENRAY)",
+        null,
+        null,
+        null,
+        "美国MIT/PSFC",
+        "CPU, 串行",
+        "射频波",
+        "全波段波迹追踪和电流驱动计算程序",
+        [
+          {
+            "id": "recvkp7B4Dgb7Y"
+          }
+        ],
+        [
+          "射线追踪",
+          "ECRH"
+        ],
+        "射线追踪, ECRH",
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ]
+      ],
+      [
+        "TORAY",
+        "[https://gafusion.github.io/OMFIT-source/modules/mod_TORAY.html](https://gafusion.github.io/OMFIT-source/modules/mod_TORAY.html)",
+        null,
+        null,
+        null,
+        "General Atomics",
+        "CPU, 串行",
+        "电子回旋加热功率沉积计算",
+        "电子回旋波迹追踪和电流驱动程序",
+        [
+          {
+            "id": "recvkp7B4De9Mn"
+          },
+          {
+            "id": "recvkp7B4Drslv"
+          }
+        ],
+        [
+          "射线追踪",
+          "ECRH"
+        ],
+        "几何光学, 龙格-库塔",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "CQL3D",
+        "[https://github.com/ORNL-Fusion/CQL3D](https://github.com/ORNL-Fusion/CQL3D)",
+        null,
+        null,
+        null,
+        "General Atomics, ORNL",
+        "CPU, MPI",
+        "射频加热与电流驱动模拟",
+        "Fokker-Planck波程序",
+        [
+          {
+            "id": "recvkp7B4D3Fly"
+          }
+        ],
+        [
+          "Fokker-Planck",
+          "准线性"
+        ],
+        "有限差分, 隐式时间推进",
+        [
+          {
+            "id": "recvk9ZmAnJXaI"
+          }
+        ]
+      ],
+      [
+        "C3PO",
+        "[https://www.ipp.mpg.de/en](https://www.ipp.mpg.de/en)",
+        null,
+        null,
+        null,
+        "IPP",
+        "CPU, MPI",
+        "恒星器优化设计",
+        "托卡马克波迹追踪程序",
+        [
+          {
+            "id": "recvkp7B4DOQ09"
+          },
+          {
+            "id": "recvkp7B4DyHAT"
+          }
+        ],
+        [
+          "优化",
+          "平衡",
+          "恒星器"
+        ],
+        "谱方法, 优化算法",
+        [
+          {
+            "id": "recvk9ZmAn1eJF"
+          }
+        ]
+      ],
+      [
+        "LUKE",
+        "[https://spcgit.epfl.ch/luke/tutorial.html](https://spcgit.epfl.ch/luke/tutorial.html)",
+        null,
+        null,
+        null,
+        "EPFL",
+        "CPU, 串行",
+        "托卡马克输运与分布函数模拟",
+        "Fokker-Planck波程序",
+        [
+          {
+            "id": "recvkp7B4DmFy0"
+          },
+          {
+            "id": "recvkp7B4Dmpo1"
+          }
+        ],
+        [
+          "漂移动理学",
+          "蒙特卡洛"
+        ],
+        "有限差分, 蒙特卡洛",
+        [
+          {
+            "id": "recvk9ZmAn12zH"
+          }
+        ]
+      ],
+      [
+        "TORIC",
+        "[https://transp.jetdata.eu/docs/Webpages/files/TORIC.pdf](https://transp.jetdata.eu/docs/Webpages/files/TORIC.pdf)",
+        null,
+        null,
+        null,
+        "MIT PSFC",
+        "CPU, 串行",
+        "离子回旋加热模拟",
+        "FLR2阶离子回旋全波程序",
+        [
+          {
+            "id": "recvkp7B4DdJ2E"
+          }
+        ],
+        [
+          "ICRF",
+          "波传播",
+          "有限元"
+        ],
+        "有限元, 谱方法",
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ]
+      ],
+      [
+        "AORSA",
+        "[https://ornl.github.io/software-catalog/](https://ornl.github.io/software-catalog/)",
+        null,
+        null,
+        null,
+        "ORNL",
+        "CPU, MPI",
+        "离子回旋加热与电流驱动模拟",
+        "全阶离子回旋全波程序",
+        [
+          {
+            "id": "recvkp7B4DRBYS"
+          }
+        ],
+        [
+          "ICRF",
+          "全阶",
+          "谱方法"
+        ],
+        "谱方法, 有限差分",
+        [
+          {
+            "id": "recvk9ZmAnIl0o"
+          }
+        ]
+      ],
+      [
+        "BORAY",
+        "[https://github.com/hsxie/boray](https://github.com/hsxie/boray)",
+        null,
+        null,
+        null,
+        "MIT PSFC",
+        "CPU, 串行",
+        "电子回旋加热功率沉积",
+        "支持开放磁面的二维波迹追踪程序",
+        [
+          {
+            "id": "recvkp7B4D6VfK"
+          }
+        ],
+        [
+          "束流追踪",
+          "ECRH"
+        ],
+        "几何光学",
+        [
+          {
+            "id": "recvk9ZmAn8SHo"
+          }
+        ]
+      ],
+      [
+        "REMA",
+        "[https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf](https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf)",
+        null,
+        null,
+        null,
+        "CEA",
+        "CPU, 串行",
+        "托卡马克MHD稳定性分析",
+        "加热 RF 射线追踪",
+        [
+          {
+            "id": "recvkp7B4DGqQ0"
+          },
+          {
+            "id": "recvkp7B4DWVbp"
+          }
+        ],
+        [
+          "稳定性",
+          "有限元"
+        ],
+        "有限元, 本征值",
+        [
+          {
+            "id": "recvk9ZmAn41s1"
+          }
+        ]
+      ]
+    ],
+    "field_id_list": [
+      "fld2FKkui4",
+      "fld4XVp9Aa",
+      "fld5bAhMAB",
+      "fld910iXn8",
+      "fldAmqFhuL",
+      "fldgMxFNvC",
+      "fldHKgexXO",
+      "fldl3mXfK0",
+      "fldnodprPE",
+      "fldqWGVWkS",
+      "fldtIxefd9",
+      "fldU4PVsoD",
+      "flduCZvnXv"
+    ],
+    "fields": [
+      "代码名称",
+      "链接",
+      "软件著作权",
+      "知识库",
+      "算例汇总",
+      "研发团队 / 核心机构",
+      "目标硬件平台与并行框架",
+      "典型应用场景",
+      "核心物理模型",
+      "相关论文",
+      "算法标签",
+      "数学离散与技术路线",
+      "发布单位"
+    ],
+    "has_more": true,
+    "query_context": {
+      "field_scope": "all_fields",
+      "record_scope": "all_records"
+    },
+    "record_id_list": [
+      "rec27pSCprzhtA",
+      "rec27pSCprzkXa",
+      "rec27pSCprznpI",
+      "rec27pSCprzpJn",
+      "rec27pSCprzrO0",
+      "recvjRPrWaC9sj",
+      "recvjRPrWaDDNC",
+      "recvjRPrWaoosn",
+      "recvjRPrWamqTI",
+      "recvjRPrWar0ww",
+      "recvjRPrWaDp50",
+      "recvjRPrWaKU9s",
+      "recvjRPrWaDbQ7",
+      "recvjRPrWahI9u",
+      "recvjRPrWaq6ld",
+      "recvjRPrWahm04",
+      "recvjRPrWac9I8",
+      "recvjRPrWa5sJe",
+      "recvkkeyuWfx7h",
+      "recvkkeInGIngo",
+      "recvkkeInGX3f7",
+      "recvkkeInGFU6m",
+      "recvkkeInGdGKT",
+      "recvkkeInGhvQm",
+      "recvkkeInG2lQy",
+      "recvkkeInGIpCl",
+      "recvkkeInGv9JH",
+      "recvkkeInGT9jt",
+      "recvkkeInGYzGm",
+      "recvkkeInGRGyl",
+      "recvkkeInGj0pa",
+      "recvkkeInGJou4",
+      "recvkkeInGi4df",
+      "recvkkeInGhwyz",
+      "recvkkeInG1V0O",
+      "recvkkeInGFRGR",
+      "recvkkeInG4xdE",
+      "recvkkeInGBKeK",
+      "recvkkeInG7Qa0",
+      "recvkkeInGraAL",
+      "recvkkeInGkOoO",
+      "recvkkeInGO8bd",
+      "recvkkeInGhzVf",
+      "recvkkeInGgNlu",
+      "recvkkeInGLNY0",
+      "recvkkeInGJf6E",
+      "recvkkeInGTC9p",
+      "recvkkeInGv3Pp",
+      "recvkkeInGiOck",
+      "recvkkeInGVEy1",
+      "recvkkeInG7mSs",
+      "recvkp7iSZXk03",
+      "recvkp7iSZat02",
+      "recvkp7iSZTeBz",
+      "recvkp7iSZOzhx",
+      "recvkp7iSZl7dR",
+      "recvkp7iSZuvg2",
+      "recvkp7iSZVwDg",
+      "recvkp7iSZQJXA",
+      "recvkp7iSZrSHH",
+      "recvkp7iSZ7WOo",
+      "recvkp7iSZ7l4P",
+      "recvkp7iSZWfen",
+      "recvkp7iSZxSNb",
+      "recvkp7iSZDoYV",
+      "recvkp7iSZdjm4",
+      "recvkp7iSZ0voY",
+      "recvkp7iSZsFQX",
+      "recvkp7iSZ4yM9",
+      "recvkp7iSZ4HT9",
+      "recvkp7iSZacii",
+      "recvkp7iSZa0LR",
+      "recvkp7iSZCADE",
+      "recvkp7iSZzmSB",
+      "recvkp7iSZAfkJ",
+      "recvkp7iSZH1sR",
+      "recvkp7iSZ0GY5",
+      "recvkp7iSZCLhh",
+      "recvkp7iSZWE6r",
+      "recvkp7iSZSJxd",
+      "recvkp7iSZgRIM",
+      "recvkp7iSZ58EU",
+      "recvkp7iSZ72IL",
+      "recvkp7iSZ8p9k",
+      "recvkp7iSZIp5S",
+      "recvkp7iSZfoId",
+      "recvkp7iSZjF0n",
+      "recvkp7iSZdkkA",
+      "recvkp7iSZbb8K",
+      "recvkp7iSZXExj",
+      "recvkp7iSZEBrX",
+      "recvkp7iSZsbEY",
+      "recvkp7iSZstML",
+      "recvkp7iSZ5oSW",
+      "recvkp7iSZ8yCe",
+      "recvkp7iSZ85sq",
+      "recvkp7iSZdynm",
+      "recvkp7iSZnJrF",
+      "recvkp7iSZ04fz",
+      "recvkp7iSZUYL2"
+    ]
+  }
+}
