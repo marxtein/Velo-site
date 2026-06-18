@@ -436,5 +436,355 @@
     "links": [
       "https://github.com/gafusion/gacode"
     ]
+  },
+  "FreeGS": {
+    "full_name": "FreeGS — Free-Boundary Grad-Shafranov Equilibrium Solver",
+    "long_desc": "FreeGS 是英国 York 大学 Ben Dudson 团队开发的轻量级 Python 自由边界 Grad-Shafranov 平衡求解器。采用有限差分法在 (R,Z) 平面求解 Grad-Shafranov 方程，支持自由边界和固定边界两种模式，可处理 PF 线圈电流约束和 X 点搜索。FreeGS 以代码简洁、易于教学和快速原型著称，是 BOUT++ 生态的平衡求解组件，常嵌入 Jupyter Notebook 中用作教学演示和控制算法原型开发。核心代码仅约 2000 行，是理解和修改最低门槛的等离子体平衡求解器之一。",
+    "features": [
+      "自由边界 GS 平衡",
+      "Python 纯实现",
+      "X 点搜索",
+      "教学/原型开发",
+      "BOUT++ 生态组件"
+    ],
+    "links": [
+      "https://github.com/freegs-plasma/freegs"
+    ]
+  },
+  "FreeGSNKE": {
+    "full_name": "FreeGSNKE — FreeGS with Newton-Krylov Evolution",
+    "long_desc": "FreeGSNKE 是 UKAEA Fusion Computing Lab 在 FreeGS 基础上扩展的自由边界 Grad-Shafranov 平衡演化求解器。核心创新是引入 Newton-Krylov 方法替代 Picard 迭代，大幅提升了非线性收敛速度和强成形等离子体的求解稳定性。专门针对 MAST-U 球形托卡马克的强成形、高拉长比等离子体场景优化，可处理电流孔（current hole）、雪花偏滤器等极端平衡位形。支持时间依赖的等离子体剖面演化和 PF 线圈电流优化，是 UKAEA 平衡控制和场景设计的核心工具。",
+    "features": [
+      "Newton-Krylov 方法",
+      "强成形等离子体",
+      "自由边界演化",
+      "MAST-U 优化",
+      "雪花偏滤器"
+    ],
+    "links": [
+      "https://github.com/FusionComputingLab/freegsnke"
+    ]
+  },
+  "EFIT": {
+    "full_name": "EFIT — Equilibrium Fitting Code",
+    "long_desc": "EFIT 是全球托卡马克等离子体平衡重建的事实标准代码，由 General Atomics 的 L.L. Lao 团队开发维护超过 30 年。通过将 Grad-Shafranov 方程解与外部磁诊断数据（磁探针、Flux loop）和内部约束（MSE、压力剖面）进行最小二乘拟合，实时重建等离子体边界、磁面和电流剖面。EFIT 已部署于 DIII-D、ITER、NSTX-U、KSTAR、EAST、JET 等全球几乎所有主要托卡马克的实时控制系统。其衍生版本包括 kinetic-EFIT（耦合动理学约束）和 CAKE（耦合输运代码），是等离子体控制的基础组件。",
+    "features": [
+      "平衡重建",
+      "磁诊断拟合",
+      "MSE 约束",
+      "实时控制",
+      "全球标准"
+    ],
+    "links": [
+      "https://fusion.gat.com/theory/Efit"
+    ]
+  },
+  "SIMSOPT": {
+    "full_name": "SIMSOPT — Stellarator Optimization Framework",
+    "long_desc": "SIMSOPT 是由 Maryland 大学 Matt Landreman 领导的 Hidden Symmetries 合作组开发的新一代仿星器优化框架。纯 Python 实现，支持多种 MHD 平衡后端（VMEC、SPEC、GVEC）、线圈设计（REGCOIL、FOCUS）和多目标优化算法。SIMSOPT 的核心理念是「优化而非设计」——通过自动微分计算磁场几何对线圈参数的梯度，直接优化三维磁场位形以满足准对称性、粒子约束和工程可行性等多重目标。成功发现了此前未知的准对称磁场位形，是仿星器复兴运动的关键代码。",
+    "features": [
+      "仿星器优化框架",
+      "多平衡后端",
+      "自动微分",
+      "准对称设计",
+      "多目标优化"
+    ],
+    "links": [
+      "https://github.com/hiddenSymmetries/simsopt"
+    ]
+  },
+  "STELLOPT": {
+    "full_name": "STELLOPT — Stellarator Optimization Suite",
+    "long_desc": "STELLOPT 是 ORNL 的 D.A. Spong 团队开发的经典仿星器优化与实验数据分析代码套件。与 VMEC 深度耦合，通过对 VMEC 输出（磁面几何、iota 剖面）进行目标函数评估，结合 Levenberg-Marquardt 和遗传算法等优化器进行磁场线圈设计。STELLOPT 在 W7-X、HSX、NCSX 和 LHD 等主流仿星器的设计优化中发挥了核心作用，其优化结果直接指导了这些装置的磁场线圈几何和等离子体位形选择。虽然较 SIMSOPT 更传统，但经过数十年验证，至今仍是仿星器社区的重要参考基准。",
+    "features": [
+      "VMEC 耦合优化",
+      "Levenberg-Marquardt",
+      "遗传算法",
+      "多目标优化",
+      "W7-X/HSX 设计"
+    ],
+    "links": [
+      "https://github.com/ORNL-Fusion/STELLOPT"
+    ]
+  },
+  "REGCOIL": {
+    "full_name": "REGCOIL — Regularized Coil Optimization Code",
+    "long_desc": "REGCOIL 是 Maryland 大学 Matt Landreman 开发的仿星器线圈电流势优化代码。核心思路是通过 Tikhonov 正则化方法，在电流势面上求解最优线圈电流分布以复现目标等离子体边界磁场，在复现精度和工程可行性之间取得平衡。REGCOIL 通常作为 SIMSOPT 线圈优化流水线的前置步骤：先通过 REGCOIL 得到连续电流势分布，再离散化为实际线圈。其正则化参数直接控制线圈间距和工程约束，是仿星器线圈工程化的关键桥梁。",
+    "features": [
+      "Tikhonov 正则化",
+      "电流势优化",
+      "线圈工程化",
+      "SIMSOPT 前置",
+      "复现精度控制"
+    ],
+    "links": [
+      "https://github.com/landreman/regcoil"
+    ]
+  },
+  "FOCUS": {
+    "full_name": "FOCUS — Flexible Optimized Coils Using Splines",
+    "long_desc": "FOCUS 是普林斯顿/PPPL 的 Caoxiang Zhu 团队开发的仿星器线圈组直接优化代码。与 REGCOIL 的两步法（先电流势后离散）不同，FOCUS 直接优化三维空间中的实际线圈曲线，采用样条函数（spline）参数化线圈路径并使用非线性梯度优化。能够处理线圈-线圈间距、曲率半径、线圈-等离子体最小距离等工程约束，适用于 W7-X、NCSX 和 CFQS 等复杂仿星器的线圈详细工程设计。2023 年后通过 GPU 加速大幅提升了大规模线圈组的优化效率。",
+    "features": [
+      "线圈直接优化",
+      "样条参数化",
+      "工程约束",
+      "GPU 加速",
+      "非线性优化"
+    ],
+    "links": [
+      "https://github.com/PrincetonUniversity/FOCUS"
+    ]
+  },
+  "PROCESS": {
+    "full_name": "PROCESS — Power Plant Systems Code",
+    "long_desc": "PROCESS 是 UKAEA 开发的聚变电厂系统级设计代码，已有 30 余年历史，是欧洲聚变电站设计（STEP、DEMO）的核心系统代码。采用 0D/1D 物理模型和工程参数化方法，在全参数空间中进行等离子体物理、超导磁体、包层/屏蔽、氚增殖、功率转换和成本经济性等多学科耦合优化。PROCESS 能够快速扫描数万种设计配置，输出满足物理和工程约束的最优电厂参数组合。近期版本集成了不确定性量化（UQ）模块和机器学习代理模型，已成为 STEP 原型电站设计迭代的核心工具。",
+    "features": [
+      "系统代码",
+      "多学科优化",
+      "0D/1D 模型",
+      "不确定性量化",
+      "STEP/DEMO 设计"
+    ],
+    "links": [
+      "https://github.com/ukaea/PROCESS"
+    ]
+  },
+  "Bluemira": {
+    "full_name": "Bluemira — Modular Fusion Reactor Design Framework",
+    "long_desc": "Bluemira 是 UKAEA 开发的模块化聚变反应堆集成设计框架，旨在统一聚变电站概念设计中的多物理、多保真度建模工作流。采用 Python 构建，以 CAD 几何引擎（FreeCAD）为中枢，将等离子体物理（PROCESS 耦合）、磁体设计、包层热工水力、中子学分析和结构力学等模块串联为可执行的设计流水线。Bluemira 的核心价值在于打破学科壁垒：不同专业团队在同一框架下协作，设计变更自动传播到下游分析。作为 STEP 原型电站的主要设计平台，Bluemira 代表了聚变电站从经验设计向系统工程的范式转变。",
+    "features": [
+      "模块化设计框架",
+      "多保真度耦合",
+      "FreeCAD 引擎",
+      "STEP 设计平台",
+      "Python 工作流"
+    ],
+    "links": [
+      "https://bluemira.readthedocs.io/"
+    ]
+  },
+  "Power Balance": {
+    "full_name": "Power Balance — Tokamak Net Power Balance Model",
+    "long_desc": "Power Balance 是 UKAEA 开发的托卡马克净功率平衡快速评估模型。基于 0D 功率流分析，计算聚变功率输出与各子系统（低温、磁体、加热/电流驱动、泵浦等）功耗之间的净功率平衡，支持对等离子体参数的敏感性分析和概念设计阶段的快速筛选。特别适用于聚变电厂早期概念设计阶段回答「这个方案能否实现净电力输出」这一核心问题。代码轻量化（纯 Python），支持交互式参数调节和 Jupyter Notebook 环境，是聚变电站概念筛选和教学演示的实用工具。",
+    "features": [
+      "0D 功率平衡",
+      "子系统功耗建模",
+      "敏感性分析",
+      "概念设计筛选",
+      "交互式 Python"
+    ],
+    "links": [
+      "https://ukaea.github.io/powerbalance/"
+    ]
+  },
+  "FESTIM": {
+    "full_name": "FESTIM — Finite Element Simulation of Tritium In Materials",
+    "long_desc": "FESTIM 是 CEA/MIT/UKAEE 联合开发的氢同位素（氘/氚）在聚变材料中输运与滞留的开源有限元模拟代码。基于 FEniCS 有限元框架，求解多陷阱、多物种氢同位素的扩散-捕获-脱附方程，支持热扩散（Soret 效应）、应力辅助扩散和表面复合/解吸边界条件。主要应用于等离子体第一壁材料（钨、铍、CFC）和包层增殖区材料的氚滞留评估、燃料循环安全分析和氚自持性预测。FESTIM 已被 ITER 组织、EUROfusion 和 UKAEA 广泛采用为氚输运标准分析工具。",
+    "features": [
+      "氢同位素输运",
+      "FEniCS 有限元",
+      "多陷阱模型",
+      "氚滞留评估",
+      "第一壁/包层"
+    ],
+    "links": [
+      "https://festim.readthedocs.io/"
+    ]
+  },
+  "OpenMC": {
+    "full_name": "OpenMC — Open Source Monte Carlo Particle Transport Code",
+    "long_desc": "OpenMC 是由 Argonne 国家实验室 Paul Romano 团队开发的新一代开源蒙特卡洛粒子输运代码，现已成为聚变中子学领域的主流开源工具。支持三维连续能量中子/光子耦合输运，具有先进的 tally 系统、CAD 几何导入（通过 DAGMC）和 MPI+OpenMP 混合并行。在聚变中，OpenMC 广泛应用于包层中子学设计（氚增殖率 TBR 计算）、屏蔽分析、核热沉积、活化计算和材料辐照损伤评估。相比传统 MCNP，OpenMC 以现代 C++/Python 架构、开源许可（MIT）和 GPU 加速路线图赢得了聚变社区尤其是私营聚变公司的青睐。",
+    "features": [
+      "蒙特卡洛中子/光子",
+      "连续能量",
+      "CAD 几何",
+      "TBR 计算",
+      "MIT 开源"
+    ],
+    "links": [
+      "https://docs.openmc.org/"
+    ]
+  },
+  "DAGMC": {
+    "full_name": "DAGMC — Direct Accelerated Geometry Monte Carlo",
+    "long_desc": "DAGMC 是由 Wisconsin 大学和 Svalinn 团队开发的 CAD 直接蒙特卡洛几何引擎，解决了传统中子学代码（MCNP）需要手动构造 CSG 几何模型的痛点。通过直接读取 CAD 模型（STEP/IGES 格式）的表面网格并使用射线追踪加速算法，DAGMC 使中子学分析可直接在工程 CAD 模型上进行。DAGMC 作为几何中间件与 OpenMC、MCNP 和 FLUKA 等多种蒙特卡洛输运代码耦合，特别适合复杂聚变装置（ITER、STEP、CFETR）的中子学分析——这些装置的 CAD 模型已极为精细，手工转换为 CSG 几何不切实际。",
+    "features": [
+      "CAD 直接几何",
+      "射线追踪加速",
+      "多代码耦合",
+      "复杂装置适配",
+      "STEP/IGES 导入"
+    ],
+    "links": [
+      "https://svalinn.github.io/DAGMC/"
+    ]
+  },
+  "FISPACT-II": {
+    "full_name": "FISPACT-II — Nuclear Activation and Transmutation Code",
+    "long_desc": "FISPACT-II 是 UKAEA 开发的世界领先核活化与嬗变计算代码，是聚变材料活化和放射性废物评估的国际标准工具。通过耦合最新的核数据库（TENDL、ENDF/B、JEFF）和详细的中子能谱输入，精确计算聚变装置中结构材料、冷却剂和包层材料在中子辐照后的活度、衰变热、剂量率、元素嬗变和放射性废物分级。FISPACT-II 是 ITER 安全分析、STEP 材料选择和 DEMO 废物管理策略制定的核心工具，其输出直接支持核监管许可申请。2024 年发布了 GPU 加速版本，显著提升了全装置活化计算的速度。",
+    "features": [
+      "核活化/嬗变",
+      "衰变热/剂量率",
+      "废物分级",
+      "ITER 安全分析",
+      "多核数据库"
+    ],
+    "links": [
+      "https://fispact.ukaea.uk/"
+    ]
+  },
+  "FIDASIM": {
+    "full_name": "FIDASIM — Fast-Ion D-Alpha Simulation Code",
+    "long_desc": "FIDASIM 是 DIII-D 的 B.A. Grierson 团队开发的快离子诊断合成模拟代码，是中性束注入（NBI）快离子分布函数诊断验证的标准工具。通过蒙特卡洛方法模拟中性束注入、电离、电荷交换和快离子轨道，合成 FIDA（快离子 D-alpha）光谱、中子发射率和中性粒子分析器（NPA）信号。FIDASIM 的核心价值在于将实验诊断信号与理论分布函数桥接——研究人员可以将任何快离子分布函数输入 FIDASIM，对比合成信号与实测信号，从而约束输运模型和高能粒子物理假设。已广泛部署于 DIII-D、NSTX-U、KSTAR、ASDEX Upgrade 和 MAST-U 等装置。",
+    "features": [
+      "快离子诊断合成",
+      "FIDA 光谱",
+      "蒙特卡洛",
+      "NBI 模拟",
+      "多装置验证"
+    ],
+    "links": [
+      "https://d3denergetic.github.io/FIDASIM/"
+    ]
+  },
+  "pyrokinetics": {
+    "full_name": "pyrokinetics — Python Interface for Gyrokinetic Microstability Analysis",
+    "long_desc": "pyrokinetics 是 UKAEA 开发的 Python 回旋动理学工作流工具包，旨在解决多回旋动理学代码（GS2、CGYRO、GENE、stella）之间输入输出格式不统一的核心痛点。提供统一的 Python 接口读取各代码的输入文件（平衡几何、动理学剖面、等离子体参数）和输出文件（增长率、本征模结构、通量），支持代码间无缝切换和基准对比。pyrokinetics 还集成了自动化的线性稳定性分析流水线（扫描 k_y 谱、参数扫描），使跨代码验证和非专家用户使用回旋动理学代码的门槛大幅降低。已成为 EUROfusion 湍流输运验证与确认工作包的核心工具。",
+    "features": [
+      "多代码格式转换",
+      "统一 Python 接口",
+      "跨代码基准对比",
+      "线性稳定性流水线",
+      "GS2/CGYRO/GENE/stella"
+    ],
+    "links": [
+      "https://pyrokinetics.readthedocs.io/"
+    ]
+  },
+  "stella": {
+    "full_name": "stella — Stellarator Gyrokinetic Turbulence Code",
+    "long_desc": "stella 是由牛津大学 Michael Barnes 和 Felix Parra 团队专门为仿星器几何开发的局域回旋动理学通量管湍流代码。与传统的托卡马克通量管代码不同，stella 天然处理仿星器三维平衡的复杂几何（非轴对称磁面和多个螺旋波纹），采用场向坐标和傅里叶谱方法直接求解五维回旋动理学方程。支持静电和电磁扰动、多粒子种和线性/非线性模拟。stella 填补了仿星器微观湍流模拟的关键空白——此前该领域过度依赖托卡马克代码的仿星器扩展，而 stella 从底层设计就针对仿星器几何优化，是 W7-X 湍流输运分析和 HSX 输运验证的标准代码。",
+    "features": [
+      "仿星器原生回旋动理学",
+      "三维平衡几何",
+      "通量管近似",
+      "线性/非线性",
+      "W7-X 标准工具"
+    ],
+    "links": [
+      "https://github.com/stellaGK/stella"
+    ]
+  },
+  "DINA": {
+    "full_name": "DINA — Nonlinear Time-Dependent Tokamak Discharge Simulator",
+    "long_desc": "DINA 是俄罗斯 Troitsk/Kurchatov 研究所开发的非线性时变托卡马克放电模拟代码，是等离子体位形控制和破裂预测领域的经典工具。耦合自由边界 Grad-Shafranov 平衡求解、等离子体剖面演化（电流、温度、密度）和 PF 线圈电路方程，可模拟从击穿、电流爬升到平顶和下降的完整放电过程。DINA 的独特优势在于对等离子体垂直位移事件（VDE）和破裂 halo 电流的精确建模，被 ITER 组织选定为破裂电磁负载评估和真空室/内部部件结构分析的核心输入代码。2023 年开源化后，被全球托卡马克社区广泛采用。",
+    "features": [
+      "自由边界 G-S 演化",
+      "完整放电模拟",
+      "VDE/halo 电流",
+      "破裂电磁负载",
+      "ITER 标准工具"
+    ],
+    "links": [
+      "https://github.com/DINA-plasma/DINA"
+    ]
+  },
+  "Toksys": {
+    "full_name": "Toksys — Tokamak System Simulator",
+    "long_desc": "Toksys 是 PPPL 开发的托卡马克等离子体控制系统模拟和设计工具。提供模块化的托卡马克等离子体/线圈/电源/控制器的集成仿真环境，支持等离子体纵向位置、电流、形状和剖面等多变量控制器的设计、调谐和验证。Toksys 的核心功能包括等离子体响应模型构建、控制矩阵计算、控制器稳定性分析和闭环仿真，广泛用于 ITER 和 NSTX-U 等离子体控制系统的设计验证。其仿真结果直接指导实际装置中控制器参数的初步设定和控制策略的可行性评估。",
+    "features": [
+      "等离子体控制系统",
+      "多变量控制",
+      "控制器设计/调谐",
+      "ITER 控制验证",
+      "闭环仿真"
+    ],
+    "links": [
+      "https://github.com/Toksys/toksys"
+    ]
+  },
+  "TSC": {
+    "full_name": "TSC — Tokamak Simulation Code",
+    "long_desc": "TSC 是普林斯顿大学/PPPL 开发的二维自由边界时变托卡马克等离子体模拟代码。在 (R,Z) 平面求解耦合的 Grad-Shafranov 平衡、表面平均输运方程和 PF 线圈电路方程，自洽模拟等离子体位形和电流剖面的时间演化。TSC 特别擅长处理等离子体大半径移动、拉长比变化和 beta 演化等宏观动力学过程，是托卡马克放电方案设计（波形开发）和等离子体控制算法预验证的经典工具。TSC 被 SPARC、ITER 和 KSTAR 等多个装置用于放电方案预研和垂直不稳定性分析。",
+    "features": [
+      "2D 自由边界",
+      "时变放电模拟",
+      "电流剖面演化",
+      "放电方案设计",
+      "垂直不稳定性"
+    ],
+    "links": [
+      "https://github.com/PrincetonUniversity/TSC"
+    ]
+  },
+  "CRONOS": {
+    "full_name": "CRONOS — Core Transport Simulator for Tokamaks",
+    "long_desc": "CRONOS 是法国 CEA 开发的综合性托卡马克芯部输运模拟套件，是欧洲聚变集成建模的核心平台之一。采用 1.5D 输运方程框架，模块化集成多种湍流输运模型（GLF23、TGLF、QualLiKiz 等准线性模型和 GENE/GYRO 第一性原理接口）、新经典输运、加热/电流驱动源项（NBI、ICRH、ECRH、LHCD）和杂质输运模块。CRONOS 在 JET、WEST、ASDEX Upgrade、JT-60SA 和 ITER 的预测模拟中广泛使用，尤其擅长模拟 H 模式台基、杂质积累和电流剖面耦合演化等复杂过程。新版本支持面向对象 Python 接口（CRONOSpy）。",
+    "features": [
+      "1.5D 芯部输运",
+      "多湍流模型集成",
+      "加热/电流驱动模块",
+      "杂质输运",
+      "JET/ITER 预测"
+    ],
+    "links": [
+      "https://github.com/CEA-CRONOS"
+    ]
+  },
+  "METIS": {
+    "full_name": "METIS — Minute Embedded Tokamak Integrated Simulator",
+    "long_desc": "METIS 是 CEA 开发的超快速托卡马克集成模拟器，专为实时控制和快速场景探索设计。采用 0D/1D/2D 混合建模策略——用 0D 全局功率平衡约束全局参数，1D 输运方程预测剖面，2D 自由边界 G-S 求解等离子体位形——在秒级内完成完整放电模拟。METIS 的核心理念是「足够快以嵌入实时控制循环」，已部署于 WEST 和 JT-60SA 的等离子体控制系统。与 TORAX 类似，METIS 代表了聚变模拟从离线物理研究向在线实时决策的范式转移，特别适用于 ITER 等装置中数千次放电的快速预演。",
+    "features": [
+      "0D/1D/2D 混合",
+      "秒级快速模拟",
+      "实时控制嵌入式",
+      "WEST/JT-60SA 部署",
+      "场景快速探索"
+    ],
+    "links": [
+      "https://github.com/CEA-METIS"
+    ]
+  },
+  "ASTRA": {
+    "full_name": "ASTRA — Automated System for TRansport Analysis",
+    "long_desc": "ASTRA 是俄罗斯 Kurchatov 研究所 CIEMAT 合作开发的经典托卡马克输运方程交互式求解系统，已有 40 年历史，是聚变输运分析的元老级代码。采用 1.5D 输运方程框架，通过用户交互式编程（ASTRA 专用脚本语言）灵活组合源项模块、输运模型和边界条件。ASTRA 以极高的灵活性和强大的图形交互界面著称，支持几乎所有主流加热/电流驱动模式、杂质辐射模型和输运模型。虽然近年逐渐被 CRONOS、OMFIT 等新一代框架取代，ASTRA 在俄罗斯（T-15MD、KTM）、欧洲和亚洲许多装置上仍活跃使用，是输运分析教学和理解等离子体自组织行为的重要工具。",
+    "features": [
+      "1.5D 输运分析",
+      "交互式脚本语言",
+      "多源项/输运模型",
+      "40 年历史验证",
+      "教学经典"
+    ],
+    "links": [
+      "https://github.com/CIEMAT-ASTRA"
+    ]
+  },
+  "IPS": {
+    "full_name": "IPS — Integrated Plasma Simulator Framework",
+    "long_desc": "IPS 是 US DOE Fusion Simulation Program（FSP）和 ORNL 联合开发的多物理耦合框架，是聚变集成建模的通用工作流引擎。采用组件化架构，通过标准化的数据交换接口使独立的等离子体物理代码（平衡、输运、加热、MHD 稳定性等）以松耦合方式协同工作。IPS 的核心创新是将代码交互建模为有向无环图（DAG）任务流，支持异步执行、事件驱动和数据依赖管理，使不同团队独立开发的代码能自动编排为完整的放电模拟流水线。IPS 被 ITER 集成建模与分析（IMAS）数据模型采用为核心架构参考。",
+    "features": [
+      "多物理耦合框架",
+      "组件化架构",
+      "任务流编排",
+      "IMAS 数据模型",
+      "异步执行"
+    ],
+    "links": [
+      "https://ips-framework.readthedocs.io/"
+    ]
+  },
+  "CHEASE": {
+    "full_name": "CHEASE — Cubic Hermite Element Axisymmetric Static Equilibrium",
+    "long_desc": "CHEASE 是 EPFL 瑞士等离子体中心开发的二维托卡马克/仿星器固定边界 MHD 平衡求解器，已有超过 30 年历史。采用 Cubic Hermite 有限元方法在磁面坐标中求解 Grad-Shafranov 方程，以高精度、高稳定性和快速收敛著称。CHEASE 的核心输出是磁面几何映射（R、Z 坐标到磁面坐标 psi 的变换），这是回旋动理学代码（GENE、GS2、CGYRO）和 MHD 稳定性代码（MISHKA/ILSA、KINX）的标准平衡输入。CHEASE 被 ITER、JET、JT-60SA 和 TCV 等多个装置的物理团队广泛使用，是欧洲聚变集成建模工具链的基础组件。",
+    "features": [
+      "Cubic Hermite 有限元",
+      "固定边界 MHD 平衡",
+      "磁面坐标映射",
+      "回旋代码标准输入",
+      "30 年验证"
+    ],
+    "links": [
+      "https://gitlab.epfl.ch/spc/chease"
+    ]
   }
 }
