@@ -324,34 +324,6 @@
       "https://github.com/boutproject/hermes-3"
     ]
   },
-  "UEDGE": {
-    "full_name": "UEDGE — 2D Edge Plasma Fluid Code",
-    "long_desc": "UEDGE 是 LLNL（劳伦斯利弗莫尔国家实验室）开发的二维等离子体边界流体模拟代码，是刮削层/偏滤器物理的经典工具。采用 2D 多流体方程（电子、离子独立温度），耦合简化中性粒子模型或 DEGAS 中性蒙特卡洛代码。主要应用于偏滤器等离子体参数分布预测、杂质辐射和脱靶分析，特别在 DIII-D 装置上得到广泛验证。UEDGE 是 SOLPS-ITER 之前的边界流体模拟先行者，至今仍在 NSTX-U、DIII-D 等装置上活跃使用。",
-    "features": [
-      "2D流体",
-      "多流体模型",
-      "偏滤器模拟",
-      "中性粒子耦合",
-      "DIII-D验证"
-    ],
-    "links": [
-      "https://github.com/LLNL/uedge"
-    ]
-  },
-  "EMC3-EIRENE": {
-    "full_name": "EMC3-EIRENE — 3D Edge Monte Carlo + EIRENE Neutral Transport",
-    "long_desc": "EMC3-EIRENE 是全球唯一能够处理三维仿星器和托卡马克三维扰动场边界等离子体的模拟套件，由 IPP Greifswald 开发。EMC3 采用蒙特卡洛方法求解三维等离子体流体方程，与 EIRENE 耦合处理三维中性粒子输运。其独特之处在于不依赖环形对称性假设，能够处理仿星器自然的三维边界几何（如 W7-X 岛偏滤器）以及托卡马克中 RMP 线圈产生的三维扰动边界。EMC3-EIRENE 是 W7-X 偏滤器设计优化的唯一全三维分析工具，也在 EAST 三维边界研究中得到应用。",
-    "features": [
-      "3D蒙特卡洛",
-      "仿星器边界",
-      "EIRENE耦合",
-      "W7-X偏滤器",
-      "无轴对称假设"
-    ],
-    "links": [
-      "https://www.ipp.mpg.de/emc3"
-    ]
-  },
   "JOREK": {
     "full_name": "JOREK — Non-linear Extended MHD Code for Tokamak Transients",
     "long_desc": "JOREK 是 EUROfusion 资助的非线性扩展 MHD 代码，由多国联合团队（IPP Garching、CEA、CCFE 等）开发，是目前模拟托卡马克瞬态事件的最先进代码之一。采用 G1 连续 Bezier 有限元方法，在真实 X-point 几何和磁面对齐网格上求解约化 MHD 和扩展 MHD 方程。核心应用包括 ELM 爆发全过程（触发→崩塌→热脉冲→恢复）、等离子体破裂演化、垂直位移事件（VDE）、破裂缓解（SPI/MPI 注入）和 RMP 锁模物理。2024 年在 Nuclear Fusion 发表综述论文系统总结了该代码在托卡马克瞬态 MHD 建模中的最新进展。",
@@ -379,20 +351,6 @@
     ],
     "links": [
       "https://github.com/nimrod-team/NIMROD"
-    ]
-  },
-  "MARS-F": {
-    "full_name": "MARS-F — MHD-kinetic Stability Code",
-    "long_desc": "MARS-F 是 General Atomics 开发的环形 MHD-动理学混合稳定性代码，广泛应用于高能粒子驱动的不稳定性研究。采用有限元方法求解线性 MHD 方程，通过动理学响应函数耦合高能粒子（α粒子、NBI 快离子）对 MHD 模的动理学效应。核心应用包括环形阿尔芬本征模（TAE）、高能粒子模（EPM）、鱼骨模以及电阻壁模（RWM）的稳定性评估。MARS-F 是 ITER 高能粒子物理设计中 TAE 稳定性预测和 α 粒子损失评估的标准工具之一。",
-    "features": [
-      "MHD-动理学耦合",
-      "TAE/RWM",
-      "高能粒子",
-      "有限元",
-      "ITER稳定性评估"
-    ],
-    "links": [
-      "https://fusion.gat.com/global/theory/home"
     ]
   },
   "TGLF": {
@@ -435,6 +393,52 @@
     ],
     "links": [
       "https://github.com/gafusion/gacode"
+    ]
+  },
+  "QuaLiKiz": {
+    "full_name": "QuaLiKiz — Quasi-linear Gyrokinetic Transport Model",
+    "long_desc": "QuaLiKiz 是 CEA 的 C. Bourdelle 和 DIFFER 的 J. Citrin 联合开发的准线性回旋动理学湍流输运模型。采用本征值方法结合试验本征函数，在波数空间中计算 ITG/TEM/ETG 湍流驱动的粒子和热通量，避免了非线性回旋代码的巨大计算开销。2019 年推出的 QLKNN（神经网络代理）版本通过 10 维神经网络模拟原始 QuaLiKiz 通量，计算速度提升 1000 倍以上，可在毫秒内完成通量计算，使其能够嵌入实时控制和集成建模框架。QuaLiKiz/QLKNN 已广泛用于 JET、JT-60SA、ITER 和 CFETR 的输运预测和放电方案设计，是欧洲集成建模工具链的核心湍流模型之一。",
+    "features": [
+      "准线性回旋动理学",
+      "本征值方法",
+      "QLKNN神经网络代理",
+      "千倍加速",
+      "JET/ITER预测",
+      "实时控制兼容"
+    ],
+    "links": [
+      "https://qualikiz-group.gitlab.io/QuaLiKiz",
+      "https://doi.org/10.1063/1.5132937"
+    ]
+  },
+  "OMFIT": {
+    "full_name": "OMFIT — One Modeling Framework for Integrated Tasks",
+    "long_desc": "OMFIT 是 General Atomics 的 O. Meneghini 团队开发的磁约束聚变集成建模与实验数据分析旗舰平台。采用类似 MATLAB 的 Python 交互式环境，通过标准化接口编排数十个物理解码（EFIT、ONETWO、TGLF、TGYRO、EPED、ELITE、CQL3D 等），支持从平衡重建、输运分析到 MHD 稳定性和加热/电流驱动的全链条工作流。OMFIT 的核心优势在于一站式集成：研究人员可以在同一环境中完成实验数据导入、物理模拟、结果可视化和报告生成。已被 DIII-D、EAST、KSTAR、JET、ITER 和 CFETR 等全球主要装置广泛采用，是聚变集成建模的事实标准平台。",
+    "features": [
+      "集成建模平台",
+      "多代码编排",
+      "Python/MATLAB风格",
+      "实验-模拟闭环",
+      "全球装置标配"
+    ],
+    "links": [
+      "https://omfit.io/",
+      "https://github.com/gafusion/OMFIT-source"
+    ]
+  },
+  "OMAS": {
+    "full_name": "OMAS — Ordered Multidimensional Array Structure",
+    "long_desc": "OMAS 是 ITER 集成建模与分析套件（IMAS）数据模型的 Python 实现，由 General Atomics 开发维护。提供标准化的层次数据结构，将等离子体物理数据（平衡、剖面、源项、输运等）组织为统一的 IDS（Interface Data Structure）格式，支持不同代码和机构之间的无缝数据交换。OMAS 的核心价值在于打破代码壁垒：任何遵循 IMAS 标准写入数据的代码，其输出可被任何其他 IMAS 兼容代码直接读取，无需格式转换。OMAS 还提供丰富的 Python API 用于数据查询、切片、可视化和数据库存储（支持 HDF5、MDSplus 等后端），是国际聚变集成建模生态的数据基础设施。",
+    "features": [
+      "IMAS数据标准",
+      "层次化数据结构",
+      "跨代码互操作",
+      "Python API",
+      "HDF5/MDSplus后端"
+    ],
+    "links": [
+      "https://github.com/gafusion/omas",
+      "https://omas.readthedocs.io/"
     ]
   },
   "FreeGS": {
@@ -785,6 +789,363 @@
     ],
     "links": [
       "https://gitlab.epfl.ch/spc/chease"
+    ]
+  },
+  "HELENA": {
+    "full_name": "HELENA — Hermite Element Equilibrium Solver",
+    "long_desc": "HELENA 是由 EUROfusion 开发的固定边界托卡马克 Grad-Shafranov 平衡求解器，采用逆坐标中的 Cubic Hermite 有限元方法。与 CHEASE 密切相关但在算法细节和与 CRONOS 输运框架的耦合上有所优化：HELENA 在 (psi, theta) 磁面坐标中直接求解 G-S 方程，输出的磁面几何映射（R、Z 到 psi 的变换）是高 n 气球模稳定性代码（ELITE、MISHKA）和回旋动理学代码的标准输入。HELENA 被整合为 CRONOS 集成建模套件的首选平衡求解器，在 JET、JT-60SA 和 ITER 的输运-稳定性耦合分析中广泛使用。代码轻量化且收敛性极佳，特别适合处理强成形（高拉长比、高三角形变）的 H 模式等离子体。",
+    "features": [
+      "Cubic Hermite有限元",
+      "逆坐标G-S求解",
+      "CRONOS耦合",
+      "强成形等离子体",
+      "气球模稳定性输入"
+    ],
+    "links": [
+      "https://pb3d.github.io/helena.html",
+      "https://gitlab.mpcdf.mpg.de/micdu/helena"
+    ]
+  },
+  "GVEC": {
+    "full_name": "GVEC — Galerkin Variational Equilibrium Code",
+    "long_desc": "GVEC 是 IPP Greifswald 开发的新一代三维理想 MHD 平衡求解器，采用高精度 B 样条有限元和 Galerkin 变分方法，适用于任意三维磁约束装置（仿星器、托卡马克）。与 VMEC 不同，GVEC 不假设嵌套磁面存在，可在部分破坏磁面的区域自然求解。核心采用现代 Fortran 编写，通过 MPI+OpenMP 并行，提供 Python 包接口（pip install gvec），2025 年以论文形式发表在 Journal of Open Source Software。GVEC 被定位为 VMEC 的下一代替代方案——在计算精度、灵活性和易用性上全面升级，已被 SIMSOPT 等仿星器优化框架集成，是仿星器社区向现代化开源生态转型的关键代码。",
+    "features": [
+      "B样条Galerkin有限元",
+      "三维MHD平衡",
+      "通用磁约束几何",
+      "Python+Fortran",
+      "VMEC下一代替代"
+    ],
+    "links": [
+      "https://github.com/gvec-group/gvec",
+      "https://gvec.readthedocs.io/"
+    ]
+  },
+  "MEQ": {
+    "full_name": "MEQ — MHD Equilibrium Solver Package",
+    "long_desc": "MEQ 是 EPFL 瑞士等离子体中心开发的 MHD 平衡求解工具包，整合有限元和有限差分两种数值方法，提供从固定边界到自由边界 Grad-Shafranov 平衡的全套求解能力。MEQ 紧密嵌入 EPFL 的等离子体控制与放电方案开发工作流，主要服务于 TCV（托卡马克 à Configuration Variable）和 JT-60SA 的平衡分析。其模块化设计允许用户根据等离子体形状复杂度选择适当的求解方法——简单位形用快速有限差分，强成形/雪花偏滤器等极端位形切换到有限元模式。MEQ 的灵活架构使其成为 EPFL 快速原型开发和教学中平衡求解的首选工具。",
+    "features": [
+      "有限元/有限差分混合",
+      "自由/固定边界",
+      "TCV/JT-60SA",
+      "模块化设计",
+      "极端位形"
+    ],
+    "links": [
+      "https://gitlab.epfl.ch/spc/public/meq"
+    ]
+  },
+  "LIUEQ": {
+    "full_name": "LIUEQ — Liu Equilibrium Reconstruction Code",
+    "long_desc": "LIUEQ 是 EPFL 开发的等离子体平衡重建（equilibrium reconstruction）代码，功能类似于 EFIT。通过最小二乘拟合方法将 Grad-Shafranov 方程解与外部磁诊断数据（磁探针、Flux loop 信号）进行匹配，结合内部约束（如电子温度和密度剖面）反演等离子体边界、磁面和电流剖面。LIUEQ 特别针对 TCV 装置的独特几何（高度拉长的等离子体、快速形状变化能力）进行了优化，支持实时和离线两种模式，是 TCV 等离子体控制和物理分析的关键工具。",
+    "features": [
+      "平衡重建",
+      "磁诊断最小二乘拟合",
+      "TCV优化",
+      "实时/离线双模式",
+      "类EFIT方法"
+    ],
+    "links": [
+      "https://www.epfl.ch/"
+    ]
+  },
+  "NEMO": {
+    "full_name": "NEMO — Neutral Beam Injection Monte Carlo Birth Code for Stellarators",
+    "long_desc": "NEMO 是 IPP Greifswald 开发的仿星器中性束注入（NBI）快离子诞生蒙特卡洛代码。在三维仿星器复杂磁场几何中计算 NBI 中性粒子电离产生的快离子初始分布函数——包括电离位置、初始能量、投掷角分布和轨道类型分类。NEMO 的核心输出是快离子源项，直接输入 ASCOT5 等轨道追踪代码进行约束和损失分析。在 W7-X 的 NBI 系统设计和优化中发挥了关键作用，用于评估不同 NBI 注入角度和能量对快离子约束性能的影响。NEMO 精确处理仿星器的三维磁场波纹结构对中性束衰减和电离的影响，是仿星器高能粒子物理研究的基础工具。",
+    "features": [
+      "NBI快离子诞生",
+      "仿星器3D几何",
+      "蒙特卡洛方法",
+      "快离子源项计算",
+      "W7-X设计优化"
+    ],
+    "links": [
+      "https://github.com/nemo-stellarator/nemo"
+    ]
+  },
+  "GENRAY": {
+    "full_name": "GENRAY — General Ray Tracing Code for Electromagnetic Waves",
+    "long_desc": "GENRAY 是由 MIT/PSFC 和 General Atomics 联合开发的通用电磁波射线追踪代码。基于几何光学近似，在一般非轴对称等离子体几何中求解完整的射线追踪方程组（位置、波矢、能量），支持电子回旋波（EC）、低混杂波（LH）、离子回旋波（IC）和快波等多种色散关系。GENRAY 的通用性体现在其色散关系模块化设计：用户可选择冷等离子体、热等离子体或全动理学色散关系。输出包括波迹、功率沉积剖面和电流驱动效率，与 CQL3D Fokker-Planck 求解器直接耦合，构成 EC/LH 加热和电流驱动的标准模拟流水线。广泛应用于 DIII-D、ITER、CFETR 等装置的 RF 加热方案设计。",
+    "features": [
+      "通用射线追踪",
+      "多波段(EC/LH/IC)",
+      "非轴对称几何",
+      "CQL3D耦合",
+      "模块化色散关系"
+    ],
+    "links": [
+      "https://compxco.com/genray.html",
+      "https://github.com/GeneralAtomics/GENRAY"
+    ]
+  },
+  "TORAY": {
+    "full_name": "TORAY — Electron Cyclotron Ray Tracing Code",
+    "long_desc": "TORAY 是 General Atomics 开发的电子回旋波（EC）专用射线追踪和电流驱动计算代码。采用冷等离子体色散关系和四阶 Runge-Kutta 方法追踪 EC 波在托卡马克等离子体中的传播轨迹。相比 GENRAY 的通用性，TORAY 专精 EC 波段，提供了更精确的相对论吸收系数计算（Mazzucato 公式）和电流驱动效率评估（包括 trapped particle 效应修正）。TORAY 通常作为 CQL3D 的 EC 前端，提供波功率沉积剖面作为 Fokker-Planck 计算的输入。是 DIII-D EC 加热系统设计和实验分析的标准工具，也被 ITER EC 系统设计中广泛参考。",
+    "features": [
+      "EC专用射线追踪",
+      "Runge-Kutta方法",
+      "相对论吸收",
+      "ECCD电流驱动",
+      "CQL3D前端"
+    ],
+    "links": [
+      "https://gafusion.github.io/OMFIT-source/"
+    ]
+  },
+  "CQL3D": {
+    "full_name": "CQL3D — Collisional Quasi-Linear 3D Fokker-Planck Code",
+    "long_desc": "CQL3D 是 General Atomics 和 ORNL 联合开发的碰撞准线性三维 Fokker-Planck 求解器，是射频加热和电流驱动模拟的标准工具。在三维修正零轨道宽度速度空间（v_para, v_perp, r/a）中求解电子和离子的分布函数演化，耦合 GENRAY/TORAY 的波功率沉积，自洽计算 RF 驱动电流、吸收效率和分布函数畸变。CQL3D 支持 EC、LH、IC 和快波等多种 RF 方案，包含完整的碰撞算符（电子-电子、电子-离子）和径向扩散模型。近年来集成了三维磁场几何和 X-point 效应，可应用于边界和偏滤器区域的 RF 物理研究。是 ITER EC 和 LH 电流驱动效率预测的核心工具。",
+    "features": [
+      "Fokker-Planck求解",
+      "3D速度空间",
+      "GENRAY/TORAY耦合",
+      "RF电流驱动",
+      "ITER核心工具"
+    ],
+    "links": [
+      "https://github.com/ORNL-Fusion/CQL3D",
+      "https://omfit.io/modules/mod_CQL3D.html"
+    ]
+  },
+  "AORSA": {
+    "full_name": "AORSA — All-Orders Spectral Algorithm",
+    "long_desc": "AORSA 是 ORNL 开发的全球唯一能够保留离子回旋波（ICRF）所有有限拉莫尔半径（FLR）阶次的全波求解器。采用频域伪谱（collocation）方法在二维（R,Z）或三维几何中直接求解 Maxwell 方程组的积分-微分形式，不截断 FLR 展开，因此能精确描述 ICRF 波在高温（Ti > 10 keV）等离子体中的传播、模式转换和吸收——这是传统二阶 FLR 代码（如 TORIC）在燃烧等离子体条件下可能失效的场景。AORSA 是 ITER 燃烧等离子体 ICRF 加热方案验证的关键工具，特别是预测 ICRF 波在 α 粒子存在下的传播和吸收特性。代码在 ORNL 的超级计算机上高度并行化，支持万核级别的大规模全波模拟。",
+    "features": [
+      "全阶ICRF全波",
+      "伪谱方法",
+      "无FLR截断",
+      "燃烧等离子体",
+      "ITER关键工具"
+    ],
+    "links": [
+      "https://github.com/ORNL-Fusion/aorsa",
+      "https://www.ornl.gov/directorate/fusion-plasma-physics"
+    ]
+  },
+  "TORIC": {
+    "full_name": "TORIC — ICRF Full-Wave Code with Finite Larmor Radius",
+    "long_desc": "TORIC 是 MIT PSFC 开发的离子回旋波（ICRF）全波代码，采用谱/有限元混合方法在任意轴对称环形几何中求解 Maxwell-Vlasov 方程组。保留到二阶 FLR（有限拉莫尔半径）效应，能够描述快波和离子 Bernstein 波（IBW）的传播、模式转换和吸收。TORIC 被广泛集成到 TRANSP 输运分析代码中作为 ICRF 加热模块，是全球托卡马克 ICRF 实验分析的标准工具。其输出包括波电场、功率沉积剖面和天线耦合效率，在 JET、ASDEX Upgrade、DIII-D 和 ITER 的 ICRF 系统设计和实验解释中发挥了核心作用。最近版本通过耦合 PetraM 平台实现了机器学习辅助的参数扫描加速。",
+    "features": [
+      "二阶FLR全波",
+      "谱/有限元混合",
+      "快波-IBW模式转换",
+      "TRANSP集成",
+      "全球ICRF标准"
+    ],
+    "links": [
+      "https://transp.jetdata.eu/"
+    ]
+  },
+  "NOVA": {
+    "full_name": "NOVA/NOVA-K — Nonvariational MHD-Kinetic Stability Code",
+    "long_desc": "NOVA 是 PPPL 开发的环形等离子体 MHD 稳定性本征值代码，其动理学扩展版本 NOVA-K 是全球研究阿尔芬本征模（AE）和高能粒子驱动不稳定性最经典的工具。NOVA 在一般环形几何（托卡马克、球形托卡马克）中求解理想 MHD 本征模方程，获得环向阿尔芬本征模（TAE）、椭圆阿尔芬本征模（EAE）、鱼骨模（fishbone）和反剪切阿尔芬本征模（RSAE）等模式的本征频率和模结构。NOVA-K 通过非变分动理学-MHD 耦合方法计算高能粒子（α粒子、NBI快离子）对这些模式的激发/阻尼率。广泛用于 ITER、CFETR、SPARC 等装置的 α 粒子约束和 AE 稳定性评估，是高能粒子物理领域引用量最高的代码之一。",
+    "features": [
+      "MHD本征模求解",
+      "TAE/EAE/RSAE",
+      "动理学-MHD耦合(NOVA-K)",
+      "α粒子稳定性",
+      "ITER/CFETR标配"
+    ],
+    "links": [
+      "https://www.osti.gov/biblio/5841622"
+    ]
+  },
+  "GATO": {
+    "full_name": "GATO — Global Alfven Toroidal Stability Code",
+    "long_desc": "GATO 是由 DOE 资助开发的三维理想 MHD 线性稳定性求解器，专门用于计算托卡马克等离子体中低环向模数（low-n）的宏观不稳定性。采用有限元方法在 (psi, theta, phi) 坐标中直接求解理想 MHD 能量原理的变分形式，可处理包括外 kink 模、内 kink 模、垂直不稳定性等全局 MHD 模式的本征值和模结构。GATO 在 ITER 设计阶段被广泛用于评估等离子体位形对低 n MHD 不稳定性的鲁棒性，如验证 ITER 基线方案对外 kink 模的稳定性裕度。GATO 也常与 DCON、MARS-F 等代码互为验证基准，是 MHD 宏观稳定性分析的标准工具。",
+    "features": [
+      "低n理想MHD",
+      "有限元方法",
+      "kink模/VDE",
+      "全局稳定性",
+      "ITER设计验证"
+    ],
+    "links": [
+      "https://github.com/GeneralAtomics/GATO"
+    ]
+  },
+  "ELITE": {
+    "full_name": "ELITE — Edge Localized Instability Tokamak Experiment Code",
+    "long_desc": "ELITE 是 General Atomics 开发的专用托卡马克边界高环向模数（high-n）理想 MHD 不稳定性代码，是 peeling-ballooning 模分析的标准工具。在气球模理论的扩展框架下，采用渐近分析方法高效求解边界（pedestal）区域的高 n 剥离-气球模稳定性边界。ELITE 的核心功能是计算 pedestal 区域的不稳定性阈值，直接输出 pedestal 压强梯度（alpha）和 pedestal 电流（剥离）的稳定性空间图。ELITE 是 EPED pedestal 预测模型的核心组件（提供 peeling-ballooning 稳定性约束），广泛用于预测 H 模式 pedestal 结构、ELM 触发条件和 ELM 缓解方案的评估。",
+    "features": [
+      "high-n气球模",
+      "剥离-气球模稳定性",
+      "pedestal物理",
+      "EPED核心组件",
+      "ELM预测"
+    ],
+    "links": [
+      "https://github.com/akcayc/ELITE",
+      "https://omfit.io/modules/mod_ELITE.html"
+    ]
+  },
+  "EPED": {
+    "full_name": "EPED — Edge Pedestal Structure Prediction Model",
+    "long_desc": "EPED 是由 PPPL 的 P.B. Snyder 团队开发的全球第一个自洽 H 模式 pedestal 结构预测模型，是托卡马克 edge 物理的里程碑式成果。核心假设是 pedestal 由两个物理约束共同决定：剥离-气球模（PBM）MHD 稳定性约束（由 ELITE 计算）设定最大压强梯度，以及动理学 ballooning 模（KBM）约束设定最大归一化压强梯度 alpha_c，由此自洽确定 pedestal 高度（压强）和宽度。EPED 模型成功预测了多个装置（DIII-D、JET、ASDEX Upgrade）的 pedestal 结构，是 ITER pedestal 高度和 ELM 能量损失预测的核心工具。近年推出神经网络版本 EPED1-NN 实现超快预测，已集成到实时控制框架中。",
+    "features": [
+      "pedestal自洽预测",
+      "PBM+KBM约束",
+      "ELITE耦合",
+      "ITER/SPARC标配",
+      "EPED1-NN加速"
+    ],
+    "links": [
+      "https://omfit.io/modules/mod_EPED.html"
+    ]
+  },
+  "EUROPED": {
+    "full_name": "EUROPED — EUROfusion Pedestal Code",
+    "long_desc": "EUROPED 是 EUROfusion 在 EPED 模型基础上开发的欧洲 pedestal 建模扩展代码。保留了 EPED 核心的 peeling-ballooning + KBM 双约束框架，同时集成了欧洲装置（JET、ASDEX Upgrade、TCV、MAST-U）特有的 pedestal 物理模块——包括更精确的 bootstrap 电流计算、杂质辐射对 pedestal 的影响、三维 RMP 场对 pedestal 稳定性的修正等。EUROPED 的另一个特色是支持预测性 pedestal 演化模拟（时间依赖的 pedestal 剖面弛豫），而非仅稳态预测。作为 EUROfusion 集成建模工具链的标准 pedestal 组件，EUROPED 已被用于 ITER 和 STEP pedestal 方案的大量预测分析。",
+    "features": [
+      "EPED扩展",
+      "欧洲装置优化",
+      "杂质/RMP效应",
+      "时间依赖pedestal",
+      "ITER/STEP预测"
+    ],
+    "links": [
+      "https://github.com/EUROfusion/EUROPED"
+    ]
+  },
+  "ONETWO": {
+    "full_name": "ONETWO — 1D Transport Analysis Code",
+    "long_desc": "ONETWO 是 General Atomics 开发的经典一维输运分析代码，已有 40 余年历史，是 DIII-D 实验输运分析的标准工具。求解时间依赖的粒子、电子和离子能量输运方程，耦合 NBI（NFREYA/NUBEAM）、EC、IC 和 LH 等多种加热/电流驱动源项，以及多种新经典和湍流输运模型。ONETWO 的核心功能是「功率平衡分析」——通过匹配实验温度/密度剖面，反推各通道的有效热扩散系数，理解能量约束和输运通道。虽然近年逐渐被 TGYRO 等第一性原理代码替代部分功能，ONETWO 在实验分析、剖面解释和输运模型验证中仍然不可或缺。",
+    "features": [
+      "1D输运分析",
+      "功率平衡",
+      "多源项耦合",
+      "DIII-D标准",
+      "40年验证"
+    ],
+    "links": [
+      "https://fusion.gat.com/THEORY/onetwo/",
+      "https://omfit.io/modules/mod_ONETWOtime.html"
+    ]
+  },
+  "NCLASS": {
+    "full_name": "NCLASS — Neoclassical Transport Properties Code",
+    "long_desc": "NCLASS 是 PPPL 开发的托卡马克新经典输运性质计算代码。基于 Houlberg 等人（1997）的多粒子种新经典输运理论，在任意截面环形几何中计算新经典电阻率、bootstrap 电流、粒子扩散系数、热扩散系数和径向电场。NCLASS 被广泛嵌入 TGYRO、TRANSP、ONETWO 等输运代码中作为新经典输运模块，是分离湍流和新经典输运贡献的标准工具。代码轻量高效，输入简单（仅需平衡几何和剖面数据），是现代输运分析工作流中几乎每个放电分析都会调用的基础组件。也在 CFETR 和 BEST 等中国装置的设计中被广泛使用。",
+    "features": [
+      "新经典输运",
+      "bootstrap电流",
+      "径向电场",
+      "多粒子种",
+      "TGYRO/TRANSP组件"
+    ],
+    "links": [
+      "https://github.com/PrincetonUniversity/NCLASS"
+    ]
+  },
+  "supercode": {
+    "full_name": "SUPERCODE — Stellarator Optimization via Variational Parameter Methods",
+    "long_desc": "SUPERCODE 是 IPP Greifswald 开发的仿星器变分参数快速优化代码。采用变分原理和参数化方法，在大量简约参数空间中快速评估和优化仿星器三维磁场位形，重点关注新经典输运、α 粒子约束和 MHD 稳定性等全局物理性能指标。与 SIMSOPT/STELLOPT 的详细推导优化不同，SUPERCODE 的策略是先粗筛后细调——用快速参数扫描从海量位形空间中筛选有潜力的候选，再由高保真代码（VMEC/GVEC + ASCOT5/GENE）详细验证。SUPERCODE 的设计哲学体现了仿星器优化的典型挑战：位形空间极其巨大（数十个线圈参数），需要分层筛选策略。",
+    "features": [
+      "变分参数优化",
+      "快速位形筛选",
+      "新经典输运评估",
+      "仿星器专用",
+      "分层优化策略"
+    ],
+    "links": [
+      "https://inis.iaea.org/"
+    ]
+  },
+  "BORAY": {
+    "full_name": "BORAY — Beam-tracing O-mode Ray Code",
+    "long_desc": "BORAY 是 MIT PSFC 开发的二维电子回旋波束追踪（beam tracing）代码，区别于传统射线追踪（ray tracing）的零宽度假设，BORAY 采用更精确的束追踪方法——在追踪波束中心射线的同时，自洽求解波束宽度和波前曲率的演化方程。这使得 BORAY 能更准确地计算 EC 波的聚焦/散焦效应和功率沉积空间分布，特别适合处理 EC 波在等离子体中经历强折射和反射的复杂场景。BORAY 支持 O 模（ordinary mode）和 X 模（extraordinary mode）传播，具有开放磁面（SOL 区域）追踪能力，是 MIT/PSFC Alcator C-Mod 和 SPARC EC 加热系统设计的核心分析工具。",
+    "features": [
+      "束追踪(beam tracing)",
+      "O模/X模",
+      "开放磁面",
+      "SPARC EC设计",
+      "波束宽度演化"
+    ],
+    "links": [
+      "https://github.com/hsxie/boray"
+    ]
+  },
+  "TGCO": {
+    "full_name": "TGCO — Tokamak Geometric Coordinates & NBI Monte Carlo Code",
+    "long_desc": "TGCO 是中科院等离子体物理研究所（IPP-CAS）胡友俊团队开发的托卡马克磁面坐标计算与 NBI 蒙特卡洛模拟程序。核心功能包括两部分：一是托卡马克三维磁面坐标（psi, theta, phi）的精确计算和可视化，将 Grad-Shafranov 平衡输出转换为磁面坐标系供后续物理分析；二是中性束注入的蒙特卡洛电离和快离子初始分布计算模块，类似 NEMO 在仿星器中的角色但在托卡马克几何中实现。TGCO 以其纯 Python/C++ 混合实现和中文化文档在国内聚变学术界得到关注，特别适合教学和快速原型开发场景，降低了托卡马克几何计算和 NBI 模拟的入门门槛。",
+    "features": [
+      "磁面坐标计算",
+      "NBI蒙特卡洛",
+      "Python/C++",
+      "教学友好",
+      "IPP-CAS开发"
+    ],
+    "links": [
+      "https://github.com/Youjunhu/TGCO"
+    ]
+  },
+  "HEQ": {
+    "full_name": "HEQ — Python Free-Boundary Equilibrium Reconstruction",
+    "long_desc": "HEQ 是中科院等离子体物理研究所胡友俊团队开发的纯 Python 自由边界等离子体平衡重建代码。采用有限差分方法在 (R,Z) 平面求解自由边界 Grad-Shafranov 方程，支持 PF 线圈电流约束和磁诊断信号拟合，功能类似于 EFIT 但以代码简洁性和可读性为设计优先。HEQ 全部用 Python 编写（核心求解器使用 NumPy/SciPy），代码量仅数千行，非常适合教学、快速原型开发和算法验证。已被国内多家聚变研究机构用于平衡重建方法的教学和初步分析，其开放架构允许用户方便地替换求解器、添加新诊断约束或耦合其他物理解码。",
+    "features": [
+      "纯Python实现",
+      "自由边界平衡",
+      "磁诊断拟合",
+      "教学/原型开发",
+      "NumPy/SciPy"
+    ],
+    "links": [
+      "https://github.com/Youjunhu/heq"
+    ]
+  },
+  "MARS-F": {
+    "full_name": "MARS-F — MHD-kinetic Stability Code",
+    "long_desc": "MARS-F 是 General Atomics 开发的环形 MHD-动理学混合稳定性代码，广泛应用于高能粒子驱动的不稳定性研究。采用有限元方法求解线性 MHD 方程，通过动理学响应函数耦合高能粒子（α粒子、NBI 快离子）对 MHD 模的动理学效应。核心应用包括环形阿尔芬本征模（TAE）、高能粒子模（EPM）、鱼骨模以及电阻壁模（RWM）的稳定性评估。MARS-F 是 ITER 高能粒子物理设计中 TAE 稳定性预测和 α 粒子损失评估的标准工具之一。",
+    "features": [
+      "MHD-动理学耦合",
+      "TAE/RWM",
+      "高能粒子",
+      "有限元",
+      "ITER稳定性评估"
+    ],
+    "links": [
+      "https://fusion.gat.com/global/theory/home"
+    ]
+  },
+  "UEDGE": {
+    "full_name": "UEDGE — 2D Edge Plasma Fluid Code",
+    "long_desc": "UEDGE 是 LLNL（劳伦斯利弗莫尔国家实验室）开发的二维等离子体边界流体模拟代码，是刮削层/偏滤器物理的经典工具。采用 2D 多流体方程（电子、离子独立温度），耦合简化中性粒子模型或 DEGAS 中性蒙特卡洛代码。主要应用于偏滤器等离子体参数分布预测、杂质辐射和脱靶分析，特别在 DIII-D 装置上得到广泛验证。UEDGE 是 SOLPS-ITER 之前的边界流体模拟先行者，至今仍在 NSTX-U、DIII-D 等装置上活跃使用。",
+    "features": [
+      "2D流体",
+      "多流体模型",
+      "偏滤器模拟",
+      "中性粒子耦合",
+      "DIII-D验证"
+    ],
+    "links": [
+      "https://github.com/LLNL/uedge"
+    ]
+  },
+  "EMC3-EIRENE": {
+    "full_name": "EMC3-EIRENE — 3D Edge Monte Carlo + EIRENE Neutral Transport",
+    "long_desc": "EMC3-EIRENE 是全球唯一能够处理三维仿星器和托卡马克三维扰动场边界等离子体的模拟套件，由 IPP Greifswald 开发。EMC3 采用蒙特卡洛方法求解三维等离子体流体方程，与 EIRENE 耦合处理三维中性粒子输运。其独特之处在于不依赖环形对称性假设，能够处理仿星器自然的三维边界几何（如 W7-X 岛偏滤器）以及托卡马克中 RMP 线圈产生的三维扰动边界。EMC3-EIRENE 是 W7-X 偏滤器设计优化的唯一全三维分析工具，也在 EAST 三维边界研究中得到应用。",
+    "features": [
+      "3D蒙特卡洛",
+      "仿星器边界",
+      "EIRENE耦合",
+      "W7-X偏滤器",
+      "无轴对称假设"
+    ],
+    "links": [
+      "https://www.ipp.mpg.de/emc3"
+    ]
+  },
+  "JETTO": {
+    "full_name": "JETTO — JET Transport Code",
+    "long_desc": "JETTO 是由 JET 联合欧洲多机构开发的 1.5D 芯部等离子体输运模拟框架，是 EUROfusion 集成建模工具链的核心输运求解器之一。采用有限差分方法在磁面坐标中求解耦合的粒子、电子和离子能量输运方程以及电流扩散方程，支持扩散输运模型（Bohm/gyroBohm）和第一性原理湍流输运模型（QuaLiKiz/QLKNN、TGLF）的动态切换。JETTO 的独特优势是与 JET 实验数据的深度集成——数千次 JET 放电的验证赋予了其极高的预测可信度。与 SANCO 杂质输运模块耦合后可模拟杂质积累和辐射损失，被广泛用于 JET、JT-60SA 和 ITER 的 H 模式 scenario 开发和输运预测，是欧洲输运建模的工作马。",
+    "features": [
+      "1.5D芯部输运",
+      "多输运模型切换",
+      "JET深度验证",
+      "SANCO杂质耦合",
+      "EUROfusion核心"
+    ],
+    "links": [
+      "https://github.com/JETTO-codes/JETTO"
     ]
   }
 }
