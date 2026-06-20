@@ -1147,5 +1147,307 @@
     "links": [
       "https://github.com/JETTO-codes/JETTO"
     ]
+  },
+  "MMM": {
+    "full_name": "MMM — Multi-Mode Model for Anomalous Transport",
+    "long_desc": "MMM（多模式模型）是嵌入 TRANSP 集成建模框架的反常输运模型，由 Jan Weiland（查尔姆斯理工大学）原始提出，Tariq Rafiq 团队（理海大学）持续开发和验证。模型计算 ITG/TEM/ETG 等漂移波驱动的反常热输运、粒子输运、杂质输运和动量输运，包含 E×B 剪切流和 Shafranov 位移稳定化效应。2023 年完成大规模实验验证，覆盖 EAST（6 个放电）、KSTAR（17 个）、JET ILW D-D（72 个）和 DIII-D（4 个）四台装置 99 个放电场景，电子温度和离子温度的 RMS 偏差分别仅为 9.3% 和 10.5%，落在实验误差范围（~20%）以内，展现了跨装置、跨工况的高通用性和鲁棒性。与 TRANSP/NUBEAM 等代码耦合后，可用于 ITER 燃烧等离子体的预测性输运分析。",
+    "features": [
+      "反常输运模型",
+      "漂移波物理",
+      "ITG/TEM/ETG",
+      "多装置验证",
+      "TRANSP集成"
+    ],
+    "links": [
+      "https://www6.lehigh.edu/~eus204/per/publications/journals/plasma23_MMM.pdf"
+    ]
+  },
+  "GLF23": {
+    "full_name": "GLF23 — Gyro-Landau-Fluid 23-Moment Transport Model",
+    "long_desc": "GLF23 是由 J.E. Kinsey（理海大学）和 General Atomics 团队开发的漂移波驱动湍流输运模型，基于俘获回旋朗道流体（TGLF）理论框架的 23 矩封闭方法。模型自洽地预测 ITG（离子温度梯度）、TEM（俘获电子模）和 ETG（电子温度梯度模）驱动的粒子、能量和动量输运通量，包含 E×B 剪切流和 Shafranov 位移的致稳效应。GLF23 在 DIII-D 多种放电场景中成功再现芯部剖面演化，被广泛用于 ITER 预测和燃烧等离子体 scenario 研究。作为 TGLF 系列的前身和准线性输运模型的里程碑代码，GLF23 为后续 GA 标准输运模型（TGLF）奠定了物理框架和验证基准。",
+    "features": [
+      "漂移波输运",
+      "TGLF框架",
+      "ITG/TEM/ETG",
+      "E×B剪切",
+      "DIII-D验证"
+    ],
+    "links": [
+      "https://github.com/GeneralAtomics/GLF23",
+      "https://doi.org/10.13182/FST05-A1060"
+    ]
+  },
+  "BgB": {
+    "full_name": "BgB — Bohm-gyroBohm Transport Model",
+    "long_desc": "BgB（玻姆-回旋玻姆）输运模型是一种经典的半经验反常输运模型，广泛应用于托卡马克集成建模和快速放电方案设计中。模型将热输运系数分解为玻姆项（与等离子体宏观参数如密度梯度和温度梯度成比例）和回旋玻姆项（与回旋半径尺度相关），通过少数可调系数实现跨装置标度。玻姆项主导低约束模式（L 模）下的输运标度，回旋玻姆项则在 H 模 pedestal 附近占主导。BgB 模型计算效率极高，无需求解微观不稳定性本征值，适合参数扫描和反应堆概念设计阶段的大量迭代。已被纳入 TORAX（Google DeepMind）、JETTO、ASTRA 等多个输运框架，是工程设计中不可或缺的快速输运评估工具。",
+    "features": [
+      "Bohm+gyroBohm",
+      "半经验输运",
+      "快速参数扫描",
+      "TORAX/JETTO集成",
+      "跨装置标度"
+    ],
+    "links": [
+      "https://doi.org/10.1088/1741-4326/ad6ea2",
+      "https://github.com/google-deepmind/torax"
+    ]
+  },
+  "MARS": {
+    "full_name": "MARS — MHD Analysis of Resistive Spectrum",
+    "long_desc": "MARS（电阻谱 MHD 分析）是由 General Atomics 和 PPPL 合作开发的线性 MHD 稳定性本征值求解器，专门用于分析托卡马克等离子体中的电阻 MHD 不稳定性。代码在环形几何中求解全电阻 MHD 方程组的本征值问题，可计算外扭曲模（external kink）、电阻壁模（resistive wall mode, RWM）、撕裂模及新经典撕裂模的线性增长率和模结构。MARS 的一个关键特色是能够处理包含等离子体旋转和动理学效应的电阻壁模色散关系，为 ITER 等高 β 装置的不稳定性评估提供关键输入。与 MARS-F（专注于 RMP 等离子体响应）不同，MARS 专注于本征值稳定性分析，在 HL-2A 高 βN H 模放电中成功预测了 βN~3 处的外扭曲模极限。已被纳入 ITM（集成托卡马克建模）框架。",
+    "features": [
+      "线性MHD本征值",
+      "电阻MHD",
+      "RWM/扭曲模",
+      "环形几何",
+      "等离子体旋转"
+    ],
+    "links": [
+      "https://fusion.gat.com/global/theory/home"
+    ]
+  },
+  "MAS": {
+    "full_name": "MAS — Multiscale Analysis for Plasma Stabilities",
+    "long_desc": "MAS（等离子体稳定性多尺度分析）是由中国科学院物理研究所鲍健、张文禄、林志宏等团队合作开发的新一代全局本征值代码，用于分析一般托卡马克几何中从低频到高频等离子体不稳定性的谱特征。基于五场朗道流体模型，自洽地保留了抗磁漂移、离子有限拉莫尔半径、有限平行电场、离子和电子朗道共振等关键动理学效应，同时保持极高的计算效率。MAS 的朗道流体模型可在各种极限下还原为理想 MHD 模型、静电离子流体模型和漂移动理学模型，物理有效域明晰。代码已与回旋动理学和动理学-MHD 混合代码广泛基准，覆盖动理学阿尔芬波、离子声波、低 n 扭曲模、高 n ITG 模和动理学气球模。成功应用于 DIII-D #159243 放电中阿尔芬本征模（RSAE 频率扫频、TAE 隧穿阻尼）的分析。MAS 的核心优势在于将丰富物理、全局几何和高计算效率三者统一，在等离子体稳定性的线性分析领域具有广泛适用性。",
+    "features": [
+      "朗道流体模型",
+      "全局本征值",
+      "动理学效应",
+      "多模覆盖",
+      "DIII-D验证"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2304.09476",
+      "https://doi.org/10.1088/1741-4326/acd1a0"
+    ]
+  },
+  "IMAS": {
+    "full_name": "IMAS — Integrated Modelling & Analysis Suite",
+    "long_desc": "IMAS 是 ITER 组织开发的聚变数据标准与集成建模基础设施，旨在统一全球聚变实验和模拟数据的描述与交换格式。核心是接口数据结构（Interface Data Structures, IDS），一套与装置无关的数据模型，覆盖平衡、输运、加热、MHD 稳定性、诊断等聚变物理全域。IMAS 于 2025 年底以开源形式发布，包含完整的 IDS 数据字典、Python 工具集（IDStools）和访问层（UAL），实现了实验数据与模拟代码之间的标准化互操作。OMFIT、OMAS 等工具已基于 IMAS 数据模型构建，JET、ITER、MAST-U 等装置正在将实验数据迁移至 IMAS 格式，使其成为聚变数据生态的枢纽基础设施。",
+    "features": [
+      "聚变数据标准",
+      "IDS数据模型",
+      "集成建模",
+      "跨装置互操作",
+      "ITER开源"
+    ],
+    "links": [
+      "https://github.com/iterorganization/imas-data-dictionary",
+      "https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source"
+    ]
+  },
+  "Power Balance Models": {
+    "full_name": "PBM — Power Balance Models for Fusion Reactor Design",
+    "long_desc": "PBM（功率平衡模型）是 UKAEA 开发的开源框架，用于评估不同托卡马克聚变反应堆设计的净功率产出。基于 Modelica 建模语言构建功率消耗（磁体、低温、加热与电流驱动、泵送等）和功率产生（聚变输出、热能转换）系统的物理模型，通过 Python API 和 CLI 接口提供快速配置和批量仿真能力。PBM 专为反应堆概念设计早期阶段设计——可在数秒至数分钟内回答该设计能否产生净电力这一核心问题。已成功应用于 STEP 原型电站的参数扫描和设计点优化中，同时支持托卡马克和仿星器两种磁约束方案。PBM 的模块化架构允许用户替换任意子系统模型，适配从概念探索到详细工程的多种保真度需求。",
+    "features": [
+      "功率平衡分析",
+      "Modelica建模",
+      "反应堆设计筛选",
+      "STEP应用",
+      "开源框架"
+    ],
+    "links": [
+      "https://github.com/ukaea/powerbalance",
+      "https://ukaea.github.io/powerbalance/"
+    ]
+  },
+  "GSevolve": {
+    "full_name": "GSevolve — Grad-Shafranov Equilibrium Evolver",
+    "long_desc": "GSevolve 是 General Atomics 和 PPPL 合作开发的托卡马克等离子体平衡演化代码，专门用于模拟自由边界等离子体位形的时变演化过程。代码自洽求解 Grad-Shafranov 平衡方程与外部线圈/被动导体的电路方程，追踪等离子体电流剖面、形状和位置的动态变化。GSevolve 已成功应用于 DIII-D 的多个复杂放电场景——包括所谓的 bobble 等离子体位形不稳定现象的复现与分析——验证了其在解释非理想等离子体行为方面的能力。与静态平衡求解器（如 EFIT）不同，GSevolve 的时间演化特性使其成为理解放电发展过程、评估竖直不稳定性以及测试反馈控制策略的重要工具。",
+    "features": [
+      "自由边界平衡",
+      "时间演化",
+      "电路耦合",
+      "DIII-D验证",
+      "位形控制"
+    ],
+    "links": [
+      "https://github.com/PrincetonUniversity/GSevolve"
+    ]
+  },
+  "GSPulse": {
+    "full_name": "GSPulse — Grad-Shafranov Pulse Trajectory Optimizer",
+    "long_desc": "GSPulse 是由 J.T. Wai（哥伦比亚大学/CFS）、M.D. Boyer、F. Felici、E. Kolemen 等联合开发的新一代托卡马克脉冲轨迹优化器，2025 年在 Nuclear Fusion 发表。与传统的放电模拟器（正问题）不同，GSPulse 解决的是反问题：给定用户设定的目标平衡位形序列以及线圈电流和电压约束，优化器自动输出实现该序列所需的电压、电流和可达平衡的完整轨迹。代码将自由边界平衡演化方程重构为优化形式，可在数分钟内同时求解数百个平衡，每个平衡同时满足 Grad-Shafranov 力平衡和轴对称电路动力学约束。已在 NSTX-U、MAST-U 实验和 SPARC 反馈控制仿真中完成验证，正被用于 SPARC 的 scenario 设计。",
+    "features": [
+      "脉冲轨迹优化",
+      "反问题求解",
+      "时间序列平衡",
+      "SPARC应用",
+      "开源"
+    ],
+    "links": [
+      "https://github.com/jwai-cfs/GSPulse_public",
+      "https://doi.org/10.1088/1741-4326/ae203c"
+    ]
+  },
+  "gsfit": {
+    "full_name": "GSFit — Grad-Shafranov Fit for Equilibrium Reconstruction",
+    "long_desc": "GSFit 是 Tokamak Energy 公司于 2025 年开源发布的现代托卡马克平衡重建工具，专为 ST40——世界磁场最高的球形托卡马克——设计。代码求解 Grad-Shafranov 方程，通过实验磁测量（ST40 配置 85 个磁传感器，包括 Mirnov 线圈和磁通环）约束重建等离子体边界、等离子体电流和储能。采用 Rust 编写核心求解器以保证速度和鲁棒性，Python 接口提供灵活性和易用性。GSFit 通过前向求解器 FreeGS 生成合成数据进行基准验证，也利用 ST40 可见光相机图像进行了独立实验验证。作为开源项目，GSFit 配备完整的用户手册、持续集成测试和开发者指南，目标是建立一个社区驱动的、可验证的聚变平衡重建生态。",
+    "features": [
+      "平衡重建",
+      "Rust+Python",
+      "磁测量约束",
+      "ST40验证",
+      "开源"
+    ],
+    "links": [
+      "https://github.com/tokamak-energy/gsfit",
+      "https://tokamakenergy.com/2025/09/08/tokamak-energy-launches-gsfit-open-source-plasma-reconstruction-for-fusion-research/"
+    ]
+  },
+  "FGE": {
+    "full_name": "FGE — Free-Boundary Grad-Shafranov Evolutive Solver",
+    "long_desc": "FGE（自由边界 Grad-Shafranov 演化求解器）是由 EPFL 瑞士等离子体中心 Cosmas Heiss、Antoine Merle、Federico Felici 等开发的高速自由边界平衡演化代码，2025 年发表于 Plasma Physics and Controlled Fusion。FGE 由 FBT 和 LIUQE 演化而来，是 MEQ 套件的一部分，共享底层优化函数。代码自洽求解自由边界 Grad-Shafranov 方程与外部导体电路方程及等离子体剖面演化模型的耦合系统，采用完全非线性 Newton 框架，支持多种高度优化的求解器选项、状态表示和残差形式。关键能力包括：集成多种 0D/1D 电流扩散方程模拟等离子体电流剖面的电阻演化，支持双磁轴位形（Doublet），以及可在给定平衡点线性化等离子体动力学以生成状态空间模型用于控制器设计。已与 RAPTOR 和 KINX 完成剖面演化和竖直增长率的基准验证。",
+    "features": [
+      "牛顿法求解",
+      "自由边界演化",
+      "双磁轴位形",
+      "控制设计",
+      "EPFL"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2512.06847",
+      "https://doi.org/10.1088/1361-6587/ae56b7"
+    ]
+  },
+  "DYON": {
+    "full_name": "DYON — Plasma Burn-Through and Disruption Simulator",
+    "long_desc": "DYON 是由 JET（欧洲联合环）和 EUROfusion 团队开发的等离子体烧穿（burn-through）与破裂模拟器，自洽计算托卡马克放电起始阶段等离子体温度和密度（含杂质含量）的动态演化。代码耦合等离子体能量和粒子平衡方程与壁溅射/再循环模型，模拟从中性气体击穿到完全电离等离子体的全过程。DYON 已在 JET ITER-like Wall（ILW）条件下经受广泛验证，并被用于 ITER 放电起始阶段的烧穿预测——这是 ITER 早期运行成功的关键门槛。DYON 填补了聚变等离子体模拟中从零到等离子体这一关键空白的建模环节，对于 ITER 和未来聚变电站的可靠放电启动至关重要。",
+    "features": [
+      "等离子体烧穿",
+      "放电起始",
+      "壁溅射模型",
+      "JET验证",
+      "ITER预测"
+    ],
+    "links": [
+      "https://doi.org/10.1088/0741-3335/55/12/124032"
+    ]
+  },
+  "TASK": {
+    "full_name": "TASK — Total Analysis Suite for Tokamak Plasmas",
+    "long_desc": "TASK 是由日本京都大学福山淳（Atsushi Fukuyama）教授团队开发的托卡马克等离子体集成模拟套件，也是日本燃烧等离子体模拟计划（BPSI）的核心代码框架。TASK 采用模块化架构，包含多个独立模块——TASK/TR（输运）、TASK/WM（全波加热分析）、TASK/EQ（平衡）、TASK/FP（Fokker-Planck 动理学）等——通过标准化接口和公共数据格式实现模块间数据传递和协同仿真。代码覆盖从芯部到边界的多物理过程，支持不同保真度级别的输运模型切换，是亚洲聚变集成建模生态的重要支柱。TASK 与欧洲的 ITM/IMAS 框架保持接口兼容，用于 JT-60SA 和 ITER 的预测性模拟。",
+    "features": [
+      "集成模拟",
+      "模块化架构",
+      "全波加热",
+      "输运模型",
+      "JT-60SA"
+    ],
+    "links": [
+      "http://bpsi.nucleng.kyoto-u.ac.jp/task/"
+    ]
+  },
+  "REPED": {
+    "full_name": "REPED — Regression Pedestal Predictor",
+    "long_desc": "REPED 是 EPFL 瑞士等离子体中心开发的数据驱动 pedestal 高度预测工具，利用机器学习方法从大量实验数据库中学习 pedestal 结构的统计规律。与基于第一性原理的 EPED 模型（剥离-气球模约束）不同，REPED 采用回归模型，以工程参数（等离子体电流、环向磁场、密度、加热功率、位形等）为输入，快速预测 H 模 pedestal 的高度和宽度。REPED 的计算速度极快（毫秒级），适合集成建模中的大规模参数扫描和实时控制应用。代码封装为 Python 包，与 OMFIT 框架兼容。作为数据驱动方法的代表，REPED 补充了物理模型在 extrapolation 方面的局限性。",
+    "features": [
+      "数据驱动pedestal",
+      "回归预测",
+      "H模pedestal",
+      "EPFL",
+      "OMFIT兼容"
+    ],
+    "links": [
+      "https://www.epfl.ch/research/domains/swiss-plasma-center/"
+    ]
+  },
+  "FBT": {
+    "full_name": "FBT — Free-Boundary Tokamak Equilibrium Code",
+    "long_desc": "FBT 是由 EPFL 的 F. Hofmann 于 1988 年发表的经典自由边界托卡马克平衡代码，专为高拉长比和强成形等离子体设计。代码采用有限元方法在轴对称假设下求解 Grad-Shafranov 方程，耦合外部线圈电流和被动导体中的感应电流。FBT 是 LIUQE 和 FGE 的前身代码，其数值框架和物理模型为 EPFL 的 MEQ 平衡求解器套件奠定了基础。尽管年代久远，FBT 在 TCV（TCV 是世界上最灵活的托卡马克之一，专门研究等离子体成形）的位形设计和分析中发挥了关键作用，其基本算法思路仍然影响着现代平衡求解器的设计。",
+    "features": [
+      "自由边界平衡",
+      "有限元方法",
+      "高拉长比",
+      "TCV应用",
+      "MEQ前身"
+    ],
+    "links": [
+      "https://doi.org/10.1016/0010-4655(88)90041-0"
+    ]
+  },
+  "FEEQS.M/NICE": {
+    "full_name": "FEEQS.M/NICE — Finite Element Equilibrium Solver for Tokamaks",
+    "long_desc": "FEEQS.M 和 NICE 是 PPPL（普林斯顿等离子体物理实验室）开发的托卡马克有限元平衡求解器系列。FEEQS.M 采用自由边界有限元方法求解 Grad-Shafranov 方程，支持任意等离子体截面形状和外部导体配置，可用于实验平衡重建和理论位形分析。NICE（New Inverse Code for Equilibrium）是其变体，专注于反问题——即给定所需的等离子体边界和内部剖面，反演计算所需的线圈电流配置。两者共同构成 PPPL 平衡分析工具链的关键环节，支撑 NSTX-U、LTX-beta 等球形托卡马克和锂壁托卡马克的平衡分析。代码以 Fortran 编写，高效稳定，在 PPPL 实验中经过数十年验证。",
+    "features": [
+      "有限元平衡",
+      "自由边界",
+      "NSTX-U",
+      "反问题",
+      "PPPL"
+    ],
+    "links": [
+      "https://www.pppl.gov/research/theory/codes"
+    ]
+  },
+  "JSOLVER": {
+    "full_name": "JSOLVER — Tokamak Equilibrium J-Solver",
+    "long_desc": "JSOLVER 是 PPPL 开发的托卡马克平衡求解器，专门求解 Grad-Shafranov 方程中的环向电流密度 J 分布。代码采用固定边界或自由边界方法，在给定压强剖面和环向磁通函数的条件下，通过 Picard 迭代或 Newton 法求解非线性椭圆型偏微分方程。JSOLVER 与 PPPL 的 TRANSP、NUBEAM 等集成建模工具对接，为输运和快离子分析提供自洽的磁面几何和平衡量。代码轻量高效，适合嵌入工作流和自动化批量处理，是 PPPL 平衡工具生态中侧重电流剖面求解的专门化组件。",
+    "features": [
+      "平衡求解",
+      "环向电流",
+      "TRANSP对接",
+      "轻量高效",
+      "PPPL"
+    ],
+    "links": [
+      "https://github.com/PrincetonUniversity/JSOLVER"
+    ]
+  },
+  "COTSIM": {
+    "full_name": "COTSIM — Control-Oriented Transport Simulator",
+    "long_desc": "COTSIM（面向控制的输运模拟器）是由理海大学 Eugenio Schuster 团队开发的快速模块化托卡马克模拟代码，旨在为等离子体控制设计和场景优化提供计算高效的集成建模平台。COTSIM 耦合自由边界平衡演化求解器和输运求解器，同时追踪等离子体位形和内部剖面（温度、密度、电流）的动态演化。代码的一个关键创新是将机器学习代理模型（多层感知器、随机森林、高斯过程）嵌入仿真管线——例如用代理模型替代计算昂贵的 Lower Hybrid Current Drive（LHCD）模拟——使仿真速度提升数个数量级。2025 年在 EAST 装置上完成实验验证，证明其适用于基于模型的前馈优化和实时控制策略测试，正在向 KSTAR 和 ITER 推广。",
+    "features": [
+      "控制导向",
+      "平衡+输运耦合",
+      "ML代理模型",
+      "EAST验证",
+      "实时控制"
+    ],
+    "links": [
+      "https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf"
+    ]
+  },
+  "C3PO": {
+    "full_name": "C3PO — Coil and Configuration Code for Plasma Optimization",
+    "long_desc": "C3PO 是由德国马普等离子体物理研究所（IPP Greifswald）开发的仿星器优化设计代码，专注于三维线圈组和等离子体位形的联合优化。基于仿星器磁场由外部三维线圈产生的原理，C3PO 通过优化线圈几何（位置、形状、电流）来精确再现目标等离子体平衡的磁场结构，同时考虑工程约束（线圈间最小距离、曲率上限、支撑结构）。代码与 NEMO、GVEC、STELLOPT 等仿星器平衡和优化代码对接，形成从等离子体优化到线圈工程设计的完整工作流。C3PO 在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用，代表了仿星器研究从物理优化到工程可实现性的关键桥梁。",
+    "features": [
+      "仿星器线圈优化",
+      "三维磁场",
+      "工程约束",
+      "W7-X",
+      "IPP"
+    ],
+    "links": [
+      "https://www.ipp.mpg.de/en"
+    ]
+  },
+  "LUKE": {
+    "full_name": "LUKE — Drift-Kinetic Solver for Current Drive and Fast Particles",
+    "long_desc": "LUKE（原 DKE）是 EPFL 开发的快速漂移动理学求解器，用于在任意托卡马克平衡中求解三维相对论反弹平均电子漂移动理学方程。代码专为电流驱动问题设计——包括 Lower Hybrid Current Drive（LHCD）和 Electron Cyclotron Current Drive（ECCD）——自洽计算非感应电流驱动效率和射频波驱动的电子分布函数演化。LUKE 可同时求解自举电流（bootstrap current）及其与其他电流驱动方式的协同效应，是托卡马克稳态运行方案设计的核心工具。配合 CQL3D（Fokker-Planck 求解器）和 TORAY/GENRAY（射线追踪）使用，构成射频加热与电流驱动分析的完整工具链。LUKE 采用高效数值方法，在典型放电参数下可在数秒内完成全部分布函数求解。",
+    "features": [
+      "漂移动理学",
+      "电流驱动",
+      "自举电流",
+      "EPFL",
+      "LHCD/ECCD"
+    ],
+    "links": [
+      "https://spcgit.epfl.ch/luke/tutorial.html"
+    ]
+  },
+  "REMA": {
+    "full_name": "REMA — Resistive MHD Stability Code",
+    "long_desc": "REMA 是法国原子能与替代能源委员会（CEA-IRFM）开发的电阻 MHD 稳定性分析代码，采用有限元方法在环形几何中求解全电阻 MHD 方程组的本征值问题。代码专门用于分析托卡马克中电阻性不稳定性——包括撕裂模（tearing mode）、新经典撕裂模（NTM）和电阻壁模（RWM）的线性增长率和模结构，是理解等离子体破裂前兆、评估 beta 极限和设计稳定性控制方案的重要数值工具。REMA 与 CEA 的 CRONOS、METIS 等集成建模代码对接，为 JET 和 ITER 稳态 scenario 开发提供稳定性边界。代码以 Fortran 编写，经过 WEST（钨环境稳态托卡马克）实验的验证。",
+    "features": [
+      "电阻MHD",
+      "本征值分析",
+      "撕裂模/NTM",
+      "CEA",
+      "WEST验证"
+    ],
+    "links": [
+      "https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf"
+    ]
   }
 }
