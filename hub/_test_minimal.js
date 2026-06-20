@@ -1,1 +1,0 @@
-  var links='';if(d.links&&d.links.length)links='<div class="d-links">'+d.links.map(function(l){var host=l.replace(/https?:\/\//,'').split('/')[0];return'<a href="'+l+'" target="_blank">'+host+'</a>'}).join(' · ')+'</div>';
