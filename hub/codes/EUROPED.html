@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · EUROPED — EUROPED — EUROfusion Pedestal Code"/>
+<title>EUROPED · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>EUROPED</h1>
+<div class="subtitle">EUROPED — EUROfusion Pedestal Code</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🧲 MHD平衡/稳定</span>
+<span class="mtag mtag-open">开源</span>
+<span class="stag">pedestal</span><span class="stag">稳定性</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">EUROPED 是 EUROfusion 在 EPED 模型基础上开发的欧洲 pedestal 建模扩展代码。保留了 EPED 核心的 peeling-ballooning + KBM 双约束框架，同时集成了欧洲装置（JET、ASDEX Upgrade、TCV、MAST-U）特有的 pedestal 物理模块——包括更精确的 bootstrap 电流计算、杂质辐射对 pedestal 的影响、三维 RMP 场对 pedestal 稳定性的修正等。EUROPED 的另一个特色是支持预测性 pedestal 演化模拟（时间依赖的 pedestal 剖面弛豫），而非仅稳态预测。作为 EUROfusion 集成建模工具链的标准 pedestal 组件，EUROPED 已被用于 ITER 和 STEP pedestal 方案的大量预测分析。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">EPED扩展</span>
+<span class="fchip">欧洲装置优化</span>
+<span class="fchip">杂质/RMP效应</span>
+<span class="fchip">时间依赖pedestal</span>
+<span class="fchip">ITER/STEP预测</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://github.com/EUROfusion/EUROPED" target="_blank" rel="noopener">github.com/EUROfusion/EUROPED</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

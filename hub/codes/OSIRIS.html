@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · OSIRIS — OSIRIS — Relativistic Electromagnetic PIC Code"/>
+<title>OSIRIS · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>OSIRIS</h1>
+<div class="subtitle">OSIRIS — Relativistic Electromagnetic PIC Code</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🧲 MHD平衡/稳定</span>
+<span class="mtag mtag-open">开源</span>
+<span class="stag">PIC</span><span class="stag">激光等离子体</span><span class="stag">LWFA</span><span class="stag">高能量密度物理</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">OSIRIS 是 UCLA 等离子体模拟组和葡萄牙 IST 联合开发的相对论全电磁 PIC 代码，是激光等离子体加速领域的标杆性模拟工具。支持 1D/2D/3D 全电磁模型、电流沉积和电荷守恒方案、动态负载平衡和 MPI+OpenMP 并行。主要应用于激光尾波电子加速（LWFA）、质子加速（TNSA/RPA）、正电子产生、惯性约束聚变中的激光-等离子体相互作用和强场 QED 效应。OSIRIS 的开创性模拟直接推动了激光等离子体加速领域的多项实验突破。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">全电磁PIC</span>
+<span class="fchip">激光尾波加速</span>
+<span class="fchip">电荷守恒</span>
+<span class="fchip">QED效应</span>
+<span class="fchip">并行负载平衡</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://plasmasim.physics.ucla.edu/codes/osiris" target="_blank" rel="noopener">plasmasim.physics.ucla.edu/codes/osiris</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

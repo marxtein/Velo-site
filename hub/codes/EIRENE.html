@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · EIRENE — EIRENE — Kinetic Neutral Particle &amp; Radiation Transport Code"/>
+<title>EIRENE · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>EIRENE</h1>
+<div class="subtitle">EIRENE — Kinetic Neutral Particle &amp; Radiation Transport Code</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🔥 边界/偏滤器</span>
+<span class="mtag mtag-open">开源</span>
+<span class="stag">蒙特卡洛</span><span class="stag">中性粒子</span><span class="stag">边界</span><span class="stag">偏滤器</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">EIRENE 是全球磁约束聚变边界物理的标准中性粒子蒙特卡洛输运代码，由 FZ Jülich 的 Detlev Reiter 团队开发维护。采用三维动理学方法模拟中性气体分子、原子和光子在等离子体边界和偏滤器区域的输运过程，涵盖原子-分子反应、电荷交换、电离和辐射等多物理过程。EIRENE 通常与 SOLPS（2D 流体等离子体求解器）耦合为 SOLPS-EIRENE 套件，或与 EMC3 耦合处理仿星器三维边界输运。该套件是 ITER 边界和偏滤器设计的核心工具，对预测脱靶状态、杂质输运和靶板热负荷至关重要。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">蒙特卡洛</span>
+<span class="fchip">中性粒子输运</span>
+<span class="fchip">原子-分子反应</span>
+<span class="fchip">SOLPS耦合</span>
+<span class="fchip">偏滤器模拟</span>
+<span class="fchip">辐射输运</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://www.eirene.de/" target="_blank" rel="noopener">www.eirene.de/</a>
+<a href="https://github.com/iterorganization/EIRENE" target="_blank" rel="noopener">github.com/iterorganization/EIRENE</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

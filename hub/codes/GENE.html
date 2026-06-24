@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · GENE — Gyrokinetic Electromagnetic Numerical Experiment"/>
+<title>GENE · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>GENE</h1>
+<div class="subtitle">Gyrokinetic Electromagnetic Numerical Experiment</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🌊 湍流输运</span>
+<span class="mtag mtag-open">开源</span>
+<span class="stag">回旋动理学</span><span class="stag">谱方法</span><span class="stag">有限差分</span><span class="stag">湍流输运</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">GENE 是全球最广泛使用的回旋动理学湍流模拟代码之一，由德国马普等离子体物理研究所（Max Planck IPP）Frank Jenko 团队开发。采用连续体欧拉方法在五维相空间中直接求解回旋动理学方程，支持托卡马克和仿星器几何。可模拟 ITG/TEM/ETG 等多种微观不稳定性，支持通量管（flux tube）和全局（global）两种模拟模式，包含碰撞算符、电磁涨落和多粒子种耦合。2025 年在 Nature Communications 发表的多代码对比验证中，GENE 被确认为达到成熟阶段的核心湍流代码。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">连续体回旋动理学</span>
+<span class="fchip">通量管/全局双模式</span>
+<span class="fchip">电磁涨落</span>
+<span class="fchip">线性/非线性</span>
+<span class="fchip">托卡马克+仿星器</span>
+<span class="fchip">Landau-Boltzmann 碰撞算符</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="body-text">通量管（flux tube）模式：局域 δf 模拟，径向周期性边界；全局（global）模式：含径向剖面演化的全半径模拟；线性模式（本征值求解器）；非线性模式（初值问题）；纯静电版本（仅 φ）；电磁版本（φ + A∥）；多粒子种耦合（电子、多种离子、杂质）；托卡马克和仿星器几何双支持。</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="body-text">基于回旋动理学 Vlasov-Maxwell 系统自洽闭合。场方程由回旋动理学 Poisson 方程（求解静电势 φ）和并联 Ampère 定律（求解矢量势 A∥）组成，可选包含磁涨落 B∥。采用 δf 或全 f 分布函数方法，通过回旋平均消除快回旋运动。碰撞过程通过线性化 Landau-Boltzmann 碰撞算符处理。支持纯静电（仅 φ）、全电磁（φ + A∥）及包含磁压缩（+ B∥）三种闭合层级。在五维相空间（三维实空间 + 二维速度空间 v∥, μ）中采用连续体欧拉方法直接离散求解。</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="body-text">采用 gyro-Bohm 归一化方案。参考量：特征长度 Lref（小半径 a 或大半径 R0）、参考磁场 Bref（轴上磁场）、参考温度 Tref 和密度 nref。时间以 a/cs 归一化（cs 为离子声速），垂直尺度以离子声回旋半径 ρs = cs/Ωci 归一化，平行尺度以大半径 R0 归一化。热通量天然以 gyro-Bohm 单位表示：QgB = nref·Tref·cs·(ρs/a)²。</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://genecode.org" target="_blank" rel="noopener">genecode.org</a>
+<a href="https://doi.org/10.1038/s41467-025-56997-2" target="_blank" rel="noopener">doi.org/10.1038/s41467-025-56997-2</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

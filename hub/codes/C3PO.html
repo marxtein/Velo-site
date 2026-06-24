@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · C3PO — C3PO — Coil and Configuration Code for Plasma Optimization"/>
+<title>C3PO · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>C3PO</h1>
+<div class="subtitle">C3PO — Coil and Configuration Code for Plasma Optimization</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">⭐ 仿星器优化</span>
+<span class="mtag mtag-closed">需申请</span>
+<span class="stag">优化</span><span class="stag">平衡</span><span class="stag">恒星器</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">C3PO 是由德国马普等离子体物理研究所（IPP Greifswald）开发的仿星器优化设计代码，专注于三维线圈组和等离子体位形的联合优化。基于仿星器磁场由外部三维线圈产生的原理，C3PO 通过优化线圈几何（位置、形状、电流）来精确再现目标等离子体平衡的磁场结构，同时考虑工程约束（线圈间最小距离、曲率上限、支撑结构）。代码与 NEMO、GVEC、STELLOPT 等仿星器平衡和优化代码对接，形成从等离子体优化到线圈工程设计的完整工作流。C3PO 在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用，代表了仿星器研究从物理优化到工程可实现性的关键桥梁。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">仿星器线圈优化</span>
+<span class="fchip">三维磁场</span>
+<span class="fchip">工程约束</span>
+<span class="fchip">W7-X</span>
+<span class="fchip">IPP</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://www.ipp.mpg.de/en" target="_blank" rel="noopener">www.ipp.mpg.de/en</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · DESC — DESC Stellarator Equilibrium and Optimization Suite"/>
+<title>DESC · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>DESC</h1>
+<div class="subtitle">DESC Stellarator Equilibrium and Optimization Suite</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🧲 MHD平衡/稳定</span>
+<span class="mtag mtag-open">开源</span>
+<span class="stag">伪谱方法</span><span class="stag">JAX</span><span class="stag">自动微分</span><span class="stag">仿星器优化</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">DESC 是普林斯顿大学 Egemen Kolemen 团队开发的新一代仿星器三维 MHD 平衡与优化代码套件。采用伪谱法和 JAX 自动微分框架，直接在真实空间中求解力平衡方程，摆脱了传统 VMEC 对磁面的假设，能够处理磁岛和随机磁场区域。计算速度比传统方法快 10-100 倍，梯度信息通过自动微分精确获取，可直接耦合优化算法进行仿星器线圈和磁场设计。2023 年以三部曲形式发表在 Journal of Plasma Physics。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">伪谱法 MHD 平衡</span>
+<span class="fchip">JAX 自动微分</span>
+<span class="fchip">磁岛/随机场处理</span>
+<span class="fchip">GPU 加速</span>
+<span class="fchip">仿星器优化</span>
+<span class="fchip">准对称设计</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="body-text">固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="body-text">求解三维理想 MHD 力平衡方程 J × B = ∇p，即 Grad-Shafranov 方程的广义三维形式。采用能量变分原理，通过最小化等离子体 MHD 能量 W = ∫(B²/2μ₀ + p/(γ−1)) dV 来求解平衡。使用伪谱法（Fourier-Zernike 展开）：环向和极向角方向采用 Fourier 级数，径向采用 Zernike 多项式。不依赖嵌套磁面假设，可自然处理磁岛和随机磁场区域。平衡直接通过力平衡残差（F ≡ J × B − ∇p）的 Newton 迭代求解，梯度信息由 JAX 自动微分精确提供。</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="body-text">采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://github.com/PlasmaControl/DESC" target="_blank" rel="noopener">github.com/PlasmaControl/DESC</a>
+<a href="https://doi.org/10.1017/S0022377823000861" target="_blank" rel="noopener">doi.org/10.1017/S0022377823000861</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>

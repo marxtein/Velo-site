@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Fusion Hub · COTSIM — COTSIM — Control-Oriented Transport Simulator"/>
+<title>COTSIM · Fusion Hub</title>
+<style>
+:root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb a{color:var(--ac);font-weight:500}
+.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
+.subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
+.mtag{font-size:.72rem;padding:2px 10px;border-radius:3px;font-weight:600}
+.mtag-domain{background:oklch(0.92 0.03 24);color:oklch(0.42 0.13 26)}
+.mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
+.mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
+.stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
+.section{margin-bottom:1.4rem}
+.section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
+.features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+.fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
+.links-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
+.links-list a:hover{background:var(--tg);text-decoration:none}
+.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
+.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
+.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div class="breadcrumb">
+<a href="../index.html">← 返回 Fusion Hub 代码库</a>
+</div>
+
+<div class="container">
+
+<h1>COTSIM</h1>
+<div class="subtitle">COTSIM — Control-Oriented Transport Simulator</div>
+
+<div class="meta-row">
+<span class="mtag mtag-domain">🎮 控制/实时</span>
+<span class="mtag mtag-closed">需申请</span>
+<span class="stag">电路</span><span class="stag">控制</span>
+</div>
+
+<div class="section">
+<h2>📖 详细介绍</h2>
+<p class="body-text">COTSIM（面向控制的输运模拟器）是由理海大学 Eugenio Schuster 团队开发的快速模块化托卡马克模拟代码，旨在为等离子体控制设计和场景优化提供计算高效的集成建模平台。COTSIM 耦合自由边界平衡演化求解器和输运求解器，同时追踪等离子体位形和内部剖面（温度、密度、电流）的动态演化。代码的一个关键创新是将机器学习代理模型（多层感知器、随机森林、高斯过程）嵌入仿真管线——例如用代理模型替代计算昂贵的 Lower Hybrid Current Drive（LHCD）模拟——使仿真速度提升数个数量级。2025 年在 EAST 装置上完成实验验证，证明其适用于基于模型的前馈优化和实时控制策略测试，正在向 KSTAR 和 ITER 推广。</p>
+</div><div class="section">
+<h2>⚙️ 核心特性</h2>
+<div class="features-grid"><span class="fchip">控制导向</span>
+<span class="fchip">平衡+输运耦合</span>
+<span class="fchip">ML代理模型</span>
+<span class="fchip">EAST验证</span>
+<span class="fchip">实时控制</span></div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📐 方程闭合方式</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>📏 归一化方案</h2>
+<p class="empty-note">暂无数据（论文搜索中）</p>
+</div><div class="section">
+<h2>🔗 相关链接与论文</h2>
+<div class="links-list"><a href="https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf" target="_blank" rel="noopener">www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COT</a></div>
+</div>
+
+</div>
+
+<footer>
+Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
+</footer>
+
+</body>
+</html>
