@@ -66,13 +66,13 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">BOUT++ 生态组件</span></div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">固定边界模式；自由边界模式（FreeGS）；指定 p'(ψ) 和 FF'(ψ) 剖面模式；指定 p(ψ) 和 F(ψ) 剖面模式；轴对称模式；托卡马克模式；FreeGSNKE 扩展模式（Newton-Krylov 非线性求解 + 形状约束）。</p>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">求解固定边界或自由边界 Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ。采用有限差分方法在 (R,Z) 矩形网格上离散，使用 Picard 迭代或 Newton 方法求解非线性椭圆型偏微分方程。固定边界模式给定最外层磁面形状（通过 (R,Z) 坐标点），自由边界模式耦合外部线圈电流（通过 Green 函数方法计算线圈产生的真空场）。等离子体压力 p(ψ) 和环向场函数 F(ψ) 以剖面形式给定。是轻量级的纯 Python 实现，注重可读性和易用性。</p>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">采用 SI 单位制。长度以米为单位，磁场以 Tesla 为单位，电流以 Ampere 为单位，压力以 Pascal 为单位。ψ 以 Weber（Wb）为单位。内部归一化可用但默认使用物理单位。</p>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/freegs-plasma/freegs" target="_blank" rel="noopener">github.com/freegs-plasma/freegs</a></div>

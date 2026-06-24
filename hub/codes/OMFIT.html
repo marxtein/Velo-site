@@ -66,13 +66,13 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">全球装置标配</span></div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">实验数据分析模式（EFIT + ONETWO）；预测性输运模式（TGYRO + TGLF/GYRO）；MHD 稳定性分析模式（M3D-C1/ELITE）；GUI 交互模式；批量运行模式；Python API 开发模式。</p>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">集成建模框架（非单一物理求解器），本身不求解特定方程闭合。通过统一的数据接口（OMFIT 类、OMFITtree）和工作流引擎，协调多个物理代码（EFIT、ONETWO、TGYRO、NUBEAM、M3D-C1 等）的耦合运行。数据流和物理闭合由用户配置的工作流决定——例如：EFIT 提供平衡 → TGYRO 计算输运 → 迭代至一致。框架提供图形用户界面（GUI）、Python API 和批量运行能力。数据格式基于 MDSplus 和 HDF5 的层次化树结构。</p>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">不涉及单一归一化方案——各耦合代码使用各自的归一化，OMFIT 框架负责单位转换和数据映射。标准工作流中输入/输出以工程单位为主。</p>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://omfit.io/" target="_blank" rel="noopener">omfit.io/</a>
