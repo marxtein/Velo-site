@@ -66,13 +66,13 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">局域通量管</span></div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">线性本征值模式；非线性湍流模式；纯静电/电磁模式；单/多粒子种；多尺度模式（ITG/TEM + ETG 同时求解）；碰撞/无碰撞模式；旋转（ExB 剪切）效应；托卡马克几何。</p>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">求解局域非线性回旋动理学方程（δf），采用谱方法：双正交场向坐标展开 + Fourier 级数（径向）+ 广义 Laguerre 多项式（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程（静电势）和并联 Ampere 定律（矢量势），可选包含磁压缩 B∥。碰撞采用精确的完全线性化 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子），在谱空间中实现。支持多粒子种和多尺度（ITG/TEM/ETG 耦合）。几何采用局域 Miller 磁面平衡。</p>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">采用以离子声回旋半径 ρs = cs/Ωci 为基准的归一化方案，与 GYRO/GENE 兼容。径向波数以 ρs 为单位，增长率以 cs/a 为单位，热通量以 gyro-Bohm 单位 QgB 表示。具体归一化参数由 input.gacode 文件指定。</p>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/gafusion/gacode" target="_blank" rel="noopener">github.com/gafusion/gacode</a></div>

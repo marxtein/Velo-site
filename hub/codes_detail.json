@@ -69,7 +69,10 @@
     "links": [
       "https://github.com/google-deepmind/torax",
       "https://doi.org/10.48550/arXiv.2406.06718"
-    ]
+    ],
+    "closure": "求解 1.5D 核心输运方程系统（粒子、电子能量、离子能量、电流扩散）。采用有限体积法在磁面坐标中离散。输运闭合通过用户指定的输运模型提供：支持经验定标（Bohm/gyroBohm）、降阶准线性模型（QuaLiKiz/QLKNN、TGLF）和第一性原理回旋动理学。边界条件由 pedestal 模型（EPED/REPED）或 scrape-off-layer 模型给出。源项（加热、电流驱动、聚变功率）通过外部模块耦合。采用 JAX 可微分框架实现自动微分，支持高效参数扫描和逆问题求解。",
+    "normalization": "采用标准托卡马克工程单位。长度以米为单位，时间以秒为单位，温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，电流以 MA 为单位，功率以 MW 为单位。内部计算使用 SI 单位制，通过 JAX 自动处理量纲一致性。",
+    "variants": "经验输运模式（Bohm/gyroBohm）；准线性输运模式（QuaLiKiz/QLKNN、TGLF）；时间相关模拟（预测性）；时间无关稳态求解；参数扫描模式（不确定性量化）；逆问题模式（优化控制轨迹）；集成 heating/CD 源项模块；pedestal 模型耦合（EPED/REPED）；L 模/H 模自动切换。"
   },
   "GX": {
     "full_name": "GX — GPU-native Local Gyrokinetic Turbulence Code",
@@ -83,7 +86,10 @@
     ],
     "links": [
       "https://gx.readthedocs.io/"
-    ]
+    ],
+    "closure": "求解局域回旋动理学方程（δf gyrokinetic Vlasov-Maxwell 系统）。速度空间采用 Hermite（v∥方向）+ Laguerre（μ 方向）伪谱展开，实现指数收敛精度的无噪声动理学闭合。场方程耦合回旋动理学 Poisson 方程（静电 φ）和 Ampere 定律（电磁 A∥）。支持线性（本征值）和非线性（初值）两种求解模式。几何采用局域通量管近似（气球模坐标），径向使用周期性边界条件。完全 GPU-native 实现，充分利用大规模并行。",
+    "normalization": "采用 gyro-Bohm 归一化方案。空间尺度以离子声回旋半径 ρs 归一化，时间以 a/cs 归一化（a 为小半径，cs 为离子声速）。速度以离子热速度 vti 归一化。热通量以 gyro-Bohm 单位 QgB = nTcs(ρs/a)² 表示。磁场和温度以参考值归一化。",
+    "variants": "线性本征值模式；非线性湍流模式；纯静电（仅 φ）；电磁模式（φ + A∥）；单粒子种/多粒子种；托卡马克几何；仿星器几何；参数扫描模式（Python 接口驱动）；不确定性量化（UQ）模式。"
   },
   "WarpX": {
     "full_name": "WarpX — Advanced Electromagnetic Particle-In-Cell Code",
@@ -99,7 +105,10 @@
     "links": [
       "https://github.com/BLAST-WarpX/warpx",
       "https://warpx.readthedocs.io/"
-    ]
+    ],
+    "closure": "求解全电磁（full-Maxwell）Particle-in-Cell 方程。Maxwell 方程组采用 Yee 网格 FDTD 方法离散，包含电荷守恒方案（Esirkepov 或 Villasenor-Buneman）确保 ∇·E = ρ/ε₀。粒子推进采用 Boris 算法或 Vay 算法（适用于相对论速度）。支持静电（仅 Poisson 方程）、全电磁（完整 Maxwell 方程组）和 Darwin（忽略横向位移电流）三种电磁闭合层级。采用自适应网格细化（AMR）处理多尺度结构，完美匹配层（PML）吸收边界条件。Relativistic beam frame（boosted-frame）技术用于加速激光尾波模拟。",
+    "normalization": "采用 SI 单位制为内部标准，同时支持无量纲归一化输入。典型归一化基于激光波长 λ₀（长度）、激光周期 1/ω₀（时间）、电子静止质量能量 mec²（能量）和临界密度 nc（密度）。输出可转换为物理单位。",
+    "variants": "1D/2D/3D/RZ 几何；静电模式；全电磁模式；Darwin 模式；AMR 自适应网格；PML 吸收边界；boosted-frame（相对论束流框架）；GPU 加速（CUDA/HIP/SYCL）；激光尾波加速专用模式；FRC 聚变模拟模块（2025 新增）；束流输运；高能量密度物理。"
   },
   "EIRENE": {
     "full_name": "EIRENE — Kinetic Neutral Particle & Radiation Transport Code",
@@ -115,7 +124,10 @@
     "links": [
       "https://www.eirene.de/",
       "https://github.com/iterorganization/EIRENE"
-    ]
+    ],
+    "closure": "采用三维动理学蒙特卡洛方法求解中性粒子（原子、分子）和光子的线性 Boltzmann 输运方程。粒子轨迹通过随机抽样决定，碰撞过程（电荷交换、电离、分子离解、弹性散射等）通过原子-分子数据库（AMJUEL/HYDHEL/ADAS）提供的截面数据闭合。不直接求解流体方程，而是通过统计大量测试粒子获得中性粒子密度、动量源、能量源等流体矩。与等离子体流体代码（SOLPS/EMC3）通过迭代耦合交换粒子源和等离子体背景参数。",
+    "normalization": "采用工程单位（m, s, eV）。粒子源率以 s⁻¹ 或 Am⁻² 为单位。截面数据来自标准原子-分子数据库。等离子体背景由流体代码以工程单位提供。蒙特卡洛统计误差通过增加测试粒子数控制。",
+    "variants": "与 SOLPS 耦合（SOLPS-EIRENE 套件，ITER 标准工具）；与 EMC3 耦合（EMC3-EIRENE，仿星器三维边界）；独立运行模式（给定固定等离子体背景）；D/T/He/杂质多粒子种；原子-分子反应网络可配置；光子辐射输运模块；时间相关模式；稳态模式。"
   },
   "VMEC": {
     "full_name": "VMEC — Variational Moments Equilibrium Code",
@@ -130,7 +142,10 @@
     ],
     "links": [
       "https://github.com/ORNL-Fusion/VMEC_8_00"
-    ]
+    ],
+    "closure": "求解三维理想 MHD 静力平衡方程 J × B = ∇p，假设存在嵌套磁面（通过磁面坐标 s 参数化）。采用变分原理（能量泛函最小化）结合谱方法（Fourier 级数在极向角 θ 和环向角 φ 展开）求解逆平衡问题。磁场表示为 B = ∇φ × ∇χ + ∇Φ × ∇ψ（Boozer 坐标或 Hamada 坐标形式）。平衡通过最小化 δW = 0 变分求解，其中 W = ∫(B²/2μ₀ + p/(γ − 1)) dV。压力 p = p(s) 以磁面函数给定，旋转变换 ι(s) 或安全因子 q(s) 为预设剖面。",
+    "normalization": "采用无量纲化方案。长度以参考大半径归一化，磁场以参考磁场（轴上环向场 B₀）归一化。径向坐标 s 归一化到 [0,1]（磁轴到最外层闭合磁面）。物理量可通过参考参数还原。典型输入中磁场以 Tesla、长度以米为单位。",
+    "variants": "固定边界模式（给定最外层磁面形状）；自由边界模式（需要 VMEC 2000/VMEC++ 扩展）；轴对称极限（托卡马克模式）；三维仿星器模式；单磁轴/多磁轴；真空磁面（β = 0）；有限 β 平衡；与 STELLOPT/SIMSOPT 优化耦合输入；与 BOOZ_XFORM 坐标转换耦合。"
   },
   "M3D-C1": {
     "full_name": "M3D-C1 — 3D Extended MHD Code with C1 Finite Elements",
@@ -145,7 +160,10 @@
     ],
     "links": [
       "https://w3.pppl.gov/~nferraro/m3dc1.html"
-    ]
+    ],
+    "closure": "求解三维扩展 MHD（XMHD）方程组，采用 C¹ 连续有限元方法（保证磁通函数一阶导数连续）。支持单流体和双流体 MHD 模型层级：单流体电阻 MHD（包含 Spitzer 电阻率）、双流体 MHD（电子和离子有独立温度和速度，含 Hall 项和电子压强梯度项）。方程组包含连续性方程、动量方程（含 Lorentz 力 J × B）、能量方程（电子和离子独立）、广义 Ohm 定律和 Faraday 定律。X-point 几何自然处理（无需磁面坐标假设），通过非结构化网格适应偏滤器位形。",
+    "normalization": "采用 Alfvén 归一化方案。长度以装置大半径 R₀ 或小半径 a 归一化，时间以 Alfvén 时间 τA = R₀/vA 归一化，速度以 Alfvén 速度 vA = B/√(μ₀ρ) 归一化。磁场以轴上环向场 B₀ 归一化。电阻以 Lundquist 数 S 的倒数表征。",
+    "variants": "单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。"
   },
   "Gkeyll": {
     "full_name": "Gkeyll — Discontinuous Galerkin Gyrokinetic Code",
@@ -161,7 +179,10 @@
     "links": [
       "https://gkeyll.readthedocs.io/",
       "https://github.com/ammarhakim/gkyl"
-    ]
+    ],
+    "closure": "采用高阶间断伽辽金（Discontinuous Galerkin, DG）方法求解 Vlasov-Maxwell 或回旋动理学方程系统。方程直接在完整相空间中离散（含速度空间维度），实现无噪声（noise-free）的动理学模拟。场方程通过 Maxwell 方程组（全 Vlasov-Maxwell 模式）或回旋动理学 Poisson-Ampere 方程闭合。采用能量守恒的半离散 DG 格式，每个单元内使用高阶多项式基函数（通常 2-4 阶）。支持全 f 分布函数演化（非 δf 近似），特别适合边界物理（强梯度、非 Maxwell 分布）。",
+    "normalization": "采用标准等离子体归一化方案。长度以离子惯性长度 di = c/ωpi 或 Debye 长度 λD 归一化，时间以等离子体频率 ωpe⁻¹ 或离子回旋频率 Ωci⁻¹ 归一化。速度以热速度或 Alfvén 速度归一化。具体归一化取决于所求解的物理问题。",
+    "variants": "全 Vlasov-Maxwell 模式（空间等离子体）；回旋动理学模式（磁约束聚变）；1D/2D/3D 几何；静电/电磁；线性/非线性；无碰撞/含碰撞（Dougherty-Fokker-Planck 碰撞算符）；SOL 边界湍流专用配置；鞘层物理模块。"
   },
   "OSIRIS": {
     "full_name": "OSIRIS — Relativistic Electromagnetic PIC Code",
@@ -175,7 +196,10 @@
     ],
     "links": [
       "https://plasmasim.physics.ucla.edu/codes/osiris"
-    ]
+    ],
+    "closure": "求解相对论全电磁 PIC 方程组。Maxwell 方程组采用 FDTD 方法在交错 Yee 网格上离散，使用电荷守恒电流沉积方案（Villasenor-Buneman 或 Esirkepov）保证 ∇·E = ρ/ε₀。粒子推进采用相对论 Boris 推子。电磁模型为全 Maxwell（保留位移电流），支持激光-等离子体和高能量密度物理。可选包含强场 QED 效应（非线性 Compton 散射、Breit-Wheeler 对产生）通过 Monte Carlo 模块耦合。采用移动窗口（moving window）技术尾随激光脉冲。",
+    "normalization": "采用激光-等离子体常用归一化。长度以激光波长 λ₀ 的 1/(2π) 归一化，时间以激光频率 ω₀⁻¹ 归一化，密度以临界密度 nc = ε₀mω₀²/e² 归一化。电磁场以 mω₀c/e 归一化（使无量纲激光强度 a₀ = eE/mω₀c）。粒子能量以 mec² 归一化。",
+    "variants": "1D/2D/3D 几何；标准激光尾波加速模式（LWFA）；质子加速模式（TNSA/RPA）；正电子产生；QED 模块（强场量子电动力学）；移动窗口；动态负载平衡；MPI+OpenMP 并行；静电/全电磁/准静态模式。"
   },
   "VPIC": {
     "full_name": "VPIC — Vector Particle-In-Cell Code",
@@ -189,7 +213,10 @@
     ],
     "links": [
       "https://github.com/lanl/vpic"
-    ]
+    ],
+    "closure": "求解相对论全电磁 PIC 方程组。采用矢量数据结构优化，充分利用 SIMD 向量化。Maxwell 方程组采用 FDTD Yee 网格和电荷守恒电流沉积。粒子推进使用相对论 Boris 算法。解决完整 Maxwell 方程（非约化），适用于无鞘层假设的全动理学等离子体。并行采用混合模式 MPI+线程，面向 Exascale 架构优化的数据布局（粒子按空间排序以最大化缓存效率）。",
+    "normalization": "采用 SI 单位和归一化单位双支持。归一化通常基于等离子体频率 ωpe（时间）、skin depth c/ωpe（长度）和参考密度 n₀。对于激光-等离子体问题，也支持基于激光参数的归一化。磁场归一化到 B₀ = mωpec/e。",
+    "variants": "1D/2D/3D 几何；静电/全电磁；Exascale 优化模式（GPU 加速）；磁重联专用配置；激光-等离子体相互作用；高能量密度物理；粒子排序优化（提升缓存命中率）；矢量数据布局（AVX-512 优化）。"
   },
   "TRANSP": {
     "full_name": "TRANSP — Tokamak TRANsport Simulation Code",
@@ -203,7 +230,10 @@
     ],
     "links": [
       "https://w3.pppl.gov/transp/"
-    ]
+    ],
+    "closure": "求解时变 1.5D 输运方程系统（磁面平均）：粒子输运（电子和每种离子独立）、电子和离子能量输运、环向动量输运、电流扩散（极向磁场演化）。输运系数由用户选择的输运模型提供（经验/半经验/理论模型），或直接从实验剖面推断。源项通过耦合模块计算：NUBEAM（NBI 快离子轨道和加热）、TORAY/GENRAY（射频加热和电流驱动）、融合反应率（Bosch-Hale 参数化）等。平衡通过 JSOLVER 或 EFIT 提供磁面几何，自洽更新。",
+    "normalization": "采用工程单位（SI 单位制）。温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，功率以 MW 为单位，电流以 MA 为单位。输运系数以 m²/s 为单位。输入/输出文件使用标准 TRANSP 格式。",
+    "variants": "功率平衡分析模式（Power Balance）；预测性输运模拟（Predictive）；NUBEAM 快离子耦合；多种加热源耦合（NBI/ICRF/ECRH/LH）；杂质输运（耦合 SANCO/STRAHL）；氘-氚燃烧等离子体模式（ITER 预测）；实验数据约束模式（将诊断数据作为约束条件）。"
   },
   "RAPTOR": {
     "full_name": "RAPTOR — RApid Plasma Transport simulatOR",
@@ -217,7 +247,10 @@
     ],
     "links": [
       "https://github.com/SPCData/raptor"
-    ]
+    ],
+    "closure": "求解 1D 径向输运方程系统（电子温度 Te、离子温度 Ti、电流密度 j、粒子密度 n），采用快速降阶模型实现实时/近实时模拟。输运闭合通过半经验模型（Bohm/gyroBohm）或神经网络代理模型（基于第一性原理回旋动理学数据训练）提供。平衡假设为静态 Grad-Shafranov 或由实时 EFIT 提供。源项剖面（加热、电流驱动）通过简化参数化模块计算。专为实时控制和离线快速预测设计，可在毫秒量级完成完整放电演化预测。",
+    "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，时间以 s，功率以 MW 为单位。内部变量以物理单位存储和传递，便于与控制系统的数据接口对接。",
+    "variants": "实时控制模式（在线预测，TCV/AUG/JET 部署）；离线快速预测模式；神经网络代理输运模型（ML surrogate for transport）；物理输运模型（Bohm/gyroBohm）；profile control 优化模式。"
   },
   "SOLPS-ITER": {
     "full_name": "SOLPS-ITER — Scrape-Off Layer Plasma Simulation for ITER",
@@ -232,7 +265,10 @@
     "links": [
       "https://github.com/iterorganization/SOLPS-ITER",
       "https://solps-iter.org/"
-    ]
+    ],
+    "closure": "由二维多流体等离子体代码 B2(.5) 与三维动理学蒙特卡洛中性粒子代码 EIRENE 迭代耦合求解。B2 求解二维（极向平面）Braginskii 型输运方程（密度、平行动量、电子和离子能量），包含经典输运（平行 Braginskii 系数）和反常输运（用户指定径向输运系数）。电场通过电流连续性方程和鞘层边界条件闭合。EIRENE 通过蒙特卡洛方法提供中性粒子源（粒子、动量、能量）反馈到 B2 流体方程。迭代至等离子体和中性粒子分布自洽收敛。偏滤器靶板采用鞘层边界条件（Bohm 判据）。",
+    "normalization": "采用 SI 和工程单位混合。密度以 m⁻³ 为单位，温度以 eV 为单位，通量以 m⁻²s⁻¹ 为单位，功率以 W/m² 为单位。径向输运系数以 m²/s 为单位。输入文件使用标准 SOLPS 格式。",
+    "variants": "纯流体模式（B2 独立运行，无中性粒子）；SOLPS-EIRENE 全耦合模式；D/T/He/杂质多粒子种；偏滤器气体注入（seeding）模拟（N₂, Ne, Ar）；脱靶预测模式；瞬态 ELM 模拟；时间相关模式；稳态模式。"
   },
   "CGYRO": {
     "full_name": "CGYRO — Collisional Gyrokinetic Code",
@@ -246,7 +282,10 @@
     ],
     "links": [
       "https://github.com/gafusion/gacode"
-    ]
+    ],
+    "closure": "求解局域非线性回旋动理学方程（δf），采用谱方法：双正交场向坐标展开 + Fourier 级数（径向）+ 广义 Laguerre 多项式（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程（静电势）和并联 Ampere 定律（矢量势），可选包含磁压缩 B∥。碰撞采用精确的完全线性化 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子），在谱空间中实现。支持多粒子种和多尺度（ITG/TEM/ETG 耦合）。几何采用局域 Miller 磁面平衡。",
+    "normalization": "采用以离子声回旋半径 ρs = cs/Ωci 为基准的归一化方案，与 GYRO/GENE 兼容。径向波数以 ρs 为单位，增长率以 cs/a 为单位，热通量以 gyro-Bohm 单位 QgB 表示。具体归一化参数由 input.gacode 文件指定。",
+    "variants": "线性本征值模式；非线性湍流模式；纯静电/电磁模式；单/多粒子种；多尺度模式（ITG/TEM + ETG 同时求解）；碰撞/无碰撞模式；旋转（ExB 剪切）效应；托卡马克几何。"
   },
   "GS2": {
     "full_name": "GS2 — Gyrokinetic Stability and Transport Code",
@@ -260,7 +299,10 @@
     ],
     "links": [
       "https://gyrokinetics.gitlab.io/gs2/"
-    ]
+    ],
+    "closure": "求解局域回旋动理学方程（δf），采用连续体方法在气球模坐标中离散。场方程通过准中性条件（Poisson 方程）和并联 Ampere 定律闭合。速度空间采用有限差分（能量）+ 伪谱（pitch angle）混合离散。支持电磁涨落。碰撞通过简化的 Lorentz 或完整的 Fokker-Planck 碰撞算符处理。几何采用局域通量管近似（气球模坐标+s-α 模型或 Miller 平衡）。作为第一代通用回旋动理学连续体代码，GS2 为 GENE/GYRO 等方法奠定了物理框架。",
+    "normalization": "采用以 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化。长度以 ρs 为单位，时间以 a/cs 为单位，速度以 vti 为单位。归一化方案与 GYRO 和 GENE 早期版本兼容。",
+    "variants": "线性稳定性分析（本征值）；非线性湍流模拟；静电模式；电磁模式；单/多粒子种；ETG 多尺度模式；碰撞/无碰撞；ExB 剪切流；s-α 平衡模型；Miller 平衡模型。"
   },
   "SPEC": {
     "full_name": "SPEC — Stepped Pressure Equilibrium Code",
@@ -274,7 +316,10 @@
     ],
     "links": [
       "https://github.com/PrincetonUniversity/SPEC"
-    ]
+    ],
+    "closure": "基于多区域变分 MHD（MRxMHD）原理。将等离子体划分为多个嵌套的体积区域，每个区域内压力为常数（压力台阶），区域间通过理想 MHD 界面条件连接。在每个区域内求解 Beltrami 方程 ∇ × B = μB（力自由场），区域边界处通过压力跳跃 Δp 平衡。不假设全局嵌套磁面存在，可自然处理磁岛链、随机场线区域和部分破坏的磁面。界面几何通过最小化总 MHD 能量（含界面能）的变分原理确定。区域数量和压力分布为输入。",
+    "normalization": "采用无量纲单位。长度以参考大半径归一化，磁场以参考环向场归一化。压力以 Bref²/(2μ₀) 归一化。各区域的 Beltrami 参数 μ 为输入。总环向磁通作为径向标签。",
+    "variants": "少数区域模式（2-3 区，快速扫描）；多区域模式（10+ 区，精细结构）；固定边界；自由边界（真空区）；轴对称模式（托卡马克）；三维仿星器模式；磁岛分岔分析模式；会切/岛偏滤器分析模式。"
   },
   "XGC": {
     "full_name": "XGC — X-point Gyrokinetic Code",
@@ -288,7 +333,10 @@
     ],
     "links": [
       "https://xgc.pppl.gov/"
-    ]
+    ],
+    "closure": "采用全 f 回旋动理学 PIC 方法，在真实托卡马克 X-point 几何中求解五维回旋动理学方程。粒子推进使用回旋动理学运动方程（含全轨道效应），场方程闭合通过回旋动理学 Poisson 方程（静电，使用有限元方法在非结构化磁面网格上求解）和并联 Ampere 定律（电磁模式）。电子可为动理学（全 f）或绝热简化。中性粒子通过蒙特卡洛模块耦合。跨芯部-边界-刮削层连续区域模拟，自洽包含鞘层边界条件（Bohm 判据）和 material wall 相互作用。",
+    "normalization": "采用标准托卡马克归一化。长度以离子回旋半径 ρi 或大半径 R₀ 归一化，时间以 Ωci⁻¹ 归一化，速度以离子热速度 vti 归一化。密度以参考密度 n₀ 归一化。输入平衡由 EFIT 或 M3D-C1 提供真实几何。",
+    "variants": "全 f 全域 PIC 模式（标配）；静电模式（仅 φ）；电磁模式（φ + A∥）；动理学电子模式；绝热电子模式；中性粒子耦合；时间相关 ELM 模拟；偏滤器热通量预测；RMP 响应模拟。"
   },
   "ASCOT5": {
     "full_name": "ASCOT5 — Accelerated Simulation of Charged particle Orbits in Tori",
@@ -302,7 +350,10 @@
     ],
     "links": [
       "https://github.com/fusion-energy/ASCOT5"
-    ]
+    ],
+    "closure": "求解导心轨道方程（guiding-center orbit following）在三维磁场位形中追踪高能粒子（NBI 快离子、α 粒子、逃逸电子等）的轨道和热化过程。采用蒙特卡洛方法处理 Coulomb 碰撞（pitch-angle scattering + energy slowing-down），碰撞频率由背景等离子体参数通过 NRL 公式计算。不直接求解场方程——磁场平衡由外部求解器（VMEC、EFIT、ASCOT 内置磁场模块）提供，电场通过径向力平衡条件计算。粒子损失通过轨道追踪至第一壁判定。",
+    "normalization": "采用 SI 单位制。粒子能量以 eV 或 keV 为单位，位置以 m 为单位，磁场以 T 为单位。输入平衡和等离子体剖面以工程单位提供。输出粒子分布函数和损失率以物理单位表示。",
+    "variants": "NBI 快离子慢化模拟；α 粒子约束与损失；逃逸电子产生与输运；杂质输运（粒子轨道追踪）；仿星器模式（三维磁场）；托卡马克模式（轴对称+扰动）；时间相关背景等离子体。"
   },
   "BOUT++": {
     "full_name": "BOUT++ — Boundary Turbulence Simulation Framework",
@@ -317,7 +368,10 @@
     "links": [
       "https://github.com/boutproject/BOUT-dev",
       "https://boutproject.github.io/"
-    ]
+    ],
+    "closure": "求解三维电磁流体方程（Braginskii 型双流体模型）在托卡马克 X-point 几何中。主要闭合层级包括：简化 MHD（单流体，电阻 MHD 方程）、双流体模型（电子和离子独立动量方程，含 Hall 项、电子压强梯度、电子热力）、以及回旋流体闭合（Gyro-Landau-Fluid, GLF，通过 Hammett-Perkins 朗道阻尼闭合近似包含动理学效应）。电磁场通过 Faraday 定律 + 广义 Ohm 定律闭合，或全 Maxwell 方程。采用有限差分方法在非结构化场向坐标网格上离散。",
+    "normalization": "采用 Alfvén 归一化。长度以 ρs（离子声回旋半径）归一化，时间以 ωci⁻¹ 归一化。密度和温度以参考值归一化。电磁场以使 Alfvén 速度为 1 的方式归一化。具体归一化参数根据物理问题可调。",
+    "variants": "单流体 MHD 模式；双流体模式；Gyro-Landau-Fluid 模式；电磁 drift-wave 模式；静电 drift-wave 模式；ELM 模拟；偏滤器湍流；blob/filament 传播；Hermes-3 耦合（漂移动理学）；SD1D 耦合。"
   },
   "Hermes-3": {
     "full_name": "Hermes-3 — 3D Plasma Fluid & Neutral Transport Code",
@@ -331,7 +385,10 @@
     ],
     "links": [
       "https://github.com/boutproject/hermes-3"
-    ]
+    ],
+    "closure": "求解漂移-约化 Braginskii 双流体方程组（电子和离子）。包含：连续性方程、电子和离子平行动量方程（含热力项）、电子和离子能量方程（含平行和垂直热传导）、电流连续性方程（通过 ∇·j = 0 闭合电场，即 vorticity 方程）。漂移约化假设（ω ≪ Ωci，k⊥ρi ~ O(1)）减少计算维度，但保留关键的垂直漂移物理（ExB 漂移、反磁漂移）。涡量方程通过 ϕ 与密度和温度耦合。电磁效应通过并联 Ampere 定律耦合 A∥。",
+    "normalization": "采用 Bohm 归一化方案。长度以 ρs 归一化，时间以 Ωci⁻¹ 归一化。密度、温度以参考值归一化，磁场以使 Ωci 为 1 的方式归一化。输运系数（扩散率、热导率）以 Bohm 单位 DB = Te/(16eB) 归一化。",
+    "variants": "静电 drift-wave 模式；电磁模式（含 A∥）；1D/2D/3D 几何；单零点/双零点偏滤器几何；壁限域/偏滤器位形；中性粒子耦合（通过约定模型）；杂质输运。"
   },
   "JOREK": {
     "full_name": "JOREK — Non-linear Extended MHD Code for Tokamak Transients",
@@ -346,7 +403,10 @@
     "links": [
       "https://jorek.eu/",
       "https://doi.org/10.1088/1741-4326/ad5a21"
-    ]
+    ],
+    "closure": "求解三维约化 MHD 方程组（reduced MHD）在托卡马克环形几何中。基础模型为约化 MHD（基于 tokamak 环向场主导假设进行简化），可扩展至全 MHD 和双流体 MHD。方程组包含：涡量方程（通过 ∇·j = 0 闭合）、Ohm 定律（含电阻和 Hall 项）、密度和温度演化方程（含平行和垂直输运）。采用 2D Bezier 有限元（极向平面）+ Fourier 展开（环向）的混合离散。支持包含杂质辐射和不完全电离效应的 coronal 模型。",
+    "normalization": "采用 Alfvén 归一化。时间以 Alfvén 时间 τA 归一化，长度以大半径 R₀ 归一化。磁场以环向场 B₀ 归一化。电阻以磁 Reynolds 数或 Lundquist 数表征。密度和温度以参考值归一化。",
+    "variants": "约化 MHD 模式；全 MHD 模式；双流体 MHD 模式；单环向谐波（n=0,1,2...）；多环向谐波耦合；ELM 爆发模拟；等离子体破裂（TQ/CQ）；垂直位移事件（VDE）；RMP 穿透；pellet 注入；shattered pellet injection (SPI)。"
   },
   "NIMROD": {
     "full_name": "NIMROD — Non-Ideal Magnetohydrodynamics with Rotation, Open Discussion",
@@ -360,7 +420,10 @@
     ],
     "links": [
       "https://github.com/nimrod-team/NIMROD"
-    ]
+    ],
+    "closure": "求解三维扩展 MHD 方程组（extended MHD，含双流体效应）在复杂几何中。使用 2D 高阶有限元（极向平面）+ Fourier 级数（环向方向）的混合谱/有限元离散。方程组包含：连续性方程、动量方程（含 Lorentz 力 + 粘性应力张量）、能量方程（含各向异性热传导）、广义 Ohm 定律（含 Hall 项和电子压强梯度项）、Faraday 定律。半隐式时间推进（semi-implicit Leapfrog 或 BDF 格式）处理多时间尺度。",
+    "normalization": "采用 Alfvén 归一化。长度以装置特征尺度归一化，时间以 Alfvén 时间 τA 归一化。磁场以参考值归一化，压力和密度以参考值归一化。电阻和粘性通过无量纲参数（Lundquist 数 S、Prandtl 数 Pr）指定。",
+    "variants": "单流体 MHD 模式；双流体扩展 MHD 模式；线性稳定性分析（本征值）；非线性演化；轴对称（2D）模式；三维非线性模式；等离子体破裂模拟；VDE 模拟；halo 电流；多环向谐波耦合。"
   },
   "TGLF": {
     "full_name": "TGLF — Trapped Gyro-Landau-Fluid Transport Model",
@@ -374,7 +437,10 @@
     ],
     "links": [
       "https://github.com/gafusion/gacode"
-    ]
+    ],
+    "closure": "基于回旋-朗道-流体（Gyro-Landau-Fluid, GLF）模型，使用截断矩方程（通常保留到 15-23 个速度空间矩）闭合流体方程链。通过 Hammett-Perkins 类型的朗道阻尼闭合近似（非局域热通量和粘性张量以卷积形式表示 k∥vt/ω 的函数）来捕获回旋动理学动理学效应。准线性输运计算通过求解线性回旋动理学本征值方程获得最不稳定模的增长率、频率和本征函数，再通过准线性混合长度规则（γ/⟨k⊥²⟩）估计输运系数。支持 ITG/TEM/ETG/KBM 等多种不稳定性。",
+    "normalization": "采用 gyro-Bohm 归一化方案。长度以 ρs 归一化，增长率以 cs/a 归一化，热通量以 gyro-Bohm 单位 QgB 表示。输入剖面通过 input.gacode 格式以工程单位（keV, 10¹⁹ m⁻³, m）提供，内部自动转换为归一化单位。",
+    "variants": "TGLF 准线性模式（SAT0 饱和规则）；TGLF 线性本征值模式；SAT0 饱和模型（默认）；SAT1/2 改进饱和模型；静电模式；电磁模式；ITG/TEM 模式；ETG 多尺度模式；旋转（ExB 剪切）效应；Miller 几何（s-α 和实际 MHD 平衡）。"
   },
   "GYRO": {
     "full_name": "GYRO — Gyrokinetic Continuum Turbulence Code",

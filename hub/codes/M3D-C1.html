@@ -67,13 +67,13 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">双流体</span></div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。</p>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">求解三维扩展 MHD（XMHD）方程组，采用 C¹ 连续有限元方法（保证磁通函数一阶导数连续）。支持单流体和双流体 MHD 模型层级：单流体电阻 MHD（包含 Spitzer 电阻率）、双流体 MHD（电子和离子有独立温度和速度，含 Hall 项和电子压强梯度项）。方程组包含连续性方程、动量方程（含 Lorentz 力 J × B）、能量方程（电子和离子独立）、广义 Ohm 定律和 Faraday 定律。X-point 几何自然处理（无需磁面坐标假设），通过非结构化网格适应偏滤器位形。</p>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="empty-note">暂无数据（论文搜索中）</p>
+<p class="body-text">采用 Alfvén 归一化方案。长度以装置大半径 R₀ 或小半径 a 归一化，时间以 Alfvén 时间 τA = R₀/vA 归一化，速度以 Alfvén 速度 vA = B/√(μ₀ρ) 归一化。磁场以轴上环向场 B₀ 归一化。电阻以 Lundquist 数 S 的倒数表征。</p>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://w3.pppl.gov/~nferraro/m3dc1.html" target="_blank" rel="noopener">w3.pppl.gov/~nferraro/m3dc1.html</a></div>
