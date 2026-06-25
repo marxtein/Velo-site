@@ -16,7 +16,36 @@
     ],
     "closure": "基于回旋动理学 Vlasov-Maxwell 系统自洽闭合。场方程由回旋动理学 Poisson 方程（求解静电势 φ）和并联 Ampère 定律（求解矢量势 A∥）组成，可选包含磁涨落 B∥。采用 δf 或全 f 分布函数方法，通过回旋平均消除快回旋运动。碰撞过程通过线性化 Landau-Boltzmann 碰撞算符处理。支持纯静电（仅 φ）、全电磁（φ + A∥）及包含磁压缩（+ B∥）三种闭合层级。在五维相空间（三维实空间 + 二维速度空间 v∥, μ）中采用连续体欧拉方法直接离散求解。",
     "normalization": "采用 gyro-Bohm 归一化方案。参考量：特征长度 Lref（小半径 a 或大半径 R0）、参考磁场 Bref（轴上磁场）、参考温度 Tref 和密度 nref。时间以 a/cs 归一化（cs 为离子声速），垂直尺度以离子声回旋半径 ρs = cs/Ωci 归一化，平行尺度以大半径 R0 归一化。热通量天然以 gyro-Bohm 单位表示：QgB = nref·Tref·cs·(ρs/a)²。",
-    "variants": "通量管（flux tube）模式：局域 δf 模拟，径向周期性边界；全局（global）模式：含径向剖面演化的全半径模拟；线性模式（本征值求解器）；非线性模式（初值问题）；纯静电版本（仅 φ）；电磁版本（φ + A∥）；多粒子种耦合（电子、多种离子、杂质）；托卡马克和仿星器几何双支持。"
+    "variants": "通量管（flux tube）模式：局域 δf 模拟，径向周期性边界；全局（global）模式：含径向剖面演化的全半径模拟；线性模式（本征值求解器）；非线性模式（初值问题）；纯静电版本（仅 φ）；电磁版本（φ + A∥）；多粒子种耦合（电子、多种离子、杂质）；托卡马克和仿星器几何双支持。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial g_s}{\\partial t} &+ \\left(v_\\parallel \\hat{\\mathbf{b}} + \\mathbf{v}_D\\right) \\cdot \\nabla g_s\n+ \\dot{v}_\\parallel \\frac{\\partial g_s}{\\partial v_\\parallel}\n= - \\frac{Z_s e F_{0s}}{T_s} \\left(\\frac{\\partial}{\\partial t} + i\\omega_{*s}\\right) \\langle \\chi \\rangle_{\\mathbf{R}} + C[g_s] \\\\[4pt]\n\\chi &= \\phi - \\frac{v_\\parallel}{c} A_\\parallel + \\frac{\\mu}{Z_s e} B_\\parallel \\\\[4pt]\n\\mathbf{v}_D &= \\frac{\\hat{\\mathbf{b}}}{\\Omega_s} \\times \\left(v_\\parallel^2 \\boldsymbol{\\kappa} + \\frac{\\mu}{m_s} \\nabla B\\right) \\\\[4pt]\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp \\rho_s) g_s \\quad &\\text{(准中性)} \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0(k_\\perp \\rho_s) g_s \\quad &\\text{(Ampère)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\n\\begin{aligned}\n\\rho_s &= \\frac{c_s}{\\Omega_{ci}}, \\quad c_s = \\sqrt{\\frac{T_e}{m_i}}, \\quad \\Omega_{ci} = \\frac{Z_i e B}{m_i c} \\\\[4pt]\n\\bar{t} &= \\frac{t}{a/c_s}, \\quad \\bar{x}_\\perp = \\frac{x_\\perp}{\\rho_s}, \\quad \\bar{x}_\\parallel = \\frac{x_\\parallel}{R_0} \\\\[4pt]\n\\bar{v}_\\parallel &= \\frac{v_\\parallel}{v_{ti}}, \\quad v_{ti} = \\sqrt{\\frac{2T_i}{m_i}}, \\quad \\bar{\\mu} = \\frac{\\mu B_0}{T_i} \\\\[4pt]\nQ_{gB} &= n_0 T_0 c_s \\left(\\frac{\\rho_s}{a}\\right)^2\n\\end{aligned}\n$$",
+    "variant_formulas": [
+      {
+        "name": "纯静电模式",
+        "desc": "仅求解回旋动理学 Poisson 方程，A∥ = B∥ = 0",
+        "formula": "$$\\nabla_\\perp^2 \\phi = -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp \\rho_s) g_s$$"
+      },
+      {
+        "name": "电磁模式 (φ + A∥)",
+        "desc": "求解 Poisson + 并联 Ampère 定律，B∥ = 0",
+        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0 g_s \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s\n\\end{aligned}\n$$"
+      },
+      {
+        "name": "全电磁模式 (φ + A∥ + B∥)",
+        "desc": "含磁压缩涨落 B∥，适用于高 β 等离子体",
+        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0 g_s \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s \\\\[4pt]\n\\frac{B_\\parallel}{B_0} &= -\\frac{4\\pi}{B_0^2} \\sum_s \\int d^3v\\, \\mu B_0\\, J_0 g_s\n\\end{aligned}\n$$"
+      },
+      {
+        "name": "通量管模式 (Flux Tube)",
+        "desc": "局域气球模坐标，径向周期边界，δf 近似",
+        "formula": "$$\n\\begin{aligned}\ng_s(x, y, z, v_\\parallel, \\mu, t) &\\quad x,y \\in [0, L_{x,y}],\\; z \\in [-\\pi N,\\pi N] \\\\[4pt]\ng_s(x+L_x) &= g_s(x) \\quad \\text{(周期边界)}\n\\end{aligned}\n$$"
+      },
+      {
+        "name": "全局模式 (Global)",
+        "desc": "全半径剖面演化，非周期径向边界条件",
+        "formula": "$$g_s = g_s(r, \\theta, \\zeta, v_\\parallel, \\mu, t), \\quad r \\in [0, a]$$"
+      }
+    ]
   },
   "GTC": {
     "full_name": "Gyrokinetic Toroidal Code",
@@ -34,7 +63,26 @@
     ],
     "closure": "基于 PIC δf 回旋动理学框架。采用粒子方法求解回旋动理学 Vlasov 方程，通过回旋平均将带电粒子的快回旋运动平均化，在五维回旋中心相空间中追踪标记粒子。场方程闭合通过回旋动理学 Poisson 方程（∇⊥·(n₀mi/B²)∇⊥φ = −⟨δni⟩ 等）求解静电势，并联 Ampère 定律求解矢量势。采用 δf 降噪方法（仅模拟分布函数偏离 Maxwell 的部分）以降低粒子噪声。支持流体-动理学混合电子模型（fluid-kinetic hybrid electron）：将电子处理为无质量流体以降低计算成本，同时保留离子全动理学。",
     "normalization": "采用标准托卡马克归一化方案。长度归一化到大半径 R₀ 或离子回旋半径 ρi，时间归一化到 Ωci⁻¹（离子回旋频率倒数），速度归一化到离子热速度 vti = √(Ti/mi)。密度和温度以参考值 n₀, T₀ 归一化，磁场以轴上磁场 B₀ 归一化。",
-    "variants": "静电版本（原始 GTC，仅含 φ 求解）；全电磁版本（GTC，增加 A∥ 和 B∥ 扰动）；流体-动理学混合电子模块（fluid-kinetic hybrid electron）；GTC-X 扩展版本；线性与非线性模式；全域模拟（无通量管模式）；多离子种支持；高能粒子模块（含阿尔芬本征模物理）；GPU 加速版本（近年新增）。"
+    "variants": "静电版本（原始 GTC，仅含 φ 求解）；全电磁版本（GTC，增加 A∥ 和 B∥ 扰动）；流体-动理学混合电子模块（fluid-kinetic hybrid electron）；GTC-X 扩展版本；线性与非线性模式；全域模拟（无通量管模式）；多离子种支持；高能粒子模块（含阿尔芬本征模物理）；GPU 加速版本（近年新增）。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{d\\mathbf{R}}{dt} &= v_\\parallel \\hat{\\mathbf{b}} + \\mathbf{v}_E + \\mathbf{v}_D, \\quad\n\\frac{dv_\\parallel}{dt} = -\\frac{1}{m_s}\\frac{\\mathbf{B}^*}{B_\\parallel^*} \\cdot \\left(Z_s e \\nabla \\langle \\phi \\rangle + \\mu \\nabla B\\right) \\\\[4pt]\n&\\delta f \\text{ 权重方程:} \\quad\n\\frac{dw}{dt} = -(1-w)\\left[\\mathbf{v}_E \\cdot \\frac{\\nabla F_0}{F_0} - \\frac{Z_s e}{T_s} \\frac{\\partial \\langle \\phi \\rangle}{\\partial t}\\right] \\\\[4pt]\n&\\text{回旋动理学 Poisson 方程:} \\quad\n\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) = -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right) \\\\[4pt]\n&\\text{Fluid-kinetic hybrid electron (可选):} \\quad\n\\delta n_e = n_0 \\frac{e(\\phi - \\langle \\phi \\rangle)}{T_e}, \\quad\n\\frac{\\partial \\delta n_e}{\\partial t} + \\mathbf{v}_E \\cdot \\nabla n_0 = 0\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\n\\begin{aligned}\n\\bar{t} &= t\\,\\Omega_{ci}, \\quad \\bar{x} = \\frac{x}{\\rho_i}, \\quad \\rho_i = \\frac{v_{ti}}{\\Omega_{ci}} \\\\[4pt]\n\\bar{v}_\\parallel &= \\frac{v_\\parallel}{v_{ti}}, \\quad v_{ti} = \\sqrt{\\frac{T_i}{m_i}}, \\quad \\bar{B} = \\frac{B}{B_0} \\\\[4pt]\n\\bar{\\phi} &= \\frac{e\\phi}{T_e}, \\quad \\bar{n} = \\frac{n}{n_0}\n\\end{aligned}\n$$",
+    "variant_formulas": [
+      {
+        "name": "静电模式",
+        "desc": "仅求解静电势 φ，适用于低 β 等离子体",
+        "formula": "$$\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) = -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right)$$"
+      },
+      {
+        "name": "全电磁模式",
+        "desc": "增加并联 Ampère 定律，包含 Alfvén 波",
+        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) &= -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right) \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c}\\left(\\langle \\delta j_{\\parallel i} \\rangle + \\delta j_{\\parallel e}\\right)\n\\end{aligned}\n$$"
+      },
+      {
+        "name": "Fluid-kinetic hybrid electron",
+        "desc": "电子处理为无质量流体，离子保持全动理学",
+        "formula": "$$\n\\begin{aligned}\n\\delta n_e &= n_0 \\frac{e(\\phi - \\langle \\phi \\rangle)}{T_e} \\\\[4pt]\n\\frac{\\partial \\delta n_e}{\\partial t} &+ \\mathbf{v}_E \\cdot \\nabla (n_0 + \\delta n_e) + \\nabla_\\parallel (n_0 u_{\\parallel e}) = 0 \\\\[4pt]\nm_e \\frac{\\partial u_{\\parallel e}}{\\partial t} &= -e E_\\parallel - \\frac{\\nabla_\\parallel p_e}{n_0}\n\\end{aligned}\n$$"
+      }
+    ]
   },
   "DESC": {
     "full_name": "DESC Stellarator Equilibrium and Optimization Suite",
@@ -53,7 +101,26 @@
     ],
     "closure": "求解三维理想 MHD 力平衡方程 J × B = ∇p，即 Grad-Shafranov 方程的广义三维形式。采用能量变分原理，通过最小化等离子体 MHD 能量 W = ∫(B²/2μ₀ + p/(γ−1)) dV 来求解平衡。使用伪谱法（Fourier-Zernike 展开）：环向和极向角方向采用 Fourier 级数，径向采用 Zernike 多项式。不依赖嵌套磁面假设，可自然处理磁岛和随机磁场区域。平衡直接通过力平衡残差（F ≡ J × B − ∇p）的 Newton 迭代求解，梯度信息由 JAX 自动微分精确提供。",
     "normalization": "采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。",
-    "variants": "固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。"
+    "variants": "固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。",
+    "closure_formula": "$$\n\\begin{aligned}\n&\\text{力平衡:} \\quad \\mathbf{J} \\times \\mathbf{B} = \\nabla p, \\quad \\nabla \\cdot \\mathbf{B} = 0, \\quad \\nabla \\times \\mathbf{B} = \\mu_0 \\mathbf{J} \\\\[4pt]\n&\\text{能量变分:} \\quad \\delta W = \\delta \\int_V \\left(\\frac{B^2}{2\\mu_0} + \\frac{p}{\\gamma - 1}\\right) dV = 0 \\\\[4pt]\n&\\text{坐标展开 (Fourier-Zernike):} \\quad\nR(\\rho,\\theta,\\zeta) = \\sum_{m,n} R_{mn}(\\rho) e^{i(m\\theta - n\\zeta)} \\\\[4pt]\n&\\text{Newton 迭代:} \\quad \\mathbf{F}(\\mathbf{x}) = \\mathbf{J} \\times \\mathbf{B} - \\nabla p \\to 0, \\quad\n\\mathbf{x}_{k+1} = \\mathbf{x}_k - [\\nabla \\mathbf{F}(\\mathbf{x}_k)]^{-1} \\mathbf{F}(\\mathbf{x}_k)\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\n\\begin{aligned}\n\\bar{R} &= \\frac{R}{R_{\\text{ref}}}, \\quad \\bar{B} = \\frac{B}{B_{\\text{ref}}}, \\quad \\bar{p} = \\frac{\\mu_0 p}{B_{\\text{ref}}^2} \\\\[4pt]\n\\bar{\\psi} &= \\frac{\\psi}{B_{\\text{ref}} R_{\\text{ref}}^2}, \\quad \\bar{\\iota} = \\iota \\quad (\\text{旋转变换本无量纲})\n\\end{aligned}\n$$",
+    "variant_formulas": [
+      {
+        "name": "固定边界平衡",
+        "desc": "最外层闭合磁面 R_b(θ,ζ), Z_b(θ,ζ) 由外部给定",
+        "formula": "$$R(\\rho=1, \\theta, \\zeta) = R_b(\\theta, \\zeta), \\quad Z(\\rho=1, \\theta, \\zeta) = Z_b(\\theta, \\zeta)$$"
+      },
+      {
+        "name": "自由边界平衡",
+        "desc": "耦合外部线圈，等离子体边界由真空场自洽确定",
+        "formula": "$$\\nabla \\times \\mathbf{B}_{\\text{vac}} = 0, \\quad B_{\\text{vac}, n}\\big|_{\\text{plasma}} = B_{\\text{plasma}, n}\\big|_{\\text{boundary}}$$"
+      },
+      {
+        "name": "准对称优化",
+        "desc": "目标泛函取最小化磁场强度对 Boozer 角的依赖",
+        "formula": "$$f_{QS} = \\sum_{m,n \\neq 0} |B_{mn}|^2 \\to \\min, \\quad B(\\psi, \\theta_B, \\zeta_B) = \\sum_{m,n} B_{mn}(\\psi) e^{i(m\\theta_B - n\\zeta_B)}$$"
+      }
+    ]
   },
   "TORAX": {
     "full_name": "TORAX — Tokamak Rapid Axisymmetric Simulator",

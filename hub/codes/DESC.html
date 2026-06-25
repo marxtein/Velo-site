@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="description" content="Fusion Hub · DESC — DESC Stellarator Equilibrium and Optimization Suite"/>
 <title>DESC · Fusion Hub</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
 <style>
 :root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
 *,*::before,*::after{box-sizing:border-box;margin:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
 a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
-.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb{max-width:900px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
 .breadcrumb a{color:var(--ac);font-weight:500}
-.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+.container{max-width:900px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
 .meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
@@ -21,20 +25,24 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
 .mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
 .stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
-.section{margin-bottom:1.4rem}
+.section{margin-bottom:1.6rem}
 .section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section h3{font-size:.9rem;color:var(--ac);margin:.8rem 0 .3rem}
 .section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
 .features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
 .fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
 .links-list{display:flex;flex-wrap:wrap;gap:.5rem}
 .links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
 .links-list a:hover{background:var(--tg);text-decoration:none}
-.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
-.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
-.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
+.formula-block .katex-display{margin:.5rem 0!important}
+.formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+.variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
+.variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
+.variant-card .formula-block{margin:.4rem 0;border:none;padding:.5rem 0}
 footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
-@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}.formula-block{padding:.6rem .8rem}}
 </style>
 </head>
 <body>
@@ -66,14 +74,34 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">仿星器优化</span>
 <span class="fchip">准对称设计</span></div>
 </div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。</p>
-</div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解三维理想 MHD 力平衡方程 J × B = ∇p，即 Grad-Shafranov 方程的广义三维形式。采用能量变分原理，通过最小化等离子体 MHD 能量 W = ∫(B²/2μ₀ + p/(γ−1)) dV 来求解平衡。使用伪谱法（Fourier-Zernike 展开）：环向和极向角方向采用 Fourier 级数，径向采用 Zernike 多项式。不依赖嵌套磁面假设，可自然处理磁岛和随机磁场区域。平衡直接通过力平衡残差（F ≡ J × B − ∇p）的 Newton 迭代求解，梯度信息由 JAX 自动微分精确提供。</p>
+<p class="body-text">求解三维理想 MHD 力平衡方程 J × B = ∇p，即 Grad-Shafranov 方程的广义三维形式。采用能量变分原理，通过最小化等离子体 MHD 能量 W = ∫(B²/2μ₀ + p/(γ−1)) dV 来求解平衡。使用伪谱法（Fourier-Zernike 展开）：环向和极向角方向采用 Fourier 级数，径向采用 Zernike 多项式。不依赖嵌套磁面假设，可自然处理磁岛和随机磁场区域。平衡直接通过力平衡残差（F ≡ J × B − ∇p）的 Newton 迭代求解，梯度信息由 JAX 自动微分精确提供。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+&\text{力平衡:} \quad \mathbf{J} \times \mathbf{B} = \nabla p, \quad \nabla \cdot \mathbf{B} = 0, \quad \nabla \times \mathbf{B} = \mu_0 \mathbf{J} \\[4pt]
+&\text{能量变分:} \quad \delta W = \delta \int_V \left(\frac{B^2}{2\mu_0} + \frac{p}{\gamma - 1}\right) dV = 0 \\[4pt]
+&\text{坐标展开 (Fourier-Zernike):} \quad
+R(\rho,\theta,\zeta) = \sum_{m,n} R_{mn}(\rho) e^{i(m\theta - n\zeta)} \\[4pt]
+&\text{Newton 迭代:} \quad \mathbf{F}(\mathbf{x}) = \mathbf{J} \times \mathbf{B} - \nabla p \to 0, \quad
+\mathbf{x}_{k+1} = \mathbf{x}_k - [\nabla \mathbf{F}(\mathbf{x}_k)]^{-1} \mathbf{F}(\mathbf{x}_k)
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。</p>
+<p class="body-text">采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$
+\begin{aligned}
+\bar{R} &= \frac{R}{R_{\text{ref}}}, \quad \bar{B} = \frac{B}{B_{\text{ref}}}, \quad \bar{p} = \frac{\mu_0 p}{B_{\text{ref}}^2} \\[4pt]
+\bar{\psi} &= \frac{\psi}{B_{\text{ref}} R_{\text{ref}}^2}, \quad \bar{\iota} = \iota \quad (\text{旋转变换本无量纲})
+\end{aligned}
+$$
+</div>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="body-text">固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。</p><div class="variant-card"><h4>固定边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">最外层闭合磁面 R_b(θ,ζ), Z_b(θ,ζ) 由外部给定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$R(\rho=1, \theta, \zeta) = R_b(\theta, \zeta), \quad Z(\rho=1, \theta, \zeta) = Z_b(\theta, \zeta)$$</div></div><div class="variant-card"><h4>自由边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">耦合外部线圈，等离子体边界由真空场自洽确定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0, \quad B_{\text{vac}, n}\big|_{\text{plasma}} = B_{\text{plasma}, n}\big|_{\text{boundary}}$$</div></div><div class="variant-card"><h4>准对称优化</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">目标泛函取最小化磁场强度对 Boozer 角的依赖</p><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QS} = \sum_{m,n \neq 0} |B_{mn}|^2 \to \min, \quad B(\psi, \theta_B, \zeta_B) = \sum_{m,n} B_{mn}(\psi) e^{i(m\theta_B - n\zeta_B)}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/PlasmaControl/DESC" target="_blank" rel="noopener">github.com/PlasmaControl/DESC</a>

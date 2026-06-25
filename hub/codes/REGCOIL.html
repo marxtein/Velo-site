@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="description" content="Fusion Hub · REGCOIL — REGCOIL — Regularized Coil Optimization Code"/>
 <title>REGCOIL · Fusion Hub</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
 <style>
 :root{--bg:#f8f7f4;--surf:#fff;--txt:#1c1c1c;--mu:#5c5c5c;--ac:oklch(0.52 0.18 25);--bd:oklch(0.86 0.01 90);--tg:oklch(0.95 0.02 90)}
 *,*::before,*::after{box-sizing:border-box;margin:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
 a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
-.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb{max-width:900px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
 .breadcrumb a{color:var(--ac);font-weight:500}
-.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+.container{max-width:900px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
 .meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
@@ -21,20 +25,24 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
 .mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
 .stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
-.section{margin-bottom:1.4rem}
+.section{margin-bottom:1.6rem}
 .section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section h3{font-size:.9rem;color:var(--ac);margin:.8rem 0 .3rem}
 .section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
 .features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
 .fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
 .links-list{display:flex;flex-wrap:wrap;gap:.5rem}
 .links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
 .links-list a:hover{background:var(--tg);text-decoration:none}
-.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
-.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
-.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
+.formula-block .katex-display{margin:.5rem 0!important}
+.formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+.variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
+.variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
+.variant-card .formula-block{margin:.4rem 0;border:none;padding:.5rem 0}
 footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
-@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}.formula-block{padding:.6rem .8rem}}
 </style>
 </head>
 <body>
@@ -65,14 +73,14 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">SIMSOPT 前置</span>
 <span class="fchip">复现精度控制</span></div>
 </div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">单 winding surface 模式；多 winding surface 模式；不同正则化权重；指定线圈数量离散化；线圈工程约束（最小曲率半径、最小间距）。</p>
-</div><div class="section">
 <h2>📐 方程闭合方式</h2>
 <p class="body-text">求解仿星器线圈设计的逆问题：给定目标等离子体边界磁面形状（由 VMEC/SPEC 提供），通过正则化电流势方法计算在 winding surface 上产生该平衡磁场所需的表面电流分布，再离散化为实际线圈。核心方程为 ∇²Φ = 0（电流势 Φ 的 Laplace 方程，在 winding surface 上），通过电流势的梯度获得表面电流 K = n × ∇Φ。使用 Tikhonov 正则化控制电流密度峰值和线圈工程可行性。是两阶段仿星器优化的标准线圈设计工具。</p>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用无量纲化方案。长度以参考大半径归一化，磁场以参考值归一化。电流势 Φ 以 Ampere-turns 为单位。正则化参数控制电流密度和线圈曲率的权重。</p>
+</div><div class="section">
+<h2>🔄 功能变体</h2>
+<p class="body-text">单 winding surface 模式；多 winding surface 模式；不同正则化权重；指定线圈数量离散化；线圈工程约束（最小曲率半径、最小间距）。</p>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/landreman/regcoil" target="_blank" rel="noopener">github.com/landreman/regcoil</a></div>

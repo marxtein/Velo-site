@@ -2,6 +2,7 @@
 """Fusion Hub Code Detail Page Generator
 
 Reads codes_detail.json + C array from index.html → generates independent HTML pages.
+Supports KaTeX-rendered mathematical formulas.
 """
 
 import json
@@ -20,9 +21,9 @@ CSS = """<style>
 *,*::before,*::after{box-sizing:border-box;margin:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
 a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
-.breadcrumb{max-width:860px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
+.breadcrumb{max-width:900px;margin:0 auto;padding:1rem 1.2rem 0;font-size:.78rem;color:var(--mu)}
 .breadcrumb a{color:var(--ac);font-weight:500}
-.container{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+.container{max-width:900px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .subtitle{font-size:.85rem;color:var(--mu);margin-bottom:.6rem}
 .meta-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-bottom:1rem}
@@ -31,21 +32,31 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .mtag-open{background:oklch(0.87 0.08 18);color:#0d7a3e}
 .mtag-closed{background:oklch(0.86 0.06 16);color:#b23b1e}
 .stag{font-size:.68rem;padding:2px 8px;border-radius:100px;background:var(--tg);color:var(--mu)}
-.section{margin-bottom:1.4rem}
+.section{margin-bottom:1.6rem}
 .section h2{font-family:Georgia,serif;font-size:1.1rem;margin-bottom:.5rem;padding-bottom:.25rem;border-bottom:2px solid var(--bd)}
+.section h3{font-size:.9rem;color:var(--ac);margin:.8rem 0 .3rem}
 .section p,.section .body-text{font-size:.88rem;line-height:1.75;color:var(--txt)}
 .features-grid{display:flex;flex-wrap:wrap;gap:.35rem}
 .fchip{font-size:.74rem;padding:4px 12px;border-radius:100px;background:oklch(0.95 0.03 20);color:oklch(0.4 0.12 26)}
 .links-list{display:flex;flex-wrap:wrap;gap:.5rem}
 .links-list a{font-size:.82rem;padding:3px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--surf);transition:.15s}
 .links-list a:hover{background:var(--tg);text-decoration:none}
-.info-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem}
-.info-block h3{font-size:.85rem;color:var(--ac);margin-bottom:.3rem}
-.info-block .body-text{font-size:.82rem;line-height:1.65;color:var(--mu)}
+.formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
+.formula-block .katex-display{margin:.5rem 0!important}
+.formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
+.variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
+.variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
+.variant-card .formula-block{margin:.4rem 0;border:none;padding:.5rem 0}
 footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-top:1px solid var(--bd);margin-top:2rem}
-@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}}
+@media(max-width:700px){.container{padding:.8rem .8rem 2rem}h1{font-size:1.3rem}.formula-block{padding:.6rem .8rem}}
 </style>"""
+
+# KaTeX CDN
+KATEX_HEAD = """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>"""
 
 
 def get_domain_icon(domain):
@@ -62,24 +73,13 @@ def get_domain_icon(domain):
 
 
 def extract_codes_metadata():
-    """Extract the C array from index.html using demjson3."""
     with open(INDEX_HTML, "r", encoding="utf-8") as f:
         content = f.read()
-
-    # Find the C array: starts with "const C=[" and ends with "];" before "const D="
     match = re.search(r"const C=\[(.+?)\];\s*(?:const D=|$)", content, re.DOTALL)
     if not match:
         raise ValueError("Could not find C array in index.html")
-
     js_array = "[" + match.group(1) + "]"
-    try:
-        codes = demjson3.decode(js_array)
-    except Exception as e:
-        print(f"demjson3 parse error: {e}")
-        # Try with a more permissive approach
-        codes = demjson3.decode(js_array, strict=False)
-    
-    # Build a lookup by name
+    codes = demjson3.decode(js_array)
     meta = {}
     for c in codes:
         meta[c["n"]] = {
@@ -95,7 +95,6 @@ def extract_codes_metadata():
 
 
 def load_details():
-    """Load codes_detail.json."""
     with open(DETAIL_JSON, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -106,30 +105,38 @@ def escape_html(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
+def formula_section(label, formula):
+    """Render a formula block with label. Formula is raw LaTeX (already includes $$)."""
+    if not formula:
+        return ""
+    return f"""<div class="formula-block">
+<div class="formula-label">{escape_html(label)}</div>
+{formula}
+</div>"""
+
+
 def render_page(name, detail, meta):
-    """Render a single code detail page HTML."""
     esc = escape_html
     m = meta or {}
     domain = m.get("domain", "")
     open_src = m.get("open_source", True)
     tags = m.get("tags", [])
-    team = m.get("team", "")
-    institution = m.get("institution", "")
-    website = m.get("website", "")
 
     full_name = detail.get("full_name", name)
     long_desc = detail.get("long_desc", "")
     features = detail.get("features", [])
     links = detail.get("links", [])
-    closure = detail.get("closure", "")
-    normalization = detail.get("normalization", "")
-    variants = detail.get("variants", "")
 
-    # License tag
+    closure = detail.get("closure", "")
+    closure_formula = detail.get("closure_formula", "")
+    normalization = detail.get("normalization", "")
+    normalization_formula = detail.get("normalization_formula", "")
+    variants = detail.get("variants", "")
+    variant_formulas = detail.get("variant_formulas", [])
+
     lic_label = "开源" if open_src else "需申请"
     lic_cls = "mtag-open" if open_src else "mtag-closed"
 
-    # Build sections
     sections = []
 
     # Description
@@ -147,22 +154,53 @@ def render_page(name, detail, meta):
 <div class="features-grid">{chips}</div>
 </div>""")
 
-    # Variants
-    sections.append(f"""<div class="section">
-<h2>🔄 功能变体</h2>
-{"<p class=\"body-text\">" + esc(variants) + "</p>" if variants else "<p class=\"empty-note\">暂无数据（论文搜索中）</p>"}
-</div>""")
-
-    # Closure
+    # === CLOSURE SECTION (text + formulas) ===
+    closure_parts = []
+    if closure:
+        closure_parts.append(f'<p class="body-text">{esc(closure)}</p>')
+    if closure_formula:
+        closure_parts.append(formula_section("闭合方程组", closure_formula))
+    if not closure_parts:
+        closure_parts.append('<p class="empty-note">暂无数据</p>')
     sections.append(f"""<div class="section">
 <h2>📐 方程闭合方式</h2>
-{"<p class=\"body-text\">" + esc(closure) + "</p>" if closure else "<p class=\"empty-note\">暂无数据（论文搜索中）</p>"}
+{"".join(closure_parts)}
 </div>""")
 
-    # Normalization
+    # === NORMALIZATION SECTION ===
+    norm_parts = []
+    if normalization:
+        norm_parts.append(f'<p class="body-text">{esc(normalization)}</p>')
+    if normalization_formula:
+        norm_parts.append(formula_section("归一化关系", normalization_formula))
+    if not norm_parts:
+        norm_parts.append('<p class="empty-note">暂无数据</p>')
     sections.append(f"""<div class="section">
 <h2>📏 归一化方案</h2>
-{"<p class=\"body-text\">" + esc(normalization) + "</p>" if normalization else "<p class=\"empty-note\">暂无数据（论文搜索中）</p>"}
+{"".join(norm_parts)}
+</div>""")
+
+    # === VARIANTS SECTION (text + per-variant formulas) ===
+    var_parts = []
+    if variants:
+        var_parts.append(f'<p class="body-text">{esc(variants)}</p>')
+    if variant_formulas:
+        for vf in variant_formulas:
+            vname = vf.get("name", "")
+            vdesc = vf.get("desc", "")
+            vformula = vf.get("formula", "")
+            vcard = f'<div class="variant-card"><h4>{esc(vname)}</h4>'
+            if vdesc:
+                vcard += f'<p class="body-text" style="font-size:.82rem;color:var(--mu)">{esc(vdesc)}</p>'
+            if vformula:
+                vcard += f'<div class="formula-block" style="border:none;padding:.3rem 0">{vformula}</div>'
+            vcard += '</div>'
+            var_parts.append(vcard)
+    if not var_parts:
+        var_parts.append('<p class="empty-note">暂无数据</p>')
+    sections.append(f"""<div class="section">
+<h2>🔄 功能变体</h2>
+{"".join(var_parts)}
 </div>""")
 
     # Links
@@ -185,6 +223,7 @@ def render_page(name, detail, meta):
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="description" content="Fusion Hub · {esc(name)} — {esc(full_name)}"/>
 <title>{esc(name)} · Fusion Hub</title>
+{KATEX_HEAD}
 {CSS}
 </head>
 <body>
@@ -219,33 +258,22 @@ Fusion Hub · 聚变信息入口 · <a href="../index.html">返回主页</a>
 def main():
     print("Loading code details...")
     details = load_details()
-    
     print("Extracting code metadata from index.html...")
     meta = extract_codes_metadata()
-    
     os.makedirs(CODES_DIR, exist_ok=True)
-    
     generated = 0
-    skipped = 0
-    
     for name, detail in details.items():
         code_meta = meta.get(name, {})
         html = render_page(name, detail, code_meta)
-        
         safe_name = name.replace("/", "_").replace("\\", "_")
         out_path = os.path.join(CODES_DIR, f"{safe_name}.html")
-        
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
         generated += 1
-    
-    # Also check for codes in meta that don't have detail entries
     for name in meta:
         if name not in details:
             print(f"  ⚠ Code '{name}' has no detail entry in codes_detail.json")
-    
     print(f"\nDone! Generated {generated} pages in {CODES_DIR}/")
-    print(f"Example: {os.path.join(CODES_DIR, 'GENE.html')}")
 
 
 if __name__ == "__main__":
