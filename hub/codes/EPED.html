@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">EPED1-NN加速</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">GA 开发的 H-mode pedestal 结构预测模型，结合 peeling-ballooning MHD 稳定性约束（通过 ELITE 或 BALOO）和 kinetic ballooning mode（KBM）约束来预测 pedestal 高度和宽度。物理模型为：pedestal 高度由 P-B 稳定性边界决定，pedestal 宽度由 KBM 湍流输运的自组织过程决定（∝ √βp_ped）。结合这两个约束形成闭合系统，预测 pedestal 压力剖面。是 ITER 和现有装置 pedestal 预测的标准模型。</p>
+<p class="body-text">GA 开发的 H-mode pedestal 结构预测模型，结合 peeling-ballooning MHD 稳定性约束（通过 ELITE 或 BALOO）和 kinetic ballooning mode（KBM）约束来预测 pedestal 高度和宽度。物理模型为：pedestal 高度由 P-B 稳定性边界决定，pedestal 宽度由 KBM 湍流输运的自组织过程决定（∝ √βp_ped）。结合这两个约束形成闭合系统，预测 pedestal 压力剖面。是 ITER 和现有装置 pedestal 预测的标准模型。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+p_{\text{ped}} &= p(\psi_{\text{ped}}),\quad \Delta\psi_{\text{ped}} \propto \sqrt{\beta_{p,\text{ped}}} \\[4pt]
+\alpha_{\text{crit}} &= \alpha_{\text{crit}}(s, q, \delta, \kappa, \ldots) \quad \text{(P-B 稳定性边界)} \\[4pt]
+p_{\text{ped}} &= \min\{p_{\text{KBM}}, p_{\text{P-B}}\}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">压力以 Pa，高度以 m，宽度以 ψN。输入剖面以工程单位提供，内部稳定性分析使用归一化等离子体单位。</p>
+<p class="body-text">压力以 Pa，高度以 m，宽度以 ψN。输入剖面以工程单位提供，内部稳定性分析使用归一化等离子体单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{p}_{\text{ped}}[\text{kPa}],\; \bar{\Delta}[\psi_N],\; \bar{T}_{\text{ped}}[\text{keV}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">EPED1（原始模型）；EPED-NN（神经网络加速版）；ELITE MHD 稳定性耦合；BALOO MHD 稳定性耦合；KBM 约束模型；与 TGYRO/TRANSP 集成建模耦合。</p>
+<p class="body-text">EPED1（原始模型）；EPED-NN（神经网络加速版）；ELITE MHD 稳定性耦合；BALOO MHD 稳定性耦合；KBM 约束模型；与 TGYRO/TRANSP 集成建模耦合。</p><div class="variant-card"><h4>EPED-NN</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$p_{\text{ped}} = \text{NN}(I_p, B_t, n_e, \kappa, \delta, \ldots)$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://omfit.io/modules/mod_EPED.html" target="_blank" rel="noopener">omfit.io/modules/mod_EPED.html</a></div>

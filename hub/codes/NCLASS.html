@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">TGYRO/TRANSP组件</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">计算托卡马克等离子体中碰撞新经典输运系数的代码（局域磁面平均）。基于 Hirshman-Sigmar 矩方法求解多粒子种（电子 + 任意多离子）的漂移动理学方程。计算粒子扩散系数、热扩散系数、热导率和 bootstrap 电流系数。包含经典（classical）、banana、plateau 和 Pfirsch-Schlüter 四个输运区间的完整公式。输出格式与 TRANSP/ONETWO/TGYRO 兼容。</p>
+<p class="body-text">计算托卡马克等离子体中碰撞新经典输运系数的代码（局域磁面平均）。基于 Hirshman-Sigmar 矩方法求解多粒子种（电子 + 任意多离子）的漂移动理学方程。计算粒子扩散系数、热扩散系数、热导率和 bootstrap 电流系数。包含经典（classical）、banana、plateau 和 Pfirsch-Schlüter 四个输运区间的完整公式。输出格式与 TRANSP/ONETWO/TGYRO 兼容。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\Gamma_s &= -D_s^{11}\frac{dn_s}{dr} - D_s^{12}\frac{dT_s}{dr} + n_s V_s^{\text{ware pinch}} \\[4pt]
+q_s &= -n_s\chi_s^{21}\frac{dT_s}{dr} - n_s\chi_s^{22}\frac{dT_s}{dr} \\[4pt]
+j_{\text{BS}} &= -\frac{c}{B_\theta}\sum_s \left(L_{31}^s\frac{dT_s}{dr} + L_{32}^s\frac{dn_s}{dr}\right)
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">输运系数以 m²/s，bootstrap 电流以 A/m²，热导率以 W/m-K。输入剖面以工程单位（keV, 10¹⁹ m⁻³, T, m）提供。</p>
+<p class="body-text">输运系数以 m²/s，bootstrap 电流以 A/m²，热导率以 W/m-K。输入剖面以工程单位（keV, 10¹⁹ m⁻³, T, m）提供。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{D}[\text{m}^2/\text{s}],\; \bar{j}_{\text{BS}}[\text{A/m}^2],\; \bar{\chi}[\text{m}^2/\text{s}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">单/多离子种；任意环向模数 MHD 平衡；任意纵横比；TRANSP/ONETWO 兼容输出；TGYRO 兼容输出。</p>
+<p class="body-text">单/多离子种；任意环向模数 MHD 平衡；任意纵横比；TRANSP/ONETWO 兼容输出；TGYRO 兼容输出。</p><div class="variant-card"><h4>多离子种</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{L} = \sum_s \mathbf{L}_s(n_s, T_s, Z_s, m_s)$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/PrincetonUniversity/NCLASS" target="_blank" rel="noopener">github.com/PrincetonUniversity/NCLASS</a></div>

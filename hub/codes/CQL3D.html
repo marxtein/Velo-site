@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">ITER核心工具</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解射频波驱动的电子分布函数演化方程——三维（v, θ, r）或二维（v∥, v⊥, r）Fokker-Planck 方程：∂fe/∂t = C(fe) + Q_RF(fe) + Q_Ohmic + transport。C 为 Coulomb 碰撞算符（电子-电子 + 电子-离子），Q_RF 为准线性 RF 扩散算符（通过 GENRAY/TORAY 射线追踪提供），Q_Ohmic 为欧姆电场驱动项。采用有限差分方法在速度空间离散。求解稳态分布函数 fe，进而计算非感应电流（ECCD/LHCD）驱动效率和 synchrotron 辐射。</p>
+<p class="body-text">求解射频波驱动的电子分布函数演化方程——三维（v, θ, r）或二维（v∥, v⊥, r）Fokker-Planck 方程：∂fe/∂t = C(fe) + Q_RF(fe) + Q_Ohmic + transport。C 为 Coulomb 碰撞算符（电子-电子 + 电子-离子），Q_RF 为准线性 RF 扩散算符（通过 GENRAY/TORAY 射线追踪提供），Q_Ohmic 为欧姆电场驱动项。采用有限差分方法在速度空间离散。求解稳态分布函数 fe，进而计算非感应电流（ECCD/LHCD）驱动效率和 synchrotron 辐射。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{\partial f_e}{\partial t} &= C(f_e) + Q_{\text{RF}}(f_e) + Q_{\text{Ohmic}} \\[4pt]
+C(f_e) &= \frac{1}{v^2}\frac{\partial}{\partial v}\left[v^2\left(\nu_s v f_e + \frac{v_t^2}{2}\nu_\perp\frac{\partial f_e}{\partial v}\right)\right] + \frac{\nu_\perp}{2}\frac{\partial}{\partial\xi}\left[(1-\xi^2)\frac{\partial f_e}{\partial\xi}\right] \\[4pt]
+Q_{\text{RF}} &= \frac{\partial}{\partial\mathbf{p}}\cdot\left[\mathbf{D}_{\text{QL}}\cdot\frac{\partial f_e}{\partial\mathbf{p}}\right]
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">速度以热速度 vte 归一化，动量以 mec 归一化。空间维度使用径向磁面坐标（归一化或工程）。</p>
+<p class="body-text">速度以热速度 vte 归一化，动量以 mec 归一化。空间维度使用径向磁面坐标（归一化或工程）。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{v} = v/v_{te},\; \bar{p} = p/(m_e c),\; \bar{t} = \nu_{ee} t$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">2D 速度空间（v∥, v⊥）；3D 速度空间（v, θ, pitch angle）；ECCD 模式；LHCD 模式；稳态/时间相关；synchrotron/Brem 辐射计算；GENRAY/TORAY 耦合模式。</p>
+<p class="body-text">2D 速度空间（v∥, v⊥）；3D 速度空间（v, θ, pitch angle）；ECCD 模式；LHCD 模式；稳态/时间相关；synchrotron/Brem 辐射计算；GENRAY/TORAY 耦合模式。</p><div class="variant-card"><h4>ECCD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$j_{\text{CD}} = -e\int v_\parallel f_e\,d^3v$$</div></div><div class="variant-card"><h4>LHCD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{D}_{\text{QL}} \propto |E_\parallel|^2 \delta(\omega - k_\parallel v_\parallel)$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/ORNL-Fusion/CQL3D" target="_blank" rel="noopener">github.com/ORNL-Fusion/CQL3D</a>

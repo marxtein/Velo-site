@@ -1485,7 +1485,19 @@
     ],
     "closure": "CEA（法国）开发的模块化托卡马克集成建模平台，求解 1.5D 核心输运方程系统（电子和离子温度、粒子密度、电流扩散）与 2D Grad-Shafranov 平衡（通过 HELENA/CHEASE 耦合）自洽迭代。输运系数由用户选择的输运模型（经验/准线性/第一性原理）提供。源项通过专用模块耦合：射频加热和电流驱动（GENRAY/CQL3D/R5-X2）、NBI（NEMO/SPOT）、聚变功率（自洽计算）。是 WEST 和 JET 装置 scenario 开发的核心工具。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。",
-    "variants": "预测性输运模式；实验分析模式（功率平衡）；GENRAY/CQL3D 射频耦合；NEMO/SPOT NBI 耦合；杂质输运耦合（METIS）；WEST 装置专用配置；JET 装置配置；ITER 预测模式。"
+    "variants": "预测性输运模式；实验分析模式（功率平衡）；GENRAY/CQL3D 射频耦合；NEMO/SPOT NBI 耦合；杂质输运耦合（METIS）；WEST 装置专用配置；JET 装置配置；ITER 预测模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{3}{2}\\frac{\\partial(nT)}{\\partial t} &= \\nabla\\cdot(n\\chi\\nabla T) + Q_{\\text{aux}} - Q_{\\text{rad}} \\\\[4pt]\n\\frac{\\partial \\psi}{\\partial t} &= \\frac{\\eta_\\parallel}{\\mu_0}\\frac{1}{\\rho}\\frac{\\partial}{\\partial\\rho}\\left(\\frac{\\rho}{R_0}\\frac{\\partial\\psi}{\\partial\\rho}\\right) + \\frac{j_{\\text{BS}}+j_{\\text{CD}}}{\\sigma_\\parallel}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{n}[10^{19}\\text{m}^{-3}],\\; \\bar{P}[\\text{MW}],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "经验定标",
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+      },
+      {
+        "name": "TGLF/QuaLiKiz耦合",
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+      }
+    ]
   },
   "METIS": {
     "full_name": "METIS — Minute Embedded Tokamak Integrated Simulator",
@@ -1502,7 +1514,19 @@
     ],
     "closure": "CEA 开发的快速 0D/1D 托卡马克输运模拟器，求解简化的核心输运方程（0D 全局功率平衡 + 1D 温度剖面）。输运通过半经验定标律或降阶准线性模型闭合。包含简化的 pedestal 模型、L-H 转换判据和偏滤器模型。专为快速 scenario 探索、参数扫描和实时控制设计，计算速度比 CRONOS 快 1000 倍以上。使用 MATLAB/Simulink 或 Python 接口。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，尺寸以 m，功率以 MW 为单位。",
-    "variants": "0D 功率平衡模式；1D 剖面模式；经验定标模式；TGLF/QuaLiKiz 准线性耦合；pedestal 模型（EPED-like）；L-H 转换模型；WEST/ITER/JET 装置模板。"
+    "variants": "0D 功率平衡模式；1D 剖面模式；经验定标模式；TGLF/QuaLiKiz 准线性耦合；pedestal 模型（EPED-like）；L-H 转换模型；WEST/ITER/JET 装置模板。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{3}{2}\\frac{\\partial(nT)}{\\partial t} &= \\nabla\\cdot(n\\chi\\nabla T) + Q_{\\text{aux}} - Q_{\\text{rad}} \\\\[4pt]\n\\frac{\\partial \\psi}{\\partial t} &= \\frac{\\eta_\\parallel}{\\mu_0}\\frac{1}{\\rho}\\frac{\\partial}{\\partial\\rho}\\left(\\frac{\\rho}{R_0}\\frac{\\partial\\psi}{\\partial\\rho}\\right) + \\frac{j_{\\text{BS}}+j_{\\text{CD}}}{\\sigma_\\parallel}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{n}[10^{19}\\text{m}^{-3}],\\; \\bar{P}[\\text{MW}],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "经验定标",
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+      },
+      {
+        "name": "TGLF/QuaLiKiz耦合",
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+      }
+    ]
   },
   "ASTRA": {
     "full_name": "ASTRA — Automated System for TRansport Analysis",
@@ -1519,7 +1543,19 @@
     ],
     "closure": "Kurchatov Institute（俄罗斯）开发的经典自动化托卡马克输运模拟系统，求解 1.5D 核心输运方程和电流扩散。输运闭合通过多种经验、半经验和理论输运模型。平衡通过 SPIDER 内置平衡求解器处理（可耦合外部 EFIT）。源项模块涵盖 NBI、ECRH、ICRF 和 LH 加热/电流驱动。以 Fortran 编写，提供 Python 接口。被 ITER、JET、ASDEX Upgrade、T-15MD 等装置广泛使用。",
     "normalization": "采用工程单位（SI）。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m 为单位。",
-    "variants": "预测性模式；实验约束模式；线性输运模型；非线性湍流输运耦合（TGLF/GLF23）；NBI 加热；ECRH/ICRF/LH 加热和电流驱动；T-15MD/ITER 装置配置。"
+    "variants": "预测性模式；实验约束模式；线性输运模型；非线性湍流输运耦合（TGLF/GLF23）；NBI 加热；ECRH/ICRF/LH 加热和电流驱动；T-15MD/ITER 装置配置。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{3}{2}\\frac{\\partial(nT)}{\\partial t} &= \\nabla\\cdot(n\\chi\\nabla T) + Q_{\\text{aux}} - Q_{\\text{rad}} \\\\[4pt]\n\\frac{\\partial \\psi}{\\partial t} &= \\frac{\\eta_\\parallel}{\\mu_0}\\frac{1}{\\rho}\\frac{\\partial}{\\partial\\rho}\\left(\\frac{\\rho}{R_0}\\frac{\\partial\\psi}{\\partial\\rho}\\right) + \\frac{j_{\\text{BS}}+j_{\\text{CD}}}{\\sigma_\\parallel}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{n}[10^{19}\\text{m}^{-3}],\\; \\bar{P}[\\text{MW}],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "经验定标",
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+      },
+      {
+        "name": "TGLF/QuaLiKiz耦合",
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+      }
+    ]
   },
   "IPS": {
     "full_name": "IPS — Integrated Plasma Simulator Framework",
@@ -1536,7 +1572,23 @@
     ],
     "closure": "PPPL 开发的集成等离子体模拟器（Integrated Plasma Simulator），通过组件化框架协调多个物理代码（TSC/TRANSP/NUBEAM/M3D-C1 等）的耦合运行。本身不求解物理方程——闭合由耦合的物理代码决定。使用 Babel/SIDL 实现跨语言组件互操作（Fortran/C++/Python），通过 plasma state 数据结构在组件间传递物理量。事件驱动的模拟管理器控制组件执行顺序和数据流。",
     "normalization": "各组件使用各自的归一化方案，IPS 框架通过 plasma state 自动转换数据格式和单位。",
-    "variants": "TSC 耦合（等离子体演化）；TRANSP 耦合（输运分析）；M3D-C1 耦合（MHD 稳定性）；NUBEAM 耦合（快离子）；完整放电模拟模式；MHD 事件触发输运变化模式。"
+    "variants": "TSC 耦合（等离子体演化）；TRANSP 耦合（输运分析）；M3D-C1 耦合（MHD 稳定性）；NUBEAM 耦合（快离子）；完整放电模拟模式；MHD 事件触发输运变化模式。",
+    "closure_formula": "1257\n\\begin{aligned}\n\\mathcal{S}: &\\quad \\text{Plasma State}(t) \\xrightarrow{\\text{Event}} \\{\\text{TSC, TRANSP, NUBEAM, M3D-C1, ...}\\} \\[4pt]\n\\mathbf{x}^{k+1} &= \\mathcal{F}_{\\text{physics}}(\\mathbf{x}^k, \\mathbf{p}^k) \\[4pt]\n\\mathbf{p}^{k+1} &= \\mathcal{G}_{\\text{equilibrium}}(\\mathbf{x}^{k+1}) \\[4pt]\n&\\text{Babel/SIDL: } \\texttt{Fortran} \\leftrightarrow \\texttt{C++} \\leftrightarrow \\texttt{Python}\n\\end{aligned}\n1257",
+    "normalization_formula": "1257\\text{各组件独立归一化，IPS Plasma State 统一转换}1257",
+    "variant_formulas": [
+      {
+        "name": "TSC耦合",
+        "formula": "1257\\psi(t), I_p(t), T(t) \\leftarrow \\text{TSC}1257"
+      },
+      {
+        "name": "M3D-C1耦合",
+        "formula": "1257\\mathbf{B}(\\mathbf{r},t), p(\\mathbf{r},t) \\leftarrow \\text{M3D-C1}1257"
+      },
+      {
+        "name": "事件驱动",
+        "formula": "1257\\text{ELM} \\to \\text{transport} \\to \\text{equilibrium} \\to \\text{stability} \\to \\text{ELM}1257"
+      }
+    ]
   },
   "CHEASE": {
     "full_name": "CHEASE — Cubic Hermite Element Axisymmetric Static Equilibrium",
@@ -1553,7 +1605,15 @@
     ],
     "closure": "求解固定边界轴对称（2D）Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ。采用双三次 Hermite 有限元方法（Bicubic Hermite Finite Elements）在 (R,Z) 平面的自适应网格上离散。压力 p(ψ) 和环向场函数 F(ψ) 以用户指定的解析形式或数值剖面给出。输出平衡量的二维分布和磁面几何，供 HELENA、MISHKA 等 MHD 稳定性代码使用。是欧洲集成建模工具链（ITM）的标准平衡求解器。",
     "normalization": "采用工程单位。长度以 m，磁场以 T，电流以 A，ψ 以 Wb 为单位。也可使用归一化单位以适应稳定性分析。",
-    "variants": "单零点（SN）；双零点（DN）；圆形截面；D 形截面；自由边界扩展（CHEASE-GOURDON）；与 HELENA 稳定性分析耦合；与 CRONOS 输运耦合。"
+    "variants": "单零点（SN）；双零点（DN）；圆形截面；D 形截面；自由边界扩展（CHEASE-GOURDON）；与 HELENA 稳定性分析耦合；与 CRONOS 输运耦合。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2\\frac{dp}{d\\psi} - F\\frac{dF}{d\\psi} \\\\[4pt]\n\\psi(R,Z) &= \\sum_{i,j} c_{ij} H_i(R)H_j(Z) \\quad \\text{(双三次 Hermite 有限元)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{R}[\\text{m}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "气球模稳定性",
+        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$"
+      }
+    ]
   },
   "HELENA": {
     "full_name": "HELENA — Hermite Element Equilibrium Solver",
@@ -1571,7 +1631,15 @@
     ],
     "closure": "求解固定边界轴对称 Grad-Shafranov 平衡和理想 MHD 稳定性。与 CHEASE 使用相同的有限元方法求解平衡，但增加了求解理想 MHD 气球模（ballooning mode）和 Mercier 稳定性判据的功能。气球模方程在磁面坐标中沿场线求解，通过 ballooning 变换处理环形耦合。Mercier 判据通过平衡量（magnetic shear、pressure gradient、magnetic well）直接计算。平衡和稳定性分析在同一网格上进行，保证一致性。",
     "normalization": "与 CHEASE 一致，采用工程单位输入。稳定性分析中的增长率和频率通常以 Alfvén 时间归一化。",
-    "variants": "固定边界平衡求解；气球模稳定性（ideal ballooning）；Mercier 判据（交换模稳定性）；CHEASE 兼容输入/输出格式；与 MISHKA/ILSA 等全局 MHD 代码耦合。"
+    "variants": "固定边界平衡求解；气球模稳定性（ideal ballooning）；Mercier 判据（交换模稳定性）；CHEASE 兼容输入/输出格式；与 MISHKA/ILSA 等全局 MHD 代码耦合。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2\\frac{dp}{d\\psi} - F\\frac{dF}{d\\psi} \\\\[4pt]\n\\psi(R,Z) &= \\sum_{i,j} c_{ij} H_i(R)H_j(Z) \\quad \\text{(双三次 Hermite 有限元)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{R}[\\text{m}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "气球模稳定性",
+        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$"
+      }
+    ]
   },
   "GVEC": {
     "full_name": "GVEC — Galerkin Variational Equilibrium Code",
@@ -1589,7 +1657,15 @@
     ],
     "closure": "IPP Greifswald 开发的三维 MHD 平衡求解器，是 VMEC 的现代化替代者。求解三维理想 MHD 平衡，采用等谱分析（isoparametric）有限元方法结合 Fourier 展开，不依赖嵌套磁面假设（与 VMEC 不同），可处理磁岛和随机磁场区域。使用 Galerkin 方法直接求解力平衡方程 J × B = ∇p 的弱形式。支持托卡马克和仿星器几何。与 VMEC 向后兼容（可读取 VMEC 输入、输出 VMEC 格式）。",
     "normalization": "与 VMEC 兼容的无量纲化方案。长度以参考大半径归一化，磁场以参考环向场归一化。径向坐标 s 归一化到 [0,1]。",
-    "variants": "固定边界模式；自由边界模式；三维仿星器；轴对称托卡马克；VMEC 兼容模式（输入/输出转换）；与 SIMSOPT/STELLOPT 优化耦合。"
+    "variants": "固定边界模式；自由边界模式；三维仿星器；轴对称托卡马克；VMEC 兼容模式（输入/输出转换）；与 SIMSOPT/STELLOPT 优化耦合。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\int_V [\\delta\\mathbf{B}\\cdot(\\nabla\\times\\mathbf{B}) + \\mathbf{B}\\cdot(\\nabla\\times\\delta\\mathbf{B})]dV - \\mu_0\\int_V \\delta p \\nabla\\cdot\\boldsymbol{\\xi}\\,dV = 0 \\\\[4pt]\n\\mathbf{B} = \\nabla\\zeta\\times\\nabla\\chi + \\nabla\\Phi\\times\\nabla\\theta \\quad \\text{(等谱分析有限元)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{R} = R/R_0,\\; \\bar{B} = B/B_0,\\; \\bar{\\Phi} = \\Phi/(B_0 R_0^2)$$",
+    "variant_formulas": [
+      {
+        "name": "VMEC兼容",
+        "formula": "$$\\mathcal{F}_{\\text{GVEC}} \\approx \\mathcal{F}_{\\text{VMEC}} \\;\\text{when}\\; \\iota \\text{ is irrational}$$"
+      }
+    ]
   },
   "MEQ": {
     "full_name": "MEQ — MHD Equilibrium Solver Package",
@@ -1606,7 +1682,15 @@
     ],
     "closure": "EPFL 开发的模块化 MHD 平衡求解器套件，核心使用 Newton 方法求解自由边界 Grad-Shafranov 方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，耦合外部导体（主动线圈 + 被动导体）的电路方程。等离子体压力 p(ψ) 和环向场函数 F(ψ) 通过参数化模型（polynomial、spline 或物理模型）闭合。使用完全非线性 Newton 框架，支持多平衡点（分岔）求解。是 TCV 装置等离子体控制和位形设计的核心平衡工具。",
     "normalization": "采用工程单位。ψ 以 Wb，电流以 A，磁场以 T，长度以 m 为单位。",
-    "variants": "固定边界模式（提供等离子体边界）；自由边界模式（指定线圈电流）；真空场计算模式；线圈电流优化（给定目标等离子体形状）；双轴位形（Doublet）模式。"
+    "variants": "固定边界模式（提供等离子体边界）；自由边界模式（指定线圈电流）；真空场计算模式；线圈电流优化（给定目标等离子体形状）；双轴位形（Doublet）模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{F}(\\boldsymbol{\\psi}) &= \\mathbf{0},\\; \\boldsymbol{\\psi}_{k+1} = \\boldsymbol{\\psi}_k - [\\nabla\\mathbf{F}]^{-1}\\mathbf{F} \\quad \\text{(Newton)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "双磁轴 (MEQ)",
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+      }
+    ]
   },
   "LIUEQ": {
     "full_name": "LIUEQ — Liu Equilibrium Reconstruction Code",
@@ -1623,7 +1707,15 @@
     ],
     "closure": "EPFL 开发的轴对称固定边界 Grad-Shafranov 求解器（MEQ 套件的前身之一），使用有限元方法在 (R,Z) 平面求解 Δ*ψ 方程。压力 p 和 F² 以归一化磁通 ψ̄ 的多项式函数给出。使用 Picard 迭代或 Newton 方法求解。专注于简单、快速、鲁棒的平衡计算，服务于 TCV 装置分析和控制设计。作为 MEQ 和 FGE 的基础代码，其数值方法被后续代码继承。",
     "normalization": "采用无量纲化方案。几何归一化到等离子体边界，ψ 归一化到边界值。压力以 μ₀p/B₀² 归一化。",
-    "variants": "指定 p(ψ̄) 和 F(ψ̄) 参数化；Picard 迭代模式；Newton 迭代模式；TCV 专用配置。"
+    "variants": "指定 p(ψ̄) 和 F(ψ̄) 参数化；Picard 迭代模式；Newton 迭代模式；TCV 专用配置。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{F}(\\boldsymbol{\\psi}) &= \\mathbf{0},\\; \\boldsymbol{\\psi}_{k+1} = \\boldsymbol{\\psi}_k - [\\nabla\\mathbf{F}]^{-1}\\mathbf{F} \\quad \\text{(Newton)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "双磁轴 (MEQ)",
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+      }
+    ]
   },
   "NEMO": {
     "full_name": "NEMO — Neutral Beam Injection Monte Carlo Birth Code for Stellarators",
@@ -1640,7 +1732,15 @@
     ],
     "closure": "IPP Greifswald 开发的仿星器几何中 NBI（中性束注入）蒙特卡洛模拟代码。通过追踪中性粒子在三维仿星器等离子体中的电离过程（电子碰撞电离 + 离子碰撞电离 + 电荷交换），计算快离子源分布（birth profile）。NBI 束的中性粒子沿直线传播，直到发生电离碰撞。电离截面来自标准原子数据库。等离子体背景由 VMEC/SPEC（MHD 平衡）和剖面模型提供。是仿星器 NBI 加热和电流驱动分析的标准工具。",
     "normalization": "采用 SI 工程单位。束能量以 keV，功率以 MW，位置以 m，密度以 m⁻³ 为单位。",
-    "variants": "仿星器几何模式；托卡马克几何模式（早期版本）；单束线/多束线；稳态 source 模式；时间相关模式；功率沉积剖面；快离子 slowing-down 分布（耦合 ASCOT）。"
+    "variants": "仿星器几何模式；托卡马克几何模式（早期版本）；单束线/多束线；稳态 source 模式；时间相关模式；功率沉积剖面；快离子 slowing-down 分布（耦合 ASCOT）。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{d\\mathbf{r}}{ds} &= \\hat{\\boldsymbol{\\Omega}} \\quad \\text{(中性粒子直线传播)} \\\\[4pt]\nP_{\\text{ion}}(s) &= 1 - \\exp\\left(-\\int_0^s \\Sigma_{\\text{ion}} ds'\\right) \\\\[4pt]\n\\Sigma_{\\text{ion}} &= n_e(\\langle\\sigma v\\rangle_{e\\text{-imp}} + \\langle\\sigma v\\rangle_{\\text{cx}})\n\\end{aligned}\n$$",
+    "normalization_formula": "$$E[\\text{keV}],\\; P[\\text{MW}],\\; \\mathbf{x}[\\text{m}],\\; n[\\text{m}^{-3}]$$",
+    "variant_formulas": [
+      {
+        "name": "仿星器几何",
+        "formula": "$$\\mathbf{B}(\\mathbf{r}) = \\nabla\\times\\mathbf{A}_{\\text{VMEC}}(\\mathbf{r})$$"
+      }
+    ]
   },
   "GENRAY": {
     "full_name": "GENRAY — General Ray Tracing Code for Electromagnetic Waves",
@@ -1658,7 +1758,15 @@
     ],
     "closure": "求解射频波在托卡马克等离子体中的射线追踪（ray tracing）方程：dr/dt = ∂ω/∂k, dk/dt = −∂ω/∂r（Hamilton 方程组），其中 ω(k,r) 为色散关系（冷等离子体或 warm plasma 近似）。通过追踪多条射线计算波能量沉积剖面和电流驱动效率。支持多种波模式：EC（O-mode/X-mode）、LH（慢波）、ICRF（快波/离子回旋波）。等离子体介质通过冷等离子体或 warm plasma 介电张量描述。采用 Runge-Kutta 方法积分射线方程组。",
     "normalization": "采用等离子体归一化。长度以参考长度（通常大半径 R₀）归一化，频率以等离子体频率 ωpe 或回旋频率 ωce 归一化。输入等离子体剖面以工程单位提供，内部自动归一化。",
-    "variants": "EC 射线追踪（ECRH/ECCD）；LH 射线追踪（LHCD）；ICRF 射线追踪；冷等离子体模式；warm plasma 模式（有限 Larmor 半径修正）；多射线统计；功率沉积；电流驱动效率（耦合 CQL3D/LUKE）。"
+    "variants": "EC 射线追踪（ECRH/ECCD）；LH 射线追踪（LHCD）；ICRF 射线追踪；冷等离子体模式；warm plasma 模式（有限 Larmor 半径修正）；多射线统计；功率沉积；电流驱动效率（耦合 CQL3D/LUKE）。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{d\\mathbf{r}}{dt} &= -\\frac{\\partial D/\\partial \\mathbf{k}}{\\partial D/\\partial \\omega},\\quad\n\\frac{d\\mathbf{k}}{dt} = \\frac{\\partial D/\\partial \\mathbf{r}}{\\partial D/\\partial \\omega} \\\\[4pt]\nD(\\omega,\\mathbf{k},\\mathbf{r}) &= \\det\\left[\\frac{c^2}{\\omega^2}(\\mathbf{k}\\mathbf{k} - k^2\\mathbf{I}) + \\boldsymbol{\\varepsilon}(\\omega,\\mathbf{k},\\mathbf{r})\\right] = 0 \\\\[4pt]\n\\frac{dP}{dt} &= -2\\gamma(\\mathbf{r},\\mathbf{k}) P,\\quad \\gamma = \\text{Im}(\\omega)\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\frac{\\omega}{\\Omega_{ce}},\\; \\bar{k} = \\frac{kc}{\\omega_{pe}},\\; \\bar{\\mathbf{r}} = \\frac{\\mathbf{r}}{R_0}$$",
+    "variant_formulas": [
+      {
+        "name": "ECCD效率",
+        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$"
+      }
+    ]
   },
   "TORAY": {
     "full_name": "TORAY — Electron Cyclotron Ray Tracing Code",
@@ -1675,7 +1783,15 @@
     ],
     "closure": "与 GENRAY 类似，求解 EC 波射线追踪方程，但专门针对电子回旋波（EC）的加热和电流驱动。使用冷等离子体色散关系或 weakly relativistic 修正。求解 dr/dt = vg 和 dk/dt（含 relativistic 和热修正项）。计算沿射线的功率衰减（通过吸收系数）和驱动的电流密度（通过 adjoint 方法或 Fokker-Planck 响应函数）。是 GA 和 PPPL 装置上 EC 系统设计的标准工具。",
     "normalization": "与 GENRAY 类似。频率以 GHz，功率以 MW，位置以 m，磁场以 T 为单位。内部计算使用归一化等离子体单位。",
-    "variants": "EC 射线追踪（标配）；O-mode/X-mode 选择；线性吸收；准线性吸收（有限功率展宽）；电流驱动效率计算（Ehst-Karney 或 adjoint 方法）。"
+    "variants": "EC 射线追踪（标配）；O-mode/X-mode 选择；线性吸收；准线性吸收（有限功率展宽）；电流驱动效率计算（Ehst-Karney 或 adjoint 方法）。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{d\\mathbf{r}}{dt} &= -\\frac{\\partial D/\\partial \\mathbf{k}}{\\partial D/\\partial \\omega},\\quad\n\\frac{d\\mathbf{k}}{dt} = \\frac{\\partial D/\\partial \\mathbf{r}}{\\partial D/\\partial \\omega} \\\\[4pt]\nD(\\omega,\\mathbf{k},\\mathbf{r}) &= \\det\\left[\\frac{c^2}{\\omega^2}(\\mathbf{k}\\mathbf{k} - k^2\\mathbf{I}) + \\boldsymbol{\\varepsilon}(\\omega,\\mathbf{k},\\mathbf{r})\\right] = 0 \\\\[4pt]\n\\frac{dP}{dt} &= -2\\gamma(\\mathbf{r},\\mathbf{k}) P,\\quad \\gamma = \\text{Im}(\\omega)\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\frac{\\omega}{\\Omega_{ce}},\\; \\bar{k} = \\frac{kc}{\\omega_{pe}},\\; \\bar{\\mathbf{r}} = \\frac{\\mathbf{r}}{R_0}$$",
+    "variant_formulas": [
+      {
+        "name": "ECCD效率",
+        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$"
+      }
+    ]
   },
   "CQL3D": {
     "full_name": "CQL3D — Collisional Quasi-Linear 3D Fokker-Planck Code",
@@ -1693,7 +1809,19 @@
     ],
     "closure": "求解射频波驱动的电子分布函数演化方程——三维（v, θ, r）或二维（v∥, v⊥, r）Fokker-Planck 方程：∂fe/∂t = C(fe) + Q_RF(fe) + Q_Ohmic + transport。C 为 Coulomb 碰撞算符（电子-电子 + 电子-离子），Q_RF 为准线性 RF 扩散算符（通过 GENRAY/TORAY 射线追踪提供），Q_Ohmic 为欧姆电场驱动项。采用有限差分方法在速度空间离散。求解稳态分布函数 fe，进而计算非感应电流（ECCD/LHCD）驱动效率和 synchrotron 辐射。",
     "normalization": "速度以热速度 vte 归一化，动量以 mec 归一化。空间维度使用径向磁面坐标（归一化或工程）。",
-    "variants": "2D 速度空间（v∥, v⊥）；3D 速度空间（v, θ, pitch angle）；ECCD 模式；LHCD 模式；稳态/时间相关；synchrotron/Brem 辐射计算；GENRAY/TORAY 耦合模式。"
+    "variants": "2D 速度空间（v∥, v⊥）；3D 速度空间（v, θ, pitch angle）；ECCD 模式；LHCD 模式；稳态/时间相关；synchrotron/Brem 辐射计算；GENRAY/TORAY 耦合模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial f_e}{\\partial t} &= C(f_e) + Q_{\\text{RF}}(f_e) + Q_{\\text{Ohmic}} \\\\[4pt]\nC(f_e) &= \\frac{1}{v^2}\\frac{\\partial}{\\partial v}\\left[v^2\\left(\\nu_s v f_e + \\frac{v_t^2}{2}\\nu_\\perp\\frac{\\partial f_e}{\\partial v}\\right)\\right] + \\frac{\\nu_\\perp}{2}\\frac{\\partial}{\\partial\\xi}\\left[(1-\\xi^2)\\frac{\\partial f_e}{\\partial\\xi}\\right] \\\\[4pt]\nQ_{\\text{RF}} &= \\frac{\\partial}{\\partial\\mathbf{p}}\\cdot\\left[\\mathbf{D}_{\\text{QL}}\\cdot\\frac{\\partial f_e}{\\partial\\mathbf{p}}\\right]\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{v} = v/v_{te},\\; \\bar{p} = p/(m_e c),\\; \\bar{t} = \\nu_{ee} t$$",
+    "variant_formulas": [
+      {
+        "name": "ECCD",
+        "formula": "$$j_{\\text{CD}} = -e\\int v_\\parallel f_e\\,d^3v$$"
+      },
+      {
+        "name": "LHCD",
+        "formula": "$$\\mathbf{D}_{\\text{QL}} \\propto |E_\\parallel|^2 \\delta(\\omega - k_\\parallel v_\\parallel)$$"
+      }
+    ]
   },
   "AORSA": {
     "full_name": "AORSA — All-Orders Spectral Algorithm",
@@ -1711,7 +1839,15 @@
     ],
     "closure": "求解射频波在托卡马克等离子体中的全波（full-wave）传播方程，不采用射线近似。求解 2D 或 3D Helmholtz 型波动方程：∇ × ∇ × E − ω²/c² ε·E = iωμ₀ J_ext，其中 ε 为 warm plasma 介电张量（包含有限 Larmor 半径效应至任意阶）。采用 Fourier 展开（环向和极向方向）+ 有限差分（径向）离散。适合处理 ICRF/IBW/HHFW 等短波长、大折射率波在复杂几何中的 mode conversion 和 cavity modes。",
     "normalization": "频率以 MHz/GHz，位置以 m，磁场以 T，密度以 m⁻³。内部采用等离子体归一化。",
-    "variants": "1D 径向模式；2D 全波（R,Z）；ICRF/IBW 模式；HHFW（高次谐波快波）模式；mode conversion 分析；天线谱耦合（Fourier spectrum）；与 CQL3D/Fokker-Planck 耦合。"
+    "variants": "1D 径向模式；2D 全波（R,Z）；ICRF/IBW 模式；HHFW（高次谐波快波）模式；mode conversion 分析；天线谱耦合（Fourier spectrum）；与 CQL3D/Fokker-Planck 耦合。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\nabla\\times\\nabla\\times\\mathbf{E} - \\frac{\\omega^2}{c^2}\\boldsymbol{\\varepsilon}\\cdot\\mathbf{E} &= i\\omega\\mu_0\\mathbf{J}_{\\text{ext}} \\\\[4pt]\n\\varepsilon_{ij} &= \\delta_{ij} + \\sum_s \\frac{\\omega_{ps}^2}{\\omega}\\int d^3v\\, \\frac{v_\\parallel^{a} v_\\perp^{b}}{\\omega - k_\\parallel v_\\parallel - n\\Omega_{cs}}\\frac{\\partial F_0}{\\partial\\mathbf{v}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega}[\\text{MHz}],\\; \\bar{k}[\\text{m}^{-1}],\\; \\bar{\\mathbf{E}}[\\text{V/m}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "mode conversion",
+        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$"
+      }
+    ]
   },
   "TORIC": {
     "full_name": "TORIC — ICRF Full-Wave Code with Finite Larmor Radius",
@@ -1728,7 +1864,15 @@
     ],
     "closure": "IPP Garching 开发的 ICRF 全波求解器，求解 2D（r, ϑ）有限 Larmor 半径波动方程。采用谱方法（Fourier + 有限元）求解 warm plasma wave equation。介电张量通过 FLR 展开至二阶或任意阶。特别适合 ICRF minority heating 和 mode conversion 场景的功率沉积计算。与 TRANSP/CRONOS 等输运代码耦合。",
     "normalization": "频率以 MHz，位置以 m，磁场以 T，密度以 m⁻³。内部使用等离子体归一化。",
-    "variants": "ICRF minority heating 模式；ICRF 3-ion heating 模式；mode conversion 分析；天线电流谱耦合；TRANSP 耦合模式；CRONOS 耦合模式。"
+    "variants": "ICRF minority heating 模式；ICRF 3-ion heating 模式；mode conversion 分析；天线电流谱耦合；TRANSP 耦合模式；CRONOS 耦合模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\nabla\\times\\nabla\\times\\mathbf{E} - \\frac{\\omega^2}{c^2}\\boldsymbol{\\varepsilon}\\cdot\\mathbf{E} &= i\\omega\\mu_0\\mathbf{J}_{\\text{ext}} \\\\[4pt]\n\\varepsilon_{ij} &= \\delta_{ij} + \\sum_s \\frac{\\omega_{ps}^2}{\\omega}\\int d^3v\\, \\frac{v_\\parallel^{a} v_\\perp^{b}}{\\omega - k_\\parallel v_\\parallel - n\\Omega_{cs}}\\frac{\\partial F_0}{\\partial\\mathbf{v}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega}[\\text{MHz}],\\; \\bar{k}[\\text{m}^{-1}],\\; \\bar{\\mathbf{E}}[\\text{V/m}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "mode conversion",
+        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$"
+      }
+    ]
   },
   "NOVA": {
     "full_name": "NOVA/NOVA-K — Nonvariational MHD-Kinetic Stability Code",
@@ -1745,7 +1889,15 @@
     ],
     "closure": "Princeton 开发的环形理想 MHD 本征值代码，求解理想 MHD 线性稳定性方程：ω²ρξ = F(ξ)（力算符 F 作用于等离子体位移 ξ）。采用 Galerkin 有限元方法（径向）+ Fourier 展开（极向和环向）求解。计算全局 MHD 模（kink, TAE, external kink）的本征值和本征函数。可包含高能粒子通过动理学响应函数的非微扰耦合（NOVA-K 扩展），处理 energetic particle-driven modes（TAE/EPM/Alfvén cascades）。",
     "normalization": "采用 Alfvén 归一化。长度以 R₀，时间以 τA，频率以 ωA = vA/R₀ 归一化。",
-    "variants": "理想 MHD（标配）；NOVA-K（高能粒子动理学耦合）；kink mode 分析；TAE/EPM 分析；external kink β-limit；Alfvén 连续谱计算。"
+    "variants": "理想 MHD（标配）；NOVA-K（高能粒子动理学耦合）；kink mode 分析；TAE/EPM 分析；external kink β-limit；Alfvén 连续谱计算。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\omega^2\\rho\\boldsymbol{\\xi} &= \\mathbf{F}(\\boldsymbol{\\xi}) \\\\[4pt]\n\\mathbf{F}(\\boldsymbol{\\xi}) &= \\nabla(\\gamma p\\nabla\\cdot\\boldsymbol{\\xi}) + \\nabla(\\boldsymbol{\\xi}\\cdot\\nabla p) - \\mathbf{B}\\times(\\nabla\\times\\mathbf{Q}) - \\mathbf{Q}\\times(\\nabla\\times\\mathbf{B}) \\\\[4pt]\n\\mathbf{Q} &= \\nabla\\times(\\boldsymbol{\\xi}\\times\\mathbf{B})\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\frac{\\omega}{\\omega_A},\\; \\omega_A = \\frac{v_A}{R_0},\\; \\bar{\\boldsymbol{\\xi}} = \\frac{\\boldsymbol{\\xi}}{R_0}$$",
+    "variant_formulas": [
+      {
+        "name": "NOVA-K (动理学)",
+        "formula": "$$\\delta W_k = \\int d^3v\\, \\frac{\\partial F_0/\\partial E}{\\omega - \\omega_D - n\\omega_b}$$"
+      }
+    ]
   },
   "GATO": {
     "full_name": "GATO — Global Alfven Toroidal Stability Code",
@@ -1762,7 +1914,15 @@
     ],
     "closure": "GA 开发的环形理想 MHD 稳定性代码，求解理想 MHD 能量原理 δW 的最小值（通过变分法转化为本征值问题）。采用有限元方法（径向）+ Fourier（极向和环向）求解。计算 kink、ballooning、internal/external MHD 模式的稳定性和 β 极限。是 DIII-D 装置 MHD 稳定性分析的标准工具。特别擅长处理自由边界 kink 模式和 resistive wall mode 稳定性。",
     "normalization": "采用 Alfvén 归一化。频率以 ωA，长度以 R₀，能量以 B₀²R₀³/2μ₀ 归一化。",
-    "variants": "固定边界模式；自由边界模式（含真空区和理想壁）；n=0/n=1/n=2 etc 环向模数；β 极限扫描；resistive wall 稳定性。"
+    "variants": "固定边界模式；自由边界模式（含真空区和理想壁）；n=0/n=1/n=2 etc 环向模数；β 极限扫描；resistive wall 稳定性。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\delta W &= \\frac{1}{2}\\int_V \\left[|\\mathbf{Q}|^2 - \\mathbf{J}\\cdot(\\boldsymbol{\\xi}^*\\times\\mathbf{Q}) + \\gamma p|\\nabla\\cdot\\boldsymbol{\\xi}|^2 + (\\boldsymbol{\\xi}\\cdot\\nabla p)\\nabla\\cdot\\boldsymbol{\\xi}^*\\right]dV \\\\[4pt]\n\\delta W &> 0 \\;\\Leftrightarrow\\; \\text{稳定}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\frac{\\omega}{\\omega_A},\\; \\bar{W} = \\frac{2\\mu_0 W}{B_0^2 R_0^3}$$",
+    "variant_formulas": [
+      {
+        "name": "自由边界kink",
+        "formula": "$$\\delta W = \\delta W_{\\text{plasma}} + \\delta W_{\\text{vacuum}} + \\delta W_{\\text{wall}}$$"
+      }
+    ]
   },
   "ELITE": {
     "full_name": "ELITE — Edge Localized Instability Tokamak Experiment Code",
@@ -1780,7 +1940,15 @@
     ],
     "closure": "GA 开发的 peeling-ballooning（P-B）MHD 稳定性代码，专门分析托卡马克 pedestal 区域的耦合 peeling（电流驱动）和 ballooning（压强梯度驱动）不稳定性。求解理想 MHD 运动方程的变分形式，在 pedestal 区域使用高分辨率网格。计算无限 n（ballooning）和有限 n（peeling-ballooning）模式的稳定性边界，用于预测 ELM 触发条件和 pedestal 高度（通过 EPED 模型的 P-B 约束分支）。",
     "normalization": "采用归一化单位。长度以 ψN（归一化 poloidal flux），磁场和压力以参考值归一化。增长率和频率以 Alfvén 时间归一化。",
-    "variants": "有限 n 模式（n=5~50）；无限 n ballooning；peeling mode 分析；pedestal 稳定性边界；ELM 触发预测；EPED 模型集成。"
+    "variants": "有限 n 模式（n=5~50）；无限 n ballooning；peeling mode 分析；pedestal 稳定性边界；ELM 触发预测；EPED 模型集成。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\delta W &= \\frac{1}{2}\\int \\left[|\\mathbf{Q}_\\perp|^2 + B^2|\\nabla\\cdot\\boldsymbol{\\xi}_\\perp + 2\\boldsymbol{\\kappa}\\cdot\\boldsymbol{\\xi}_\\perp|^2\\right]dV \\\\[4pt]\n&+ \\frac{1}{2}\\oint \\frac{dp}{d\\psi}|\\boldsymbol{\\xi}\\cdot\\nabla\\psi|^2 \\frac{dS}{|\\nabla\\psi|} \\quad \\text{(peeling term)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi} = \\psi_N \\in [0.9, 1.0] \\;\\text{(pedestal region)}$$",
+    "variant_formulas": [
+      {
+        "name": "P-B边界",
+        "formula": "$$\\alpha_{\\text{MHD}} = -\\frac{2\\mu_0 R q^2}{B^2}\\frac{dp}{dr}$$"
+      }
+    ]
   },
   "EPED": {
     "full_name": "EPED — Edge Pedestal Structure Prediction Model",
@@ -1797,7 +1965,15 @@
     ],
     "closure": "GA 开发的 H-mode pedestal 结构预测模型，结合 peeling-ballooning MHD 稳定性约束（通过 ELITE 或 BALOO）和 kinetic ballooning mode（KBM）约束来预测 pedestal 高度和宽度。物理模型为：pedestal 高度由 P-B 稳定性边界决定，pedestal 宽度由 KBM 湍流输运的自组织过程决定（∝ √βp_ped）。结合这两个约束形成闭合系统，预测 pedestal 压力剖面。是 ITER 和现有装置 pedestal 预测的标准模型。",
     "normalization": "压力以 Pa，高度以 m，宽度以 ψN。输入剖面以工程单位提供，内部稳定性分析使用归一化等离子体单位。",
-    "variants": "EPED1（原始模型）；EPED-NN（神经网络加速版）；ELITE MHD 稳定性耦合；BALOO MHD 稳定性耦合；KBM 约束模型；与 TGYRO/TRANSP 集成建模耦合。"
+    "variants": "EPED1（原始模型）；EPED-NN（神经网络加速版）；ELITE MHD 稳定性耦合；BALOO MHD 稳定性耦合；KBM 约束模型；与 TGYRO/TRANSP 集成建模耦合。",
+    "closure_formula": "$$\n\\begin{aligned}\np_{\\text{ped}} &= p(\\psi_{\\text{ped}}),\\quad \\Delta\\psi_{\\text{ped}} \\propto \\sqrt{\\beta_{p,\\text{ped}}} \\\\[4pt]\n\\alpha_{\\text{crit}} &= \\alpha_{\\text{crit}}(s, q, \\delta, \\kappa, \\ldots) \\quad \\text{(P-B 稳定性边界)} \\\\[4pt]\np_{\\text{ped}} &= \\min\\{p_{\\text{KBM}}, p_{\\text{P-B}}\\}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{p}_{\\text{ped}}[\\text{kPa}],\\; \\bar{\\Delta}[\\psi_N],\\; \\bar{T}_{\\text{ped}}[\\text{keV}]$$",
+    "variant_formulas": [
+      {
+        "name": "EPED-NN",
+        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$"
+      }
+    ]
   },
   "EUROPED": {
     "full_name": "EUROPED — EUROfusion Pedestal Code",
@@ -1814,7 +1990,15 @@
     ],
     "closure": "EUROfusion 开发的 EPED 变体，专门适配欧洲装置（JET、ASDEX Upgrade、TCV 等）的 pedestal 预测需求。物理模型与 EPED 一致（P-B + KBM 约束），但增加了 JET 特定定标和 EUROfusion 装置数据库验证。与欧洲集成建模工具链（ITM/IMAS）兼容。",
     "normalization": "与 EPED 一致。输入/输出以工程单位为主，兼容 IMAS 数据格式。",
-    "variants": "JET ILW pedestal 预测模式；ASDEX Upgrade 模式；TCV 模式；ITER 预测模式；IMAS 数据接口。"
+    "variants": "JET ILW pedestal 预测模式；ASDEX Upgrade 模式；TCV 模式；ITER 预测模式；IMAS 数据接口。",
+    "closure_formula": "$$\n\\begin{aligned}\np_{\\text{ped}} &= p(\\psi_{\\text{ped}}),\\quad \\Delta\\psi_{\\text{ped}} \\propto \\sqrt{\\beta_{p,\\text{ped}}} \\\\[4pt]\n\\alpha_{\\text{crit}} &= \\alpha_{\\text{crit}}(s, q, \\delta, \\kappa, \\ldots) \\quad \\text{(P-B 稳定性边界)} \\\\[4pt]\np_{\\text{ped}} &= \\min\\{p_{\\text{KBM}}, p_{\\text{P-B}}\\}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{p}_{\\text{ped}}[\\text{kPa}],\\; \\bar{\\Delta}[\\psi_N],\\; \\bar{T}_{\\text{ped}}[\\text{keV}]$$",
+    "variant_formulas": [
+      {
+        "name": "EPED-NN",
+        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$"
+      }
+    ]
   },
   "ONETWO": {
     "full_name": "ONETWO — 1D Transport Analysis Code",
@@ -1832,7 +2016,15 @@
     ],
     "closure": "GA 开发的 1.5D 托卡马克核心输运模拟代码，求解电子和离子能量、粒子密度和电流扩散的径向输运方程。输运系数通过 neo-classical（NCLASS）+ 反常（用户指定模型或经验系数）提供。源项耦合：NBI（NFREYA 快离子 Monte Carlo）、ECRH（TORAY）、ICRF、聚变功率。平衡通过 EFIT 或其他 G-S 求解器提供。是 DIII-D 和 KSTAR 的标准输运分析工具。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，功率以 MW，电流以 MA 为单位。",
-    "variants": "预测性模式；实验分析模式（功率平衡）；NBI 耦合（NFREYA）；ECRH 耦合（TORAY）；DIII-D 专用模式；KSTAR 专用模式。"
+    "variants": "预测性模式；实验分析模式（功率平衡）；NBI 耦合（NFREYA）；ECRH 耦合（TORAY）；DIII-D 专用模式；KSTAR 专用模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{3}{2}\\frac{\\partial(n_s T_s)}{\\partial t} &= -\\frac{1}{V'}\\frac{\\partial}{\\partial\\rho}[V'(q_s + \\tfrac{5}{2}\\Gamma_s T_s)] + Q_s^{\\text{NBI}} + Q_s^{\\text{RF}} \\\\[4pt]\nq_s &= -n_s\\chi_s\\frac{\\partial T_s}{\\partial\\rho},\\quad \\chi_s = \\chi_s^{\\text{neo}} + \\chi_s^{\\text{ano}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{n}[10^{19}\\text{m}^{-3}],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "功率平衡",
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{exp}} - dW/dt}{-n\\nabla T}$$"
+      }
+    ]
   },
   "NCLASS": {
     "full_name": "NCLASS — Neoclassical Transport Properties Code",
@@ -1849,7 +2041,15 @@
     ],
     "closure": "计算托卡马克等离子体中碰撞新经典输运系数的代码（局域磁面平均）。基于 Hirshman-Sigmar 矩方法求解多粒子种（电子 + 任意多离子）的漂移动理学方程。计算粒子扩散系数、热扩散系数、热导率和 bootstrap 电流系数。包含经典（classical）、banana、plateau 和 Pfirsch-Schlüter 四个输运区间的完整公式。输出格式与 TRANSP/ONETWO/TGYRO 兼容。",
     "normalization": "输运系数以 m²/s，bootstrap 电流以 A/m²，热导率以 W/m-K。输入剖面以工程单位（keV, 10¹⁹ m⁻³, T, m）提供。",
-    "variants": "单/多离子种；任意环向模数 MHD 平衡；任意纵横比；TRANSP/ONETWO 兼容输出；TGYRO 兼容输出。"
+    "variants": "单/多离子种；任意环向模数 MHD 平衡；任意纵横比；TRANSP/ONETWO 兼容输出；TGYRO 兼容输出。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Gamma_s &= -D_s^{11}\\frac{dn_s}{dr} - D_s^{12}\\frac{dT_s}{dr} + n_s V_s^{\\text{ware pinch}} \\\\[4pt]\nq_s &= -n_s\\chi_s^{21}\\frac{dT_s}{dr} - n_s\\chi_s^{22}\\frac{dT_s}{dr} \\\\[4pt]\nj_{\\text{BS}} &= -\\frac{c}{B_\\theta}\\sum_s \\left(L_{31}^s\\frac{dT_s}{dr} + L_{32}^s\\frac{dn_s}{dr}\\right)\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{D}[\\text{m}^2/\\text{s}],\\; \\bar{j}_{\\text{BS}}[\\text{A/m}^2],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "多离子种",
+        "formula": "$$\\mathbf{L} = \\sum_s \\mathbf{L}_s(n_s, T_s, Z_s, m_s)$$"
+      }
+    ]
   },
   "supercode": {
     "full_name": "SUPERCODE — Stellarator Optimization via Variational Parameter Methods",
@@ -1866,7 +2066,15 @@
     ],
     "closure": "IPP Greifswald 开发的仿星器快速参数优化代码。基于变分原理和参数化方法，在大规模位形空间中对仿星器三维磁场进行快速粗筛（coarse screening），评估新经典输运、α 粒子约束和 MHD 稳定性等全局性能指标。与 SIMSOPT/STELLOPT 详细优化互补——SUPERCODE 先用快速模型从海量位形中筛选有潜力的候选，再用高保真代码（VMEC/GVEC + ASCOT5/GENE）详细验证。",
     "normalization": "采用无量纲和工程单位混合。位形参数以无量纲形式表示，输运以 m²/s 或归一化单位。",
-    "variants": "粗筛模式（快速参数扫描）；精细验证模式（调用高保真代码）；新经典输运评估；α 粒子约束评估；MHD 稳定性评估。"
+    "variants": "粗筛模式（快速参数扫描）；精细验证模式（调用高保真代码）；新经典输运评估；α 粒子约束评估；MHD 稳定性评估。",
+    "closure_formula": "$$f(\\mathbf{x}) = w_1 f_{\\text{neo}}(\\mathbf{x}) + w_2 f_\\alpha(\\mathbf{x}) + w_3 f_{\\text{MHD}}(\\mathbf{x}) \\to \\min$$",
+    "normalization_formula": "$$\\text{无量纲位形参数: } \\iota, \\varepsilon_{\\text{eff}}, B_{mn}$$",
+    "variant_formulas": [
+      {
+        "name": "粗筛",
+        "formula": "$$\\mathbf{x}^* = \\arg\\min_{\\mathbf{x}\\in\\mathcal{D}} f(\\mathbf{x}),\\; |\\mathcal{D}| \\sim 10^6$$"
+      }
+    ]
   },
   "BORAY": {
     "full_name": "BORAY — Beam-tracing O-mode Ray Code",
@@ -1883,7 +2091,15 @@
     ],
     "closure": "MIT PSFC 开发的 EC 波束追踪（beam tracing）代码，区别于传统射线追踪（ray tracing）的零宽度假设。束追踪方法同时追踪中心射线和波束宽度/波前曲率的演化：求解 dr/dt、dk/dt 的同时，解波束宽度张量 W 和波前曲率张量 Φ 的常微分方程。能更准确计算 EC 波的聚焦/散焦效应和功率沉积空间分布，特别适合处理 EC 波在等离子体中经历强折射和反射的复杂场景。",
     "normalization": "采用等离子体归一化。频率以 GHz，位置以 m，波数以 rad/m。波束参数（宽度/曲率）以 m/m⁻¹ 为单位。",
-    "variants": "O-mode 波束追踪；X-mode 波束追踪；开放磁面（SOL 区域）追踪；SPARC EC 系统设计专用配置；功率沉积剖面计算。"
+    "variants": "O-mode 波束追踪；X-mode 波束追踪；开放磁面（SOL 区域）追踪；SPARC EC 系统设计专用配置；功率沉积剖面计算。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{d\\mathbf{r}}{d\\tau} &= \\mathbf{v}_g,\\quad \\frac{d\\mathbf{k}}{d\\tau} = -\\frac{\\partial\\omega}{\\partial\\mathbf{r}} \\\\[4pt]\n\\frac{d\\mathbf{W}}{d\\tau} &= -(\\nabla\\mathbf{v}_g)\\mathbf{W} - \\mathbf{W}(\\nabla\\mathbf{v}_g)^T \\quad \\text{(波束宽度张量)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega}[\\text{GHz}],\\; \\bar{k}[\\text{cm}^{-1}],\\; \\bar{W}[\\text{cm}^2]$$",
+    "variant_formulas": [
+      {
+        "name": "SPARC EC设计",
+        "formula": "$$P_{\\text{dep}}(\\mathbf{r}) = \\int \\frac{P(\\mathbf{k})}{W(\\mathbf{r})} e^{-(\\mathbf{r}-\\mathbf{r}_c)^2/W}\\,d\\mathbf{k}$$"
+      }
+    ]
   },
   "TGCO": {
     "full_name": "TGCO — Tokamak Geometric Coordinates & NBI Monte Carlo Code",
@@ -1900,7 +2116,15 @@
     ],
     "closure": "IPP-CAS（中国科学院等离子体物理研究所）开发的托卡马克磁面坐标计算和 NBI 蒙特卡洛模拟程序。第一部分计算 Grad-Shafranov 平衡的磁面坐标（ψ, θ, φ）精确映射和可视化。第二部分通过蒙特卡洛方法模拟 NBI 中性粒子在托卡马克几何中的电离和快离子初始分布生成，类似 NEMO 在仿星器中的角色。以 Python/C++ 混合实现，注重教学友好性和快速原型开发。",
     "normalization": "采用工程单位。长度以 m，磁场以 T，电流以 A，能量以 keV 为单位。磁面坐标 ψ 以 Wb 为单位。",
-    "variants": "磁面坐标计算模式；NBI Monte Carlo 电离模式；教学/原型开发模式；Python/C++ 双语言接口。"
+    "variants": "磁面坐标计算模式；NBI Monte Carlo 电离模式；教学/原型开发模式；Python/C++ 双语言接口。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\psi(\\mathbf{r}) &= \\text{const} \\;\\text{on magnetic surfaces} \\\\[4pt]\n\\mathbf{B} &= \\nabla\\zeta\\times\\nabla\\psi + \\nabla\\Phi\\times\\nabla\\theta \\\\[4pt]\n\\frac{d\\mathbf{r}}{ds} &= \\hat{\\boldsymbol{\\Omega}} \\quad \\text{(NBI 中性粒子追踪)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{B}[\\text{T}],\\; E[\\text{keV}]$$",
+    "variant_formulas": [
+      {
+        "name": "教学/原型",
+        "formula": "$$\\text{Python/C++ 混合，代码极简，数千行}$$"
+      }
+    ]
   },
   "HEQ": {
     "full_name": "HEQ — Python Free-Boundary Equilibrium Reconstruction",
@@ -1917,7 +2141,15 @@
     ],
     "closure": "求解自由边界 Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，通过实验磁诊断信号约束重建等离子体边界和电流剖面。采用有限差分方法在 (R,Z) 平面离散。等离子体剖面 p(ψ) 和 F(ψ) 以多项式或样条参数化，参数通过最小化 χ² 拟合确定。纯 Python 实现（NumPy/SciPy），代码极简（数千行），适合教学和算法验证。功能类似 EFIT 但强调代码简洁性和可读性。",
     "normalization": "采用工程单位。长度以 m，磁场以 T，电流以 A，ψ 以 Wb 为单位。",
-    "variants": "磁诊断约束重建；固定边界模式；教学/原型开发模式；NumPy/SciPy 核心；Python 纯实现。"
+    "variants": "磁诊断约束重建；固定边界模式；教学/原型开发模式；NumPy/SciPy 核心；Python 纯实现。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\chi^2 &= \\sum_i \\frac{(M_i^{\\text{meas}} - M_i(\\psi))^2}{\\sigma_i^2} \\to \\min\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{B}[\\text{T}],\\; \\bar{I}[\\text{A}]$$",
+    "variant_formulas": [
+      {
+        "name": "NumPy/SciPy教学版",
+        "formula": "$$\\text{Python纯实现，数千行，无编译依赖}$$"
+      }
+    ]
   },
   "MARS-F": {
     "full_name": "MARS-F — MHD-kinetic Stability Code",
@@ -1934,7 +2166,15 @@
     ],
     "closure": "求解环形 MHD-动理学混合稳定性方程。在理想/电阻 MHD 框架下通过动理学响应函数耦合高能粒子效应。采用有限元方法（径向）+ Fourier（极向和环向）求解。动理学响应通过漂移动理学方程的解计算（包含 bounce/transit resonance、precession resonance）。计算 TAE（环形 Alfvén 本征模）、EPM（高能粒子模）、RWM（电阻壁模）等 energetic particle-driven 不稳定性的增长率和模结构。",
     "normalization": "采用 Alfvén 归一化。频率以 ωA，增长率以 ωA 为单位。动理学响应函数以归一化能量和 pitch angle 变量表示。",
-    "variants": "理想 MHD 稳定性；电阻 MHD 稳定性；高能粒子动理学耦合（NOVA-K 类型）；TAE/EPM 分析；RWM/ resistive wall mode 分析；ITER α 粒子稳定性评估。"
+    "variants": "理想 MHD 稳定性；电阻 MHD 稳定性；高能粒子动理学耦合（NOVA-K 类型）；TAE/EPM 分析；RWM/ resistive wall mode 分析；ITER α 粒子稳定性评估。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\omega^2\\rho\\boldsymbol{\\xi} &= \\mathbf{F}_{\\text{MHD}}(\\boldsymbol{\\xi}) + \\mathbf{F}_k(\\boldsymbol{\\xi}) \\\\[4pt]\n\\mathbf{F}_k &= -\\nabla\\cdot\\mathbf{P}_k,\\quad \\mathbf{P}_k = \\int d^3v\\, m\\mathbf{v}\\mathbf{v}\\,\\delta f_k \\\\[4pt]\n\\delta f_k &= -\\frac{\\partial F_0}{\\partial E}\\frac{\\omega - \\omega_*}{\\omega - \\omega_D - n\\omega_b}\\,\\chi\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\frac{\\omega}{\\omega_A},\\; \\bar{\\gamma} = \\frac{\\gamma}{\\omega_A}$$",
+    "variant_formulas": [
+      {
+        "name": "TAE/EPM",
+        "formula": "$$\\omega \\approx \\frac{v_A}{2qR_0},\\; \\gamma \\propto \\frac{\\partial F_\\alpha}{\\partial E}$$"
+      }
+    ]
   },
   "UEDGE": {
     "full_name": "UEDGE — 2D Edge Plasma Fluid Code",
@@ -1951,7 +2191,15 @@
     ],
     "closure": "求解 2D 多流体（电子 + 多种离子）等离子体输运方程在托卡马克刮削层/偏滤器区域。控制方程包括：粒子连续性、平行动量、电子能量、离子能量。包含经典输运（平行 Braginskii 系数）和反常输运（用户指定的径向扩散/热导率）。中性粒子通过简化流体模型或耦合 DEGAS Monte Carlo 代码处理。电磁场通过电流连续性方程 + 鞘层边界条件闭合。偏滤器靶板使用 Bohm 鞘层条件。是 SOLPS 之前的经典边界流体代码。",
     "normalization": "采用工程单位。密度以 m⁻³，温度以 eV，通量以 m⁻²s⁻¹，功率以 W/m² 为单位。",
-    "variants": "纯等离子体模式（无中性粒子）；DEGAS MC 中性粒子耦合；简化中性粒子流体模式；D/T/He/杂质多离子；DIII-D 专用配置；NSTX-U 配置。"
+    "variants": "纯等离子体模式（无中性粒子）；DEGAS MC 中性粒子耦合；简化中性粒子流体模式；D/T/He/杂质多离子；DIII-D 专用配置；NSTX-U 配置。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial n}{\\partial t} + \\nabla\\cdot(n\\mathbf{V}) &= S_n \\\\[4pt]\n\\frac{\\partial}{\\partial t}(mnV_\\parallel) + \\nabla\\cdot(mnV_\\parallel\\mathbf{V}) &= -\\nabla_\\parallel p + S_p \\\\[4pt]\n\\frac{3}{2}\\frac{\\partial(nT)}{\\partial t} + \\nabla\\cdot(\\mathbf{q} + \\tfrac{5}{2}nT\\mathbf{V}) &= Q \\\\[4pt]\nV_\\parallel^{\\text{target}} &\\geq c_s = \\sqrt{\\frac{T_e + T_i}{m_i}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{n}[\\text{m}^{-3}],\\; \\bar{T}[\\text{eV}],\\; \\bar{\\Gamma}[\\text{m}^{-2}\\text{s}^{-1}]$$",
+    "variant_formulas": [
+      {
+        "name": "DEGAS中性粒子",
+        "formula": "$$S_n, S_p, Q \\leftarrow \\text{DEGAS Monte Carlo}$$"
+      }
+    ]
   },
   "EMC3-EIRENE": {
     "full_name": "EMC3-EIRENE — 3D Edge Monte Carlo + EIRENE Neutral Transport",
@@ -1968,7 +2216,15 @@
     ],
     "closure": "三维蒙特卡洛等离子体流体（EMC3）与 EIRENE 中性粒子动理学耦合。EMC3 求解三维 Braginskii 型输运方程（密度、平行速度、电子和离子温度）通过 Monte Carlo 方法在三维磁场中追踪测试粒子进行空间扩散和平行对流。与 EIRENE 迭代耦合交换粒子、动量和能量源。不需要轴对称假设，可处理仿星器的天然三维边界以及托卡马克中 RMP 线圈产生的三维扰动边界。是 W7-X 岛偏滤器设计的唯一全三维分析工具。",
     "normalization": "采用工程单位。密度以 m⁻³，温度以 eV，粒子通量以 s⁻¹。磁场由 VMEC/SPEC 提供（三维）。",
-    "variants": "仿星器三维边界模式（W7-X 标配）；托卡马克三维扰动边界（RMP）；EMC3 独立运行（给定中性粒子分布）；EMC3-EIRENE 全耦合；D/T/He/杂质多粒子种。"
+    "variants": "仿星器三维边界模式（W7-X 标配）；托卡马克三维扰动边界（RMP）；EMC3 独立运行（给定中性粒子分布）；EMC3-EIRENE 全耦合；D/T/He/杂质多粒子种。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial n}{\\partial t} &= \\nabla\\cdot(D_\\perp\\nabla_\\perp n) - \\nabla_\\parallel(nV_\\parallel) + S_n^{\\text{EIRENE}} \\\\[4pt]\n\\frac{\\partial T}{\\partial t} &= \\nabla\\cdot(\\chi_\\perp n\\nabla_\\perp T) - \\nabla_\\parallel(n\\chi_\\parallel\\nabla_\\parallel T) + Q^{\\text{EIRENE}} \\\\[4pt]\n\\mathbf{B} &= \\mathbf{B}_{\\text{VMEC}}(\\mathbf{r}) \\quad \\text{(三维仿星器磁场)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{n}[\\text{m}^{-3}],\\; \\bar{T}[\\text{eV}],\\; \\bar{D}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "W7-X岛偏滤器",
+        "formula": "$$\\iota = 5/5 \\;\\text{island divertor configuration}$$"
+      }
+    ]
   },
   "JETTO": {
     "full_name": "JETTO — JET Transport Code",
@@ -1985,7 +2241,15 @@
     ],
     "closure": "EUROfusion/JET 开发的 1.5D 核心输运模拟框架，求解电子和离子温度、粒子密度和电流扩散方程。输运闭合通过多种模型：经验/半经验定标、准线性（QuaLiKiz/QLKNN）、第一性原理（TGLF）。平衡通过 ESCO 或 HELENA 提供。杂质输运通过 SANCO 代码耦合。NBI 加热通过 PENCIL 模块。RF 加热通过外部耦合。与 JET 实验数据深度集成——数千次 JET 放电验证赋予其极高预测可信度。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，功率以 MW，电流以 MA 为单位。",
-    "variants": "经验定标输运模式；QuaLiKiz/QLKNN 准线性模式；TGLF 第一性原理模式；SANCO 杂质输运耦合；JET ILW 专用配置；JT-60SA 配置；ITER H-mode scenario 开发。"
+    "variants": "经验定标输运模式；QuaLiKiz/QLKNN 准线性模式；TGLF 第一性原理模式；SANCO 杂质输运耦合；JET ILW 专用配置；JT-60SA 配置；ITER H-mode scenario 开发。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial(nT)}{\\partial t} &= \\nabla\\cdot(n\\chi\\nabla T) + Q_{\\text{NBI}} + Q_{\\text{RF}} - Q_{\\text{rad}} \\\\[4pt]\n\\frac{\\partial \\psi}{\\partial t} &= \\frac{1}{\\mu_0\\sigma_\\parallel}\\Delta^*\\psi + j_{\\text{BS}} + j_{\\text{CD}} \\\\[4pt]\n\\chi &= \\chi_{\\text{neo}} + \\chi^{\\text{QuaLiKiz/TGLF}}(\\nabla T, \\nabla n, q, s, \\ldots)\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{n}[10^{19}\\text{m}^{-3}],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "JET ILW配置",
+        "formula": "$$\\text{验证: } > 1000 \\text{ JET discharges}$$"
+      }
+    ]
   },
   "MMM": {
     "full_name": "MMM — Multi-Mode Model for Anomalous Transport",
@@ -2002,7 +2266,15 @@
     ],
     "closure": "基于漂移波物理的多模式反常输运模型。计算 ITG/TEM/ETG/kinetic ballooning mode 驱动的热和粒子输运系数。使用线性回旋动理学理论（Weiland 模型）计算最不稳定模的增长率和混合长度估计。包含 ExB 剪切流和 Shafranov 位移致稳效应。2023 年完成大规模实验验证（EAST/KSTAR/JET/DIII-D 共 99 个放电），温度预测 RMS 偏差 ~10%。作为 TRANSP/TGYRO 框架内的输运模型运行。",
     "normalization": "输运系数以 m²/s 为单位输出。内部使用 gyro-Bohm 归一化。输入剖面以工程单位提供。",
-    "variants": "ITG/TEM 模式；ETG 多尺度模式；KBM 模式；ExB 剪切修正；Shafranov 位移效应；TRANSP 集成模式；TGYRO 集成模式。"
+    "variants": "ITG/TEM 模式；ETG 多尺度模式；KBM 模式；ExB 剪切修正；Shafranov 位移效应；TRANSP 集成模式；TGYRO 集成模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\chi_i^{\\text{ITG}} &= C_{\\text{ITG}} \\frac{\\gamma_{\\text{ITG}}}{\\langle k_\\perp^2\\rangle}\\left|\\frac{e\\tilde{\\phi}}{T_e}\\right|^2 \\\\[4pt]\n\\chi_i^{\\text{TEM}} &= C_{\\text{TEM}} \\frac{\\gamma_{\\text{TEM}}}{\\langle k_\\perp^2\\rangle}\\left|\\frac{e\\tilde{\\phi}}{T_e}\\right|^2 \\\\[4pt]\n\\chi_e^{\\text{ETG}} &= C_{\\text{ETG}} \\frac{\\gamma_{\\text{ETG}}}{\\langle k_\\perp^2\\rangle}\\left|\\frac{e\\tilde{\\phi}}{T_e}\\right|^2\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\chi}[\\text{m}^2/\\text{s}],\\; \\bar{\\gamma}[\\text{cs/a}],\\; \\bar{k}_\\perp[\\rho_s^{-1}]$$",
+    "variant_formulas": [
+      {
+        "name": "ExB剪切修正",
+        "formula": "$$\\chi \\to \\frac{\\chi}{1 + (\\gamma_{E\\times B}/\\gamma_0)^2}$$"
+      }
+    ]
   },
   "GLF23": {
     "full_name": "GLF23 — Gyro-Landau-Fluid 23-Moment Transport Model",
@@ -2020,7 +2292,15 @@
     ],
     "closure": "基于回旋-朗道-流体（TGLF）理论的 23 矩闭合反常输运模型。通过截断到 23 个速度空间矩的流体方程链，结合 Hammett-Perkins 朗道阻尼闭合近似，预测 ITG/TEM/ETG 驱动的粒子、能量和动量输运。准线性输运使用最不稳定模的混合长度估计（γ/⟨k⊥²⟩）。是 TGLF 系列的前身，为后续 GA 标准输运模型奠定了物理框架。在 DIII-D 上广泛验证，用于 ITER 预测。",
     "normalization": "采用 gyro-Bohm 归一化。输出输运系数以 m²/s 的工程单位表示。",
-    "variants": "ITG/TEM 模式；ETG 模式；ExB 剪切效应；Shafranov 位移致稳；DIII-D 专用模式；ITER 预测模式。"
+    "variants": "ITG/TEM 模式；ETG 模式；ExB 剪切效应；Shafranov 位移致稳；DIII-D 专用模式；ITER 预测模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\partial_t \\tilde{n} &= -\\nabla_\\parallel \\tilde{u}_\\parallel - i\\omega_{*n}\\tilde{\\phi} \\\\[4pt]\n\\partial_t \\tilde{u}_\\parallel &= -\\nabla_\\parallel(\\tilde{\\phi} + \\tilde{p}) - i\\omega_{*p}\\tilde{\\phi} - \\nu_{\\text{LD}} \\star \\tilde{u}_\\parallel \\\\[4pt]\n\\tilde{q}_\\parallel &= -i\\chi_\\parallel \\tilde{T} \\circledast \\frac{1}{|k_\\parallel|v_t}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{k}_\\theta = k_\\theta\\rho_s,\\; \\bar{\\chi}[\\text{m}^2/\\text{s}],\\; Q_{gB}$$",
+    "variant_formulas": [
+      {
+        "name": "23矩闭合",
+        "formula": "$$M = 23 \\text{ moments retained in the fluid hierarchy}$$"
+      }
+    ]
   },
   "BgB": {
     "full_name": "BgB — Bohm-gyroBohm Transport Model",
@@ -2038,7 +2318,15 @@
     ],
     "closure": "Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。",
     "normalization": "输运系数以 m²/s。Bohm 扩散系数 DB = Te/(16eB)。",
-    "variants": "Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。"
+    "variants": "Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\chi_{\\text{Bohm}} &= \\alpha_B \\frac{T_e}{eB}\\,F(\\nabla T, \\nabla n) \\\\[4pt]\n\\chi_{gB} &= \\alpha_{gB} \\frac{T_e}{eB}\\rho_*^2\\,G(\\nabla T, \\nabla n) \\\\[4pt]\n\\chi &= \\chi_{\\text{Bohm}} + \\chi_{gB}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{D}_B = \\frac{T_e}{16eB},\\; \\rho_* = \\frac{\\rho_s}{a}$$",
+    "variant_formulas": [
+      {
+        "name": "L/H自适应",
+        "formula": "$$\\alpha_{gB} = \\begin{cases}0 & \\text{L-mode}\\\\1 & \\text{H-mode}\\end{cases}$$"
+      }
+    ]
   },
   "MARS": {
     "full_name": "MARS — MHD Analysis of Resistive Spectrum",
@@ -2055,7 +2343,15 @@
     ],
     "closure": "求解环形电阻 MHD 稳定性本征值问题。在环形几何中求解全电阻 MHD 方程组的线性本征值问题：计算外 kink 模、电阻壁模（RWM）、撕裂模（tearing mode）和新经典撕裂模（NTM）的线性增长率和模结构。采用有限元方法（径向）+ Fourier 展开（极向和环向）。支持包含等离子体旋转和动理学效应（通过 MARS-K 扩展）。是 ITER 高 β 稳定性评估的标准工具。",
     "normalization": "采用 Alfvén 归一化。增长率以 τA⁻¹ 为单位。电阻以磁 Reynolds 数 S 的倒数表征。",
-    "variants": "理想 MHD 模式（MARS）；电阻 MHD 模式；MARS-K（动理学效应）；kink mode 分析；RWM 稳定性；tearing mode；NTM 分析；ITER β-limit 评估。"
+    "variants": "理想 MHD 模式（MARS）；电阻 MHD 模式；MARS-K（动理学效应）；kink mode 分析；RWM 稳定性；tearing mode；NTM 分析；ITER β-limit 评估。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\rho\\frac{\\partial\\mathbf{V}}{\\partial t} &= \\mathbf{J}\\times\\mathbf{B} - \\nabla p + \\nu\\nabla^2\\mathbf{V} \\\\[4pt]\n\\frac{\\partial\\mathbf{B}}{\\partial t} &= \\nabla\\times(\\mathbf{V}\\times\\mathbf{B}) - \\nabla\\times(\\eta\\mathbf{J}) \\\\[4pt]\n\\mathbf{x}(t) &= \\hat{\\mathbf{x}} e^{\\gamma t} \\;\\Rightarrow\\; \\gamma\\mathbf{M}\\hat{\\mathbf{x}} = \\mathbf{K}\\hat{\\mathbf{x}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{t} = t/\\tau_A,\\; S = \\tau_R/\\tau_A,\\; \\bar{\\gamma} = \\gamma\\tau_A$$",
+    "variant_formulas": [
+      {
+        "name": "RWM (电阻壁)",
+        "formula": "$$\\gamma_{\\text{RWM}} \\propto \\frac{1}{\\tau_w} - \\gamma_{\\text{ideal}}$$"
+      }
+    ]
   },
   "MAS": {
     "full_name": "MAS — Multiscale Analysis for Plasma Stabilities",
@@ -2073,7 +2369,15 @@
     ],
     "closure": "中国科学院物理研究所开发的全局 MHD 本征值代码。基于五场朗道流体模型（5-field Landau fluid model），自洽保留抗磁漂移、有限 Larmor 半径、有限平行电场、朗道阻尼和回旋动理学共振等关键动理学效应。可在各极限下还原为理想 MHD、静电离子流体和漂移动理学模型。支持多环向谐波耦合。已成功应用于 DIII-D 中 Alfvén 本征模（TAE/RSAE）的分析。物理有效域覆盖从低频 kink 到高频 TAE 的宽广谱范围。",
     "normalization": "采用 Alfvén 归一化。频率和增长率以 ωA 为单位。",
-    "variants": "理想 MHD 极限；静电离子流体极限；漂移动理学极限；TAE/RSAE/EPM 分析；kink mode 分析；DIII-D 实验对比验证。"
+    "variants": "理想 MHD 极限；静电离子流体极限；漂移动理学极限；TAE/RSAE/EPM 分析；kink mode 分析；DIII-D 实验对比验证。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\omega^2\\rho\\boldsymbol{\\xi} &= \\mathbf{F}(\\boldsymbol{\\xi}) + \\nabla\\cdot\\boldsymbol{\\Pi}_k \\\\[4pt]\n\\boldsymbol{\\Pi}_k &= \\int d^3v\\, m\\mathbf{v}\\mathbf{v}\\, \\delta f_k \\\\[4pt]\n\\delta f_k &= -\\frac{e}{m}\\int_{-\\infty}^t dt' (\\mathbf{E} + \\mathbf{v}\\times\\mathbf{B})|_{t'} \\cdot \\frac{\\partial F_0}{\\partial\\mathbf{v}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\omega} = \\omega/\\omega_A,\\; \\bar{\\gamma} = \\gamma/\\omega_A$$",
+    "variant_formulas": [
+      {
+        "name": "5场朗道流体",
+        "formula": "$$\\text{包含: } \\tilde{n}, \\tilde{u}_\\parallel, \\tilde{T}_\\parallel, \\tilde{T}_\\perp, \\tilde{\\phi}$$"
+      }
+    ]
   },
   "IMAS": {
     "full_name": "IMAS — Integrated Modelling & Analysis Suite",
@@ -2091,7 +2395,15 @@
     ],
     "closure": "ITER 组织开发的集成建模与分析套件（基础设施/数据标准），不直接求解物理方程。通过接口数据结构（IDS，Interface Data Structures）定义约 80 个聚变物理域的标准化数据模型（平衡、输运、加热、MHD、诊断等），覆盖聚变物理全域。包含 Python 工具集（IDStools）、数据访问层（UAL, Universal Access Layer）和 IMAS 数据字典。实现代码间标准互操作，已有 OMFIT/OMAS 等工具基于 IMAS 构建。2025 年底以开源形式发布。",
     "normalization": "以工程单位（SI）为主，各 IDS 定义明确的物理量和单位。UAL 层面提供单位转换服务。",
-    "variants": "本地文件模式（HDF5）；远程数据服务器模式；Python API（IMASPy/idstools）；MATLAB API；C++/Fortran API；开源社区版（2025）。"
+    "variants": "本地文件模式（HDF5）；远程数据服务器模式；Python API（IMASPy/idstools）；MATLAB API；C++/Fortran API；开源社区版（2025）。",
+    "closure_formula": "$$\\mathcal{I}: \\text{Code}_A \\xrightarrow{\\text{IDS}} \\text{UAL} \\xrightarrow{\\text{IDS}} \\text{Code}_B$$",
+    "normalization_formula": "$$\\bar{T}[\\text{eV}],\\; \\bar{B}[\\text{T}],\\; \\bar{\\psi}[\\text{Wb}] \\;\\text{(81 IDSs)}$$",
+    "variant_formulas": [
+      {
+        "name": "开源版 (2025)",
+        "formula": "$$\\text{IMASPy + IMAS DD v4.0}$$"
+      }
+    ]
   },
   "Power Balance Models": {
     "full_name": "PBM — Power Balance Models for Fusion Reactor Design",
@@ -2109,7 +2421,15 @@
     ],
     "closure": "UKAEA 开发的 Modelica 建模框架，通过功率平衡模型评估不同托卡马克聚变反应堆设计的净功率输出。子系统模型（磁体冷却、低温系统、加热与电流驱动、泵送、聚变功率产生、热能转换）通过 Modelica 方程耦合。使用 Python API 和 CLI 接口提供快速配置和批量仿真。设计用于反应堆概念设计早期阶段回答\"该设计能否产生净电力\"这一核心问题。已成功应用于 STEP 原型电站的参数扫描和设计点优化。",
     "normalization": "采用 SI 工程单位。功率以 MW，温度以 K 或 keV，流量以 kg/s，电流以 A 为单位。",
-    "variants": "托卡马克反应堆模式；仿星器反应堆模式；单设计点评估；批量参数扫描；STEP 专用配置；子系统可替换架构。"
+    "variants": "托卡马克反应堆模式；仿星器反应堆模式；单设计点评估；批量参数扫描；STEP 专用配置；子系统可替换架构。",
+    "closure_formula": "$$\n\\begin{aligned}\nP_{\\text{net}} &= P_{\\text{fus}} + P_{\\text{aux}} - P_{\\text{pump}} - P_{\\text{cryo}} - P_{\\text{sub}} - P_{\\text{loss}} \\\\[4pt]\n\\eta_{\\text{th}} &= \\frac{P_{\\text{net}}}{P_{\\text{fus}} + P_{\\text{aux}}}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{P}[\\text{MW}],\\; \\bar{T}[\\text{K}],\\; \\dot{m}[\\text{kg/s}]$$",
+    "variant_formulas": [
+      {
+        "name": "STEP设计",
+        "formula": "$$\\min_{\\mathbf{x}} \\text{LCOE}(\\mathbf{x}) \\;\\text{s.t.}\\; P_{\\text{net}} \\geq 0$$"
+      }
+    ]
   },
   "GSevolve": {
     "full_name": "GSevolve — Grad-Shafranov Equilibrium Evolver",
@@ -2126,7 +2446,15 @@
     ],
     "closure": "求解时变自由边界 Grad-Shafranov 平衡演化，耦合外部线圈/被动导体电路方程。等离子体电流剖面演化通过电流扩散方程处理，等离子体压力由输运模型（或固定剖面）决定。采用有限元或有限差分方法在 (R,Z) 平面求解。用于模拟放电过程中等离子体位形的动态变化，包括 bobble 等离子体不稳定性等非理想行为。已成功应用于 DIII-D 多个复杂放电场景的复现。",
     "normalization": "采用 SI 工程单位。时间以 s，电流以 A，电压以 V，ψ 以 Wb 为单位。",
-    "variants": "自由边界演化；固定电流剖面；时变电流剖面；bobble 等离子体分析；DIII-D 放电复现。"
+    "variants": "自由边界演化；固定电流剖面；时变电流剖面；bobble 等离子体分析；DIII-D 放电复现。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{M}\\dot{\\mathbf{I}} + \\mathbf{R}\\mathbf{I} &= \\mathbf{V} + \\dot{\\boldsymbol{\\Psi}}_{\\text{plasma}} \\\\[4pt]\n\\chi^2(\\boldsymbol{\\alpha}) &= \\sum_i \\frac{(M_i^{\\text{meas}} - M_i(\\boldsymbol{\\alpha}))^2}{\\sigma_i^2} \\to \\min\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{V}[\\text{V}],\\; \\bar{t}[\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "SPARC脉冲设计",
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+      }
+    ]
   },
   "GSPulse": {
     "full_name": "GSPulse — Grad-Shafranov Pulse Trajectory Optimizer",
@@ -2144,7 +2472,15 @@
     ],
     "closure": "求解逆问题（而非正问题）：给定用户设定的目标平衡位形序列以及线圈电流和电压约束，优化算法自动输出实现该序列所需的电压、电流和可达平衡的完整脉冲轨迹。将自由边界平衡演化方程重构为优化形式（最小化偏离目标位形的代价，受 Grad-Shafranov 和电路动力学约束）。可在数分钟内同时求解数百个平衡点。已用于 SPARC 的 scenario 设计。",
     "normalization": "采用 SI 工程单位。时间以 s，电流以 A，电压以 V，ψ 以 Wb 为单位。",
-    "variants": "SPARC 脉冲设计模式；NSTX-U/MAST-U 应用模式；单目标位形；多目标位形序列；线圈电流/电压约束。"
+    "variants": "SPARC 脉冲设计模式；NSTX-U/MAST-U 应用模式；单目标位形；多目标位形序列；线圈电流/电压约束。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{M}\\dot{\\mathbf{I}} + \\mathbf{R}\\mathbf{I} &= \\mathbf{V} + \\dot{\\boldsymbol{\\Psi}}_{\\text{plasma}} \\\\[4pt]\n\\chi^2(\\boldsymbol{\\alpha}) &= \\sum_i \\frac{(M_i^{\\text{meas}} - M_i(\\boldsymbol{\\alpha}))^2}{\\sigma_i^2} \\to \\min\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{V}[\\text{V}],\\; \\bar{t}[\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "SPARC脉冲设计",
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+      }
+    ]
   },
   "gsfit": {
     "full_name": "GSFit — Grad-Shafranov Fit for Equilibrium Reconstruction",
@@ -2162,7 +2498,15 @@
     ],
     "closure": "Tokamak Energy 开发的开源 Grad-Shafranov 平衡重建工具。通过实验磁测量（ST40 配置 85 个磁传感器，含 Mirnov 线圈和磁通环）约束，使用优化方法（最小化磁信号残差）重建等离子体边界、电流剖面和储能。核心求解器用 Rust 编写（速度和鲁棒性），Python 接口提供灵活性和易用性。通过合成数据（由 FreeGS 生成）和 ST40 可见光相机图像完成独立实验验证。",
     "normalization": "采用 SI 工程单位。磁场以 T，电流以 A，尺寸以 m，ψ 以 Wb 为单位。",
-    "variants": "磁诊断约束模式；ST40 专用配置；FreeGS 前向求解器验证；可见光图像约束模式；开源社区模式。"
+    "variants": "磁诊断约束模式；ST40 专用配置；FreeGS 前向求解器验证；可见光图像约束模式；开源社区模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{M}\\dot{\\mathbf{I}} + \\mathbf{R}\\mathbf{I} &= \\mathbf{V} + \\dot{\\boldsymbol{\\Psi}}_{\\text{plasma}} \\\\[4pt]\n\\chi^2(\\boldsymbol{\\alpha}) &= \\sum_i \\frac{(M_i^{\\text{meas}} - M_i(\\boldsymbol{\\alpha}))^2}{\\sigma_i^2} \\to \\min\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{V}[\\text{V}],\\; \\bar{t}[\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "SPARC脉冲设计",
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+      }
+    ]
   },
   "FGE": {
     "full_name": "FGE — Free-Boundary Grad-Shafranov Evolutive Solver",
@@ -2180,7 +2524,15 @@
     ],
     "closure": "EPFL 开发的高阶 Newton 框架自由边界平衡演化求解器。求解 Grad-Shafranov 方程耦合外部导体电路方程，支持多种高度优化的求解器选项（LU, GMRES, BiCGSTAB）、状态表示（ψ, I, 混合）和残差形式。关键能力包括：集成多种 0D/1D 电流扩散模型模拟等离子体电流剖面的电阻演化、支持双磁轴位形（Doublet）、可在给定平衡点线性化等离子体动力学生成状态空间模型用于控制器设计。已与 RAPTOR/KINX 完成基准验证。",
     "normalization": "采用 SI 工程单位。电流以 A，ψ 以 Wb，时间以 s 为单位。",
-    "variants": "自由边界演化；电流扩散耦合；双磁轴位形（Doublet 模式）；状态空间模型生成（控制设计用）；RAPTOR 耦合验证。"
+    "variants": "自由边界演化；电流扩散耦合；双磁轴位形（Doublet 模式）；状态空间模型生成（控制设计用）；RAPTOR 耦合验证。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Delta^*\\psi &= -\\mu_0 R^2 p'(\\psi) - FF'(\\psi) \\\\[4pt]\n\\mathbf{F}(\\boldsymbol{\\psi}) &= \\mathbf{0},\\; \\boldsymbol{\\psi}_{k+1} = \\boldsymbol{\\psi}_k - [\\nabla\\mathbf{F}]^{-1}\\mathbf{F} \\quad \\text{(Newton)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "双磁轴 (MEQ)",
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+      }
+    ]
   },
   "DYON": {
     "full_name": "DYON — Plasma Burn-Through and Disruption Simulator",
@@ -2197,7 +2549,15 @@
     ],
     "closure": "求解托卡马克等离子体启动阶段（burn-through）的 0D 功率和粒子平衡方程组。耦合等离子体能量平衡（Ohmic heating + auxiliary heating − radiation − transport）、粒子平衡（ionization − recombination − transport）和壁再循环模型。模拟从中性气体击穿到完全电离等离子体的全过程。辐射模型包含线辐射和轫致辐射，杂质含量通过经验或模型指定。是 ITER 和 JET 等离子体启动预测的关键工具。",
     "normalization": "采用工程单位。温度以 eV，密度以 m⁻³，功率以 W 或 MW，时间以 s 为单位。",
-    "variants": "ITER burn-through 预测模式；JET ILW burn-through 模式；纯 Ohmic 启动；辅助加热启动；杂质含量扫描。"
+    "variants": "ITER burn-through 预测模式；JET ILW burn-through 模式；纯 Ohmic 启动；辅助加热启动；杂质含量扫描。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{3}{2}\\frac{d(n_e T_e)}{dt} &= P_{\\text{Ohm}} + P_{\\text{aux}} - P_{\\text{rad}} - P_{\\text{trans}} \\\\[4pt]\n\\frac{dn_e}{dt} &= n_0 n_e \\langle\\sigma v\\rangle_{\\text{ion}} - \\frac{n_e}{\\tau_{\\text{conf}}} \\\\[4pt]\nP_{\\text{Ohm}} &= \\eta_{\\text{Spitzer}} j^2,\\quad \\eta_{\\text{Spitzer}} \\propto T_e^{-3/2}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{eV}],\\; \\bar{n}[\\text{m}^{-3}],\\; \\bar{P}[\\text{W}],\\; \\bar{t}[\\text{s}]$$",
+    "variant_formulas": [
+      {
+        "name": "ITER启动",
+        "formula": "$$T_e(t) \\text{ vs } E_{\\text{loop}}(t),\\; T_e(0) \\to T_e(t_{\\text{burn}})$$"
+      }
+    ]
   },
   "TASK": {
     "full_name": "TASK — Total Analysis Suite for Tokamak Plasmas",
@@ -2214,7 +2574,15 @@
     ],
     "closure": "京都大学开发的模块化托卡马克集成模拟套件，日本燃烧等离子体模拟计划（BPSI）的核心代码框架。模块包括：TASK/TR（1D 输运）、TASK/WM（全波加热，ICRF/ECRH/LH）、TASK/EQ（2D Grad-Shafranov 平衡）、TASK/FP（Fokker-Planck 动理学）。各模块通过标准化接口和公共数据格式交换数据，支持不同保真度级别的输运模型切换。与欧洲 ITM/IMAS 框架保持接口兼容。",
     "normalization": "采用工程单位（SI）。各模块内部可转换为适合的归一化方案。",
-    "variants": "TASK/TR 输运模式；TASK/WM 全波加热模式；TASK/EQ 平衡重建模式；TASK/FP Fokker-Planck 模式；JT-60SA 集成模式；ITER 集成模式。"
+    "variants": "TASK/TR 输运模式；TASK/WM 全波加热模式；TASK/EQ 平衡重建模式；TASK/FP Fokker-Planck 模式；JT-60SA 集成模式；ITER 集成模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\text{TASK/TR:}&\\quad \\frac{3}{2}\\frac{\\partial(nT)}{\\partial t} = \\nabla\\cdot(n\\chi\\nabla T) + Q \\\\[4pt]\n\\text{TASK/WM:}&\\quad \\nabla\\times\\nabla\\times\\mathbf{E} - \\frac{\\omega^2}{c^2}\\boldsymbol{\\varepsilon}\\cdot\\mathbf{E} = 0 \\\\[4pt]\n\\text{TASK/EQ:}&\\quad \\Delta^*\\psi = -\\mu_0 R^2 p' - FF'\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{B}[\\text{T}],\\; \\bar{\\omega}[\\text{MHz}] \\;\\text{(各模块独立归一化)}$$",
+    "variant_formulas": [
+      {
+        "name": "JT-60SA集成",
+        "formula": "$$\\text{TASK/TR} \\leftrightarrow \\text{TASK/WM} \\leftrightarrow \\text{TASK/EQ}$$"
+      }
+    ]
   },
   "REPED": {
     "full_name": "REPED — Regression Pedestal Predictor",
@@ -2231,7 +2599,15 @@
     ],
     "closure": "EPFL 开发的机器学习驱动 pedestal 预测模型。使用回归模型（如随机森林、梯度提升树）从大型实验数据库（TCV/JET/AUG/DIII-D 等）中学习 pedestal 高度、宽度与工程参数（等离子体电流、环向场、密度、加热功率、位形等）的统计规律。与基于第一性原理的 EPED 模型互补——REPED 在插值范围内精度高且极快（毫秒级），但外推能力有限。封装为 Python 包，与 OMFIT 兼容。",
     "normalization": "输入以工程单位（MA, T, MW, 10¹⁹ m⁻³），输出 pedestal 高度以 keV，宽度以 ψN 为单位。",
-    "variants": "随机森林回归模式；梯度提升树模式；TCV 专用；JET/AUG/DIII-D multi-machine 模式；OMFIT 集成模式。"
+    "variants": "随机森林回归模式；梯度提升树模式；TCV 专用；JET/AUG/DIII-D multi-machine 模式；OMFIT 集成模式。",
+    "closure_formula": "$$\n\\begin{aligned}\np_{\\text{ped}} &= f_{\\text{RF}}(\\mathbf{x}),\\; \\mathbf{x} = (I_p, B_t, n_e, \\kappa, \\delta, P_{\\text{aux}}, \\ldots) \\\\[4pt]\n\\text{MSE} &= \\frac{1}{N}\\sum_{i=1}^N (p_{\\text{ped},i} - \\hat{p}_{\\text{ped},i})^2 \\to \\min\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{p}_{\\text{ped}}[\\text{kPa}],\\; \\bar{I}[\\text{MA}],\\; \\bar{B}[\\text{T}],\\; \\bar{n}[10^{19}\\text{m}^{-3}]$$",
+    "variant_formulas": [
+      {
+        "name": "随机森林",
+        "formula": "$$p_{\\text{ped}} = \\frac{1}{N_T}\\sum_{j=1}^{N_T} T_j(\\mathbf{x})$$"
+      }
+    ]
   },
   "FBT": {
     "full_name": "FBT — Free-Boundary Tokamak Equilibrium Code",
@@ -2248,7 +2624,15 @@
     ],
     "closure": "EPFL 的经典自由边界托卡马克平衡代码（1988 年发表），专为高拉长比和强成形等离子体设计。使用有限元方法在 (R,Z) 平面求解 Grad-Shafranov 方程，耦合外部线圈电流和被动导体中的感应电流。是 LIUQE 和 FGE 的前身代码，其数值框架和物理模型为 EPFL 的 MEQ 平衡求解器套件奠定了基础。在 TCV 装置位形设计和分析中发挥了关键作用。",
     "normalization": "采用 SI 工程单位。电流以 A，ψ 以 Wb，磁场以 T 为单位。",
-    "variants": "自由边界平衡；固定边界平衡；高拉长比位形（TCV 专用）；MEQ/LIEUQ 前身。"
+    "variants": "自由边界平衡；固定边界平衡；高拉长比位形（TCV 专用）；MEQ/LIEUQ 前身。",
+    "closure_formula": "$$\\Delta^*\\psi = -\\mu_0 R^2 p'(\\psi) - FF'(\\psi),\\quad \\kappa \\geq 2 \\;\\text{(高拉长比)}$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "TCV位形",
+        "formula": "$$\\kappa \\in [1.0, 2.8],\\; \\delta \\in [-0.5, 1.0]$$"
+      }
+    ]
   },
   "FEEQS.M/NICE": {
     "full_name": "FEEQS.M/NICE — Finite Element Equilibrium Solver for Tokamaks",
@@ -2265,7 +2649,15 @@
     ],
     "closure": "FEEQS.M 使用自由边界有限元方法求解 Grad-Shafranov 方程，支持任意等离子体截面形状和外部导体配置。NICE（New Inverse Code for Equilibrium）是其变体，求解逆问题：给定所需的等离子体边界和内部剖面，反演计算实现该平衡所需的线圈电流配置。是 PPPL 平衡分析工具链的关键环节，支持 NSTX-U、LTX-β 等球形托卡马克和锂壁托卡马克的平衡分析。",
     "normalization": "采用 SI 工程单位。磁场以 T，电流以 A，ψ 以 Wb 为单位。",
-    "variants": "FEEQS.M 正问题（给定线圈电流→求解平衡）；NICE 逆问题（给定等离子体→反演线圈电流）；NSTX-U 配置；LTX-β 配置。"
+    "variants": "FEEQS.M 正问题（给定线圈电流→求解平衡）；NICE 逆问题（给定等离子体→反演线圈电流）；NSTX-U 配置；LTX-β 配置。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\text{FEEQS.M:}&\\quad \\Delta^*\\psi = -\\mu_0 R^2 p' - FF' + \\mu_0 R J_{\\text{coils}} \\\\[4pt]\n\\text{NICE:}&\\quad \\min_{\\mathbf{I}} \\|\\psi - \\psi_{\\text{target}}\\|^2 \\;\\text{s.t.}\\; \\Delta^*\\psi = f(\\psi, \\mathbf{I})\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{\\psi}[\\text{Wb}],\\; \\bar{I}[\\text{A}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "NSTX-U球形环",
+        "formula": "$$\\varepsilon = a/R_0 \\geq 0.5 \\;\\text{(球形托卡马克)}$$"
+      }
+    ]
   },
   "JSOLVER": {
     "full_name": "JSOLVER — Tokamak Equilibrium J-Solver",
@@ -2282,7 +2674,15 @@
     ],
     "closure": "PPPL 开发的专用托卡马克环向电流密度 J 分布求解器，求解 Grad-Shafranov 方程中的环向电流密度剖面。在给定压力剖面 p(ψ) 和环向场函数 F(ψ)（或安全因子剖面 q(ψ)）的情况下，通过 Picard 迭代或 Newton 方法求解非线性椭圆型偏微分方程。轻量高效，适合嵌入 TRANSP/NUBEAM 等集成建模工具的工作流和自动化批量处理。",
     "normalization": "采用 SI 工程单位。电流密度以 A/m²，ψ 以 Wb，压力以 Pa 为单位。",
-    "variants": "固定边界模式；自由边界模式；TRANSP 集成；NUBEAM 集成；批量处理模式。"
+    "variants": "固定边界模式；自由边界模式；TRANSP 集成；NUBEAM 集成；批量处理模式。",
+    "closure_formula": "$$\\Delta^*\\psi = -\\mu_0 R^2 p'(\\psi) - FF'(\\psi),\\quad j_\\phi = R p' + \\frac{FF'}{\\mu_0 R}$$",
+    "normalization_formula": "$$\\bar{j}[\\text{A/m}^2],\\; \\bar{\\psi}[\\text{Wb}],\\; \\bar{p}[\\text{Pa}]$$",
+    "variant_formulas": [
+      {
+        "name": "TRANSP集成",
+        "formula": "$$\\psi(t) \\text{ for } t \\in [0, T_{\\text{shot}}]$$"
+      }
+    ]
   },
   "COTSIM": {
     "full_name": "COTSIM — Control-Oriented Transport Simulator",
@@ -2299,7 +2699,15 @@
     ],
     "closure": "面向控制的托卡马克等离子体输运模拟器。同时求解 1D 径向输运方程（温度、密度、电流）和 2D 自由边界平衡演化（通过耦合 Grad-Shafranov 求解器）。独特创新在于将机器学习代理模型嵌入仿真管线——例如用训练过的神经网络替代计算昂贵的 LHCD（Lower Hybrid Current Drive）物理模拟，使仿真速度提升数个数量级。2025 年在 EAST 装置实验验证。设计用于基于模型的 feedforward 优化和实时控制策略测试。",
     "normalization": "采用工程单位。温度以 keV，电流以 MA，功率以 MW，时间以 s 为单位。",
-    "variants": "物理模型模式；ML 代理模式（混合仿真）；EAST 专用配置；KSTAR 配置；ITER 推广；feedforward 优化模式。"
+    "variants": "物理模型模式；ML 代理模式（混合仿真）；EAST 专用配置；KSTAR 配置；ITER 推广；feedforward 优化模式。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial T}{\\partial t} &= \\nabla\\cdot(\\chi\\nabla T) + Q \\\\[4pt]\n\\chi &= (1-\\alpha)\\chi_{\\text{phys}} + \\alpha\\chi_{\\text{ML}}(\\mathbf{x}) \\quad \\text{(混合仿真)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{T}[\\text{keV}],\\; \\bar{I}[\\text{MA}],\\; \\bar{P}[\\text{MW}]$$",
+    "variant_formulas": [
+      {
+        "name": "EAST混合仿真",
+        "formula": "$$\\alpha \\in [0,1] \\;\\text{controls physics-to-ML mixing ratio}$$"
+      }
+    ]
   },
   "C3PO": {
     "full_name": "C3PO — Coil and Configuration Code for Plasma Optimization",
@@ -2316,7 +2724,15 @@
     ],
     "closure": "IPP Greifswald 开发的仿星器三维线圈和等离子体位形联合优化代码。基于\"仿星器磁场由外部三维线圈产生\"的原理，优化线圈几何（位置、形状、电流）以精确复现目标等离子体平衡（由 VMEC/GVEC 提供）的磁场结构。同时考虑工程约束（线圈间最小距离、最大曲率、支撑结构）。与 NEMO/GVEC/STELLOPT 等对接，形成从等离子体优化到线圈工程设计的完整工作流。在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用。",
     "normalization": "长度以 m，线圈电流以 Ampere-turns，磁场以 T 为单位。工程约束以 m 为单位。",
-    "variants": "单阶段线圈优化；两阶段（等离子体→线圈）优化；模块化线圈；鞍形线圈；W7-X 升级配置；下一代仿星器概念设计。"
+    "variants": "单阶段线圈优化；两阶段（等离子体→线圈）优化；模块化线圈；鞍形线圈；W7-X 升级配置；下一代仿星器概念设计。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\min_{\\mathbf{C}_1,\\ldots,\\mathbf{C}_N} &\\quad \\|\\mathbf{B}_N - \\mathbf{B}_{\\text{target}}\\|^2 \\\\[4pt]\n\\mathbf{B}_N(\\mathbf{r}) &= \\frac{\\mu_0}{4\\pi}\\sum_{c=1}^N I_c \\oint_{C_c} \\frac{d\\boldsymbol{\\ell}\\times(\\mathbf{r}-\\mathbf{r}')}{|\\mathbf{r}-\\mathbf{r}'|^3} \\\\[4pt]\n\\text{s.t.}&\\quad d_{ij} \\geq d_{\\min},\\; \\kappa_c \\leq \\kappa_{\\max}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{C}[\\text{m}],\\; \\bar{I}[\\text{Aturns}],\\; \\bar{B}[\\text{T}]$$",
+    "variant_formulas": [
+      {
+        "name": "W7-X线圈优化",
+        "formula": "$$\\min \\|\\nabla B\\|_{\\text{plasma}} \\;\\text{for W7-X divertor}$$"
+      }
+    ]
   },
   "LUKE": {
     "full_name": "LUKE — Drift-Kinetic Solver for Current Drive and Fast Particles",
@@ -2333,7 +2749,15 @@
     ],
     "closure": "EPFL 开发的快速漂移动理学求解器（原 DKE），在任意托卡马克平衡中求解三维相对论 bounce-averaged 电子漂移动理学方程。专门为电流驱动问题设计——自洽计算 Lower Hybrid Current Drive (LHCD)、Electron Cyclotron Current Drive (ECCD) 和自举电流（bootstrap current）。采用高效数值方法，典型放电参数下可在数秒内完成全分布函数求解。与 CQL3D（Fokker-Planck）和 TORAY/GENRAY（射线追踪）配合使用。",
     "normalization": "速度以光速 c 或热速度 vte 归一化，动量以 mec 归一化。空间以磁面坐标表示。",
-    "variants": "LHCD 模式；ECCD 模式；自举电流计算；稳态求解；时间相关模式；GENRAY/TORAY 耦合；CQL3D 比较验证。"
+    "variants": "LHCD 模式；ECCD 模式；自举电流计算；稳态求解；时间相关模式；GENRAY/TORAY 耦合；CQL3D 比较验证。",
+    "closure_formula": "$$\n\\begin{aligned}\nv_\\parallel \\hat{\\mathbf{b}}\\cdot\\nabla f + \\mathbf{v}_D\\cdot\\nabla f - C(f) &= Q_{\\text{RF}}(f) \\\\[4pt]\nC(f) &= \\frac{1}{v^2}\\frac{\\partial}{\\partial v}\\left[v^2\\nu_s\\left(v f + \\frac{v_{te}^2}{2}\\frac{\\partial f}{\\partial v}\\right)\\right] + \\frac{\\nu_\\perp}{2}\\frac{\\partial}{\\partial\\xi}\\left[(1-\\xi^2)\\frac{\\partial f}{\\partial\\xi}\\right]\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{v} = v/c,\\; \\bar{p} = p/(m_e c),\\; \\bar{t} = \\nu_{ee} t$$",
+    "variant_formulas": [
+      {
+        "name": "LHCD",
+        "formula": "$$j_{\\text{LH}} = -e\\int v_\\parallel f^{\\text{RF}}\\,d^3v$$"
+      }
+    ]
   },
   "REMA": {
     "full_name": "REMA — Resistive MHD Stability Code",
@@ -2350,6 +2774,14 @@
     ],
     "closure": "CEA-IRFM 开发的电阻 MHD 稳定性分析代码。采用有限元方法在环形几何中求解全电阻 MHD 方程组的线性本征值问题。计算撕裂模（tearing mode）、新经典撕裂模（NTM）和电阻壁模（RWM）等电阻性不稳定性的线性增长率和模结构。是 WEST 装置和 ITER 稳定性分析的工具之一。与 CRONOS/METIS 等集成建模代码对接，为稳态 scenario 开发提供稳定性边界。",
     "normalization": "采用 Alfvén 归一化。增长率以 τA⁻¹，电阻以 Lundquist 数表征。磁 Reynolds 数以 S = τR/τA 表示。",
-    "variants": "tearing mode 分析；NTM 分析；RWM 分析；CRONOS/METIS 集成；WEST 专用配置；ITER 稳定性评估。"
+    "variants": "tearing mode 分析；NTM 分析；RWM 分析；CRONOS/METIS 集成；WEST 专用配置；ITER 稳定性评估。",
+    "closure_formula": "$$\n\\begin{aligned}\n\\rho\\frac{\\partial\\mathbf{V}}{\\partial t} &= \\mathbf{J}\\times\\mathbf{B} - \\nabla p + \\nu\\nabla^2\\mathbf{V} \\\\[4pt]\n\\frac{\\partial\\mathbf{B}}{\\partial t} &= \\nabla\\times(\\mathbf{V}\\times\\mathbf{B}) - \\nabla\\times(\\eta\\mathbf{J}) \\\\[4pt]\n\\Delta' &= \\frac{\\psi'(r_s^+) - \\psi'(r_s^-)}{\\psi(r_s)} \\;\\text{(tearing mode stability index)}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\bar{t} = t/\\tau_A,\\; S = \\tau_R/\\tau_A,\\; \\Delta' \\;\\text{(无量纲)}$$",
+    "variant_formulas": [
+      {
+        "name": "NTM分析",
+        "formula": "$$\\Delta' + \\Delta'_{\\text{bootstrap}} = 0 \\;\\Rightarrow\\; \\text{marginal stability}$$"
+      }
+    ]
   }
 }

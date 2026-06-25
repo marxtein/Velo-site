@@ -74,13 +74,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">JET/ITER 预测</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">CEA（法国）开发的模块化托卡马克集成建模平台，求解 1.5D 核心输运方程系统（电子和离子温度、粒子密度、电流扩散）与 2D Grad-Shafranov 平衡（通过 HELENA/CHEASE 耦合）自洽迭代。输运系数由用户选择的输运模型（经验/准线性/第一性原理）提供。源项通过专用模块耦合：射频加热和电流驱动（GENRAY/CQL3D/R5-X2）、NBI（NEMO/SPOT）、聚变功率（自洽计算）。是 WEST 和 JET 装置 scenario 开发的核心工具。</p>
+<p class="body-text">CEA（法国）开发的模块化托卡马克集成建模平台，求解 1.5D 核心输运方程系统（电子和离子温度、粒子密度、电流扩散）与 2D Grad-Shafranov 平衡（通过 HELENA/CHEASE 耦合）自洽迭代。输运系数由用户选择的输运模型（经验/准线性/第一性原理）提供。源项通过专用模块耦合：射频加热和电流驱动（GENRAY/CQL3D/R5-X2）、NBI（NEMO/SPOT）、聚变功率（自洽计算）。是 WEST 和 JET 装置 scenario 开发的核心工具。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{3}{2}\frac{\partial(nT)}{\partial t} &= \nabla\cdot(n\chi\nabla T) + Q_{\text{aux}} - Q_{\text{rad}} \\[4pt]
+\frac{\partial \psi}{\partial t} &= \frac{\eta_\parallel}{\mu_0}\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\frac{\rho}{R_0}\frac{\partial\psi}{\partial\rho}\right) + \frac{j_{\text{BS}}+j_{\text{CD}}}{\sigma_\parallel}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。</p>
+<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{P}[\text{MW}],\; \bar{\chi}[\text{m}^2/\text{s}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">预测性输运模式；实验分析模式（功率平衡）；GENRAY/CQL3D 射频耦合；NEMO/SPOT NBI 耦合；杂质输运耦合（METIS）；WEST 装置专用配置；JET 装置配置；ITER 预测模式。</p>
+<p class="body-text">预测性输运模式；实验分析模式（功率平衡）；GENRAY/CQL3D 射频耦合；NEMO/SPOT NBI 耦合；杂质输运耦合（METIS）；WEST 装置专用配置；JET 装置配置；ITER 预测模式。</p><div class="variant-card"><h4>经验定标</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{tot}} - \partial W/\partial t}{-n\nabla T}$$</div></div><div class="variant-card"><h4>TGLF/QuaLiKiz耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/CEA-CRONOS" target="_blank" rel="noopener">github.com/CEA-CRONOS</a></div>

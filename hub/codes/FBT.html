@@ -74,13 +74,19 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">MEQ前身</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">EPFL 的经典自由边界托卡马克平衡代码（1988 年发表），专为高拉长比和强成形等离子体设计。使用有限元方法在 (R,Z) 平面求解 Grad-Shafranov 方程，耦合外部线圈电流和被动导体中的感应电流。是 LIUQE 和 FGE 的前身代码，其数值框架和物理模型为 EPFL 的 MEQ 平衡求解器套件奠定了基础。在 TCV 装置位形设计和分析中发挥了关键作用。</p>
+<p class="body-text">EPFL 的经典自由边界托卡马克平衡代码（1988 年发表），专为高拉长比和强成形等离子体设计。使用有限元方法在 (R,Z) 平面求解 Grad-Shafranov 方程，耦合外部线圈电流和被动导体中的感应电流。是 LIUQE 和 FGE 的前身代码，其数值框架和物理模型为 EPFL 的 MEQ 平衡求解器套件奠定了基础。在 TCV 装置位形设计和分析中发挥了关键作用。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$\Delta^*\psi = -\mu_0 R^2 p'(\psi) - FF'(\psi),\quad \kappa \geq 2 \;\text{(高拉长比)}$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 SI 工程单位。电流以 A，ψ 以 Wb，磁场以 T 为单位。</p>
+<p class="body-text">采用 SI 工程单位。电流以 A，ψ 以 Wb，磁场以 T 为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{\psi}[\text{Wb}],\; \bar{I}[\text{A}],\; \bar{B}[\text{T}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">自由边界平衡；固定边界平衡；高拉长比位形（TCV 专用）；MEQ/LIEUQ 前身。</p>
+<p class="body-text">自由边界平衡；固定边界平衡；高拉长比位形（TCV 专用）；MEQ/LIEUQ 前身。</p><div class="variant-card"><h4>TCV位形</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\kappa \in [1.0, 2.8],\; \delta \in [-0.5, 1.0]$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://doi.org/10.1016/0010-4655(88)90041-0" target="_blank" rel="noopener">doi.org/10.1016/0010-4655(88)90041-0</a></div>

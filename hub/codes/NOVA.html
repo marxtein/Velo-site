@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">ITER/CFETR标配</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">Princeton 开发的环形理想 MHD 本征值代码，求解理想 MHD 线性稳定性方程：ω²ρξ = F(ξ)（力算符 F 作用于等离子体位移 ξ）。采用 Galerkin 有限元方法（径向）+ Fourier 展开（极向和环向）求解。计算全局 MHD 模（kink, TAE, external kink）的本征值和本征函数。可包含高能粒子通过动理学响应函数的非微扰耦合（NOVA-K 扩展），处理 energetic particle-driven modes（TAE/EPM/Alfvén cascades）。</p>
+<p class="body-text">Princeton 开发的环形理想 MHD 本征值代码，求解理想 MHD 线性稳定性方程：ω²ρξ = F(ξ)（力算符 F 作用于等离子体位移 ξ）。采用 Galerkin 有限元方法（径向）+ Fourier 展开（极向和环向）求解。计算全局 MHD 模（kink, TAE, external kink）的本征值和本征函数。可包含高能粒子通过动理学响应函数的非微扰耦合（NOVA-K 扩展），处理 energetic particle-driven modes（TAE/EPM/Alfvén cascades）。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\omega^2\rho\boldsymbol{\xi} &= \mathbf{F}(\boldsymbol{\xi}) \\[4pt]
+\mathbf{F}(\boldsymbol{\xi}) &= \nabla(\gamma p\nabla\cdot\boldsymbol{\xi}) + \nabla(\boldsymbol{\xi}\cdot\nabla p) - \mathbf{B}\times(\nabla\times\mathbf{Q}) - \mathbf{Q}\times(\nabla\times\mathbf{B}) \\[4pt]
+\mathbf{Q} &= \nabla\times(\boldsymbol{\xi}\times\mathbf{B})
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 Alfvén 归一化。长度以 R₀，时间以 τA，频率以 ωA = vA/R₀ 归一化。</p>
+<p class="body-text">采用 Alfvén 归一化。长度以 R₀，时间以 τA，频率以 ωA = vA/R₀ 归一化。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{\omega} = \frac{\omega}{\omega_A},\; \omega_A = \frac{v_A}{R_0},\; \bar{\boldsymbol{\xi}} = \frac{\boldsymbol{\xi}}{R_0}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">理想 MHD（标配）；NOVA-K（高能粒子动理学耦合）；kink mode 分析；TAE/EPM 分析；external kink β-limit；Alfvén 连续谱计算。</p>
+<p class="body-text">理想 MHD（标配）；NOVA-K（高能粒子动理学耦合）；kink mode 分析；TAE/EPM 分析；external kink β-limit；Alfvén 连续谱计算。</p><div class="variant-card"><h4>NOVA-K (动理学)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\delta W_k = \int d^3v\, \frac{\partial F_0/\partial E}{\omega - \omega_D - n\omega_b}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://www.osti.gov/biblio/5841622" target="_blank" rel="noopener">www.osti.gov/biblio/5841622</a></div>

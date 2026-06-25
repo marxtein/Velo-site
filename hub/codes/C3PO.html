@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">IPP</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">IPP Greifswald 开发的仿星器三维线圈和等离子体位形联合优化代码。基于&quot;仿星器磁场由外部三维线圈产生&quot;的原理，优化线圈几何（位置、形状、电流）以精确复现目标等离子体平衡（由 VMEC/GVEC 提供）的磁场结构。同时考虑工程约束（线圈间最小距离、最大曲率、支撑结构）。与 NEMO/GVEC/STELLOPT 等对接，形成从等离子体优化到线圈工程设计的完整工作流。在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用。</p>
+<p class="body-text">IPP Greifswald 开发的仿星器三维线圈和等离子体位形联合优化代码。基于&quot;仿星器磁场由外部三维线圈产生&quot;的原理，优化线圈几何（位置、形状、电流）以精确复现目标等离子体平衡（由 VMEC/GVEC 提供）的磁场结构。同时考虑工程约束（线圈间最小距离、最大曲率、支撑结构）。与 NEMO/GVEC/STELLOPT 等对接，形成从等离子体优化到线圈工程设计的完整工作流。在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\min_{\mathbf{C}_1,\ldots,\mathbf{C}_N} &\quad \|\mathbf{B}_N - \mathbf{B}_{\text{target}}\|^2 \\[4pt]
+\mathbf{B}_N(\mathbf{r}) &= \frac{\mu_0}{4\pi}\sum_{c=1}^N I_c \oint_{C_c} \frac{d\boldsymbol{\ell}\times(\mathbf{r}-\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|^3} \\[4pt]
+\text{s.t.}&\quad d_{ij} \geq d_{\min},\; \kappa_c \leq \kappa_{\max}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">长度以 m，线圈电流以 Ampere-turns，磁场以 T 为单位。工程约束以 m 为单位。</p>
+<p class="body-text">长度以 m，线圈电流以 Ampere-turns，磁场以 T 为单位。工程约束以 m 为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{C}[\text{m}],\; \bar{I}[\text{Aturns}],\; \bar{B}[\text{T}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">单阶段线圈优化；两阶段（等离子体→线圈）优化；模块化线圈；鞍形线圈；W7-X 升级配置；下一代仿星器概念设计。</p>
+<p class="body-text">单阶段线圈优化；两阶段（等离子体→线圈）优化；模块化线圈；鞍形线圈；W7-X 升级配置；下一代仿星器概念设计。</p><div class="variant-card"><h4>W7-X线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min \|\nabla B\|_{\text{plasma}} \;\text{for W7-X divertor}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://www.ipp.mpg.de/en" target="_blank" rel="noopener">www.ipp.mpg.de/en</a></div>

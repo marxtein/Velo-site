@@ -74,13 +74,26 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">CQL3D前端</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">与 GENRAY 类似，求解 EC 波射线追踪方程，但专门针对电子回旋波（EC）的加热和电流驱动。使用冷等离子体色散关系或 weakly relativistic 修正。求解 dr/dt = vg 和 dk/dt（含 relativistic 和热修正项）。计算沿射线的功率衰减（通过吸收系数）和驱动的电流密度（通过 adjoint 方法或 Fokker-Planck 响应函数）。是 GA 和 PPPL 装置上 EC 系统设计的标准工具。</p>
+<p class="body-text">与 GENRAY 类似，求解 EC 波射线追踪方程，但专门针对电子回旋波（EC）的加热和电流驱动。使用冷等离子体色散关系或 weakly relativistic 修正。求解 dr/dt = vg 和 dk/dt（含 relativistic 和热修正项）。计算沿射线的功率衰减（通过吸收系数）和驱动的电流密度（通过 adjoint 方法或 Fokker-Planck 响应函数）。是 GA 和 PPPL 装置上 EC 系统设计的标准工具。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{d\mathbf{r}}{dt} &= -\frac{\partial D/\partial \mathbf{k}}{\partial D/\partial \omega},\quad
+\frac{d\mathbf{k}}{dt} = \frac{\partial D/\partial \mathbf{r}}{\partial D/\partial \omega} \\[4pt]
+D(\omega,\mathbf{k},\mathbf{r}) &= \det\left[\frac{c^2}{\omega^2}(\mathbf{k}\mathbf{k} - k^2\mathbf{I}) + \boldsymbol{\varepsilon}(\omega,\mathbf{k},\mathbf{r})\right] = 0 \\[4pt]
+\frac{dP}{dt} &= -2\gamma(\mathbf{r},\mathbf{k}) P,\quad \gamma = \text{Im}(\omega)
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">与 GENRAY 类似。频率以 GHz，功率以 MW，位置以 m，磁场以 T 为单位。内部计算使用归一化等离子体单位。</p>
+<p class="body-text">与 GENRAY 类似。频率以 GHz，功率以 MW，位置以 m，磁场以 T 为单位。内部计算使用归一化等离子体单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{\omega} = \frac{\omega}{\Omega_{ce}},\; \bar{k} = \frac{kc}{\omega_{pe}},\; \bar{\mathbf{r}} = \frac{\mathbf{r}}{R_0}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">EC 射线追踪（标配）；O-mode/X-mode 选择；线性吸收；准线性吸收（有限功率展宽）；电流驱动效率计算（Ehst-Karney 或 adjoint 方法）。</p>
+<p class="body-text">EC 射线追踪（标配）；O-mode/X-mode 选择；线性吸收；准线性吸收（有限功率展宽）；电流驱动效率计算（Ehst-Karney 或 adjoint 方法）。</p><div class="variant-card"><h4>ECCD效率</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\eta_{\text{CD}} = \frac{\bar{R} n_e I_{\text{CD}}}{P_{\text{EC}}} \times 10^{20}\;\text{A/W/m}^2$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://gafusion.github.io/OMFIT-source/" target="_blank" rel="noopener">gafusion.github.io/OMFIT-source/</a></div>

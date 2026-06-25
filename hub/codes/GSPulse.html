@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">开源</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解逆问题（而非正问题）：给定用户设定的目标平衡位形序列以及线圈电流和电压约束，优化算法自动输出实现该序列所需的电压、电流和可达平衡的完整脉冲轨迹。将自由边界平衡演化方程重构为优化形式（最小化偏离目标位形的代价，受 Grad-Shafranov 和电路动力学约束）。可在数分钟内同时求解数百个平衡点。已用于 SPARC 的 scenario 设计。</p>
+<p class="body-text">求解逆问题（而非正问题）：给定用户设定的目标平衡位形序列以及线圈电流和电压约束，优化算法自动输出实现该序列所需的电压、电流和可达平衡的完整脉冲轨迹。将自由边界平衡演化方程重构为优化形式（最小化偏离目标位形的代价，受 Grad-Shafranov 和电路动力学约束）。可在数分钟内同时求解数百个平衡点。已用于 SPARC 的 scenario 设计。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\Delta^*\psi &= -\mu_0 R^2 p'(\psi) - FF'(\psi) \\[4pt]
+\mathbf{M}\dot{\mathbf{I}} + \mathbf{R}\mathbf{I} &= \mathbf{V} + \dot{\boldsymbol{\Psi}}_{\text{plasma}} \\[4pt]
+\chi^2(\boldsymbol{\alpha}) &= \sum_i \frac{(M_i^{\text{meas}} - M_i(\boldsymbol{\alpha}))^2}{\sigma_i^2} \to \min
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 SI 工程单位。时间以 s，电流以 A，电压以 V，ψ 以 Wb 为单位。</p>
+<p class="body-text">采用 SI 工程单位。时间以 s，电流以 A，电压以 V，ψ 以 Wb 为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{\psi}[\text{Wb}],\; \bar{I}[\text{A}],\; \bar{V}[\text{V}],\; \bar{t}[\text{s}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">SPARC 脉冲设计模式；NSTX-U/MAST-U 应用模式；单目标位形；多目标位形序列；线圈电流/电压约束。</p>
+<p class="body-text">SPARC 脉冲设计模式；NSTX-U/MAST-U 应用模式；单目标位形；多目标位形序列；线圈电流/电压约束。</p><div class="variant-card"><h4>SPARC脉冲设计</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}(t)} \|\psi(t) - \psi_{\text{target}}(t)\|^2$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/jwai-cfs/GSPulse_public" target="_blank" rel="noopener">github.com/jwai-cfs/GSPulse_public</a>

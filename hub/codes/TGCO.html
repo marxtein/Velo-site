@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">IPP-CAS开发</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">IPP-CAS（中国科学院等离子体物理研究所）开发的托卡马克磁面坐标计算和 NBI 蒙特卡洛模拟程序。第一部分计算 Grad-Shafranov 平衡的磁面坐标（ψ, θ, φ）精确映射和可视化。第二部分通过蒙特卡洛方法模拟 NBI 中性粒子在托卡马克几何中的电离和快离子初始分布生成，类似 NEMO 在仿星器中的角色。以 Python/C++ 混合实现，注重教学友好性和快速原型开发。</p>
+<p class="body-text">IPP-CAS（中国科学院等离子体物理研究所）开发的托卡马克磁面坐标计算和 NBI 蒙特卡洛模拟程序。第一部分计算 Grad-Shafranov 平衡的磁面坐标（ψ, θ, φ）精确映射和可视化。第二部分通过蒙特卡洛方法模拟 NBI 中性粒子在托卡马克几何中的电离和快离子初始分布生成，类似 NEMO 在仿星器中的角色。以 Python/C++ 混合实现，注重教学友好性和快速原型开发。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\psi(\mathbf{r}) &= \text{const} \;\text{on magnetic surfaces} \\[4pt]
+\mathbf{B} &= \nabla\zeta\times\nabla\psi + \nabla\Phi\times\nabla\theta \\[4pt]
+\frac{d\mathbf{r}}{ds} &= \hat{\boldsymbol{\Omega}} \quad \text{(NBI 中性粒子追踪)}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位。长度以 m，磁场以 T，电流以 A，能量以 keV 为单位。磁面坐标 ψ 以 Wb 为单位。</p>
+<p class="body-text">采用工程单位。长度以 m，磁场以 T，电流以 A，能量以 keV 为单位。磁面坐标 ψ 以 Wb 为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{\psi}[\text{Wb}],\; \bar{B}[\text{T}],\; E[\text{keV}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">磁面坐标计算模式；NBI Monte Carlo 电离模式；教学/原型开发模式；Python/C++ 双语言接口。</p>
+<p class="body-text">磁面坐标计算模式；NBI Monte Carlo 电离模式；教学/原型开发模式；Python/C++ 双语言接口。</p><div class="variant-card"><h4>教学/原型</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{Python/C++ 混合，代码极简，数千行}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/Youjunhu/TGCO" target="_blank" rel="noopener">github.com/Youjunhu/TGCO</a></div>

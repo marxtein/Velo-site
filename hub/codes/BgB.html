@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">跨装置标度</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。</p>
+<p class="body-text">Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\chi_{\text{Bohm}} &= \alpha_B \frac{T_e}{eB}\,F(\nabla T, \nabla n) \\[4pt]
+\chi_{gB} &= \alpha_{gB} \frac{T_e}{eB}\rho_*^2\,G(\nabla T, \nabla n) \\[4pt]
+\chi &= \chi_{\text{Bohm}} + \chi_{gB}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">输运系数以 m²/s。Bohm 扩散系数 DB = Te/(16eB)。</p>
+<p class="body-text">输运系数以 m²/s。Bohm 扩散系数 DB = Te/(16eB)。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{D}_B = \frac{T_e}{16eB},\; \rho_* = \frac{\rho_s}{a}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。</p>
+<p class="body-text">Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。</p><div class="variant-card"><h4>L/H自适应</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\alpha_{gB} = \begin{cases}0 & \text{L-mode}\\1 & \text{H-mode}\end{cases}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://doi.org/10.1088/1741-4326/ad6ea2" target="_blank" rel="noopener">doi.org/10.1088/1741-4326/ad6ea2</a>
