@@ -74,13 +74,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">多装置验证</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解快离子（NBI 束离子、聚变 α 粒子）在三维磁场中的速度和空间分布函数，用于计算合成诊断信号。通过蒙特卡洛方法追踪中性束中性粒子的电离过程（电子碰撞电离、离子碰撞电离、电荷交换）产生快离子源分布。然后求解快离子的 Fokker-Planck 方程（pitch-angle scattering + energy slowing-down），或采用导心轨道追踪（guiding-center orbit following）。不直接求解等离子体平衡方程——磁场结构和背景等离子体参数由外部代码提供。最终输出合成诊断信号（FIDA、NPA、neutron camera 等）。</p>
+<p class="body-text">求解快离子（NBI 束离子、聚变 α 粒子）在三维磁场中的速度和空间分布函数，用于计算合成诊断信号。通过蒙特卡洛方法追踪中性束中性粒子的电离过程（电子碰撞电离、离子碰撞电离、电荷交换）产生快离子源分布。然后求解快离子的 Fokker-Planck 方程（pitch-angle scattering + energy slowing-down），或采用导心轨道追踪（guiding-center orbit following）。不直接求解等离子体平衡方程——磁场结构和背景等离子体参数由外部代码提供。最终输出合成诊断信号（FIDA、NPA、neutron camera 等）。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{df}{dt} &= \frac{1}{\tau_s v^2}\frac{\partial}{\partial v}[(v^3 + v_c^3)f] + \frac{\nu_\perp}{2}\frac{\partial}{\partial\xi}\left[(1-\xi^2)\frac{\partial f}{\partial\xi}\right] \\[4pt]
+S_{\text{FIDA}} &\propto n_b n_D \langle\sigma v\rangle_{\text{cx}} \quad \text{(FIDA 光谱合成)}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 SI 单位制。能量以 keV，位置以 m，磁场以 T，密度以 m⁻³。输出快离子分布函数和合成信号以物理单位表示。</p>
+<p class="body-text">采用 SI 单位制。能量以 keV，位置以 m，磁场以 T，密度以 m⁻³。输出快离子分布函数和合成信号以物理单位表示。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$E[\text{keV}],\; \mathbf{x}[\text{m}],\; B[\text{T}],\; n[\text{m}^{-3}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">NBI 快离子模拟；α 粒子模拟；FIDA（快离子 D-alpha）光谱合成；中性粒子分析仪（NPA）合成；中子相机合成；2D/3D 诊断视线积分。</p>
+<p class="body-text">NBI 快离子模拟；α 粒子模拟；FIDA（快离子 D-alpha）光谱合成；中性粒子分析仪（NPA）合成；中子相机合成；2D/3D 诊断视线积分。</p><div class="variant-card"><h4>FIDA合成</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$I_\lambda^{\text{FIDA}} = \int f(E,\xi)\, \frac{dE}{d\lambda}\,dE\,d\xi$$</div></div><div class="variant-card"><h4>中子相机</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R_{ij} = \int_{V_i} \int_{E} n_D n_T \langle\sigma v\rangle_{DT}(E)\,dE\,dV_j$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://d3denergetic.github.io/FIDASIM/" target="_blank" rel="noopener">d3denergetic.github.io/FIDASIM/</a></div>

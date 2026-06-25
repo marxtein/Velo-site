@@ -74,13 +74,26 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">STEP/DEMO 设计</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解聚变反应堆系统设计问题（0D/1D 系统代码）。通过对托卡马克/仿星器主要子系统（等离子体物理、磁体、包层、偏滤器、加热系统等）建立简化的物理和工程模型，使用约束优化方法寻找满足物理可行性和工程约束的最优设计点。物理模型包括：0D 等离子体功率平衡（基于经验定标律如 IPB98(y,2) 或回旋动理学预测）、1D 径向输运（简化模型）、MHD 稳定性约束（beta limit、safety factor）、电流驱动效率等。各子系统模型通过质量和功率平衡方程耦合。</p>
+<p class="body-text">求解聚变反应堆系统设计问题（0D/1D 系统代码）。通过对托卡马克/仿星器主要子系统（等离子体物理、磁体、包层、偏滤器、加热系统等）建立简化的物理和工程模型，使用约束优化方法寻找满足物理可行性和工程约束的最优设计点。物理模型包括：0D 等离子体功率平衡（基于经验定标律如 IPB98(y,2) 或回旋动理学预测）、1D 径向输运（简化模型）、MHD 稳定性约束（beta limit、safety factor）、电流驱动效率等。各子系统模型通过质量和功率平衡方程耦合。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+P_{\text{fus}} &= n_D n_T \langle\sigma v\rangle_{DT} E_{\text{fus}} V \\[4pt]
+P_{\text{loss}} &= \frac{W}{\tau_E},\quad \tau_E = H_H \cdot \tau_{E, \text{IPB98}(y,2)} \\[4pt]
+Q &= \frac{P_{\text{fus}}}{P_{\text{aux}}} \geq Q_{\text{target}} \\[4pt]
+\beta_N &= \frac{\beta}{I_p/(a B_0)} \leq \beta_N^{\max}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位（SI）。功率以 MW，尺寸以 m，磁场以 T，电流以 MA，温度以 keV 为单位。成本模型以货币单位表示。</p>
+<p class="body-text">采用工程单位（SI）。功率以 MW，尺寸以 m，磁场以 T，电流以 MA，温度以 keV 为单位。成本模型以货币单位表示。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{P}[\text{MW}],\; \bar{R}[\text{m}],\; \bar{B}[\text{T}],\; \bar{I}[\text{MA}],\; \bar{T}[\text{keV}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">托卡马克模式（标配）；仿星器模式；脉冲模式；稳态模式；H-mode/L-mode；氘-氚/氘-氘燃料；不同包层方案（HCPB/HCLL/WCLL）；成本优化/纯物理优化。</p>
+<p class="body-text">托卡马克模式（标配）；仿星器模式；脉冲模式；稳态模式；H-mode/L-mode；氘-氚/氘-氘燃料；不同包层方案（HCPB/HCLL/WCLL）；成本优化/纯物理优化。</p><div class="variant-card"><h4>托卡马克</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\tau_E^{\text{IPB98}} = 0.0562 I_p^{0.93} B_0^{0.15} n^{0.41} P^{-0.69} R^{1.97} \varepsilon^{0.58} \kappa^{0.78}$$</div></div><div class="variant-card"><h4>仿星器</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\tau_E^{\text{ISS04}} = 0.148 R^{0.64} a^{2.33} \bar{n}^{0.54} B^{0.84} \iota_{2/3}^{0.41} P^{-0.61}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/ukaea/PROCESS" target="_blank" rel="noopener">github.com/ukaea/PROCESS</a></div>

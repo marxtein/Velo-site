@@ -74,13 +74,21 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">GS2/CGYRO/GENE/stella</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">Python 库，用于在不同回旋动理学代码（GENE、GS2、CGYRO、GX、stella 等）之间转换输入/输出格式。不直接求解物理方程——通过标准化的数据格式（基于 xarray 的 Pyro 对象）在代码间映射平衡几何（Miller 磁面参数）、等离子体剖面（密度、温度、旋转）、电磁涨落设置和归一化参数。物理闭合由调用的回旋动理学代码决定。大大简化了多代码基准对比（benchmarking）和不确定性量化工作流。</p>
+<p class="body-text">Python 库，用于在不同回旋动理学代码（GENE、GS2、CGYRO、GX、stella 等）之间转换输入/输出格式。不直接求解物理方程——通过标准化的数据格式（基于 xarray 的 Pyro 对象）在代码间映射平衡几何（Miller 磁面参数）、等离子体剖面（密度、温度、旋转）、电磁涨落设置和归一化参数。物理闭合由调用的回旋动理学代码决定。大大简化了多代码基准对比（benchmarking）和不确定性量化工作流。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\mathcal{M}: \text{input.gacode} \xrightarrow[\text{pyro}]{} \{\text{GENE}, \text{CGYRO}, \text{GS2}, \text{GX}, \text{stella}, \text{TGLF}\}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">输入剖面以工程单位（keV, 10¹⁹ m⁻³, m）提供，内部自动转换为各目标代码所需的归一化方案（GENE 的 gyro-Bohm、CGYRO 的 ρs 归一化等）。归一化参数在 Pyro 对象中集中管理。</p>
+<p class="body-text">输入剖面以工程单位（keV, 10¹⁹ m⁻³, m）提供，内部自动转换为各目标代码所需的归一化方案（GENE 的 gyro-Bohm、CGYRO 的 ρs 归一化等）。归一化参数在 Pyro 对象中集中管理。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\text{自动转换: 工程单位} \leftrightarrow \text{各代码归一化}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">GENE 输入/输出转换；GS2 转换；CGYRO 转换；GX 转换；stella 转换；TGLF 转换；多代码 benchmark 模式；profile 参数扫描模式。</p>
+<p class="body-text">GENE 输入/输出转换；GS2 转换；CGYRO 转换；GX 转换；stella 转换；TGLF 转换；多代码 benchmark 模式；profile 参数扫描模式。</p><div class="variant-card"><h4>多代码benchmark</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\Delta \chi = \frac{|\chi_A - \chi_B|}{\chi_A + \chi_B} < \varepsilon$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://pyrokinetics.readthedocs.io/" target="_blank" rel="noopener">pyrokinetics.readthedocs.io/</a></div>

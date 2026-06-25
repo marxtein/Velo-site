@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">集成建模</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解 1D 径向输运方程系统（粒子、电子能量、离子能量、环向动量），与 TGLF（准线性湍流输运）或 GYRO/CGYRO（非线性湍流输运）耦合以自洽计算输运系数。平衡通过固定的 MHD 平衡提供（通常来自 EFIT 或 TOQ）。源项通过外部耦合模块（NUBEAM for NBI、TORAY/GENRAY for RF）计算。输运方程采用有限体积或有限差分方法在径向磁面坐标中离散。所有源项和输运系数在 input.gacode 格式中统一管理。是 GACODE 的集成输运求解器。</p>
+<p class="body-text">求解 1D 径向输运方程系统（粒子、电子能量、离子能量、环向动量），与 TGLF（准线性湍流输运）或 GYRO/CGYRO（非线性湍流输运）耦合以自洽计算输运系数。平衡通过固定的 MHD 平衡提供（通常来自 EFIT 或 TOQ）。源项通过外部耦合模块（NUBEAM for NBI、TORAY/GENRAY for RF）计算。输运方程采用有限体积或有限差分方法在径向磁面坐标中离散。所有源项和输运系数在 input.gacode 格式中统一管理。是 GACODE 的集成输运求解器。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{\partial}{\partial t}\left(\frac{3}{2}n_s T_s\right) &= \frac{1}{V'}\frac{\partial}{\partial\rho}\left[V'\left(q_s + \frac{5}{2}\Gamma_s T_s\right)\right] + Q_s \\[4pt]
+q_s &= -n_s \chi_s \frac{\partial T_s}{\partial\rho},\quad \Gamma_s = -D_s\frac{\partial n_s}{\partial\rho} \\[4pt]
+\chi_s &= \chi_s^{\text{neo}} + \chi_s^{\text{TGLF/GYRO}}(\nabla T, \nabla n, q, s, \ldots)
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。输入剖面文件（input.gacode）使用工程单位。内部输运系数自动转换为 gyro-Bohm 归一化单位供 TGLF/GYRO 使用。</p>
+<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。输入剖面文件（input.gacode）使用工程单位。内部输运系数自动转换为 gyro-Bohm 归一化单位供 TGLF/GYRO 使用。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{\chi}[\text{m}^2/\text{s}],\; \bar{P}[\text{MW}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">TGLF 准线性输运耦合；GYRO 非线性输运耦合；CGYRO 非线性输运耦合；预测性模式（时间推进）；稳态求解模式；功率平衡分析模式；NUBEAM 快离子耦合。</p>
+<p class="body-text">TGLF 准线性输运耦合；GYRO 非线性输运耦合；CGYRO 非线性输运耦合；预测性模式（时间推进）；稳态求解模式；功率平衡分析模式；NUBEAM 快离子耦合。</p><div class="variant-card"><h4>TGLF耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{TGLF}} = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle}$$</div></div><div class="variant-card"><h4>GYRO耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{GYRO}} = \frac{\langle \tilde{Q} \rangle}{-n\nabla T}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/gafusion/gacode" target="_blank" rel="noopener">github.com/gafusion/gacode</a></div>

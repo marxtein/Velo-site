@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">教学验证</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解局域非线性回旋动理学方程（δf），采用连续体谱方法：气球模坐标（场向）+ Fourier（径向）+ 广义 Laguerre（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程和并联 Ampere 定律。支持包含磁压缩 B∥ 的电磁涨落。碰撞通过完全 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子）处理。支持多粒子种。几何采用局域 Miller 磁面平衡（实际 Grad-Shafranov 平衡的局域展开）。是 GACODE 套件的核心湍流求解器。</p>
+<p class="body-text">求解局域非线性回旋动理学方程（δf），采用连续体谱方法：气球模坐标（场向）+ Fourier（径向）+ 广义 Laguerre（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程和并联 Ampere 定律。支持包含磁压缩 B∥ 的电磁涨落。碰撞通过完全 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子）处理。支持多粒子种。几何采用局域 Miller 磁面平衡（实际 Grad-Shafranov 平衡的局域展开）。是 GACODE 套件的核心湍流求解器。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{\partial g_s}{\partial t} &+ v_\parallel \hat{\mathbf{b}}\cdot\nabla g_s + \mathbf{v}_D\cdot\nabla g_s - \frac{Z_s e F_{0s}}{T_s}\frac{\partial\langle\chi\rangle}{\partial t} = C[g_s] \\[4pt]
+\nabla_\perp^2 \phi &= -4\pi\sum_s Z_s e \int d^3v\, J_0(k_\perp\rho_s) g_s \\[4pt]
+g_s &= \sum_{n,p,\ell} g_{np\ell}\, e^{in\theta} L_\ell^{(p)}(\bar{\mu}) e^{-\bar{\mu}/2}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用以离子声回旋半径 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化方案（与 CGYRO/GENE 兼容）。径向波数以 ρs 为单位，增长率以 cs/a 为单位。热通量以 gyro-Bohm 单位 QgB = nref·Tref·cs·(ρs/a)² 表示。具体参数由 input.gacode 文件指定。</p>
+<p class="body-text">采用以离子声回旋半径 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化方案（与 CGYRO/GENE 兼容）。径向波数以 ρs 为单位，增长率以 cs/a 为单位。热通量以 gyro-Bohm 单位 QgB = nref·Tref·cs·(ρs/a)² 表示。具体参数由 input.gacode 文件指定。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{k}_\theta = k_\theta\rho_s,\; \bar{\gamma}=\frac{\gamma}{c_s/a},\; Q_{gB}=n_0 T_0 c_s(\rho_s/a)^2$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">线性本征值模式；非线性湍流模式；纯静电；电磁（φ + A∥ + B∥）；单/多粒子种；碰撞/无碰撞；ExB 剪切流效应；s-α 模型/Miller 几何。</p>
+<p class="body-text">线性本征值模式；非线性湍流模式；纯静电；电磁（φ + A∥ + B∥）；单/多粒子种；碰撞/无碰撞；ExB 剪切流效应；s-α 模型/Miller 几何。</p><div class="variant-card"><h4>线性/非线性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\det[\mathcal{L}-\omega\mathcal{I}]=0 \;\text{vs.}\; \partial_t g = \mathcal{L}[g]+\mathcal{N}[g,g]$$</div></div><div class="variant-card"><h4>静电/电磁</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\phi\text{ only } \;\text{vs.}\; \phi+A_\parallel+B_\parallel$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/gafusion/gacode" target="_blank" rel="noopener">github.com/gafusion/gacode</a></div>

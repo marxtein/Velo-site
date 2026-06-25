@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">非线性优化</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解仿星器三维线圈设计的非线性优化问题：给定目标等离子体平衡（通过 VMEC 或 SPEC 提供），直接计算有限数量三维曲线（线圈丝）的位置、形状和电流，使得产生的磁场在等离子体区域精确复现目标磁场。采用非线性约束优化（线圈工程约束：最小弯曲半径、最小间距、最大电流密度），直接处理有限线圈（而非 REGCOIL 的连续电流势）。目标函数包含磁场误差（B·n 在等离子体边界上）和工程代价函数。</p>
+<p class="body-text">求解仿星器三维线圈设计的非线性优化问题：给定目标等离子体平衡（通过 VMEC 或 SPEC 提供），直接计算有限数量三维曲线（线圈丝）的位置、形状和电流，使得产生的磁场在等离子体区域精确复现目标磁场。采用非线性约束优化（线圈工程约束：最小弯曲半径、最小间距、最大电流密度），直接处理有限线圈（而非 REGCOIL 的连续电流势）。目标函数包含磁场误差（B·n 在等离子体边界上）和工程代价函数。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\min_{\mathbf{C}_1,\ldots,\mathbf{C}_N} &\quad \sum_{p\in\text{plasma}} \|\mathbf{B}_N(\mathbf{r}_p) - \mathbf{B}_{\text{target}}(\mathbf{r}_p)\|^2 \\[4pt]
+\text{s.t.} &\quad \kappa_c \leq \kappa_{\max},\; d_{ij} \geq d_{\min} \\[4pt]
+\mathbf{B}_N(\mathbf{r}) &= \frac{\mu_0}{4\pi}\sum_{c=1}^N I_c \oint_{C_c} \frac{d\boldsymbol{\ell} \times (\mathbf{r} - \mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|^3}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">长度以米为单位，线圈电流以 Ampere 或 Ampere-turns 为单位，磁场以 Tesla 为单位。工程约束（曲率半径、间距）以米为单位。</p>
+<p class="body-text">长度以米为单位，线圈电流以 Ampere 或 Ampere-turns 为单位，磁场以 Tesla 为单位。工程约束（曲率半径、间距）以米为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{C}[\text{m}],\; \bar{I}[\text{A}],\; \bar{B}[\text{T}],\; \bar{\kappa}[\text{m}^{-1}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">单丝线圈模式；多丝线圈模式（每组线圈多匝）；模块化线圈（modular coils）；鞍形线圈（saddle coils）；不同工程约束配置。</p>
+<p class="body-text">单丝线圈模式；多丝线圈模式（每组线圈多匝）；模块化线圈（modular coils）；鞍形线圈（saddle coils）；不同工程约束配置。</p><div class="variant-card"><h4>模块化线圈</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{C}_c(\phi) = \mathbf{C}_c(\phi+2\pi/N_p) \;\text{(N_p 场周期)}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/PrincetonUniversity/FOCUS" target="_blank" rel="noopener">github.com/PrincetonUniversity/FOCUS</a></div>
