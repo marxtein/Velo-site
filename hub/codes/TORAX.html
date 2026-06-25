@@ -75,13 +75,31 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">GPU 加速</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解 1.5D 核心输运方程系统（粒子、电子能量、离子能量、电流扩散）。采用有限体积法在磁面坐标中离散。输运闭合通过用户指定的输运模型提供：支持经验定标（Bohm/gyroBohm）、降阶准线性模型（QuaLiKiz/QLKNN、TGLF）和第一性原理回旋动理学。边界条件由 pedestal 模型（EPED/REPED）或 scrape-off-layer 模型给出。源项（加热、电流驱动、聚变功率）通过外部模块耦合。采用 JAX 可微分框架实现自动微分，支持高效参数扫描和逆问题求解。</p>
+<p class="body-text">求解 1.5D 核心输运方程系统（粒子、电子能量、离子能量、电流扩散）。采用有限体积法在磁面坐标中离散。输运闭合通过用户指定的输运模型提供：支持经验定标（Bohm/gyroBohm）、降阶准线性模型（QuaLiKiz/QLKNN、TGLF）和第一性原理回旋动理学。边界条件由 pedestal 模型（EPED/REPED）或 scrape-off-layer 模型给出。源项（加热、电流驱动、聚变功率）通过外部模块耦合。采用 JAX 可微分框架实现自动微分，支持高效参数扫描和逆问题求解。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+&\text{电子能量:} \quad \frac{3}{2}\frac{\partial}{\partial t}(n_e T_e) = \nabla \cdot (n_e \chi_e \nabla T_e) + Q_e - Q_{ei} \\[4pt]
+&\text{离子能量:} \quad \frac{3}{2}\frac{\partial}{\partial t}(n_i T_i) = \nabla \cdot (n_i \chi_i \nabla T_i) + Q_{ei} + Q_i \\[4pt]
+&\text{电流扩散:} \quad \sigma_\parallel \frac{\partial \psi}{\partial t} = \frac{1}{\mu_0 \rho}\frac{\partial}{\partial \rho}\left(\frac{\rho G_2}{R_0}\frac{\partial \psi}{\partial \rho}\right) + \frac{j_{\text{BS}} + j_{\text{CD}}}{\eta_\parallel} \\[4pt]
+&\text{输运闭合:} \quad \chi_{e,i} = \chi_{e,i}^{\text{Bohm}} + \chi_{e,i}^{\text{gyroBohm}} + \chi_{e,i}^{\text{TGLF/QuaLiKiz}}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用标准托卡马克工程单位。长度以米为单位，时间以秒为单位，温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，电流以 MA 为单位，功率以 MW 为单位。内部计算使用 SI 单位制，通过 JAX 自动处理量纲一致性。</p>
+<p class="body-text">采用标准托卡马克工程单位。长度以米为单位，时间以秒为单位，温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，电流以 MA 为单位，功率以 MW 为单位。内部计算使用 SI 单位制，通过 JAX 自动处理量纲一致性。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$
+\begin{aligned}
+\bar{T} &= \frac{T}{\text{keV}}, \quad \bar{n} = \frac{n}{10^{19}\,\text{m}^{-3}}, \quad \bar{P} = \frac{P}{\text{MW}} \\[4pt]
+\bar{t} &= \frac{t}{\text{s}}, \quad \bar{L} = \frac{L}{\text{m}}, \quad \bar{j} = \frac{j}{\text{MA/m}^2}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">经验输运模式（Bohm/gyroBohm）；准线性输运模式（QuaLiKiz/QLKNN、TGLF）；时间相关模拟（预测性）；时间无关稳态求解；参数扫描模式（不确定性量化）；逆问题模式（优化控制轨迹）；集成 heating/CD 源项模块；pedestal 模型耦合（EPED/REPED）；L 模/H 模自动切换。</p>
+<p class="body-text">经验输运模式（Bohm/gyroBohm）；准线性输运模式（QuaLiKiz/QLKNN、TGLF）；时间相关模拟（预测性）；时间无关稳态求解；参数扫描模式（不确定性量化）；逆问题模式（优化控制轨迹）；集成 heating/CD 源项模块；pedestal 模型耦合（EPED/REPED）；L 模/H 模自动切换。</p><div class="variant-card"><h4>经验输运 (Bohm/gyroBohm)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_e = \chi_e^B \frac{T_e}{eB} + \chi_e^{gB} \rho_*^2 \frac{T_e}{eB}$$</div></div><div class="variant-card"><h4>准线性输运 (TGLF/QuaLiKiz)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle} |\phi_k(\rho)|^2$$</div></div><div class="variant-card"><h4>参数扫描/逆问题</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}(t)} \mathcal{J}[\mathbf{x}, \mathbf{u}] = \int_0^T \|\mathbf{x} - \mathbf{x}_{\text{target}}\|^2 dt$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/google-deepmind/torax" target="_blank" rel="noopener">github.com/google-deepmind/torax</a>

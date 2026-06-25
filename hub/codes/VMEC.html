@@ -75,13 +75,28 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">傅里叶展开</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解三维理想 MHD 静力平衡方程 J × B = ∇p，假设存在嵌套磁面（通过磁面坐标 s 参数化）。采用变分原理（能量泛函最小化）结合谱方法（Fourier 级数在极向角 θ 和环向角 φ 展开）求解逆平衡问题。磁场表示为 B = ∇φ × ∇χ + ∇Φ × ∇ψ（Boozer 坐标或 Hamada 坐标形式）。平衡通过最小化 δW = 0 变分求解，其中 W = ∫(B²/2μ₀ + p/(γ − 1)) dV。压力 p = p(s) 以磁面函数给定，旋转变换 ι(s) 或安全因子 q(s) 为预设剖面。</p>
+<p class="body-text">求解三维理想 MHD 静力平衡方程 J × B = ∇p，假设存在嵌套磁面（通过磁面坐标 s 参数化）。采用变分原理（能量泛函最小化）结合谱方法（Fourier 级数在极向角 θ 和环向角 φ 展开）求解逆平衡问题。磁场表示为 B = ∇φ × ∇χ + ∇Φ × ∇ψ（Boozer 坐标或 Hamada 坐标形式）。平衡通过最小化 δW = 0 变分求解，其中 W = ∫(B²/2μ₀ + p/(γ − 1)) dV。压力 p = p(s) 以磁面函数给定，旋转变换 ι(s) 或安全因子 q(s) 为预设剖面。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+&\text{能量泛函:} \quad W = \int_V \left(\frac{B^2}{2\mu_0} + \frac{p}{\gamma-1}\right)dV \\[4pt]
+&\text{变分原理:} \quad \delta W = 0 \;\Rightarrow\; \mathbf{J} \times \mathbf{B} = \nabla p \\[4pt]
+&\text{逆平衡坐标:} \quad \mathbf{B} = \nabla \zeta \times \nabla \chi + \nabla \Phi \times \nabla \theta \\[4pt]
+&\text{谱展开:} \quad R(s,\theta,\zeta) = \sum_{m,n} R_{mn}(s)\cos(m\theta - n\zeta)
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用无量纲化方案。长度以参考大半径归一化，磁场以参考磁场（轴上环向场 B₀）归一化。径向坐标 s 归一化到 [0,1]（磁轴到最外层闭合磁面）。物理量可通过参考参数还原。典型输入中磁场以 Tesla、长度以米为单位。</p>
+<p class="body-text">采用无量纲化方案。长度以参考大半径归一化，磁场以参考磁场（轴上环向场 B₀）归一化。径向坐标 s 归一化到 [0,1]（磁轴到最外层闭合磁面）。物理量可通过参考参数还原。典型输入中磁场以 Tesla、长度以米为单位。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$
+\bar{R} = \frac{R}{R_0}, \quad \bar{B} = \frac{B}{B_0}, \quad \bar{\Phi} = \frac{\Phi}{B_0 R_0^2}, \quad s \in [0,1]
+$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">固定边界模式（给定最外层磁面形状）；自由边界模式（需要 VMEC 2000/VMEC++ 扩展）；轴对称极限（托卡马克模式）；三维仿星器模式；单磁轴/多磁轴；真空磁面（β = 0）；有限 β 平衡；与 STELLOPT/SIMSOPT 优化耦合输入；与 BOOZ_XFORM 坐标转换耦合。</p>
+<p class="body-text">固定边界模式（给定最外层磁面形状）；自由边界模式（需要 VMEC 2000/VMEC++ 扩展）；轴对称极限（托卡马克模式）；三维仿星器模式；单磁轴/多磁轴；真空磁面（β = 0）；有限 β 平衡；与 STELLOPT/SIMSOPT 优化耦合输入；与 BOOZ_XFORM 坐标转换耦合。</p><div class="variant-card"><h4>固定边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R(s=1,\theta,\zeta) = R_b(\theta,\zeta),\; Z(s=1,\theta,\zeta) = Z_b(\theta,\zeta)$$</div></div><div class="variant-card"><h4>自由边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0,\; \mathbf{B}_{\text{vac}} \cdot \hat{n}|_{S} = \mathbf{B}_{\text{plasma}} \cdot \hat{n}|_{S}$$</div></div><div class="variant-card"><h4>轴对称极限</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial}{\partial \phi} = 0 \;\Rightarrow\; \text{标准 Grad-Shafranov 方程}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/ORNL-Fusion/VMEC_8_00" target="_blank" rel="noopener">github.com/ORNL-Fusion/VMEC_8_00</a></div>

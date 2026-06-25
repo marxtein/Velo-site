@@ -74,13 +74,27 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">ITER/JET标配</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解时变 1.5D 输运方程系统（磁面平均）：粒子输运（电子和每种离子独立）、电子和离子能量输运、环向动量输运、电流扩散（极向磁场演化）。输运系数由用户选择的输运模型提供（经验/半经验/理论模型），或直接从实验剖面推断。源项通过耦合模块计算：NUBEAM（NBI 快离子轨道和加热）、TORAY/GENRAY（射频加热和电流驱动）、融合反应率（Bosch-Hale 参数化）等。平衡通过 JSOLVER 或 EFIT 提供磁面几何，自洽更新。</p>
+<p class="body-text">求解时变 1.5D 输运方程系统（磁面平均）：粒子输运（电子和每种离子独立）、电子和离子能量输运、环向动量输运、电流扩散（极向磁场演化）。输运系数由用户选择的输运模型提供（经验/半经验/理论模型），或直接从实验剖面推断。源项通过耦合模块计算：NUBEAM（NBI 快离子轨道和加热）、TORAY/GENRAY（射频加热和电流驱动）、融合反应率（Bosch-Hale 参数化）等。平衡通过 JSOLVER 或 EFIT 提供磁面几何，自洽更新。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{\partial n_s}{\partial t} &= -\frac{1}{V'}\frac{\partial}{\partial \rho}(V' \Gamma_s) + S_s^{\text{NBI}} + S_s^{\text{reac}} \\[4pt]
+\frac{3}{2}\frac{\partial (n_s T_s)}{\partial t} &= -\frac{1}{V'}\frac{\partial}{\partial \rho}[V'(q_s + \frac{5}{2}\Gamma_s T_s)] + Q_s^{\text{NBI}} + Q_s^{\text{RF}} + Q_s^{\text{fus}} \\[4pt]
+\Gamma_s &= -D_s \frac{\partial n_s}{\partial \rho} + n_s V_s^{\text{pinch}}, \quad q_s = -n_s \chi_s \frac{\partial T_s}{\partial \rho}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位（SI 单位制）。温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，功率以 MW 为单位，电流以 MA 为单位。输运系数以 m²/s 为单位。输入/输出文件使用标准 TRANSP 格式。</p>
+<p class="body-text">采用工程单位（SI 单位制）。温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，功率以 MW 为单位，电流以 MA 为单位。输运系数以 m²/s 为单位。输入/输出文件使用标准 TRANSP 格式。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$
+\bar{T} = \frac{T}{\text{keV}}, \quad \bar{n} = \frac{n}{10^{19}\text{m}^{-3}}, \quad \bar{P} = \frac{P}{\text{MW}}, \quad \bar{\chi} = \frac{\chi}{\text{m}^2/\text{s}}
+$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">功率平衡分析模式（Power Balance）；预测性输运模拟（Predictive）；NUBEAM 快离子耦合；多种加热源耦合（NBI/ICRF/ECRH/LH）；杂质输运（耦合 SANCO/STRAHL）；氘-氚燃烧等离子体模式（ITER 预测）；实验数据约束模式（将诊断数据作为约束条件）。</p>
+<p class="body-text">功率平衡分析模式（Power Balance）；预测性输运模拟（Predictive）；NUBEAM 快离子耦合；多种加热源耦合（NBI/ICRF/ECRH/LH）；杂质输运（耦合 SANCO/STRAHL）；氘-氚燃烧等离子体模式（ITER 预测）；实验数据约束模式（将诊断数据作为约束条件）。</p><div class="variant-card"><h4>功率平衡分析</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{tot}} - \frac{3}{2}\frac{\partial}{\partial t}(nT)}{-n\nabla T}$$</div></div><div class="variant-card"><h4>预测性模拟</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_s = \chi_s^{\text{neo}} + \chi_s^{\text{ano}}(\nabla T, \nabla n, \ldots)$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://w3.pppl.gov/transp/" target="_blank" rel="noopener">w3.pppl.gov/transp/</a></div>

@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">TCV/AUG部署</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解 1D 径向输运方程系统（电子温度 Te、离子温度 Ti、电流密度 j、粒子密度 n），采用快速降阶模型实现实时/近实时模拟。输运闭合通过半经验模型（Bohm/gyroBohm）或神经网络代理模型（基于第一性原理回旋动理学数据训练）提供。平衡假设为静态 Grad-Shafranov 或由实时 EFIT 提供。源项剖面（加热、电流驱动）通过简化参数化模块计算。专为实时控制和离线快速预测设计，可在毫秒量级完成完整放电演化预测。</p>
+<p class="body-text">求解 1D 径向输运方程系统（电子温度 Te、离子温度 Ti、电流密度 j、粒子密度 n），采用快速降阶模型实现实时/近实时模拟。输运闭合通过半经验模型（Bohm/gyroBohm）或神经网络代理模型（基于第一性原理回旋动理学数据训练）提供。平衡假设为静态 Grad-Shafranov 或由实时 EFIT 提供。源项剖面（加热、电流驱动）通过简化参数化模块计算。专为实时控制和离线快速预测设计，可在毫秒量级完成完整放电演化预测。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{3}{2}\frac{\partial (n_e T_e)}{\partial t} &= \frac{1}{\rho}\frac{\partial}{\partial \rho}\left(\rho n_e \chi_e \frac{\partial T_e}{\partial \rho}\right) + Q_e \\[4pt]
+\frac{\partial \psi}{\partial t} &= \frac{1}{\mu_0 \sigma_\parallel}\frac{1}{\rho}\frac{\partial}{\partial \rho}\left(\frac{\rho}{R_0}\frac{\partial \psi}{\partial \rho}\right) \\[4pt]
+\chi_e &= f_{\text{NN}}(\nabla T_e, \nabla n_e, q, s, \ldots) \quad \text{(神经网络代理)}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，时间以 s，功率以 MW 为单位。内部变量以物理单位存储和传递，便于与控制系统的数据接口对接。</p>
+<p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，时间以 s，功率以 MW 为单位。内部变量以物理单位存储和传递，便于与控制系统的数据接口对接。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{t}[\text{s}],\; \bar{\rho}[\text{m}]$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">实时控制模式（在线预测，TCV/AUG/JET 部署）；离线快速预测模式；神经网络代理输运模型（ML surrogate for transport）；物理输运模型（Bohm/gyroBohm）；profile control 优化模式。</p>
+<p class="body-text">实时控制模式（在线预测，TCV/AUG/JET 部署）；离线快速预测模式；神经网络代理输运模型（ML surrogate for transport）；物理输运模型（Bohm/gyroBohm）；profile control 优化模式。</p><div class="variant-card"><h4>实时控制</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}} \|T_e(\rho, t_f) - T_{e,\text{target}}(\rho)\|^2 \;\text{s.t.}\; \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/SPCData/raptor" target="_blank" rel="noopener">github.com/SPCData/raptor</a></div>

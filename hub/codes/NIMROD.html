@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">双流体</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解三维扩展 MHD 方程组（extended MHD，含双流体效应）在复杂几何中。使用 2D 高阶有限元（极向平面）+ Fourier 级数（环向方向）的混合谱/有限元离散。方程组包含：连续性方程、动量方程（含 Lorentz 力 + 粘性应力张量）、能量方程（含各向异性热传导）、广义 Ohm 定律（含 Hall 项和电子压强梯度项）、Faraday 定律。半隐式时间推进（semi-implicit Leapfrog 或 BDF 格式）处理多时间尺度。</p>
+<p class="body-text">求解三维扩展 MHD 方程组（extended MHD，含双流体效应）在复杂几何中。使用 2D 高阶有限元（极向平面）+ Fourier 级数（环向方向）的混合谱/有限元离散。方程组包含：连续性方程、动量方程（含 Lorentz 力 + 粘性应力张量）、能量方程（含各向异性热传导）、广义 Ohm 定律（含 Hall 项和电子压强梯度项）、Faraday 定律。半隐式时间推进（semi-implicit Leapfrog 或 BDF 格式）处理多时间尺度。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\rho\frac{d\mathbf{V}}{dt} &= \mathbf{J}\times\mathbf{B} - \nabla p - \nabla\cdot\boldsymbol{\Pi} \\[4pt]
+\frac{\partial \mathbf{B}}{\partial t} &= -\nabla\times\mathbf{E}, \quad \mathbf{E} = -\mathbf{V}\times\mathbf{B} + \eta\mathbf{J} + \frac{1}{ne}(\mathbf{J}\times\mathbf{B} - \nabla p_e) \\[4pt]
+\frac{n}{\gamma-1}\frac{dT}{dt} &= -p\nabla\cdot\mathbf{V} - \nabla\cdot\mathbf{q} + \eta J^2
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 Alfvén 归一化。长度以装置特征尺度归一化，时间以 Alfvén 时间 τA 归一化。磁场以参考值归一化，压力和密度以参考值归一化。电阻和粘性通过无量纲参数（Lundquist 数 S、Prandtl 数 Pr）指定。</p>
+<p class="body-text">采用 Alfvén 归一化。长度以装置特征尺度归一化，时间以 Alfvén 时间 τA 归一化。磁场以参考值归一化，压力和密度以参考值归一化。电阻和粘性通过无量纲参数（Lundquist 数 S、Prandtl 数 Pr）指定。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$\bar{t} = \frac{t}{\tau_A}, \quad S = \frac{\tau_R}{\tau_A}, \quad \bar{B} = \frac{B}{B_0}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">单流体 MHD 模式；双流体扩展 MHD 模式；线性稳定性分析（本征值）；非线性演化；轴对称（2D）模式；三维非线性模式；等离子体破裂模拟；VDE 模拟；halo 电流；多环向谐波耦合。</p>
+<p class="body-text">单流体 MHD 模式；双流体扩展 MHD 模式；线性稳定性分析（本征值）；非线性演化；轴对称（2D）模式；三维非线性模式；等离子体破裂模拟；VDE 模拟；halo 电流；多环向谐波耦合。</p><div class="variant-card"><h4>线性稳定性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\omega^2\rho\boldsymbol{\xi} = \mathbf{F}(\boldsymbol{\xi}) \;\Rightarrow\; \det[\omega^2\mathbf{M} - \mathbf{K}] = 0$$</div></div><div class="variant-card"><h4>非线性演化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{x}^{n+1} = \mathbf{x}^n + \Delta t\,\mathbf{f}(\mathbf{x}^{n+1/2}) \text{ (semi-implicit)}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/nimrod-team/NIMROD" target="_blank" rel="noopener">github.com/nimrod-team/NIMROD</a></div>

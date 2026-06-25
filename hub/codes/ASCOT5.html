@@ -74,13 +74,25 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">3D磁场</span></div>
 </div><div class="section">
 <h2>📐 方程闭合方式</h2>
-<p class="body-text">求解导心轨道方程（guiding-center orbit following）在三维磁场位形中追踪高能粒子（NBI 快离子、α 粒子、逃逸电子等）的轨道和热化过程。采用蒙特卡洛方法处理 Coulomb 碰撞（pitch-angle scattering + energy slowing-down），碰撞频率由背景等离子体参数通过 NRL 公式计算。不直接求解场方程——磁场平衡由外部求解器（VMEC、EFIT、ASCOT 内置磁场模块）提供，电场通过径向力平衡条件计算。粒子损失通过轨道追踪至第一壁判定。</p>
+<p class="body-text">求解导心轨道方程（guiding-center orbit following）在三维磁场位形中追踪高能粒子（NBI 快离子、α 粒子、逃逸电子等）的轨道和热化过程。采用蒙特卡洛方法处理 Coulomb 碰撞（pitch-angle scattering + energy slowing-down），碰撞频率由背景等离子体参数通过 NRL 公式计算。不直接求解场方程——磁场平衡由外部求解器（VMEC、EFIT、ASCOT 内置磁场模块）提供，电场通过径向力平衡条件计算。粒子损失通过轨道追踪至第一壁判定。</p><div class="formula-block">
+<div class="formula-label">闭合方程组</div>
+$$
+\begin{aligned}
+\frac{d\mathbf{R}}{dt} &= v_\parallel \hat{\mathbf{b}} + \mathbf{v}_E + \mathbf{v}_D \\[4pt]
+\frac{dv_\parallel}{dt} &= -\frac{\mu}{m}\hat{\mathbf{b}}\cdot\nabla B - \frac{Ze}{m}E_\parallel \\[4pt]
+\Delta v_\parallel^{\text{coll}} &\sim \mathcal{N}(-\nu_s v_\parallel \Delta t, \nu_\perp v^2 \Delta t) \quad \text{(蒙特卡洛碰撞)}
+\end{aligned}
+$$
+</div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">采用 SI 单位制。粒子能量以 eV 或 keV 为单位，位置以 m 为单位，磁场以 T 为单位。输入平衡和等离子体剖面以工程单位提供。输出粒子分布函数和损失率以物理单位表示。</p>
+<p class="body-text">采用 SI 单位制。粒子能量以 eV 或 keV 为单位，位置以 m 为单位，磁场以 T 为单位。输入平衡和等离子体剖面以工程单位提供。输出粒子分布函数和损失率以物理单位表示。</p><div class="formula-block">
+<div class="formula-label">归一化关系</div>
+$$E[\text{eV}],\; \mathbf{x}[\text{m}],\; B[\text{T}],\; t[\text{s}] \quad \text{(全部工程单位)}$$
+</div>
 </div><div class="section">
 <h2>🔄 功能变体</h2>
-<p class="body-text">NBI 快离子慢化模拟；α 粒子约束与损失；逃逸电子产生与输运；杂质输运（粒子轨道追踪）；仿星器模式（三维磁场）；托卡马克模式（轴对称+扰动）；时间相关背景等离子体。</p>
+<p class="body-text">NBI 快离子慢化模拟；α 粒子约束与损失；逃逸电子产生与输运；杂质输运（粒子轨道追踪）；仿星器模式（三维磁场）；托卡马克模式（轴对称+扰动）；时间相关背景等离子体。</p><div class="variant-card"><h4>α 粒子约束</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$f_\alpha(t) = f_\alpha(0)e^{-t/\tau_\alpha},\; \tau_\alpha^{-1} = \frac{\dot{N}_{\text{loss}}}{N_{\text{confined}}}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/fusion-energy/ASCOT5" target="_blank" rel="noopener">github.com/fusion-energy/ASCOT5</a></div>
