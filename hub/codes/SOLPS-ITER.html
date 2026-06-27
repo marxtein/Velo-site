@@ -88,19 +88,21 @@ $$
 \mathbf{q}_e &= -\kappa_\parallel^e \nabla_\parallel T_e - \kappa_\perp^e \nabla_\perp T_e + 0.71 \frac{T_e}{e} j_\parallel
 \end{aligned}
 $$
-
-</div></div><p class="body-text">纯流体模式（B2 独立运行，无中性粒子）；SOLPS-EIRENE 全耦合模式；D/T/He/杂质多粒子种；偏滤器气体注入（seeding）模拟（N₂, Ne, Ar）；脱靶预测模式；瞬态 ELM 模拟；时间相关模式；稳态模式。</p><div class="variant-card"><h4>纯流体 (B2 standalone)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n = S_p = Q = 0 \quad \text{(无中性粒子耦合)}$$</div></div><div class="variant-card"><h4>SOLPS-EIRENE 全耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e^{k+1}, T_e^{k+1} = \mathcal{F}_{\text{B2}}(S_n^k, S_p^k, Q^k) \leftrightarrow \text{EIRENE}$$</div></div><div class="variant-card"><h4>脱靶模拟</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q_\parallel^{\text{target}} = \gamma_s n_t c_{s,t} T_t,\; c_{s,t} = \sqrt{\frac{T_e + T_i}{m_i}}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1585/pfr.11.1403102" target="_blank" rel="noopener">Bonnin et al. 2016, Plasma Fusion Res. 11:1403102 ↗</a></div>
+</div></div><p class="body-text">纯流体模式（B2 独立运行，无中性粒子）；SOLPS-EIRENE 全耦合模式；D/T/He/杂质多粒子种；偏滤器气体注入（seeding）模拟（N₂, Ne, Ar）；脱靶预测模式；瞬态 ELM 模拟；时间相关模式；稳态模式。</p><div class="variant-card"><h4>纯流体 (B2 standalone)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n = S_p = Q = 0 \quad \text{(无中性粒子耦合)}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1585/pfr.11.1403102" target="_blank" rel="noopener">Bonnin et al. 2016, Plasma Fusion Res. 11:1403102 ↗</a></div></div></div><div class="variant-card"><h4>SOLPS-EIRENE 全耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e^{k+1}, T_e^{k+1} = \mathcal{F}_{\text{B2}}(S_n^k, S_p^k, Q^k) \leftrightarrow \text{EIRENE}$$<div class="formula-ref">来源: <a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">Wiesen et al. 2015, J. Nucl. Mater. 463:480; Reiter et al. 2005, FST 47:172 ↗</a></div></div></div><div class="variant-card"><h4>脱靶模拟</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q_\parallel^{\text{target}} = \gamma_s n_t c_{s,t} T_t,\; c_{s,t} = \sqrt{\frac{T_e + T_i}{m_i}}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1585/pfr.11.1403102" target="_blank" rel="noopener">Bonnin et al. 2016, Plasma Fusion Res. 11:1403102 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 和工程单位混合。密度以 m⁻³ 为单位，温度以 eV 为单位，通量以 m⁻²s⁻¹ 为单位，功率以 W/m² 为单位。径向输运系数以 m²/s 为单位。输入文件使用标准 SOLPS 格式。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{n}[\text{m}^{-3}],\; \bar{T}[\text{eV}],\; \bar{\Gamma}[\text{m}^{-2}\text{s}^{-1}],\; \bar{q}[\text{W/m}^2]$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1585/pfr.11.1403102" target="_blank" rel="noopener">Bonnin et al. 2016, Plasma Fusion Res. 11:1403102 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/iterorganization/SOLPS-ITER" target="_blank" rel="noopener">github.com/iterorganization/SOLPS-ITER</a>
-<a href="https://solps-iter.org/" target="_blank" rel="noopener">solps-iter.org/</a></div>
+<a href="https://solps-iter.org/" target="_blank" rel="noopener">solps-iter.org/</a>
+<a href="https://doi.org/10.1585/pfr.11.1403102" target="_blank" rel="noopener">doi.org/10.1585/pfr.11.1403102</a>
+<a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">doi.org/10.13182/FST47-172</a></div>
 </div>
 
 </div>

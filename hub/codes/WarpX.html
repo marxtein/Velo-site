@@ -89,8 +89,8 @@ $$
 \frac{d\mathbf{p}_p}{dt} &= q_p\left(\mathbf{E}_p + \frac{\mathbf{v}_p}{c} \times \mathbf{B}_p\right), \quad \mathbf{p}_p = \gamma_p m_p \mathbf{v}_p
 \end{aligned}
 $$
-
-</div></div><p class="body-text">1D/2D/3D/RZ 几何；静电模式；全电磁模式；Darwin 模式；AMR 自适应网格；PML 吸收边界；boosted-frame（相对论束流框架）；GPU 加速（CUDA/HIP/SYCL）；激光尾波加速专用模式；FRC 聚变模拟模块（2025 新增）；束流输运；高能量密度物理。</p><div class="variant-card"><h4>全电磁</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{E}}{\partial t} = c^2 \nabla \times \mathbf{B} - \frac{\mathbf{J}}{\varepsilon_0}$$</div></div><div class="variant-card"><h4>静电</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \phi = -\frac{\rho}{\varepsilon_0},\; \mathbf{E} = -\nabla\phi$$</div></div><div class="variant-card"><h4>Darwin近似</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \mathbf{E}_T = \mu_0 \frac{\partial \mathbf{J}_T}{\partial t},\; \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">Vay et al. 2018, Nucl. Instrum. Methods A 909:476 ↗</a></div>
+</div></div><p class="body-text">1D/2D/3D/RZ 几何；静电模式；全电磁模式；Darwin 模式；AMR 自适应网格；PML 吸收边界；boosted-frame（相对论束流框架）；GPU 加速（CUDA/HIP/SYCL）；激光尾波加速专用模式；FRC 聚变模拟模块（2025 新增）；束流输运；高能量密度物理。</p><div class="variant-card"><h4>全电磁</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{E}}{\partial t} = c^2 \nabla \times \mathbf{B} - \frac{\mathbf{J}}{\varepsilon_0}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">Vay et al. 2018, Nucl. Instrum. Methods A 909:476 ↗</a></div></div></div><div class="variant-card"><h4>静电</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \phi = -\frac{\rho}{\varepsilon_0},\; \mathbf{E} = -\nabla\phi$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">Vay et al. 2018, Nucl. Instrum. Methods A 909:476 ↗</a></div></div></div><div class="variant-card"><h4>Darwin近似</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \mathbf{E}_T = \mu_0 \frac{\partial \mathbf{J}_T}{\partial t},\; \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">Vay et al. 2018, Nucl. Instrum. Methods A 909:476 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位制为内部标准，同时支持无量纲归一化输入。典型归一化基于激光波长 λ₀（长度）、激光周期 1/ω₀（时间）、电子静止质量能量 mec²（能量）和临界密度 nc（密度）。输出可转换为物理单位。</p><div class="formula-block">
@@ -101,12 +101,13 @@ $$
 \bar{\mathbf{E}} &= \frac{e\mathbf{E}}{m_e \omega_0 c}, \quad \bar{\mathbf{B}} = \frac{e\mathbf{B}}{m_e \omega_0}, \quad n_c = \frac{\varepsilon_0 m_e \omega_0^2}{e^2}
 \end{aligned}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">Vay et al. 2018, Nucl. Instrum. Methods A 909:476 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/BLAST-WarpX/warpx" target="_blank" rel="noopener">github.com/BLAST-WarpX/warpx</a>
-<a href="https://warpx.readthedocs.io/" target="_blank" rel="noopener">warpx.readthedocs.io/</a></div>
+<a href="https://warpx.readthedocs.io/" target="_blank" rel="noopener">warpx.readthedocs.io/</a>
+<a href="https://doi.org/10.1016/j.nima.2018.01.035" target="_blank" rel="noopener">doi.org/10.1016/j.nima.2018.01.035</a></div>
 </div>
 
 </div>

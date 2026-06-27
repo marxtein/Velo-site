@@ -87,19 +87,20 @@ $$
 \varpi &= \nabla\cdot\left(\frac{n m_i}{B^2}\nabla_\perp\phi\right) \quad \text{(涡量)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单流体 MHD 模式；双流体模式；Gyro-Landau-Fluid 模式；电磁 drift-wave 模式；静电 drift-wave 模式；ELM 模拟；偏滤器湍流；blob/filament 传播；Hermes-3 耦合（漂移动理学）；SD1D 耦合。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial\mathbf{B}}{\partial t} = \nabla\times(\mathbf{V}\times\mathbf{B} - \eta\mathbf{J})$$</div></div><div class="variant-card"><h4>Gyro-Landau-Fluid</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$q_\parallel = -n\chi_\parallel \nabla_\parallel T \circledast \mathcal{H}(k_\parallel v_t/\omega)$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.cpc.2009.03.008" target="_blank" rel="noopener">Dudson et al. 2009, Comput. Phys. Commun. 180:1467 ↗</a></div>
+</div></div><p class="body-text">单流体 MHD 模式；双流体模式；Gyro-Landau-Fluid 模式；电磁 drift-wave 模式；静电 drift-wave 模式；ELM 模拟；偏滤器湍流；blob/filament 传播；Hermes-3 耦合（漂移动理学）；SD1D 耦合。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial\mathbf{B}}{\partial t} = \nabla\times(\mathbf{V}\times\mathbf{B} - \eta\mathbf{J})$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.cpc.2009.03.008" target="_blank" rel="noopener">Dudson et al. 2009, Comput. Phys. Commun. 180:1467 ↗</a></div></div></div><div class="variant-card"><h4>Gyro-Landau-Fluid</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$q_\parallel = -n\chi_\parallel \nabla_\parallel T \circledast \mathcal{H}(k_\parallel v_t/\omega)$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.cpc.2009.03.008" target="_blank" rel="noopener">Dudson et al. 2009, Comput. Phys. Commun. 180:1467 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 Alfvén 归一化。长度以 ρs（离子声回旋半径）归一化，时间以 ωci⁻¹ 归一化。密度和温度以参考值归一化。电磁场以使 Alfvén 速度为 1 的方式归一化。具体归一化参数根据物理问题可调。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{x} = \frac{x}{\rho_s}, \quad \bar{t} = \Omega_{ci} t, \quad \bar{\phi} = \frac{e\phi}{T_e}, \quad \rho_s = \frac{c_s}{\Omega_{ci}}$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.cpc.2009.03.008" target="_blank" rel="noopener">Dudson et al. 2009, Comput. Phys. Commun. 180:1467 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/boutproject/BOUT-dev" target="_blank" rel="noopener">github.com/boutproject/BOUT-dev</a>
-<a href="https://boutproject.github.io/" target="_blank" rel="noopener">boutproject.github.io/</a></div>
+<a href="https://boutproject.github.io/" target="_blank" rel="noopener">boutproject.github.io/</a>
+<a href="https://doi.org/10.1016/j.cpc.2009.03.008" target="_blank" rel="noopener">doi.org/10.1016/j.cpc.2009.03.008</a></div>
 </div>
 
 </div>

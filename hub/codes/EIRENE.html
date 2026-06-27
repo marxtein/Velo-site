@@ -89,8 +89,8 @@ $$
 &\text{流体矩耦合:} \quad S_n = \int S(\mathbf{r},\mathbf{v})\,d^3v,\; \mathbf{S}_p = m\int \mathbf{v}S\,d^3v,\; S_E = \frac{m}{2}\int v^2 S\,d^3v
 \end{aligned}
 $$
-
-</div></div><p class="body-text">与 SOLPS 耦合（SOLPS-EIRENE 套件，ITER 标准工具）；与 EMC3 耦合（EMC3-EIRENE，仿星器三维边界）；独立运行模式（给定固定等离子体背景）；D/T/He/杂质多粒子种；原子-分子反应网络可配置；光子辐射输运模块；时间相关模式；稳态模式。</p><div class="variant-card"><h4>独立模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e(\mathbf{r}), T_e(\mathbf{r}) \text{ 由外部给定（固定背景）}$$</div></div><div class="variant-card"><h4>SOLPS-EIRENE 耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n, \mathbf{S}_p, S_E \xrightarrow{\text{EIRENE}} \xleftarrow{n_e, T_e, \mathbf{u}} \text{B2}$$</div></div><div class="variant-card"><h4>EMC3-EIRENE 耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{3D Monte Carlo 流体 + EIRENE，仿星器全三维}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">Reiter, Baelmans &amp; Börner 2005, Fusion Sci. Technol. 47:172 ↗</a></div>
+</div></div><p class="body-text">与 SOLPS 耦合（SOLPS-EIRENE 套件，ITER 标准工具）；与 EMC3 耦合（EMC3-EIRENE，仿星器三维边界）；独立运行模式（给定固定等离子体背景）；D/T/He/杂质多粒子种；原子-分子反应网络可配置；光子辐射输运模块；时间相关模式；稳态模式。</p><div class="variant-card"><h4>独立模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e(\mathbf{r}), T_e(\mathbf{r}) \text{ 由外部给定（固定背景）}$$<div class="formula-ref">来源: <a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">Reiter, Baelmans &amp; Börner 2005, Fusion Sci. Technol. 47:172 ↗</a></div></div></div><div class="variant-card"><h4>SOLPS-EIRENE 耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n, \mathbf{S}_p, S_E \xrightarrow{\text{EIRENE}} \xleftarrow{n_e, T_e, \mathbf{u}} \text{B2}$$<div class="formula-ref">来源: <a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">Reiter, Baelmans &amp; Börner 2005, Fusion Sci. Technol. 47:172 ↗</a></div></div></div><div class="variant-card"><h4>EMC3-EIRENE 耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{3D Monte Carlo 流体 + EIRENE，仿星器全三维}$$<div class="formula-ref">来源: <a href="https://www.ipp.mpg.de/emc3" target="_blank" rel="noopener">Feng et al. 2004, Contrib. Plasma Phys. 44:57 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位（m, s, eV）。粒子源率以 s⁻¹ 或 Am⁻² 为单位。截面数据来自标准原子-分子数据库。等离子体背景由流体代码以工程单位提供。蒙特卡洛统计误差通过增加测试粒子数控制。</p><div class="formula-block">
@@ -101,12 +101,13 @@ $$
 \bar{S} &= \frac{S}{\text{m}^{-3}\text{s}^{-1}}, \quad \bar{n}_n = \frac{n_n}{\text{m}^{-3}}
 \end{aligned}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">Reiter, Baelmans &amp; Börner 2005, Fusion Sci. Technol. 47:172 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://www.eirene.de/" target="_blank" rel="noopener">www.eirene.de/</a>
-<a href="https://github.com/iterorganization/EIRENE" target="_blank" rel="noopener">github.com/iterorganization/EIRENE</a></div>
+<a href="https://github.com/iterorganization/EIRENE" target="_blank" rel="noopener">github.com/iterorganization/EIRENE</a>
+<a href="https://doi.org/10.13182/FST47-172" target="_blank" rel="noopener">doi.org/10.13182/FST47-172</a></div>
 </div>
 
 </div>

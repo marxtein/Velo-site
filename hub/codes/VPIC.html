@@ -88,8 +88,8 @@ $$
 \mathbf{J}_i &= \sum_p q_p \mathbf{v}_p W(\mathbf{x}_i - \mathbf{x}_p) \quad \text{(电流沉积)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">1D/2D/3D 几何；静电/全电磁；Exascale 优化模式（GPU 加速）；磁重联专用配置；激光-等离子体相互作用；高能量密度物理；粒子排序优化（提升缓存命中率）；矢量数据布局（AVX-512 优化）。</p><div class="variant-card"><h4>磁重联</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E},\; \mathbf{E} + \mathbf{V}\times\mathbf{B} = \eta\mathbf{J}$$</div></div><div class="variant-card"><h4>激光等离子体</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2\mathbf{E}}{\partial t^2} = \mu_0\frac{\partial\mathbf{J}}{\partial t} + \nabla\frac{\rho}{\varepsilon_0}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2840133" target="_blank" rel="noopener">Bowers et al. 2008, Phys. Plasmas 15:055703 ↗</a></div>
+</div></div><p class="body-text">1D/2D/3D 几何；静电/全电磁；Exascale 优化模式（GPU 加速）；磁重联专用配置；激光-等离子体相互作用；高能量密度物理；粒子排序优化（提升缓存命中率）；矢量数据布局（AVX-512 优化）。</p><div class="variant-card"><h4>磁重联</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E},\; \mathbf{E} + \mathbf{V}\times\mathbf{B} = \eta\mathbf{J}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2840133" target="_blank" rel="noopener">Bowers et al. 2008, Phys. Plasmas 15:055703 ↗</a></div></div></div><div class="variant-card"><h4>激光等离子体</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2\mathbf{E}}{\partial t^2} = \mu_0\frac{\partial\mathbf{J}}{\partial t} + \nabla\frac{\rho}{\varepsilon_0}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2840133" target="_blank" rel="noopener">Bowers et al. 2008, Phys. Plasmas 15:055703 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位和归一化单位双支持。归一化通常基于等离子体频率 ωpe（时间）、skin depth c/ωpe（长度）和参考密度 n₀。对于激光-等离子体问题，也支持基于激光参数的归一化。磁场归一化到 B₀ = mωpec/e。</p><div class="formula-block">
@@ -97,11 +97,12 @@ $$
 $$
 \bar{x} = \frac{x}{c/\omega_{pe}}, \quad \bar{t} = \omega_{pe} t, \quad \bar{B} = \frac{eB}{m_e\omega_{pe}}, \quad \bar{n} = \frac{n}{n_0}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2840133" target="_blank" rel="noopener">Bowers et al. 2008, Phys. Plasmas 15:055703 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/lanl/vpic" target="_blank" rel="noopener">github.com/lanl/vpic</a></div>
+<div class="links-list"><a href="https://github.com/lanl/vpic" target="_blank" rel="noopener">github.com/lanl/vpic</a>
+<a href="https://doi.org/10.1063/1.2840133" target="_blank" rel="noopener">doi.org/10.1063/1.2840133</a></div>
 </div>
 
 </div>
