@@ -87,14 +87,14 @@ $$
 \nabla_\mathbf{x} f &\approx \frac{f(\mathbf{x}+\varepsilon\delta\mathbf{x}) - f(\mathbf{x})}{\varepsilon} \quad \text{(有限差分梯度)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">固定边界优化；自由边界优化；单目标/多目标；ballooning 稳定性约束；kink 稳定性约束；新经典输运最小化；α 粒子损失优化；线圈复杂度惩罚。</p><div class="variant-card"><h4>准对称优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QA} = \sum_{m\neq 0} |B_{mn}|^2 \to \min$$</div></div><div class="variant-card"><h4>线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{C}} \left\| \mathbf{B}_{\text{coils}} - \mathbf{B}_{\text{target}} \right\|^2_{\text{plasma}}$$</div></div>
+<div class="formula-ref">来源: <a href="https://princetonuniversity.github.io/STELLOPT/" target="_blank" rel="noopener">Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064 ↗</a></div>
+</div></div><p class="body-text">固定边界优化；自由边界优化；单目标/多目标；ballooning 稳定性约束；kink 稳定性约束；新经典输运最小化；α 粒子损失优化；线圈复杂度惩罚。</p><div class="variant-card"><h4>准对称优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QA} = \sum_{m\neq 0} |B_{mn}|^2 \to \min$$<div class="formula-ref">来源: <a href="https://princetonuniversity.github.io/STELLOPT/" target="_blank" rel="noopener">Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064 ↗</a></div></div></div><div class="variant-card"><h4>线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{C}} \left\| \mathbf{B}_{\text{coils}} - \mathbf{B}_{\text{target}} \right\|^2_{\text{plasma}}$$<div class="formula-ref">来源: <a href="https://princetonuniversity.github.io/STELLOPT/" target="_blank" rel="noopener">Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">各子代码使用各自的归一化（VMEC 无量纲、NEO 使用工程单位等），STELLOPT 框架负责单位转换和加权组合。目标函数通常归一化到参考设计值。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$f_{QS} = \sum_{m,n\neq 0} |B_{mn}|^2 \to \min \quad \text{(准对称目标)}$$
-
+<div class="formula-ref">来源: <a href="https://princetonuniversity.github.io/STELLOPT/" target="_blank" rel="noopener">Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>

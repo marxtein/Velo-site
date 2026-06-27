@@ -87,18 +87,19 @@ $$
 \min_{\Phi} &\quad \|\mathbf{B}\cdot\mathbf{n}\|^2_{\text{plasma}} + \lambda \|\mathbf{K}\|^2_{\text{surf}} \quad \text{(Tikhonov 正则化)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单 winding surface 模式；多 winding surface 模式；不同正则化权重；指定线圈数量离散化；线圈工程约束（最小曲率半径、最小间距）。</p><div class="variant-card"><h4>离散线圈</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{K} \approx \sum_{c=1}^{N_c} I_c \delta(\mathbf{r} - \mathbf{r}_c) \hat{\mathbf{t}}_c$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/1741-4326/aa57d4" target="_blank" rel="noopener">Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL) ↗</a></div>
+</div></div><p class="body-text">单 winding surface 模式；多 winding surface 模式；不同正则化权重；指定线圈数量离散化；线圈工程约束（最小曲率半径、最小间距）。</p><div class="variant-card"><h4>离散线圈</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{K} \approx \sum_{c=1}^{N_c} I_c \delta(\mathbf{r} - \mathbf{r}_c) \hat{\mathbf{t}}_c$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/1741-4326/aa57d4" target="_blank" rel="noopener">Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用无量纲化方案。长度以参考大半径归一化，磁场以参考值归一化。电流势 Φ 以 Ampere-turns 为单位。正则化参数控制电流密度和线圈曲率的权重。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{\Phi}[\text{A-turns}],\; \bar{K}[\text{A/m}],\; \bar{B}[\text{T}]$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/1741-4326/aa57d4" target="_blank" rel="noopener">Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL) ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/landreman/regcoil" target="_blank" rel="noopener">github.com/landreman/regcoil</a></div>
+<div class="links-list"><a href="https://github.com/landreman/regcoil" target="_blank" rel="noopener">github.com/landreman/regcoil</a>
+<a href="https://doi.org/10.1088/1741-4326/aa57d4" target="_blank" rel="noopener">doi.org/10.1088/1741-4326/aa57d4</a></div>
 </div>
 
 </div>

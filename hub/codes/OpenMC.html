@@ -87,18 +87,19 @@ k_{\text{eff}} &= \frac{\text{下一代中子数}}{\text{当前代中子损失�
 \Sigma_x &= \sum_i N_i \sigma_{x,i}(E) \quad \text{(宏观截面)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">k-eigenvalue 模式（临界计算）；固定源模式（ shielding/fusion 中子学）；时间相关模式（动力学参数）；中子+光子耦合输运；CAD 几何导入（DAGMC 接口）；TBR（氚增殖比）计算；核热沉积计算；活化计算；多物理耦合（OpenMC + MOOSE/thermal-hydraulics）。</p><div class="variant-card"><h4>k-eigenvalue</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{L}\psi = \frac{1}{k}\mathbf{F}\psi,\; k^{n+1} = k^n\frac{\int\mathbf{F}\psi^{n+1}}{\frac{1}{k^n}\int\mathbf{F}\psi^n}$$</div></div><div class="variant-card"><h4>TBR 计算</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{TBR} = \int_V \int_E \Sigma_{(n,^6\text{Li})\to T}(\mathbf{r},E)\,\phi(\mathbf{r},E)\,dE\,dV$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.anucene.2014.07.048" target="_blank" rel="noopener">Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC) ↗</a></div>
+</div></div><p class="body-text">k-eigenvalue 模式（临界计算）；固定源模式（ shielding/fusion 中子学）；时间相关模式（动力学参数）；中子+光子耦合输运；CAD 几何导入（DAGMC 接口）；TBR（氚增殖比）计算；核热沉积计算；活化计算；多物理耦合（OpenMC + MOOSE/thermal-hydraulics）。</p><div class="variant-card"><h4>k-eigenvalue</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{L}\psi = \frac{1}{k}\mathbf{F}\psi,\; k^{n+1} = k^n\frac{\int\mathbf{F}\psi^{n+1}}{\frac{1}{k^n}\int\mathbf{F}\psi^n}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.anucene.2014.07.048" target="_blank" rel="noopener">Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC) ↗</a></div></div></div><div class="variant-card"><h4>TBR 计算</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{TBR} = \int_V \int_E \Sigma_{(n,^6\text{Li})\to T}(\mathbf{r},E)\,\phi(\mathbf{r},E)\,dE\,dV$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.anucene.2014.07.048" target="_blank" rel="noopener">Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位和中子学惯例。长度以 cm，能量以 eV/MeV 为单位。截面以 barns（10⁻²⁴ cm²）。通量归一化通常为 per source neutron 或通过功率归一化。k-eigenvalue 无量纲。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{x}[\text{cm}],\; \bar{E}[\text{eV}],\; \bar{\sigma}[\text{barns}],\; \bar{\phi}[\text{n/cm}^2\text{-s}]$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.anucene.2014.07.048" target="_blank" rel="noopener">Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC) ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://docs.openmc.org/" target="_blank" rel="noopener">docs.openmc.org/</a></div>
+<div class="links-list"><a href="https://docs.openmc.org/" target="_blank" rel="noopener">docs.openmc.org/</a>
+<a href="https://doi.org/10.1016/j.anucene.2014.07.048" target="_blank" rel="noopener">doi.org/10.1016/j.anucene.2014.07.048</a></div>
 </div>
 
 </div>

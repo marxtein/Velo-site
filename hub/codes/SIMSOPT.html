@@ -87,18 +87,19 @@ $$
 \nabla_\mathbf{x} f &\approx \frac{f(\mathbf{x}+\varepsilon\delta\mathbf{x}) - f(\mathbf{x})}{\varepsilon} \quad \text{(有限差分梯度)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单阶段优化；两阶段线圈优化；quasisymmetry 优化（QA/QH/QP）；弹性线圈优化；绕组面（winding surface）方法；永久磁体优化；多目标优化（Pareto 前沿）。</p><div class="variant-card"><h4>准对称优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QA} = \sum_{m\neq 0} |B_{mn}|^2 \to \min$$</div></div><div class="variant-card"><h4>线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{C}} \left\| \mathbf{B}_{\text{coils}} - \mathbf{B}_{\text{target}} \right\|^2_{\text{plasma}}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.21105/joss.03525" target="_blank" rel="noopener">Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT) ↗</a></div>
+</div></div><p class="body-text">单阶段优化；两阶段线圈优化；quasisymmetry 优化（QA/QH/QP）；弹性线圈优化；绕组面（winding surface）方法；永久磁体优化；多目标优化（Pareto 前沿）。</p><div class="variant-card"><h4>准对称优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QA} = \sum_{m\neq 0} |B_{mn}|^2 \to \min$$<div class="formula-ref">来源: <a href="https://doi.org/10.21105/joss.03525" target="_blank" rel="noopener">Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT) ↗</a></div></div></div><div class="variant-card"><h4>线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{C}} \left\| \mathbf{B}_{\text{coils}} - \mathbf{B}_{\text{target}} \right\|^2_{\text{plasma}}$$<div class="formula-ref">来源: <a href="https://doi.org/10.21105/joss.03525" target="_blank" rel="noopener">Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">优化目标函数以无量纲形式定义（如 quasisymmetry 误差、归一化 plasma beta）。物理量通过 VMEC/SPEC 的归一化方案提供。线圈电流以 Ampere-turns 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$f_{QS} = \sum_{m,n\neq 0} |B_{mn}|^2 \to \min \quad \text{(准对称目标)}$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.21105/joss.03525" target="_blank" rel="noopener">Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT) ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/hiddenSymmetries/simsopt" target="_blank" rel="noopener">github.com/hiddenSymmetries/simsopt</a></div>
+<div class="links-list"><a href="https://github.com/hiddenSymmetries/simsopt" target="_blank" rel="noopener">github.com/hiddenSymmetries/simsopt</a>
+<a href="https://doi.org/10.21105/joss.03525" target="_blank" rel="noopener">doi.org/10.21105/joss.03525</a></div>
 </div>
 
 </div>

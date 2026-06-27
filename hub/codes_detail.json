@@ -546,7 +546,9 @@
     ],
     "links": [
       "https://gkeyll.readthedocs.io/",
-      "https://github.com/ammarhakim/gkyl"
+      "https://github.com/ammarhakim/gkyl",
+      "https://doi.org/10.1016/j.jcp.2017.10.009",
+      "https://doi.org/10.1017/S0022377820000070"
     ],
     "closure": "采用高阶间断伽辽金（Discontinuous Galerkin, DG）方法求解 Vlasov-Maxwell 或回旋动理学方程系统。方程直接在完整相空间中离散（含速度空间维度），实现无噪声（noise-free）的动理学模拟。场方程通过 Maxwell 方程组（全 Vlasov-Maxwell 模式）或回旋动理学 Poisson-Ampere 方程闭合。采用能量守恒的半离散 DG 格式，每个单元内使用高阶多项式基函数（通常 2-4 阶）。支持全 f 分布函数演化（非 δf 近似），特别适合边界物理（强梯度、非 Maxwell 分布）。",
     "normalization": "采用标准等离子体归一化方案。长度以离子惯性长度 di = c/ωpi 或 Debye 长度 λD 归一化，时间以等离子体频率 ωpe⁻¹ 或离子回旋频率 Ωci⁻¹ 归一化。速度以热速度或 Alfvén 速度归一化。具体归一化取决于所求解的物理问题。",
@@ -556,17 +558,37 @@
     "variant_formulas": [
       {
         "name": "全 Vlasov-Maxwell",
-        "formula": "$$\\partial_t f + \\mathbf{v}\\cdot\\nabla f + \\frac{q}{m}(\\mathbf{E}+\\mathbf{v}\\times\\mathbf{B})\\cdot\\nabla_v f = 0$$"
+        "formula": "$$\\partial_t f + \\mathbf{v}\\cdot\\nabla f + \\frac{q}{m}(\\mathbf{E}+\\mathbf{v}\\times\\mathbf{B})\\cdot\\nabla_v f = 0$$",
+        "ref": {
+          "cite": "Juno et al. 2018, J. Comput. Phys. 353:110 (Gkeyll DG Vlasov-Maxwell)",
+          "url": "https://doi.org/10.1016/j.jcp.2017.10.009"
+        }
       },
       {
         "name": "回旋动理学",
-        "formula": "$$\\partial_t g + v_\\parallel \\partial_z g + \\mathbf{v}_D\\cdot\\nabla_\\perp g = C[g]$$"
+        "formula": "$$\\partial_t g + v_\\parallel \\partial_z g + \\mathbf{v}_D\\cdot\\nabla_\\perp g = C[g]$$",
+        "ref": {
+          "cite": "Mandell, Hakim, Hammett & Francisquez 2020, J. Plasma Phys. 86:905860109",
+          "url": "https://doi.org/10.1017/S0022377820000070"
+        }
       },
       {
         "name": "含碰撞",
-        "formula": "$$C[f] = \\nu \\frac{\\partial}{\\partial \\mathbf{v}}\\cdot\\left[\\mathbf{v}f + v_t^2\\frac{\\partial f}{\\partial \\mathbf{v}}\\right] \\text{ (Dougherty)}$$"
+        "formula": "$$C[f] = \\nu \\frac{\\partial}{\\partial \\mathbf{v}}\\cdot\\left[\\mathbf{v}f + v_t^2\\frac{\\partial f}{\\partial \\mathbf{v}}\\right] \\text{ (Dougherty)}$$",
+        "ref": {
+          "cite": "Juno et al. 2018, J. Comput. Phys. 353:110 (Gkeyll DG Vlasov-Maxwell)",
+          "url": "https://doi.org/10.1016/j.jcp.2017.10.009"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Juno et al. 2018, J. Comput. Phys. 353:110 (Gkeyll DG Vlasov-Maxwell)",
+      "url": "https://doi.org/10.1016/j.jcp.2017.10.009"
+    },
+    "normalization_ref": {
+      "cite": "Juno et al. 2018, J. Comput. Phys. 353:110 (Gkeyll DG Vlasov-Maxwell)",
+      "url": "https://doi.org/10.1016/j.jcp.2017.10.009"
+    }
   },
   "OSIRIS": {
     "full_name": "OSIRIS — Relativistic Electromagnetic PIC Code",
@@ -1608,7 +1630,8 @@
       "多目标优化"
     ],
     "links": [
-      "https://github.com/hiddenSymmetries/simsopt"
+      "https://github.com/hiddenSymmetries/simsopt",
+      "https://doi.org/10.21105/joss.03525"
     ],
     "closure": "求解仿星器优化问题：最小化目标函数（如 quasisymmetry error、MHD 稳定性指标、neoclassical transport 等）通过调整等离子体边界形状和/或线圈几何。优化过程调用 VMEC 或 SPEC 计算固定边界 MHD 平衡，通过有限差分或自动微分获取梯度。包含单阶段优化（同时优化边界和物理目标）和两阶段优化（先优化等离子体边界，再设计实现该边界的线圈）。采用非线性优化算法（Levenberg-Marquardt、BFGS、信赖域方法）。平衡闭合由调用的平衡求解器决定。",
     "normalization": "优化目标函数以无量纲形式定义（如 quasisymmetry 误差、归一化 plasma beta）。物理量通过 VMEC/SPEC 的归一化方案提供。线圈电流以 Ampere-turns 为单位。",
@@ -1618,13 +1641,29 @@
     "variant_formulas": [
       {
         "name": "准对称优化",
-        "formula": "$$f_{QA} = \\sum_{m\\neq 0} |B_{mn}|^2 \\to \\min$$"
+        "formula": "$$f_{QA} = \\sum_{m\\neq 0} |B_{mn}|^2 \\to \\min$$",
+        "ref": {
+          "cite": "Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT)",
+          "url": "https://doi.org/10.21105/joss.03525"
+        }
       },
       {
         "name": "线圈优化",
-        "formula": "$$\\min_{\\mathbf{C}} \\left\\| \\mathbf{B}_{\\text{coils}} - \\mathbf{B}_{\\text{target}} \\right\\|^2_{\\text{plasma}}$$"
+        "formula": "$$\\min_{\\mathbf{C}} \\left\\| \\mathbf{B}_{\\text{coils}} - \\mathbf{B}_{\\text{target}} \\right\\|^2_{\\text{plasma}}$$",
+        "ref": {
+          "cite": "Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT)",
+          "url": "https://doi.org/10.21105/joss.03525"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT)",
+      "url": "https://doi.org/10.21105/joss.03525"
+    },
+    "normalization_ref": {
+      "cite": "Landreman et al. 2021, J. Open Source Softw. 6(65):3525 (SIMSOPT)",
+      "url": "https://doi.org/10.21105/joss.03525"
+    }
   },
   "STELLOPT": {
     "full_name": "STELLOPT — Stellarator Optimization Suite",
@@ -1647,13 +1686,29 @@
     "variant_formulas": [
       {
         "name": "准对称优化",
-        "formula": "$$f_{QA} = \\sum_{m\\neq 0} |B_{mn}|^2 \\to \\min$$"
+        "formula": "$$f_{QA} = \\sum_{m\\neq 0} |B_{mn}|^2 \\to \\min$$",
+        "ref": {
+          "cite": "Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064",
+          "url": "https://princetonuniversity.github.io/STELLOPT/"
+        }
       },
       {
         "name": "线圈优化",
-        "formula": "$$\\min_{\\mathbf{C}} \\left\\| \\mathbf{B}_{\\text{coils}} - \\mathbf{B}_{\\text{target}} \\right\\|^2_{\\text{plasma}}$$"
+        "formula": "$$\\min_{\\mathbf{C}} \\left\\| \\mathbf{B}_{\\text{coils}} - \\mathbf{B}_{\\text{target}} \\right\\|^2_{\\text{plasma}}$$",
+        "ref": {
+          "cite": "Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064",
+          "url": "https://princetonuniversity.github.io/STELLOPT/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064",
+      "url": "https://princetonuniversity.github.io/STELLOPT/"
+    },
+    "normalization_ref": {
+      "cite": "Spong, Hirshman, Lazerson et al., STELLOPT; 综述 Gates et al. 2017, Nucl. Fusion 57:126064",
+      "url": "https://princetonuniversity.github.io/STELLOPT/"
+    }
   },
   "REGCOIL": {
     "full_name": "REGCOIL — Regularized Coil Optimization Code",
@@ -1666,7 +1721,8 @@
       "复现精度控制"
     ],
     "links": [
-      "https://github.com/landreman/regcoil"
+      "https://github.com/landreman/regcoil",
+      "https://doi.org/10.1088/1741-4326/aa57d4"
     ],
     "closure": "求解仿星器线圈设计的逆问题：给定目标等离子体边界磁面形状（由 VMEC/SPEC 提供），通过正则化电流势方法计算在 winding surface 上产生该平衡磁场所需的表面电流分布，再离散化为实际线圈。核心方程为 ∇²Φ = 0（电流势 Φ 的 Laplace 方程，在 winding surface 上），通过电流势的梯度获得表面电流 K = n × ∇Φ。使用 Tikhonov 正则化控制电流密度峰值和线圈工程可行性。是两阶段仿星器优化的标准线圈设计工具。",
     "normalization": "采用无量纲化方案。长度以参考大半径归一化，磁场以参考值归一化。电流势 Φ 以 Ampere-turns 为单位。正则化参数控制电流密度和线圈曲率的权重。",
@@ -1676,9 +1732,21 @@
     "variant_formulas": [
       {
         "name": "离散线圈",
-        "formula": "$$\\mathbf{K} \\approx \\sum_{c=1}^{N_c} I_c \\delta(\\mathbf{r} - \\mathbf{r}_c) \\hat{\\mathbf{t}}_c$$"
+        "formula": "$$\\mathbf{K} \\approx \\sum_{c=1}^{N_c} I_c \\delta(\\mathbf{r} - \\mathbf{r}_c) \\hat{\\mathbf{t}}_c$$",
+        "ref": {
+          "cite": "Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL)",
+          "url": "https://doi.org/10.1088/1741-4326/aa57d4"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL)",
+      "url": "https://doi.org/10.1088/1741-4326/aa57d4"
+    },
+    "normalization_ref": {
+      "cite": "Landreman 2017, Nucl. Fusion 57:046003 (REGCOIL)",
+      "url": "https://doi.org/10.1088/1741-4326/aa57d4"
+    }
   },
   "FOCUS": {
     "full_name": "FOCUS — Flexible Optimized Coils Using Splines",
@@ -1691,7 +1759,8 @@
       "非线性优化"
     ],
     "links": [
-      "https://github.com/PrincetonUniversity/FOCUS"
+      "https://github.com/PrincetonUniversity/FOCUS",
+      "https://doi.org/10.1088/1741-4326/aa8e0a"
     ],
     "closure": "求解仿星器三维线圈设计的非线性优化问题：给定目标等离子体平衡（通过 VMEC 或 SPEC 提供），直接计算有限数量三维曲线（线圈丝）的位置、形状和电流，使得产生的磁场在等离子体区域精确复现目标磁场。采用非线性约束优化（线圈工程约束：最小弯曲半径、最小间距、最大电流密度），直接处理有限线圈（而非 REGCOIL 的连续电流势）。目标函数包含磁场误差（B·n 在等离子体边界上）和工程代价函数。",
     "normalization": "长度以米为单位，线圈电流以 Ampere 或 Ampere-turns 为单位，磁场以 Tesla 为单位。工程约束（曲率半径、间距）以米为单位。",
@@ -1701,9 +1770,21 @@
     "variant_formulas": [
       {
         "name": "模块化线圈",
-        "formula": "$$\\mathbf{C}_c(\\phi) = \\mathbf{C}_c(\\phi+2\\pi/N_p) \\;\\text{(N_p 场周期)}$$"
+        "formula": "$$\\mathbf{C}_c(\\phi) = \\mathbf{C}_c(\\phi+2\\pi/N_p) \\;\\text{(N_p 场周期)}$$",
+        "ref": {
+          "cite": "Zhu, Hudson, Song & Wan 2018, Nucl. Fusion 58:016008 (FOCUS)",
+          "url": "https://doi.org/10.1088/1741-4326/aa8e0a"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Zhu, Hudson, Song & Wan 2018, Nucl. Fusion 58:016008 (FOCUS)",
+      "url": "https://doi.org/10.1088/1741-4326/aa8e0a"
+    },
+    "normalization_ref": {
+      "cite": "Zhu, Hudson, Song & Wan 2018, Nucl. Fusion 58:016008 (FOCUS)",
+      "url": "https://doi.org/10.1088/1741-4326/aa8e0a"
+    }
   },
   "PROCESS": {
     "full_name": "PROCESS — Power Plant Systems Code",
@@ -1716,7 +1797,8 @@
       "STEP/DEMO 设计"
     ],
     "links": [
-      "https://github.com/ukaea/PROCESS"
+      "https://github.com/ukaea/PROCESS",
+      "https://doi.org/10.1016/j.fusengdes.2014.09.018"
     ],
     "closure": "求解聚变反应堆系统设计问题（0D/1D 系统代码）。通过对托卡马克/仿星器主要子系统（等离子体物理、磁体、包层、偏滤器、加热系统等）建立简化的物理和工程模型，使用约束优化方法寻找满足物理可行性和工程约束的最优设计点。物理模型包括：0D 等离子体功率平衡（基于经验定标律如 IPB98(y,2) 或回旋动理学预测）、1D 径向输运（简化模型）、MHD 稳定性约束（beta limit、safety factor）、电流驱动效率等。各子系统模型通过质量和功率平衡方程耦合。",
     "normalization": "采用工程单位（SI）。功率以 MW，尺寸以 m，磁场以 T，电流以 MA，温度以 keV 为单位。成本模型以货币单位表示。",
@@ -1726,13 +1808,29 @@
     "variant_formulas": [
       {
         "name": "托卡马克",
-        "formula": "$$\\tau_E^{\\text{IPB98}} = 0.0562 I_p^{0.93} B_0^{0.15} n^{0.41} P^{-0.69} R^{1.97} \\varepsilon^{0.58} \\kappa^{0.78}$$"
+        "formula": "$$\\tau_E^{\\text{IPB98}} = 0.0562 I_p^{0.93} B_0^{0.15} n^{0.41} P^{-0.69} R^{1.97} \\varepsilon^{0.58} \\kappa^{0.78}$$",
+        "ref": {
+          "cite": "Kovari et al. 2014, Fusion Eng. Des. 89:3054 (PROCESS)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2014.09.018"
+        }
       },
       {
         "name": "仿星器",
-        "formula": "$$\\tau_E^{\\text{ISS04}} = 0.148 R^{0.64} a^{2.33} \\bar{n}^{0.54} B^{0.84} \\iota_{2/3}^{0.41} P^{-0.61}$$"
+        "formula": "$$\\tau_E^{\\text{ISS04}} = 0.148 R^{0.64} a^{2.33} \\bar{n}^{0.54} B^{0.84} \\iota_{2/3}^{0.41} P^{-0.61}$$",
+        "ref": {
+          "cite": "Kovari et al. 2014, Fusion Eng. Des. 89:3054 (PROCESS)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2014.09.018"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Kovari et al. 2014, Fusion Eng. Des. 89:3054 (PROCESS)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.018"
+    },
+    "normalization_ref": {
+      "cite": "Kovari et al. 2014, Fusion Eng. Des. 89:3054 (PROCESS)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.018"
+    }
   },
   "Bluemira": {
     "full_name": "Bluemira — Modular Fusion Reactor Design Framework",
@@ -1755,13 +1853,29 @@
     "variant_formulas": [
       {
         "name": "托卡马克",
-        "formula": "$$R_0 = \\left(\\frac{P_{\\text{fus}}}{p_{\\text{wall}} f_{\\text{shape}}}\\right)^{1/3}$$"
+        "formula": "$$R_0 = \\left(\\frac{P_{\\text{fus}}}{p_{\\text{wall}} f_{\\text{shape}}}\\right)^{1/3}$$",
+        "ref": {
+          "cite": "Bluemira (UKAEA/EUROfusion) — 聚变堆一体化设计框架",
+          "url": "https://bluemira.readthedocs.io/"
+        }
       },
       {
         "name": "STEP/CFETR 模板",
-        "formula": "$$\\mathbf{x}_{\\text{opt}} = \\arg\\min f(\\mathbf{x})\\;\\text{s.t.}\\; \\mathbf{g}(\\mathbf{x})\\leq 0$$"
+        "formula": "$$\\mathbf{x}_{\\text{opt}} = \\arg\\min f(\\mathbf{x})\\;\\text{s.t.}\\; \\mathbf{g}(\\mathbf{x})\\leq 0$$",
+        "ref": {
+          "cite": "Bluemira (UKAEA/EUROfusion) — 聚变堆一体化设计框架",
+          "url": "https://bluemira.readthedocs.io/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Bluemira (UKAEA/EUROfusion) — 聚变堆一体化设计框架",
+      "url": "https://bluemira.readthedocs.io/"
+    },
+    "normalization_ref": {
+      "cite": "Bluemira (UKAEA/EUROfusion) — 聚变堆一体化设计框架",
+      "url": "https://bluemira.readthedocs.io/"
+    }
   },
   "Power Balance": {
     "full_name": "Power Balance — Tokamak Net Power Balance Model",
@@ -1779,14 +1893,26 @@
     "closure": "求解 0D 功率平衡方程 P_fusion + P_aux = P_rad + P_transport + dW/dt，用于快速评估聚变反应堆的净功率输出。等离子体能量约束时间通过经验定标律（IPB98(y,2)、ITERH-98P 等）估算。聚变功率通过反应率参数化（Bosch-Hale）计算。辐射功率包含轫致辐射、线辐射和同步辐射。输运功率通过能量约束时间计算。电流驱动和加热功率通过简化效率公式估算。支持多装置类型（托卡马克、仿星器、球形托卡马克）的参数化。",
     "normalization": "采用工程单位。功率以 MW，温度以 keV，密度以 10²⁰ m⁻³，体积以 m³，磁场以 T，电流以 MA 为单位。",
     "variants": "单点设计评估；参数扫描（灵敏度分析）；约束优化设计；托卡马克/球形托卡马克/仿星器模式；不同定标律选项。",
-    "closure_formula": "$$\n\\begin{aligned}\nP_{\\text{fus}} &= \\frac{1}{4}n^2 \\langle\\sigma v\\rangle_{DT} E_{\\text{fus}} V \\\\[4pt]\n\\frac{dW}{dt} &= P_{\\text{fus}} + P_{\\text{aux}} - \\frac{W}{\\tau_E} - P_{\\text{rad}} \\\\[4pt]\nP_{\\text{rad}} &= P_{\\text{brems}} + P_{\\text{line}} + P_{\\text{sync}} \\\\[4pt]\nQ &= \\frac{5 P_{\\text{fus}}}{P_{\\text{aux}}} \\quad \\text{(聚变增益)}\n\\end{aligned}\n$$",
+    "closure_formula": "$$\n\\begin{aligned}\nP_{\\text{fus}} &= \\tfrac{1}{4}n^2 \\langle\\sigma v\\rangle_{DT} E_{\\text{fus}} V \\\\[4pt]\nP_\\alpha &= \\tfrac{1}{5}P_{\\text{fus}} \\quad (E_\\alpha=3.5\\,\\text{MeV} \\approx \\tfrac{1}{5}E_{\\text{fus}}) \\\\[4pt]\n\\frac{dW}{dt} &= P_\\alpha + P_{\\text{aux}} - \\frac{W}{\\tau_E} - P_{\\text{rad}} \\\\[4pt]\nP_{\\text{rad}} &= P_{\\text{brems}} + P_{\\text{line}} + P_{\\text{sync}} \\\\[4pt]\nQ &= \\frac{P_{\\text{fus}}}{P_{\\text{aux}}} \\quad \\text{(聚变增益)}\n\\end{aligned}\n$$",
     "normalization_formula": "$$\\bar{P}[\\text{MW}],\\; \\bar{T}[\\text{keV}],\\; \\bar{n}[10^{20}\\text{m}^{-3}],\\; \\bar{V}[\\text{m}^3]$$",
     "variant_formulas": [
       {
         "name": "参数扫描",
-        "formula": "$$Q(T, n, B, R, \\ldots) \\;\\text{vs.}\\; \\mathbf{x} \\in \\mathbb{R}^n$$"
+        "formula": "$$Q(T, n, B, R, \\ldots) \\;\\text{vs.}\\; \\mathbf{x} \\in \\mathbb{R}^n$$",
+        "ref": {
+          "cite": "UKAEA Power Balance — 0D 功率平衡模型",
+          "url": "https://ukaea.github.io/powerbalance/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "UKAEA Power Balance — 0D 功率平衡模型",
+      "url": "https://ukaea.github.io/powerbalance/"
+    },
+    "normalization_ref": {
+      "cite": "UKAEA Power Balance — 0D 功率平衡模型",
+      "url": "https://ukaea.github.io/powerbalance/"
+    }
   },
   "FESTIM": {
     "full_name": "FESTIM — Finite Element Simulation of Tritium In Materials",
@@ -1799,7 +1925,8 @@
       "第一壁/包层"
     ],
     "links": [
-      "https://festim.readthedocs.io/"
+      "https://festim.readthedocs.io/",
+      "https://doi.org/10.1016/j.ijhydene.2024.03.184"
     ],
     "closure": "求解氢同位素（H/D/T）在聚变反应堆材料（第一壁、包层、偏滤器）中的输运和滞留方程。控制方程为多陷阱（multi-trap）扩散方程：∂c/∂t = ∇·(D∇c) − Σ ∂ct,i/∂t + S，其中 c 为可动氢浓度，ct,i 为第 i 类陷阱中的捕获浓度，D 为扩散系数。陷阱占据动力学通过 McNabb-Foster 方程或 Oriani 局部平衡近似闭合。表面过程（吸附、解吸、复合）通过 Sievert 定律或动力学模型边界条件处理。热传导通过耦合的傅里叶热传导方程处理。采用有限元方法（FEniCS）离散求解。",
     "normalization": "采用 SI 单位制。浓度以 m⁻³ 或 at.fr.，扩散系数以 m²/s，温度以 K，时间以 s，长度以 m 为单位。陷阱能量以 eV 为单位。",
@@ -1809,9 +1936,21 @@
     "variant_formulas": [
       {
         "name": "多陷阱",
-        "formula": "$$c_t = \\sum_{i=1}^{N_t} c_{t,i},\\; E_{t,i} \\in \\{0.3, 0.5, 0.85, 1.0, 1.3\\,\\text{eV}\\}$$"
+        "formula": "$$c_t = \\sum_{i=1}^{N_t} c_{t,i},\\; E_{t,i} \\in \\{0.3, 0.5, 0.85, 1.0, 1.3\\,\\text{eV}\\}$$",
+        "ref": {
+          "cite": "Delaporte-Mathurin et al. 2024, Int. J. Hydrogen Energy (FESTIM)",
+          "url": "https://doi.org/10.1016/j.ijhydene.2024.03.184"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Delaporte-Mathurin et al. 2024, Int. J. Hydrogen Energy (FESTIM)",
+      "url": "https://doi.org/10.1016/j.ijhydene.2024.03.184"
+    },
+    "normalization_ref": {
+      "cite": "Delaporte-Mathurin et al. 2024, Int. J. Hydrogen Energy (FESTIM)",
+      "url": "https://doi.org/10.1016/j.ijhydene.2024.03.184"
+    }
   },
   "OpenMC": {
     "full_name": "OpenMC — Open Source Monte Carlo Particle Transport Code",
@@ -1824,7 +1963,8 @@
       "MIT 开源"
     ],
     "links": [
-      "https://docs.openmc.org/"
+      "https://docs.openmc.org/",
+      "https://doi.org/10.1016/j.anucene.2014.07.048"
     ],
     "closure": "求解稳态或时间相关的中子输运方程（Boltzmann 输运方程）：Ω·∇ψ(r,E,Ω) + Σt(r,E)ψ(r,E,Ω) = ∫∫ Σs(r,E'→E,Ω'→Ω)ψ(r,E',Ω') dΩ' dE' + Q(r,E,Ω)。采用蒙特卡洛方法模拟中子历史的随机游走，通过统计大量粒子获得标量通量、反应率、功率分布等。支持连续能量和multi-group截面。核数据库通过 ACE 格式截面（ENDF/B-VIII.0、JEFF-3.3 等）提供。几何通过 CSG（Constructive Solid Geometry）构建。可选包含 photon transport 和 k-eigenvalue 计算。",
     "normalization": "采用 SI 单位和中子学惯例。长度以 cm，能量以 eV/MeV 为单位。截面以 barns（10⁻²⁴ cm²）。通量归一化通常为 per source neutron 或通过功率归一化。k-eigenvalue 无量纲。",
@@ -1834,13 +1974,29 @@
     "variant_formulas": [
       {
         "name": "k-eigenvalue",
-        "formula": "$$\\mathbf{L}\\psi = \\frac{1}{k}\\mathbf{F}\\psi,\\; k^{n+1} = k^n\\frac{\\int\\mathbf{F}\\psi^{n+1}}{\\frac{1}{k^n}\\int\\mathbf{F}\\psi^n}$$"
+        "formula": "$$\\mathbf{L}\\psi = \\frac{1}{k}\\mathbf{F}\\psi,\\; k^{n+1} = k^n\\frac{\\int\\mathbf{F}\\psi^{n+1}}{\\frac{1}{k^n}\\int\\mathbf{F}\\psi^n}$$",
+        "ref": {
+          "cite": "Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC)",
+          "url": "https://doi.org/10.1016/j.anucene.2014.07.048"
+        }
       },
       {
         "name": "TBR 计算",
-        "formula": "$$\\text{TBR} = \\int_V \\int_E \\Sigma_{(n,^6\\text{Li})\\to T}(\\mathbf{r},E)\\,\\phi(\\mathbf{r},E)\\,dE\\,dV$$"
+        "formula": "$$\\text{TBR} = \\int_V \\int_E \\Sigma_{(n,^6\\text{Li})\\to T}(\\mathbf{r},E)\\,\\phi(\\mathbf{r},E)\\,dE\\,dV$$",
+        "ref": {
+          "cite": "Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC)",
+          "url": "https://doi.org/10.1016/j.anucene.2014.07.048"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC)",
+      "url": "https://doi.org/10.1016/j.anucene.2014.07.048"
+    },
+    "normalization_ref": {
+      "cite": "Romano et al. 2015, Ann. Nucl. Energy 82:90 (OpenMC)",
+      "url": "https://doi.org/10.1016/j.anucene.2014.07.048"
+    }
   },
   "DAGMC": {
     "full_name": "DAGMC — Direct Accelerated Geometry Monte Carlo",
@@ -1853,7 +2009,8 @@
       "STEP/IGES 导入"
     ],
     "links": [
-      "https://svalinn.github.io/DAGMC/"
+      "https://svalinn.github.io/DAGMC/",
+      "https://doi.org/10.1016/j.fusengdes.2010.05.030"
     ],
     "closure": "基于 CAD 几何的直接加速几何蒙特卡洛 (Direct Accelerated Geometry Monte Carlo)，不直接求解物理方程，而是为蒙特卡洛粒子输运代码提供 CAD 几何中粒子追踪的加速方法。粒子追踪通过 CAD 引擎（如 Cubit/OCC）的几何查询接口（ray firing）进行面交叉检测。传统 CSG 几何需要显式定义所有曲面和体，DAGMC 允许直接从 CAD 模型导入复杂几何进行中子/光子输运。通常作为 OpenMC/MCNP 的几何后端使用。物理闭合由宿主蒙特卡洛代码决定。",
     "normalization": "几何长度以 cm（CAD 原生单位），宿主代码负责物理单位转换。不涉及独立的物理归一化。",
@@ -1863,9 +2020,21 @@
     "variant_formulas": [
       {
         "name": "CAD导入",
-        "formula": "$$V = \\bigcup_i V_i^{\\text{CAD}} \\xrightarrow{\\text{tessellation}} \\bigcup_j \\Delta_j^{\\text{faceted}}$$"
+        "formula": "$$V = \\bigcup_i V_i^{\\text{CAD}} \\xrightarrow{\\text{tessellation}} \\bigcup_j \\Delta_j^{\\text{faceted}}$$",
+        "ref": {
+          "cite": "Wilson et al. 2010, Fusion Eng. Des. 85:1759 (DAGMC)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2010.05.030"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Wilson et al. 2010, Fusion Eng. Des. 85:1759 (DAGMC)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2010.05.030"
+    },
+    "normalization_ref": {
+      "cite": "Wilson et al. 2010, Fusion Eng. Des. 85:1759 (DAGMC)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2010.05.030"
+    }
   },
   "FISPACT-II": {
     "full_name": "FISPACT-II — Nuclear Activation and Transmutation Code",
@@ -1878,7 +2047,8 @@
       "多核数据库"
     ],
     "links": [
-      "https://fispact.ukaea.uk/"
+      "https://fispact.ukaea.uk/",
+      "https://doi.org/10.1016/j.nds.2017.01.002"
     ],
     "closure": "求解核素燃耗和活化方程组（Bateman 方程组）：dNi/dt = −Ni(λi + σiφ) + Σj Nj(λji + σjiφ) + Si，其中 Ni 为第 i 种核素的数量，λ 为衰变常数，σ 为反应截面，φ 为中子通量。采用切比雪夫有理近似（CRAM）方法或矩阵指数方法进行 stiff ODE 积分。支持多脉冲辐照历史、衰变冷却、多区域耦合、不确定性量化。核数据库基于 TENDL、ENDF/B、JEFF 等国际评价数据库。用于分析聚变反应堆材料的活化、衰变热、剂量率和废物分类。",
     "normalization": "中子通量以 n/cm²/s，截面以 barns，时间以秒/年，质量以克/千克，活度以 Bq，衰变热以 kW，剂量率以 Sv/h 为单位。",
@@ -1888,9 +2058,21 @@
     "variant_formulas": [
       {
         "name": "多脉冲辐照",
-        "formula": "$$\\phi(t) = \\begin{cases}\\phi_i & t \\in [t_{2i}, t_{2i+1}] \\\\ 0 & \\text{otherwise}\\end{cases}$$"
+        "formula": "$$\\phi(t) = \\begin{cases}\\phi_i & t \\in [t_{2i}, t_{2i+1}] \\\\ 0 & \\text{otherwise}\\end{cases}$$",
+        "ref": {
+          "cite": "Sublet et al. 2017, Nucl. Data Sheets 139:77 (FISPACT-II)",
+          "url": "https://doi.org/10.1016/j.nds.2017.01.002"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Sublet et al. 2017, Nucl. Data Sheets 139:77 (FISPACT-II)",
+      "url": "https://doi.org/10.1016/j.nds.2017.01.002"
+    },
+    "normalization_ref": {
+      "cite": "Sublet et al. 2017, Nucl. Data Sheets 139:77 (FISPACT-II)",
+      "url": "https://doi.org/10.1016/j.nds.2017.01.002"
+    }
   },
   "FIDASIM": {
     "full_name": "FIDASIM — Fast-Ion D-Alpha Simulation Code",
@@ -3579,9 +3761,21 @@
     "variant_formulas": [
       {
         "name": "STEP设计",
-        "formula": "$$\\min_{\\mathbf{x}} \\text{LCOE}(\\mathbf{x}) \\;\\text{s.t.}\\; P_{\\text{net}} \\geq 0$$"
+        "formula": "$$\\min_{\\mathbf{x}} \\text{LCOE}(\\mathbf{x}) \\;\\text{s.t.}\\; P_{\\text{net}} \\geq 0$$",
+        "ref": {
+          "cite": "UKAEA Power Balance Models — 电站净功率/热效率模型",
+          "url": "https://github.com/ukaea/powerbalance"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "UKAEA Power Balance Models — 电站净功率/热效率模型",
+      "url": "https://github.com/ukaea/powerbalance"
+    },
+    "normalization_ref": {
+      "cite": "UKAEA Power Balance Models — 电站净功率/热效率模型",
+      "url": "https://github.com/ukaea/powerbalance"
+    }
   },
   "GSevolve": {
     "full_name": "GSevolve — Grad-Shafranov Equilibrium Evolver",

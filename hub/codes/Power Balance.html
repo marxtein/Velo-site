@@ -82,20 +82,21 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
-P_{\text{fus}} &= \frac{1}{4}n^2 \langle\sigma v\rangle_{DT} E_{\text{fus}} V \\[4pt]
-\frac{dW}{dt} &= P_{\text{fus}} + P_{\text{aux}} - \frac{W}{\tau_E} - P_{\text{rad}} \\[4pt]
+P_{\text{fus}} &= \tfrac{1}{4}n^2 \langle\sigma v\rangle_{DT} E_{\text{fus}} V \\[4pt]
+P_\alpha &= \tfrac{1}{5}P_{\text{fus}} \quad (E_\alpha=3.5\,\text{MeV} \approx \tfrac{1}{5}E_{\text{fus}}) \\[4pt]
+\frac{dW}{dt} &= P_\alpha + P_{\text{aux}} - \frac{W}{\tau_E} - P_{\text{rad}} \\[4pt]
 P_{\text{rad}} &= P_{\text{brems}} + P_{\text{line}} + P_{\text{sync}} \\[4pt]
-Q &= \frac{5 P_{\text{fus}}}{P_{\text{aux}}} \quad \text{(聚变增益)}
+Q &= \frac{P_{\text{fus}}}{P_{\text{aux}}} \quad \text{(聚变增益)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单点设计评估；参数扫描（灵敏度分析）；约束优化设计；托卡马克/球形托卡马克/仿星器模式；不同定标律选项。</p><div class="variant-card"><h4>参数扫描</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q(T, n, B, R, \ldots) \;\text{vs.}\; \mathbf{x} \in \mathbb{R}^n$$</div></div>
+<div class="formula-ref">来源: <a href="https://ukaea.github.io/powerbalance/" target="_blank" rel="noopener">UKAEA Power Balance — 0D 功率平衡模型 ↗</a></div>
+</div></div><p class="body-text">单点设计评估；参数扫描（灵敏度分析）；约束优化设计；托卡马克/球形托卡马克/仿星器模式；不同定标律选项。</p><div class="variant-card"><h4>参数扫描</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q(T, n, B, R, \ldots) \;\text{vs.}\; \mathbf{x} \in \mathbb{R}^n$$<div class="formula-ref">来源: <a href="https://ukaea.github.io/powerbalance/" target="_blank" rel="noopener">UKAEA Power Balance — 0D 功率平衡模型 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。功率以 MW，温度以 keV，密度以 10²⁰ m⁻³，体积以 m³，磁场以 T，电流以 MA 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{P}[\text{MW}],\; \bar{T}[\text{keV}],\; \bar{n}[10^{20}\text{m}^{-3}],\; \bar{V}[\text{m}^3]$$
-
+<div class="formula-ref">来源: <a href="https://ukaea.github.io/powerbalance/" target="_blank" rel="noopener">UKAEA Power Balance — 0D 功率平衡模型 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
