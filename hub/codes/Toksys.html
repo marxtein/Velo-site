@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">ITER 控制验证</span>
 <span class="fchip">闭环仿真</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解托卡马克等离子体控制系统设计和仿真的耦合问题。将等离子体响应模型（刚性位移 + 形变）与外部线圈电路和电源模型耦合。等离子体响应通过线性化 MHD 模型或 RZIP（刚体位移模型）描述，线圈电路通过 R-L 耦合微分方程建模，电源通过传递函数和饱和限幅建模。控制算法（PID、LQG、MPC 等）通过 MATLAB/Simulink 接口集成。用于设计垂直稳定性控制、形状控制和电流剖面控制策略。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解托卡马克等离子体控制系统设计和仿真的耦合问题。将等离子体响应模型（刚性位移 + 形变）与外部线圈电路和电源模型耦合。等离子体响应通过线性化 MHD 模型或 RZIP（刚体位移模型）描述，线圈电路通过 R-L 耦合微分方程建模，电源通过传递函数和饱和限幅建模。控制算法（PID、LQG、MPC 等）通过 MATLAB/Simulink 接口集成。用于设计垂直稳定性控制、形状控制和电流剖面控制策略。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \dot{\mathbf{x}} &= \mathbf{A}\mathbf{x} + \mathbf{B}\mathbf{u} \\[4pt]
@@ -83,16 +87,15 @@ $$
 \mathbf{u} &= -\mathbf{K}\mathbf{x} \quad \text{(LQG/MPC 控制律)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">线性等离子体响应模式；非线性演化模式（耦合 DINA/CORSICA）；垂直稳定性控制设计；形状控制设计；电流剖面控制；ITER 控制策略验证。</p><div class="variant-card"><h4>垂直稳定性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\dot{Z} = \frac{Z}{\tau_g} \;\Rightarrow\; \tau_g > \tau_{\text{PF}}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。电流以 A，电压以 V，位置以 m，时间以 s。等离子体参数通过 EFIT 平衡提供。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{I}[\text{A}],\; \bar{V}[\text{V}],\; \bar{Z}[\text{m}],\; \bar{t}[\text{s}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">线性等离子体响应模式；非线性演化模式（耦合 DINA/CORSICA）；垂直稳定性控制设计；形状控制设计；电流剖面控制；ITER 控制策略验证。</p><div class="variant-card"><h4>垂直稳定性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\dot{Z} = \frac{Z}{\tau_g} \;\Rightarrow\; \tau_g > \tau_{\text{PF}}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/Toksys/toksys" target="_blank" rel="noopener">github.com/Toksys/toksys</a></div>

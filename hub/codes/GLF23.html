@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">E×B剪切</span>
 <span class="fchip">DIII-D验证</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">基于回旋-朗道-流体（TGLF）理论的 23 矩闭合反常输运模型。通过截断到 23 个速度空间矩的流体方程链，结合 Hammett-Perkins 朗道阻尼闭合近似，预测 ITG/TEM/ETG 驱动的粒子、能量和动量输运。准线性输运使用最不稳定模的混合长度估计（γ/⟨k⊥²⟩）。是 TGLF 系列的前身，为后续 GA 标准输运模型奠定了物理框架。在 DIII-D 上广泛验证，用于 ITER 预测。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">基于回旋-朗道-流体（TGLF）理论的 23 矩闭合反常输运模型。通过截断到 23 个速度空间矩的流体方程链，结合 Hammett-Perkins 朗道阻尼闭合近似，预测 ITG/TEM/ETG 驱动的粒子、能量和动量输运。准线性输运使用最不稳定模的混合长度估计（γ/⟨k⊥²⟩）。是 TGLF 系列的前身，为后续 GA 标准输运模型奠定了物理框架。在 DIII-D 上广泛验证，用于 ITER 预测。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \partial_t \tilde{n} &= -\nabla_\parallel \tilde{u}_\parallel - i\omega_{*n}\tilde{\phi} \\[4pt]
@@ -83,20 +87,20 @@ $$
 \tilde{q}_\parallel &= -i\chi_\parallel \tilde{T} \circledast \frac{1}{|k_\parallel|v_t}
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.872228" target="_blank" rel="noopener">Waltz et al. 1997, Phys. Plasmas 4:2482 ↗</a></div>
+</div></div><p class="body-text">ITG/TEM 模式；ETG 模式；ExB 剪切效应；Shafranov 位移致稳；DIII-D 专用模式；ITER 预测模式。</p><div class="variant-card"><h4>23矩闭合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$M = 23 \text{ moments retained in the fluid hierarchy}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.872228" target="_blank" rel="noopener">Waltz et al. 1997, Phys. Plasmas 4:2482 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 gyro-Bohm 归一化。输出输运系数以 m²/s 的工程单位表示。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{k}_\theta = k_\theta\rho_s,\; \bar{\chi}[\text{m}^2/\text{s}],\; Q_{gB}$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.872228" target="_blank" rel="noopener">Waltz et al. 1997, Phys. Plasmas 4:2482 ↗</a></div>
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">ITG/TEM 模式；ETG 模式；ExB 剪切效应；Shafranov 位移致稳；DIII-D 专用模式；ITER 预测模式。</p><div class="variant-card"><h4>23矩闭合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$M = 23 \text{ moments retained in the fluid hierarchy}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/GeneralAtomics/GLF23" target="_blank" rel="noopener">github.com/GeneralAtomics/GLF23</a>
-<a href="https://doi.org/10.13182/FST05-A1060" target="_blank" rel="noopener">doi.org/10.13182/FST05-A1060</a></div>
+<a href="https://doi.org/10.13182/FST05-A1060" target="_blank" rel="noopener">doi.org/10.13182/FST05-A1060</a>
+<a href="https://doi.org/10.1063/1.872228" target="_blank" rel="noopener">doi.org/10.1063/1.872228</a></div>
 </div>
 
 </div>

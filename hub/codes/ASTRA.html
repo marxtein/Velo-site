@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,25 +77,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">40 年历史验证</span>
 <span class="fchip">教学经典</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">Kurchatov Institute（俄罗斯）开发的经典自动化托卡马克输运模拟系统，求解 1.5D 核心输运方程和电流扩散。输运闭合通过多种经验、半经验和理论输运模型。平衡通过 SPIDER 内置平衡求解器处理（可耦合外部 EFIT）。源项模块涵盖 NBI、ECRH、ICRF 和 LH 加热/电流驱动。以 Fortran 编写，提供 Python 接口。被 ITER、JET、ASDEX Upgrade、T-15MD 等装置广泛使用。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">Kurchatov Institute（俄罗斯）开发的经典自动化托卡马克输运模拟系统，求解 1.5D 核心输运方程和电流扩散。输运闭合通过多种经验、半经验和理论输运模型。平衡通过 SPIDER 内置平衡求解器处理（可耦合外部 EFIT）。源项模块涵盖 NBI、ECRH、ICRF 和 LH 加热/电流驱动。以 Fortran 编写，提供 Python 接口。被 ITER、JET、ASDEX Upgrade、T-15MD 等装置广泛使用。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{3}{2}\frac{\partial(nT)}{\partial t} &= \nabla\cdot(n\chi\nabla T) + Q_{\text{aux}} - Q_{\text{rad}} \\[4pt]
 \frac{\partial \psi}{\partial t} &= \frac{\eta_\parallel}{\mu_0}\frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\frac{\rho}{R_0}\frac{\partial\psi}{\partial\rho}\right) + \frac{j_{\text{BS}}+j_{\text{CD}}}{\sigma_\parallel}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">预测性模式；实验约束模式；线性输运模型；非线性湍流输运耦合（TGLF/GLF23）；NBI 加热；ECRH/ICRF/LH 加热和电流驱动；T-15MD/ITER 装置配置。</p><div class="variant-card"><h4>经验定标</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{tot}} - \partial W/\partial t}{-n\nabla T}$$</div></div><div class="variant-card"><h4>TGLF/QuaLiKiz耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位（SI）。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{P}[\text{MW}],\; \bar{\chi}[\text{m}^2/\text{s}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">预测性模式；实验约束模式；线性输运模型；非线性湍流输运耦合（TGLF/GLF23）；NBI 加热；ECRH/ICRF/LH 加热和电流驱动；T-15MD/ITER 装置配置。</p><div class="variant-card"><h4>经验定标</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{tot}} - \partial W/\partial t}{-n\nabla T}$$</div></div><div class="variant-card"><h4>TGLF/QuaLiKiz耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/CIEMAT-ASTRA" target="_blank" rel="noopener">github.com/CIEMAT-ASTRA</a></div>

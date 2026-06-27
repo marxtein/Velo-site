@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -74,9 +78,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">PML边界</span>
 <span class="fchip">FRC聚变</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解全电磁（full-Maxwell）Particle-in-Cell 方程。Maxwell 方程组采用 Yee 网格 FDTD 方法离散，包含电荷守恒方案（Esirkepov 或 Villasenor-Buneman）确保 ∇·E = ρ/ε₀。粒子推进采用 Boris 算法或 Vay 算法（适用于相对论速度）。支持静电（仅 Poisson 方程）、全电磁（完整 Maxwell 方程组）和 Darwin（忽略横向位移电流）三种电磁闭合层级。采用自适应网格细化（AMR）处理多尺度结构，完美匹配层（PML）吸收边界条件。Relativistic beam frame（boosted-frame）技术用于加速激光尾波模拟。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解全电磁（full-Maxwell）Particle-in-Cell 方程。Maxwell 方程组采用 Yee 网格 FDTD 方法离散，包含电荷守恒方案（Esirkepov 或 Villasenor-Buneman）确保 ∇·E = ρ/ε₀。粒子推进采用 Boris 算法或 Vay 算法（适用于相对论速度）。支持静电（仅 Poisson 方程）、全电磁（完整 Maxwell 方程组）和 Darwin（忽略横向位移电流）三种电磁闭合层级。采用自适应网格细化（AMR）处理多尺度结构，完美匹配层（PML）吸收边界条件。Relativistic beam frame（boosted-frame）技术用于加速激光尾波模拟。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial \mathbf{B}}{\partial t} &= -\nabla \times \mathbf{E} \quad &\text{(Faraday)} \\[4pt]
@@ -85,7 +89,8 @@ $$
 \frac{d\mathbf{p}_p}{dt} &= q_p\left(\mathbf{E}_p + \frac{\mathbf{v}_p}{c} \times \mathbf{B}_p\right), \quad \mathbf{p}_p = \gamma_p m_p \mathbf{v}_p
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">1D/2D/3D/RZ 几何；静电模式；全电磁模式；Darwin 模式；AMR 自适应网格；PML 吸收边界；boosted-frame（相对论束流框架）；GPU 加速（CUDA/HIP/SYCL）；激光尾波加速专用模式；FRC 聚变模拟模块（2025 新增）；束流输运；高能量密度物理。</p><div class="variant-card"><h4>全电磁</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{E}}{\partial t} = c^2 \nabla \times \mathbf{B} - \frac{\mathbf{J}}{\varepsilon_0}$$</div></div><div class="variant-card"><h4>静电</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \phi = -\frac{\rho}{\varepsilon_0},\; \mathbf{E} = -\nabla\phi$$</div></div><div class="variant-card"><h4>Darwin近似</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \mathbf{E}_T = \mu_0 \frac{\partial \mathbf{J}_T}{\partial t},\; \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位制为内部标准，同时支持无量纲归一化输入。典型归一化基于激光波长 λ₀（长度）、激光周期 1/ω₀（时间）、电子静止质量能量 mec²（能量）和临界密度 nc（密度）。输出可转换为物理单位。</p><div class="formula-block">
@@ -96,10 +101,8 @@ $$
 \bar{\mathbf{E}} &= \frac{e\mathbf{E}}{m_e \omega_0 c}, \quad \bar{\mathbf{B}} = \frac{e\mathbf{B}}{m_e \omega_0}, \quad n_c = \frac{\varepsilon_0 m_e \omega_0^2}{e^2}
 \end{aligned}
 $$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">1D/2D/3D/RZ 几何；静电模式；全电磁模式；Darwin 模式；AMR 自适应网格；PML 吸收边界；boosted-frame（相对论束流框架）；GPU 加速（CUDA/HIP/SYCL）；激光尾波加速专用模式；FRC 聚变模拟模块（2025 新增）；束流输运；高能量密度物理。</p><div class="variant-card"><h4>全电磁</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{E}}{\partial t} = c^2 \nabla \times \mathbf{B} - \frac{\mathbf{J}}{\varepsilon_0}$$</div></div><div class="variant-card"><h4>静电</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \phi = -\frac{\rho}{\varepsilon_0},\; \mathbf{E} = -\nabla\phi$$</div></div><div class="variant-card"><h4>Darwin近似</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2 \mathbf{E}_T = \mu_0 \frac{\partial \mathbf{J}_T}{\partial t},\; \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/BLAST-WarpX/warpx" target="_blank" rel="noopener">github.com/BLAST-WarpX/warpx</a>

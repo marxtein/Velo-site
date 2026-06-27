@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,25 +77,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">模块化设计</span>
 <span class="fchip">极端位形</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">EPFL 开发的模块化 MHD 平衡求解器套件，核心使用 Newton 方法求解自由边界 Grad-Shafranov 方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，耦合外部导体（主动线圈 + 被动导体）的电路方程。等离子体压力 p(ψ) 和环向场函数 F(ψ) 通过参数化模型（polynomial、spline 或物理模型）闭合。使用完全非线性 Newton 框架，支持多平衡点（分岔）求解。是 TCV 装置等离子体控制和位形设计的核心平衡工具。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">EPFL 开发的模块化 MHD 平衡求解器套件，核心使用 Newton 方法求解自由边界 Grad-Shafranov 方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，耦合外部导体（主动线圈 + 被动导体）的电路方程。等离子体压力 p(ψ) 和环向场函数 F(ψ) 通过参数化模型（polynomial、spline 或物理模型）闭合。使用完全非线性 Newton 框架，支持多平衡点（分岔）求解。是 TCV 装置等离子体控制和位形设计的核心平衡工具。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \Delta^*\psi &= -\mu_0 R^2 p'(\psi) - FF'(\psi) \\[4pt]
 \mathbf{F}(\boldsymbol{\psi}) &= \mathbf{0},\; \boldsymbol{\psi}_{k+1} = \boldsymbol{\psi}_k - [\nabla\mathbf{F}]^{-1}\mathbf{F} \quad \text{(Newton)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">固定边界模式（提供等离子体边界）；自由边界模式（指定线圈电流）；真空场计算模式；线圈电流优化（给定目标等离子体形状）；双轴位形（Doublet）模式。</p><div class="variant-card"><h4>双磁轴 (MEQ)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\exists \psi_1,\psi_2: \nabla\psi_1 = \nabla\psi_2 = 0,\; \psi_1 \neq \psi_2$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。ψ 以 Wb，电流以 A，磁场以 T，长度以 m 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{\psi}[\text{Wb}],\; \bar{I}[\text{A}],\; \bar{B}[\text{T}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">固定边界模式（提供等离子体边界）；自由边界模式（指定线圈电流）；真空场计算模式；线圈电流优化（给定目标等离子体形状）；双轴位形（Doublet）模式。</p><div class="variant-card"><h4>双磁轴 (MEQ)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\exists \psi_1,\psi_2: \nabla\psi_1 = \nabla\psi_2 = 0,\; \psi_1 \neq \psi_2$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://gitlab.epfl.ch/spc/public/meq" target="_blank" rel="noopener">gitlab.epfl.ch/spc/public/meq</a></div>

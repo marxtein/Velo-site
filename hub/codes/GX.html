@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">不确定性量化</span>
 <span class="fchip">Python 接口</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解局域回旋动理学方程（δf gyrokinetic Vlasov-Maxwell 系统）。速度空间采用 Hermite（v∥方向）+ Laguerre（μ 方向）伪谱展开，实现指数收敛精度的无噪声动理学闭合。场方程耦合回旋动理学 Poisson 方程（静电 φ）和 Ampere 定律（电磁 A∥）。支持线性（本征值）和非线性（初值）两种求解模式。几何采用局域通量管近似（气球模坐标），径向使用周期性边界条件。完全 GPU-native 实现，充分利用大规模并行。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解局域回旋动理学方程（δf gyrokinetic Vlasov-Maxwell 系统）。速度空间采用 Hermite（v∥方向）+ Laguerre（μ 方向）伪谱展开，实现指数收敛精度的无噪声动理学闭合。场方程耦合回旋动理学 Poisson 方程（静电 φ）和 Ampere 定律（电磁 A∥）。支持线性（本征值）和非线性（初值）两种求解模式。几何采用局域通量管近似（气球模坐标），径向使用周期性边界条件。完全 GPU-native 实现，充分利用大规模并行。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial g_s}{\partial t} &= \mathcal{L}[g_s] + \mathcal{N}[g_s, g_s] \\[4pt]
@@ -83,7 +87,13 @@ $$
 g_s &= \sum_{m=0}^{N_v} \sum_{\ell=0}^{N_\mu} C_{m\ell}(\mathbf{x}) H_m(\bar{v}_\parallel) L_\ell(\bar{\mu}) \quad \text{(Hermite-Laguerre 谱展开)}
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://arxiv.org/abs/2209.06731" target="_blank" rel="noopener">Mandell, Dorland, Abel et al. 2024, J. Plasma Phys. (arXiv:2209.06731); 表述 Mandell et al. 2018, JPP 84:905840108 ↗</a></div>
+</div></div><p class="body-text">线性本征值模式；非线性湍流模式；纯静电（仅 φ）；电磁模式（φ + A∥）；单粒子种/多粒子种；托卡马克几何；仿星器几何；参数扫描模式（Python 接口驱动）；不确定性量化（UQ）模式。</p><div class="variant-card"><h4>线性本征值</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">线性算子本征值问题求增长率/频率</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\det[\mathcal{L} - i\omega \mathcal{I}] = 0$$<div class="formula-ref">来源: <a href="https://doi.org/10.1017/S0022377818000041" target="_blank" rel="noopener">Mandell et al. 2018, J. Plasma Phys. 84:905840108 ↗</a></div></div></div><div class="variant-card"><h4>非线性湍流</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">含非线性项的完整湍流演化</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial g}{\partial t} + \mathcal{L}[g] = \mathcal{N}[g,g]$$<div class="formula-ref">来源: <a href="https://arxiv.org/abs/2209.06731" target="_blank" rel="noopener">Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731) ↗</a></div></div></div><div class="variant-card"><h4>静电模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">回旋动理学准中性求 φ</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\sum_s \frac{Z_s^2 e^2 n_{0s}}{T_s}\big(1-\Gamma_0(b_s)\big)\phi = \sum_s Z_s e \int d^3v\, J_0(k_\perp\rho_s)\, g_s$$<div class="formula-ref">来源: <a href="https://doi.org/10.1017/S0022377818000041" target="_blank" rel="noopener">Mandell et al. 2018, J. Plasma Phys. 84:905840108 ↗</a></div></div></div><div class="variant-card"><h4>电磁模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">准中性 + 平行 Ampère</p><div class="formula-block" style="border:none;padding:.3rem 0">$$
+\begin{aligned}
+\sum_s \frac{Z_s^2 e^2 n_{0s}}{T_s}\big(1-\Gamma_0(b_s)\big)\phi = \sum_s Z_s e \int d^3v\, J_0(k_\perp\rho_s)\, g_s \\\\[4pt]
+-\nabla_\perp^2 A_\parallel &= \frac{4\pi}{c}\sum_s Z_s e \int d^3v\, v_\parallel J_0 g_s
+\end{aligned}
+$$<div class="formula-ref">来源: <a href="https://arxiv.org/abs/2209.06731" target="_blank" rel="noopener">Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 gyro-Bohm 归一化方案。空间尺度以离子声回旋半径 ρs 归一化，时间以 a/cs 归一化（a 为小半径，cs 为离子声速）。速度以离子热速度 vti 归一化。热通量以 gyro-Bohm 单位 QgB = nTcs(ρs/a)² 表示。磁场和温度以参考值归一化。</p><div class="formula-block">
@@ -94,13 +104,13 @@ $$
 \bar{k}_\perp &= k_\perp \rho_s, \quad \bar{\omega} = \frac{\omega}{c_s/a}, \quad Q_{gB} = n_0 T_0 c_s\left(\frac{\rho_s}{a}\right)^2
 \end{aligned}
 $$
+<div class="formula-ref">来源: <a href="https://arxiv.org/abs/2209.06731" target="_blank" rel="noopener">Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731) ↗</a></div>
 </div>
 </div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">线性本征值模式；非线性湍流模式；纯静电（仅 φ）；电磁模式（φ + A∥）；单粒子种/多粒子种；托卡马克几何；仿星器几何；参数扫描模式（Python 接口驱动）；不确定性量化（UQ）模式。</p><div class="variant-card"><h4>线性本征值</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\det[\mathcal{L} - i\omega \mathcal{I}] = 0$$</div></div><div class="variant-card"><h4>非线性湍流</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial g}{\partial t} + \mathcal{L}[g] = \mathcal{N}[g,g]$$</div></div><div class="variant-card"><h4>静电模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla_\perp^2 \phi = -4\pi \sum_s Z_s e\, n_s$$</div></div><div class="variant-card"><h4>电磁模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla_\perp^2 \phi = -4\pi\sum Z_s e\,n_s,\; -\nabla_\perp^2 A_\parallel = \frac{4\pi}{c}\sum Z_s e\, \Gamma_\parallel$$</div></div>
-</div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://gx.readthedocs.io/" target="_blank" rel="noopener">gx.readthedocs.io/</a></div>
+<div class="links-list"><a href="https://gx.readthedocs.io/" target="_blank" rel="noopener">gx.readthedocs.io/</a>
+<a href="https://arxiv.org/abs/2209.06731" target="_blank" rel="noopener">arxiv.org/abs/2209.06731</a>
+<a href="https://doi.org/10.1017/S0022377818000041" target="_blank" rel="noopener">doi.org/10.1017/S0022377818000041</a></div>
 </div>
 
 </div>

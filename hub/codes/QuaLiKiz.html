@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -74,9 +78,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">JET/ITER预测</span>
 <span class="fchip">实时控制兼容</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">基于回旋动理学准线性理论，求解线性回旋动理学本征值方程获得最不稳定模的增长率、频率和本征函数。输运系数通过准线性混合长度估计（γ³/⟨k⊥²⟩² 规则）计算。物理模型基于静电回旋动理学（可扩展至电磁），包含 ITG/TEM/ETG 不稳定性。采用 Krook 碰撞算符近似。闭合通过准中性条件（Poisson 方程）实现。相比于 TGLF，QuaLiKiz 使用更少的拟合参数和更透明的物理假设，但覆盖的物理范围（主要是静电）较窄。QLKNN 为其神经网络加速版本。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">基于回旋动理学准线性理论，求解线性回旋动理学本征值方程获得最不稳定模的增长率、频率和本征函数。输运系数通过准线性混合长度估计（γ³/⟨k⊥²⟩² 规则）计算。物理模型基于静电回旋动理学（可扩展至电磁），包含 ITG/TEM/ETG 不稳定性。采用 Krook 碰撞算符近似。闭合通过准中性条件（Poisson 方程）实现。相比于 TGLF，QuaLiKiz 使用更少的拟合参数和更透明的物理假设，但覆盖的物理范围（主要是静电）较窄。QLKNN 为其神经网络加速版本。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial g}{\partial t} + v_\parallel\nabla_\parallel g &+ i\omega_D g - C[g] = -i(\omega-\omega_{*}^T)\frac{e F_0}{T} J_0\phi \\[4pt]
@@ -84,20 +88,21 @@ $$
 \chi_{\text{QLKNN}} &= f_{\text{NN}}(\nabla T, \nabla n, q, s, T_e/T_i, \ldots) \quad \text{(神经网络代理，10⁴倍加速)}
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2800869" target="_blank" rel="noopener">Bourdelle et al. 2007, Phys. Plasmas 14:112501 ↗</a></div>
+</div></div><p class="body-text">QuaLiKiz 完整物理模式；QLKNN 神经网络代理模式（~10⁴ 倍加速）；静电模式（标配）；电磁模式（有限能力）；ITG/TEM 模式；ETG 多尺度模式（有限验证）。</p><div class="variant-card"><h4>QLKNN加速</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \text{NN}(\mathbf{x}),\; \mathbf{x}\in\mathbb{R}^{10},\; \text{MSE} < 5\%$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.5134126" target="_blank" rel="noopener">van de Plassche et al. 2020, Phys. Plasmas 27:022310 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 gyro-Bohm 归一化方案。长度以 ρs 为单位，增长率以 cs/R 为单位。输入剖面以工程单位提供，内部自动转换为归一化单位。输运系数输出转换为工程单位（m²/s）供集成建模使用。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{k}_\theta = k_\theta\rho_s,\; \bar{\gamma} = \frac{\gamma}{c_s/R},\; \bar{\chi}[\text{m}^2/\text{s}]$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.2800869" target="_blank" rel="noopener">Bourdelle et al. 2007, Phys. Plasmas 14:112501 ↗</a></div>
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">QuaLiKiz 完整物理模式；QLKNN 神经网络代理模式（~10⁴ 倍加速）；静电模式（标配）；电磁模式（有限能力）；ITG/TEM 模式；ETG 多尺度模式（有限验证）。</p><div class="variant-card"><h4>QLKNN加速</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \text{NN}(\mathbf{x}),\; \mathbf{x}\in\mathbb{R}^{10},\; \text{MSE} < 5\%$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://qualikiz-group.gitlab.io/QuaLiKiz" target="_blank" rel="noopener">qualikiz-group.gitlab.io/QuaLiKiz</a>
-<a href="https://doi.org/10.1063/1.5132937" target="_blank" rel="noopener">doi.org/10.1063/1.5132937</a></div>
+<a href="https://doi.org/10.1063/1.5132937" target="_blank" rel="noopener">doi.org/10.1063/1.5132937</a>
+<a href="https://doi.org/10.1063/1.2800869" target="_blank" rel="noopener">doi.org/10.1063/1.2800869</a>
+<a href="https://doi.org/10.1063/1.5134126" target="_blank" rel="noopener">doi.org/10.1063/1.5134126</a></div>
 </div>
 
 </div>

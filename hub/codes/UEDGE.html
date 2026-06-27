@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">中性粒子耦合</span>
 <span class="fchip">DIII-D验证</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解 2D 多流体（电子 + 多种离子）等离子体输运方程在托卡马克刮削层/偏滤器区域。控制方程包括：粒子连续性、平行动量、电子能量、离子能量。包含经典输运（平行 Braginskii 系数）和反常输运（用户指定的径向扩散/热导率）。中性粒子通过简化流体模型或耦合 DEGAS Monte Carlo 代码处理。电磁场通过电流连续性方程 + 鞘层边界条件闭合。偏滤器靶板使用 Bohm 鞘层条件。是 SOLPS 之前的经典边界流体代码。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解 2D 多流体（电子 + 多种离子）等离子体输运方程在托卡马克刮削层/偏滤器区域。控制方程包括：粒子连续性、平行动量、电子能量、离子能量。包含经典输运（平行 Braginskii 系数）和反常输运（用户指定的径向扩散/热导率）。中性粒子通过简化流体模型或耦合 DEGAS Monte Carlo 代码处理。电磁场通过电流连续性方程 + 鞘层边界条件闭合。偏滤器靶板使用 Bohm 鞘层条件。是 SOLPS 之前的经典边界流体代码。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial n}{\partial t} + \nabla\cdot(n\mathbf{V}) &= S_n \\[4pt]
@@ -84,16 +88,15 @@ $$
 V_\parallel^{\text{target}} &\geq c_s = \sqrt{\frac{T_e + T_i}{m_i}}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">纯等离子体模式（无中性粒子）；DEGAS MC 中性粒子耦合；简化中性粒子流体模式；D/T/He/杂质多离子；DIII-D 专用配置；NSTX-U 配置。</p><div class="variant-card"><h4>DEGAS中性粒子</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n, S_p, Q \leftarrow \text{DEGAS Monte Carlo}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。密度以 m⁻³，温度以 eV，通量以 m⁻²s⁻¹，功率以 W/m² 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{n}[\text{m}^{-3}],\; \bar{T}[\text{eV}],\; \bar{\Gamma}[\text{m}^{-2}\text{s}^{-1}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">纯等离子体模式（无中性粒子）；DEGAS MC 中性粒子耦合；简化中性粒子流体模式；D/T/He/杂质多离子；DIII-D 专用配置；NSTX-U 配置。</p><div class="variant-card"><h4>DEGAS中性粒子</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n, S_p, Q \leftarrow \text{DEGAS Monte Carlo}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/LLNL/uedge" target="_blank" rel="noopener">github.com/LLNL/uedge</a></div>

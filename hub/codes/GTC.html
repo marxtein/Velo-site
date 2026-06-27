@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">高能粒子-波</span>
 <span class="fchip">GPU 加速</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">基于 PIC δf 回旋动理学框架。采用粒子方法求解回旋动理学 Vlasov 方程，通过回旋平均将带电粒子的快回旋运动平均化，在五维回旋中心相空间中追踪标记粒子。场方程闭合通过回旋动理学 Poisson 方程（∇⊥·(n₀mi/B²)∇⊥φ = −⟨δni⟩ 等）求解静电势，并联 Ampère 定律求解矢量势。采用 δf 降噪方法（仅模拟分布函数偏离 Maxwell 的部分）以降低粒子噪声。支持流体-动理学混合电子模型（fluid-kinetic hybrid electron）：将电子处理为无质量流体以降低计算成本，同时保留离子全动理学。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">基于 PIC δf 回旋动理学框架。采用粒子方法求解回旋动理学 Vlasov 方程，通过回旋平均将带电粒子的快回旋运动平均化，在五维回旋中心相空间中追踪标记粒子。场方程闭合通过回旋动理学 Poisson 方程（∇⊥·(n₀mi/B²)∇⊥φ = −⟨δni⟩ 等）求解静电势，并联 Ampère 定律求解矢量势。采用 δf 降噪方法（仅模拟分布函数偏离 Maxwell 的部分）以降低粒子噪声。支持流体-动理学混合电子模型（fluid-kinetic hybrid electron）：将电子处理为无质量流体以降低计算成本，同时保留离子全动理学。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{d\mathbf{R}}{dt} &= v_\parallel \hat{\mathbf{b}} + \mathbf{v}_E + \mathbf{v}_D, \quad
@@ -89,7 +93,19 @@ $$
 \frac{\partial \delta n_e}{\partial t} + \mathbf{v}_E \cdot \nabla n_0 = 0
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1126/science.281.5384.1835" target="_blank" rel="noopener">Lin et al. 1998, Science 281:1835; 回旋动理学表述见 W.W. Lee 1987, JCP 72:243 ↗</a></div>
+</div></div><p class="body-text">静电版本（原始 GTC，仅含 φ 求解）；全电磁版本（GTC，增加 A∥ 和 B∥ 扰动）；流体-动理学混合电子模块（fluid-kinetic hybrid electron）；GTC-X 扩展版本；线性与非线性模式；全域模拟（无通量管模式）；多离子种支持；高能粒子模块（含阿尔芬本征模物理）；GPU 加速版本（近年新增）。</p><div class="variant-card"><h4>静电模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">仅求解静电势 φ，适用于低 β 等离子体</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla_\perp \cdot \left(\frac{n_0 m_i c^2}{B^2} \nabla_\perp \phi\right) = -e\left(\langle \delta n_i \rangle - \delta n_e\right)$$<div class="formula-ref">来源: <a href="https://doi.org/10.1126/science.281.5384.1835" target="_blank" rel="noopener">Lin et al. 1998, Science 281:1835 ↗</a></div></div></div><div class="variant-card"><h4>全电磁模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">增加并联 Ampère 定律，包含 Alfvén 波</p><div class="formula-block" style="border:none;padding:.3rem 0">$$
+\begin{aligned}
+\nabla_\perp \cdot \left(\frac{n_0 m_i c^2}{B^2} \nabla_\perp \phi\right) &= -e\left(\langle \delta n_i \rangle - \delta n_e\right) \\[4pt]
+-\nabla_\perp^2 A_\parallel &= \frac{4\pi}{c}\left(\langle \delta j_{\parallel i} \rangle + \delta j_{\parallel e}\right)
+\end{aligned}
+$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.3273070" target="_blank" rel="noopener">Holod, Zhang, Xiao &amp; Lin 2009, Phys. Plasmas 16:122307 ↗</a></div></div></div><div class="variant-card"><h4>Fluid-kinetic hybrid electron</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">电子处理为无质量流体，离子保持全动理学</p><div class="formula-block" style="border:none;padding:.3rem 0">$$
+\begin{aligned}
+\delta n_e &= n_0 \frac{e(\phi - \langle \phi \rangle)}{T_e} \\[4pt]
+\frac{\partial \delta n_e}{\partial t} &+ \mathbf{v}_E \cdot \nabla (n_0 + \delta n_e) + \nabla_\parallel (n_0 u_{\parallel e}) = 0 \\[4pt]
+m_e \frac{\partial u_{\parallel e}}{\partial t} &= -e E_\parallel - \frac{\nabla_\parallel p_e}{n_0}
+\end{aligned}
+$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.1356438" target="_blank" rel="noopener">Lin &amp; Chen 2001, Phys. Plasmas 8:1447 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用标准托卡马克归一化方案。长度归一化到大半径 R₀ 或离子回旋半径 ρi，时间归一化到 Ωci⁻¹（离子回旋频率倒数），速度归一化到离子热速度 vti = √(Ti/mi)。密度和温度以参考值 n₀, T₀ 归一化，磁场以轴上磁场 B₀ 归一化。</p><div class="formula-block">
@@ -101,25 +117,14 @@ $$
 \bar{\phi} &= \frac{e\phi}{T_e}, \quad \bar{n} = \frac{n}{n_0}
 \end{aligned}
 $$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1126/science.281.5384.1835" target="_blank" rel="noopener">Lin et al. 1998, Science 281:1835 (标准托卡马克回旋动理学归一化) ↗</a></div>
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">静电版本（原始 GTC，仅含 φ 求解）；全电磁版本（GTC，增加 A∥ 和 B∥ 扰动）；流体-动理学混合电子模块（fluid-kinetic hybrid electron）；GTC-X 扩展版本；线性与非线性模式；全域模拟（无通量管模式）；多离子种支持；高能粒子模块（含阿尔芬本征模物理）；GPU 加速版本（近年新增）。</p><div class="variant-card"><h4>静电模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">仅求解静电势 φ，适用于低 β 等离子体</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla_\perp \cdot \left(\frac{n_0 m_i c^2}{B^2} \nabla_\perp \phi\right) = -e\left(\langle \delta n_i \rangle - \delta n_e\right)$$</div></div><div class="variant-card"><h4>全电磁模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">增加并联 Ampère 定律，包含 Alfvén 波</p><div class="formula-block" style="border:none;padding:.3rem 0">$$
-\begin{aligned}
-\nabla_\perp \cdot \left(\frac{n_0 m_i c^2}{B^2} \nabla_\perp \phi\right) &= -e\left(\langle \delta n_i \rangle - \delta n_e\right) \\[4pt]
--\nabla_\perp^2 A_\parallel &= \frac{4\pi}{c}\left(\langle \delta j_{\parallel i} \rangle + \delta j_{\parallel e}\right)
-\end{aligned}
-$$</div></div><div class="variant-card"><h4>Fluid-kinetic hybrid electron</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">电子处理为无质量流体，离子保持全动理学</p><div class="formula-block" style="border:none;padding:.3rem 0">$$
-\begin{aligned}
-\delta n_e &= n_0 \frac{e(\phi - \langle \phi \rangle)}{T_e} \\[4pt]
-\frac{\partial \delta n_e}{\partial t} &+ \mathbf{v}_E \cdot \nabla (n_0 + \delta n_e) + \nabla_\parallel (n_0 u_{\parallel e}) = 0 \\[4pt]
-m_e \frac{\partial u_{\parallel e}}{\partial t} &= -e E_\parallel - \frac{\nabla_\parallel p_e}{n_0}
-\end{aligned}
-$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="http://phoenix.ps.uci.edu/gtc/" target="_blank" rel="noopener">phoenix.ps.uci.edu/gtc/</a>
-<a href="https://doi.org/10.1126/science.281.5384.1835" target="_blank" rel="noopener">doi.org/10.1126/science.281.5384.1835</a></div>
+<a href="https://doi.org/10.1126/science.281.5384.1835" target="_blank" rel="noopener">doi.org/10.1126/science.281.5384.1835</a>
+<a href="https://doi.org/10.1063/1.3273070" target="_blank" rel="noopener">doi.org/10.1063/1.3273070</a>
+<a href="https://doi.org/10.1063/1.1356438" target="_blank" rel="noopener">doi.org/10.1063/1.1356438</a></div>
 </div>
 
 </div>

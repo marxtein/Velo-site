@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,28 +77,29 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">线性/非线性</span>
 <span class="fchip">历史经典</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解局域回旋动理学方程（δf），采用连续体方法在气球模坐标中离散。场方程通过准中性条件（Poisson 方程）和并联 Ampere 定律闭合。速度空间采用有限差分（能量）+ 伪谱（pitch angle）混合离散。支持电磁涨落。碰撞通过简化的 Lorentz 或完整的 Fokker-Planck 碰撞算符处理。几何采用局域通量管近似（气球模坐标+s-α 模型或 Miller 平衡）。作为第一代通用回旋动理学连续体代码，GS2 为 GENE/GYRO 等方法奠定了物理框架。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解局域回旋动理学方程（δf），采用连续体方法在气球模坐标中离散。场方程通过准中性条件（Poisson 方程）和并联 Ampere 定律闭合。速度空间采用有限差分（能量）+ 伪谱（pitch angle）混合离散。支持电磁涨落。碰撞通过简化的 Lorentz 或完整的 Fokker-Planck 碰撞算符处理。几何采用局域通量管近似（气球模坐标+s-α 模型或 Miller 平衡）。作为第一代通用回旋动理学连续体代码，GS2 为 GENE/GYRO 等方法奠定了物理框架。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial h_s}{\partial t} + v_\parallel \hat{\mathbf{b}}\cdot\nabla_\theta \frac{\partial h_s}{\partial \theta} + i\omega_{Ds} h_s - C[h_s] &= -i(\omega - \omega_{*s}^T)\frac{Z_s e F_{0s}}{T_s} J_0(\alpha_s)\phi \\[4pt]
 \phi &= \frac{\sum_s Z_s e \int d^3v\, J_0 h_s}{\sum_s \frac{n_s Z_s^2 e^2}{T_s}(1 - \Gamma_0(b_s))}
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/0010-4655(95)00035-E" target="_blank" rel="noopener">Kotschenreuther, Rewoldt &amp; Tang 1995, Comput. Phys. Commun. 88:128 ↗</a></div>
+</div></div><p class="body-text">线性稳定性分析（本征值）；非线性湍流模拟；静电模式；电磁模式；单/多粒子种；ETG 多尺度模式；碰撞/无碰撞；ExB 剪切流；s-α 平衡模型；Miller 平衡模型。</p><div class="variant-card"><h4>s-α 几何</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$k_\perp^2 = k_\theta^2[1 + (s\theta - \alpha\sin\theta)^2]$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/0010-4655(95)00035-E" target="_blank" rel="noopener">Kotschenreuther, Rewoldt &amp; Tang 1995, CPC 88:128 ↗</a></div></div></div><div class="variant-card"><h4>Miller 几何</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$k_\perp^2 = k_\theta^2\frac{|\nabla r|^2}{|\nabla r|_0^2},\; R(r,\theta) = R_0 + r\cos(\theta + \sin\theta\,\delta(r))$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.872666" target="_blank" rel="noopener">Miller, Chu, Greene, Lin-Liu &amp; Waltz 1998, Phys. Plasmas 5:973 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用以 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化。长度以 ρs 为单位，时间以 a/cs 为单位，速度以 vti 为单位。归一化方案与 GYRO 和 GENE 早期版本兼容。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{k}_\perp = k_\perp \rho_s,\; \bar{\omega} = \frac{\omega}{v_{ti}/a} = \frac{\omega}{c_s\sqrt{2}/a}$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/0010-4655(95)00035-E" target="_blank" rel="noopener">Kotschenreuther, Rewoldt &amp; Tang 1995, Comput. Phys. Commun. 88:128 ↗</a></div>
 </div>
 </div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">线性稳定性分析（本征值）；非线性湍流模拟；静电模式；电磁模式；单/多粒子种；ETG 多尺度模式；碰撞/无碰撞；ExB 剪切流；s-α 平衡模型；Miller 平衡模型。</p><div class="variant-card"><h4>s-α 几何</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$k_\perp^2 = k_\theta^2[1 + (s\theta - \alpha\sin\theta)^2]$$</div></div><div class="variant-card"><h4>Miller 几何</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$k_\perp^2 = k_\theta^2\frac{|\nabla r|^2}{|\nabla r|_0^2},\; R(r,\theta) = R_0 + r\cos(\theta + \sin\theta\,\delta(r))$$</div></div>
-</div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://gyrokinetics.gitlab.io/gs2/" target="_blank" rel="noopener">gyrokinetics.gitlab.io/gs2/</a></div>
+<div class="links-list"><a href="https://gyrokinetics.gitlab.io/gs2/" target="_blank" rel="noopener">gyrokinetics.gitlab.io/gs2/</a>
+<a href="https://doi.org/10.1016/0010-4655(95)00035-E" target="_blank" rel="noopener">doi.org/10.1016/0010-4655(95)00035-E</a>
+<a href="https://doi.org/10.1063/1.872666" target="_blank" rel="noopener">doi.org/10.1063/1.872666</a></div>
 </div>
 
 </div>

@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">实时控制</span>
 <span class="fchip">全球标准</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解自由边界 Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，通过实验磁测量（磁探针、磁通环、Rogowski 线圈等）约束重建等离子体边界、电流剖面和储能。采用有限元或有限差分方法离散。闭合通过 Picard 迭代或 Newton 方法实现。等离子体压力 p(ψ) 和环向场函数 F(ψ) 以参数化形式（样条或多项式）表示，参数通过最小化实验磁信号与模型预测之间的 χ² 拟合确定。是托卡马克实验分析的标准平衡重建工具（DIII-D、JET、EAST 等标配）。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解自由边界 Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，通过实验磁测量（磁探针、磁通环、Rogowski 线圈等）约束重建等离子体边界、电流剖面和储能。采用有限元或有限差分方法离散。闭合通过 Picard 迭代或 Newton 方法实现。等离子体压力 p(ψ) 和环向场函数 F(ψ) 以参数化形式（样条或多项式）表示，参数通过最小化实验磁信号与模型预测之间的 χ² 拟合确定。是托卡马克实验分析的标准平衡重建工具（DIII-D、JET、EAST 等标配）。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \Delta^* \psi &= -\mu_0 R^2 \frac{dp}{d\psi} - F\frac{dF}{d\psi} \\[4pt]
@@ -83,16 +87,15 @@ $$
 p(\psi) &= \sum_k \alpha_k P_k(\bar{\psi}),\quad F(\psi) = \sum_k \beta_k F_k(\bar{\psi})
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">磁约束重建模式（标配）；动力学约束模式（+ MSE/Motional Stark Effect、压力剖面、密度剖面）；实时重建模式（RT-EFIT，控制用）；离线分析模式；时间序列模式（EFIT 序列）。</p><div class="variant-card"><h4>磁约束重建</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi^2_{\text{mag}} = \sum\frac{(B_{p,i}-\hat{B}_{p,i})^2}{\sigma_i^2}$$</div></div><div class="variant-card"><h4>动力学约束 (MSE)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi^2 = \chi^2_{\text{mag}} + \sum\frac{(\gamma_i^{\text{MSE}} - \hat{\gamma}_i)^2}{\sigma_i^2}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位（SI）。长度以 m，磁场以 T，电流以 A，压力以 Pa 为单位。ψ 以 Wb 为单位。输入磁测量数据以 V·s (flux loops) 和 T (probes) 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{\psi}[\text{Wb}],\; \bar{B}_p[\text{T}],\; \bar{I}_p[\text{MA}],\; \bar{W}_{\text{MHD}}[\text{MJ}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">磁约束重建模式（标配）；动力学约束模式（+ MSE/Motional Stark Effect、压力剖面、密度剖面）；实时重建模式（RT-EFIT，控制用）；离线分析模式；时间序列模式（EFIT 序列）。</p><div class="variant-card"><h4>磁约束重建</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi^2_{\text{mag}} = \sum\frac{(B_{p,i}-\hat{B}_{p,i})^2}{\sigma_i^2}$$</div></div><div class="variant-card"><h4>动力学约束 (MSE)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi^2 = \chi^2_{\text{mag}} + \sum\frac{(\gamma_i^{\text{MSE}} - \hat{\gamma}_i)^2}{\sigma_i^2}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://fusion.gat.com/theory/Efit" target="_blank" rel="noopener">fusion.gat.com/theory/Efit</a></div>

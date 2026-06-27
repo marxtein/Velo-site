@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">QED效应</span>
 <span class="fchip">并行负载平衡</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解相对论全电磁 PIC 方程组。Maxwell 方程组采用 FDTD 方法在交错 Yee 网格上离散，使用电荷守恒电流沉积方案（Villasenor-Buneman 或 Esirkepov）保证 ∇·E = ρ/ε₀。粒子推进采用相对论 Boris 推子。电磁模型为全 Maxwell（保留位移电流），支持激光-等离子体和高能量密度物理。可选包含强场 QED 效应（非线性 Compton 散射、Breit-Wheeler 对产生）通过 Monte Carlo 模块耦合。采用移动窗口（moving window）技术尾随激光脉冲。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解相对论全电磁 PIC 方程组。Maxwell 方程组采用 FDTD 方法在交错 Yee 网格上离散，使用电荷守恒电流沉积方案（Villasenor-Buneman 或 Esirkepov）保证 ∇·E = ρ/ε₀。粒子推进采用相对论 Boris 推子。电磁模型为全 Maxwell（保留位移电流），支持激光-等离子体和高能量密度物理。可选包含强场 QED 效应（非线性 Compton 散射、Breit-Wheeler 对产生）通过 Monte Carlo 模块耦合。采用移动窗口（moving window）技术尾随激光脉冲。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial \mathbf{B}}{\partial t} &= -\nabla \times \mathbf{E}, \quad
@@ -84,7 +88,8 @@ $$
 \rho &= \sum_p q_p S(\mathbf{x} - \mathbf{x}_p), \quad \mathbf{J} = \sum_p q_p \mathbf{v}_p S(\mathbf{x} - \mathbf{x}_p)
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">1D/2D/3D 几何；标准激光尾波加速模式（LWFA）；质子加速模式（TNSA/RPA）；正电子产生；QED 模块（强场量子电动力学）；移动窗口；动态负载平衡；MPI+OpenMP 并行；静电/全电磁/准静态模式。</p><div class="variant-card"><h4>LWFA模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial^2 n_e}{\partial t^2} + \omega_p^2(\mathbf{r}) n_e = \frac{c^2}{2}\nabla^2 a^2 \quad \text{(尾波激发)}$$</div></div><div class="variant-card"><h4>QED模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{dN_\gamma}{dt} = n_e c \sigma_{\gamma}, \quad \frac{dN_{e^\pm}}{dt} = n_\gamma c \sigma_{BW}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用激光-等离子体常用归一化。长度以激光波长 λ₀ 的 1/(2π) 归一化，时间以激光频率 ω₀⁻¹ 归一化，密度以临界密度 nc = ε₀mω₀²/e² 归一化。电磁场以 mω₀c/e 归一化（使无量纲激光强度 a₀ = eE/mω₀c）。粒子能量以 mec² 归一化。</p><div class="formula-block">
@@ -92,10 +97,8 @@ $$
 $$
 \bar{\mathbf{E}} = \frac{e\mathbf{E}}{m_e\omega_0 c}, \quad a_0 = \frac{eE_0}{m_e\omega_0 c}, \quad \bar{n} = \frac{n}{n_c}, \quad n_c = \frac{\varepsilon_0 m_e \omega_0^2}{e^2}
 $$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">1D/2D/3D 几何；标准激光尾波加速模式（LWFA）；质子加速模式（TNSA/RPA）；正电子产生；QED 模块（强场量子电动力学）；移动窗口；动态负载平衡；MPI+OpenMP 并行；静电/全电磁/准静态模式。</p><div class="variant-card"><h4>LWFA模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial^2 n_e}{\partial t^2} + \omega_p^2(\mathbf{r}) n_e = \frac{c^2}{2}\nabla^2 a^2 \quad \text{(尾波激发)}$$</div></div><div class="variant-card"><h4>QED模式</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{dN_\gamma}{dt} = n_e c \sigma_{\gamma}, \quad \frac{dN_{e^\pm}}{dt} = n_\gamma c \sigma_{BW}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://plasmasim.physics.ucla.edu/codes/osiris" target="_blank" rel="noopener">plasmasim.physics.ucla.edu/codes/osiris</a></div>

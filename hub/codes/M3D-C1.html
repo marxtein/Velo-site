@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -74,9 +78,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">破裂/VDE</span>
 <span class="fchip">双流体</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解三维扩展 MHD（XMHD）方程组，采用 C¹ 连续有限元方法（保证磁通函数一阶导数连续）。支持单流体和双流体 MHD 模型层级：单流体电阻 MHD（包含 Spitzer 电阻率）、双流体 MHD（电子和离子有独立温度和速度，含 Hall 项和电子压强梯度项）。方程组包含连续性方程、动量方程（含 Lorentz 力 J × B）、能量方程（电子和离子独立）、广义 Ohm 定律和 Faraday 定律。X-point 几何自然处理（无需磁面坐标假设），通过非结构化网格适应偏滤器位形。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解三维扩展 MHD（XMHD）方程组，采用 C¹ 连续有限元方法（保证磁通函数一阶导数连续）。支持单流体和双流体 MHD 模型层级：单流体电阻 MHD（包含 Spitzer 电阻率）、双流体 MHD（电子和离子有独立温度和速度，含 Hall 项和电子压强梯度项）。方程组包含连续性方程、动量方程（含 Lorentz 力 J × B）、能量方程（电子和离子独立）、广义 Ohm 定律和 Faraday 定律。X-point 几何自然处理（无需磁面坐标假设），通过非结构化网格适应偏滤器位形。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \rho\frac{d\mathbf{V}}{dt} &= \mathbf{J} \times \mathbf{B} - \nabla p - \nabla \cdot \boldsymbol{\Pi} \\[4pt]
@@ -84,7 +88,8 @@ $$
 \frac{3}{2}n_e\frac{dT_e}{dt} + p_e\nabla\cdot\mathbf{V}_e &= -\nabla\cdot\mathbf{q}_e + \eta J^2
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\rho\frac{d\mathbf{V}}{dt} = \mathbf{J}\times\mathbf{B} - \nabla p + \nu\nabla^2\mathbf{V}$$</div></div><div class="variant-card"><h4>双流体 XMHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{E} + \mathbf{V} \times \mathbf{B} = \eta\mathbf{J} + \frac{\mathbf{J}\times\mathbf{B} - \nabla p_e}{en_e}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 Alfvén 归一化方案。长度以装置大半径 R₀ 或小半径 a 归一化，时间以 Alfvén 时间 τA = R₀/vA 归一化，速度以 Alfvén 速度 vA = B/√(μ₀ρ) 归一化。磁场以轴上环向场 B₀ 归一化。电阻以 Lundquist 数 S 的倒数表征。</p><div class="formula-block">
@@ -92,10 +97,8 @@ $$
 $$
 \bar{t} = \frac{t}{\tau_A}, \quad \tau_A = \frac{R_0}{v_A}, \quad v_A = \frac{B_0}{\sqrt{\mu_0\rho_0}}, \quad S = \frac{\tau_R}{\tau_A}
 $$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\rho\frac{d\mathbf{V}}{dt} = \mathbf{J}\times\mathbf{B} - \nabla p + \nu\nabla^2\mathbf{V}$$</div></div><div class="variant-card"><h4>双流体 XMHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{E} + \mathbf{V} \times \mathbf{B} = \eta\mathbf{J} + \frac{\mathbf{J}\times\mathbf{B} - \nabla p_e}{en_e}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://w3.pppl.gov/~nferraro/m3dc1.html" target="_blank" rel="noopener">w3.pppl.gov/~nferraro/m3dc1.html</a></div>

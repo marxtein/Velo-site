@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">脱靶模拟</span>
 <span class="fchip">ITER核心工具</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">由二维多流体等离子体代码 B2(.5) 与三维动理学蒙特卡洛中性粒子代码 EIRENE 迭代耦合求解。B2 求解二维（极向平面）Braginskii 型输运方程（密度、平行动量、电子和离子能量），包含经典输运（平行 Braginskii 系数）和反常输运（用户指定径向输运系数）。电场通过电流连续性方程和鞘层边界条件闭合。EIRENE 通过蒙特卡洛方法提供中性粒子源（粒子、动量、能量）反馈到 B2 流体方程。迭代至等离子体和中性粒子分布自洽收敛。偏滤器靶板采用鞘层边界条件（Bohm 判据）。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">由二维多流体等离子体代码 B2(.5) 与三维动理学蒙特卡洛中性粒子代码 EIRENE 迭代耦合求解。B2 求解二维（极向平面）Braginskii 型输运方程（密度、平行动量、电子和离子能量），包含经典输运（平行 Braginskii 系数）和反常输运（用户指定径向输运系数）。电场通过电流连续性方程和鞘层边界条件闭合。EIRENE 通过蒙特卡洛方法提供中性粒子源（粒子、动量、能量）反馈到 B2 流体方程。迭代至等离子体和中性粒子分布自洽收敛。偏滤器靶板采用鞘层边界条件（Bohm 判据）。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial n}{\partial t} + \nabla \cdot (n\mathbf{V}) &= S_n^{\text{EIRENE}} \\[4pt]
@@ -84,16 +88,15 @@ $$
 \mathbf{q}_e &= -\kappa_\parallel^e \nabla_\parallel T_e - \kappa_\perp^e \nabla_\perp T_e + 0.71 \frac{T_e}{e} j_\parallel
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">纯流体模式（B2 独立运行，无中性粒子）；SOLPS-EIRENE 全耦合模式；D/T/He/杂质多粒子种；偏滤器气体注入（seeding）模拟（N₂, Ne, Ar）；脱靶预测模式；瞬态 ELM 模拟；时间相关模式；稳态模式。</p><div class="variant-card"><h4>纯流体 (B2 standalone)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n = S_p = Q = 0 \quad \text{(无中性粒子耦合)}$$</div></div><div class="variant-card"><h4>SOLPS-EIRENE 全耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e^{k+1}, T_e^{k+1} = \mathcal{F}_{\text{B2}}(S_n^k, S_p^k, Q^k) \leftrightarrow \text{EIRENE}$$</div></div><div class="variant-card"><h4>脱靶模拟</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q_\parallel^{\text{target}} = \gamma_s n_t c_{s,t} T_t,\; c_{s,t} = \sqrt{\frac{T_e + T_i}{m_i}}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 和工程单位混合。密度以 m⁻³ 为单位，温度以 eV 为单位，通量以 m⁻²s⁻¹ 为单位，功率以 W/m² 为单位。径向输运系数以 m²/s 为单位。输入文件使用标准 SOLPS 格式。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{n}[\text{m}^{-3}],\; \bar{T}[\text{eV}],\; \bar{\Gamma}[\text{m}^{-2}\text{s}^{-1}],\; \bar{q}[\text{W/m}^2]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">纯流体模式（B2 独立运行，无中性粒子）；SOLPS-EIRENE 全耦合模式；D/T/He/杂质多粒子种；偏滤器气体注入（seeding）模拟（N₂, Ne, Ar）；脱靶预测模式；瞬态 ELM 模拟；时间相关模式；稳态模式。</p><div class="variant-card"><h4>纯流体 (B2 standalone)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$S_n = S_p = Q = 0 \quad \text{(无中性粒子耦合)}$$</div></div><div class="variant-card"><h4>SOLPS-EIRENE 全耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$n_e^{k+1}, T_e^{k+1} = \mathcal{F}_{\text{B2}}(S_n^k, S_p^k, Q^k) \leftrightarrow \text{EIRENE}$$</div></div><div class="variant-card"><h4>脱靶模拟</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q_\parallel^{\text{target}} = \gamma_s n_t c_{s,t} T_t,\; c_{s,t} = \sqrt{\frac{T_e + T_i}{m_i}}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/iterorganization/SOLPS-ITER" target="_blank" rel="noopener">github.com/iterorganization/SOLPS-ITER</a>

@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">TORAX/JETTO集成</span>
 <span class="fchip">跨装置标度</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \chi_{\text{Bohm}} &= \alpha_B \frac{T_e}{eB}\,F(\nabla T, \nabla n) \\[4pt]
@@ -83,20 +87,20 @@ $$
 \chi &= \chi_{\text{Bohm}} + \chi_{gB}
 \end{aligned}
 $$
-</div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/38/7/305" target="_blank" rel="noopener">Erba et al. 1998, Nucl. Fusion 38:1013 (混合 Bohm/gyro-Bohm) ↗</a></div>
+</div></div><p class="body-text">Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。</p><div class="variant-card"><h4>L/H自适应</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\alpha_{gB} = \begin{cases}0 & \text{L-mode}\\1 & \text{H-mode}\end{cases}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/38/7/305" target="_blank" rel="noopener">Erba et al. 1998, Nucl. Fusion 38:1013 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">输运系数以 m²/s。Bohm 扩散系数 DB = Te/(16eB)。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{D}_B = \frac{T_e}{16eB},\; \rho_* = \frac{\rho_s}{a}$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/38/7/305" target="_blank" rel="noopener">Erba et al. 1998, Nucl. Fusion 38:1013 ↗</a></div>
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">Bohm 项权重调节；gyroBohm 项权重调节；L 模/H 模自适应；TORAX 集成；JETTO 集成；ASTRA 集成。</p><div class="variant-card"><h4>L/H自适应</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\alpha_{gB} = \begin{cases}0 & \text{L-mode}\\1 & \text{H-mode}\end{cases}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://doi.org/10.1088/1741-4326/ad6ea2" target="_blank" rel="noopener">doi.org/10.1088/1741-4326/ad6ea2</a>
-<a href="https://github.com/google-deepmind/torax" target="_blank" rel="noopener">github.com/google-deepmind/torax</a></div>
+<a href="https://github.com/google-deepmind/torax" target="_blank" rel="noopener">github.com/google-deepmind/torax</a>
+<a href="https://doi.org/10.1088/0029-5515/38/7/305" target="_blank" rel="noopener">doi.org/10.1088/0029-5515/38/7/305</a></div>
 </div>
 
 </div>

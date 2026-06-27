@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">磁重联</span>
 <span class="fchip">激光等离子体</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解相对论全电磁 PIC 方程组。采用矢量数据结构优化，充分利用 SIMD 向量化。Maxwell 方程组采用 FDTD Yee 网格和电荷守恒电流沉积。粒子推进使用相对论 Boris 算法。解决完整 Maxwell 方程（非约化），适用于无鞘层假设的全动理学等离子体。并行采用混合模式 MPI+线程，面向 Exascale 架构优化的数据布局（粒子按空间排序以最大化缓存效率）。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解相对论全电磁 PIC 方程组。采用矢量数据结构优化，充分利用 SIMD 向量化。Maxwell 方程组采用 FDTD Yee 网格和电荷守恒电流沉积。粒子推进使用相对论 Boris 算法。解决完整 Maxwell 方程（非约化），适用于无鞘层假设的全动理学等离子体。并行采用混合模式 MPI+线程，面向 Exascale 架构优化的数据布局（粒子按空间排序以最大化缓存效率）。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial \mathbf{B}}{\partial t} &= -\nabla \times \mathbf{E}, \quad
@@ -84,7 +88,8 @@ $$
 \mathbf{J}_i &= \sum_p q_p \mathbf{v}_p W(\mathbf{x}_i - \mathbf{x}_p) \quad \text{(电流沉积)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">1D/2D/3D 几何；静电/全电磁；Exascale 优化模式（GPU 加速）；磁重联专用配置；激光-等离子体相互作用；高能量密度物理；粒子排序优化（提升缓存命中率）；矢量数据布局（AVX-512 优化）。</p><div class="variant-card"><h4>磁重联</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E},\; \mathbf{E} + \mathbf{V}\times\mathbf{B} = \eta\mathbf{J}$$</div></div><div class="variant-card"><h4>激光等离子体</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2\mathbf{E}}{\partial t^2} = \mu_0\frac{\partial\mathbf{J}}{\partial t} + \nabla\frac{\rho}{\varepsilon_0}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位和归一化单位双支持。归一化通常基于等离子体频率 ωpe（时间）、skin depth c/ωpe（长度）和参考密度 n₀。对于激光-等离子体问题，也支持基于激光参数的归一化。磁场归一化到 B₀ = mωpec/e。</p><div class="formula-block">
@@ -92,10 +97,8 @@ $$
 $$
 \bar{x} = \frac{x}{c/\omega_{pe}}, \quad \bar{t} = \omega_{pe} t, \quad \bar{B} = \frac{eB}{m_e\omega_{pe}}, \quad \bar{n} = \frac{n}{n_0}
 $$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">1D/2D/3D 几何；静电/全电磁；Exascale 优化模式（GPU 加速）；磁重联专用配置；激光-等离子体相互作用；高能量密度物理；粒子排序优化（提升缓存命中率）；矢量数据布局（AVX-512 优化）。</p><div class="variant-card"><h4>磁重联</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E},\; \mathbf{E} + \mathbf{V}\times\mathbf{B} = \eta\mathbf{J}$$</div></div><div class="variant-card"><h4>激光等离子体</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2\mathbf{E}}{\partial t^2} = \mu_0\frac{\partial\mathbf{J}}{\partial t} + \nabla\frac{\rho}{\varepsilon_0}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/lanl/vpic" target="_blank" rel="noopener">github.com/lanl/vpic</a></div>

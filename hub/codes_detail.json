@@ -12,40 +12,70 @@
     ],
     "links": [
       "https://genecode.org",
-      "https://doi.org/10.1038/s41467-025-56997-2"
+      "https://doi.org/10.1038/s41467-025-56997-2",
+      "https://doi.org/10.1063/1.874014",
+      "https://doi.org/10.1016/j.jcp.2011.05.034"
     ],
     "closure": "基于回旋动理学 Vlasov-Maxwell 系统自洽闭合。场方程由回旋动理学 Poisson 方程（求解静电势 φ）和并联 Ampère 定律（求解矢量势 A∥）组成，可选包含磁涨落 B∥。采用 δf 或全 f 分布函数方法，通过回旋平均消除快回旋运动。碰撞过程通过线性化 Landau-Boltzmann 碰撞算符处理。支持纯静电（仅 φ）、全电磁（φ + A∥）及包含磁压缩（+ B∥）三种闭合层级。在五维相空间（三维实空间 + 二维速度空间 v∥, μ）中采用连续体欧拉方法直接离散求解。",
     "normalization": "采用 gyro-Bohm 归一化方案。参考量：特征长度 Lref（小半径 a 或大半径 R0）、参考磁场 Bref（轴上磁场）、参考温度 Tref 和密度 nref。时间以 a/cs 归一化（cs 为离子声速），垂直尺度以离子声回旋半径 ρs = cs/Ωci 归一化，平行尺度以大半径 R0 归一化。热通量天然以 gyro-Bohm 单位表示：QgB = nref·Tref·cs·(ρs/a)²。",
     "variants": "通量管（flux tube）模式：局域 δf 模拟，径向周期性边界；全局（global）模式：含径向剖面演化的全半径模拟；线性模式（本征值求解器）；非线性模式（初值问题）；纯静电版本（仅 φ）；电磁版本（φ + A∥）；多粒子种耦合（电子、多种离子、杂质）；托卡马克和仿星器几何双支持。",
-    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial g_s}{\\partial t} &+ \\left(v_\\parallel \\hat{\\mathbf{b}} + \\mathbf{v}_D\\right) \\cdot \\nabla g_s\n+ \\dot{v}_\\parallel \\frac{\\partial g_s}{\\partial v_\\parallel}\n= - \\frac{Z_s e F_{0s}}{T_s} \\left(\\frac{\\partial}{\\partial t} + i\\omega_{*s}\\right) \\langle \\chi \\rangle_{\\mathbf{R}} + C[g_s] \\\\[4pt]\n\\chi &= \\phi - \\frac{v_\\parallel}{c} A_\\parallel + \\frac{\\mu}{Z_s e} B_\\parallel \\\\[4pt]\n\\mathbf{v}_D &= \\frac{\\hat{\\mathbf{b}}}{\\Omega_s} \\times \\left(v_\\parallel^2 \\boldsymbol{\\kappa} + \\frac{\\mu}{m_s} \\nabla B\\right) \\\\[4pt]\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp \\rho_s) g_s \\quad &\\text{(准中性)} \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0(k_\\perp \\rho_s) g_s \\quad &\\text{(Ampère)}\n\\end{aligned}\n$$",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial g_s}{\\partial t} &+ \\left(v_\\parallel \\hat{\\mathbf{b}} + \\mathbf{v}_D\\right) \\cdot \\nabla g_s + \\dot{v}_\\parallel \\frac{\\partial g_s}{\\partial v_\\parallel} = - \\frac{Z_s e F_{0s}}{T_s} \\left(\\frac{\\partial}{\\partial t} + i\\omega_{*s}\\right) \\langle \\chi \\rangle_{\\mathbf{R}} + C[g_s] \\\\[4pt]\n\\chi &= \\phi - \\frac{v_\\parallel}{c} A_\\parallel + \\frac{\\mu}{Z_s e} B_\\parallel \\\\[4pt]\n\\mathbf{v}_D &= \\frac{\\hat{\\mathbf{b}}}{\\Omega_s} \\times \\left(v_\\parallel^2 \\boldsymbol{\\kappa} + \\frac{\\mu}{m_s} \\nabla B\\right) \\\\[4pt]\n\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi &= \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp \\rho_s) g_s \\quad \\text{(回旋动理学准中性)} \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0(k_\\perp \\rho_s) g_s \\quad \\text{(平行 Ampère)} \\\\[4pt]\n&\\Gamma_0(b_s)=I_0(b_s)e^{-b_s},\\ \\ b_s=(k_\\perp\\rho_s)^2\n\\end{aligned}\n$$",
     "normalization_formula": "$$\n\\begin{aligned}\n\\rho_s &= \\frac{c_s}{\\Omega_{ci}}, \\quad c_s = \\sqrt{\\frac{T_e}{m_i}}, \\quad \\Omega_{ci} = \\frac{Z_i e B}{m_i c} \\\\[4pt]\n\\bar{t} &= \\frac{t}{a/c_s}, \\quad \\bar{x}_\\perp = \\frac{x_\\perp}{\\rho_s}, \\quad \\bar{x}_\\parallel = \\frac{x_\\parallel}{R_0} \\\\[4pt]\n\\bar{v}_\\parallel &= \\frac{v_\\parallel}{v_{ti}}, \\quad v_{ti} = \\sqrt{\\frac{2T_i}{m_i}}, \\quad \\bar{\\mu} = \\frac{\\mu B_0}{T_i} \\\\[4pt]\nQ_{gB} &= n_0 T_0 c_s \\left(\\frac{\\rho_s}{a}\\right)^2\n\\end{aligned}\n$$",
     "variant_formulas": [
       {
         "name": "纯静电模式",
-        "desc": "仅求解回旋动理学 Poisson 方程，A∥ = B∥ = 0",
-        "formula": "$$\\nabla_\\perp^2 \\phi = -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp \\rho_s) g_s$$"
+        "desc": "仅求解静电势 φ 的回旋动理学准中性方程，适用低 β",
+        "formula": "$$\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi = \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s)\\, g_s$$",
+        "ref": {
+          "cite": "Jenko et al. 2000, Phys. Plasmas 7:1904",
+          "url": "https://doi.org/10.1063/1.874014"
+        }
       },
       {
         "name": "电磁模式 (φ + A∥)",
-        "desc": "求解 Poisson + 并联 Ampère 定律，B∥ = 0",
-        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0 g_s \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s\n\\end{aligned}\n$$"
+        "desc": "准中性 + 平行 Ampère 定律，含剪切 Alfvén 物理",
+        "formula": "$$\n\\begin{aligned}\n\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi = \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s)\\, g_s \\\\\\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Jenko et al. 2000, Phys. Plasmas 7:1904",
+          "url": "https://doi.org/10.1063/1.874014"
+        }
       },
       {
         "name": "全电磁模式 (φ + A∥ + B∥)",
-        "desc": "含磁压缩涨落 B∥，适用于高 β 等离子体",
-        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp^2 \\phi &= -4\\pi \\sum_s Z_s e \\int d^3v\\, J_0 g_s \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s \\\\[4pt]\n\\frac{B_\\parallel}{B_0} &= -\\frac{4\\pi}{B_0^2} \\sum_s \\int d^3v\\, \\mu B_0\\, J_0 g_s\n\\end{aligned}\n$$"
+        "desc": "再加垂直磁扰动 B∥（垂直压强平衡），高 β 适用",
+        "formula": "$$\n\\begin{aligned}\n\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi = \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s)\\, g_s \\\\\\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c} \\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s \\\\[4pt]\n\\frac{B_\\parallel}{B_0} &= -\\frac{4\\pi}{B_0^2} \\sum_s \\int d^3v\\, \\mu B_0\\, J_0 g_s\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Jenko et al. 2000, Phys. Plasmas 7:1904",
+          "url": "https://doi.org/10.1063/1.874014"
+        }
       },
       {
         "name": "通量管模式 (Flux Tube)",
-        "desc": "局域气球模坐标，径向周期边界，δf 近似",
-        "formula": "$$\n\\begin{aligned}\ng_s(x, y, z, v_\\parallel, \\mu, t) &\\quad x,y \\in [0, L_{x,y}],\\; z \\in [-\\pi N,\\pi N] \\\\[4pt]\ng_s(x+L_x) &= g_s(x) \\quad \\text{(周期边界)}\n\\end{aligned}\n$$"
+        "desc": "局域通量管，垂直周期边界",
+        "formula": "$$\n\\begin{aligned}\ng_s(x, y, z, v_\\parallel, \\mu, t) &\\quad x,y \\in [0, L_{x,y}],\\; z \\in [-\\pi N,\\pi N] \\\\[4pt]\ng_s(x+L_x) &= g_s(x) \\quad \\text{(周期边界)}\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Jenko et al. 2000, Phys. Plasmas 7:1904",
+          "url": "https://doi.org/10.1063/1.874014"
+        }
       },
       {
         "name": "全局模式 (Global)",
-        "desc": "全半径剖面演化，非周期径向边界条件",
-        "formula": "$$g_s = g_s(r, \\theta, \\zeta, v_\\parallel, \\mu, t), \\quad r \\in [0, a]$$"
+        "desc": "保留剖面变化的全局径向求解",
+        "formula": "$$g_s = g_s(r, \\theta, \\zeta, v_\\parallel, \\mu, t), \\quad r \\in [0, a]$$",
+        "ref": {
+          "cite": "Görler et al. 2011, J. Comput. Phys. 230:7053",
+          "url": "https://doi.org/10.1016/j.jcp.2011.05.034"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Jenko, Dorland, Kotschenreuther & Rogers 2000, Phys. Plasmas 7:1904",
+      "url": "https://doi.org/10.1063/1.874014"
+    },
+    "normalization_ref": {
+      "cite": "Jenko et al. 2000, Phys. Plasmas 7:1904 (gyro-Bohm 归一化)",
+      "url": "https://doi.org/10.1063/1.874014"
+    }
   },
   "GTC": {
     "full_name": "Gyrokinetic Toroidal Code",
@@ -59,7 +89,9 @@
     ],
     "links": [
       "http://phoenix.ps.uci.edu/gtc/",
-      "https://doi.org/10.1126/science.281.5384.1835"
+      "https://doi.org/10.1126/science.281.5384.1835",
+      "https://doi.org/10.1063/1.3273070",
+      "https://doi.org/10.1063/1.1356438"
     ],
     "closure": "基于 PIC δf 回旋动理学框架。采用粒子方法求解回旋动理学 Vlasov 方程，通过回旋平均将带电粒子的快回旋运动平均化，在五维回旋中心相空间中追踪标记粒子。场方程闭合通过回旋动理学 Poisson 方程（∇⊥·(n₀mi/B²)∇⊥φ = −⟨δni⟩ 等）求解静电势，并联 Ampère 定律求解矢量势。采用 δf 降噪方法（仅模拟分布函数偏离 Maxwell 的部分）以降低粒子噪声。支持流体-动理学混合电子模型（fluid-kinetic hybrid electron）：将电子处理为无质量流体以降低计算成本，同时保留离子全动理学。",
     "normalization": "采用标准托卡马克归一化方案。长度归一化到大半径 R₀ 或离子回旋半径 ρi，时间归一化到 Ωci⁻¹（离子回旋频率倒数），速度归一化到离子热速度 vti = √(Ti/mi)。密度和温度以参考值 n₀, T₀ 归一化，磁场以轴上磁场 B₀ 归一化。",
@@ -70,19 +102,39 @@
       {
         "name": "静电模式",
         "desc": "仅求解静电势 φ，适用于低 β 等离子体",
-        "formula": "$$\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) = -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right)$$"
+        "formula": "$$\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) = -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right)$$",
+        "ref": {
+          "cite": "Lin et al. 1998, Science 281:1835",
+          "url": "https://doi.org/10.1126/science.281.5384.1835"
+        }
       },
       {
         "name": "全电磁模式",
         "desc": "增加并联 Ampère 定律，包含 Alfvén 波",
-        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) &= -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right) \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c}\\left(\\langle \\delta j_{\\parallel i} \\rangle + \\delta j_{\\parallel e}\\right)\n\\end{aligned}\n$$"
+        "formula": "$$\n\\begin{aligned}\n\\nabla_\\perp \\cdot \\left(\\frac{n_0 m_i c^2}{B^2} \\nabla_\\perp \\phi\\right) &= -e\\left(\\langle \\delta n_i \\rangle - \\delta n_e\\right) \\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c}\\left(\\langle \\delta j_{\\parallel i} \\rangle + \\delta j_{\\parallel e}\\right)\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Holod, Zhang, Xiao & Lin 2009, Phys. Plasmas 16:122307",
+          "url": "https://doi.org/10.1063/1.3273070"
+        }
       },
       {
         "name": "Fluid-kinetic hybrid electron",
         "desc": "电子处理为无质量流体，离子保持全动理学",
-        "formula": "$$\n\\begin{aligned}\n\\delta n_e &= n_0 \\frac{e(\\phi - \\langle \\phi \\rangle)}{T_e} \\\\[4pt]\n\\frac{\\partial \\delta n_e}{\\partial t} &+ \\mathbf{v}_E \\cdot \\nabla (n_0 + \\delta n_e) + \\nabla_\\parallel (n_0 u_{\\parallel e}) = 0 \\\\[4pt]\nm_e \\frac{\\partial u_{\\parallel e}}{\\partial t} &= -e E_\\parallel - \\frac{\\nabla_\\parallel p_e}{n_0}\n\\end{aligned}\n$$"
+        "formula": "$$\n\\begin{aligned}\n\\delta n_e &= n_0 \\frac{e(\\phi - \\langle \\phi \\rangle)}{T_e} \\\\[4pt]\n\\frac{\\partial \\delta n_e}{\\partial t} &+ \\mathbf{v}_E \\cdot \\nabla (n_0 + \\delta n_e) + \\nabla_\\parallel (n_0 u_{\\parallel e}) = 0 \\\\[4pt]\nm_e \\frac{\\partial u_{\\parallel e}}{\\partial t} &= -e E_\\parallel - \\frac{\\nabla_\\parallel p_e}{n_0}\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Lin & Chen 2001, Phys. Plasmas 8:1447",
+          "url": "https://doi.org/10.1063/1.1356438"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Lin et al. 1998, Science 281:1835; 回旋动理学表述见 W.W. Lee 1987, JCP 72:243",
+      "url": "https://doi.org/10.1126/science.281.5384.1835"
+    },
+    "normalization_ref": {
+      "cite": "Lin et al. 1998, Science 281:1835 (标准托卡马克回旋动理学归一化)",
+      "url": "https://doi.org/10.1126/science.281.5384.1835"
+    }
   },
   "DESC": {
     "full_name": "DESC Stellarator Equilibrium and Optimization Suite",
@@ -168,7 +220,9 @@
       "Python 接口"
     ],
     "links": [
-      "https://gx.readthedocs.io/"
+      "https://gx.readthedocs.io/",
+      "https://arxiv.org/abs/2209.06731",
+      "https://doi.org/10.1017/S0022377818000041"
     ],
     "closure": "求解局域回旋动理学方程（δf gyrokinetic Vlasov-Maxwell 系统）。速度空间采用 Hermite（v∥方向）+ Laguerre（μ 方向）伪谱展开，实现指数收敛精度的无噪声动理学闭合。场方程耦合回旋动理学 Poisson 方程（静电 φ）和 Ampere 定律（电磁 A∥）。支持线性（本征值）和非线性（初值）两种求解模式。几何采用局域通量管近似（气球模坐标），径向使用周期性边界条件。完全 GPU-native 实现，充分利用大规模并行。",
     "normalization": "采用 gyro-Bohm 归一化方案。空间尺度以离子声回旋半径 ρs 归一化，时间以 a/cs 归一化（a 为小半径，cs 为离子声速）。速度以离子热速度 vti 归一化。热通量以 gyro-Bohm 单位 QgB = nTcs(ρs/a)² 表示。磁场和温度以参考值归一化。",
@@ -178,21 +232,49 @@
     "variant_formulas": [
       {
         "name": "线性本征值",
-        "formula": "$$\\det[\\mathcal{L} - i\\omega \\mathcal{I}] = 0$$"
+        "desc": "线性算子本征值问题求增长率/频率",
+        "formula": "$$\\det[\\mathcal{L} - i\\omega \\mathcal{I}] = 0$$",
+        "ref": {
+          "cite": "Mandell et al. 2018, J. Plasma Phys. 84:905840108",
+          "url": "https://doi.org/10.1017/S0022377818000041"
+        }
       },
       {
         "name": "非线性湍流",
-        "formula": "$$\\frac{\\partial g}{\\partial t} + \\mathcal{L}[g] = \\mathcal{N}[g,g]$$"
+        "desc": "含非线性项的完整湍流演化",
+        "formula": "$$\\frac{\\partial g}{\\partial t} + \\mathcal{L}[g] = \\mathcal{N}[g,g]$$",
+        "ref": {
+          "cite": "Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731)",
+          "url": "https://arxiv.org/abs/2209.06731"
+        }
       },
       {
         "name": "静电模式",
-        "formula": "$$\\nabla_\\perp^2 \\phi = -4\\pi \\sum_s Z_s e\\, n_s$$"
+        "desc": "回旋动理学准中性求 φ",
+        "formula": "$$\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi = \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s)\\, g_s$$",
+        "ref": {
+          "cite": "Mandell et al. 2018, J. Plasma Phys. 84:905840108",
+          "url": "https://doi.org/10.1017/S0022377818000041"
+        }
       },
       {
         "name": "电磁模式",
-        "formula": "$$\\nabla_\\perp^2 \\phi = -4\\pi\\sum Z_s e\\,n_s,\\; -\\nabla_\\perp^2 A_\\parallel = \\frac{4\\pi}{c}\\sum Z_s e\\, \\Gamma_\\parallel$$"
+        "desc": "准中性 + 平行 Ampère",
+        "formula": "$$\n\\begin{aligned}\n\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi = \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s)\\, g_s \\\\\\\\[4pt]\n-\\nabla_\\perp^2 A_\\parallel &= \\frac{4\\pi}{c}\\sum_s Z_s e \\int d^3v\\, v_\\parallel J_0 g_s\n\\end{aligned}\n$$",
+        "ref": {
+          "cite": "Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731)",
+          "url": "https://arxiv.org/abs/2209.06731"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Mandell, Dorland, Abel et al. 2024, J. Plasma Phys. (arXiv:2209.06731); 表述 Mandell et al. 2018, JPP 84:905840108",
+      "url": "https://arxiv.org/abs/2209.06731"
+    },
+    "normalization_ref": {
+      "cite": "Mandell et al. 2024, J. Plasma Phys. (arXiv:2209.06731)",
+      "url": "https://arxiv.org/abs/2209.06731"
+    }
   },
   "WarpX": {
     "full_name": "WarpX — Advanced Electromagnetic Particle-In-Cell Code",
@@ -520,7 +602,8 @@
       "局域通量管"
     ],
     "links": [
-      "https://github.com/gafusion/gacode"
+      "https://github.com/gafusion/gacode",
+      "https://doi.org/10.1016/j.jcp.2016.07.039"
     ],
     "closure": "求解局域非线性回旋动理学方程（δf），采用谱方法：双正交场向坐标展开 + Fourier 级数（径向）+ 广义 Laguerre 多项式（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程（静电势）和并联 Ampere 定律（矢量势），可选包含磁压缩 B∥。碰撞采用精确的完全线性化 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子），在谱空间中实现。支持多粒子种和多尺度（ITG/TEM/ETG 耦合）。几何采用局域 Miller 磁面平衡。",
     "normalization": "采用以离子声回旋半径 ρs = cs/Ωci 为基准的归一化方案，与 GYRO/GENE 兼容。径向波数以 ρs 为单位，增长率以 cs/a 为单位，热通量以 gyro-Bohm 单位 QgB 表示。具体归一化参数由 input.gacode 文件指定。",
@@ -530,9 +613,21 @@
     "variant_formulas": [
       {
         "name": "多尺度 (ITG+ETG)",
-        "formula": "$$g = g^{\\text{ITG}}(\\bar{\\rho}) + g^{\\text{ETG}}(\\tilde{\\rho}),\\; \\tilde{\\rho} = \\rho_s/\\rho_e \\gg \\bar{\\rho}$$"
+        "formula": "$$g = g^{\\text{ITG}}(\\bar{\\rho}) + g^{\\text{ETG}}(\\tilde{\\rho}),\\; \\tilde{\\rho} = \\rho_s/\\rho_e \\gg \\bar{\\rho}$$",
+        "ref": {
+          "cite": "Candy, Belli & Bravenec 2016, J. Comput. Phys. 324:73",
+          "url": "https://doi.org/10.1016/j.jcp.2016.07.039"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Candy, Belli & Bravenec 2016, J. Comput. Phys. 324:73",
+      "url": "https://doi.org/10.1016/j.jcp.2016.07.039"
+    },
+    "normalization_ref": {
+      "cite": "Candy, Belli & Bravenec 2016, J. Comput. Phys. 324:73",
+      "url": "https://doi.org/10.1016/j.jcp.2016.07.039"
+    }
   },
   "GS2": {
     "full_name": "GS2 — Gyrokinetic Stability and Transport Code",
@@ -545,7 +640,9 @@
       "历史经典"
     ],
     "links": [
-      "https://gyrokinetics.gitlab.io/gs2/"
+      "https://gyrokinetics.gitlab.io/gs2/",
+      "https://doi.org/10.1016/0010-4655(95)00035-E",
+      "https://doi.org/10.1063/1.872666"
     ],
     "closure": "求解局域回旋动理学方程（δf），采用连续体方法在气球模坐标中离散。场方程通过准中性条件（Poisson 方程）和并联 Ampere 定律闭合。速度空间采用有限差分（能量）+ 伪谱（pitch angle）混合离散。支持电磁涨落。碰撞通过简化的 Lorentz 或完整的 Fokker-Planck 碰撞算符处理。几何采用局域通量管近似（气球模坐标+s-α 模型或 Miller 平衡）。作为第一代通用回旋动理学连续体代码，GS2 为 GENE/GYRO 等方法奠定了物理框架。",
     "normalization": "采用以 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化。长度以 ρs 为单位，时间以 a/cs 为单位，速度以 vti 为单位。归一化方案与 GYRO 和 GENE 早期版本兼容。",
@@ -555,13 +652,29 @@
     "variant_formulas": [
       {
         "name": "s-α 几何",
-        "formula": "$$k_\\perp^2 = k_\\theta^2[1 + (s\\theta - \\alpha\\sin\\theta)^2]$$"
+        "formula": "$$k_\\perp^2 = k_\\theta^2[1 + (s\\theta - \\alpha\\sin\\theta)^2]$$",
+        "ref": {
+          "cite": "Kotschenreuther, Rewoldt & Tang 1995, CPC 88:128",
+          "url": "https://doi.org/10.1016/0010-4655(95)00035-E"
+        }
       },
       {
         "name": "Miller 几何",
-        "formula": "$$k_\\perp^2 = k_\\theta^2\\frac{|\\nabla r|^2}{|\\nabla r|_0^2},\\; R(r,\\theta) = R_0 + r\\cos(\\theta + \\sin\\theta\\,\\delta(r))$$"
+        "formula": "$$k_\\perp^2 = k_\\theta^2\\frac{|\\nabla r|^2}{|\\nabla r|_0^2},\\; R(r,\\theta) = R_0 + r\\cos(\\theta + \\sin\\theta\\,\\delta(r))$$",
+        "ref": {
+          "cite": "Miller, Chu, Greene, Lin-Liu & Waltz 1998, Phys. Plasmas 5:973",
+          "url": "https://doi.org/10.1063/1.872666"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Kotschenreuther, Rewoldt & Tang 1995, Comput. Phys. Commun. 88:128",
+      "url": "https://doi.org/10.1016/0010-4655(95)00035-E"
+    },
+    "normalization_ref": {
+      "cite": "Kotschenreuther, Rewoldt & Tang 1995, Comput. Phys. Commun. 88:128",
+      "url": "https://doi.org/10.1016/0010-4655(95)00035-E"
+    }
   },
   "SPEC": {
     "full_name": "SPEC — Stepped Pressure Equilibrium Code",
@@ -775,7 +888,9 @@
       "ITER/SPARC标配"
     ],
     "links": [
-      "https://github.com/gafusion/gacode"
+      "https://github.com/gafusion/gacode",
+      "https://doi.org/10.1063/1.2436852",
+      "https://doi.org/10.1063/1.4954905"
     ],
     "closure": "基于回旋-朗道-流体（Gyro-Landau-Fluid, GLF）模型，使用截断矩方程（通常保留到 15-23 个速度空间矩）闭合流体方程链。通过 Hammett-Perkins 类型的朗道阻尼闭合近似（非局域热通量和粘性张量以卷积形式表示 k∥vt/ω 的函数）来捕获回旋动理学动理学效应。准线性输运计算通过求解线性回旋动理学本征值方程获得最不稳定模的增长率、频率和本征函数，再通过准线性混合长度规则（γ/⟨k⊥²⟩）估计输运系数。支持 ITG/TEM/ETG/KBM 等多种不稳定性。",
     "normalization": "采用 gyro-Bohm 归一化方案。长度以 ρs 归一化，增长率以 cs/a 归一化，热通量以 gyro-Bohm 单位 QgB 表示。输入剖面通过 input.gacode 格式以工程单位（keV, 10¹⁹ m⁻³, m）提供，内部自动转换为归一化单位。",
@@ -785,13 +900,29 @@
     "variant_formulas": [
       {
         "name": "SAT0 饱和规则",
-        "formula": "$$\\frac{\\tilde{\\phi}}{T_e} \\propto \\frac{\\gamma}{\\langle k_\\perp^2\\rangle} \\frac{1}{\\sqrt{1 + (\\gamma/\\Delta\\omega)^2}}$$"
+        "formula": "$$\\frac{\\tilde{\\phi}}{T_e} \\propto \\frac{\\gamma}{\\langle k_\\perp^2\\rangle} \\frac{1}{\\sqrt{1 + (\\gamma/\\Delta\\omega)^2}}$$",
+        "ref": {
+          "cite": "Staebler, Kinsey & Waltz 2007, Phys. Plasmas 14:055909",
+          "url": "https://doi.org/10.1063/1.2436852"
+        }
       },
       {
         "name": "SAT1 饱和规则",
-        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k^3}{\\langle k_\\perp^2\\rangle_k^2} \\cdot f(\\gamma_k/\\omega_k)$$"
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k^3}{\\langle k_\\perp^2\\rangle_k^2} \\cdot f(\\gamma_k/\\omega_k)$$",
+        "ref": {
+          "cite": "Staebler et al. 2016, Phys. Plasmas 23:062518",
+          "url": "https://doi.org/10.1063/1.4954905"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Staebler, Kinsey & Waltz 2007, Phys. Plasmas 14:055909",
+      "url": "https://doi.org/10.1063/1.2436852"
+    },
+    "normalization_ref": {
+      "cite": "Staebler, Kinsey & Waltz 2007, Phys. Plasmas 14:055909",
+      "url": "https://doi.org/10.1063/1.2436852"
+    }
   },
   "GYRO": {
     "full_name": "GYRO — Gyrokinetic Continuum Turbulence Code",
@@ -804,23 +935,40 @@
       "教学验证"
     ],
     "links": [
-      "https://github.com/gafusion/gacode"
+      "https://github.com/gafusion/gacode",
+      "https://doi.org/10.1016/S0021-9991(03)00079-2"
     ],
     "closure": "求解局域非线性回旋动理学方程（δf），采用连续体谱方法：气球模坐标（场向）+ Fourier（径向）+ 广义 Laguerre（能量）+ 球谐函数（pitch angle）。场方程闭合通过回旋动理学 Poisson 方程和并联 Ampere 定律。支持包含磁压缩 B∥ 的电磁涨落。碰撞通过完全 Fokker-Planck 碰撞算符（电子-离子、离子-离子、电子-电子）处理。支持多粒子种。几何采用局域 Miller 磁面平衡（实际 Grad-Shafranov 平衡的局域展开）。是 GACODE 套件的核心湍流求解器。",
     "normalization": "采用以离子声回旋半径 ρs = cs/Ωci 为基准的 gyro-Bohm 归一化方案（与 CGYRO/GENE 兼容）。径向波数以 ρs 为单位，增长率以 cs/a 为单位。热通量以 gyro-Bohm 单位 QgB = nref·Tref·cs·(ρs/a)² 表示。具体参数由 input.gacode 文件指定。",
     "variants": "线性本征值模式；非线性湍流模式；纯静电；电磁（φ + A∥ + B∥）；单/多粒子种；碰撞/无碰撞；ExB 剪切流效应；s-α 模型/Miller 几何。",
-    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial g_s}{\\partial t} &+ v_\\parallel \\hat{\\mathbf{b}}\\cdot\\nabla g_s + \\mathbf{v}_D\\cdot\\nabla g_s - \\frac{Z_s e F_{0s}}{T_s}\\frac{\\partial\\langle\\chi\\rangle}{\\partial t} = C[g_s] \\\\[4pt]\n\\nabla_\\perp^2 \\phi &= -4\\pi\\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s) g_s \\\\[4pt]\ng_s &= \\sum_{n,p,\\ell} g_{np\\ell}\\, e^{in\\theta} L_\\ell^{(p)}(\\bar{\\mu}) e^{-\\bar{\\mu}/2}\n\\end{aligned}\n$$",
+    "closure_formula": "$$\n\\begin{aligned}\n\\frac{\\partial g_s}{\\partial t} &+ v_\\parallel \\hat{\\mathbf{b}}\\cdot\\nabla g_s + \\mathbf{v}_D\\cdot\\nabla g_s - \\frac{Z_s e F_{0s}}{T_s}\\frac{\\partial\\langle\\chi\\rangle}{\\partial t} = C[g_s] \\\\[4pt]\n\\sum_s \\frac{Z_s^2 e^2 n_{0s}}{T_s}\\big(1-\\Gamma_0(b_s)\\big)\\phi &= \\sum_s Z_s e \\int d^3v\\, J_0(k_\\perp\\rho_s) g_s \\quad\\text{(准中性)} \\\\[4pt]\ng_s &= \\sum_{n,p,\\ell} g_{np\\ell}\\, e^{in\\theta} L_\\ell^{(p)}(\\bar{\\mu}) e^{-\\bar{\\mu}/2}\n\\end{aligned}\n$$",
     "normalization_formula": "$$\\bar{k}_\\theta = k_\\theta\\rho_s,\\; \\bar{\\gamma}=\\frac{\\gamma}{c_s/a},\\; Q_{gB}=n_0 T_0 c_s(\\rho_s/a)^2$$",
     "variant_formulas": [
       {
         "name": "线性/非线性",
-        "formula": "$$\\det[\\mathcal{L}-\\omega\\mathcal{I}]=0 \\;\\text{vs.}\\; \\partial_t g = \\mathcal{L}[g]+\\mathcal{N}[g,g]$$"
+        "formula": "$$\\det[\\mathcal{L}-\\omega\\mathcal{I}]=0 \\;\\text{vs.}\\; \\partial_t g = \\mathcal{L}[g]+\\mathcal{N}[g,g]$$",
+        "ref": {
+          "cite": "Candy & Waltz 2003, J. Comput. Phys. 186:545",
+          "url": "https://doi.org/10.1016/S0021-9991(03)00079-2"
+        }
       },
       {
         "name": "静电/电磁",
-        "formula": "$$\\phi\\text{ only } \\;\\text{vs.}\\; \\phi+A_\\parallel+B_\\parallel$$"
+        "formula": "$$\\phi\\text{ only } \\;\\text{vs.}\\; \\phi+A_\\parallel+B_\\parallel$$",
+        "ref": {
+          "cite": "Candy & Waltz 2003, J. Comput. Phys. 186:545",
+          "url": "https://doi.org/10.1016/S0021-9991(03)00079-2"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Candy & Waltz 2003, J. Comput. Phys. 186:545",
+      "url": "https://doi.org/10.1016/S0021-9991(03)00079-2"
+    },
+    "normalization_ref": {
+      "cite": "Candy & Waltz 2003, J. Comput. Phys. 186:545",
+      "url": "https://doi.org/10.1016/S0021-9991(03)00079-2"
+    }
   },
   "TGYRO": {
     "full_name": "TGYRO — Transport + GYRO Integrated Modeling Code",
@@ -833,7 +981,10 @@
       "集成建模"
     ],
     "links": [
-      "https://github.com/gafusion/gacode"
+      "https://github.com/gafusion/gacode",
+      "https://doi.org/10.1063/1.3167820",
+      "https://doi.org/10.1063/1.2436852",
+      "https://doi.org/10.1016/S0021-9991(03)00079-2"
     ],
     "closure": "求解 1D 径向输运方程系统（粒子、电子能量、离子能量、环向动量），与 TGLF（准线性湍流输运）或 GYRO/CGYRO（非线性湍流输运）耦合以自洽计算输运系数。平衡通过固定的 MHD 平衡提供（通常来自 EFIT 或 TOQ）。源项通过外部耦合模块（NUBEAM for NBI、TORAY/GENRAY for RF）计算。输运方程采用有限体积或有限差分方法在径向磁面坐标中离散。所有源项和输运系数在 input.gacode 格式中统一管理。是 GACODE 的集成输运求解器。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。输入剖面文件（input.gacode）使用工程单位。内部输运系数自动转换为 gyro-Bohm 归一化单位供 TGLF/GYRO 使用。",
@@ -843,13 +994,29 @@
     "variant_formulas": [
       {
         "name": "TGLF耦合",
-        "formula": "$$\\chi_{\\text{TGLF}} = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+        "formula": "$$\\chi_{\\text{TGLF}} = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$",
+        "ref": {
+          "cite": "Staebler, Kinsey & Waltz 2007, Phys. Plasmas 14:055909",
+          "url": "https://doi.org/10.1063/1.2436852"
+        }
       },
       {
         "name": "GYRO耦合",
-        "formula": "$$\\chi_{\\text{GYRO}} = \\frac{\\langle \\tilde{Q} \\rangle}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{GYRO}} = \\frac{\\langle \\tilde{Q} \\rangle}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Candy & Waltz 2003, J. Comput. Phys. 186:545",
+          "url": "https://doi.org/10.1016/S0021-9991(03)00079-2"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Candy, Holland, Waltz et al. 2009, Phys. Plasmas 16:060704",
+      "url": "https://doi.org/10.1063/1.3167820"
+    },
+    "normalization_ref": {
+      "cite": "Candy et al. 2009, Phys. Plasmas 16:060704",
+      "url": "https://doi.org/10.1063/1.3167820"
+    }
   },
   "QuaLiKiz": {
     "full_name": "QuaLiKiz — Quasi-linear Gyrokinetic Transport Model",
@@ -864,7 +1031,9 @@
     ],
     "links": [
       "https://qualikiz-group.gitlab.io/QuaLiKiz",
-      "https://doi.org/10.1063/1.5132937"
+      "https://doi.org/10.1063/1.5132937",
+      "https://doi.org/10.1063/1.2800869",
+      "https://doi.org/10.1063/1.5134126"
     ],
     "closure": "基于回旋动理学准线性理论，求解线性回旋动理学本征值方程获得最不稳定模的增长率、频率和本征函数。输运系数通过准线性混合长度估计（γ³/⟨k⊥²⟩² 规则）计算。物理模型基于静电回旋动理学（可扩展至电磁），包含 ITG/TEM/ETG 不稳定性。采用 Krook 碰撞算符近似。闭合通过准中性条件（Poisson 方程）实现。相比于 TGLF，QuaLiKiz 使用更少的拟合参数和更透明的物理假设，但覆盖的物理范围（主要是静电）较窄。QLKNN 为其神经网络加速版本。",
     "normalization": "采用 gyro-Bohm 归一化方案。长度以 ρs 为单位，增长率以 cs/R 为单位。输入剖面以工程单位提供，内部自动转换为归一化单位。输运系数输出转换为工程单位（m²/s）供集成建模使用。",
@@ -874,9 +1043,21 @@
     "variant_formulas": [
       {
         "name": "QLKNN加速",
-        "formula": "$$\\chi = \\text{NN}(\\mathbf{x}),\\; \\mathbf{x}\\in\\mathbb{R}^{10},\\; \\text{MSE} < 5\\%$$"
+        "formula": "$$\\chi = \\text{NN}(\\mathbf{x}),\\; \\mathbf{x}\\in\\mathbb{R}^{10},\\; \\text{MSE} < 5\\%$$",
+        "ref": {
+          "cite": "van de Plassche et al. 2020, Phys. Plasmas 27:022310",
+          "url": "https://doi.org/10.1063/1.5134126"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Bourdelle et al. 2007, Phys. Plasmas 14:112501",
+      "url": "https://doi.org/10.1063/1.2800869"
+    },
+    "normalization_ref": {
+      "cite": "Bourdelle et al. 2007, Phys. Plasmas 14:112501",
+      "url": "https://doi.org/10.1063/1.2800869"
+    }
   },
   "OMFIT": {
     "full_name": "OMFIT — One Modeling Framework for Integrated Tasks",
@@ -1352,7 +1533,8 @@
       "GS2/CGYRO/GENE/stella"
     ],
     "links": [
-      "https://pyrokinetics.readthedocs.io/"
+      "https://pyrokinetics.readthedocs.io/",
+      "https://doi.org/10.21105/joss.05866"
     ],
     "closure": "Python 库，用于在不同回旋动理学代码（GENE、GS2、CGYRO、GX、stella 等）之间转换输入/输出格式。不直接求解物理方程——通过标准化的数据格式（基于 xarray 的 Pyro 对象）在代码间映射平衡几何（Miller 磁面参数）、等离子体剖面（密度、温度、旋转）、电磁涨落设置和归一化参数。物理闭合由调用的回旋动理学代码决定。大大简化了多代码基准对比（benchmarking）和不确定性量化工作流。",
     "normalization": "输入剖面以工程单位（keV, 10¹⁹ m⁻³, m）提供，内部自动转换为各目标代码所需的归一化方案（GENE 的 gyro-Bohm、CGYRO 的 ρs 归一化等）。归一化参数在 Pyro 对象中集中管理。",
@@ -1362,9 +1544,21 @@
     "variant_formulas": [
       {
         "name": "多代码benchmark",
-        "formula": "$$\\Delta \\chi = \\frac{|\\chi_A - \\chi_B|}{\\chi_A + \\chi_B} < \\varepsilon$$"
+        "formula": "$$\\Delta \\chi = \\frac{|\\chi_A - \\chi_B|}{\\chi_A + \\chi_B} < \\varepsilon$$",
+        "ref": {
+          "cite": "Patel et al. 2024, J. Open Source Softw. 9(95):5866",
+          "url": "https://doi.org/10.21105/joss.05866"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Patel et al. 2024, J. Open Source Softw. 9(95):5866",
+      "url": "https://doi.org/10.21105/joss.05866"
+    },
+    "normalization_ref": {
+      "cite": "Patel et al. 2024, J. Open Source Softw. 9(95):5866",
+      "url": "https://doi.org/10.21105/joss.05866"
+    }
   },
   "stella": {
     "full_name": "stella — Stellarator Gyrokinetic Turbulence Code",
@@ -1377,7 +1571,8 @@
       "W7-X 标准工具"
     ],
     "links": [
-      "https://github.com/stellaGK/stella"
+      "https://github.com/stellaGK/stella",
+      "https://doi.org/10.1016/j.jcp.2019.01.025"
     ],
     "closure": "求解局域和非局域回旋动理学方程（δf），支持通量管和全磁面两种几何模式。采用连续体方法，速度空间使用 Hermite-Laguerre 伪谱展开（与 GX 类似）或有限差分。场方程通过回旋动理学 Poisson 方程和并联 Ampere 定律闭合。独特之处在于可处理非周期性径向边界条件（全磁面模式），允许捕获湍流在径向的全局传播效应。支持托卡马克和仿星器几何。碰撞通过 Dougherty 或 Lorentz 碰撞算符处理。",
     "normalization": "采用 gyro-Bohm 归一化方案。长度以 ρs 归一化，时间以 a/cs 归一化。热通量以 gyro-Bohm 单位表示。归一化参数与 GENE/GX 兼容。",
@@ -1387,9 +1582,21 @@
     "variant_formulas": [
       {
         "name": "全磁面模式",
-        "formula": "$$g = g(\\psi, \\theta, \\zeta, v_\\parallel, \\mu, t) \\;\\text{(非周期径向边界)}$$"
+        "formula": "$$g = g(\\psi, \\theta, \\zeta, v_\\parallel, \\mu, t) \\;\\text{(非周期径向边界)}$$",
+        "ref": {
+          "cite": "Barnes, Parra & Landreman 2019, J. Comput. Phys. 391:365",
+          "url": "https://doi.org/10.1016/j.jcp.2019.01.025"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Barnes, Parra & Landreman 2019, J. Comput. Phys. 391:365",
+      "url": "https://doi.org/10.1016/j.jcp.2019.01.025"
+    },
+    "normalization_ref": {
+      "cite": "Barnes, Parra & Landreman 2019, J. Comput. Phys. 391:365",
+      "url": "https://doi.org/10.1016/j.jcp.2019.01.025"
+    }
   },
   "DINA": {
     "full_name": "DINA — Nonlinear Time-Dependent Tokamak Discharge Simulator",
@@ -2262,7 +2469,8 @@
       "TRANSP集成"
     ],
     "links": [
-      "https://www6.lehigh.edu/~eus204/per/publications/journals/plasma23_MMM.pdf"
+      "https://www6.lehigh.edu/~eus204/per/publications/journals/plasma23_MMM.pdf",
+      "https://doi.org/10.1063/1.4794288"
     ],
     "closure": "基于漂移波物理的多模式反常输运模型。计算 ITG/TEM/ETG/kinetic ballooning mode 驱动的热和粒子输运系数。使用线性回旋动理学理论（Weiland 模型）计算最不稳定模的增长率和混合长度估计。包含 ExB 剪切流和 Shafranov 位移致稳效应。2023 年完成大规模实验验证（EAST/KSTAR/JET/DIII-D 共 99 个放电），温度预测 RMS 偏差 ~10%。作为 TRANSP/TGYRO 框架内的输运模型运行。",
     "normalization": "输运系数以 m²/s 为单位输出。内部使用 gyro-Bohm 归一化。输入剖面以工程单位提供。",
@@ -2272,9 +2480,21 @@
     "variant_formulas": [
       {
         "name": "ExB剪切修正",
-        "formula": "$$\\chi \\to \\frac{\\chi}{1 + (\\gamma_{E\\times B}/\\gamma_0)^2}$$"
+        "formula": "$$\\chi \\to \\frac{\\chi}{1 + (\\gamma_{E\\times B}/\\gamma_0)^2}$$",
+        "ref": {
+          "cite": "Rafiq et al. 2013, Phys. Plasmas 20:032506",
+          "url": "https://doi.org/10.1063/1.4794288"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Rafiq et al. 2013, Phys. Plasmas 20:032506",
+      "url": "https://doi.org/10.1063/1.4794288"
+    },
+    "normalization_ref": {
+      "cite": "Rafiq et al. 2013, Phys. Plasmas 20:032506",
+      "url": "https://doi.org/10.1063/1.4794288"
+    }
   },
   "GLF23": {
     "full_name": "GLF23 — Gyro-Landau-Fluid 23-Moment Transport Model",
@@ -2288,7 +2508,8 @@
     ],
     "links": [
       "https://github.com/GeneralAtomics/GLF23",
-      "https://doi.org/10.13182/FST05-A1060"
+      "https://doi.org/10.13182/FST05-A1060",
+      "https://doi.org/10.1063/1.872228"
     ],
     "closure": "基于回旋-朗道-流体（TGLF）理论的 23 矩闭合反常输运模型。通过截断到 23 个速度空间矩的流体方程链，结合 Hammett-Perkins 朗道阻尼闭合近似，预测 ITG/TEM/ETG 驱动的粒子、能量和动量输运。准线性输运使用最不稳定模的混合长度估计（γ/⟨k⊥²⟩）。是 TGLF 系列的前身，为后续 GA 标准输运模型奠定了物理框架。在 DIII-D 上广泛验证，用于 ITER 预测。",
     "normalization": "采用 gyro-Bohm 归一化。输出输运系数以 m²/s 的工程单位表示。",
@@ -2298,9 +2519,21 @@
     "variant_formulas": [
       {
         "name": "23矩闭合",
-        "formula": "$$M = 23 \\text{ moments retained in the fluid hierarchy}$$"
+        "formula": "$$M = 23 \\text{ moments retained in the fluid hierarchy}$$",
+        "ref": {
+          "cite": "Waltz et al. 1997, Phys. Plasmas 4:2482",
+          "url": "https://doi.org/10.1063/1.872228"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Waltz et al. 1997, Phys. Plasmas 4:2482",
+      "url": "https://doi.org/10.1063/1.872228"
+    },
+    "normalization_ref": {
+      "cite": "Waltz et al. 1997, Phys. Plasmas 4:2482",
+      "url": "https://doi.org/10.1063/1.872228"
+    }
   },
   "BgB": {
     "full_name": "BgB — Bohm-gyroBohm Transport Model",
@@ -2314,7 +2547,8 @@
     ],
     "links": [
       "https://doi.org/10.1088/1741-4326/ad6ea2",
-      "https://github.com/google-deepmind/torax"
+      "https://github.com/google-deepmind/torax",
+      "https://doi.org/10.1088/0029-5515/38/7/305"
     ],
     "closure": "Bohm/gyroBohm 半经验反常输运模型，将热输运系数分解为 Bohm 项（与宏观参数如密度梯度和温度梯度成比例）和 gyroBohm 项（与回旋半径尺度相关）。Bohm 项主导低约束模式（L-mode），gyroBohm 项在 H-mode pedestal 附近占主导。无需求解微观不稳定性本征值，计算效率极高。已被纳入 TORAX/JETTO/ASTRA 等集成建模框架。",
     "normalization": "输运系数以 m²/s。Bohm 扩散系数 DB = Te/(16eB)。",
@@ -2324,9 +2558,21 @@
     "variant_formulas": [
       {
         "name": "L/H自适应",
-        "formula": "$$\\alpha_{gB} = \\begin{cases}0 & \\text{L-mode}\\\\1 & \\text{H-mode}\\end{cases}$$"
+        "formula": "$$\\alpha_{gB} = \\begin{cases}0 & \\text{L-mode}\\\\1 & \\text{H-mode}\\end{cases}$$",
+        "ref": {
+          "cite": "Erba et al. 1998, Nucl. Fusion 38:1013",
+          "url": "https://doi.org/10.1088/0029-5515/38/7/305"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Erba et al. 1998, Nucl. Fusion 38:1013 (混合 Bohm/gyro-Bohm)",
+      "url": "https://doi.org/10.1088/0029-5515/38/7/305"
+    },
+    "normalization_ref": {
+      "cite": "Erba et al. 1998, Nucl. Fusion 38:1013",
+      "url": "https://doi.org/10.1088/0029-5515/38/7/305"
+    }
   },
   "MARS": {
     "full_name": "MARS — MHD Analysis of Resistive Spectrum",

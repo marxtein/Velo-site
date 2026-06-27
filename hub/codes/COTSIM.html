@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,25 +77,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">EAST验证</span>
 <span class="fchip">实时控制</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">面向控制的托卡马克等离子体输运模拟器。同时求解 1D 径向输运方程（温度、密度、电流）和 2D 自由边界平衡演化（通过耦合 Grad-Shafranov 求解器）。独特创新在于将机器学习代理模型嵌入仿真管线——例如用训练过的神经网络替代计算昂贵的 LHCD（Lower Hybrid Current Drive）物理模拟，使仿真速度提升数个数量级。2025 年在 EAST 装置实验验证。设计用于基于模型的 feedforward 优化和实时控制策略测试。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">面向控制的托卡马克等离子体输运模拟器。同时求解 1D 径向输运方程（温度、密度、电流）和 2D 自由边界平衡演化（通过耦合 Grad-Shafranov 求解器）。独特创新在于将机器学习代理模型嵌入仿真管线——例如用训练过的神经网络替代计算昂贵的 LHCD（Lower Hybrid Current Drive）物理模拟，使仿真速度提升数个数量级。2025 年在 EAST 装置实验验证。设计用于基于模型的 feedforward 优化和实时控制策略测试。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial T}{\partial t} &= \nabla\cdot(\chi\nabla T) + Q \\[4pt]
 \chi &= (1-\alpha)\chi_{\text{phys}} + \alpha\chi_{\text{ML}}(\mathbf{x}) \quad \text{(混合仿真)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">物理模型模式；ML 代理模式（混合仿真）；EAST 专用配置；KSTAR 配置；ITER 推广；feedforward 优化模式。</p><div class="variant-card"><h4>EAST混合仿真</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\alpha \in [0,1] \;\text{controls physics-to-ML mixing ratio}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。温度以 keV，电流以 MA，功率以 MW，时间以 s 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{T}[\text{keV}],\; \bar{I}[\text{MA}],\; \bar{P}[\text{MW}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">物理模型模式；ML 代理模式（混合仿真）；EAST 专用配置；KSTAR 配置；ITER 推广；feedforward 优化模式。</p><div class="variant-card"><h4>EAST混合仿真</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\alpha \in [0,1] \;\text{controls physics-to-ML mixing ratio}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf" target="_blank" rel="noopener">www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COT</a></div>

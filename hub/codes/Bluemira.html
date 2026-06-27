@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,25 +77,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">STEP 设计平台</span>
 <span class="fchip">Python 工作流</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">聚变反应堆集成设计框架（Python），通过模块化方法构建反应堆数字孪生。物理闭合基于简化的 0D/1D/2D 模型：0D 功率平衡（plasma energy confinement scaling）、1D 径向输运、2D Grad-Shafranov 平衡（通过 FreeGS 或 Fiesta 求解）、线圈和结构有限元分析（通过外部 FEM 代码耦合）。设计过程通过优化算法协调各子系统参数以同时满足物理和工程约束。特别关注可制造性和工程可行性。是 UKAEA STEP 项目和中国 CFETR 设计的核心工具之一。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">聚变反应堆集成设计框架（Python），通过模块化方法构建反应堆数字孪生。物理闭合基于简化的 0D/1D/2D 模型：0D 功率平衡（plasma energy confinement scaling）、1D 径向输运、2D Grad-Shafranov 平衡（通过 FreeGS 或 Fiesta 求解）、线圈和结构有限元分析（通过外部 FEM 代码耦合）。设计过程通过优化算法协调各子系统参数以同时满足物理和工程约束。特别关注可制造性和工程可行性。是 UKAEA STEP 项目和中国 CFETR 设计的核心工具之一。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 P_{\text{elec}} &= \eta_{\text{th}} (P_{\text{fus}} + P_{\text{aux}}) - P_{\text{pump}} - P_{\text{cryo}} - P_{\text{sub}} \\[4pt]
 \sigma_{\text{max}} &\leq \sigma_{\text{allow}},\; T_{\text{SC}} \leq T_c(B, J)
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">托卡马克设计模式；仿星器设计模式（实验性）；紧凑型 tokamak（球形托卡马克）；ITER/STEP/CFETR 设计模板；FEM 结构分析耦合；中子学分析耦合（OpenMC 接口）。</p><div class="variant-card"><h4>托卡马克</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R_0 = \left(\frac{P_{\text{fus}}}{p_{\text{wall}} f_{\text{shape}}}\right)^{1/3}$$</div></div><div class="variant-card"><h4>STEP/CFETR 模板</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{x}_{\text{opt}} = \arg\min f(\mathbf{x})\;\text{s.t.}\; \mathbf{g}(\mathbf{x})\leq 0$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 工程单位。尺寸以 m，磁场以 T，电流以 A/MA，温度以 eV/keV，功率以 W/MW，应力以 Pa/MPa 为单位。参数化几何使用无量纲长宽比、拉长比、三角变形等。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{P}[\text{MW}],\; \bar{\sigma}[\text{MPa}],\; \bar{T}[\text{K}],\; \bar{B}[\text{T}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">托卡马克设计模式；仿星器设计模式（实验性）；紧凑型 tokamak（球形托卡马克）；ITER/STEP/CFETR 设计模板；FEM 结构分析耦合；中子学分析耦合（OpenMC 接口）。</p><div class="variant-card"><h4>托卡马克</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R_0 = \left(\frac{P_{\text{fus}}}{p_{\text{wall}} f_{\text{shape}}}\right)^{1/3}$$</div></div><div class="variant-card"><h4>STEP/CFETR 模板</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{x}_{\text{opt}} = \arg\min f(\mathbf{x})\;\text{s.t.}\; \mathbf{g}(\mathbf{x})\leq 0$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://bluemira.readthedocs.io/" target="_blank" rel="noopener">bluemira.readthedocs.io/</a></div>

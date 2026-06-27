@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -74,9 +78,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">鞘层物理</span>
 <span class="fchip">Vlasov-Maxwell</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">采用高阶间断伽辽金（Discontinuous Galerkin, DG）方法求解 Vlasov-Maxwell 或回旋动理学方程系统。方程直接在完整相空间中离散（含速度空间维度），实现无噪声（noise-free）的动理学模拟。场方程通过 Maxwell 方程组（全 Vlasov-Maxwell 模式）或回旋动理学 Poisson-Ampere 方程闭合。采用能量守恒的半离散 DG 格式，每个单元内使用高阶多项式基函数（通常 2-4 阶）。支持全 f 分布函数演化（非 δf 近似），特别适合边界物理（强梯度、非 Maxwell 分布）。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">采用高阶间断伽辽金（Discontinuous Galerkin, DG）方法求解 Vlasov-Maxwell 或回旋动理学方程系统。方程直接在完整相空间中离散（含速度空间维度），实现无噪声（noise-free）的动理学模拟。场方程通过 Maxwell 方程组（全 Vlasov-Maxwell 模式）或回旋动理学 Poisson-Ampere 方程闭合。采用能量守恒的半离散 DG 格式，每个单元内使用高阶多项式基函数（通常 2-4 阶）。支持全 f 分布函数演化（非 δf 近似），特别适合边界物理（强梯度、非 Maxwell 分布）。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{\partial f_s}{\partial t} + \nabla_\mathbf{x} \cdot (\mathbf{v} f_s) + \nabla_\mathbf{v} &\cdot \left[\frac{q_s}{m_s}(\mathbf{E} + \mathbf{v}\times\mathbf{B}) f_s\right] = 0 \\[4pt]
@@ -84,7 +88,8 @@ $$
 f_s^h(\mathbf{x},\mathbf{v},t) &= \sum_{k=1}^{N_p} f_{s,k}(t)\,\phi_k(\mathbf{x},\mathbf{v}) \quad \text{(DG 基函数展开)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">全 Vlasov-Maxwell 模式（空间等离子体）；回旋动理学模式（磁约束聚变）；1D/2D/3D 几何；静电/电磁；线性/非线性；无碰撞/含碰撞（Dougherty-Fokker-Planck 碰撞算符）；SOL 边界湍流专用配置；鞘层物理模块。</p><div class="variant-card"><h4>全 Vlasov-Maxwell</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\partial_t f + \mathbf{v}\cdot\nabla f + \frac{q}{m}(\mathbf{E}+\mathbf{v}\times\mathbf{B})\cdot\nabla_v f = 0$$</div></div><div class="variant-card"><h4>回旋动理学</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\partial_t g + v_\parallel \partial_z g + \mathbf{v}_D\cdot\nabla_\perp g = C[g]$$</div></div><div class="variant-card"><h4>含碰撞</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$C[f] = \nu \frac{\partial}{\partial \mathbf{v}}\cdot\left[\mathbf{v}f + v_t^2\frac{\partial f}{\partial \mathbf{v}}\right] \text{ (Dougherty)}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用标准等离子体归一化方案。长度以离子惯性长度 di = c/ωpi 或 Debye 长度 λD 归一化，时间以等离子体频率 ωpe⁻¹ 或离子回旋频率 Ωci⁻¹ 归一化。速度以热速度或 Alfvén 速度归一化。具体归一化取决于所求解的物理问题。</p><div class="formula-block">
@@ -92,10 +97,8 @@ $$
 $$
 \bar{x} = \frac{x}{d_i}, \quad d_i = \frac{c}{\omega_{pi}}, \quad \bar{t} = \omega_{pe} t, \quad \bar{v} = \frac{v}{v_{te}}
 $$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">全 Vlasov-Maxwell 模式（空间等离子体）；回旋动理学模式（磁约束聚变）；1D/2D/3D 几何；静电/电磁；线性/非线性；无碰撞/含碰撞（Dougherty-Fokker-Planck 碰撞算符）；SOL 边界湍流专用配置；鞘层物理模块。</p><div class="variant-card"><h4>全 Vlasov-Maxwell</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\partial_t f + \mathbf{v}\cdot\nabla f + \frac{q}{m}(\mathbf{E}+\mathbf{v}\times\mathbf{B})\cdot\nabla_v f = 0$$</div></div><div class="variant-card"><h4>回旋动理学</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\partial_t g + v_\parallel \partial_z g + \mathbf{v}_D\cdot\nabla_\perp g = C[g]$$</div></div><div class="variant-card"><h4>含碰撞</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$C[f] = \nu \frac{\partial}{\partial \mathbf{v}}\cdot\left[\mathbf{v}f + v_t^2\frac{\partial f}{\partial \mathbf{v}}\right] \text{ (Dougherty)}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://gkeyll.readthedocs.io/" target="_blank" rel="noopener">gkeyll.readthedocs.io/</a>

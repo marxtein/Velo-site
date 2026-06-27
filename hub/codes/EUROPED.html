@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">时间依赖pedestal</span>
 <span class="fchip">ITER/STEP预测</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">EUROfusion 开发的 EPED 变体，专门适配欧洲装置（JET、ASDEX Upgrade、TCV 等）的 pedestal 预测需求。物理模型与 EPED 一致（P-B + KBM 约束），但增加了 JET 特定定标和 EUROfusion 装置数据库验证。与欧洲集成建模工具链（ITM/IMAS）兼容。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">EUROfusion 开发的 EPED 变体，专门适配欧洲装置（JET、ASDEX Upgrade、TCV 等）的 pedestal 预测需求。物理模型与 EPED 一致（P-B + KBM 约束），但增加了 JET 特定定标和 EUROfusion 装置数据库验证。与欧洲集成建模工具链（ITM/IMAS）兼容。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 p_{\text{ped}} &= p(\psi_{\text{ped}}),\quad \Delta\psi_{\text{ped}} \propto \sqrt{\beta_{p,\text{ped}}} \\[4pt]
@@ -83,16 +87,15 @@ p_{\text{ped}} &= p(\psi_{\text{ped}}),\quad \Delta\psi_{\text{ped}} \propto \sq
 p_{\text{ped}} &= \min\{p_{\text{KBM}}, p_{\text{P-B}}\}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">JET ILW pedestal 预测模式；ASDEX Upgrade 模式；TCV 模式；ITER 预测模式；IMAS 数据接口。</p><div class="variant-card"><h4>EPED-NN</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$p_{\text{ped}} = \text{NN}(I_p, B_t, n_e, \kappa, \delta, \ldots)$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">与 EPED 一致。输入/输出以工程单位为主，兼容 IMAS 数据格式。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{p}_{\text{ped}}[\text{kPa}],\; \bar{\Delta}[\psi_N],\; \bar{T}_{\text{ped}}[\text{keV}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">JET ILW pedestal 预测模式；ASDEX Upgrade 模式；TCV 模式；ITER 预测模式；IMAS 数据接口。</p><div class="variant-card"><h4>EPED-NN</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$p_{\text{ped}} = \text{NN}(I_p, B_t, n_e, \kappa, \delta, \ldots)$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/EUROfusion/EUROPED" target="_blank" rel="noopener">github.com/EUROfusion/EUROPED</a></div>

@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">概念设计筛选</span>
 <span class="fchip">交互式 Python</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解 0D 功率平衡方程 P_fusion + P_aux = P_rad + P_transport + dW/dt，用于快速评估聚变反应堆的净功率输出。等离子体能量约束时间通过经验定标律（IPB98(y,2)、ITERH-98P 等）估算。聚变功率通过反应率参数化（Bosch-Hale）计算。辐射功率包含轫致辐射、线辐射和同步辐射。输运功率通过能量约束时间计算。电流驱动和加热功率通过简化效率公式估算。支持多装置类型（托卡马克、仿星器、球形托卡马克）的参数化。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解 0D 功率平衡方程 P_fusion + P_aux = P_rad + P_transport + dW/dt，用于快速评估聚变反应堆的净功率输出。等离子体能量约束时间通过经验定标律（IPB98(y,2)、ITERH-98P 等）估算。聚变功率通过反应率参数化（Bosch-Hale）计算。辐射功率包含轫致辐射、线辐射和同步辐射。输运功率通过能量约束时间计算。电流驱动和加热功率通过简化效率公式估算。支持多装置类型（托卡马克、仿星器、球形托卡马克）的参数化。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 P_{\text{fus}} &= \frac{1}{4}n^2 \langle\sigma v\rangle_{DT} E_{\text{fus}} V \\[4pt]
@@ -84,16 +88,15 @@ P_{\text{rad}} &= P_{\text{brems}} + P_{\text{line}} + P_{\text{sync}} \\[4pt]
 Q &= \frac{5 P_{\text{fus}}}{P_{\text{aux}}} \quad \text{(聚变增益)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">单点设计评估；参数扫描（灵敏度分析）；约束优化设计；托卡马克/球形托卡马克/仿星器模式；不同定标律选项。</p><div class="variant-card"><h4>参数扫描</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q(T, n, B, R, \ldots) \;\text{vs.}\; \mathbf{x} \in \mathbb{R}^n$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。功率以 MW，温度以 keV，密度以 10²⁰ m⁻³，体积以 m³，磁场以 T，电流以 MA 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{P}[\text{MW}],\; \bar{T}[\text{keV}],\; \bar{n}[10^{20}\text{m}^{-3}],\; \bar{V}[\text{m}^3]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">单点设计评估；参数扫描（灵敏度分析）；约束优化设计；托卡马克/球形托卡马克/仿星器模式；不同定标律选项。</p><div class="variant-card"><h4>参数扫描</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$Q(T, n, B, R, \ldots) \;\text{vs.}\; \mathbf{x} \in \mathbb{R}^n$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://ukaea.github.io/powerbalance/" target="_blank" rel="noopener">ukaea.github.io/powerbalance/</a></div>

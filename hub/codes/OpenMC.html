@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,9 +77,9 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">TBR 计算</span>
 <span class="fchip">MIT 开源</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">求解稳态或时间相关的中子输运方程（Boltzmann 输运方程）：Ω·∇ψ(r,E,Ω) + Σt(r,E)ψ(r,E,Ω) = ∫∫ Σs(r,E'→E,Ω'→Ω)ψ(r,E',Ω') dΩ' dE' + Q(r,E,Ω)。采用蒙特卡洛方法模拟中子历史的随机游走，通过统计大量粒子获得标量通量、反应率、功率分布等。支持连续能量和multi-group截面。核数据库通过 ACE 格式截面（ENDF/B-VIII.0、JEFF-3.3 等）提供。几何通过 CSG（Constructive Solid Geometry）构建。可选包含 photon transport 和 k-eigenvalue 计算。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">求解稳态或时间相关的中子输运方程（Boltzmann 输运方程）：Ω·∇ψ(r,E,Ω) + Σt(r,E)ψ(r,E,Ω) = ∫∫ Σs(r,E'→E,Ω'→Ω)ψ(r,E',Ω') dΩ' dE' + Q(r,E,Ω)。采用蒙特卡洛方法模拟中子历史的随机游走，通过统计大量粒子获得标量通量、反应率、功率分布等。支持连续能量和multi-group截面。核数据库通过 ACE 格式截面（ENDF/B-VIII.0、JEFF-3.3 等）提供。几何通过 CSG（Constructive Solid Geometry）构建。可选包含 photon transport 和 k-eigenvalue 计算。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \boldsymbol{\Omega}\cdot\nabla\psi(\mathbf{r},E,\boldsymbol{\Omega}) + \Sigma_t\psi &= \iint \Sigma_s(E'\to E,\boldsymbol{\Omega}'\to\boldsymbol{\Omega})\psi\,dE' d\Omega' + Q \\[4pt]
@@ -83,16 +87,15 @@ k_{\text{eff}} &= \frac{\text{下一代中子数}}{\text{当前代中子损失�
 \Sigma_x &= \sum_i N_i \sigma_{x,i}(E) \quad \text{(宏观截面)}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">k-eigenvalue 模式（临界计算）；固定源模式（ shielding/fusion 中子学）；时间相关模式（动力学参数）；中子+光子耦合输运；CAD 几何导入（DAGMC 接口）；TBR（氚增殖比）计算；核热沉积计算；活化计算；多物理耦合（OpenMC + MOOSE/thermal-hydraulics）。</p><div class="variant-card"><h4>k-eigenvalue</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{L}\psi = \frac{1}{k}\mathbf{F}\psi,\; k^{n+1} = k^n\frac{\int\mathbf{F}\psi^{n+1}}{\frac{1}{k^n}\int\mathbf{F}\psi^n}$$</div></div><div class="variant-card"><h4>TBR 计算</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{TBR} = \int_V \int_E \Sigma_{(n,^6\text{Li})\to T}(\mathbf{r},E)\,\phi(\mathbf{r},E)\,dE\,dV$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位和中子学惯例。长度以 cm，能量以 eV/MeV 为单位。截面以 barns（10⁻²⁴ cm²）。通量归一化通常为 per source neutron 或通过功率归一化。k-eigenvalue 无量纲。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{x}[\text{cm}],\; \bar{E}[\text{eV}],\; \bar{\sigma}[\text{barns}],\; \bar{\phi}[\text{n/cm}^2\text{-s}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">k-eigenvalue 模式（临界计算）；固定源模式（ shielding/fusion 中子学）；时间相关模式（动力学参数）；中子+光子耦合输运；CAD 几何导入（DAGMC 接口）；TBR（氚增殖比）计算；核热沉积计算；活化计算；多物理耦合（OpenMC + MOOSE/thermal-hydraulics）。</p><div class="variant-card"><h4>k-eigenvalue</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{L}\psi = \frac{1}{k}\mathbf{F}\psi,\; k^{n+1} = k^n\frac{\int\mathbf{F}\psi^{n+1}}{\frac{1}{k^n}\int\mathbf{F}\psi^n}$$</div></div><div class="variant-card"><h4>TBR 计算</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{TBR} = \int_V \int_E \Sigma_{(n,^6\text{Li})\to T}(\mathbf{r},E)\,\phi(\mathbf{r},E)\,dE\,dV$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://docs.openmc.org/" target="_blank" rel="noopener">docs.openmc.org/</a></div>

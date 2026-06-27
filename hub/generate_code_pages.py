@@ -44,6 +44,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -105,13 +109,28 @@ def escape_html(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def formula_section(label, formula):
-    """Render a formula block with label. Formula is raw LaTeX (already includes $$)."""
+def ref_line(ref):
+    """Render a source/citation line under a formula. ref = {"cite":..,"url":..} or None."""
+    if not ref:
+        return ""
+    cite = escape_html(ref.get("cite", ""))
+    url = ref.get("url", "")
+    if not cite:
+        return ""
+    if url:
+        return (f'<div class="formula-ref">来源: '
+                f'<a href="{escape_html(url)}" target="_blank" rel="noopener">{cite} ↗</a></div>')
+    return f'<div class="formula-ref">来源: {cite}</div>'
+
+
+def formula_section(label, formula, ref=None):
+    """Render a formula block with label + optional source line. Formula is raw LaTeX (includes $$)."""
     if not formula:
         return ""
     return f"""<div class="formula-block">
 <div class="formula-label">{escape_html(label)}</div>
 {formula}
+{ref_line(ref)}
 </div>"""
 
 
@@ -129,8 +148,10 @@ def render_page(name, detail, meta):
 
     closure = detail.get("closure", "")
     closure_formula = detail.get("closure_formula", "")
+    closure_ref = detail.get("closure_ref")
     normalization = detail.get("normalization", "")
     normalization_formula = detail.get("normalization_formula", "")
+    normalization_ref = detail.get("normalization_ref")
     variants = detail.get("variants", "")
     variant_formulas = detail.get("variant_formulas", [])
 
@@ -154,53 +175,53 @@ def render_page(name, detail, meta):
 <div class="features-grid">{chips}</div>
 </div>""")
 
-    # === CLOSURE SECTION (text + formulas) ===
-    closure_parts = []
+    # === COMBINED: PHYSICS MODEL & FUNCTIONAL VARIANTS ===
+    # Base/common closure first, then each variant card shows its own closure delta.
+    model_parts = []
+    base_parts = []
     if closure:
-        closure_parts.append(f'<p class="body-text">{esc(closure)}</p>')
+        base_parts.append(f'<p class="body-text">{esc(closure)}</p>')
     if closure_formula:
-        closure_parts.append(formula_section("闭合方程组", closure_formula))
-    if not closure_parts:
-        closure_parts.append('<p class="empty-note">暂无数据</p>')
-    sections.append(f"""<div class="section">
-<h2>📐 方程闭合方式</h2>
-{"".join(closure_parts)}
-</div>""")
-
-    # === NORMALIZATION SECTION ===
-    norm_parts = []
-    if normalization:
-        norm_parts.append(f'<p class="body-text">{esc(normalization)}</p>')
-    if normalization_formula:
-        norm_parts.append(formula_section("归一化关系", normalization_formula))
-    if not norm_parts:
-        norm_parts.append('<p class="empty-note">暂无数据</p>')
-    sections.append(f"""<div class="section">
-<h2>📏 归一化方案</h2>
-{"".join(norm_parts)}
-</div>""")
-
-    # === VARIANTS SECTION (text + per-variant formulas) ===
-    var_parts = []
+        base_parts.append(formula_section("基础闭合方程组", closure_formula, closure_ref))
+    if base_parts:
+        model_parts.append(
+            f'<div class="base-model"><div class="base-label">基础物理模型</div>'
+            f'{"".join(base_parts)}</div>'
+        )
     if variants:
-        var_parts.append(f'<p class="body-text">{esc(variants)}</p>')
+        model_parts.append(f'<p class="body-text">{esc(variants)}</p>')
     if variant_formulas:
         for vf in variant_formulas:
             vname = vf.get("name", "")
             vdesc = vf.get("desc", "")
             vformula = vf.get("formula", "")
+            vref = vf.get("ref")
             vcard = f'<div class="variant-card"><h4>{esc(vname)}</h4>'
             if vdesc:
                 vcard += f'<p class="body-text" style="font-size:.82rem;color:var(--mu)">{esc(vdesc)}</p>'
             if vformula:
-                vcard += f'<div class="formula-block" style="border:none;padding:.3rem 0">{vformula}</div>'
+                vcard += (f'<div class="formula-block" style="border:none;padding:.3rem 0">'
+                          f'{vformula}{ref_line(vref)}</div>')
             vcard += '</div>'
-            var_parts.append(vcard)
-    if not var_parts:
-        var_parts.append('<p class="empty-note">暂无数据</p>')
+            model_parts.append(vcard)
+    if not model_parts:
+        model_parts.append('<p class="empty-note">暂无数据</p>')
     sections.append(f"""<div class="section">
-<h2>🔄 功能变体</h2>
-{"".join(var_parts)}
+<h2>🔬 物理模型与功能变体</h2>
+{"".join(model_parts)}
+</div>""")
+
+    # === NORMALIZATION SECTION (kept separate, single global scheme) ===
+    norm_parts = []
+    if normalization:
+        norm_parts.append(f'<p class="body-text">{esc(normalization)}</p>')
+    if normalization_formula:
+        norm_parts.append(formula_section("归一化关系", normalization_formula, normalization_ref))
+    if not norm_parts:
+        norm_parts.append('<p class="empty-note">暂无数据</p>')
+    sections.append(f"""<div class="section">
+<h2>📏 归一化方案</h2>
+{"".join(norm_parts)}
 </div>""")
 
     # Links

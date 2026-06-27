@@ -37,6 +37,10 @@ h1{font-family:Georgia,serif;font-size:1.6rem;margin-bottom:.15rem}
 .formula-block{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;overflow-x:auto}
 .formula-block .katex-display{margin:.5rem 0!important}
 .formula-label{font-size:.72rem;color:var(--mu);font-weight:600;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.formula-ref{font-size:.72rem;color:var(--mu);margin-top:.4rem}
+.formula-ref a{color:var(--ac)}
+.base-model{border-left:3px solid var(--ac);padding-left:.8rem;margin:.4rem 0 1rem}
+.base-model .base-label{font-size:.74rem;color:var(--ac);font-weight:700;margin-bottom:.3rem}
 .empty-note{color:var(--mu);font-size:.8rem;font-style:italic}
 .variant-card{background:var(--surf);border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0}
 .variant-card h4{font-family:Georgia,serif;font-size:.9rem;color:var(--ac);margin-bottom:.4rem}
@@ -73,25 +77,24 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <span class="fchip">DIII-D标准</span>
 <span class="fchip">40年验证</span></div>
 </div><div class="section">
-<h2>📐 方程闭合方式</h2>
-<p class="body-text">GA 开发的 1.5D 托卡马克核心输运模拟代码，求解电子和离子能量、粒子密度和电流扩散的径向输运方程。输运系数通过 neo-classical（NCLASS）+ 反常（用户指定模型或经验系数）提供。源项耦合：NBI（NFREYA 快离子 Monte Carlo）、ECRH（TORAY）、ICRF、聚变功率。平衡通过 EFIT 或其他 G-S 求解器提供。是 DIII-D 和 KSTAR 的标准输运分析工具。</p><div class="formula-block">
-<div class="formula-label">闭合方程组</div>
+<h2>🔬 物理模型与功能变体</h2>
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">GA 开发的 1.5D 托卡马克核心输运模拟代码，求解电子和离子能量、粒子密度和电流扩散的径向输运方程。输运系数通过 neo-classical（NCLASS）+ 反常（用户指定模型或经验系数）提供。源项耦合：NBI（NFREYA 快离子 Monte Carlo）、ECRH（TORAY）、ICRF、聚变功率。平衡通过 EFIT 或其他 G-S 求解器提供。是 DIII-D 和 KSTAR 的标准输运分析工具。</p><div class="formula-block">
+<div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
 \frac{3}{2}\frac{\partial(n_s T_s)}{\partial t} &= -\frac{1}{V'}\frac{\partial}{\partial\rho}[V'(q_s + \tfrac{5}{2}\Gamma_s T_s)] + Q_s^{\text{NBI}} + Q_s^{\text{RF}} \\[4pt]
 q_s &= -n_s\chi_s\frac{\partial T_s}{\partial\rho},\quad \chi_s = \chi_s^{\text{neo}} + \chi_s^{\text{ano}}
 \end{aligned}
 $$
-</div>
+
+</div></div><p class="body-text">预测性模式；实验分析模式（功率平衡）；NBI 耦合（NFREYA）；ECRH 耦合（TORAY）；DIII-D 专用模式；KSTAR 专用模式。</p><div class="variant-card"><h4>功率平衡</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{exp}} - dW/dt}{-n\nabla T}$$</div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，功率以 MW，电流以 MA 为单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{\chi}[\text{m}^2/\text{s}]$$
+
 </div>
-</div><div class="section">
-<h2>🔄 功能变体</h2>
-<p class="body-text">预测性模式；实验分析模式（功率平衡）；NBI 耦合（NFREYA）；ECRH 耦合（TORAY）；DIII-D 专用模式；KSTAR 专用模式。</p><div class="variant-card"><h4>功率平衡</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_{\text{eff}} = \frac{Q_{\text{exp}} - dW/dt}{-n\nabla T}$$</div></div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://fusion.gat.com/THEORY/onetwo/" target="_blank" rel="noopener">fusion.gat.com/THEORY/onetwo/</a>
