@@ -89,8 +89,8 @@ $$
 &\text{输运闭合:} \quad \chi_{e,i} = \chi_{e,i}^{\text{Bohm}} + \chi_{e,i}^{\text{gyroBohm}} + \chi_{e,i}^{\text{TGLF/QuaLiKiz}}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">经验输运模式（Bohm/gyroBohm）；准线性输运模式（QuaLiKiz/QLKNN、TGLF）；时间相关模拟（预测性）；时间无关稳态求解；参数扫描模式（不确定性量化）；逆问题模式（优化控制轨迹）；集成 heating/CD 源项模块；pedestal 模型耦合（EPED/REPED）；L 模/H 模自动切换。</p><div class="variant-card"><h4>经验输运 (Bohm/gyroBohm)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_e = \chi_e^B \frac{T_e}{eB} + \chi_e^{gB} \rho_*^2 \frac{T_e}{eB}$$</div></div><div class="variant-card"><h4>准线性输运 (TGLF/QuaLiKiz)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle} |\phi_k(\rho)|^2$$</div></div><div class="variant-card"><h4>参数扫描/逆问题</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}(t)} \mathcal{J}[\mathbf{x}, \mathbf{u}] = \int_0^T \|\mathbf{x} - \mathbf{x}_{\text{target}}\|^2 dt$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.48550/arXiv.2406.06718" target="_blank" rel="noopener">Citrin et al. 2024, arXiv:2406.06718 (TORAX) ↗</a></div>
+</div></div><p class="body-text">经验输运模式（Bohm/gyroBohm）；准线性输运模式（QuaLiKiz/QLKNN、TGLF）；时间相关模拟（预测性）；时间无关稳态求解；参数扫描模式（不确定性量化）；逆问题模式（优化控制轨迹）；集成 heating/CD 源项模块；pedestal 模型耦合（EPED/REPED）；L 模/H 模自动切换。</p><div class="variant-card"><h4>经验输运 (Bohm/gyroBohm)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi_e = \chi_e^B \frac{T_e}{eB} + \chi_e^{gB} \rho_*^2 \frac{T_e}{eB}$$<div class="formula-ref">来源: <a href="https://doi.org/10.48550/arXiv.2406.06718" target="_blank" rel="noopener">Citrin et al. 2024, arXiv:2406.06718 ↗</a></div></div></div><div class="variant-card"><h4>准线性输运 (TGLF/QuaLiKiz)</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\chi = \sum_k \frac{\gamma_k}{\langle k_\perp^2\rangle} |\phi_k(\rho)|^2$$<div class="formula-ref">来源: <a href="https://doi.org/10.48550/arXiv.2406.06718" target="_blank" rel="noopener">Citrin et al. 2024, arXiv:2406.06718 ↗</a></div></div></div><div class="variant-card"><h4>参数扫描/逆问题</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}(t)} \mathcal{J}[\mathbf{x}, \mathbf{u}] = \int_0^T \|\mathbf{x} - \mathbf{x}_{\text{target}}\|^2 dt$$<div class="formula-ref">来源: <a href="https://doi.org/10.48550/arXiv.2406.06718" target="_blank" rel="noopener">Citrin et al. 2024, arXiv:2406.06718 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用标准托卡马克工程单位。长度以米为单位，时间以秒为单位，温度以 keV 为单位，密度以 10¹⁹ m⁻³ 为单位，电流以 MA 为单位，功率以 MW 为单位。内部计算使用 SI 单位制，通过 JAX 自动处理量纲一致性。</p><div class="formula-block">
@@ -101,7 +101,7 @@ $$
 \bar{t} &= \frac{t}{\text{s}}, \quad \bar{L} = \frac{L}{\text{m}}, \quad \bar{j} = \frac{j}{\text{MA/m}^2}
 \end{aligned}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.48550/arXiv.2406.06718" target="_blank" rel="noopener">Citrin et al. 2024, arXiv:2406.06718 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>

@@ -81,14 +81,14 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">基于 ITER IMAS 数据标准的 Python 数据访问和操作库，不直接求解物理方程。通过统一的数据模型（Interface Data Structures, IDS）管理聚变实验和模拟数据。物理闭合由用户耦合的具体代码决定。OMAS 提供标准化的数据加载/保存（JSON/HDF5/NetCDF/IMAS）、数据映射（将不同代码的输入/输出映射到统一 IDS 格式）和可视化工具。核心价值在于提供代码间数据互操作的标准接口，是集成建模基础设施。</p><div class="formula-block">
 <div class="formula-label">基础闭合方程组</div>
 $$\text{OMAS 提供数据映射层，不涉物理闭合。}\quad \mathcal{M}: \text{Code}_A \leftrightarrow \text{IDS} \leftrightarrow \text{Code}_B$$
-
-</div></div><p class="body-text">Python 独立库模式；OMFIT 集成模式；IMAS 数据服务器模式；本地文件模式（JSON/HDF5）；批量数据处理模式。</p><div class="variant-card"><h4>IMAS 兼容</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{IDS}_{\text{eq}}\{\psi, q, p, \ldots\} \leftarrow \text{EFIT/CHEASE}$$</div></div>
+<div class="formula-ref">来源: <a href="https://omas.readthedocs.io/" target="_blank" rel="noopener">Meneghini et al., OMAS (Ordered Multidimensional Array Structure) ↗</a></div>
+</div></div><p class="body-text">Python 独立库模式；OMFIT 集成模式；IMAS 数据服务器模式；本地文件模式（JSON/HDF5）；批量数据处理模式。</p><div class="variant-card"><h4>IMAS 兼容</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{IDS}_{\text{eq}}\{\psi, q, p, \ldots\} \leftarrow \text{EFIT/CHEASE}$$<div class="formula-ref">来源: <a href="https://omas.readthedocs.io/" target="_blank" rel="noopener">Meneghini et al., OMAS ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">以工程单位为主。温度以 eV/keV，密度以 m⁻³，长度以 m，磁场以 T，电流以 A/MA。各代码的归一化通过 OMAS 映射层自动转换。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{T}[\text{eV}],\; \bar{n}[\text{m}^{-3}],\; \bar{B}[\text{T}] \quad \text{(IDS 标准单位)}$$
-
+<div class="formula-ref">来源: <a href="https://omas.readthedocs.io/" target="_blank" rel="noopener">Meneghini et al., OMAS ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>

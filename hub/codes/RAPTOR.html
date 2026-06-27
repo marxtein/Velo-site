@@ -87,18 +87,19 @@ $$
 \chi_e &= f_{\text{NN}}(\nabla T_e, \nabla n_e, q, s, \ldots) \quad \text{(神经网络代理)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">实时控制模式（在线预测，TCV/AUG/JET 部署）；离线快速预测模式；神经网络代理输运模型（ML surrogate for transport）；物理输运模型（Bohm/gyroBohm）；profile control 优化模式。</p><div class="variant-card"><h4>实时控制</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}} \|T_e(\rho, t_f) - T_{e,\text{target}}(\rho)\|^2 \;\text{s.t.}\; \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/51/8/083052" target="_blank" rel="noopener">Felici et al. 2011, Nucl. Fusion 51:083052 (RAPTOR) ↗</a></div>
+</div></div><p class="body-text">实时控制模式（在线预测，TCV/AUG/JET 部署）；离线快速预测模式；神经网络代理输运模型（ML surrogate for transport）；物理输运模型（Bohm/gyroBohm）；profile control 优化模式。</p><div class="variant-card"><h4>实时控制</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min_{\mathbf{u}} \|T_e(\rho, t_f) - T_{e,\text{target}}(\rho)\|^2 \;\text{s.t.}\; \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/51/8/083052" target="_blank" rel="noopener">Felici et al. 2011, Nucl. Fusion 51:083052 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，时间以 s，功率以 MW 为单位。内部变量以物理单位存储和传递，便于与控制系统的数据接口对接。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{T}[\text{keV}],\; \bar{n}[10^{19}\text{m}^{-3}],\; \bar{t}[\text{s}],\; \bar{\rho}[\text{m}]$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0029-5515/51/8/083052" target="_blank" rel="noopener">Felici et al. 2011, Nucl. Fusion 51:083052 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/SPCData/raptor" target="_blank" rel="noopener">github.com/SPCData/raptor</a></div>
+<div class="links-list"><a href="https://github.com/SPCData/raptor" target="_blank" rel="noopener">github.com/SPCData/raptor</a>
+<a href="https://doi.org/10.1088/0029-5515/51/8/083052" target="_blank" rel="noopener">doi.org/10.1088/0029-5515/51/8/083052</a></div>
 </div>
 
 </div>

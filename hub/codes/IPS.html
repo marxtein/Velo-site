@@ -80,26 +80,27 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <h2>🔬 物理模型与功能变体</h2>
 <div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">PPPL 开发的集成等离子体模拟器（Integrated Plasma Simulator），通过组件化框架协调多个物理代码（TSC/TRANSP/NUBEAM/M3D-C1 等）的耦合运行。本身不求解物理方程——闭合由耦合的物理代码决定。使用 Babel/SIDL 实现跨语言组件互操作（Fortran/C++/Python），通过 plasma state 数据结构在组件间传递物理量。事件驱动的模拟管理器控制组件执行顺序和数据流。</p><div class="formula-block">
 <div class="formula-label">基础闭合方程组</div>
-1257
+$$
 \begin{aligned}
-\mathcal{S}: &\quad \text{Plasma State}(t) \xrightarrow{\text{Event}} \{\text{TSC, TRANSP, NUBEAM, M3D-C1, ...}\} \[4pt]
-\mathbf{x}^{k+1} &= \mathcal{F}_{\text{physics}}(\mathbf{x}^k, \mathbf{p}^k) \[4pt]
-\mathbf{p}^{k+1} &= \mathcal{G}_{\text{equilibrium}}(\mathbf{x}^{k+1}) \[4pt]
+\mathcal{S}: &\quad \text{Plasma State}(t) \xrightarrow{\text{Event}} \{\text{TSC, TRANSP, NUBEAM, M3D-C1, ...}\} \\[4pt]
+\mathbf{x}^{k+1} &= \mathcal{F}_{\text{physics}}(\mathbf{x}^k, \mathbf{p}^k) \\[4pt]
+\mathbf{p}^{k+1} &= \mathcal{G}_{\text{equilibrium}}(\mathbf{x}^{k+1}) \\[4pt]
 &\text{Babel/SIDL: } \texttt{Fortran} \leftrightarrow \texttt{C++} \leftrightarrow \texttt{Python}
 \end{aligned}
-1257
-
-</div></div><p class="body-text">TSC 耦合（等离子体演化）；TRANSP 耦合（输运分析）；M3D-C1 耦合（MHD 稳定性）；NUBEAM 耦合（快离子）；完整放电模拟模式；MHD 事件触发输运变化模式。</p><div class="variant-card"><h4>TSC耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">1257\psi(t), I_p(t), T(t) \leftarrow \text{TSC}1257</div></div><div class="variant-card"><h4>M3D-C1耦合</h4><div class="formula-block" style="border:none;padding:.3rem 0">1257\mathbf{B}(\mathbf{r},t), p(\mathbf{r},t) \leftarrow \text{M3D-C1}1257</div></div><div class="variant-card"><h4>事件驱动</h4><div class="formula-block" style="border:none;padding:.3rem 0">1257\text{ELM} \to \text{transport} \to \text{equilibrium} \to \text{stability} \to \text{ELM}1257</div></div>
+$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS) ↗</a></div>
+</div></div><p class="body-text">TSC 耦合（等离子体演化）；TRANSP 耦合（输运分析）；M3D-C1 耦合（MHD 稳定性）；NUBEAM 耦合（快离子）；完整放电模拟模式；MHD 事件触发输运变化模式。</p><div class="variant-card"><h4>TSC耦合</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">与 TSC 自由边界平衡/输运耦合</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\psi(t),\, I_p(t),\, T(t) \leftarrow \text{TSC}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS) ↗</a></div></div></div><div class="variant-card"><h4>M3D-C1耦合</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">与 M3D-C1 扩展 MHD 耦合</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{B}(\mathbf{r},t),\, p(\mathbf{r},t) \leftarrow \text{M3D-C1}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS) ↗</a></div></div></div><div class="variant-card"><h4>事件驱动</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">事件驱动的多物理循环</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\text{ELM} \to \text{transport} \to \text{equilibrium} \to \text{stability} \to \text{ELM}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">各组件使用各自的归一化方案，IPS 框架通过 plasma state 自动转换数据格式和单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
-1257\text{各组件独立归一化，IPS Plasma State 统一转换}1257
-
+$$\text{各组件独立归一化，IPS Plasma State 统一转换}$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS) ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://ips-framework.readthedocs.io/" target="_blank" rel="noopener">ips-framework.readthedocs.io/</a></div>
+<div class="links-list"><a href="https://ips-framework.readthedocs.io/" target="_blank" rel="noopener">ips-framework.readthedocs.io/</a>
+<a href="https://doi.org/10.1109/PDP.2010.63" target="_blank" rel="noopener">doi.org/10.1109/PDP.2010.63</a></div>
 </div>
 
 </div>

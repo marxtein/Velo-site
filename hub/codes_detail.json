@@ -218,17 +218,37 @@
     "variant_formulas": [
       {
         "name": "经验输运 (Bohm/gyroBohm)",
-        "formula": "$$\\chi_e = \\chi_e^B \\frac{T_e}{eB} + \\chi_e^{gB} \\rho_*^2 \\frac{T_e}{eB}$$"
+        "formula": "$$\\chi_e = \\chi_e^B \\frac{T_e}{eB} + \\chi_e^{gB} \\rho_*^2 \\frac{T_e}{eB}$$",
+        "ref": {
+          "cite": "Citrin et al. 2024, arXiv:2406.06718",
+          "url": "https://doi.org/10.48550/arXiv.2406.06718"
+        }
       },
       {
         "name": "准线性输运 (TGLF/QuaLiKiz)",
-        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle} |\\phi_k(\\rho)|^2$$"
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle} |\\phi_k(\\rho)|^2$$",
+        "ref": {
+          "cite": "Citrin et al. 2024, arXiv:2406.06718",
+          "url": "https://doi.org/10.48550/arXiv.2406.06718"
+        }
       },
       {
         "name": "参数扫描/逆问题",
-        "formula": "$$\\min_{\\mathbf{u}(t)} \\mathcal{J}[\\mathbf{x}, \\mathbf{u}] = \\int_0^T \\|\\mathbf{x} - \\mathbf{x}_{\\text{target}}\\|^2 dt$$"
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\mathcal{J}[\\mathbf{x}, \\mathbf{u}] = \\int_0^T \\|\\mathbf{x} - \\mathbf{x}_{\\text{target}}\\|^2 dt$$",
+        "ref": {
+          "cite": "Citrin et al. 2024, arXiv:2406.06718",
+          "url": "https://doi.org/10.48550/arXiv.2406.06718"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Citrin et al. 2024, arXiv:2406.06718 (TORAX)",
+      "url": "https://doi.org/10.48550/arXiv.2406.06718"
+    },
+    "normalization_ref": {
+      "cite": "Citrin et al. 2024, arXiv:2406.06718",
+      "url": "https://doi.org/10.48550/arXiv.2406.06718"
+    }
   },
   "GX": {
     "full_name": "GX — GPU-native Local Gyrokinetic Turbulence Code",
@@ -661,13 +681,29 @@
     "variant_formulas": [
       {
         "name": "功率平衡分析",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\frac{3}{2}\\frac{\\partial}{\\partial t}(nT)}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\frac{3}{2}\\frac{\\partial}{\\partial t}(nT)}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Hawryluk 1980 (TRANSP)",
+          "url": "https://w3.pppl.gov/transp/"
+        }
       },
       {
         "name": "预测性模拟",
-        "formula": "$$\\chi_s = \\chi_s^{\\text{neo}} + \\chi_s^{\\text{ano}}(\\nabla T, \\nabla n, \\ldots)$$"
+        "formula": "$$\\chi_s = \\chi_s^{\\text{neo}} + \\chi_s^{\\text{ano}}(\\nabla T, \\nabla n, \\ldots)$$",
+        "ref": {
+          "cite": "Hawryluk 1980 (TRANSP)",
+          "url": "https://w3.pppl.gov/transp/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hawryluk 1980, in Physics of Plasmas Close to Thermonuclear Conditions, p.19 (TRANSP)",
+      "url": "https://w3.pppl.gov/transp/"
+    },
+    "normalization_ref": {
+      "cite": "Hawryluk 1980 (TRANSP)",
+      "url": "https://w3.pppl.gov/transp/"
+    }
   },
   "RAPTOR": {
     "full_name": "RAPTOR — RApid Plasma Transport simulatOR",
@@ -680,7 +716,8 @@
       "TCV/AUG部署"
     ],
     "links": [
-      "https://github.com/SPCData/raptor"
+      "https://github.com/SPCData/raptor",
+      "https://doi.org/10.1088/0029-5515/51/8/083052"
     ],
     "closure": "求解 1D 径向输运方程系统（电子温度 Te、离子温度 Ti、电流密度 j、粒子密度 n），采用快速降阶模型实现实时/近实时模拟。输运闭合通过半经验模型（Bohm/gyroBohm）或神经网络代理模型（基于第一性原理回旋动理学数据训练）提供。平衡假设为静态 Grad-Shafranov 或由实时 EFIT 提供。源项剖面（加热、电流驱动）通过简化参数化模块计算。专为实时控制和离线快速预测设计，可在毫秒量级完成完整放电演化预测。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，时间以 s，功率以 MW 为单位。内部变量以物理单位存储和传递，便于与控制系统的数据接口对接。",
@@ -690,9 +727,21 @@
     "variant_formulas": [
       {
         "name": "实时控制",
-        "formula": "$$\\min_{\\mathbf{u}} \\|T_e(\\rho, t_f) - T_{e,\\text{target}}(\\rho)\\|^2 \\;\\text{s.t.}\\; \\dot{\\mathbf{x}} = \\mathbf{f}(\\mathbf{x},\\mathbf{u})$$"
+        "formula": "$$\\min_{\\mathbf{u}} \\|T_e(\\rho, t_f) - T_{e,\\text{target}}(\\rho)\\|^2 \\;\\text{s.t.}\\; \\dot{\\mathbf{x}} = \\mathbf{f}(\\mathbf{x},\\mathbf{u})$$",
+        "ref": {
+          "cite": "Felici et al. 2011, Nucl. Fusion 51:083052",
+          "url": "https://doi.org/10.1088/0029-5515/51/8/083052"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Felici et al. 2011, Nucl. Fusion 51:083052 (RAPTOR)",
+      "url": "https://doi.org/10.1088/0029-5515/51/8/083052"
+    },
+    "normalization_ref": {
+      "cite": "Felici et al. 2011, Nucl. Fusion 51:083052",
+      "url": "https://doi.org/10.1088/0029-5515/51/8/083052"
+    }
   },
   "SOLPS-ITER": {
     "full_name": "SOLPS-ITER — Scrape-Off Layer Plasma Simulation for ITER",
@@ -1333,7 +1382,8 @@
     ],
     "links": [
       "https://omfit.io/",
-      "https://github.com/gafusion/OMFIT-source"
+      "https://github.com/gafusion/OMFIT-source",
+      "https://doi.org/10.1088/0029-5515/55/8/083008"
     ],
     "closure": "集成建模框架（非单一物理求解器），本身不求解特定方程闭合。通过统一的数据接口（OMFIT 类、OMFITtree）和工作流引擎，协调多个物理代码（EFIT、ONETWO、TGYRO、NUBEAM、M3D-C1 等）的耦合运行。数据流和物理闭合由用户配置的工作流决定——例如：EFIT 提供平衡 → TGYRO 计算输运 → 迭代至一致。框架提供图形用户界面（GUI）、Python API 和批量运行能力。数据格式基于 MDSplus 和 HDF5 的层次化树结构。",
     "normalization": "不涉及单一归一化方案——各耦合代码使用各自的归一化，OMFIT 框架负责单位转换和数据映射。标准工作流中输入/输出以工程单位为主。",
@@ -1343,9 +1393,21 @@
     "variant_formulas": [
       {
         "name": "实验分析",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{exp}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{exp}} - \\partial W/\\partial t}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Meneghini et al. 2015, Nucl. Fusion 55:083008",
+          "url": "https://doi.org/10.1088/0029-5515/55/8/083008"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Meneghini et al. 2015, Nucl. Fusion 55:083008 (OMFIT)",
+      "url": "https://doi.org/10.1088/0029-5515/55/8/083008"
+    },
+    "normalization_ref": {
+      "cite": "Meneghini et al. 2015, Nucl. Fusion 55:083008",
+      "url": "https://doi.org/10.1088/0029-5515/55/8/083008"
+    }
   },
   "OMAS": {
     "full_name": "OMAS — Ordered Multidimensional Array Structure",
@@ -1369,9 +1431,21 @@
     "variant_formulas": [
       {
         "name": "IMAS 兼容",
-        "formula": "$$\\text{IDS}_{\\text{eq}}\\{\\psi, q, p, \\ldots\\} \\leftarrow \\text{EFIT/CHEASE}$$"
+        "formula": "$$\\text{IDS}_{\\text{eq}}\\{\\psi, q, p, \\ldots\\} \\leftarrow \\text{EFIT/CHEASE}$$",
+        "ref": {
+          "cite": "Meneghini et al., OMAS",
+          "url": "https://omas.readthedocs.io/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Meneghini et al., OMAS (Ordered Multidimensional Array Structure)",
+      "url": "https://omas.readthedocs.io/"
+    },
+    "normalization_ref": {
+      "cite": "Meneghini et al., OMAS",
+      "url": "https://omas.readthedocs.io/"
+    }
   },
   "FreeGS": {
     "full_name": "FreeGS — Free-Boundary Grad-Shafranov Equilibrium Solver",
@@ -1967,7 +2041,8 @@
       "JET/ITER 预测"
     ],
     "links": [
-      "https://github.com/CEA-CRONOS"
+      "https://github.com/CEA-CRONOS",
+      "https://doi.org/10.1088/0029-5515/50/4/043001"
     ],
     "closure": "CEA（法国）开发的模块化托卡马克集成建模平台，求解 1.5D 核心输运方程系统（电子和离子温度、粒子密度、电流扩散）与 2D Grad-Shafranov 平衡（通过 HELENA/CHEASE 耦合）自洽迭代。输运系数由用户选择的输运模型（经验/准线性/第一性原理）提供。源项通过专用模块耦合：射频加热和电流驱动（GENRAY/CQL3D/R5-X2）、NBI（NEMO/SPOT）、聚变功率（自洽计算）。是 WEST 和 JET 装置 scenario 开发的核心工具。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，长度以 m，功率以 MW，电流以 MA 为单位。",
@@ -1977,13 +2052,29 @@
     "variant_formulas": [
       {
         "name": "经验定标",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Artaud et al. 2010, Nucl. Fusion 50:043001",
+          "url": "https://doi.org/10.1088/0029-5515/50/4/043001"
+        }
       },
       {
         "name": "TGLF/QuaLiKiz耦合",
-        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$",
+        "ref": {
+          "cite": "Artaud et al. 2010, Nucl. Fusion 50:043001",
+          "url": "https://doi.org/10.1088/0029-5515/50/4/043001"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Artaud et al. 2010, Nucl. Fusion 50:043001",
+      "url": "https://doi.org/10.1088/0029-5515/50/4/043001"
+    },
+    "normalization_ref": {
+      "cite": "Artaud et al. 2010, Nucl. Fusion 50:043001",
+      "url": "https://doi.org/10.1088/0029-5515/50/4/043001"
+    }
   },
   "METIS": {
     "full_name": "METIS — Minute Embedded Tokamak Integrated Simulator",
@@ -1996,7 +2087,8 @@
       "场景快速探索"
     ],
     "links": [
-      "https://github.com/CEA-METIS"
+      "https://github.com/CEA-METIS",
+      "https://doi.org/10.1088/1741-4326/aad5b1"
     ],
     "closure": "CEA 开发的快速 0D/1D 托卡马克输运模拟器，求解简化的核心输运方程（0D 全局功率平衡 + 1D 温度剖面）。输运通过半经验定标律或降阶准线性模型闭合。包含简化的 pedestal 模型、L-H 转换判据和偏滤器模型。专为快速 scenario 探索、参数扫描和实时控制设计，计算速度比 CRONOS 快 1000 倍以上。使用 MATLAB/Simulink 或 Python 接口。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，尺寸以 m，功率以 MW 为单位。",
@@ -2006,13 +2098,29 @@
     "variant_formulas": [
       {
         "name": "经验定标",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Artaud et al. 2018, Nucl. Fusion 58:105001",
+          "url": "https://doi.org/10.1088/1741-4326/aad5b1"
+        }
       },
       {
         "name": "TGLF/QuaLiKiz耦合",
-        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$",
+        "ref": {
+          "cite": "Artaud et al. 2018, Nucl. Fusion 58:105001",
+          "url": "https://doi.org/10.1088/1741-4326/aad5b1"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Artaud et al. 2018, Nucl. Fusion 58:105001",
+      "url": "https://doi.org/10.1088/1741-4326/aad5b1"
+    },
+    "normalization_ref": {
+      "cite": "Artaud et al. 2018, Nucl. Fusion 58:105001",
+      "url": "https://doi.org/10.1088/1741-4326/aad5b1"
+    }
   },
   "ASTRA": {
     "full_name": "ASTRA — Automated System for TRansport Analysis",
@@ -2035,13 +2143,29 @@
     "variant_formulas": [
       {
         "name": "经验定标",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{tot}} - \\partial W/\\partial t}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "Pereverzev & Yushmanov 2002, IPP-Report 5/98",
+          "url": "https://github.com/CIEMAT-ASTRA"
+        }
       },
       {
         "name": "TGLF/QuaLiKiz耦合",
-        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$"
+        "formula": "$$\\chi = \\sum_k \\frac{\\gamma_k}{\\langle k_\\perp^2\\rangle}$$",
+        "ref": {
+          "cite": "Pereverzev & Yushmanov 2002, IPP-Report 5/98",
+          "url": "https://github.com/CIEMAT-ASTRA"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Pereverzev & Yushmanov 2002, IPP-Report 5/98 (ASTRA)",
+      "url": "https://github.com/CIEMAT-ASTRA"
+    },
+    "normalization_ref": {
+      "cite": "Pereverzev & Yushmanov 2002, IPP-Report 5/98",
+      "url": "https://github.com/CIEMAT-ASTRA"
+    }
   },
   "IPS": {
     "full_name": "IPS — Integrated Plasma Simulator Framework",
@@ -2054,27 +2178,51 @@
       "异步执行"
     ],
     "links": [
-      "https://ips-framework.readthedocs.io/"
+      "https://ips-framework.readthedocs.io/",
+      "https://doi.org/10.1109/PDP.2010.63"
     ],
     "closure": "PPPL 开发的集成等离子体模拟器（Integrated Plasma Simulator），通过组件化框架协调多个物理代码（TSC/TRANSP/NUBEAM/M3D-C1 等）的耦合运行。本身不求解物理方程——闭合由耦合的物理代码决定。使用 Babel/SIDL 实现跨语言组件互操作（Fortran/C++/Python），通过 plasma state 数据结构在组件间传递物理量。事件驱动的模拟管理器控制组件执行顺序和数据流。",
     "normalization": "各组件使用各自的归一化方案，IPS 框架通过 plasma state 自动转换数据格式和单位。",
     "variants": "TSC 耦合（等离子体演化）；TRANSP 耦合（输运分析）；M3D-C1 耦合（MHD 稳定性）；NUBEAM 耦合（快离子）；完整放电模拟模式；MHD 事件触发输运变化模式。",
-    "closure_formula": "1257\n\\begin{aligned}\n\\mathcal{S}: &\\quad \\text{Plasma State}(t) \\xrightarrow{\\text{Event}} \\{\\text{TSC, TRANSP, NUBEAM, M3D-C1, ...}\\} \\[4pt]\n\\mathbf{x}^{k+1} &= \\mathcal{F}_{\\text{physics}}(\\mathbf{x}^k, \\mathbf{p}^k) \\[4pt]\n\\mathbf{p}^{k+1} &= \\mathcal{G}_{\\text{equilibrium}}(\\mathbf{x}^{k+1}) \\[4pt]\n&\\text{Babel/SIDL: } \\texttt{Fortran} \\leftrightarrow \\texttt{C++} \\leftrightarrow \\texttt{Python}\n\\end{aligned}\n1257",
-    "normalization_formula": "1257\\text{各组件独立归一化，IPS Plasma State 统一转换}1257",
+    "closure_formula": "$$\n\\begin{aligned}\n\\mathcal{S}: &\\quad \\text{Plasma State}(t) \\xrightarrow{\\text{Event}} \\{\\text{TSC, TRANSP, NUBEAM, M3D-C1, ...}\\} \\\\[4pt]\n\\mathbf{x}^{k+1} &= \\mathcal{F}_{\\text{physics}}(\\mathbf{x}^k, \\mathbf{p}^k) \\\\[4pt]\n\\mathbf{p}^{k+1} &= \\mathcal{G}_{\\text{equilibrium}}(\\mathbf{x}^{k+1}) \\\\[4pt]\n&\\text{Babel/SIDL: } \\texttt{Fortran} \\leftrightarrow \\texttt{C++} \\leftrightarrow \\texttt{Python}\n\\end{aligned}\n$$",
+    "normalization_formula": "$$\\text{各组件独立归一化，IPS Plasma State 统一转换}$$",
     "variant_formulas": [
       {
         "name": "TSC耦合",
-        "formula": "1257\\psi(t), I_p(t), T(t) \\leftarrow \\text{TSC}1257"
+        "desc": "与 TSC 自由边界平衡/输运耦合",
+        "formula": "$$\\psi(t),\\, I_p(t),\\, T(t) \\leftarrow \\text{TSC}$$",
+        "ref": {
+          "cite": "Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS)",
+          "url": "https://doi.org/10.1109/PDP.2010.63"
+        }
       },
       {
         "name": "M3D-C1耦合",
-        "formula": "1257\\mathbf{B}(\\mathbf{r},t), p(\\mathbf{r},t) \\leftarrow \\text{M3D-C1}1257"
+        "desc": "与 M3D-C1 扩展 MHD 耦合",
+        "formula": "$$\\mathbf{B}(\\mathbf{r},t),\\, p(\\mathbf{r},t) \\leftarrow \\text{M3D-C1}$$",
+        "ref": {
+          "cite": "Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS)",
+          "url": "https://doi.org/10.1109/PDP.2010.63"
+        }
       },
       {
         "name": "事件驱动",
-        "formula": "1257\\text{ELM} \\to \\text{transport} \\to \\text{equilibrium} \\to \\text{stability} \\to \\text{ELM}1257"
+        "desc": "事件驱动的多物理循环",
+        "formula": "$$\\text{ELM} \\to \\text{transport} \\to \\text{equilibrium} \\to \\text{stability} \\to \\text{ELM}$$",
+        "ref": {
+          "cite": "Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS)",
+          "url": "https://doi.org/10.1109/PDP.2010.63"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS)",
+      "url": "https://doi.org/10.1109/PDP.2010.63"
+    },
+    "normalization_ref": {
+      "cite": "Elwasif et al. 2010, Proc. PDP 2010 (SWIM IPS)",
+      "url": "https://doi.org/10.1109/PDP.2010.63"
+    }
   },
   "CHEASE": {
     "full_name": "CHEASE — Cubic Hermite Element Axisymmetric Static Equilibrium",
@@ -2614,9 +2762,21 @@
     "variant_formulas": [
       {
         "name": "功率平衡",
-        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{exp}} - dW/dt}{-n\\nabla T}$$"
+        "formula": "$$\\chi_{\\text{eff}} = \\frac{Q_{\\text{exp}} - dW/dt}{-n\\nabla T}$$",
+        "ref": {
+          "cite": "St. John et al. 1994, GA-A21651",
+          "url": "https://fusion.gat.com/THEORY/onetwo/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "St. John et al. 1994, GA-A21651 (ONETWO)",
+      "url": "https://fusion.gat.com/THEORY/onetwo/"
+    },
+    "normalization_ref": {
+      "cite": "St. John et al. 1994, GA-A21651",
+      "url": "https://fusion.gat.com/THEORY/onetwo/"
+    }
   },
   "NCLASS": {
     "full_name": "NCLASS — Neoclassical Transport Properties Code",
@@ -2664,9 +2824,21 @@
     "variant_formulas": [
       {
         "name": "粗筛",
-        "formula": "$$\\mathbf{x}^* = \\arg\\min_{\\mathbf{x}\\in\\mathcal{D}} f(\\mathbf{x}),\\; |\\mathcal{D}| \\sim 10^6$$"
+        "formula": "$$\\mathbf{x}^* = \\arg\\min_{\\mathbf{x}\\in\\mathcal{D}} f(\\mathbf{x}),\\; |\\mathcal{D}| \\sim 10^6$$",
+        "ref": {
+          "cite": "SUPERCODE (IAEA-INIS)",
+          "url": "https://inis.iaea.org/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "SUPERCODE 系统设计代码 (1990s, IAEA-INIS)",
+      "url": "https://inis.iaea.org/"
+    },
+    "normalization_ref": {
+      "cite": "SUPERCODE (IAEA-INIS)",
+      "url": "https://inis.iaea.org/"
+    }
   },
   "BORAY": {
     "full_name": "BORAY — Beam-tracing O-mode Ray Code",
@@ -2866,7 +3038,8 @@
       "EUROfusion核心"
     ],
     "links": [
-      "https://github.com/JETTO-codes/JETTO"
+      "https://github.com/JETTO-codes/JETTO",
+      "https://doi.org/10.1585/pfr.9.3403023"
     ],
     "closure": "EUROfusion/JET 开发的 1.5D 核心输运模拟框架，求解电子和离子温度、粒子密度和电流扩散方程。输运闭合通过多种模型：经验/半经验定标、准线性（QuaLiKiz/QLKNN）、第一性原理（TGLF）。平衡通过 ESCO 或 HELENA 提供。杂质输运通过 SANCO 代码耦合。NBI 加热通过 PENCIL 模块。RF 加热通过外部耦合。与 JET 实验数据深度集成——数千次 JET 放电验证赋予其极高预测可信度。",
     "normalization": "采用工程单位。温度以 keV，密度以 10¹⁹ m⁻³，功率以 MW，电流以 MA 为单位。",
@@ -2876,9 +3049,21 @@
     "variant_formulas": [
       {
         "name": "JET ILW配置",
-        "formula": "$$\\text{验证: } > 1000 \\text{ JET discharges}$$"
+        "formula": "$$\\text{验证: } > 1000 \\text{ JET discharges}$$",
+        "ref": {
+          "cite": "Romanelli et al. 2014, Plasma Fusion Res. 9:3403023",
+          "url": "https://doi.org/10.1585/pfr.9.3403023"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Romanelli et al. 2014, Plasma Fusion Res. 9:3403023 (JINTRAC)",
+      "url": "https://doi.org/10.1585/pfr.9.3403023"
+    },
+    "normalization_ref": {
+      "cite": "Romanelli et al. 2014, Plasma Fusion Res. 9:3403023",
+      "url": "https://doi.org/10.1585/pfr.9.3403023"
+    }
   },
   "MMM": {
     "full_name": "MMM — Multi-Mode Model for Anomalous Transport",
@@ -3085,7 +3270,8 @@
     ],
     "links": [
       "https://github.com/iterorganization/imas-data-dictionary",
-      "https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source"
+      "https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source",
+      "https://doi.org/10.1088/0029-5515/55/12/123006"
     ],
     "closure": "ITER 组织开发的集成建模与分析套件（基础设施/数据标准），不直接求解物理方程。通过接口数据结构（IDS，Interface Data Structures）定义约 80 个聚变物理域的标准化数据模型（平衡、输运、加热、MHD、诊断等），覆盖聚变物理全域。包含 Python 工具集（IDStools）、数据访问层（UAL, Universal Access Layer）和 IMAS 数据字典。实现代码间标准互操作，已有 OMFIT/OMAS 等工具基于 IMAS 构建。2025 年底以开源形式发布。",
     "normalization": "以工程单位（SI）为主，各 IDS 定义明确的物理量和单位。UAL 层面提供单位转换服务。",
@@ -3095,9 +3281,21 @@
     "variant_formulas": [
       {
         "name": "开源版 (2025)",
-        "formula": "$$\\text{IMASPy + IMAS DD v4.0}$$"
+        "formula": "$$\\text{IMASPy + IMAS DD v4.0}$$",
+        "ref": {
+          "cite": "Imbeaux et al. 2015, Nucl. Fusion 55:123006",
+          "url": "https://doi.org/10.1088/0029-5515/55/12/123006"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Imbeaux et al. 2015, Nucl. Fusion 55:123006 (IMAS)",
+      "url": "https://doi.org/10.1088/0029-5515/55/12/123006"
+    },
+    "normalization_ref": {
+      "cite": "Imbeaux et al. 2015, Nucl. Fusion 55:123006",
+      "url": "https://doi.org/10.1088/0029-5515/55/12/123006"
+    }
   },
   "Power Balance Models": {
     "full_name": "PBM — Power Balance Models for Fusion Reactor Design",
@@ -3286,9 +3484,21 @@
     "variant_formulas": [
       {
         "name": "JT-60SA集成",
-        "formula": "$$\\text{TASK/TR} \\leftrightarrow \\text{TASK/WM} \\leftrightarrow \\text{TASK/EQ}$$"
+        "formula": "$$\\text{TASK/TR} \\leftrightarrow \\text{TASK/WM} \\leftrightarrow \\text{TASK/EQ}$$",
+        "ref": {
+          "cite": "Fukuyama et al., TASK code (Kyoto Univ.)",
+          "url": "http://bpsi.nucleng.kyoto-u.ac.jp/task/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Fukuyama et al., TASK code (Kyoto Univ.)",
+      "url": "http://bpsi.nucleng.kyoto-u.ac.jp/task/"
+    },
+    "normalization_ref": {
+      "cite": "Fukuyama et al., TASK code (Kyoto Univ.)",
+      "url": "http://bpsi.nucleng.kyoto-u.ac.jp/task/"
+    }
   },
   "REPED": {
     "full_name": "REPED — Regression Pedestal Predictor",
@@ -3423,9 +3633,21 @@
     "variant_formulas": [
       {
         "name": "EAST混合仿真",
-        "formula": "$$\\alpha \\in [0,1] \\;\\text{controls physics-to-ML mixing ratio}$$"
+        "formula": "$$\\alpha \\in [0,1] \\;\\text{controls physics-to-ML mixing ratio}$$",
+        "ref": {
+          "cite": "Wehner et al. (COTSIM)",
+          "url": "https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Wehner et al., Fusion Eng. Des. (COTSIM, control-oriented transport simulator)",
+      "url": "https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf"
+    },
+    "normalization_ref": {
+      "cite": "Wehner et al. (COTSIM)",
+      "url": "https://www6.lehigh.edu/~eus204/per/publications/journals/fed25a_COTSIM_ML_EAST.pdf"
+    }
   },
   "C3PO": {
     "full_name": "C3PO — Coil and Configuration Code for Plasma Optimization",
