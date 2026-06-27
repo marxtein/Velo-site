@@ -87,18 +87,19 @@ $$
 \frac{n}{\gamma-1}\frac{dT}{dt} &= -p\nabla\cdot\mathbf{V} - \nabla\cdot\mathbf{q} + \eta J^2
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单流体 MHD 模式；双流体扩展 MHD 模式；线性稳定性分析（本征值）；非线性演化；轴对称（2D）模式；三维非线性模式；等离子体破裂模拟；VDE 模拟；halo 电流；多环向谐波耦合。</p><div class="variant-card"><h4>线性稳定性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\omega^2\rho\boldsymbol{\xi} = \mathbf{F}(\boldsymbol{\xi}) \;\Rightarrow\; \det[\omega^2\mathbf{M} - \mathbf{K}] = 0$$</div></div><div class="variant-card"><h4>非线性演化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{x}^{n+1} = \mathbf{x}^n + \Delta t\,\mathbf{f}(\mathbf{x}^{n+1/2}) \text{ (semi-implicit)}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2003.10.004" target="_blank" rel="noopener">Sovinec et al. 2004, J. Comput. Phys. 195:355 ↗</a></div>
+</div></div><p class="body-text">单流体 MHD 模式；双流体扩展 MHD 模式；线性稳定性分析（本征值）；非线性演化；轴对称（2D）模式；三维非线性模式；等离子体破裂模拟；VDE 模拟；halo 电流；多环向谐波耦合。</p><div class="variant-card"><h4>线性稳定性</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\omega^2\rho\boldsymbol{\xi} = \mathbf{F}(\boldsymbol{\xi}) \;\Rightarrow\; \det[\omega^2\mathbf{M} - \mathbf{K}] = 0$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2003.10.004" target="_blank" rel="noopener">Sovinec et al. 2004, J. Comput. Phys. 195:355 ↗</a></div></div></div><div class="variant-card"><h4>非线性演化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{x}^{n+1} = \mathbf{x}^n + \Delta t\,\mathbf{f}(\mathbf{x}^{n+1/2}) \text{ (semi-implicit)}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2003.10.004" target="_blank" rel="noopener">Sovinec et al. 2004, J. Comput. Phys. 195:355 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 Alfvén 归一化。长度以装置特征尺度归一化，时间以 Alfvén 时间 τA 归一化。磁场以参考值归一化，压力和密度以参考值归一化。电阻和粘性通过无量纲参数（Lundquist 数 S、Prandtl 数 Pr）指定。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{t} = \frac{t}{\tau_A}, \quad S = \frac{\tau_R}{\tau_A}, \quad \bar{B} = \frac{B}{B_0}$$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2003.10.004" target="_blank" rel="noopener">Sovinec et al. 2004, J. Comput. Phys. 195:355 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/nimrod-team/NIMROD" target="_blank" rel="noopener">github.com/nimrod-team/NIMROD</a></div>
+<div class="links-list"><a href="https://github.com/nimrod-team/NIMROD" target="_blank" rel="noopener">github.com/nimrod-team/NIMROD</a>
+<a href="https://doi.org/10.1016/j.jcp.2003.10.004" target="_blank" rel="noopener">doi.org/10.1016/j.jcp.2003.10.004</a></div>
 </div>
 
 </div>

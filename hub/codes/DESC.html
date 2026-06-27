@@ -91,8 +91,8 @@ R(\rho,\theta,\zeta) = \sum_{m,n} R_{mn}(\rho) e^{i(m\theta - n\zeta)} \\[4pt]
 \mathbf{x}_{k+1} = \mathbf{x}_k - [\nabla \mathbf{F}(\mathbf{x}_k)]^{-1} \mathbf{F}(\mathbf{x}_k)
 \end{aligned}
 $$
-
-</div></div><p class="body-text">固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。</p><div class="variant-card"><h4>固定边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">最外层闭合磁面 R_b(θ,ζ), Z_b(θ,ζ) 由外部给定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$R(\rho=1, \theta, \zeta) = R_b(\theta, \zeta), \quad Z(\rho=1, \theta, \zeta) = Z_b(\theta, \zeta)$$</div></div><div class="variant-card"><h4>自由边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">耦合外部线圈，等离子体边界由真空场自洽确定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0, \quad B_{\text{vac}, n}\big|_{\text{plasma}} = B_{\text{plasma}, n}\big|_{\text{boundary}}$$</div></div><div class="variant-card"><h4>准对称优化</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">目标泛函取最小化磁场强度对 Boozer 角的依赖</p><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QS} = \sum_{m,n \neq 0} |B_{mn}|^2 \to \min, \quad B(\psi, \theta_B, \zeta_B) = \sum_{m,n} B_{mn}(\psi) e^{i(m\theta_B - n\zeta_B)}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/5.0020743" target="_blank" rel="noopener">Dudt &amp; Kolemen 2020, Phys. Plasmas 27:102513 ↗</a></div>
+</div></div><p class="body-text">固定边界平衡（给定最外层闭合磁面形状）；自由边界平衡（等离子体边界由外部线圈磁场自洽确定）；真空平衡（β = 0）；有限 β 平衡；单阶段优化（同时优化平衡与目标函数）；两阶段优化（先求解平衡再优化线圈）；参数延拓法（continuation method）；微扰法稳定性分析；准对称优化（quasi-symmetry）；近轴约束优化（near-axis expansion）。</p><div class="variant-card"><h4>固定边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">最外层闭合磁面 R_b(θ,ζ), Z_b(θ,ζ) 由外部给定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$R(\rho=1, \theta, \zeta) = R_b(\theta, \zeta), \quad Z(\rho=1, \theta, \zeta) = Z_b(\theta, \zeta)$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/5.0020743" target="_blank" rel="noopener">Dudt &amp; Kolemen 2020, Phys. Plasmas 27:102513 ↗</a></div></div></div><div class="variant-card"><h4>自由边界平衡</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">耦合外部线圈，等离子体边界由真空场自洽确定</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0, \quad B_{\text{vac}, n}\big|_{\text{plasma}} = B_{\text{plasma}, n}\big|_{\text{boundary}}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1017/S0022377823000861" target="_blank" rel="noopener">Panici et al. 2023, J. Plasma Phys. 89:955890501 ↗</a></div></div></div><div class="variant-card"><h4>准对称优化</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">目标泛函取最小化磁场强度对 Boozer 角的依赖</p><div class="formula-block" style="border:none;padding:.3rem 0">$$f_{QS} = \sum_{m,n \neq 0} |B_{mn}|^2 \to \min, \quad B(\psi, \theta_B, \zeta_B) = \sum_{m,n} B_{mn}(\psi) e^{i(m\theta_B - n\zeta_B)}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1017/S0022377823000861" target="_blank" rel="noopener">Panici et al. 2023, J. Plasma Phys. 89:955890501 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。</p><div class="formula-block">
@@ -103,12 +103,13 @@ $$
 \bar{\psi} &= \frac{\psi}{B_{\text{ref}} R_{\text{ref}}^2}, \quad \bar{\iota} = \iota \quad (\text{旋转变换本无量纲})
 \end{aligned}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/5.0020743" target="_blank" rel="noopener">Dudt &amp; Kolemen 2020, Phys. Plasmas 27:102513 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
 <div class="links-list"><a href="https://github.com/PlasmaControl/DESC" target="_blank" rel="noopener">github.com/PlasmaControl/DESC</a>
-<a href="https://doi.org/10.1017/S0022377823000861" target="_blank" rel="noopener">doi.org/10.1017/S0022377823000861</a></div>
+<a href="https://doi.org/10.1017/S0022377823000861" target="_blank" rel="noopener">doi.org/10.1017/S0022377823000861</a>
+<a href="https://doi.org/10.1063/5.0020743" target="_blank" rel="noopener">doi.org/10.1063/5.0020743</a></div>
 </div>
 
 </div>

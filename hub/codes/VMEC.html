@@ -89,8 +89,8 @@ $$
 &\text{谱展开:} \quad R(s,\theta,\zeta) = \sum_{m,n} R_{mn}(s)\cos(m\theta - n\zeta)
 \end{aligned}
 $$
-
-</div></div><p class="body-text">固定边界模式（给定最外层磁面形状）；自由边界模式（需要 VMEC 2000/VMEC++ 扩展）；轴对称极限（托卡马克模式）；三维仿星器模式；单磁轴/多磁轴；真空磁面（β = 0）；有限 β 平衡；与 STELLOPT/SIMSOPT 优化耦合输入；与 BOOZ_XFORM 坐标转换耦合。</p><div class="variant-card"><h4>固定边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R(s=1,\theta,\zeta) = R_b(\theta,\zeta),\; Z(s=1,\theta,\zeta) = Z_b(\theta,\zeta)$$</div></div><div class="variant-card"><h4>自由边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0,\; \mathbf{B}_{\text{vac}} \cdot \hat{n}|_{S} = \mathbf{B}_{\text{plasma}} \cdot \hat{n}|_{S}$$</div></div><div class="variant-card"><h4>轴对称极限</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial}{\partial \phi} = 0 \;\Rightarrow\; \text{标准 Grad-Shafranov 方程}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.864116" target="_blank" rel="noopener">Hirshman &amp; Whitson 1983, Phys. Fluids 26:3553 ↗</a></div>
+</div></div><p class="body-text">固定边界模式（给定最外层磁面形状）；自由边界模式（需要 VMEC 2000/VMEC++ 扩展）；轴对称极限（托卡马克模式）；三维仿星器模式；单磁轴/多磁轴；真空磁面（β = 0）；有限 β 平衡；与 STELLOPT/SIMSOPT 优化耦合输入；与 BOOZ_XFORM 坐标转换耦合。</p><div class="variant-card"><h4>固定边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$R(s=1,\theta,\zeta) = R_b(\theta,\zeta),\; Z(s=1,\theta,\zeta) = Z_b(\theta,\zeta)$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.864116" target="_blank" rel="noopener">Hirshman &amp; Whitson 1983, Phys. Fluids 26:3553 ↗</a></div></div></div><div class="variant-card"><h4>自由边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\nabla \times \mathbf{B}_{\text{vac}} = 0,\; \mathbf{B}_{\text{vac}} \cdot \hat{n}|_{S} = \mathbf{B}_{\text{plasma}} \cdot \hat{n}|_{S}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/0010-4655(86)90058-5" target="_blank" rel="noopener">Hirshman, van Rij &amp; Merkel 1986, Comput. Phys. Commun. 43:143 ↗</a></div></div></div><div class="variant-card"><h4>轴对称极限</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\frac{\partial}{\partial \phi} = 0 \;\Rightarrow\; \text{标准 Grad-Shafranov 方程}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.864116" target="_blank" rel="noopener">Hirshman &amp; Whitson 1983, Phys. Fluids 26:3553 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用无量纲化方案。长度以参考大半径归一化，磁场以参考磁场（轴上环向场 B₀）归一化。径向坐标 s 归一化到 [0,1]（磁轴到最外层闭合磁面）。物理量可通过参考参数还原。典型输入中磁场以 Tesla、长度以米为单位。</p><div class="formula-block">
@@ -98,11 +98,13 @@ $$
 $$
 \bar{R} = \frac{R}{R_0}, \quad \bar{B} = \frac{B}{B_0}, \quad \bar{\Phi} = \frac{\Phi}{B_0 R_0^2}, \quad s \in [0,1]
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1063/1.864116" target="_blank" rel="noopener">Hirshman &amp; Whitson 1983, Phys. Fluids 26:3553 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://github.com/ORNL-Fusion/VMEC_8_00" target="_blank" rel="noopener">github.com/ORNL-Fusion/VMEC_8_00</a></div>
+<div class="links-list"><a href="https://github.com/ORNL-Fusion/VMEC_8_00" target="_blank" rel="noopener">github.com/ORNL-Fusion/VMEC_8_00</a>
+<a href="https://doi.org/10.1063/1.864116" target="_blank" rel="noopener">doi.org/10.1063/1.864116</a>
+<a href="https://doi.org/10.1016/0010-4655(86)90058-5" target="_blank" rel="noopener">doi.org/10.1016/0010-4655(86)90058-5</a></div>
 </div>
 
 </div>

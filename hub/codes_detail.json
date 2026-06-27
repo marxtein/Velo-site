@@ -149,7 +149,8 @@
     ],
     "links": [
       "https://github.com/PlasmaControl/DESC",
-      "https://doi.org/10.1017/S0022377823000861"
+      "https://doi.org/10.1017/S0022377823000861",
+      "https://doi.org/10.1063/5.0020743"
     ],
     "closure": "求解三维理想 MHD 力平衡方程 J × B = ∇p，即 Grad-Shafranov 方程的广义三维形式。采用能量变分原理，通过最小化等离子体 MHD 能量 W = ∫(B²/2μ₀ + p/(γ−1)) dV 来求解平衡。使用伪谱法（Fourier-Zernike 展开）：环向和极向角方向采用 Fourier 级数，径向采用 Zernike 多项式。不依赖嵌套磁面假设，可自然处理磁岛和随机磁场区域。平衡直接通过力平衡残差（F ≡ J × B − ∇p）的 Newton 迭代求解，梯度信息由 JAX 自动微分精确提供。",
     "normalization": "采用无量纲化方案。所有物理量以特征参考量归一化：长度以参考大半径 Rref 归一化，磁场以参考磁场 Bref 归一化，压力以 Bref²/μ₀ 归一化。平衡计算在归一化空间中完成，物理量可通过参考参数还原为有量纲值。",
@@ -160,19 +161,39 @@
       {
         "name": "固定边界平衡",
         "desc": "最外层闭合磁面 R_b(θ,ζ), Z_b(θ,ζ) 由外部给定",
-        "formula": "$$R(\\rho=1, \\theta, \\zeta) = R_b(\\theta, \\zeta), \\quad Z(\\rho=1, \\theta, \\zeta) = Z_b(\\theta, \\zeta)$$"
+        "formula": "$$R(\\rho=1, \\theta, \\zeta) = R_b(\\theta, \\zeta), \\quad Z(\\rho=1, \\theta, \\zeta) = Z_b(\\theta, \\zeta)$$",
+        "ref": {
+          "cite": "Dudt & Kolemen 2020, Phys. Plasmas 27:102513",
+          "url": "https://doi.org/10.1063/5.0020743"
+        }
       },
       {
         "name": "自由边界平衡",
         "desc": "耦合外部线圈，等离子体边界由真空场自洽确定",
-        "formula": "$$\\nabla \\times \\mathbf{B}_{\\text{vac}} = 0, \\quad B_{\\text{vac}, n}\\big|_{\\text{plasma}} = B_{\\text{plasma}, n}\\big|_{\\text{boundary}}$$"
+        "formula": "$$\\nabla \\times \\mathbf{B}_{\\text{vac}} = 0, \\quad B_{\\text{vac}, n}\\big|_{\\text{plasma}} = B_{\\text{plasma}, n}\\big|_{\\text{boundary}}$$",
+        "ref": {
+          "cite": "Panici et al. 2023, J. Plasma Phys. 89:955890501",
+          "url": "https://doi.org/10.1017/S0022377823000861"
+        }
       },
       {
         "name": "准对称优化",
         "desc": "目标泛函取最小化磁场强度对 Boozer 角的依赖",
-        "formula": "$$f_{QS} = \\sum_{m,n \\neq 0} |B_{mn}|^2 \\to \\min, \\quad B(\\psi, \\theta_B, \\zeta_B) = \\sum_{m,n} B_{mn}(\\psi) e^{i(m\\theta_B - n\\zeta_B)}$$"
+        "formula": "$$f_{QS} = \\sum_{m,n \\neq 0} |B_{mn}|^2 \\to \\min, \\quad B(\\psi, \\theta_B, \\zeta_B) = \\sum_{m,n} B_{mn}(\\psi) e^{i(m\\theta_B - n\\zeta_B)}$$",
+        "ref": {
+          "cite": "Panici et al. 2023, J. Plasma Phys. 89:955890501",
+          "url": "https://doi.org/10.1017/S0022377823000861"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Dudt & Kolemen 2020, Phys. Plasmas 27:102513",
+      "url": "https://doi.org/10.1063/5.0020743"
+    },
+    "normalization_ref": {
+      "cite": "Dudt & Kolemen 2020, Phys. Plasmas 27:102513",
+      "url": "https://doi.org/10.1063/5.0020743"
+    }
   },
   "TORAX": {
     "full_name": "TORAX — Tokamak Rapid Axisymmetric Simulator",
@@ -358,7 +379,9 @@
       "傅里叶展开"
     ],
     "links": [
-      "https://github.com/ORNL-Fusion/VMEC_8_00"
+      "https://github.com/ORNL-Fusion/VMEC_8_00",
+      "https://doi.org/10.1063/1.864116",
+      "https://doi.org/10.1016/0010-4655(86)90058-5"
     ],
     "closure": "求解三维理想 MHD 静力平衡方程 J × B = ∇p，假设存在嵌套磁面（通过磁面坐标 s 参数化）。采用变分原理（能量泛函最小化）结合谱方法（Fourier 级数在极向角 θ 和环向角 φ 展开）求解逆平衡问题。磁场表示为 B = ∇φ × ∇χ + ∇Φ × ∇ψ（Boozer 坐标或 Hamada 坐标形式）。平衡通过最小化 δW = 0 变分求解，其中 W = ∫(B²/2μ₀ + p/(γ − 1)) dV。压力 p = p(s) 以磁面函数给定，旋转变换 ι(s) 或安全因子 q(s) 为预设剖面。",
     "normalization": "采用无量纲化方案。长度以参考大半径归一化，磁场以参考磁场（轴上环向场 B₀）归一化。径向坐标 s 归一化到 [0,1]（磁轴到最外层闭合磁面）。物理量可通过参考参数还原。典型输入中磁场以 Tesla、长度以米为单位。",
@@ -368,17 +391,37 @@
     "variant_formulas": [
       {
         "name": "固定边界",
-        "formula": "$$R(s=1,\\theta,\\zeta) = R_b(\\theta,\\zeta),\\; Z(s=1,\\theta,\\zeta) = Z_b(\\theta,\\zeta)$$"
+        "formula": "$$R(s=1,\\theta,\\zeta) = R_b(\\theta,\\zeta),\\; Z(s=1,\\theta,\\zeta) = Z_b(\\theta,\\zeta)$$",
+        "ref": {
+          "cite": "Hirshman & Whitson 1983, Phys. Fluids 26:3553",
+          "url": "https://doi.org/10.1063/1.864116"
+        }
       },
       {
         "name": "自由边界",
-        "formula": "$$\\nabla \\times \\mathbf{B}_{\\text{vac}} = 0,\\; \\mathbf{B}_{\\text{vac}} \\cdot \\hat{n}|_{S} = \\mathbf{B}_{\\text{plasma}} \\cdot \\hat{n}|_{S}$$"
+        "formula": "$$\\nabla \\times \\mathbf{B}_{\\text{vac}} = 0,\\; \\mathbf{B}_{\\text{vac}} \\cdot \\hat{n}|_{S} = \\mathbf{B}_{\\text{plasma}} \\cdot \\hat{n}|_{S}$$",
+        "ref": {
+          "cite": "Hirshman, van Rij & Merkel 1986, Comput. Phys. Commun. 43:143",
+          "url": "https://doi.org/10.1016/0010-4655(86)90058-5"
+        }
       },
       {
         "name": "轴对称极限",
-        "formula": "$$\\frac{\\partial}{\\partial \\phi} = 0 \\;\\Rightarrow\\; \\text{标准 Grad-Shafranov 方程}$$"
+        "formula": "$$\\frac{\\partial}{\\partial \\phi} = 0 \\;\\Rightarrow\\; \\text{标准 Grad-Shafranov 方程}$$",
+        "ref": {
+          "cite": "Hirshman & Whitson 1983, Phys. Fluids 26:3553",
+          "url": "https://doi.org/10.1063/1.864116"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hirshman & Whitson 1983, Phys. Fluids 26:3553",
+      "url": "https://doi.org/10.1063/1.864116"
+    },
+    "normalization_ref": {
+      "cite": "Hirshman & Whitson 1983, Phys. Fluids 26:3553",
+      "url": "https://doi.org/10.1063/1.864116"
+    }
   },
   "M3D-C1": {
     "full_name": "M3D-C1 — 3D Extended MHD Code with C1 Finite Elements",
@@ -392,7 +435,9 @@
       "双流体"
     ],
     "links": [
-      "https://w3.pppl.gov/~nferraro/m3dc1.html"
+      "https://w3.pppl.gov/~nferraro/m3dc1.html",
+      "https://doi.org/10.1016/j.jcp.2007.07.003",
+      "https://doi.org/10.1016/j.jcp.2009.06.025"
     ],
     "closure": "求解三维扩展 MHD（XMHD）方程组，采用 C¹ 连续有限元方法（保证磁通函数一阶导数连续）。支持单流体和双流体 MHD 模型层级：单流体电阻 MHD（包含 Spitzer 电阻率）、双流体 MHD（电子和离子有独立温度和速度，含 Hall 项和电子压强梯度项）。方程组包含连续性方程、动量方程（含 Lorentz 力 J × B）、能量方程（电子和离子独立）、广义 Ohm 定律和 Faraday 定律。X-point 几何自然处理（无需磁面坐标假设），通过非结构化网格适应偏滤器位形。",
     "normalization": "采用 Alfvén 归一化方案。长度以装置大半径 R₀ 或小半径 a 归一化，时间以 Alfvén 时间 τA = R₀/vA 归一化，速度以 Alfvén 速度 vA = B/√(μ₀ρ) 归一化。磁场以轴上环向场 B₀ 归一化。电阻以 Lundquist 数 S 的倒数表征。",
@@ -402,13 +447,29 @@
     "variant_formulas": [
       {
         "name": "单流体 MHD",
-        "formula": "$$\\rho\\frac{d\\mathbf{V}}{dt} = \\mathbf{J}\\times\\mathbf{B} - \\nabla p + \\nu\\nabla^2\\mathbf{V}$$"
+        "formula": "$$\\rho\\frac{d\\mathbf{V}}{dt} = \\mathbf{J}\\times\\mathbf{B} - \\nabla p + \\nu\\nabla^2\\mathbf{V}$$",
+        "ref": {
+          "cite": "Jardin et al. 2007, J. Comput. Phys. 226:2146",
+          "url": "https://doi.org/10.1016/j.jcp.2007.07.003"
+        }
       },
       {
         "name": "双流体 XMHD",
-        "formula": "$$\\mathbf{E} + \\mathbf{V} \\times \\mathbf{B} = \\eta\\mathbf{J} + \\frac{\\mathbf{J}\\times\\mathbf{B} - \\nabla p_e}{en_e}$$"
+        "formula": "$$\\mathbf{E} + \\mathbf{V} \\times \\mathbf{B} = \\eta\\mathbf{J} + \\frac{\\mathbf{J}\\times\\mathbf{B} - \\nabla p_e}{en_e}$$",
+        "ref": {
+          "cite": "Ferraro & Jardin 2009, J. Comput. Phys. 228:7742",
+          "url": "https://doi.org/10.1016/j.jcp.2009.06.025"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Jardin, Breslau & Ferraro 2007, J. Comput. Phys. 226:2146",
+      "url": "https://doi.org/10.1016/j.jcp.2007.07.003"
+    },
+    "normalization_ref": {
+      "cite": "Jardin et al. 2007, J. Comput. Phys. 226:2146",
+      "url": "https://doi.org/10.1016/j.jcp.2007.07.003"
+    }
   },
   "Gkeyll": {
     "full_name": "Gkeyll — Discontinuous Galerkin Gyrokinetic Code",
@@ -687,7 +748,8 @@
       "压力台阶"
     ],
     "links": [
-      "https://github.com/PrincetonUniversity/SPEC"
+      "https://github.com/PrincetonUniversity/SPEC",
+      "https://doi.org/10.1063/1.4765691"
     ],
     "closure": "基于多区域变分 MHD（MRxMHD）原理。将等离子体划分为多个嵌套的体积区域，每个区域内压力为常数（压力台阶），区域间通过理想 MHD 界面条件连接。在每个区域内求解 Beltrami 方程 ∇ × B = μB（力自由场），区域边界处通过压力跳跃 Δp 平衡。不假设全局嵌套磁面存在，可自然处理磁岛链、随机场线区域和部分破坏的磁面。界面几何通过最小化总 MHD 能量（含界面能）的变分原理确定。区域数量和压力分布为输入。",
     "normalization": "采用无量纲单位。长度以参考大半径归一化，磁场以参考环向场归一化。压力以 Bref²/(2μ₀) 归一化。各区域的 Beltrami 参数 μ 为输入。总环向磁通作为径向标签。",
@@ -697,13 +759,29 @@
     "variant_formulas": [
       {
         "name": "少数区域 (2-3)",
-        "formula": "$$\\ell = 1,2,3 \\text{ (core, edge, vacuum)}$$"
+        "formula": "$$\\ell = 1,2,3 \\text{ (core, edge, vacuum)}$$",
+        "ref": {
+          "cite": "Hudson et al. 2012, Phys. Plasmas 19:112502",
+          "url": "https://doi.org/10.1063/1.4765691"
+        }
       },
       {
         "name": "多区域 (10+)",
-        "formula": "$$\\sum_{\\ell=1}^N p_\\ell \\to p(\\psi) \\text{ 连续极限}$$"
+        "formula": "$$\\sum_{\\ell=1}^N p_\\ell \\to p(\\psi) \\text{ 连续极限}$$",
+        "ref": {
+          "cite": "Hudson et al. 2012, Phys. Plasmas 19:112502",
+          "url": "https://doi.org/10.1063/1.4765691"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hudson et al. 2012, Phys. Plasmas 19:112502",
+      "url": "https://doi.org/10.1063/1.4765691"
+    },
+    "normalization_ref": {
+      "cite": "Hudson et al. 2012, Phys. Plasmas 19:112502",
+      "url": "https://doi.org/10.1063/1.4765691"
+    }
   },
   "XGC": {
     "full_name": "XGC — X-point Gyrokinetic Code",
@@ -830,7 +908,9 @@
     ],
     "links": [
       "https://jorek.eu/",
-      "https://doi.org/10.1088/1741-4326/ad5a21"
+      "https://doi.org/10.1088/1741-4326/ad5a21",
+      "https://doi.org/10.1016/j.jcp.2008.04.001",
+      "https://doi.org/10.1088/0029-5515/47/7/016"
     ],
     "closure": "求解三维约化 MHD 方程组（reduced MHD）在托卡马克环形几何中。基础模型为约化 MHD（基于 tokamak 环向场主导假设进行简化），可扩展至全 MHD 和双流体 MHD。方程组包含：涡量方程（通过 ∇·j = 0 闭合）、Ohm 定律（含电阻和 Hall 项）、密度和温度演化方程（含平行和垂直输运）。采用 2D Bezier 有限元（极向平面）+ Fourier 展开（环向）的混合离散。支持包含杂质辐射和不完全电离效应的 coronal 模型。",
     "normalization": "采用 Alfvén 归一化。时间以 Alfvén 时间 τA 归一化，长度以大半径 R₀ 归一化。磁场以环向场 B₀ 归一化。电阻以磁 Reynolds 数或 Lundquist 数表征。密度和温度以参考值归一化。",
@@ -840,13 +920,29 @@
     "variant_formulas": [
       {
         "name": "ELM爆发",
-        "formula": "$$\\gamma_{\\text{P-B}} = \\sqrt{\\frac{2\\mu_0 p'}{R B_p^2} \\cdot \\frac{d q}{d\\psi}}$$"
+        "formula": "$$\\gamma_{\\text{P-B}} = \\sqrt{\\frac{2\\mu_0 p'}{R B_p^2} \\cdot \\frac{d q}{d\\psi}}$$",
+        "ref": {
+          "cite": "Huysmans & Czarny 2007, Nucl. Fusion 47:659",
+          "url": "https://doi.org/10.1088/0029-5515/47/7/016"
+        }
       },
       {
         "name": "破裂模拟",
-        "formula": "$$\\frac{d I_p}{dt} = -\\frac{I_p}{L_p/R_p} \\quad \\text{(电流淬灭)}$$"
+        "formula": "$$\\frac{d I_p}{dt} = -\\frac{I_p}{L_p/R_p} \\quad \\text{(电流淬灭)}$$",
+        "ref": {
+          "cite": "Hoelzl et al. 2024, Nucl. Fusion (JOREK 综述)",
+          "url": "https://doi.org/10.1088/1741-4326/ad5a21"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Czarny & Huysmans 2008, J. Comput. Phys. 227:7423",
+      "url": "https://doi.org/10.1016/j.jcp.2008.04.001"
+    },
+    "normalization_ref": {
+      "cite": "Czarny & Huysmans 2008, J. Comput. Phys. 227:7423",
+      "url": "https://doi.org/10.1016/j.jcp.2008.04.001"
+    }
   },
   "NIMROD": {
     "full_name": "NIMROD — Non-Ideal Magnetohydrodynamics with Rotation, Open Discussion",
@@ -859,7 +955,8 @@
       "双流体"
     ],
     "links": [
-      "https://github.com/nimrod-team/NIMROD"
+      "https://github.com/nimrod-team/NIMROD",
+      "https://doi.org/10.1016/j.jcp.2003.10.004"
     ],
     "closure": "求解三维扩展 MHD 方程组（extended MHD，含双流体效应）在复杂几何中。使用 2D 高阶有限元（极向平面）+ Fourier 级数（环向方向）的混合谱/有限元离散。方程组包含：连续性方程、动量方程（含 Lorentz 力 + 粘性应力张量）、能量方程（含各向异性热传导）、广义 Ohm 定律（含 Hall 项和电子压强梯度项）、Faraday 定律。半隐式时间推进（semi-implicit Leapfrog 或 BDF 格式）处理多时间尺度。",
     "normalization": "采用 Alfvén 归一化。长度以装置特征尺度归一化，时间以 Alfvén 时间 τA 归一化。磁场以参考值归一化，压力和密度以参考值归一化。电阻和粘性通过无量纲参数（Lundquist 数 S、Prandtl 数 Pr）指定。",
@@ -869,13 +966,29 @@
     "variant_formulas": [
       {
         "name": "线性稳定性",
-        "formula": "$$\\omega^2\\rho\\boldsymbol{\\xi} = \\mathbf{F}(\\boldsymbol{\\xi}) \\;\\Rightarrow\\; \\det[\\omega^2\\mathbf{M} - \\mathbf{K}] = 0$$"
+        "formula": "$$\\omega^2\\rho\\boldsymbol{\\xi} = \\mathbf{F}(\\boldsymbol{\\xi}) \\;\\Rightarrow\\; \\det[\\omega^2\\mathbf{M} - \\mathbf{K}] = 0$$",
+        "ref": {
+          "cite": "Sovinec et al. 2004, J. Comput. Phys. 195:355",
+          "url": "https://doi.org/10.1016/j.jcp.2003.10.004"
+        }
       },
       {
         "name": "非线性演化",
-        "formula": "$$\\mathbf{x}^{n+1} = \\mathbf{x}^n + \\Delta t\\,\\mathbf{f}(\\mathbf{x}^{n+1/2}) \\text{ (semi-implicit)}$$"
+        "formula": "$$\\mathbf{x}^{n+1} = \\mathbf{x}^n + \\Delta t\\,\\mathbf{f}(\\mathbf{x}^{n+1/2}) \\text{ (semi-implicit)}$$",
+        "ref": {
+          "cite": "Sovinec et al. 2004, J. Comput. Phys. 195:355",
+          "url": "https://doi.org/10.1016/j.jcp.2003.10.004"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Sovinec et al. 2004, J. Comput. Phys. 195:355",
+      "url": "https://doi.org/10.1016/j.jcp.2003.10.004"
+    },
+    "normalization_ref": {
+      "cite": "Sovinec et al. 2004, J. Comput. Phys. 195:355",
+      "url": "https://doi.org/10.1016/j.jcp.2003.10.004"
+    }
   },
   "TGLF": {
     "full_name": "TGLF — Trapped Gyro-Landau-Fluid Transport Model",
@@ -1180,7 +1293,8 @@
       "全球标准"
     ],
     "links": [
-      "https://fusion.gat.com/theory/Efit"
+      "https://fusion.gat.com/theory/Efit",
+      "https://doi.org/10.1088/0029-5515/25/11/007"
     ],
     "closure": "求解自由边界 Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，通过实验磁测量（磁探针、磁通环、Rogowski 线圈等）约束重建等离子体边界、电流剖面和储能。采用有限元或有限差分方法离散。闭合通过 Picard 迭代或 Newton 方法实现。等离子体压力 p(ψ) 和环向场函数 F(ψ) 以参数化形式（样条或多项式）表示，参数通过最小化实验磁信号与模型预测之间的 χ² 拟合确定。是托卡马克实验分析的标准平衡重建工具（DIII-D、JET、EAST 等标配）。",
     "normalization": "采用工程单位（SI）。长度以 m，磁场以 T，电流以 A，压力以 Pa 为单位。ψ 以 Wb 为单位。输入磁测量数据以 V·s (flux loops) 和 T (probes) 为单位。",
@@ -1190,13 +1304,29 @@
     "variant_formulas": [
       {
         "name": "磁约束重建",
-        "formula": "$$\\chi^2_{\\text{mag}} = \\sum\\frac{(B_{p,i}-\\hat{B}_{p,i})^2}{\\sigma_i^2}$$"
+        "formula": "$$\\chi^2_{\\text{mag}} = \\sum\\frac{(B_{p,i}-\\hat{B}_{p,i})^2}{\\sigma_i^2}$$",
+        "ref": {
+          "cite": "Lao et al. 1985, Nucl. Fusion 25:1611",
+          "url": "https://doi.org/10.1088/0029-5515/25/11/007"
+        }
       },
       {
         "name": "动力学约束 (MSE)",
-        "formula": "$$\\chi^2 = \\chi^2_{\\text{mag}} + \\sum\\frac{(\\gamma_i^{\\text{MSE}} - \\hat{\\gamma}_i)^2}{\\sigma_i^2}$$"
+        "formula": "$$\\chi^2 = \\chi^2_{\\text{mag}} + \\sum\\frac{(\\gamma_i^{\\text{MSE}} - \\hat{\\gamma}_i)^2}{\\sigma_i^2}$$",
+        "ref": {
+          "cite": "Lao et al. 1985, Nucl. Fusion 25:1611 (MSE 约束扩展)",
+          "url": "https://doi.org/10.1088/0029-5515/25/11/007"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Lao et al. 1985, Nucl. Fusion 25:1611",
+      "url": "https://doi.org/10.1088/0029-5515/25/11/007"
+    },
+    "normalization_ref": {
+      "cite": "Lao et al. 1985, Nucl. Fusion 25:1611",
+      "url": "https://doi.org/10.1088/0029-5515/25/11/007"
+    }
   },
   "SIMSOPT": {
     "full_name": "SIMSOPT — Stellarator Optimization Framework",
@@ -1808,7 +1938,8 @@
       "30 年验证"
     ],
     "links": [
-      "https://gitlab.epfl.ch/spc/chease"
+      "https://gitlab.epfl.ch/spc/chease",
+      "https://doi.org/10.1016/0010-4655(96)00046-X"
     ],
     "closure": "求解固定边界轴对称（2D）Grad-Shafranov 平衡方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ。采用双三次 Hermite 有限元方法（Bicubic Hermite Finite Elements）在 (R,Z) 平面的自适应网格上离散。压力 p(ψ) 和环向场函数 F(ψ) 以用户指定的解析形式或数值剖面给出。输出平衡量的二维分布和磁面几何，供 HELENA、MISHKA 等 MHD 稳定性代码使用。是欧洲集成建模工具链（ITM）的标准平衡求解器。",
     "normalization": "采用工程单位。长度以 m，磁场以 T，电流以 A，ψ 以 Wb 为单位。也可使用归一化单位以适应稳定性分析。",
@@ -1818,9 +1949,21 @@
     "variant_formulas": [
       {
         "name": "气球模稳定性",
-        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$"
+        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$",
+        "ref": {
+          "cite": "Lütjens, Bondeson & Sauter 1996, Comput. Phys. Commun. 97:219",
+          "url": "https://doi.org/10.1016/0010-4655(96)00046-X"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Lütjens, Bondeson & Sauter 1996, Comput. Phys. Commun. 97:219",
+      "url": "https://doi.org/10.1016/0010-4655(96)00046-X"
+    },
+    "normalization_ref": {
+      "cite": "Lütjens, Bondeson & Sauter 1996, Comput. Phys. Commun. 97:219",
+      "url": "https://doi.org/10.1016/0010-4655(96)00046-X"
+    }
   },
   "HELENA": {
     "full_name": "HELENA — Hermite Element Equilibrium Solver",
@@ -1844,9 +1987,21 @@
     "variant_formulas": [
       {
         "name": "气球模稳定性",
-        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$"
+        "formula": "$$\\frac{d}{d\\chi}\\left[f\\frac{d\\xi}{d\\chi}\\right] + g\\xi = 0,\\; f,g \\text{ from equilibrium}$$",
+        "ref": {
+          "cite": "Huysmans, Goedbloed & Kerner 1991, Proc. CP90 Conf. Comput. Phys., p.371",
+          "url": "https://pb3d.github.io/helena.html"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Huysmans, Goedbloed & Kerner 1991, Proc. CP90 Conf. Comput. Phys., p.371",
+      "url": "https://pb3d.github.io/helena.html"
+    },
+    "normalization_ref": {
+      "cite": "Huysmans, Goedbloed & Kerner 1991, Proc. CP90 Conf. Comput. Phys., p.371",
+      "url": "https://pb3d.github.io/helena.html"
+    }
   },
   "GVEC": {
     "full_name": "GVEC — Galerkin Variational Equilibrium Code",
@@ -1860,7 +2015,8 @@
     ],
     "links": [
       "https://github.com/gvec-group/gvec",
-      "https://gvec.readthedocs.io/"
+      "https://gvec.readthedocs.io/",
+      "https://doi.org/10.1088/1361-6587/adba11"
     ],
     "closure": "IPP Greifswald 开发的三维 MHD 平衡求解器，是 VMEC 的现代化替代者。求解三维理想 MHD 平衡，采用等谱分析（isoparametric）有限元方法结合 Fourier 展开，不依赖嵌套磁面假设（与 VMEC 不同），可处理磁岛和随机磁场区域。使用 Galerkin 方法直接求解力平衡方程 J × B = ∇p 的弱形式。支持托卡马克和仿星器几何。与 VMEC 向后兼容（可读取 VMEC 输入、输出 VMEC 格式）。",
     "normalization": "与 VMEC 兼容的无量纲化方案。长度以参考大半径归一化，磁场以参考环向场归一化。径向坐标 s 归一化到 [0,1]。",
@@ -1870,9 +2026,21 @@
     "variant_formulas": [
       {
         "name": "VMEC兼容",
-        "formula": "$$\\mathcal{F}_{\\text{GVEC}} \\approx \\mathcal{F}_{\\text{VMEC}} \\;\\text{when}\\; \\iota \\text{ is irrational}$$"
+        "formula": "$$\\mathcal{F}_{\\text{GVEC}} \\approx \\mathcal{F}_{\\text{VMEC}} \\;\\text{when}\\; \\iota \\text{ is irrational}$$",
+        "ref": {
+          "cite": "Hindenlang et al. 2025, Plasma Phys. Control. Fusion (GVEC)",
+          "url": "https://doi.org/10.1088/1361-6587/adba11"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hindenlang et al. 2025, Plasma Phys. Control. Fusion (GVEC)",
+      "url": "https://doi.org/10.1088/1361-6587/adba11"
+    },
+    "normalization_ref": {
+      "cite": "Hindenlang et al. 2025, Plasma Phys. Control. Fusion (GVEC)",
+      "url": "https://doi.org/10.1088/1361-6587/adba11"
+    }
   },
   "MEQ": {
     "full_name": "MEQ — MHD Equilibrium Solver Package",
@@ -2092,7 +2260,9 @@
       "ITER/CFETR标配"
     ],
     "links": [
-      "https://www.osti.gov/biblio/5841622"
+      "https://www.osti.gov/biblio/5841622",
+      "https://doi.org/10.1016/0021-9991(87)90023-4",
+      "https://doi.org/10.1016/0370-1573(92)90166-W"
     ],
     "closure": "Princeton 开发的环形理想 MHD 本征值代码，求解理想 MHD 线性稳定性方程：ω²ρξ = F(ξ)（力算符 F 作用于等离子体位移 ξ）。采用 Galerkin 有限元方法（径向）+ Fourier 展开（极向和环向）求解。计算全局 MHD 模（kink, TAE, external kink）的本征值和本征函数。可包含高能粒子通过动理学响应函数的非微扰耦合（NOVA-K 扩展），处理 energetic particle-driven modes（TAE/EPM/Alfvén cascades）。",
     "normalization": "采用 Alfvén 归一化。长度以 R₀，时间以 τA，频率以 ωA = vA/R₀ 归一化。",
@@ -2102,9 +2272,21 @@
     "variant_formulas": [
       {
         "name": "NOVA-K (动理学)",
-        "formula": "$$\\delta W_k = \\int d^3v\\, \\frac{\\partial F_0/\\partial E}{\\omega - \\omega_D - n\\omega_b}$$"
+        "formula": "$$\\delta W_k = \\int d^3v\\, \\frac{\\partial F_0/\\partial E}{\\omega - \\omega_D - n\\omega_b}$$",
+        "ref": {
+          "cite": "Cheng 1992, Phys. Rep. 211:1",
+          "url": "https://doi.org/10.1016/0370-1573(92)90166-W"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Cheng & Chance 1987, J. Comput. Phys. 71:124",
+      "url": "https://doi.org/10.1016/0021-9991(87)90023-4"
+    },
+    "normalization_ref": {
+      "cite": "Cheng & Chance 1987, J. Comput. Phys. 71:124",
+      "url": "https://doi.org/10.1016/0021-9991(87)90023-4"
+    }
   },
   "GATO": {
     "full_name": "GATO — Global Alfven Toroidal Stability Code",
@@ -2117,7 +2299,8 @@
       "ITER设计验证"
     ],
     "links": [
-      "https://github.com/GeneralAtomics/GATO"
+      "https://github.com/GeneralAtomics/GATO",
+      "https://doi.org/10.1016/0010-4655(81)90160-0"
     ],
     "closure": "GA 开发的环形理想 MHD 稳定性代码，求解理想 MHD 能量原理 δW 的最小值（通过变分法转化为本征值问题）。采用有限元方法（径向）+ Fourier（极向和环向）求解。计算 kink、ballooning、internal/external MHD 模式的稳定性和 β 极限。是 DIII-D 装置 MHD 稳定性分析的标准工具。特别擅长处理自由边界 kink 模式和 resistive wall mode 稳定性。",
     "normalization": "采用 Alfvén 归一化。频率以 ωA，长度以 R₀，能量以 B₀²R₀³/2μ₀ 归一化。",
@@ -2127,9 +2310,21 @@
     "variant_formulas": [
       {
         "name": "自由边界kink",
-        "formula": "$$\\delta W = \\delta W_{\\text{plasma}} + \\delta W_{\\text{vacuum}} + \\delta W_{\\text{wall}}$$"
+        "formula": "$$\\delta W = \\delta W_{\\text{plasma}} + \\delta W_{\\text{vacuum}} + \\delta W_{\\text{wall}}$$",
+        "ref": {
+          "cite": "Bernard, Helton & Moore 1981, Comput. Phys. Commun. 24:377",
+          "url": "https://doi.org/10.1016/0010-4655(81)90160-0"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Bernard, Helton & Moore 1981, Comput. Phys. Commun. 24:377",
+      "url": "https://doi.org/10.1016/0010-4655(81)90160-0"
+    },
+    "normalization_ref": {
+      "cite": "Bernard, Helton & Moore 1981, Comput. Phys. Commun. 24:377",
+      "url": "https://doi.org/10.1016/0010-4655(81)90160-0"
+    }
   },
   "ELITE": {
     "full_name": "ELITE — Edge Localized Instability Tokamak Experiment Code",
@@ -2143,7 +2338,9 @@
     ],
     "links": [
       "https://github.com/akcayc/ELITE",
-      "https://omfit.io/modules/mod_ELITE.html"
+      "https://omfit.io/modules/mod_ELITE.html",
+      "https://doi.org/10.1063/1.1459058",
+      "https://doi.org/10.1063/1.1449463"
     ],
     "closure": "GA 开发的 peeling-ballooning（P-B）MHD 稳定性代码，专门分析托卡马克 pedestal 区域的耦合 peeling（电流驱动）和 ballooning（压强梯度驱动）不稳定性。求解理想 MHD 运动方程的变分形式，在 pedestal 区域使用高分辨率网格。计算无限 n（ballooning）和有限 n（peeling-ballooning）模式的稳定性边界，用于预测 ELM 触发条件和 pedestal 高度（通过 EPED 模型的 P-B 约束分支）。",
     "normalization": "采用归一化单位。长度以 ψN（归一化 poloidal flux），磁场和压力以参考值归一化。增长率和频率以 Alfvén 时间归一化。",
@@ -2153,9 +2350,21 @@
     "variant_formulas": [
       {
         "name": "P-B边界",
-        "formula": "$$\\alpha_{\\text{MHD}} = -\\frac{2\\mu_0 R q^2}{B^2}\\frac{dp}{dr}$$"
+        "formula": "$$\\alpha_{\\text{MHD}} = -\\frac{2\\mu_0 R q^2}{B^2}\\frac{dp}{dr}$$",
+        "ref": {
+          "cite": "Snyder, Wilson et al. 2002, Phys. Plasmas 9:2037",
+          "url": "https://doi.org/10.1063/1.1449463"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Wilson, Snyder, Huysmans & Miller 2002, Phys. Plasmas 9:1277",
+      "url": "https://doi.org/10.1063/1.1459058"
+    },
+    "normalization_ref": {
+      "cite": "Wilson et al. 2002, Phys. Plasmas 9:1277",
+      "url": "https://doi.org/10.1063/1.1459058"
+    }
   },
   "EPED": {
     "full_name": "EPED — Edge Pedestal Structure Prediction Model",
@@ -2168,7 +2377,9 @@
       "EPED1-NN加速"
     ],
     "links": [
-      "https://omfit.io/modules/mod_EPED.html"
+      "https://omfit.io/modules/mod_EPED.html",
+      "https://doi.org/10.1063/1.3122146",
+      "https://doi.org/10.1088/0029-5515/51/10/103016"
     ],
     "closure": "GA 开发的 H-mode pedestal 结构预测模型，结合 peeling-ballooning MHD 稳定性约束（通过 ELITE 或 BALOO）和 kinetic ballooning mode（KBM）约束来预测 pedestal 高度和宽度。物理模型为：pedestal 高度由 P-B 稳定性边界决定，pedestal 宽度由 KBM 湍流输运的自组织过程决定（∝ √βp_ped）。结合这两个约束形成闭合系统，预测 pedestal 压力剖面。是 ITER 和现有装置 pedestal 预测的标准模型。",
     "normalization": "压力以 Pa，高度以 m，宽度以 ψN。输入剖面以工程单位提供，内部稳定性分析使用归一化等离子体单位。",
@@ -2178,9 +2389,21 @@
     "variant_formulas": [
       {
         "name": "EPED-NN",
-        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$"
+        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$",
+        "ref": {
+          "cite": "Snyder et al. 2011, Nucl. Fusion 51:103016",
+          "url": "https://doi.org/10.1088/0029-5515/51/10/103016"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Snyder et al. 2009, Phys. Plasmas 16:056118",
+      "url": "https://doi.org/10.1063/1.3122146"
+    },
+    "normalization_ref": {
+      "cite": "Snyder et al. 2009, Phys. Plasmas 16:056118",
+      "url": "https://doi.org/10.1063/1.3122146"
+    }
   },
   "EUROPED": {
     "full_name": "EUROPED — EUROfusion Pedestal Code",
@@ -2193,7 +2416,8 @@
       "ITER/STEP预测"
     ],
     "links": [
-      "https://github.com/EUROfusion/EUROPED"
+      "https://github.com/EUROfusion/EUROPED",
+      "https://doi.org/10.1088/1361-6587/aa8d45"
     ],
     "closure": "EUROfusion 开发的 EPED 变体，专门适配欧洲装置（JET、ASDEX Upgrade、TCV 等）的 pedestal 预测需求。物理模型与 EPED 一致（P-B + KBM 约束），但增加了 JET 特定定标和 EUROfusion 装置数据库验证。与欧洲集成建模工具链（ITM/IMAS）兼容。",
     "normalization": "与 EPED 一致。输入/输出以工程单位为主，兼容 IMAS 数据格式。",
@@ -2203,9 +2427,21 @@
     "variant_formulas": [
       {
         "name": "EPED-NN",
-        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$"
+        "formula": "$$p_{\\text{ped}} = \\text{NN}(I_p, B_t, n_e, \\kappa, \\delta, \\ldots)$$",
+        "ref": {
+          "cite": "Saarelma et al. 2017, Plasma Phys. Control. Fusion 59:125024",
+          "url": "https://doi.org/10.1088/1361-6587/aa8d45"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Saarelma et al. 2017, Plasma Phys. Control. Fusion 59:125024",
+      "url": "https://doi.org/10.1088/1361-6587/aa8d45"
+    },
+    "normalization_ref": {
+      "cite": "Saarelma et al. 2017, Plasma Phys. Control. Fusion 59:125024",
+      "url": "https://doi.org/10.1088/1361-6587/aa8d45"
+    }
   },
   "ONETWO": {
     "full_name": "ONETWO — 1D Transport Analysis Code",
@@ -2369,7 +2605,8 @@
       "ITER稳定性评估"
     ],
     "links": [
-      "https://fusion.gat.com/global/theory/home"
+      "https://fusion.gat.com/global/theory/home",
+      "https://doi.org/10.1063/1.1287744"
     ],
     "closure": "求解环形 MHD-动理学混合稳定性方程。在理想/电阻 MHD 框架下通过动理学响应函数耦合高能粒子效应。采用有限元方法（径向）+ Fourier（极向和环向）求解。动理学响应通过漂移动理学方程的解计算（包含 bounce/transit resonance、precession resonance）。计算 TAE（环形 Alfvén 本征模）、EPM（高能粒子模）、RWM（电阻壁模）等 energetic particle-driven 不稳定性的增长率和模结构。",
     "normalization": "采用 Alfvén 归一化。频率以 ωA，增长率以 ωA 为单位。动理学响应函数以归一化能量和 pitch angle 变量表示。",
@@ -2379,9 +2616,21 @@
     "variant_formulas": [
       {
         "name": "TAE/EPM",
-        "formula": "$$\\omega \\approx \\frac{v_A}{2qR_0},\\; \\gamma \\propto \\frac{\\partial F_\\alpha}{\\partial E}$$"
+        "formula": "$$\\omega \\approx \\frac{v_A}{2qR_0},\\; \\gamma \\propto \\frac{\\partial F_\\alpha}{\\partial E}$$",
+        "ref": {
+          "cite": "Liu et al. 2000, Phys. Plasmas 7:3681 (动理学扩展 MARS-K)",
+          "url": "https://doi.org/10.1063/1.1287744"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Liu, Bondeson et al. 2000, Phys. Plasmas 7:3681",
+      "url": "https://doi.org/10.1063/1.1287744"
+    },
+    "normalization_ref": {
+      "cite": "Liu, Bondeson et al. 2000, Phys. Plasmas 7:3681",
+      "url": "https://doi.org/10.1063/1.1287744"
+    }
   },
   "UEDGE": {
     "full_name": "UEDGE — 2D Edge Plasma Fluid Code",
@@ -2585,7 +2834,9 @@
       "等离子体旋转"
     ],
     "links": [
-      "https://fusion.gat.com/global/theory/home"
+      "https://fusion.gat.com/global/theory/home",
+      "https://doi.org/10.1063/1.860040",
+      "https://doi.org/10.1103/PhysRevLett.72.2709"
     ],
     "closure": "求解环形电阻 MHD 稳定性本征值问题。在环形几何中求解全电阻 MHD 方程组的线性本征值问题：计算外 kink 模、电阻壁模（RWM）、撕裂模（tearing mode）和新经典撕裂模（NTM）的线性增长率和模结构。采用有限元方法（径向）+ Fourier 展开（极向和环向）。支持包含等离子体旋转和动理学效应（通过 MARS-K 扩展）。是 ITER 高 β 稳定性评估的标准工具。",
     "normalization": "采用 Alfvén 归一化。增长率以 τA⁻¹ 为单位。电阻以磁 Reynolds 数 S 的倒数表征。",
@@ -2595,9 +2846,21 @@
     "variant_formulas": [
       {
         "name": "RWM (电阻壁)",
-        "formula": "$$\\gamma_{\\text{RWM}} \\propto \\frac{1}{\\tau_w} - \\gamma_{\\text{ideal}}$$"
+        "formula": "$$\\gamma_{\\text{RWM}} \\propto \\frac{1}{\\tau_w} - \\gamma_{\\text{ideal}}$$",
+        "ref": {
+          "cite": "Bondeson & Ward 1994, Phys. Rev. Lett. 72:2709",
+          "url": "https://doi.org/10.1103/PhysRevLett.72.2709"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Bondeson, Vlad & Lütjens 1992, Phys. Fluids B 4:1889",
+      "url": "https://doi.org/10.1063/1.860040"
+    },
+    "normalization_ref": {
+      "cite": "Bondeson, Vlad & Lütjens 1992, Phys. Fluids B 4:1889",
+      "url": "https://doi.org/10.1063/1.860040"
+    }
   },
   "MAS": {
     "full_name": "MAS — Multiscale Analysis for Plasma Stabilities",
@@ -2621,9 +2884,21 @@
     "variant_formulas": [
       {
         "name": "5场朗道流体",
-        "formula": "$$\\text{包含: } \\tilde{n}, \\tilde{u}_\\parallel, \\tilde{T}_\\parallel, \\tilde{T}_\\perp, \\tilde{\\phi}$$"
+        "formula": "$$\\text{包含: } \\tilde{n}, \\tilde{u}_\\parallel, \\tilde{T}_\\parallel, \\tilde{T}_\\perp, \\tilde{\\phi}$$",
+        "ref": {
+          "cite": "Bao, Lin et al. 2023, Nucl. Fusion 63:076021",
+          "url": "https://doi.org/10.1088/1741-4326/acd1a0"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Bao, Lin et al. 2023, Nucl. Fusion 63:076021",
+      "url": "https://doi.org/10.1088/1741-4326/acd1a0"
+    },
+    "normalization_ref": {
+      "cite": "Bao, Lin et al. 2023, Nucl. Fusion 63:076021",
+      "url": "https://doi.org/10.1088/1741-4326/acd1a0"
+    }
   },
   "IMAS": {
     "full_name": "IMAS — Integrated Modelling & Analysis Suite",
@@ -2851,9 +3126,21 @@
     "variant_formulas": [
       {
         "name": "随机森林",
-        "formula": "$$p_{\\text{ped}} = \\frac{1}{N_T}\\sum_{j=1}^{N_T} T_j(\\mathbf{x})$$"
+        "formula": "$$p_{\\text{ped}} = \\frac{1}{N_T}\\sum_{j=1}^{N_T} T_j(\\mathbf{x})$$",
+        "ref": {
+          "cite": "Swiss Plasma Center — REPED 随机森林台基代理模型",
+          "url": "https://www.epfl.ch/research/domains/swiss-plasma-center/"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Swiss Plasma Center — REPED 随机森林台基代理模型（基于 EPED 数据库）",
+      "url": "https://www.epfl.ch/research/domains/swiss-plasma-center/"
+    },
+    "normalization_ref": {
+      "cite": "Swiss Plasma Center — REPED",
+      "url": "https://www.epfl.ch/research/domains/swiss-plasma-center/"
+    }
   },
   "FBT": {
     "full_name": "FBT — Free-Boundary Tokamak Equilibrium Code",

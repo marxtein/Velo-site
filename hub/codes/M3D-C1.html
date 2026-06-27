@@ -88,8 +88,8 @@ $$
 \frac{3}{2}n_e\frac{dT_e}{dt} + p_e\nabla\cdot\mathbf{V}_e &= -\nabla\cdot\mathbf{q}_e + \eta J^2
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\rho\frac{d\mathbf{V}}{dt} = \mathbf{J}\times\mathbf{B} - \nabla p + \nu\nabla^2\mathbf{V}$$</div></div><div class="variant-card"><h4>双流体 XMHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{E} + \mathbf{V} \times \mathbf{B} = \eta\mathbf{J} + \frac{\mathbf{J}\times\mathbf{B} - \nabla p_e}{en_e}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2007.07.003" target="_blank" rel="noopener">Jardin, Breslau &amp; Ferraro 2007, J. Comput. Phys. 226:2146 ↗</a></div>
+</div></div><p class="body-text">单流体电阻 MHD 模式；双流体扩展 MHD 模式；轴对称（2D）模式；三维非线性模式；线性稳定性分析模式；固定边界/自由边界；ELM 爆发模拟；垂直位移事件（VDE）；等离子体破裂；halo 电流模拟；RMP 响应（共振磁扰动）。</p><div class="variant-card"><h4>单流体 MHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\rho\frac{d\mathbf{V}}{dt} = \mathbf{J}\times\mathbf{B} - \nabla p + \nu\nabla^2\mathbf{V}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2007.07.003" target="_blank" rel="noopener">Jardin et al. 2007, J. Comput. Phys. 226:2146 ↗</a></div></div></div><div class="variant-card"><h4>双流体 XMHD</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\mathbf{E} + \mathbf{V} \times \mathbf{B} = \eta\mathbf{J} + \frac{\mathbf{J}\times\mathbf{B} - \nabla p_e}{en_e}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2009.06.025" target="_blank" rel="noopener">Ferraro &amp; Jardin 2009, J. Comput. Phys. 228:7742 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 Alfvén 归一化方案。长度以装置大半径 R₀ 或小半径 a 归一化，时间以 Alfvén 时间 τA = R₀/vA 归一化，速度以 Alfvén 速度 vA = B/√(μ₀ρ) 归一化。磁场以轴上环向场 B₀ 归一化。电阻以 Lundquist 数 S 的倒数表征。</p><div class="formula-block">
@@ -97,11 +97,13 @@ $$
 $$
 \bar{t} = \frac{t}{\tau_A}, \quad \tau_A = \frac{R_0}{v_A}, \quad v_A = \frac{B_0}{\sqrt{\mu_0\rho_0}}, \quad S = \frac{\tau_R}{\tau_A}
 $$
-
+<div class="formula-ref">来源: <a href="https://doi.org/10.1016/j.jcp.2007.07.003" target="_blank" rel="noopener">Jardin et al. 2007, J. Comput. Phys. 226:2146 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://w3.pppl.gov/~nferraro/m3dc1.html" target="_blank" rel="noopener">w3.pppl.gov/~nferraro/m3dc1.html</a></div>
+<div class="links-list"><a href="https://w3.pppl.gov/~nferraro/m3dc1.html" target="_blank" rel="noopener">w3.pppl.gov/~nferraro/m3dc1.html</a>
+<a href="https://doi.org/10.1016/j.jcp.2007.07.003" target="_blank" rel="noopener">doi.org/10.1016/j.jcp.2007.07.003</a>
+<a href="https://doi.org/10.1016/j.jcp.2009.06.025" target="_blank" rel="noopener">doi.org/10.1016/j.jcp.2009.06.025</a></div>
 </div>
 
 </div>
