@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Fusion Hub · C3PO — C3PO — Coil and Configuration Code for Plasma Optimization"/>
+<meta name="description" content="Fusion Hub · C3PO — C3PO — 环形等离子体射频波射线追踪代码"/>
 <title>C3PO · Fusion Hub</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
@@ -58,47 +58,48 @@ footer{text-align:center;padding:1.5rem;color:var(--mu);font-size:.72rem;border-
 <div class="container">
 
 <h1>C3PO</h1>
-<div class="subtitle">C3PO — Coil and Configuration Code for Plasma Optimization</div>
+<div class="subtitle">C3PO — 环形等离子体射频波射线追踪代码</div>
 
 <div class="meta-row">
-<span class="mtag mtag-domain">⭐ 仿星器优化</span>
+<span class="mtag mtag-domain">📡 加热/电流驱动</span>
 <span class="mtag mtag-closed">需申请</span>
-<span class="stag">优化</span><span class="stag">平衡</span><span class="stag">恒星器</span>
+<span class="stag">射线追踪</span><span class="stag">RF波</span><span class="stag">电流驱动</span>
 </div>
 
 <div class="section">
 <h2>📖 详细介绍</h2>
-<p class="body-text">C3PO 是由德国马普等离子体物理研究所（IPP Greifswald）开发的仿星器优化设计代码，专注于三维线圈组和等离子体位形的联合优化。基于仿星器磁场由外部三维线圈产生的原理，C3PO 通过优化线圈几何（位置、形状、电流）来精确再现目标等离子体平衡的磁场结构，同时考虑工程约束（线圈间最小距离、曲率上限、支撑结构）。代码与 NEMO、GVEC、STELLOPT 等仿星器平衡和优化代码对接，形成从等离子体优化到线圈工程设计的完整工作流。C3PO 在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用，代表了仿星器研究从物理优化到工程可实现性的关键桥梁。</p>
+<p class="body-text">C3PO 是法国 CEA 的 Y. Peysson 与 J. Decker 开发的环形磁化等离子体射频波射线追踪代码。在任意轴对称磁平衡位形中，基于几何光学（WKB）近似求解 Hamiltonian 射线方程，追踪低杂波（LH）和电子回旋波（EC）等射频波的传播路径与功率沉积。代码对坐标系和介电模型的选择高度灵活，便于集成建模。C3PO 通常与三维相对论 bounce-averaged Fokker-Planck 求解器 LUKE 耦合，自洽计算射频电流驱动（LHCD/ECCD）。注意：本条目原误标为 IPP 仿星器线圈优化代码，已更正为真实的 CEA 射线追踪代码。</p>
 </div><div class="section">
 <h2>⚙️ 核心特性</h2>
-<div class="features-grid"><span class="fchip">仿星器线圈优化</span>
-<span class="fchip">三维磁场</span>
-<span class="fchip">工程约束</span>
-<span class="fchip">W7-X</span>
-<span class="fchip">IPP</span></div>
+<div class="features-grid"><span class="fchip">射线追踪</span>
+<span class="fchip">LH/EC波</span>
+<span class="fchip">任意介电模型</span>
+<span class="fchip">与LUKE耦合</span>
+<span class="fchip">RF电流驱动</span></div>
 </div><div class="section">
 <h2>🔬 物理模型与功能变体</h2>
-<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">IPP Greifswald 开发的仿星器三维线圈和等离子体位形联合优化代码。基于&quot;仿星器磁场由外部三维线圈产生&quot;的原理，优化线圈几何（位置、形状、电流）以精确复现目标等离子体平衡（由 VMEC/GVEC 提供）的磁场结构。同时考虑工程约束（线圈间最小距离、最大曲率、支撑结构）。与 NEMO/GVEC/STELLOPT 等对接，形成从等离子体优化到线圈工程设计的完整工作流。在 W7-X 偏滤器升级和下一代仿星器概念设计中发挥关键作用。</p><div class="formula-block">
+<div class="base-model"><div class="base-label">基础物理模型</div><p class="body-text">基于几何光学（WKB）近似的射线追踪：在任意轴对称磁平衡中沿群速度积分 Hamiltonian 射线方程，色散关系 D(ω,k,r)=0 由冷/热等离子体介电张量 ε 给定，功率沿射线按局域吸收率 2γ 衰减。与 LUKE 三维相对论 bounce-averaged Fokker-Planck 求解器耦合时，射线沉积功率与平行波数谱作为准线性扩散源，自洽求解 LHCD/ECCD 电流驱动。</p><div class="formula-block">
 <div class="formula-label">基础闭合方程组</div>
 $$
 \begin{aligned}
-\min_{\mathbf{C}_1,\ldots,\mathbf{C}_N} &\quad \|\mathbf{B}_N - \mathbf{B}_{\text{target}}\|^2 \\[4pt]
-\mathbf{B}_N(\mathbf{r}) &= \frac{\mu_0}{4\pi}\sum_{c=1}^N I_c \oint_{C_c} \frac{d\boldsymbol{\ell}\times(\mathbf{r}-\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|^3} \\[4pt]
-\text{s.t.}&\quad d_{ij} \geq d_{\min},\; \kappa_c \leq \kappa_{\max}
+\frac{d\mathbf{r}}{dt} &= -\frac{\partial D/\partial \mathbf{k}}{\partial D/\partial \omega},\quad \frac{d\mathbf{k}}{dt} = \frac{\partial D/\partial \mathbf{r}}{\partial D/\partial \omega} \\[4pt]
+D(\omega,\mathbf{k},\mathbf{r}) &= \det\left[\frac{c^2}{\omega^2}(\mathbf{k}\mathbf{k} - k^2\mathbf{I}) + \boldsymbol{\varepsilon}(\omega,\mathbf{k},\mathbf{r})\right] = 0 \\[4pt]
+\frac{dP}{dt} &= -2\gamma(\mathbf{r},\mathbf{k})\,P,\quad \gamma = \text{Im}(\omega)
 \end{aligned}
 $$
-
-</div></div><p class="body-text">单阶段线圈优化；两阶段（等离子体→线圈）优化；模块化线圈；鞍形线圈；W7-X 升级配置；下一代仿星器概念设计。</p><div class="variant-card"><h4>W7-X线圈优化</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\min \|\nabla B\|_{\text{plasma}} \;\text{for W7-X divertor}$$</div></div>
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">Peysson &amp; Decker 2012, Plasma Phys. Control. Fusion 54:045003 (C3PO) ↗</a></div>
+</div></div><p class="body-text">低杂波（LH）射线追踪；电子回旋波（EC）射线追踪；与 LUKE 耦合的自洽射频电流驱动计算。</p><div class="variant-card"><h4>LH 波模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">低杂波慢波分支，需满足可及性条件方可达芯部</p><div class="formula-block" style="border:none;padding:.3rem 0">$$N_\parallel > N_{\parallel,\text{crit}} = \frac{\omega_{pe}}{\omega_{ce}} + \sqrt{1 + \frac{\omega_{pe}^2}{\omega_{ce}^2}}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">Peysson &amp; Decker 2012, Plasma Phys. Control. Fusion 54:045003 (C3PO) ↗</a></div></div></div><div class="variant-card"><h4>EC 波模式</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">电子回旋波，在回旋谐振面吸收</p><div class="formula-block" style="border:none;padding:.3rem 0">$$\omega = \frac{n\,\omega_{ce}}{\gamma},\quad n = 1, 2, \ldots\ \text{(回旋谐振)}$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">Peysson &amp; Decker 2012, Plasma Phys. Control. Fusion 54:045003 (C3PO) ↗</a></div></div></div><div class="variant-card"><h4>与 LUKE 耦合 (自洽 CD)</h4><p class="body-text" style="font-size:.82rem;color:var(--mu)">射线功率谱作为准线性扩散源，耦合 LUKE 求电流驱动</p><div class="formula-block" style="border:none;padding:.3rem 0">$$D_{\text{QL}} \propto \sum_{\text{rays}} |E|^2\,\delta(\omega - k_\parallel v_\parallel - n\Omega_{ce})$$<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">Peysson &amp; Decker 2012, Plasma Phys. Control. Fusion 54:045003 (C3PO) ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
-<p class="body-text">长度以 m，线圈电流以 Ampere-turns，磁场以 T 为单位。工程约束以 m 为单位。</p><div class="formula-block">
+<p class="body-text">采用射线追踪标准归一化：折射率 N=ck/ω，频率以电子回旋频率 ω_ce 归一，功率以入射功率 P0 归一。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
-$$\bar{C}[\text{m}],\; \bar{I}[\text{Aturns}],\; \bar{B}[\text{T}]$$
-
+$$\bar{N} = \frac{ck}{\omega}\ \text{(折射率)},\quad \bar{\omega} = \frac{\omega}{\omega_{ce}},\quad \bar{P} = \frac{P}{P_0}$$
+<div class="formula-ref">来源: <a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">Peysson &amp; Decker 2012, Plasma Phys. Control. Fusion 54:045003 (C3PO) ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
-<div class="links-list"><a href="https://www.ipp.mpg.de/en" target="_blank" rel="noopener">www.ipp.mpg.de/en</a></div>
+<div class="links-list"><a href="https://doi.org/10.1088/0741-3335/54/4/045003" target="_blank" rel="noopener">doi.org/10.1088/0741-3335/54/4/045003</a>
+<a href="https://spcgit.epfl.ch/luke/tutorial.html" target="_blank" rel="noopener">spcgit.epfl.ch/luke/tutorial.html</a></div>
 </div>
 
 </div>
