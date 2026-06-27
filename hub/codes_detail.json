@@ -1481,13 +1481,29 @@
     "variant_formulas": [
       {
         "name": "固定边界",
-        "formula": "$$\\psi|_{\\partial\\Omega} = \\psi_b$$"
+        "formula": "$$\\psi|_{\\partial\\Omega} = \\psi_b$$",
+        "ref": {
+          "cite": "Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器",
+          "url": "https://github.com/freegs-plasma/freegs"
+        }
       },
       {
         "name": "自由边界",
-        "formula": "$$\\psi = \\psi_{\\text{plasma}} + \\psi_{\\text{coils}},\\; \\mathbf{G}\\psi_{\\text{coils}} = \\mathbf{M}\\mathbf{I}_{\\text{coils}}$$"
+        "formula": "$$\\psi = \\psi_{\\text{plasma}} + \\psi_{\\text{coils}},\\; \\mathbf{G}\\psi_{\\text{coils}} = \\mathbf{M}\\mathbf{I}_{\\text{coils}}$$",
+        "ref": {
+          "cite": "Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器",
+          "url": "https://github.com/freegs-plasma/freegs"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器",
+      "url": "https://github.com/freegs-plasma/freegs"
+    },
+    "normalization_ref": {
+      "cite": "Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器",
+      "url": "https://github.com/freegs-plasma/freegs"
+    }
   },
   "FreeGSNKE": {
     "full_name": "FreeGSNKE — FreeGS with Newton-Krylov Evolution",
@@ -1500,7 +1516,8 @@
       "雪花偏滤器"
     ],
     "links": [
-      "https://github.com/FusionComputingLab/freegsnke"
+      "https://github.com/FusionComputingLab/freegsnke",
+      "https://doi.org/10.1063/5.0188467"
     ],
     "closure": "在 FreeGS 基础上扩展，采用 Newton-Krylov 方法（通过 SciPy 或自定义求解器）求解 Grad-Shafranov 平衡方程，支持更丰富的约束条件。可同时求解等离子体平衡和特定物理约束（如指定 X-point 位置、打击点位置、等离子体形状参数等）。方程闭合与 FreeGS 一致（Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ），但非线性求解器更鲁棒，支持等式和不等式约束。",
     "normalization": "与 FreeGS 一致，采用 SI 单位制。Newton-Krylov 求解器内部可使用无量纲化变量以改善数值条件。",
@@ -1510,13 +1527,29 @@
     "variant_formulas": [
       {
         "name": "固定边界",
-        "formula": "$$\\psi|_{\\partial\\Omega} = \\psi_b$$"
+        "formula": "$$\\psi|_{\\partial\\Omega} = \\psi_b$$",
+        "ref": {
+          "cite": "Amorisco et al. 2024, Phys. Plasmas 31:042517",
+          "url": "https://doi.org/10.1063/5.0188467"
+        }
       },
       {
         "name": "自由边界",
-        "formula": "$$\\psi = \\psi_{\\text{plasma}} + \\psi_{\\text{coils}},\\; \\mathbf{G}\\psi_{\\text{coils}} = \\mathbf{M}\\mathbf{I}_{\\text{coils}}$$"
+        "formula": "$$\\psi = \\psi_{\\text{plasma}} + \\psi_{\\text{coils}},\\; \\mathbf{G}\\psi_{\\text{coils}} = \\mathbf{M}\\mathbf{I}_{\\text{coils}}$$",
+        "ref": {
+          "cite": "Amorisco et al. 2024, Phys. Plasmas 31:042517",
+          "url": "https://doi.org/10.1063/5.0188467"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Amorisco et al. 2024, Phys. Plasmas 31:042517",
+      "url": "https://doi.org/10.1063/5.0188467"
+    },
+    "normalization_ref": {
+      "cite": "Amorisco et al. 2024, Phys. Plasmas 31:042517",
+      "url": "https://doi.org/10.1063/5.0188467"
+    }
   },
   "EFIT": {
     "full_name": "EFIT — Equilibrium Fitting Code",
@@ -1992,7 +2025,8 @@
       "ITER 标准工具"
     ],
     "links": [
-      "https://github.com/DINA-plasma/DINA"
+      "https://github.com/DINA-plasma/DINA",
+      "https://doi.org/10.1006/jcph.1993.1211"
     ],
     "closure": "求解托卡马克等离子体位形和电流演化的轴对称（2D）自由边界平衡演化代码。同时求解 Grad-Shafranov 方程（等离子体平衡）和外部导体（主动/被动线圈、真空室）的电路方程：M dI/dt + RI = V_applied + V_plasma。等离子体电流剖面演化通过电流扩散方程（耦合输运模型或经验电阻率）处理。用于模拟等离子体启动、位形控制、垂直位移事件（VDE）、破裂预测和 halo 电流。是 ITER 等离子体控制系统设计的核心仿真工具。",
     "normalization": "采用 SI 工程单位。电流以 A/MA，电压以 V，磁场以 T，长度以 m，时间以 s 为单位。电感矩阵以 H 为单位。",
@@ -2002,13 +2036,29 @@
     "variant_formulas": [
       {
         "name": "VDE",
-        "formula": "$$m\\ddot{z} + \\gamma\\dot{z} + kz = F_{\\text{halo}}(t)$$"
+        "formula": "$$m\\ddot{z} + \\gamma\\dot{z} + kz = F_{\\text{halo}}(t)$$",
+        "ref": {
+          "cite": "Khayrutdinov & Lukash 1993, J. Comput. Phys. 109:193 (DINA)",
+          "url": "https://doi.org/10.1006/jcph.1993.1211"
+        }
       },
       {
         "name": "halo电流",
-        "formula": "$$I_{\\text{halo}} = \\int_{\\text{open}} j_\\parallel\\,dA$$"
+        "formula": "$$I_{\\text{halo}} = \\int_{\\text{open}} j_\\parallel\\,dA$$",
+        "ref": {
+          "cite": "Khayrutdinov & Lukash 1993, J. Comput. Phys. 109:193 (DINA)",
+          "url": "https://doi.org/10.1006/jcph.1993.1211"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Khayrutdinov & Lukash 1993, J. Comput. Phys. 109:193 (DINA)",
+      "url": "https://doi.org/10.1006/jcph.1993.1211"
+    },
+    "normalization_ref": {
+      "cite": "Khayrutdinov & Lukash 1993, J. Comput. Phys. 109:193 (DINA)",
+      "url": "https://doi.org/10.1006/jcph.1993.1211"
+    }
   },
   "Toksys": {
     "full_name": "Toksys — Tokamak System Simulator",
@@ -2031,9 +2081,21 @@
     "variant_formulas": [
       {
         "name": "垂直稳定性",
-        "formula": "$$\\dot{Z} = \\frac{Z}{\\tau_g} \\;\\Rightarrow\\; \\tau_g > \\tau_{\\text{PF}}$$"
+        "formula": "$$\\dot{Z} = \\frac{Z}{\\tau_g} \\;\\Rightarrow\\; \\tau_g > \\tau_{\\text{PF}}$$",
+        "ref": {
+          "cite": "Humphreys et al., TokSys — GA 等离子体控制设计工具集",
+          "url": "https://github.com/Toksys/toksys"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Humphreys et al., TokSys — GA 等离子体控制设计工具集",
+      "url": "https://github.com/Toksys/toksys"
+    },
+    "normalization_ref": {
+      "cite": "Humphreys et al., TokSys — GA 等离子体控制设计工具集",
+      "url": "https://github.com/Toksys/toksys"
+    }
   },
   "TSC": {
     "full_name": "TSC — Tokamak Simulation Code",
@@ -2046,7 +2108,8 @@
       "垂直不稳定性"
     ],
     "links": [
-      "https://github.com/PrincetonUniversity/TSC"
+      "https://github.com/PrincetonUniversity/TSC",
+      "https://doi.org/10.1016/0021-9991(86)90077-X"
     ],
     "closure": "求解轴对称（2D）时变自由边界托卡马克等离子体演化方程。耦合求解 Grad-Shafranov 平衡、等离子体输运（1D 径向输运方程——电子和离子温度、粒子密度、电流扩散）和外部电路方程（主动线圈 + 被动导体）。输运闭合通过经验或理论输运模型提供。加热和电流驱动通过参数化模块（NBI/ICRF/ECRH/LH）耦合。支持包含铁磁材料（iron core）的变压器模型。是经典的全放电模拟代码，用于托卡马克 scenario 开发和装置设计。",
     "normalization": "采用 SI 工程单位。长度以 m，时间以 s，温度以 eV，密度以 m⁻³，电流以 A，磁场以 T 为单位。",
@@ -2056,9 +2119,21 @@
     "variant_formulas": [
       {
         "name": "全放电模拟",
-        "formula": "$$t \\in [0, t_{\\text{burn}}]:\\; I_p(t), n(t), P_{\\text{aux}}(t)$$"
+        "formula": "$$t \\in [0, t_{\\text{burn}}]:\\; I_p(t), n(t), P_{\\text{aux}}(t)$$",
+        "ref": {
+          "cite": "Jardin, Pomphrey & DeLucia 1986, J. Comput. Phys. 66:481 (TSC)",
+          "url": "https://doi.org/10.1016/0021-9991(86)90077-X"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Jardin, Pomphrey & DeLucia 1986, J. Comput. Phys. 66:481 (TSC)",
+      "url": "https://doi.org/10.1016/0021-9991(86)90077-X"
+    },
+    "normalization_ref": {
+      "cite": "Jardin, Pomphrey & DeLucia 1986, J. Comput. Phys. 66:481 (TSC)",
+      "url": "https://doi.org/10.1016/0021-9991(86)90077-X"
+    }
   },
   "CRONOS": {
     "full_name": "CRONOS — Core Transport Simulator for Tokamaks",
@@ -2380,7 +2455,8 @@
       "极端位形"
     ],
     "links": [
-      "https://gitlab.epfl.ch/spc/public/meq"
+      "https://gitlab.epfl.ch/spc/public/meq",
+      "https://doi.org/10.1016/j.fusengdes.2014.09.019"
     ],
     "closure": "EPFL 开发的模块化 MHD 平衡求解器套件，核心使用 Newton 方法求解自由边界 Grad-Shafranov 方程 Δ*ψ = −μ₀ R² dp/dψ − F dF/dψ，耦合外部导体（主动线圈 + 被动导体）的电路方程。等离子体压力 p(ψ) 和环向场函数 F(ψ) 通过参数化模型（polynomial、spline 或物理模型）闭合。使用完全非线性 Newton 框架，支持多平衡点（分岔）求解。是 TCV 装置等离子体控制和位形设计的核心平衡工具。",
     "normalization": "采用工程单位。ψ 以 Wb，电流以 A，磁场以 T，长度以 m 为单位。",
@@ -2390,9 +2466,21 @@
     "variant_formulas": [
       {
         "name": "双磁轴 (MEQ)",
-        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$",
+        "ref": {
+          "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (MEQ 平衡工具集)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (MEQ 平衡工具集)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+    },
+    "normalization_ref": {
+      "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (MEQ 平衡工具集)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+    }
   },
   "LIUEQ": {
     "full_name": "LIUEQ — Liu Equilibrium Reconstruction Code",
@@ -2405,7 +2493,8 @@
       "类EFIT方法"
     ],
     "links": [
-      "https://www.epfl.ch/"
+      "https://www.epfl.ch/",
+      "https://doi.org/10.1016/j.fusengdes.2014.09.019"
     ],
     "closure": "EPFL 开发的轴对称固定边界 Grad-Shafranov 求解器（MEQ 套件的前身之一），使用有限元方法在 (R,Z) 平面求解 Δ*ψ 方程。压力 p 和 F² 以归一化磁通 ψ̄ 的多项式函数给出。使用 Picard 迭代或 Newton 方法求解。专注于简单、快速、鲁棒的平衡计算，服务于 TCV 装置分析和控制设计。作为 MEQ 和 FGE 的基础代码，其数值方法被后续代码继承。",
     "normalization": "采用无量纲化方案。几何归一化到等离子体边界，ψ 归一化到边界值。压力以 μ₀p/B₀² 归一化。",
@@ -2415,9 +2504,21 @@
     "variant_formulas": [
       {
         "name": "双磁轴 (MEQ)",
-        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$",
+        "ref": {
+          "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (LIUQE/MEQ)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (LIUQE/MEQ)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+    },
+    "normalization_ref": {
+      "cite": "Moret et al. 2015, Fusion Eng. Des. 91:1 (LIUQE/MEQ)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2014.09.019"
+    }
   },
   "NEMO": {
     "full_name": "NEMO — Neutral Beam Injection Monte Carlo Birth Code for Stellarators",
@@ -3021,9 +3122,21 @@
     "variant_formulas": [
       {
         "name": "教学/原型",
-        "formula": "$$\\text{Python/C++ 混合，代码极简，数千行}$$"
+        "formula": "$$\\text{Python/C++ 混合，代码极简，数千行}$$",
+        "ref": {
+          "cite": "Youjun Hu, TGCO — 环位形导心轨道 / NBI 追踪代码",
+          "url": "https://github.com/Youjunhu/TGCO"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Youjun Hu, TGCO — 环位形导心轨道 / NBI 追踪代码",
+      "url": "https://github.com/Youjunhu/TGCO"
+    },
+    "normalization_ref": {
+      "cite": "Youjun Hu, TGCO — 环位形导心轨道 / NBI 追踪代码",
+      "url": "https://github.com/Youjunhu/TGCO"
+    }
   },
   "HEQ": {
     "full_name": "HEQ — Python Free-Boundary Equilibrium Reconstruction",
@@ -3046,9 +3159,21 @@
     "variant_formulas": [
       {
         "name": "NumPy/SciPy教学版",
-        "formula": "$$\\text{Python纯实现，数千行，无编译依赖}$$"
+        "formula": "$$\\text{Python纯实现，数千行，无编译依赖}$$",
+        "ref": {
+          "cite": "Youjun Hu, HEQ — NumPy/SciPy 教学版 GS 求解器",
+          "url": "https://github.com/Youjunhu/heq"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Youjun Hu, HEQ — NumPy/SciPy 教学版 GS 求解器",
+      "url": "https://github.com/Youjunhu/heq"
+    },
+    "normalization_ref": {
+      "cite": "Youjun Hu, HEQ — NumPy/SciPy 教学版 GS 求解器",
+      "url": "https://github.com/Youjunhu/heq"
+    }
   },
   "MARS-F": {
     "full_name": "MARS-F — MHD-kinetic Stability Code",
@@ -3479,9 +3604,21 @@
     "variant_formulas": [
       {
         "name": "SPARC脉冲设计",
-        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$",
+        "ref": {
+          "cite": "GSevolve — PPPL 自由边界平衡演化代码",
+          "url": "https://github.com/PrincetonUniversity/GSevolve"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "GSevolve — PPPL 自由边界平衡演化代码",
+      "url": "https://github.com/PrincetonUniversity/GSevolve"
+    },
+    "normalization_ref": {
+      "cite": "GSevolve — PPPL 自由边界平衡演化代码",
+      "url": "https://github.com/PrincetonUniversity/GSevolve"
+    }
   },
   "GSPulse": {
     "full_name": "GSPulse — Grad-Shafranov Pulse Trajectory Optimizer",
@@ -3505,9 +3642,21 @@
     "variant_formulas": [
       {
         "name": "SPARC脉冲设计",
-        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$",
+        "ref": {
+          "cite": "Wai et al. 2025, Nucl. Fusion (GSPulse)",
+          "url": "https://doi.org/10.1088/1741-4326/ae203c"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Wai et al. 2025, Nucl. Fusion (GSPulse)",
+      "url": "https://doi.org/10.1088/1741-4326/ae203c"
+    },
+    "normalization_ref": {
+      "cite": "Wai et al. 2025, Nucl. Fusion (GSPulse)",
+      "url": "https://doi.org/10.1088/1741-4326/ae203c"
+    }
   },
   "gsfit": {
     "full_name": "GSFit — Grad-Shafranov Fit for Equilibrium Reconstruction",
@@ -3531,9 +3680,21 @@
     "variant_formulas": [
       {
         "name": "SPARC脉冲设计",
-        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$"
+        "formula": "$$\\min_{\\mathbf{u}(t)} \\|\\psi(t) - \\psi_{\\text{target}}(t)\\|^2$$",
+        "ref": {
+          "cite": "Tokamak Energy 2025, gsfit — 开源等离子体重建",
+          "url": "https://github.com/tokamak-energy/gsfit"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Tokamak Energy 2025, gsfit — 开源等离子体重建",
+      "url": "https://github.com/tokamak-energy/gsfit"
+    },
+    "normalization_ref": {
+      "cite": "Tokamak Energy 2025, gsfit — 开源等离子体重建",
+      "url": "https://github.com/tokamak-energy/gsfit"
+    }
   },
   "FGE": {
     "full_name": "FGE — Free-Boundary Grad-Shafranov Evolutive Solver",
@@ -3557,9 +3718,21 @@
     "variant_formulas": [
       {
         "name": "双磁轴 (MEQ)",
-        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$"
+        "formula": "$$\\exists \\psi_1,\\psi_2: \\nabla\\psi_1 = \\nabla\\psi_2 = 0,\\; \\psi_1 \\neq \\psi_2$$",
+        "ref": {
+          "cite": "FGE 2025, Plasma Phys. Control. Fusion (arXiv:2512.06847)",
+          "url": "https://doi.org/10.1088/1361-6587/ae56b7"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "FGE 2025, Plasma Phys. Control. Fusion (arXiv:2512.06847)",
+      "url": "https://doi.org/10.1088/1361-6587/ae56b7"
+    },
+    "normalization_ref": {
+      "cite": "FGE 2025, Plasma Phys. Control. Fusion (arXiv:2512.06847)",
+      "url": "https://doi.org/10.1088/1361-6587/ae56b7"
+    }
   },
   "DYON": {
     "full_name": "DYON — Plasma Burn-Through and Disruption Simulator",
@@ -3693,9 +3866,21 @@
     "variant_formulas": [
       {
         "name": "TCV位形",
-        "formula": "$$\\kappa \\in [1.0, 2.8],\\; \\delta \\in [-0.5, 1.0]$$"
+        "formula": "$$\\kappa \\in [1.0, 2.8],\\; \\delta \\in [-0.5, 1.0]$$",
+        "ref": {
+          "cite": "Hofmann 1988, Comput. Phys. Commun. 48:207 (FBT)",
+          "url": "https://doi.org/10.1016/0010-4655(88)90041-0"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hofmann 1988, Comput. Phys. Commun. 48:207 (FBT)",
+      "url": "https://doi.org/10.1016/0010-4655(88)90041-0"
+    },
+    "normalization_ref": {
+      "cite": "Hofmann 1988, Comput. Phys. Commun. 48:207 (FBT)",
+      "url": "https://doi.org/10.1016/0010-4655(88)90041-0"
+    }
   },
   "FEEQS.M/NICE": {
     "full_name": "FEEQS.M/NICE — Finite Element Equilibrium Solver for Tokamaks",
@@ -3708,7 +3893,8 @@
       "PPPL"
     ],
     "links": [
-      "https://www.pppl.gov/research/theory/codes"
+      "https://www.pppl.gov/research/theory/codes",
+      "https://doi.org/10.1016/j.fusengdes.2020.112020"
     ],
     "closure": "FEEQS.M 使用自由边界有限元方法求解 Grad-Shafranov 方程，支持任意等离子体截面形状和外部导体配置。NICE（New Inverse Code for Equilibrium）是其变体，求解逆问题：给定所需的等离子体边界和内部剖面，反演计算实现该平衡所需的线圈电流配置。是 PPPL 平衡分析工具链的关键环节，支持 NSTX-U、LTX-β 等球形托卡马克和锂壁托卡马克的平衡分析。",
     "normalization": "采用 SI 工程单位。磁场以 T，电流以 A，ψ 以 Wb 为单位。",
@@ -3718,9 +3904,21 @@
     "variant_formulas": [
       {
         "name": "NSTX-U球形环",
-        "formula": "$$\\varepsilon = a/R_0 \\geq 0.5 \\;\\text{(球形托卡马克)}$$"
+        "formula": "$$\\varepsilon = a/R_0 \\geq 0.5 \\;\\text{(球形托卡马克)}$$",
+        "ref": {
+          "cite": "Faugeras 2020, Fusion Eng. Des. 160:112020 (NICE)",
+          "url": "https://doi.org/10.1016/j.fusengdes.2020.112020"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Faugeras 2020, Fusion Eng. Des. 160:112020 (NICE)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2020.112020"
+    },
+    "normalization_ref": {
+      "cite": "Faugeras 2020, Fusion Eng. Des. 160:112020 (NICE)",
+      "url": "https://doi.org/10.1016/j.fusengdes.2020.112020"
+    }
   },
   "JSOLVER": {
     "full_name": "JSOLVER — Tokamak Equilibrium J-Solver",
@@ -3733,7 +3931,8 @@
       "PPPL"
     ],
     "links": [
-      "https://github.com/PrincetonUniversity/JSOLVER"
+      "https://github.com/PrincetonUniversity/JSOLVER",
+      "https://doi.org/10.1016/0021-9991(80)90020-0"
     ],
     "closure": "PPPL 开发的专用托卡马克环向电流密度 J 分布求解器，求解 Grad-Shafranov 方程中的环向电流密度剖面。在给定压力剖面 p(ψ) 和环向场函数 F(ψ)（或安全因子剖面 q(ψ)）的情况下，通过 Picard 迭代或 Newton 方法求解非线性椭圆型偏微分方程。轻量高效，适合嵌入 TRANSP/NUBEAM 等集成建模工具的工作流和自动化批量处理。",
     "normalization": "采用 SI 工程单位。电流密度以 A/m²，ψ 以 Wb，压力以 Pa 为单位。",
@@ -3743,9 +3942,21 @@
     "variant_formulas": [
       {
         "name": "TRANSP集成",
-        "formula": "$$\\psi(t) \\text{ for } t \\in [0, T_{\\text{shot}}]$$"
+        "formula": "$$\\psi(t) \\text{ for } t \\in [0, T_{\\text{shot}}]$$",
+        "ref": {
+          "cite": "DeLucia, Jardin & Todd 1980, J. Comput. Phys. 37:183 (JSOLVER)",
+          "url": "https://doi.org/10.1016/0021-9991(80)90020-0"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "DeLucia, Jardin & Todd 1980, J. Comput. Phys. 37:183 (JSOLVER)",
+      "url": "https://doi.org/10.1016/0021-9991(80)90020-0"
+    },
+    "normalization_ref": {
+      "cite": "DeLucia, Jardin & Todd 1980, J. Comput. Phys. 37:183 (JSOLVER)",
+      "url": "https://doi.org/10.1016/0021-9991(80)90020-0"
+    }
   },
   "COTSIM": {
     "full_name": "COTSIM — Control-Oriented Transport Simulator",
@@ -3867,8 +4078,20 @@
     "variant_formulas": [
       {
         "name": "NTM分析",
-        "formula": "$$\\Delta' + \\Delta'_{\\text{bootstrap}} = 0 \\;\\Rightarrow\\; \\text{marginal stability}$$"
+        "formula": "$$\\Delta' + \\Delta'_{\\text{bootstrap}} = 0 \\;\\Rightarrow\\; \\text{marginal stability}$$",
+        "ref": {
+          "cite": "REMA — 电阻 MHD / NTM 分析 (EPJ Web Conf. EC21, 02006)",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "REMA — 电阻 MHD / NTM 分析 (EPJ Web Conf. EC21, 02006)",
+      "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf"
+    },
+    "normalization_ref": {
+      "cite": "REMA — 电阻 MHD / NTM 分析 (EPJ Web Conf. EC21, 02006)",
+      "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2023/03/epjconf_ec212023_02006.pdf"
+    }
   }
 }

@@ -87,14 +87,14 @@ $$
 \mathbf{F}(\boldsymbol{\psi}) &= 0,\quad \boldsymbol{\psi}_{k+1} = \boldsymbol{\psi}_k - \mathbf{J}^{-1}\mathbf{F}(\boldsymbol{\psi}_k) \quad \text{(Newton)}
 \end{aligned}
 $$
-
-</div></div><p class="body-text">固定边界模式；自由边界模式（FreeGS）；指定 p'(ψ) 和 FF'(ψ) 剖面模式；指定 p(ψ) 和 F(ψ) 剖面模式；轴对称模式；托卡马克模式；FreeGSNKE 扩展模式（Newton-Krylov 非线性求解 + 形状约束）。</p><div class="variant-card"><h4>固定边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\psi|_{\partial\Omega} = \psi_b$$</div></div><div class="variant-card"><h4>自由边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\psi = \psi_{\text{plasma}} + \psi_{\text{coils}},\; \mathbf{G}\psi_{\text{coils}} = \mathbf{M}\mathbf{I}_{\text{coils}}$$</div></div>
+<div class="formula-ref">来源: <a href="https://github.com/freegs-plasma/freegs" target="_blank" rel="noopener">Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器 ↗</a></div>
+</div></div><p class="body-text">固定边界模式；自由边界模式（FreeGS）；指定 p'(ψ) 和 FF'(ψ) 剖面模式；指定 p(ψ) 和 F(ψ) 剖面模式；轴对称模式；托卡马克模式；FreeGSNKE 扩展模式（Newton-Krylov 非线性求解 + 形状约束）。</p><div class="variant-card"><h4>固定边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\psi|_{\partial\Omega} = \psi_b$$<div class="formula-ref">来源: <a href="https://github.com/freegs-plasma/freegs" target="_blank" rel="noopener">Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器 ↗</a></div></div></div><div class="variant-card"><h4>自由边界</h4><div class="formula-block" style="border:none;padding:.3rem 0">$$\psi = \psi_{\text{plasma}} + \psi_{\text{coils}},\; \mathbf{G}\psi_{\text{coils}} = \mathbf{M}\mathbf{I}_{\text{coils}}$$<div class="formula-ref">来源: <a href="https://github.com/freegs-plasma/freegs" target="_blank" rel="noopener">Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器 ↗</a></div></div></div>
 </div><div class="section">
 <h2>📏 归一化方案</h2>
 <p class="body-text">采用 SI 单位制。长度以米为单位，磁场以 Tesla 为单位，电流以 Ampere 为单位，压力以 Pascal 为单位。ψ 以 Weber（Wb）为单位。内部归一化可用但默认使用物理单位。</p><div class="formula-block">
 <div class="formula-label">归一化关系</div>
 $$\bar{R}[\text{m}],\; \bar{Z}[\text{m}],\; \bar{B}[\text{T}],\; \bar{\psi}[\text{Wb}],\; \bar{p}[\text{Pa}]$$
-
+<div class="formula-ref">来源: <a href="https://github.com/freegs-plasma/freegs" target="_blank" rel="noopener">Dudson et al., FreeGS — 开源 Grad-Shafranov 平衡求解器 ↗</a></div>
 </div>
 </div><div class="section">
 <h2>🔗 相关链接与论文</h2>
