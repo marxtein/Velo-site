@@ -995,7 +995,8 @@
       "3D磁场"
     ],
     "links": [
-      "https://github.com/fusion-energy/ASCOT5"
+      "https://github.com/fusion-energy/ASCOT5",
+      "https://doi.org/10.1016/j.cpc.2014.01.014"
     ],
     "closure": "求解导心轨道方程（guiding-center orbit following）在三维磁场位形中追踪高能粒子（NBI 快离子、α 粒子、逃逸电子等）的轨道和热化过程。采用蒙特卡洛方法处理 Coulomb 碰撞（pitch-angle scattering + energy slowing-down），碰撞频率由背景等离子体参数通过 NRL 公式计算。不直接求解场方程——磁场平衡由外部求解器（VMEC、EFIT、ASCOT 内置磁场模块）提供，电场通过径向力平衡条件计算。粒子损失通过轨道追踪至第一壁判定。",
     "normalization": "采用 SI 单位制。粒子能量以 eV 或 keV 为单位，位置以 m 为单位，磁场以 T 为单位。输入平衡和等离子体剖面以工程单位提供。输出粒子分布函数和损失率以物理单位表示。",
@@ -1005,9 +1006,21 @@
     "variant_formulas": [
       {
         "name": "α 粒子约束",
-        "formula": "$$f_\\alpha(t) = f_\\alpha(0)e^{-t/\\tau_\\alpha},\\; \\tau_\\alpha^{-1} = \\frac{\\dot{N}_{\\text{loss}}}{N_{\\text{confined}}}$$"
+        "formula": "$$f_\\alpha(t) = f_\\alpha(0)e^{-t/\\tau_\\alpha},\\; \\tau_\\alpha^{-1} = \\frac{\\dot{N}_{\\text{loss}}}{N_{\\text{confined}}}$$",
+        "ref": {
+          "cite": "Hirvijoki et al. 2014, Comput. Phys. Commun. 185:1310",
+          "url": "https://doi.org/10.1016/j.cpc.2014.01.014"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Hirvijoki et al. 2014, Comput. Phys. Commun. 185:1310 (ASCOT)",
+      "url": "https://doi.org/10.1016/j.cpc.2014.01.014"
+    },
+    "normalization_ref": {
+      "cite": "Hirvijoki et al. 2014, Comput. Phys. Commun. 185:1310",
+      "url": "https://doi.org/10.1016/j.cpc.2014.01.014"
+    }
   },
   "BOUT++": {
     "full_name": "BOUT++ — Boundary Turbulence Simulation Framework",
@@ -1857,7 +1870,8 @@
       "多装置验证"
     ],
     "links": [
-      "https://d3denergetic.github.io/FIDASIM/"
+      "https://d3denergetic.github.io/FIDASIM/",
+      "https://doi.org/10.4208/cicp.190810.080211a"
     ],
     "closure": "求解快离子（NBI 束离子、聚变 α 粒子）在三维磁场中的速度和空间分布函数，用于计算合成诊断信号。通过蒙特卡洛方法追踪中性束中性粒子的电离过程（电子碰撞电离、离子碰撞电离、电荷交换）产生快离子源分布。然后求解快离子的 Fokker-Planck 方程（pitch-angle scattering + energy slowing-down），或采用导心轨道追踪（guiding-center orbit following）。不直接求解等离子体平衡方程——磁场结构和背景等离子体参数由外部代码提供。最终输出合成诊断信号（FIDA、NPA、neutron camera 等）。",
     "normalization": "采用 SI 单位制。能量以 keV，位置以 m，磁场以 T，密度以 m⁻³。输出快离子分布函数和合成信号以物理单位表示。",
@@ -1867,13 +1881,29 @@
     "variant_formulas": [
       {
         "name": "FIDA合成",
-        "formula": "$$I_\\lambda^{\\text{FIDA}} = \\int f(E,\\xi)\\, \\frac{dE}{d\\lambda}\\,dE\\,d\\xi$$"
+        "formula": "$$I_\\lambda^{\\text{FIDA}} = \\int f(E,\\xi)\\, \\frac{dE}{d\\lambda}\\,dE\\,d\\xi$$",
+        "ref": {
+          "cite": "Heidbrink et al. 2011, Commun. Comput. Phys. 10:716",
+          "url": "https://doi.org/10.4208/cicp.190810.080211a"
+        }
       },
       {
         "name": "中子相机",
-        "formula": "$$R_{ij} = \\int_{V_i} \\int_{E} n_D n_T \\langle\\sigma v\\rangle_{DT}(E)\\,dE\\,dV_j$$"
+        "formula": "$$R_{ij} = \\int_{V_i} \\int_{E} n_D n_T \\langle\\sigma v\\rangle_{DT}(E)\\,dE\\,dV_j$$",
+        "ref": {
+          "cite": "Heidbrink et al. 2011, Commun. Comput. Phys. 10:716",
+          "url": "https://doi.org/10.4208/cicp.190810.080211a"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Heidbrink et al. 2011, Commun. Comput. Phys. 10:716 (FIDASIM)",
+      "url": "https://doi.org/10.4208/cicp.190810.080211a"
+    },
+    "normalization_ref": {
+      "cite": "Heidbrink et al. 2011, Commun. Comput. Phys. 10:716",
+      "url": "https://doi.org/10.4208/cicp.190810.080211a"
+    }
   },
   "pyrokinetics": {
     "full_name": "pyrokinetics — Python Interface for Gyrokinetic Microstability Analysis",
@@ -2410,9 +2440,21 @@
     "variant_formulas": [
       {
         "name": "仿星器几何",
-        "formula": "$$\\mathbf{B}(\\mathbf{r}) = \\nabla\\times\\mathbf{A}_{\\text{VMEC}}(\\mathbf{r})$$"
+        "formula": "$$\\mathbf{B}(\\mathbf{r}) = \\nabla\\times\\mathbf{A}_{\\text{VMEC}}(\\mathbf{r})$$",
+        "ref": {
+          "cite": "NEMO (github)",
+          "url": "https://github.com/nemo-stellarator/nemo"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "NEMO 中性束电离蒙特卡洛代码 (仿星器版)",
+      "url": "https://github.com/nemo-stellarator/nemo"
+    },
+    "normalization_ref": {
+      "cite": "NEMO (仿星器中性束电离蒙特卡洛)",
+      "url": "https://github.com/nemo-stellarator/nemo"
+    }
   },
   "GENRAY": {
     "full_name": "GENRAY — General Ray Tracing Code for Electromagnetic Waves",
@@ -2436,9 +2478,21 @@
     "variant_formulas": [
       {
         "name": "ECCD效率",
-        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$"
+        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$",
+        "ref": {
+          "cite": "Smirnov & Harvey 2001, GENRAY (CompX-2000-01)",
+          "url": "https://compxco.com/genray.html"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Smirnov & Harvey 2001, GENRAY ray-tracing code (CompX Report CompX-2000-01)",
+      "url": "https://compxco.com/genray.html"
+    },
+    "normalization_ref": {
+      "cite": "Smirnov & Harvey 2001, GENRAY (CompX-2000-01)",
+      "url": "https://compxco.com/genray.html"
+    }
   },
   "TORAY": {
     "full_name": "TORAY — Electron Cyclotron Ray Tracing Code",
@@ -2451,7 +2505,8 @@
       "CQL3D前端"
     ],
     "links": [
-      "https://gafusion.github.io/OMFIT-source/"
+      "https://gafusion.github.io/OMFIT-source/",
+      "https://doi.org/10.1109/27.21664"
     ],
     "closure": "与 GENRAY 类似，求解 EC 波射线追踪方程，但专门针对电子回旋波（EC）的加热和电流驱动。使用冷等离子体色散关系或 weakly relativistic 修正。求解 dr/dt = vg 和 dk/dt（含 relativistic 和热修正项）。计算沿射线的功率衰减（通过吸收系数）和驱动的电流密度（通过 adjoint 方法或 Fokker-Planck 响应函数）。是 GA 和 PPPL 装置上 EC 系统设计的标准工具。",
     "normalization": "与 GENRAY 类似。频率以 GHz，功率以 MW，位置以 m，磁场以 T 为单位。内部计算使用归一化等离子体单位。",
@@ -2461,9 +2516,21 @@
     "variant_formulas": [
       {
         "name": "ECCD效率",
-        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$"
+        "formula": "$$\\eta_{\\text{CD}} = \\frac{\\bar{R} n_e I_{\\text{CD}}}{P_{\\text{EC}}} \\times 10^{20}\\;\\text{A/W/m}^2$$",
+        "ref": {
+          "cite": "Matsuda 1989, IEEE Trans. Plasma Sci. 17:6",
+          "url": "https://doi.org/10.1109/27.21664"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Matsuda 1989, IEEE Trans. Plasma Sci. 17:6 (TORAY-GA)",
+      "url": "https://doi.org/10.1109/27.21664"
+    },
+    "normalization_ref": {
+      "cite": "Matsuda 1989, IEEE Trans. Plasma Sci. 17:6",
+      "url": "https://doi.org/10.1109/27.21664"
+    }
   },
   "CQL3D": {
     "full_name": "CQL3D — Collisional Quasi-Linear 3D Fokker-Planck Code",
@@ -2487,13 +2554,29 @@
     "variant_formulas": [
       {
         "name": "ECCD",
-        "formula": "$$j_{\\text{CD}} = -e\\int v_\\parallel f_e\\,d^3v$$"
+        "formula": "$$j_{\\text{CD}} = -e\\int v_\\parallel f_e\\,d^3v$$",
+        "ref": {
+          "cite": "Harvey & McCoy 1992, CQL3D",
+          "url": "https://omfit.io/modules/mod_CQL3D.html"
+        }
       },
       {
         "name": "LHCD",
-        "formula": "$$\\mathbf{D}_{\\text{QL}} \\propto |E_\\parallel|^2 \\delta(\\omega - k_\\parallel v_\\parallel)$$"
+        "formula": "$$\\mathbf{D}_{\\text{QL}} \\propto |E_\\parallel|^2 \\delta(\\omega - k_\\parallel v_\\parallel)$$",
+        "ref": {
+          "cite": "Harvey & McCoy 1992, CQL3D",
+          "url": "https://omfit.io/modules/mod_CQL3D.html"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Harvey & McCoy 1992, 'The CQL3D Fokker-Planck Code', Proc. IAEA TCM, p.489",
+      "url": "https://omfit.io/modules/mod_CQL3D.html"
+    },
+    "normalization_ref": {
+      "cite": "Harvey & McCoy 1992, CQL3D Fokker-Planck Code",
+      "url": "https://omfit.io/modules/mod_CQL3D.html"
+    }
   },
   "AORSA": {
     "full_name": "AORSA — All-Orders Spectral Algorithm",
@@ -2507,7 +2590,8 @@
     ],
     "links": [
       "https://github.com/ORNL-Fusion/aorsa",
-      "https://www.ornl.gov/directorate/fusion-plasma-physics"
+      "https://www.ornl.gov/directorate/fusion-plasma-physics",
+      "https://doi.org/10.1063/1.1359516"
     ],
     "closure": "求解射频波在托卡马克等离子体中的全波（full-wave）传播方程，不采用射线近似。求解 2D 或 3D Helmholtz 型波动方程：∇ × ∇ × E − ω²/c² ε·E = iωμ₀ J_ext，其中 ε 为 warm plasma 介电张量（包含有限 Larmor 半径效应至任意阶）。采用 Fourier 展开（环向和极向方向）+ 有限差分（径向）离散。适合处理 ICRF/IBW/HHFW 等短波长、大折射率波在复杂几何中的 mode conversion 和 cavity modes。",
     "normalization": "频率以 MHz/GHz，位置以 m，磁场以 T，密度以 m⁻³。内部采用等离子体归一化。",
@@ -2517,9 +2601,21 @@
     "variant_formulas": [
       {
         "name": "mode conversion",
-        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$"
+        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$",
+        "ref": {
+          "cite": "Jaeger et al. 2001, Phys. Plasmas 8:1573",
+          "url": "https://doi.org/10.1063/1.1359516"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Jaeger et al. 2001, Phys. Plasmas 8:1573",
+      "url": "https://doi.org/10.1063/1.1359516"
+    },
+    "normalization_ref": {
+      "cite": "Jaeger et al. 2001, Phys. Plasmas 8:1573",
+      "url": "https://doi.org/10.1063/1.1359516"
+    }
   },
   "TORIC": {
     "full_name": "TORIC — ICRF Full-Wave Code with Finite Larmor Radius",
@@ -2532,7 +2628,8 @@
       "全球ICRF标准"
     ],
     "links": [
-      "https://transp.jetdata.eu/"
+      "https://transp.jetdata.eu/",
+      "https://doi.org/10.1088/0741-3335/41/1/002"
     ],
     "closure": "IPP Garching 开发的 ICRF 全波求解器，求解 2D（r, ϑ）有限 Larmor 半径波动方程。采用谱方法（Fourier + 有限元）求解 warm plasma wave equation。介电张量通过 FLR 展开至二阶或任意阶。特别适合 ICRF minority heating 和 mode conversion 场景的功率沉积计算。与 TRANSP/CRONOS 等输运代码耦合。",
     "normalization": "频率以 MHz，位置以 m，磁场以 T，密度以 m⁻³。内部使用等离子体归一化。",
@@ -2542,9 +2639,21 @@
     "variant_formulas": [
       {
         "name": "mode conversion",
-        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$"
+        "formula": "$$S(r) = \\frac{\\omega_{pi}^2}{\\omega^2 - \\Omega_{ci}^2} \\to \\infty \\;\\text{at resonance}$$",
+        "ref": {
+          "cite": "Brambilla 1999, Plasma Phys. Control. Fusion 41:1",
+          "url": "https://doi.org/10.1088/0741-3335/41/1/002"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Brambilla 1999, Plasma Phys. Control. Fusion 41:1",
+      "url": "https://doi.org/10.1088/0741-3335/41/1/002"
+    },
+    "normalization_ref": {
+      "cite": "Brambilla 1999, Plasma Phys. Control. Fusion 41:1",
+      "url": "https://doi.org/10.1088/0741-3335/41/1/002"
+    }
   },
   "NOVA": {
     "full_name": "NOVA/NOVA-K — Nonvariational MHD-Kinetic Stability Code",
@@ -2789,19 +2898,32 @@
       "TGYRO/TRANSP组件"
     ],
     "links": [
-      "https://github.com/PrincetonUniversity/NCLASS"
+      "https://github.com/PrincetonUniversity/NCLASS",
+      "https://doi.org/10.1063/1.872465"
     ],
     "closure": "计算托卡马克等离子体中碰撞新经典输运系数的代码（局域磁面平均）。基于 Hirshman-Sigmar 矩方法求解多粒子种（电子 + 任意多离子）的漂移动理学方程。计算粒子扩散系数、热扩散系数、热导率和 bootstrap 电流系数。包含经典（classical）、banana、plateau 和 Pfirsch-Schlüter 四个输运区间的完整公式。输出格式与 TRANSP/ONETWO/TGYRO 兼容。",
     "normalization": "输运系数以 m²/s，bootstrap 电流以 A/m²，热导率以 W/m-K。输入剖面以工程单位（keV, 10¹⁹ m⁻³, T, m）提供。",
     "variants": "单/多离子种；任意环向模数 MHD 平衡；任意纵横比；TRANSP/ONETWO 兼容输出；TGYRO 兼容输出。",
-    "closure_formula": "$$\n\\begin{aligned}\n\\Gamma_s &= -D_s^{11}\\frac{dn_s}{dr} - D_s^{12}\\frac{dT_s}{dr} + n_s V_s^{\\text{ware pinch}} \\\\[4pt]\nq_s &= -n_s\\chi_s^{21}\\frac{dT_s}{dr} - n_s\\chi_s^{22}\\frac{dT_s}{dr} \\\\[4pt]\nj_{\\text{BS}} &= -\\frac{c}{B_\\theta}\\sum_s \\left(L_{31}^s\\frac{dT_s}{dr} + L_{32}^s\\frac{dn_s}{dr}\\right)\n\\end{aligned}\n$$",
+    "closure_formula": "$$\n\\begin{aligned}\n\\Gamma_s &= -D_s^{11}\\frac{dn_s}{dr} - D_s^{12}\\frac{dT_s}{dr} + n_s V_s^{\\text{ware pinch}} \\\\[4pt]\nq_s &= -n_s\\chi_s^{21}\\frac{dn_s}{dr} - n_s\\chi_s^{22}\\frac{dT_s}{dr} \\\\[4pt]\nj_{\\text{BS}} &= -\\frac{c}{B_\\theta}\\sum_s \\left(L_{31}^s\\frac{dT_s}{dr} + L_{32}^s\\frac{dn_s}{dr}\\right)\n\\end{aligned}\n$$",
     "normalization_formula": "$$\\bar{D}[\\text{m}^2/\\text{s}],\\; \\bar{j}_{\\text{BS}}[\\text{A/m}^2],\\; \\bar{\\chi}[\\text{m}^2/\\text{s}]$$",
     "variant_formulas": [
       {
         "name": "多离子种",
-        "formula": "$$\\mathbf{L} = \\sum_s \\mathbf{L}_s(n_s, T_s, Z_s, m_s)$$"
+        "formula": "$$\\mathbf{L} = \\sum_s \\mathbf{L}_s(n_s, T_s, Z_s, m_s)$$",
+        "ref": {
+          "cite": "Houlberg et al. 1997, Phys. Plasmas 4:3230",
+          "url": "https://doi.org/10.1063/1.872465"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Houlberg et al. 1997, Phys. Plasmas 4:3230 (NCLASS)",
+      "url": "https://doi.org/10.1063/1.872465"
+    },
+    "normalization_ref": {
+      "cite": "Houlberg et al. 1997, Phys. Plasmas 4:3230",
+      "url": "https://doi.org/10.1063/1.872465"
+    }
   },
   "supercode": {
     "full_name": "SUPERCODE — Stellarator Optimization via Variational Parameter Methods",
@@ -2851,7 +2973,8 @@
       "波束宽度演化"
     ],
     "links": [
-      "https://github.com/hsxie/boray"
+      "https://github.com/hsxie/boray",
+      "https://doi.org/10.1016/j.cpc.2022.108363"
     ],
     "closure": "MIT PSFC 开发的 EC 波束追踪（beam tracing）代码，区别于传统射线追踪（ray tracing）的零宽度假设。束追踪方法同时追踪中心射线和波束宽度/波前曲率的演化：求解 dr/dt、dk/dt 的同时，解波束宽度张量 W 和波前曲率张量 Φ 的常微分方程。能更准确计算 EC 波的聚焦/散焦效应和功率沉积空间分布，特别适合处理 EC 波在等离子体中经历强折射和反射的复杂场景。",
     "normalization": "采用等离子体归一化。频率以 GHz，位置以 m，波数以 rad/m。波束参数（宽度/曲率）以 m/m⁻¹ 为单位。",
@@ -2861,9 +2984,21 @@
     "variant_formulas": [
       {
         "name": "SPARC EC设计",
-        "formula": "$$P_{\\text{dep}}(\\mathbf{r}) = \\int \\frac{P(\\mathbf{k})}{W(\\mathbf{r})} e^{-(\\mathbf{r}-\\mathbf{r}_c)^2/W}\\,d\\mathbf{k}$$"
+        "formula": "$$P_{\\text{dep}}(\\mathbf{r}) = \\int \\frac{P(\\mathbf{k})}{W(\\mathbf{r})} e^{-(\\mathbf{r}-\\mathbf{r}_c)^2/W}\\,d\\mathbf{k}$$",
+        "ref": {
+          "cite": "Xie et al. 2022, Comput. Phys. Commun. 276:108363",
+          "url": "https://doi.org/10.1016/j.cpc.2022.108363"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Xie et al. 2022, Comput. Phys. Commun. 276:108363 (BORAY)",
+      "url": "https://doi.org/10.1016/j.cpc.2022.108363"
+    },
+    "normalization_ref": {
+      "cite": "Xie et al. 2022, Comput. Phys. Commun. 276:108363",
+      "url": "https://doi.org/10.1016/j.cpc.2022.108363"
+    }
   },
   "TGCO": {
     "full_name": "TGCO — Tokamak Geometric Coordinates & NBI Monte Carlo Code",
@@ -3695,9 +3830,21 @@
     "variant_formulas": [
       {
         "name": "LHCD",
-        "formula": "$$j_{\\text{LH}} = -e\\int v_\\parallel f^{\\text{RF}}\\,d^3v$$"
+        "formula": "$$j_{\\text{LH}} = -e\\int v_\\parallel f^{\\text{RF}}\\,d^3v$$",
+        "ref": {
+          "cite": "Decker & Peysson 2004, EUR-CEA-FC-1736",
+          "url": "https://spcgit.epfl.ch/luke/tutorial.html"
+        }
       }
-    ]
+    ],
+    "closure_ref": {
+      "cite": "Decker & Peysson 2004, EUR-CEA-FC-1736 (LUKE Fokker-Planck solver)",
+      "url": "https://spcgit.epfl.ch/luke/tutorial.html"
+    },
+    "normalization_ref": {
+      "cite": "Decker & Peysson 2004, EUR-CEA-FC-1736",
+      "url": "https://spcgit.epfl.ch/luke/tutorial.html"
+    }
   },
   "REMA": {
     "full_name": "REMA — Resistive MHD Stability Code",
