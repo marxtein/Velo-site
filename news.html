@@ -13,7 +13,7 @@
     <style>
       .news-timeline {
         position: relative;
-        max-width: 720px;
+        max-width: 960px;
         margin: 2rem auto 0;
       }
       .news-timeline::before {
@@ -28,7 +28,7 @@
       .news-row {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 3rem;
+        margin-bottom: 1.25rem;
         position: relative;
       }
       .news-row:nth-child(odd) {
@@ -56,9 +56,9 @@
         background: rgba(13,31,60,0.9);
         border: 0.5px solid rgba(255,255,255,0.1);
         border-radius: 10px;
-        padding: 1.5rem;
+        padding: 1rem 1.3rem;
         width: 100%;
-        max-width: 340px;
+        max-width: 440px;
         transition: border-color 0.2s;
       }
       .news-card:hover {
@@ -104,7 +104,7 @@
       }
       @media (max-width: 768px) {
         .news-timeline::before { left: 1rem; }
-        .news-row { flex-direction: column; padding: 0 0 0 2.5rem !important; margin-bottom: 2rem; }
+        .news-row { flex-direction: column; padding: 0 0 0 2.5rem !important; margin-bottom: 1rem; }
         .news-row::after { left: 1rem; }
         .news-card { max-width: 100%; }
       }
