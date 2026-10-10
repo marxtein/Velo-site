@@ -150,12 +150,12 @@
               </div>
             </div>
 
-            <!-- 平衡与输运 -->
+            <!-- 平衡与集成建模 -->
             <div class="rs-tool-group">
               <h3 class="rs-group-title">
                 <span class="rs-group-icon">⚖️</span>
-                平衡与输运
-                <span class="rs-group-title-en">Equilibrium &amp; Transport</span>
+                平衡与集成建模
+                <span class="rs-group-title-en">Equilibrium &amp; Integrated Modeling</span>
               </h3>
 
               <div class="rs-tool-row">
@@ -169,22 +169,38 @@
                     <a href="https://arxiv.org/abs/2601.02942" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
                     <a href="https://arxiv.org/abs/2602.11422" target="_blank" class="pillar-tag pillar-tag--orange">VEQ-R</a>
                     <a href="https://github.com/zhangtakeda/veqpy-dev" target="_blank" class="pillar-tag">GitHub</a>
+                    <a href="https://github.com/FusionAlpha/veqpy" target="_blank" class="pillar-tag">VEQ-2D GitHub</a>
                   </div>
                   <p class="rs-tool-desc">基于变分参数法的 Grad-Shafranov 方程求解器，回答"最少需要几个参数才能精确表示平衡位形"这一基础问题。VEQ-R 扩展支持环向旋转效应。</p>
                 </div>
               </div>
 
               <div class="rs-tool-row">
-                <span class="rs-tool-badge rs-tool-badge--wip">VTS</span>
+                <span class="rs-tool-badge">VEQDB</span>
                 <div class="rs-tool-body">
                   <div class="rs-tool-name">
-                    输运求解器
-                    <span class="rs-tool-name-en">Variational transport solver (internal)</span>
+                    跨装置平衡数据库
+                    <span class="rs-tool-name-en">A Compact and Reconstructible Multi-Device Tokamak Equilibrium Database</span>
                   </div>
                   <div class="rs-tool-links">
-                    <span class="pillar-tag pillar-tag--ghost">开发中</span>
+                    <a href="https://arxiv.org/abs/2609.23296" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                    <a href="https://github.com/FusionAlpha/veqdb" target="_blank" class="pillar-tag">GitHub</a>
                   </div>
-                  <p class="rs-tool-desc">基于变分参数法的等离子体输运求解器。</p>
+                  <p class="rs-tool-desc">提出紧致、可重构的平衡数据存储格式，对标准 129×129 网格 gfile 体积缩减 89–96 倍；覆盖 267 个装置、13291 条固定边界平衡，压缩归档后 18.95 MB。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">VTS</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    托卡马克集成建模
+                    <span class="rs-tool-name-en">Veloce Tokamak Simulator (VTS)</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://arxiv.org/abs/2609.33500" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                  </div>
+                  <p class="rs-tool-desc">把平衡、输运与电流扩散三个模块耦合在一起，共享同一套磁面几何；一条 60 秒的 ITER 类放电脉冲在 Apple M4 Pro 个人电脑上 8.62 秒算完。</p>
                 </div>
               </div>
             </div>
@@ -210,6 +226,20 @@
                     <a href="https://github.com/hsxie/boray" target="_blank" class="pillar-tag">GitHub</a>
                   </div>
                   <p class="rs-tool-desc">支持闭合与开放磁力线位形的通用射线追踪代码，覆盖电子回旋波、低杂波、离子回旋波和 Alfvén 波，已在托卡马克和偶极场中验证。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">BORAY-3D</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    三维波迹追踪
+                    <span class="rs-tool-name-en">BORAY-3D: A ray tracing code for three-dimensional magnetized plasma configurations</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://arxiv.org/abs/2608.05667" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                  </div>
+                  <p class="rs-tool-desc">面向仿星器磁场位形、具有环向磁场波纹的托卡马克位形等复杂磁化等离子体装置，计算射频波在三维磁场中的传播路径、能量吸收和功率沉积。</p>
                 </div>
               </div>
 
@@ -242,6 +272,44 @@
                     <a href="https://github.com/hsxie/fluidbw" target="_blank" class="pillar-tag">GitHub</a>
                   </div>
                   <p class="rs-tool-desc">首次成功构建能同时捕获动理学 Landau 阻尼和 Bernstein 模的线性流体模型，通过精确有理近似实现从 k⊥ρ→0 到 k⊥ρ→∞ 的全域覆盖。</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 微观不稳定性和输运 -->
+            <div class="rs-tool-group">
+              <h3 class="rs-group-title">
+                <span class="rs-group-icon">🌀</span>
+                微观不稳定性和输运
+                <span class="rs-group-title-en">Microinstabilities &amp; Transport</span>
+              </h3>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">GK-EIG</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    第一性原理微观不稳定性
+                    <span class="rs-tool-name-en">Sub-Second Collisionless Gyrokinetic Eigenvalue Solutions via Orbit-Invariant Decomposition</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://arxiv.org/abs/2608.17418" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                    <a href="https://github.com/FusionAlpha/mgk" target="_blank" class="pillar-tag">GitHub</a>
+                  </div>
+                  <p class="rs-tool-desc">轨道不变量分解把矩阵维度从随轨道数立方增长变为线性增长，CPU 双精度下绝热电子单点 0.43 秒。</p>
+                </div>
+              </div>
+
+              <div class="rs-tool-row">
+                <span class="rs-tool-badge">GK-PIF</span>
+                <div class="rs-tool-body">
+                  <div class="rs-tool-name">
+                    第一性原理湍流
+                    <span class="rs-tool-name-en">Minute-Scale High-Fidelity Gyrokinetic Simulations with Portability from Laptop to Supercomputer</span>
+                  </div>
+                  <div class="rs-tool-links">
+                    <a href="https://arxiv.org/abs/2609.03354" target="_blank" class="pillar-tag pillar-tag--orange">arXiv 2026</a>
+                  </div>
+                  <p class="rs-tool-desc">全局回旋动理学环坐标代码的分层傅里叶谱方法优化，有效计算量降低 40 倍以上、整体提速约两个数量级，笔记本上分钟级完成高保真湍流模拟。</p>
                 </div>
               </div>
             </div>
