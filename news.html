@@ -26,34 +26,8 @@
         transform: translateX(-0.5px);
       }
       .news-row {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: -4.5rem;
         position: relative;
-      }
-      .news-row:last-child {
-        margin-bottom: 0;
-      }
-      .news-row:nth-child(odd) {
-        justify-content: flex-start;
-        padding-right: 50%;
-      }
-      .news-row:nth-child(even) {
-        justify-content: flex-end;
-        padding-left: 50%;
-      }
-      .news-row::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 1.4rem;
-        width: 8px; height: 8px;
-        border-radius: 50%;
-        background: var(--teal, #36d8e8);
-        transform: translate(-50%, -50%);
-      }
-      .news-row:nth-child(even)::after {
-        background: rgba(255,255,255,0.25);
+        margin-bottom: 1rem;
       }
       .news-card {
         background: rgba(13,31,60,0.9);
@@ -61,7 +35,7 @@
         border-radius: 10px;
         padding: 1rem 1.3rem;
         width: 100%;
-        max-width: 440px;
+        max-width: 100%;
         transition: border-color 0.2s;
       }
       .news-card:hover {
@@ -110,12 +84,61 @@
         display: block;
         clear: both;
       }
+      /* 桌面端：平衡双栏 + 对话框式中轴连接（由页面脚本计算位置，news-js 兜底无脚本时静态堆叠） */
+      @media (min-width: 769px) {
+        .news-timeline.news-js .news-row {
+          position: absolute;
+          left: 0;
+          width: calc(50% - 2.2rem);
+          margin-bottom: 0;
+        }
+        .news-timeline.news-js .news-row.news-right {
+          left: calc(50% + 2.2rem);
+        }
+        .news-timeline.news-js .news-row::before {
+          content: '';
+          position: absolute;
+          top: 1.7rem;
+          width: 2.2rem;
+          height: 1px;
+          background: rgba(255,255,255,0.18);
+        }
+        .news-timeline.news-js .news-row.news-left::before { right: -2.2rem; }
+        .news-timeline.news-js .news-row.news-right::before { left: -2.2rem; }
+        .news-timeline.news-js .news-row::after {
+          content: '';
+          position: absolute;
+          top: 1.7rem;
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          background: var(--teal, #36d8e8);
+        }
+        .news-timeline.news-js .news-row.news-left::after {
+          left: calc(100% + 2.2rem);
+          transform: translate(-50%, -50%);
+        }
+        .news-timeline.news-js .news-row.news-right::after {
+          left: -2.2rem;
+          transform: translate(-50%, -50%);
+        }
+        .news-timeline.news-js .news-row:nth-child(even)::after {
+          background: rgba(255,255,255,0.25);
+        }
+      }
       @media (max-width: 768px) {
         .news-timeline::before { left: 1rem; }
-        .news-row { flex-direction: column; padding: 0 0 0 2.5rem !important; margin-bottom: 1rem; }
-        .news-row:last-child { margin-bottom: 1rem; }
-        .news-row::after { left: 1rem; }
-        .news-card { max-width: 100%; }
+        .news-row { padding-left: 2.5rem; margin-bottom: 1rem; }
+        .news-row::after {
+          content: '';
+          position: absolute;
+          left: 1rem;
+          top: 1.7rem;
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          background: var(--teal, #36d8e8);
+          transform: translate(-50%, -50%);
+        }
+        .news-row:nth-child(even)::after { background: rgba(255,255,255,0.25); }
       }
     </style>
     <!-- Open Graph -->
@@ -306,6 +329,48 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- 平衡双栏时间线：#1 左；#2 右且起于 #1 中点；后续落在底部更高的半栏（等高放左） -->
+    <script>
+    (function () {
+      var timeline = document.querySelector('.news-timeline');
+      if (!timeline) return;
+      var rows = Array.prototype.slice.call(timeline.querySelectorAll('.news-row'));
+      var GAP = 24; /* 同一半栏内相邻卡片间距(px) */
+
+      function layout() {
+        if (window.innerWidth <= 768) {
+          timeline.classList.remove('news-js');
+          timeline.style.height = '';
+          rows.forEach(function (r) { r.style.top = ''; });
+          return;
+        }
+        timeline.classList.add('news-js');
+        var bottom = { left: 0, right: 0 };
+        rows.forEach(function (r, i) {
+          var side, top;
+          if (i === 0) {
+            side = 'left'; top = 0;
+          } else if (i === 1) {
+            side = 'right';
+            top = rows[0].offsetHeight / 2;
+          } else {
+            side = bottom.left <= bottom.right ? 'left' : 'right';
+            top = bottom[side] + GAP;
+          }
+          r.classList.toggle('news-left', side === 'left');
+          r.classList.toggle('news-right', side === 'right');
+          r.style.top = top + 'px';
+          bottom[side] = top + r.offsetHeight;
+        });
+        timeline.style.height = Math.max(bottom.left, bottom.right) + 'px';
+      }
+
+      layout();
+      window.addEventListener('load', layout);
+      window.addEventListener('resize', layout);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+    })();
+    </script>
     <!-- 百度自动推送 -->
     <script>
     (function(){
